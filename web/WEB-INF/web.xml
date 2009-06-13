@@ -13,4 +13,8 @@
         <servlet-name>net.chrissearle.twphch.flickrvote.TwPhChVote VoteService</servlet-name>
         <url-pattern>/TwPhChVote/VoteService</url-pattern>
     </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>TwPhChVote.html</welcome-file>
+    </welcome-file-list>
 </web-app>
