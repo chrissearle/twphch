@@ -3,99 +3,73 @@ package net.chrissearle.twphch.flickrvote.server;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import net.chrissearle.twphch.flickrvote.client.VoteService;
 import net.chrissearle.twphch.flickrvote.client.VotingRound;
+import net.chrissearle.twphch.flickrvote.server.model.Challenge;
 
+import javax.jdo.PersistenceManager;
 import java.util.*;
 
 public class VoteServiceImpl extends RemoteServiceServlet implements VoteService {
+    private static final String GROUP_URL = "http://www.flickr.com/groups/twphch/";
+
+    // FIXME - these need to become a configuration
+    private static final int VOTING_START_HOUR = 17;
+    private static final int VOTING_START_MINUTE = 0;
+    private static final int VOTING_STOP_HOUR = 21;
+    private static final int VOTING_STOP_MINUTE = 0;
+
     public List<VotingRound> getVotes() {
         List<VotingRound> votes = new ArrayList<VotingRound>();
 
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        String query = "select from " + Challenge.class.getName();
+        @SuppressWarnings("unchecked")
+        List<Challenge> challenges = (List<Challenge>) pm.newQuery(query).execute();
 
-        // FIXME - Dummy Data
-        Calendar cal = new GregorianCalendar();
+        for (Challenge challenge : challenges) {
+            VotingRound votingRound = new VotingRound(challenge.getChallengeKey(),
+                    challenge.getChallengeName(),
+                    GROUP_URL, challenge.getStartDate(), challenge.getStopDate());
 
-        cal.set(Calendar.YEAR, 2009);
-        cal.set(Calendar.MONTH, Calendar.MAY);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
+            votingRound.setId(challenge.getId());
 
-        Date start = null;
-        Date end = null;
-
-        cal.set(Calendar.DATE, 15);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 17);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh001",
-                "R¿dt",
-                "http://www.flickr.com/groups/twphch/discuss/72157617907501451/", start, end));
-
-        cal.set(Calendar.DATE, 22);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 24);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh002",
-                "Mat",
-                "http://www.flickr.com/groups/twphch/discuss/72157618194690402/", start, end));
-
-        cal.set(Calendar.DATE, 29);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 31);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh003",
-                "Rundt",
-                "http://www.flickr.com/groups/twphch/discuss/72157618624761142/", start, end));
-
-        cal.set(Calendar.MONTH, Calendar.JUNE);
-
-        cal.set(Calendar.DATE, 5);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 7);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh004",
-                "De 4 elementer: Jord, Vann, Vind, Brann",
-                "http://www.flickr.com/groups/twphch/discuss/72157618959245304/", start, end));
-
-        cal.set(Calendar.DATE, 12);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 14);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh005",
-                "Gatelangs",
-                "http://www.flickr.com/groups/twphch/discuss/72157619286062184/", start, end));
-
-        cal.set(Calendar.DATE, 19);
-        cal.set(Calendar.HOUR, 18);
-        start = cal.getTime();
-
-        cal.set(Calendar.DATE, 21);
-        cal.set(Calendar.HOUR, 21);
-        end = cal.getTime();
-
-        votes.add(new VotingRound("#TwPhCh006",
-                "Bevegelse",
-                "http://www.flickr.com/groups/twphch/discuss/72157619551509299/", start, end));
+            votes.add(votingRound);
+        }
 
         return votes;
+    }
+
+    public VotingRound addChallenge(String flickrUsername, String key, String name, Date startDate, Date stopDate) {
+        Calendar cal = Calendar.getInstance();
+
+        cal.setTime(startDate);
+        cal.set(Calendar.HOUR, VOTING_START_HOUR);
+        cal.set(Calendar.MINUTE, VOTING_START_MINUTE);
+        cal.set(Calendar.SECOND, 0);
+        startDate = cal.getTime();
+
+        cal.setTime(stopDate);
+        cal.set(Calendar.HOUR, VOTING_STOP_HOUR);
+        cal.set(Calendar.MINUTE, VOTING_STOP_MINUTE);
+        cal.set(Calendar.SECOND, 0);
+        stopDate = cal.getTime();
+
+        Challenge newChallenge = new Challenge(flickrUsername, key, name, startDate, stopDate);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+
+        try {
+            // TODO - add flickr forum post with ink back to app
+
+            pm.makePersistent(newChallenge);
+
+            VotingRound votingRound = new VotingRound(newChallenge.getChallengeKey(), newChallenge.getChallengeName(), GROUP_URL,
+                    newChallenge.getStartDate(), newChallenge.getStopDate());
+
+            votingRound.setId(newChallenge.getId());
+
+            return votingRound;
+        } finally {
+            pm.close();
+        }
     }
 }

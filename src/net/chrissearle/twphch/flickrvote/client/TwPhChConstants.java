@@ -24,4 +24,19 @@ public interface TwPhChConstants extends Constants {
 
     @DefaultStringValue("Flickr Link")
     String columnLinkTitle();
+
+    @DefaultStringValue("Challenge Tag")
+    String challengeKeyForm();
+
+    @DefaultStringValue("Challenge")
+    String challengeNameForm();
+
+    @DefaultStringValue("Start/Stop date for voting")
+    String challengeDateForm();
+
+    @DefaultStringValue("Add challenge")
+    String challengeAddButton();
+
+    @DefaultStringValue("Delete")
+    String deleteButton();
 }

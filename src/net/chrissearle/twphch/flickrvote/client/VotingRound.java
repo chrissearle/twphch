@@ -4,6 +4,7 @@ import java.util.Date;
 import java.io.Serializable;
 
 public class VotingRound implements Serializable {
+    private long id;
     private String round = null;
     private String name = null;
     private String link = null;
@@ -41,4 +42,15 @@ public class VotingRound implements Serializable {
     public Date getStop() {
         return stop;
     }
+
+    // We need to expose ID to allow us to call delete back thru to the data level.
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 }

@@ -5,6 +5,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.google.gwt.core.client.GWT;
 
 import java.util.List;
+import java.util.Date;
 
 @RemoteServiceRelativePath("VoteService")
 public interface VoteService extends RemoteService {
@@ -21,4 +22,6 @@ public interface VoteService extends RemoteService {
     }
 
     List<VotingRound> getVotes();
+
+    VotingRound addChallenge(String flickrUsername, String key, String name, Date startDate, Date stopDate);
 }
