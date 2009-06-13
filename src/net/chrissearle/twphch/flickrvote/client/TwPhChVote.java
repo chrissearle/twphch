@@ -21,7 +21,8 @@ public class TwPhChVote implements EntryPoint {
     // Admin fields
     private TextBox challengeKey = new TextBox();
     private TextBox challengeName = new TextBox();
-    private DatePicker votingDates = new DatePicker();
+    private DatePicker startDate = new DatePicker();
+    private DatePicker endDate = new DatePicker();
 
     private FlexTable adminTable = new FlexTable();
 
@@ -76,7 +77,8 @@ public class TwPhChVote implements EntryPoint {
         HorizontalPanel datePanel = new HorizontalPanel();
 
         datePanel.add(new Label(constants.challengeDateForm()));
-        datePanel.add(votingDates);
+        datePanel.add(startDate);
+        datePanel.add(endDate);
 
         addChallengePanel.add(datePanel);
 
@@ -131,8 +133,8 @@ public class TwPhChVote implements EntryPoint {
     private void addChallenge() {
         final String key = challengeKey.getText().toUpperCase().trim();
         final String name = challengeName.getText().trim();
-        final Date start = votingDates.getFirstDate();
-        final Date stop = votingDates.getLastDate();
+        final Date start = startDate.getValue();
+        final Date stop = endDate.getValue();
 
         // Initialize the service proxy.
         if (voteService == null) {
