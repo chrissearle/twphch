@@ -11,6 +11,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>net.chrissearle.twphch.flickrvote.TwPhChVote VoteService</servlet-name>
-        <url-pattern>/net.chrissearle.twphch.flickrvote.TwPhChVote/VoteService</url-pattern>
+        <url-pattern>/TwPhChVote/VoteService</url-pattern>
     </servlet-mapping>
 </web-app>

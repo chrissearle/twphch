@@ -386,6 +386,15 @@
       </SOURCES>
       <jarDirectory url="file:///usr/local/appengine-java-sdk-1.2.1/lib/user/orm" recursive="false" />
     </library>
+    <library name="gwt-servlet">
+      <CLASSES>
+        <root url="jar:///usr/local/gwt-mac-1.6.4/gwt-servlet.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar:///usr/local/gwt-mac-1.6.4/gwt-servlet.jar!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="se.expertsystem.intellij.aop.aspectj.AspectJProjectComponent">
     <setting name="isActivated" value="false" />

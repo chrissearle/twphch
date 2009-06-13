@@ -29,6 +29,10 @@
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib" />
           </containerElement>
+          <containerElement type="library" name="gwt-servlet" level="project">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
         </packaging>
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
@@ -50,6 +54,9 @@
         <setting name="gwtSdkUrl" value="file:///usr/local/gwt-mac-1.6.4" />
         <setting name="runGwtCompilerOnMake" value="true" />
         <setting name="webFacet" value="Web" />
+        <packaging>
+          <module name="net.chrissearle.twphch.flickrvote.TwPhChVote" path="/TwPhChVote" />
+        </packaging>
       </configuration>
     </facet>
   </component>
@@ -72,6 +79,7 @@
     <orderEntry type="library" name="gwt-user" level="project" />
     <orderEntry type="library" name="AppEngine API" level="project" />
     <orderEntry type="library" name="AppEngine ORM" level="project" />
+    <orderEntry type="library" name="gwt-servlet" level="project" />
   </component>
 </module>
 
