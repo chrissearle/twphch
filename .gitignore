@@ -2,3 +2,4 @@ out
 *.iws
 *.ipr
 *.iml
+deploy.sh
