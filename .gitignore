@@ -1,5 +1,6 @@
-out
 *.iws
 *.ipr
 *.iml
 deploy.sh
+target
+

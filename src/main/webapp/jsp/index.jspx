@@ -1,0 +1,25 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="no"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Index</title>
+        <s:head />
+    </head>
+    <body>
+    <s:iterator id="challenge" value="challenges">
+        <h2><s:property value="#challenge.tag"/> - <s:property value="#challenge.name"/></h2>
+        <s:iterator id="photo" value="#challenge.photos">
+            <h3><s:property value="#photo.title"/> - <s:property value="#photo.owner"/></h3>
+            <s:property value="#photo.url"/>
+        </s:iterator>
+    </s:iterator>
+    </body>
+    </html>
+</jsp:root>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Flickr" verbose="1">
+    <test name="Key">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.KeyTest"/>
+        </classes>
+    </test>
+    <test name="Auth">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.AuthTest"/>
+        </classes>
+    </test>
+    <test name="Search">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.SearchTest"/>
+        </classes>
+    </test>
+    <test name="Challenge">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.ChallengeTest"/>
+        </classes>
+    </test>
+</suite>
