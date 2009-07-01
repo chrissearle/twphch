@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="flickrVote" extends="struts-default">
-		<action name="index" class="net.chrissearle.flickrvote.web.WelcomeAction">
-			<result>/jsp/index.jspx</result>
-		</action>
-	</package>
+    <package name="flickrVote" extends="struts-default">
+        <action name="index" class="net.chrissearle.flickrvote.web.WelcomeAction">
+            <result>/jsp/index.jspx</result>
+        </action>
+        <action name="list" class="net.chrissearle.flickrvote.web.ShowChallengeImagesAction">
+            <result>/jsp/showChallengeImages.jspx</result>
+        </action>
+    </package>
 </struts>

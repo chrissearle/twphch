@@ -1,28 +1,29 @@
 package net.chrissearle.flickrvote.service.impl;
 
-import net.chrissearle.flickrvote.service.FlickrService;
-import net.chrissearle.flickrvote.service.FlickrServiceException;
-
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Collections;
-import java.io.IOException;
-
-import com.aetrion.flickr.people.User;
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
+import com.aetrion.flickr.auth.Auth;
+import com.aetrion.flickr.auth.AuthInterface;
+import com.aetrion.flickr.auth.Permission;
+import com.aetrion.flickr.people.PeopleInterface;
+import com.aetrion.flickr.people.User;
+import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.test.TestInterface;
-import com.aetrion.flickr.auth.Permission;
-import com.aetrion.flickr.auth.AuthInterface;
-import com.aetrion.flickr.auth.Auth;
+import net.chrissearle.flickrvote.service.FlickrService;
+import net.chrissearle.flickrvote.service.FlickrServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service("flickrService")
 public class InMemoryFlickrService implements FlickrService {
@@ -107,7 +108,24 @@ public class InMemoryFlickrService implements FlickrService {
             SearchParameters params = new SearchParameters();
             params.setTags(tags);
 
-            return photosInterface.search(params, 500, 1);
+            // Now we call for each user - since the user objects are not correctly filled out.
+            List<Photo> photos = photosInterface.search(params, 500, 1);
+
+            Map<String, User> users = new HashMap<String, User>();
+
+            PeopleInterface peopleInterface = flickr.getPeopleInterface();
+
+            for (Photo p : photos) {
+                String id = p.getOwner().getId();
+
+                if (!users.containsKey(id)) {
+                    users.put(id, peopleInterface.getInfo(id));
+                }
+
+                p.setOwner(users.get(id));
+            }
+
+            return photos;
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {

@@ -1,17 +1,13 @@
 package net.chrissearle.flickrvote.web;
 
-import com.aetrion.flickr.photos.Photo;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.FlickrService;
-import net.chrissearle.flickrvote.web.model.ImageChallenge;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WelcomeAction extends ActionSupport {
     @Autowired
@@ -20,19 +16,19 @@ public class WelcomeAction extends ActionSupport {
     @Autowired
     private FlickrService flickrService;
 
-    private List<ImageChallenge> challenges;
+    private List<Challenge> challenges;
 
     public String execute() throws Exception {
-        challenges = new ArrayList<ImageChallenge>();
-        
+        challenges = new ArrayList<Challenge>();
+
         for (Challenge c : challengeService.getChallenges()) {
-            challenges.add(new ImageChallenge(c, flickrService.searchForPhotosWithTag(c.getTag())));
+            challenges.add(new Challenge(c));
         }
 
         return SUCCESS;
     }
 
-    public List<ImageChallenge> getChallenges() {
+    public List<Challenge> getChallenges() {
         return challenges;
     }
 }

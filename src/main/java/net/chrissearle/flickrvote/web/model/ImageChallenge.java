@@ -1,11 +1,10 @@
 package net.chrissearle.flickrvote.web.model;
 
 import com.aetrion.flickr.photos.Photo;
-
-import java.util.List;
-import java.util.ArrayList;
-
 import net.chrissearle.flickrvote.model.Challenge;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageChallenge {
     private final Long id;
@@ -46,7 +45,7 @@ public class ImageChallenge {
         return photos;
     }
 
-    class Image {
+    public static class Image {
         private final String url;
         private final String title;
         private final String owner;
@@ -54,6 +53,7 @@ public class ImageChallenge {
         public Image(Photo pic) {
             this.url = pic.getMediumUrl();
             this.title = pic.getTitle();
+
             this.owner = pic.getOwner().getRealName();
         }
 
