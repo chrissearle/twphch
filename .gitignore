@@ -4,4 +4,4 @@
 deploy.sh
 target
 test-output
-
+src/main/resources/flickrvote.properties
