@@ -13,6 +13,7 @@ import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.test.TestInterface;
 import net.chrissearle.flickrvote.service.FlickrService;
 import net.chrissearle.flickrvote.service.FlickrServiceException;
+import net.chrissearle.flickrvote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -29,6 +30,9 @@ import java.util.Map;
 public class InMemoryFlickrService implements FlickrService {
     @Autowired
     private Flickr flickr;
+
+    @Autowired
+    private UserService userService;
 
     private Map<String, String> tokens = new HashMap<String, String>();
 
@@ -57,6 +61,9 @@ public class InMemoryFlickrService implements FlickrService {
             Auth auth = authInterface.getToken(frob);
 
             tokens.put(username, auth.getToken());
+
+            userService.persistUser(new net.chrissearle.flickrvote.model.User(null, auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName()));
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {

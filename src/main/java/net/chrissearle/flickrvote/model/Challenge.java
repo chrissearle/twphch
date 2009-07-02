@@ -1,36 +1,47 @@
 package net.chrissearle.flickrvote.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Challenge implements Comparable<Challenge> {
-    private final Long id;
 
-    private final String tag;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    private final String name;
+    private String tag;
 
-    private final Date startDate;
+    private String name;
 
-    private final Date votingOpenDate;
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
 
-    private final Date endDate;
+    @Temporal(TemporalType.DATE)
+    private Date votingOpenDate;
+
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
 
     public Challenge(Long id, String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
-        this.id = id;
-        this.tag = tag;
-        this.name = name;
-        this.startDate = startDate;
-        this.votingOpenDate = votingOpenDate;
-        this.endDate = endDate;
+        this.setId(id);
+        this.setTag(tag);
+        this.setName(name);
+        this.setStartDate(startDate);
+        this.setVotingOpenDate(votingOpenDate);
+        this.setEndDate(endDate);
     }
 
     public Challenge(Challenge challenge) {
-        this.id = challenge.getId();
-        this.tag = challenge.getTag();
-        this.name = challenge.getName();
-        this.startDate = challenge.startDate;
-        this.votingOpenDate = challenge.getVotingOpenDate();
-        this.endDate = challenge.getEndDate();
+        this.setId(challenge.getId());
+        this.setTag(challenge.getTag());
+        this.setName(challenge.getName());
+        this.setStartDate(challenge.getStartDate());
+        this.setVotingOpenDate(challenge.getVotingOpenDate());
+        this.setEndDate(challenge.getEndDate());
+    }
+
+    protected Challenge() {
     }
 
 
@@ -56,5 +67,33 @@ public class Challenge implements Comparable<Challenge> {
 
     public int compareTo(Challenge o) {
         return getTag().compareTo(o.getTag());
+    }
+
+    protected void setId(Long id) {
+        this.id = id;
+    }
+
+    protected void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    protected void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    protected void setVotingOpenDate(Date votingOpenDate) {
+        this.votingOpenDate = votingOpenDate;
+    }
+
+    protected void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Date getStartDate() {
+        return startDate;
     }
 }
