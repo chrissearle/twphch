@@ -8,8 +8,13 @@
         <pattern>/scripts/*</pattern>
         <pattern>/images/*</pattern>
         <pattern>/js/*</pattern>
+        <pattern>/dojo/*</pattern>
         <pattern>/struts/*</pattern>
     </excludes>
+
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
 
     <decorator name="main" page="main.jsp">
         <pattern>/*</pattern>
