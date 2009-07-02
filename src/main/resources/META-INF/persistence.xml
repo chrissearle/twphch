@@ -1,3 +1,5 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
-    <persistence-unit name="FlickrVote" transaction-type="RESOURCE_LOCAL"/>
+    <persistence-unit name="FlickrVote" transaction-type="JTA">
+        <jta-data-source>jdbc/FlickrVoteDS</jta-data-source>
+    </persistence-unit>
 </persistence>

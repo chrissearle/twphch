@@ -1,32 +1,55 @@
 package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Photographer;
-import org.springframework.orm.jpa.support.JpaDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.NoResultException;
+
 @Repository("photographerDao")
-public class JpaPhotographerDao extends JpaDaoSupport implements PhotographerDao {
+public class JpaPhotographerDao implements PhotographerDao {
+    @PersistenceContext
+    private EntityManager em;
+
     public Photographer findById(long id) {
-        return getJpaTemplate().find(Photographer.class, id);
+        return em.find(Photographer.class, id);
     }
 
     public Photographer findByUsername(String username) {
-        return (Photographer) getJpaTemplate().find("select u from net.chrissearle.flickrvote.model.Photographer u where u.username = ?1", username).iterator().next();
+        Query query = em.createQuery("select p from Photographer p where p.username = :username");
+        query.setParameter("username", username);
+
+        try {
+            return (Photographer) query.getSingleResult();
+        } catch (NoResultException e) {
+            // Just means that there is no photographer yet present
+            return null;
+        }
     }
 
     public Photographer findByToken(String token) {
-        return (Photographer) getJpaTemplate().find("select u from net.chrissearle.flickrvote.model.Photographer u where u.token = ?1", token).iterator().next();
+        Query query = em.createQuery("select p from Photographer p where p.token = :token");
+        query.setParameter("token", token);
+
+        try {
+            return (Photographer) query.getSingleResult();
+        } catch (NoResultException e) {
+            // Just means that there is no photographer yet validated with flickr
+            return null;
+        }
     }
 
     public void save(Photographer photographer) {
-        getJpaTemplate().persist(photographer);
+        em.persist(photographer);
     }
 
     public Photographer update(Photographer photographer) {
-        return getJpaTemplate().merge(photographer);
+        return em.merge(photographer);
     }
 
     public void delete(Photographer photographer) {
-        getJpaTemplate().remove(photographer);
+        em.remove(photographer);
     }
 }
