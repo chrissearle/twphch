@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Photographer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,21 +18,21 @@ public class User {
 
     private String fullname;
 
-    public User(Long id, String token, String username, String fullname) {
+    public Photographer(Long id, String token, String username, String fullname) {
         this.setId(id);
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);
     }
 
-    public User(User user) {
-        this.setId(user.getId());
-        this.setToken(user.getToken());
-        this.setUsername(user.getUsername());
-        this.setFullname(user.getFullname());
+    public Photographer(Photographer photographer) {
+        this.setId(photographer.getId());
+        this.setToken(photographer.getToken());
+        this.setUsername(photographer.getUsername());
+        this.setFullname(photographer.getFullname());
     }
 
-    protected User() {
+    protected Photographer() {
     }
 
 

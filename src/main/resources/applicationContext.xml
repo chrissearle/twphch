@@ -21,7 +21,7 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="userDao" class="net.chrissearle.flickrvote.dao.JpaUserDao">
+    <bean id="photographerDao" class="net.chrissearle.flickrvote.dao.JpaPhotographerDao">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 

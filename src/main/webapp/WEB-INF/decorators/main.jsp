@@ -16,6 +16,8 @@
 </head>
 <body id="page-home">
 <div id="page">
+    <s:a href="%{#session.flickrLoginUrl}">Flickr Login</s:a>
+
     <div id="content">
         <div id="main">
             <decorator:body/>

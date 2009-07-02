@@ -11,9 +11,10 @@ import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.test.TestInterface;
+import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.FlickrService;
 import net.chrissearle.flickrvote.service.FlickrServiceException;
-import net.chrissearle.flickrvote.service.UserService;
+import net.chrissearle.flickrvote.service.PhotographerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -32,7 +33,7 @@ public class InMemoryFlickrService implements FlickrService {
     private Flickr flickr;
 
     @Autowired
-    private UserService userService;
+    private PhotographerService photographerService;
 
     private Map<String, String> tokens = new HashMap<String, String>();
 
@@ -54,16 +55,18 @@ public class InMemoryFlickrService implements FlickrService {
         }
     }
 
-    public void authenticate(String username, String frob) throws FlickrServiceException {
+    public Photographer authenticate(String frob) throws FlickrServiceException {
         try {
             AuthInterface authInterface = flickr.getAuthInterface();
 
             Auth auth = authInterface.getToken(frob);
 
-            tokens.put(username, auth.getToken());
+            final Photographer photographer = new Photographer(null, auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName());
 
-            userService.persistUser(new net.chrissearle.flickrvote.model.User(null, auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName()));
+            photographerService.persistUser(photographer);
+
+            return photographer;
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {

@@ -14,16 +14,18 @@
                 <interceptor-ref name="flickrAuthenticationInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
-            
+
         </interceptors>
 
         <default-interceptor-ref name="flickrVoteStack"/>
-        
+
         <action name="index" class="net.chrissearle.flickrvote.web.WelcomeAction">
             <result>/jsp/index.jspx</result>
         </action>
         <action name="list" class="net.chrissearle.flickrvote.web.ShowChallengeImagesAction">
             <result>/jsp/showChallengeImages.jspx</result>
+        </action>
+        <action name="frob" class="net.chrissearle.flickrvote.web.FlickrCallbackAction">
         </action>
     </package>
 </struts>
