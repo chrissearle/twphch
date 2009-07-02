@@ -6,6 +6,19 @@
 
 <struts>
     <package name="flickrVote" extends="struts-default">
+        <interceptors>
+            <interceptor name="flickrAuthenticationInterceptor"
+                         class="net.chrissearle.flickrvote.web.FlickrAuthInterceptor"/>
+
+            <interceptor-stack name="flickrVoteStack">
+                <interceptor-ref name="flickrAuthenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+            
+        </interceptors>
+
+        <default-interceptor-ref name="flickrVoteStack"/>
+        
         <action name="index" class="net.chrissearle.flickrvote.web.WelcomeAction">
             <result>/jsp/index.jspx</result>
         </action>
