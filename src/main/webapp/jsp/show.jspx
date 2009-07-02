@@ -13,17 +13,11 @@
         <s:head/>
     </head>
     <body>
-    <ul>
-        <s:iterator id="challenge" value="challenges">
-            <li>
-                <s:url id="showLink" action="list">
-                    <s:param name="challengeId"><s:property value="#challenge.id"/></s:param>
-                </s:url>
-                <s:a href="%{showLink}"><s:property value="#challenge.tag"/> - <s:property
-                        value="#challenge.name"/></s:a>
-            </li>
-        </s:iterator>
-    </ul>
+    <h1><s:property value="challenge.tag"/> - <s:property value="challenge.name"/></h1>
+    <s:iterator id="photo" value="challenge.photos">
+        <h3><s:property value="#photo.title"/> - <s:property value="#photo.owner"/></h3>
+        <img src="${photo.url}" alt="${photo.title}"/>
+    </s:iterator>
     </body>
     </html>
 </jsp:root>

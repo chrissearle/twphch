@@ -5,13 +5,18 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="flickrVote" extends="struts-default">
+    <package name="flickrVote" extends="struts-default" namespace="/">
         <interceptors>
-            <interceptor name="flickrAuthenticationInterceptor"
-                         class="net.chrissearle.flickrvote.web.FlickrAuthInterceptor"/>
+            <interceptor name="flickrLinkInterceptor"
+                         class="net.chrissearle.flickrvote.web.FlickrLinkInterceptor"/>
+
+            <interceptor name="challengeListInterceptor"
+                         class="net.chrissearle.flickrvote.web.ChallengeListInterceptor"/>
+
 
             <interceptor-stack name="flickrVoteStack">
-                <interceptor-ref name="flickrAuthenticationInterceptor"/>
+                <interceptor-ref name="flickrLinkInterceptor"/>
+                <interceptor-ref name="challengeListInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
 
@@ -19,13 +24,21 @@
 
         <default-interceptor-ref name="flickrVoteStack"/>
 
-        <action name="index" class="net.chrissearle.flickrvote.web.WelcomeAction">
-            <result>/jsp/index.jspx</result>
+        <action name="current" class="net.chrissearle.flickrvote.web.CurrentChallengeAction">
+            <result>/jsp/current.jspx</result>
         </action>
-        <action name="list" class="net.chrissearle.flickrvote.web.ShowChallengeImagesAction">
-            <result>/jsp/showChallengeImages.jspx</result>
+        <action name="show" class="net.chrissearle.flickrvote.web.ShowChallengeAction">
+            <result>/jsp/show.jspx</result>
         </action>
         <action name="frob" class="net.chrissearle.flickrvote.web.FlickrCallbackAction">
+            <result>/jsp/current.jspx</result>
+        </action>
+    </package>
+
+    <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
+
+        <action name="index" class="net.chrissearle.flickrvote.web.admin.IndexAction">
+            <result>/jsp/admin/index.jspx</result>
         </action>
     </package>
 </struts>
