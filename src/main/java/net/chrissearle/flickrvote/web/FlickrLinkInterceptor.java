@@ -7,7 +7,7 @@ import net.chrissearle.flickrvote.service.FlickrService;
 
 import java.util.Map;
 
-public class FlickrAuthInterceptor implements Interceptor {
+public class FlickrLinkInterceptor implements Interceptor {
     @Autowired
     private FlickrService flickrService;
 
