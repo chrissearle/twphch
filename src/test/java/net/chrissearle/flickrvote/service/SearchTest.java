@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-@ContextConfiguration(locations = {"/applicationContext.xml"})
+@ContextConfiguration(locations = {"/applicationContext.xml /testDbContext.xml"})
 public class SearchTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private FlickrService flickrService;

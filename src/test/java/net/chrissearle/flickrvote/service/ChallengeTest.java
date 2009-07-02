@@ -6,7 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-@ContextConfiguration(locations = {"/applicationContext.xml"})
+@ContextConfiguration(locations = {"/applicationContext.xml /testDbContext.xml"})
 public class ChallengeTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private ChallengeService challengeService;

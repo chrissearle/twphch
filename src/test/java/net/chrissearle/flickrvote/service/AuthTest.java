@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@ContextConfiguration(locations = {"/applicationContext.xml"})
+@ContextConfiguration(locations = {"/applicationContext.xml /testDbContext.xml"})
 public class AuthTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private FlickrService flickrService;

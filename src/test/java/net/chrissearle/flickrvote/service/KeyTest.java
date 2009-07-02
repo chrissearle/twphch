@@ -5,7 +5,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
-@ContextConfiguration(locations = {"/applicationContext.xml"})
+@ContextConfiguration(locations = {"/applicationContext.xml /testDbContext.xml"})
 public class KeyTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private FlickrService flickrService;
