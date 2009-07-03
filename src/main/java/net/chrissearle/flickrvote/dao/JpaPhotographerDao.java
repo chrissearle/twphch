@@ -1,17 +1,20 @@
 package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Photographer;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.NoResultException;
 
 @Repository("photographerDao")
 @Transactional
 public class JpaPhotographerDao implements PhotographerDao {
+    private Logger log = Logger.getLogger(JpaPhotographerDao.class);
+
     @PersistenceContext
     private EntityManager em;
 
@@ -20,12 +23,20 @@ public class JpaPhotographerDao implements PhotographerDao {
     }
 
     public Photographer findByUsername(String username) {
+        if (log.isDebugEnabled()) {
+            log.debug("findByUsername : " + username);
+        }
+
         Query query = em.createQuery("select p from Photographer p where p.username = :username");
         query.setParameter("username", username);
 
         try {
             return (Photographer) query.getSingleResult();
         } catch (NoResultException e) {
+            if (log.isDebugEnabled()) {
+                log.debug("No matching user found");
+            }
+
             // Just means that there is no photographer yet present
             return null;
         }
@@ -44,11 +55,20 @@ public class JpaPhotographerDao implements PhotographerDao {
     }
 
     public void save(Photographer photographer) {
-        em.persist(photographer);
-    }
+        Photographer p = findByUsername(photographer.getUsername());
 
-    public Photographer update(Photographer photographer) {
-        return em.merge(photographer);
+        if (p != null) {
+            p.setFullname(photographer.getFullname());
+            p.setToken(photographer.getToken());
+
+            if (photographer.getId() != null) {
+                p.setAdministrator(photographer.isAdministrator());
+            }
+
+            photographer = p;
+        }
+
+        em.persist(photographer);
     }
 
     public void delete(Photographer photographer) {

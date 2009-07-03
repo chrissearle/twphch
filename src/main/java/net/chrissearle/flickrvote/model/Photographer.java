@@ -18,11 +18,14 @@ public class Photographer {
 
     private String fullname;
 
+    private Boolean administrator;
+
     public Photographer(Long id, String token, String username, String fullname) {
         this.setId(id);
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);
+        this.setAdministrator(false);
     }
 
     public Photographer(Photographer photographer) {
@@ -30,17 +33,17 @@ public class Photographer {
         this.setToken(photographer.getToken());
         this.setUsername(photographer.getUsername());
         this.setFullname(photographer.getFullname());
+        this.setAdministrator(photographer.isAdministrator());
     }
 
-    protected Photographer() {
+    public Photographer() {
     }
-
 
     public Long getId() {
         return id;
     }
 
-    protected void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,7 +51,7 @@ public class Photographer {
         return token;
     }
 
-    protected void setToken(String token) {
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -56,7 +59,7 @@ public class Photographer {
         return username;
     }
 
-    protected void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -64,7 +67,22 @@ public class Photographer {
         return fullname;
     }
 
-    protected void setFullname(String fullname) {
+    public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public Boolean isAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(Boolean administrator) {
+        this.administrator = administrator;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("ID: ").append(getId()).append(", USERNAME: ").append(getUsername())
+                .append(", FULLNAME: ").append(getFullname()).append(", ADMINISTRATOR: ").append(isAdministrator())
+                .toString();
     }
 }

@@ -11,7 +11,5 @@ public interface PhotographerDao {
 
     public void save(Photographer photographer);
 
-    public Photographer update(Photographer photographer);
-
     public void delete(Photographer photographer);
 }
