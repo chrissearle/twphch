@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Challenge;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository("challengeDao")
+@Transactional
 public class JpaChallengeDao implements ChallengeDao {
     @PersistenceContext
     private EntityManager em;
