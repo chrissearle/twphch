@@ -33,6 +33,9 @@
         <action name="frob" class="net.chrissearle.flickrvote.web.FlickrCallbackAction">
             <result>/jsp/current.jspx</result>
         </action>
+        <action name="test" class="net.chrissearle.flickrvote.web.TestAction">
+            <result>/jsp/test.jspx</result>
+        </action>
     </package>
 
     <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">

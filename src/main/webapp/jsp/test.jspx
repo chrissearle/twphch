@@ -1,0 +1,25 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="no"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge</title>
+        <s:head/>
+    </head>
+    <body>
+    <h1>Twitter Test</h1>
+
+    <ul>
+        <s:iterator id="status" value="twitterStatus">
+            <li><s:property value="#status.user.name"/> - <s:property value="#status.text"/></li>
+        </s:iterator>
+    </ul>
+    </body>
+    </html>
+</jsp:root>

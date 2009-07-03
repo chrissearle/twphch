@@ -17,4 +17,9 @@
         </constructor-arg>
     </bean>
 
+    <bean id="twitter" class="twitter4j.Twitter">
+        <constructor-arg index="0" value="${twitter.user}"/>
+        <constructor-arg index="1" value="${twitter.password}"/>
+    </bean>
+
 </beans>
