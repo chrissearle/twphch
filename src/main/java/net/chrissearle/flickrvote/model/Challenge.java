@@ -97,7 +97,7 @@ public class Challenge implements Comparable<Challenge> {
         return startDate;
     }
 
-
+    @Override
     public String toString() {
         return new StringBuilder().append("ID: ").append(getId()).append(", TAG: ").append(getTag()).append(", NAME: ")
                 .append(getName()).toString();
