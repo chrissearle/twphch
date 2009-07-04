@@ -1,6 +1,7 @@
 *.iws
 *.ipr
 *.iml
+*.ids
 deploy.sh
 target
 test-output
