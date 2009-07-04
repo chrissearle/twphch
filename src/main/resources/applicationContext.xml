@@ -6,7 +6,7 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="net.chrissearle"/>
-    <context:property-placeholder location="classpath:flickrvote.properties"/>
+    <context:property-placeholder location="file:/etc/flickrvote.properties"/>
 
 
     <bean id="flickr" class="com.aetrion.flickr.Flickr">
