@@ -77,7 +77,7 @@ public class Challenge implements Comparable<Challenge> {
     }
 
     public int compareTo(Challenge o) {
-        return getTag().compareTo(o.getTag());
+        return o.getStartDate().compareTo(getStartDate());
     }
 
     protected void setId(Long id) {

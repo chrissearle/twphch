@@ -28,7 +28,7 @@
 <div id="main">
     <div id="links">
         <!-- **** INSERT LINKS HERE **** -->
-        <s:a href="%{#session.flickrLoginUrl}">Flickr Login</s:a> |
+        <s:a href="%{flickrLoginUrl}">Flickr Login</s:a> |
         <a href="http://twitter.com/Twphch">Twitter</a> |
         <a href="http://www.flickr.com/groups/twphch/">Flickr Group</a>
 
@@ -45,19 +45,34 @@
     </div>
     <div id="content">
         <div id="column1">
-            <div class="sidebaritem">
-                <h1>Current Challenge</h1>
+            <s:if test="voting != null">
+                <div class="sidebaritem">
+                    <h1>Voting is OPEN</h1>
 
-                <p><s:url id="currentLink" action="current"/><s:a href="%{currentLink}">#TwPhCh00X</s:a></p>
+                    <h2><s:property value="voting.tag"/></h2>
 
-                <h2>Dates</h2>
+                    <p><s:property value="voting.name"/></p>
+                </div>
+            </s:if>
+            <s:if test="challenge != null">
+                <div class="sidebaritem">
+                    <h1>Current Challenge</h1>
 
-                <p>This is where the current challenge dates go.</p>
+                    <h2><s:property value="challenge.tag"/></h2>
 
-                <h2>Challenge topic</h2>
+                    <p><s:property value="challenge.name"/></p>
 
-                <p>Description of the challenge - the challenge itself</p>
-            </div>
+                    <h2>Dates</h2>
+
+                    <p>
+                        Start: <s:date name="challenge.startDate" format="dd.MM.yyyy"/>
+                        <br/>
+                        Voting start: <s:date name="challenge.votingOpenDate" format="dd.MM.yyyy"/>
+                        <br/>
+                        End: <s:date name="challenge.endDate" format="dd.MM.yyyy"/>
+                    </p>
+                </div>
+            </s:if>
             <div class="sidebaritem">
                 <h1>Older Challenges</h1>
 

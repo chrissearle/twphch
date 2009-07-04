@@ -4,12 +4,12 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.List;
+public class VotingChallengeInterceptor implements Interceptor {
+    private Logger log = Logger.getLogger(VotingChallengeInterceptor.class);
 
-public class ChallengeListInterceptor implements Interceptor {
     @Autowired
     private ChallengeService challengeService;
 
@@ -20,11 +20,14 @@ public class ChallengeListInterceptor implements Interceptor {
     }
 
     public String intercept(ActionInvocation actionInvocation) throws Exception {
-        List<Challenge> challenges = challengeService.getClosedChallenges();
+        Challenge challenge = challengeService.getVotingChallenge();
 
-        Collections.sort(challenges);
-
-        actionInvocation.getInvocationContext().put(FlickrVoteWebConstants.CHALLENGE_LIST, challenges);
+        if (challenge != null) {
+            if (log.isDebugEnabled()) {
+                log.debug("Voting challenge found " + challenge);
+            }
+            actionInvocation.getInvocationContext().put(FlickrVoteWebConstants.VOTING_CHALLENGE, challenge);
+        }
 
         return actionInvocation.invoke();
     }

@@ -13,9 +13,12 @@
             <interceptor name="challengeListInterceptor"
                          class="net.chrissearle.flickrvote.web.ChallengeListInterceptor"/>
 
+            <interceptor name="votingChallengeInterceptor"
+                         class="net.chrissearle.flickrvote.web.VotingChallengeInterceptor"/>
 
             <interceptor-stack name="flickrVoteStack">
                 <interceptor-ref name="flickrLinkInterceptor"/>
+                <interceptor-ref name="votingChallengeInterceptor"/>
                 <interceptor-ref name="challengeListInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
@@ -43,5 +46,10 @@
         <action name="index" class="net.chrissearle.flickrvote.web.admin.IndexAction">
             <result>/jsp/admin/index.jspx</result>
         </action>
+
+        <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengesAction">
+            <result>/jsp/admin/challenges.jspx</result>
+        </action>
+
     </package>
 </struts>

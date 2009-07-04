@@ -14,4 +14,12 @@ public interface ChallengeDao {
     public Challenge update(Challenge challenge);
 
     public void delete(Challenge challenge);
+
+    List<Challenge> getAll();
+
+    List<Challenge> getClosedChallenges();
+
+    Challenge getCurrentChallenge();
+
+    Challenge getVotingChallenge();
 }

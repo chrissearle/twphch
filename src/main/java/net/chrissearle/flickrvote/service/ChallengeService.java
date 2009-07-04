@@ -10,4 +10,10 @@ public interface ChallengeService {
     List<Challenge> getChallenges();
 
     void addChallenge(Challenge challenge);
+
+    List<Challenge> getClosedChallenges();
+
+    Challenge getCurrentChallenge();
+
+    Challenge getVotingChallenge();
 }
