@@ -1,11 +1,9 @@
 package net.chrissearle.flickrvote.web;
 
-import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.opensymphony.xwork2.ActionInvocation;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.opensymphony.xwork2.interceptor.Interceptor;
 import net.chrissearle.flickrvote.service.FlickrService;
-
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class FlickrLinkInterceptor implements Interceptor {
     @Autowired
@@ -18,9 +16,7 @@ public class FlickrLinkInterceptor implements Interceptor {
     }
 
     public String intercept(ActionInvocation actionInvocation) throws Exception {
-        Map session = actionInvocation.getInvocationContext().getSession();
-
-        session.put(FlickrVoteWebConstants.FLICKR_LOGIN_URL, flickrService.getLoginUrl().toExternalForm());
+        actionInvocation.getInvocationContext().put(FlickrVoteWebConstants.FLICKR_LOGIN_URL, flickrService.getLoginUrl().toExternalForm());
 
         return actionInvocation.invoke();
     }
