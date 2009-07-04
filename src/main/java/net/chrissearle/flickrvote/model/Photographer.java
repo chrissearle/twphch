@@ -1,23 +1,25 @@
 package net.chrissearle.flickrvote.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Photographer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
+    @Column(length = 100, name = "token")
     private String token;
 
+    @Column(length = 50, name = "username")
     private String username;
 
+    @Column(length = 100, name = "fullname")
     private String fullname;
 
+    @Column(name = "administrator")
     private Boolean administrator;
 
     public Photographer(Long id, String token, String username, String fullname) {

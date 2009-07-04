@@ -50,6 +50,10 @@
         <load-on-startup>5</load-on-startup>
     </servlet>
 
+    <persistence-unit-ref>
+        <persistence-unit-ref-name>persistence/FlickrVote</persistence-unit-ref-name>
+        <persistence-unit-name>FlickrVote</persistence-unit-name>
+    </persistence-unit-ref>
 
     <welcome-file-list>
         <welcome-file>index.jspx</welcome-file>

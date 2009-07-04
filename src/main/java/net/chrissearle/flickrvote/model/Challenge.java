@@ -8,19 +8,25 @@ public class Challenge implements Comparable<Challenge> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
+    @Column(length = 50, name = "tag", nullable = false)
     private String tag;
 
+    @Column(length = 255, name = "description", nullable = false)
     private String name;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "start_date")
     private Date startDate;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "voting_open_date")
     private Date votingOpenDate;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "end_date")
     private Date endDate;
 
     public Challenge(Long id, String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
