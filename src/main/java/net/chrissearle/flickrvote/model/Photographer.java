@@ -1,6 +1,8 @@
 package net.chrissearle.flickrvote.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Photographer {
@@ -21,6 +23,9 @@ public class Photographer {
 
     @Column(name = "administrator")
     private Boolean administrator;
+
+    @OneToMany(mappedBy = "photographer")
+    private List<Image> images = new ArrayList<Image>();
 
     public Photographer(Long id, String token, String username, String fullname) {
         this.setId(id);
@@ -81,10 +86,28 @@ public class Photographer {
         this.administrator = administrator;
     }
 
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void addImage(Image image) {
+        if (!images.contains(image)) {
+            this.images.add(image);
+        }
+    }
+
+    public void removeImage(Image image) {
+        if (images.contains(image)) {
+            this.images.remove(image);
+        }
+    }
+
     @Override
     public String toString() {
         return new StringBuilder().append("ID: ").append(getId()).append(", USERNAME: ").append(getUsername())
                 .append(", FULLNAME: ").append(getFullname()).append(", ADMINISTRATOR: ").append(isAdministrator())
                 .toString();
     }
+
+
 }

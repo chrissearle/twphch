@@ -1,7 +1,9 @@
 package net.chrissearle.flickrvote.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Challenge implements Comparable<Challenge> {
@@ -28,6 +30,9 @@ public class Challenge implements Comparable<Challenge> {
     @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
     private Date endDate;
+
+    @OneToMany(mappedBy = "challenge")
+    private List<Image> images = new ArrayList<Image>();
 
     public Challenge(Long id, String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
         this.setId(id);
@@ -107,5 +112,21 @@ public class Challenge implements Comparable<Challenge> {
     public String toString() {
         return new StringBuilder().append("ID: ").append(getId()).append(", TAG: ").append(getTag()).append(", NAME: ")
                 .append(getName()).toString();
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void addImage(Image image) {
+        if (!images.contains(image)) {
+            this.images.add(image);
+        }
+    }
+
+    public void removeImage(Image image) {
+        if (images.contains(image)) {
+            this.images.remove(image);
+        }
     }
 }

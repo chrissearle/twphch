@@ -1,5 +1,12 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
     <persistence-unit name="FlickrVote" transaction-type="JTA">
         <jta-data-source>jdbc/FlickrVoteDS</jta-data-source>
+        <properties>
+            <property name="toplink.ddl-generation" value="create-tables"/>
+            <property name="toplink.application-location" value="/tmp/"/>
+            <property name="toplink.create-ddl-jdbc-file-name" value="create.sql"/>
+            <property name="toplink.drop-ddl-jdbc-file-name" value="drop.sql"/>
+            <property name="toplink.ddl-generation.output-mode" value="sql-script"/>
+        </properties>
     </persistence-unit>
 </persistence>
