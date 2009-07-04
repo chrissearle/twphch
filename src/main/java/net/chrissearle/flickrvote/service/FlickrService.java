@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
 import com.aetrion.flickr.people.User;
+import com.aetrion.flickr.photos.Photo;
 import net.chrissearle.flickrvote.model.Photographer;
 
 import java.net.URL;
@@ -15,7 +16,7 @@ public interface FlickrService {
 
     void echo() throws FlickrServiceException;
 
-    List searchForPhotosWithTag(String tag) throws FlickrServiceException;
+    List<Photo> searchForPhotosWithTag(String tag) throws FlickrServiceException;
 
     void testAddToken(String username, String token);
 }

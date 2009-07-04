@@ -108,7 +108,8 @@ public class InMemoryFlickrService implements FlickrService {
         }
     }
 
-    public List searchForPhotosWithTag(String tag) throws FlickrServiceException {
+    @SuppressWarnings("unchecked")
+    public List<Photo> searchForPhotosWithTag(String tag) throws FlickrServiceException {
         try {
             PhotosInterface photosInterface = flickr.getPhotosInterface();
 
