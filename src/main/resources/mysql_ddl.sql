@@ -15,6 +15,7 @@ CREATE TABLE photographer (
   token varchar(100) default NULL,
   username varchar(50) default NULL,
   fullname varchar(100) default NULL,
+  flickr_id varchar(50) default NULL,
   administrator tinyint(1) default NULL,
   PRIMARY KEY  (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;

@@ -16,4 +16,6 @@ public interface ChallengeService {
     Challenge getCurrentChallenge();
 
     Challenge getVotingChallenge();
+
+    void populateChallengeFromFlickr(Challenge challenge);
 }

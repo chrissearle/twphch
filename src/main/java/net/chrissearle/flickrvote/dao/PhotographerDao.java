@@ -12,4 +12,6 @@ public interface PhotographerDao {
     public void save(Photographer photographer);
 
     public void delete(Photographer photographer);
+
+    Photographer findByFlickrId(String id);
 }

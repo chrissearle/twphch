@@ -2,11 +2,15 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.model.Challenge;
+import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.FlickrService;
 import net.chrissearle.flickrvote.web.model.ImageChallenge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.log4j.Logger;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class ShowChallengeAction extends ActionSupport {
     @Autowired
@@ -17,28 +21,28 @@ public class ShowChallengeAction extends ActionSupport {
 
     private Logger logger = Logger.getLogger(ShowChallengeAction.class);
 
-    private ImageChallenge imageChallenge;
-
     private Long challengeId;
+
+    private Challenge challenge;
+
+    private List<Image> images;
 
     public String execute() throws Exception {
         if (logger.isDebugEnabled()) {
             logger.debug("Challenge ID " + challengeId);
         }
 
-        Challenge challenge = challengeService.getChallenge(getChallengeId());
+        challenge = challengeService.getChallenge(getChallengeId());
 
         if (logger.isDebugEnabled()) {
             logger.debug("Challenge " + challenge);
         }
 
-        imageChallenge = new ImageChallenge(challenge, flickrService.searchForPhotosWithTag(challenge.getTag()));
+        if (challenge != null) {
+            images = challenge.getImages();
+        }
 
         return SUCCESS;
-    }
-
-    public ImageChallenge getChallenge() {
-        return imageChallenge;
     }
 
     public void setChallengeId(Long challengeId) {
@@ -47,5 +51,13 @@ public class ShowChallengeAction extends ActionSupport {
 
     public Long getChallengeId() {
         return challengeId;
+    }
+
+    public Challenge getChallenge() {
+        return challenge;
+    }
+
+    public List<Image> getImages() {
+        return images;
     }
 }

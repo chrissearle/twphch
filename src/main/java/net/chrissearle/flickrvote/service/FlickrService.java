@@ -17,6 +17,4 @@ public interface FlickrService {
     void echo() throws FlickrServiceException;
 
     List<Photo> searchForPhotosWithTag(String tag) throws FlickrServiceException;
-
-    void testAddToken(String username, String token);
 }

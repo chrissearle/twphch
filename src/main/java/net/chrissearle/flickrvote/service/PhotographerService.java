@@ -6,4 +6,6 @@ public interface PhotographerService {
     Photographer persistUser(Photographer photographer);
 
     Photographer getUser(String username);
+
+    Photographer findByFlickrId(String id);
 }

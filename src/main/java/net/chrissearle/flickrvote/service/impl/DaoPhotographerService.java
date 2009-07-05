@@ -27,4 +27,8 @@ public class DaoPhotographerService implements PhotographerService {
     public Photographer getUser(String username) {
         return dao.findByUsername(username);
     }
+
+    public Photographer findByFlickrId(String id) {
+        return dao.findByFlickrId(id);
+    }
 }

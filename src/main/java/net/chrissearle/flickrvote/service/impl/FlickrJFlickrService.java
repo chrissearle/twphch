@@ -28,14 +28,12 @@ import java.util.List;
 import java.util.Map;
 
 @Service("flickrService")
-public class InMemoryFlickrService implements FlickrService {
+public class FlickrJFlickrService implements FlickrService {
     @Autowired
     private Flickr flickr;
 
     @Autowired
     private PhotographerService photographerService;
-
-    private Map<String, String> tokens = new HashMap<String, String>();
 
     public URL getLoginUrl() throws FlickrServiceException {
         try {
@@ -62,7 +60,7 @@ public class InMemoryFlickrService implements FlickrService {
             Auth auth = authInterface.getToken(frob);
 
             final Photographer photographer = new Photographer(null, auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName());
+                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getId());
 
             photographerService.persistUser(photographer);
 
@@ -77,12 +75,13 @@ public class InMemoryFlickrService implements FlickrService {
     }
 
     public User getUser(String username) throws FlickrServiceException {
+        Photographer photographer = photographerService.getUser(username);
 
         try {
-            if (tokens.containsKey(username)) {
+            if (photographer.getToken() != null) {
                 AuthInterface authInterface = flickr.getAuthInterface();
 
-                return authInterface.checkToken(tokens.get(username)).getUser();
+                return authInterface.checkToken(photographer.getToken()).getUser();
             }
 
             return null;
@@ -144,9 +143,5 @@ public class InMemoryFlickrService implements FlickrService {
         } catch (FlickrException e) {
             throw new FlickrServiceException(e);
         }
-    }
-
-    public void testAddToken(String username, String token) {
-        tokens.put(username, token);
     }
 }

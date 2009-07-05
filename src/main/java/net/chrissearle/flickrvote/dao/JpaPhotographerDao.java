@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.List;
 
 @Repository("photographerDao")
 @Transactional
@@ -73,5 +74,17 @@ public class JpaPhotographerDao implements PhotographerDao {
 
     public void delete(Photographer photographer) {
         em.remove(photographer);
+    }
+
+    public Photographer findByFlickrId(String id) {
+        Query query = em.createQuery("select p from Photographer p where p.flickrId = :id");
+        query.setParameter("id", id);
+
+        try {
+            return (Photographer) query.getSingleResult();
+        } catch (NoResultException e) {
+            // Just means that there is no photographer yet validated with flickr
+            return null;
+        }
     }
 }

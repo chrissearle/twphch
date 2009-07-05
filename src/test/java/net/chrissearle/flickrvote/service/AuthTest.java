@@ -11,13 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import net.chrissearle.flickrvote.model.Photographer;
+
 @ContextConfiguration(locations = {"/applicationContext.xml /testDbContext.xml"})
 public class AuthTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private FlickrService flickrService;
 
     private String token;
-
     @BeforeTest
     public void loadProperties() throws IOException {
         InputStream in = getClass().getResourceAsStream("/test.properties");
@@ -28,8 +29,6 @@ public class AuthTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testGetToken() throws FlickrServiceException {
-
-        flickrService.testAddToken("chris", token);
 
         User user = flickrService.getUser("chris");
 

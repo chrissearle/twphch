@@ -24,14 +24,18 @@ public class Photographer {
     @Column(name = "administrator")
     private Boolean administrator;
 
+    @Column(name = "flickr_id", length = 50)
+    private String flickrId;
+
     @OneToMany(mappedBy = "photographer")
     private List<Image> images = new ArrayList<Image>();
 
-    public Photographer(Long id, String token, String username, String fullname) {
+    public Photographer(Long id, String token, String username, String fullname, String flickrId) {
         this.setId(id);
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);
+        this.setFlickrId(flickrId);
         this.setAdministrator(false);
     }
 
@@ -40,6 +44,7 @@ public class Photographer {
         this.setToken(photographer.getToken());
         this.setUsername(photographer.getUsername());
         this.setFullname(photographer.getFullname());
+        this.setFlickrId(photographer.getFlickrId());
         this.setAdministrator(photographer.isAdministrator());
     }
 
@@ -110,4 +115,11 @@ public class Photographer {
     }
 
 
+    public String getFlickrId() {
+        return flickrId;
+    }
+
+    public void setFlickrId(String flickrId) {
+        this.flickrId = flickrId;
+    }
 }
