@@ -7,20 +7,13 @@ import org.testng.annotations.Test;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class ModelTest {
     private EntityManagerFactory emf;
     private EntityManager em;
 
-    private Connection connection;
-
     @BeforeTest
-    private void initialize() throws ClassNotFoundException, SQLException {
-        Class.forName("org.hsqldb.jdbcDriver");
-        connection = DriverManager.getConnection("jdbc:hsqldb:mem:unit-testing-jpa", "sa", "");
+    private void initialize() {
         emf = Persistence.createEntityManagerFactory("FlickrVote-Model-Test");
         em = emf.createEntityManager();
     }
@@ -34,8 +27,6 @@ public class ModelTest {
         if (emf != null) {
             emf.close();
         }
-
-        connection.createStatement().execute("SHUTDOWN");
     }
 
     @Test
