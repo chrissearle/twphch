@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Flickr" verbose="1">
+    <test name="ServiceConfigured">
+        <groups>
+            <run>
+                <include name="configured"/>
+                <exclude name="broken"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="net.chrissearle.flickrvote.FlickrServiceTest"/>
+        </classes>
+    </test>
+    <test name="ServiceUnconfigured">
+        <groups>
+            <run>
+                <include name="broken"/>
+                <exclude name="configured"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="net.chrissearle.flickrvote.FlickrServiceTest"/>
+        </classes>
+    </test>
+</suite>
