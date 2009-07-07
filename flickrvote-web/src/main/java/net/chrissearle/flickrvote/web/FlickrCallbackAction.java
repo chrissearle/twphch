@@ -1,7 +1,7 @@
 package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.service.FlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class FlickrCallbackAction extends ActionSupport {

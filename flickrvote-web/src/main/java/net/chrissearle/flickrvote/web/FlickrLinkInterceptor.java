@@ -2,7 +2,7 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
-import net.chrissearle.flickrvote.service.FlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class FlickrLinkInterceptor implements Interceptor {

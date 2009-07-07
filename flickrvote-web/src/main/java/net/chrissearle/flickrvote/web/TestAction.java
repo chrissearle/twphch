@@ -1,7 +1,7 @@
 package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.service.TwitterService;
+import net.chrissearle.flickrvote.twitter.TwitterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import twitter4j.Status;
 

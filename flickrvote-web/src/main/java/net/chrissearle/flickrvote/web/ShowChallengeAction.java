@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.FlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.log4j.Logger;
 

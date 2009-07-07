@@ -3,25 +3,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>net.chrissearle</groupId>
-        <artifactId>maven</artifactId>
-        <version>16-SNAPSHOT</version>
-    </parent>
 
     <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote</artifactId>
     <packaging>pom</packaging>
     <version>1-SNAPSHOT</version>
 
-    <name>TwPhCh voting app</name>
-    <url>http://twitterphotochallenge.appspot.com</url>
+    <name>TwPhCh voting app - Grouping POM</name>
 
     <modules>
         <module>flickrvote-model</module>
         <module>flickrvote-flickr</module>
         <module>flickrvote-data-api</module>
         <module>flickrvote-data-spring</module>
+        <module>flickrvote-twitter</module>
         <module>flickrvote-web</module>
     </modules>
 </project>

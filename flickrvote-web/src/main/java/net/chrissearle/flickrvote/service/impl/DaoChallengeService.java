@@ -5,8 +5,8 @@ import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.FlickrService;
 import net.chrissearle.flickrvote.service.PhotographerService;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,7 +51,8 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public void populateChallengeFromFlickr(Challenge challenge) {
-        List<Photo> photos = flickrService.searchForPhotosWithTag(challenge.getTag());
+/*
+        List<Photo> photos = flickrService.searchImagesByTag(challenge.getTag());
 
         for (Photo p : photos) {
             Image image = new Image();
@@ -73,5 +74,6 @@ public class DaoChallengeService implements ChallengeService {
             photographerService.persistUser(photographer);
         }
         dao.save(challenge);
+*/
     }
 }

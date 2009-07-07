@@ -1,10 +1,10 @@
 package net.chrissearle.flickrvote.web;
 
-import com.aetrion.flickr.photos.Photo;
 import com.opensymphony.xwork2.ActionSupport;
+import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.FlickrService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,7 +21,7 @@ public class CurrentChallengeAction extends ActionSupport {
 
     private Challenge challenge;
 
-    private List<Photo> images;
+    private List<FlickrImage> images;
 
     public String execute() throws Exception {
         challenge = challengeService.getCurrentChallenge();
@@ -30,7 +30,7 @@ public class CurrentChallengeAction extends ActionSupport {
             log.debug("Current challenge " + challenge);
         }
 
-        images = flickrService.searchForPhotosWithTag(challenge.getTag());
+        images = flickrService.searchImagesByTag(challenge.getTag());
 
         return SUCCESS;
     }
@@ -39,7 +39,7 @@ public class CurrentChallengeAction extends ActionSupport {
         return challenge;
     }
 
-    public List<Photo> getImages() {
+    public List<FlickrImage> getImages() {
         return images;
     }
 }

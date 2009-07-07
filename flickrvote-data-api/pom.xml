@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.chrissearle</groupId>
-        <artifactId>flickrvote</artifactId>
-        <version>1-SNAPSHOT</version>
+        <artifactId>maven</artifactId>
+        <version>16-SNAPSHOT</version>
     </parent>
 
     <groupId>net.chrissearle</groupId>

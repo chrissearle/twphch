@@ -1,6 +1,5 @@
-package net.chrissearle.flickrvote.service.impl;
+package net.chrissearle.flickrvote.twitter;
 
-import net.chrissearle.flickrvote.service.TwitterService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

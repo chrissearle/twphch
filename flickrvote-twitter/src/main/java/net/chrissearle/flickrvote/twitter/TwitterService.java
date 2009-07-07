@@ -1,4 +1,4 @@
-package net.chrissearle.flickrvote.service;
+package net.chrissearle.flickrvote.twitter;
 
 import twitter4j.Status;
 
