@@ -20,6 +20,8 @@
     <modules>
         <module>flickrvote-model</module>
         <module>flickrvote-flickr</module>
+        <module>flickrvote-data-api</module>
+        <module>flickrvote-data-spring</module>
         <module>flickrvote-web</module>
     </modules>
 </project>

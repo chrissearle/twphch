@@ -81,13 +81,7 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>2.5.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
+            <artifactId>spring-tx</artifactId>
             <version>2.5.6</version>
         </dependency>
 
@@ -95,12 +89,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>2.5.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0</version>
         </dependency>
 
         <!-- Servlet & Jsp -->
@@ -148,6 +136,18 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-flickr</artifactId>
+            <version>1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-data-api</artifactId>
+            <version>1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-data-spring</artifactId>
             <version>1-SNAPSHOT</version>
         </dependency>
     </dependencies>
