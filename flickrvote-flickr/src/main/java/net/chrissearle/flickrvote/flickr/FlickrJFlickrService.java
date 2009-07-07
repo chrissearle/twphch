@@ -1,11 +1,15 @@
-package net.chrissearle.flickrvote.impl;
+package net.chrissearle.flickrvote.flickr;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
+import com.aetrion.flickr.people.User;
+import com.aetrion.flickr.people.PeopleInterface;
+import com.aetrion.flickr.photos.PhotosInterface;
+import com.aetrion.flickr.photos.SearchParameters;
+import com.aetrion.flickr.photos.Photo;
+import com.aetrion.flickr.auth.Auth;
 import com.aetrion.flickr.auth.AuthInterface;
 import com.aetrion.flickr.auth.Permission;
-import net.chrissearle.flickrvote.flickr.FlickrService;
-import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -13,6 +17,10 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
@@ -42,18 +50,14 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
-/*    public Photographer authenticate(String frob) throws FlickrServiceException {
+    public FlickrAuth authenticate(String frob) throws FlickrServiceException {
         try {
             AuthInterface authInterface = flickr.getAuthInterface();
 
             Auth auth = authInterface.getToken(frob);
 
-            final Photographer photographer = new Photographer(null, auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getId());
-
-            photographerService.persistUser(photographer);
-
-            return photographer;
+            return new FlickrAuth(auth.getUser().getId(), auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName());
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {
@@ -63,30 +67,14 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
-    public User getUser(String username) throws FlickrServiceException {
-        Photographer photographer = photographerService.getUser(username);
-
+    public FlickrAuth checkAuthenticate(String token) throws FlickrServiceException {
         try {
-            if (photographer.getToken() != null) {
-                AuthInterface authInterface = flickr.getAuthInterface();
+            AuthInterface authInterface = flickr.getAuthInterface();
 
-                return authInterface.checkToken(photographer.getToken()).getUser();
-            }
+            Auth auth = authInterface.checkToken(token);
 
-            return null;
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        }
-    }
-
-    public void echo() throws FlickrServiceException {
-        try {
-            TestInterface testInterface = flickr.getTestInterface();
-            testInterface.echo(Collections.EMPTY_LIST);
+            return new FlickrAuth(auth.getUser().getId(), auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName());
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {
@@ -97,7 +85,7 @@ public class FlickrJFlickrService implements FlickrService {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Photo> searchForPhotosWithTag(String tag) throws FlickrServiceException {
+    public List<FlickrImage> searchImagesByTag(String tag) throws FlickrServiceException {
         try {
             PhotosInterface photosInterface = flickr.getPhotosInterface();
 
@@ -107,24 +95,15 @@ public class FlickrJFlickrService implements FlickrService {
             SearchParameters params = new SearchParameters();
             params.setTags(tags);
 
-            // Now we call for each user - since the user objects are not correctly filled out.
             List<Photo> photos = photosInterface.search(params, 500, 1);
 
-            Map<String, User> users = new HashMap<String, User>();
-
-            PeopleInterface peopleInterface = flickr.getPeopleInterface();
+            List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
             for (Photo p : photos) {
-                String id = p.getOwner().getId();
-
-                if (!users.containsKey(id)) {
-                    users.put(id, peopleInterface.getInfo(id));
-                }
-
-                p.setOwner(users.get(id));
+                results.add(new FlickrImage(p.getId(), p.getOwner().getId(), p.getTitle(), p.getUrl(), p.getMediumUrl()));
             }
 
-            return photos;
+            return results;
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {
@@ -132,5 +111,5 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (FlickrException e) {
             throw new FlickrServiceException(e);
         }
-    }*/
+    }
 }
