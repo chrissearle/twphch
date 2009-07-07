@@ -15,7 +15,7 @@ http://maven.apache.org/POM/4.0.0">
     <artifactId>flickrvote-model</artifactId>
     <packaging>jar</packaging>
     <version>1-SNAPSHOT</version>
- 
+
     <name>TwPhCh voting app - Model</name>
 
     <dependencies>
@@ -39,7 +39,18 @@ http://maven.apache.org/POM/4.0.0">
             <classifier>jdk15</classifier>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <artifactId>hsqldb</artifactId>
+            <groupId>hsqldb</groupId>
+            <version>1.8.0.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openjpa</groupId>
+            <artifactId>apache-openjpa</artifactId>
+            <version>1.2.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

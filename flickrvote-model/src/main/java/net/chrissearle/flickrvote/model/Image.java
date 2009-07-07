@@ -19,6 +19,9 @@ public class Image {
     @ManyToOne
     private Photographer photographer;
 
+    @Column(name = "flickr_id", length = 50)
+    private String flickrId;
+
     @Column(name = "page", length = 255)
     private String page;
 
@@ -95,5 +98,13 @@ public class Image {
             return getId().equals(img.getId());
         }
 
+    }
+
+    public String getFlickrId() {
+        return flickrId;
+    }
+
+    public void setFlickrId(String flickrId) {
+        this.flickrId = flickrId;
     }
 }

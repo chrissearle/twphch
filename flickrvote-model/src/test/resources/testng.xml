@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Persistence" verbose="1">
+    <test name="Persistence">
+        <classes>
+            <class name="net.chrissearle.flickrvote.model.ModelTest"/>
+        </classes>
+    </test>
+</suite>
