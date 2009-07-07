@@ -2,6 +2,7 @@
 *.ipr
 *.iml
 *.ids
+*.jdbc
 deploy.sh
 target
 test-output
