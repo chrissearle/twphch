@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,7 +21,7 @@ public class VotingChallengeInterceptor implements Interceptor {
     }
 
     public String intercept(ActionInvocation actionInvocation) throws Exception {
-        Challenge challenge = challengeService.getVotingChallenge();
+        ChallengeInfo challenge = challengeService.getVotingChallenge();
 
         if (challenge != null) {
             if (log.isDebugEnabled()) {

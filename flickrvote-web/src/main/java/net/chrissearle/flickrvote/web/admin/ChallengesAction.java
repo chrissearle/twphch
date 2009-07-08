@@ -1,8 +1,8 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
@@ -12,7 +12,7 @@ public class ChallengesAction extends ActionSupport {
     @Autowired
     ChallengeService challengeService;
 
-    private List<Challenge> challenges;
+    private List<ChallengeInfo> challenges;
 
     public String execute() throws Exception {
         challenges = challengeService.getChallenges();
@@ -22,7 +22,7 @@ public class ChallengesAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public List<Challenge> getChallenges() {
+    public List<ChallengeInfo> getChallenges() {
         return challenges;
     }
 }

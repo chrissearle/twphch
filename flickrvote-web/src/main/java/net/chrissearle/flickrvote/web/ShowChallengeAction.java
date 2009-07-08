@@ -1,12 +1,11 @@
 package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.model.Challenge;
-import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.flickr.FlickrService;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ImageInfo;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -14,48 +13,45 @@ public class ShowChallengeAction extends ActionSupport {
     @Autowired
     private ChallengeService challengeService;
 
-    @Autowired
-    private FlickrService flickrService;
-
     private Logger logger = Logger.getLogger(ShowChallengeAction.class);
 
-    private Long challengeId;
+    private String challengeTag;
 
-    private Challenge challenge;
+    private ChallengeInfo challenge;
 
-    private List<Image> images;
+    private List<ImageInfo> images;
 
     public String execute() throws Exception {
         if (logger.isDebugEnabled()) {
-            logger.debug("Challenge ID " + challengeId);
+            logger.debug("Challenge ID " + challengeTag);
         }
 
-        challenge = challengeService.getChallenge(getChallengeId());
+        challenge = challengeService.getChallenge(getChallengeTag());
 
         if (logger.isDebugEnabled()) {
             logger.debug("Challenge " + challenge);
         }
 
         if (challenge != null) {
-            images = challenge.getImages();
+            images = challengeService.getImagesForChallenge(getChallengeTag());
         }
 
         return SUCCESS;
     }
 
-    public void setChallengeId(Long challengeId) {
-        this.challengeId = challengeId;
+    public void setChallengeTag(String challengeTag) {
+        this.challengeTag = challengeTag;
     }
 
-    public Long getChallengeId() {
-        return challengeId;
+    public String getChallengeTag() {
+        return challengeTag;
     }
 
-    public Challenge getChallenge() {
+    public ChallengeInfo getChallenge() {
         return challenge;
     }
 
-    public List<Image> getImages() {
+    public List<ImageInfo> getImages() {
         return images;
     }
 }

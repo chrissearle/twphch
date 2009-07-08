@@ -17,6 +17,8 @@
         <module>flickrvote-data-api</module>
         <module>flickrvote-data-spring</module>
         <module>flickrvote-twitter</module>
+        <module>flickrvote-service-api</module>
+        <module>flickrvote-service-spring</module>
         <module>flickrvote-web</module>
     </modules>
 </project>

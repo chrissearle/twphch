@@ -13,12 +13,12 @@
         <s:head/>
     </head>
     <body>
-    <h1><s:property value="challenge.tag"/> - <s:property value="challenge.name"/></h1>
+    <h1><s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
 
     <s:iterator id="photo" value="images">
         <div class="photobox">
-            <h3><s:property value="#photo.title"/> - <s:property value="#photo.photographer.fullname"/></h3>
-            <a href="${photo.page}"><img src="${photo.mediumImage}" alt="${photo.title}"/></a>
+            <h3><s:property value="#photo.title"/> - <s:property value="#photo.photographerName"/></h3>
+            <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
         </div>
     </s:iterator>
     </body>

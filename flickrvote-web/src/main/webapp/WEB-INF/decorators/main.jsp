@@ -51,7 +51,7 @@
 
                     <h2><s:property value="voting.tag"/></h2>
 
-                    <p><s:property value="voting.name"/></p>
+                    <p><s:property value="voting.title"/></p>
                 </div>
             </s:if>
             <s:if test="challenge != null">
@@ -60,14 +60,14 @@
 
                     <h2><s:property value="challenge.tag"/></h2>
 
-                    <p><s:property value="challenge.name"/></p>
+                    <p><s:property value="challenge.title"/></p>
 
                     <h2>Dates</h2>
 
                     <p>
                         Start: <s:date name="challenge.startDate" format="dd.MM.yyyy"/>
                         <br/>
-                        Voting start: <s:date name="challenge.votingOpenDate" format="dd.MM.yyyy"/>
+                        Voting start: <s:date name="challenge.voteDate" format="dd.MM.yyyy"/>
                         <br/>
                         End: <s:date name="challenge.endDate" format="dd.MM.yyyy"/>
                     </p>
@@ -82,10 +82,10 @@
                         <s:iterator id="challenge" value="challengeList">
                             <li>
                                 <s:url id="showLink" action="show">
-                                    <s:param name="challengeId"><s:property value="#challenge.id"/></s:param>
+                                    <s:param name="challengeTag"><s:property value="#challenge.tag"/></s:param>
                                 </s:url>
-                                <s:a href="%{showLink}"><s:property value="#challenge.id"/> - <s:property
-                                        value="#challenge.name"/></s:a>
+                                <s:a href="%{showLink}"><s:property value="#challenge.Tag"/> - <s:property
+                                        value="#challenge.title"/></s:a>
                             </li>
                         </s:iterator>
                     </ul>

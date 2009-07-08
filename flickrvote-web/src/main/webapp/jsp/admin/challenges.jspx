@@ -25,13 +25,13 @@
             <tr>
                 <td>
                     <s:url id="showLink">
-                        <s:param name="challengeId"><s:property value="#challenge.id"/></s:param>
+                        <s:param name="challengeTag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
                     <s:a href="%{showLink}"><s:property value="#challenge.tag"/></s:a>
                 </td>
-                <td><s:property value="#challenge.name"/></td>
+                <td><s:property value="#challenge.title"/></td>
                 <td><s:date name="#challenge.startDate" format="dd.MM.yyyy"/></td>
-                <td><s:date name="#challenge.votingOpenDate" format="dd.MM.yyyy"/></td>
+                <td><s:date name="#challenge.voteDate" format="dd.MM.yyyy"/></td>
                 <td><s:date name="#challenge.endDate" format="dd.MM.yyyy"/></td>
             </tr>
         </s:iterator>

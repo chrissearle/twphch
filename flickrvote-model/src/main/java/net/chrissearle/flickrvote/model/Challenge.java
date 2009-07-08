@@ -34,8 +34,7 @@ public class Challenge implements Comparable<Challenge> {
     @OneToMany(mappedBy = "challenge")
     private List<Image> images = new ArrayList<Image>();
 
-    public Challenge(Long id, String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
-        this.setId(id);
+    public Challenge(String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
         this.setTag(tag);
         this.setName(name);
         this.setStartDate(startDate);

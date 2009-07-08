@@ -30,8 +30,7 @@ public class Photographer {
     @OneToMany(mappedBy = "photographer")
     private List<Image> images = new ArrayList<Image>();
 
-    public Photographer(Long id, String token, String username, String fullname, String flickrId) {
-        this.setId(id);
+    public Photographer(String token, String username, String fullname, String flickrId) {
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);

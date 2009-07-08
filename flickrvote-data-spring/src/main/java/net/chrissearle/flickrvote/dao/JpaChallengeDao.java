@@ -7,13 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.PersistenceUnit;
 import java.util.Date;
 import java.util.List;
 
-@Repository("challengeDao")
+@Repository
 @Transactional
 public class JpaChallengeDao implements ChallengeDao {
-    @PersistenceContext
+    @PersistenceUnit
     private EntityManager em;
 
     public Challenge findById(long id) {
@@ -21,10 +22,10 @@ public class JpaChallengeDao implements ChallengeDao {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Challenge> findByTag(String tag) {
+    public Challenge findByTag(String tag) {
         Query query = em.createQuery("select c from Challenge c where c.tag = :tag");
         query.setParameter("tag", tag);
-        return query.getResultList();
+        return (Challenge) query.getSingleResult();
     }
 
     public void save(Challenge challenge) {

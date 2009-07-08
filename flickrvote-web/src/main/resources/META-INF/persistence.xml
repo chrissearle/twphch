@@ -1,6 +1,10 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
     <persistence-unit name="FlickrVote" transaction-type="JTA">
         <jta-data-source>jdbc/FlickrVoteDS</jta-data-source>
+        <class>net.chrissearle.flickrvote.model.Challenge</class>
+        <class>net.chrissearle.flickrvote.model.Image</class>
+        <class>net.chrissearle.flickrvote.model.Photographer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="toplink.ddl-generation" value="create-tables"/>
             <property name="toplink.application-location" value="/tmp/"/>

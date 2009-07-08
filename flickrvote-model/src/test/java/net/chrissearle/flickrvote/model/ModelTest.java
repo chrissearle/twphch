@@ -55,7 +55,7 @@ public class ModelTest {
 
     @Test
     public void testPersistChallenge() {
-        Challenge challenge = new Challenge(null, CHALLENGE_TAG, CHALLENGE_TITLE, START_DATE, VOTE_DATE, END_DATE);
+        Challenge challenge = new Challenge(CHALLENGE_TAG, CHALLENGE_TITLE, START_DATE, VOTE_DATE, END_DATE);
 
         em.persist(challenge);
 
@@ -88,7 +88,7 @@ public class ModelTest {
 
     @Test
     public void testPersistPhotographer() {
-        Photographer photographer = new Photographer(null, PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID);
+        Photographer photographer = new Photographer(PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID);
 
         em.persist(photographer);
 

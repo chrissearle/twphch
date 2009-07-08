@@ -5,6 +5,7 @@ import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +20,7 @@ public class CurrentChallengeAction extends ActionSupport {
     @Autowired
     private FlickrService flickrService;
 
-    private Challenge challenge;
+    private ChallengeInfo challenge;
 
     private List<FlickrImage> images;
 
@@ -35,7 +36,7 @@ public class CurrentChallengeAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public Challenge getChallenge() {
+    public ChallengeInfo getChallenge() {
         return challenge;
     }
 

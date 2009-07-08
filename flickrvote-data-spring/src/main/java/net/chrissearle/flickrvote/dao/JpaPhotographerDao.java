@@ -5,17 +5,14 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 
-@Repository("photographerDao")
+@Repository
 @Transactional
 public class JpaPhotographerDao implements PhotographerDao {
     private Logger log = Logger.getLogger(JpaPhotographerDao.class);
 
-    @PersistenceContext
+    @PersistenceUnit
     private EntityManager em;
 
     public Photographer findById(long id) {
