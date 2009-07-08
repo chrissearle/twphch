@@ -39,15 +39,6 @@ public class Photographer {
         this.setAdministrator(false);
     }
 
-    public Photographer(Photographer photographer) {
-        this.setId(photographer.getId());
-        this.setToken(photographer.getToken());
-        this.setUsername(photographer.getUsername());
-        this.setFullname(photographer.getFullname());
-        this.setFlickrId(photographer.getFlickrId());
-        this.setAdministrator(photographer.isAdministrator());
-    }
-
     public Photographer() {
     }
 
@@ -98,12 +89,14 @@ public class Photographer {
     public void addImage(Image image) {
         if (!images.contains(image)) {
             this.images.add(image);
+            image.setPhotographer(this);
         }
     }
 
     public void removeImage(Image image) {
         if (images.contains(image)) {
             this.images.remove(image);
+            image.setPhotographer(null);
         }
     }
 

@@ -15,6 +15,7 @@
             <property name="toplink.ddl-generation" value="drop-and-create-tables"/>
             <property name="toplink.ddl-generation.output-mode" value="database"/>
             <property name="toplink.target-database" value="HSQL"/>
+            <property name="toplink.logging.level.sql" value="FINE"/>
         </properties>
     </persistence-unit>
 </persistence>

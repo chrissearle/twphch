@@ -1,16 +1,30 @@
 package net.chrissearle.flickrvote.model;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.joda.time.DateTime;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.Date;
 
 public class ModelTest {
     private EntityManagerFactory emf;
     private EntityManager em;
+    private static final String CHALLENGE_TAG = "#TwPhCh001";
+    private static final String CHALLENGE_TITLE = "Rødt";
+    private static final String PHOTOGRAPHER_USER = "user";
+    private static final String PHOTOGRAPHER_FULLNAME = "full";
+    private static final String PHOTOGRAPHER_FLICKR_ID = "foo";
+    private static final String IMAGE_FLICKR_ID = "Foo";
+    private static final String IMAGE_MEDIUM_URL = "http://www.foo.com";
+    private static final String IMAGE_PAGE_URL = "http://www.bar.com";
+    private static final String IMAGE_TITLE = "Test image";
+    private static final Date START_DATE = new DateTime(2009, 5, 8, 18, 0, 0, 0).toDate();
+    private static final Date END_DATE = new DateTime(2009, 5, 17, 21, 0, 0, 0).toDate();
+    private static final Date VOTE_DATE = new DateTime(2009, 5, 15, 18, 0, 0, 0).toDate();
+    private static final String PHOTOGRAPHER_TOKEN = "0250295209475-9235720975";
 
     @BeforeTest
     private void initialize() {
@@ -29,31 +43,150 @@ public class ModelTest {
         }
     }
 
+    @BeforeMethod
+    protected void startTransaction() {
+        em.getTransaction().begin();
+    }
+
+    @AfterMethod
+    protected void endTransaction() {
+        em.getTransaction().commit();
+    }
+
     @Test
     public void testPersistChallenge() {
-        em.getTransaction().begin();
-        
-        Challenge challenge = new Challenge(null, "#TwPhCh001", "Rødt", null, null, null);
+        Challenge challenge = new Challenge(null, CHALLENGE_TAG, CHALLENGE_TITLE, START_DATE, VOTE_DATE, END_DATE);
 
         em.persist(challenge);
 
         assert em.contains(challenge) : "Failed to save challenge";
+    }
 
-/*
-            Group g = new Group();
-            g1.addUser(u);
+    @Test(dependsOnMethods = {"testPersistChallenge"})
+    public void testChallengeFields() {
+        Challenge challenge = getChallenge();
 
-            em.persist(g);
-            assertTrue(em.contains(g));
+        assert challenge.getTag().equals(CHALLENGE_TAG) : "Tag was incorrect";
+        assert challenge.getName().equals(CHALLENGE_TITLE) : "Name was incorrect";
+        assert challenge.getStartDate().equals(START_DATE) : "Start date was incorrect";
+        assert challenge.getVotingOpenDate().equals(VOTE_DATE) : "Voting date was incorrect";
+        assert challenge.getEndDate().equals(END_DATE) : "End date was incorrect";
+        assert challenge.getId() != null : "ID was null";
 
-            g.removeUser(u);
-            em.remove(u);
-            em.merge(g);
-            assertFalse(em.contains(u));
-*/
+        String challengeString = challenge.toString();
 
-        em.getTransaction().commit();
+        assert challengeString.contains(CHALLENGE_TAG) &&
+               challengeString.contains(CHALLENGE_TITLE) : "toString did not contain correct fields";
 
+    }
+
+    private Challenge getChallenge() {
+        Query qC = em.createQuery("select c from Challenge c where c.tag = :tag");
+        qC.setParameter("tag", CHALLENGE_TAG);
+        return (Challenge) qC.getSingleResult();
+    }
+
+    @Test
+    public void testPersistPhotographer() {
+        Photographer photographer = new Photographer(null, PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID);
+
+        em.persist(photographer);
+
+        assert em.contains(photographer) : "Failed to save photographer";
+    }
+    
+    @Test(dependsOnMethods = {"testPersistPhotographer"})
+    public void testPhotographerFields() {
+        Photographer photographer = getPhotographer();
+
+        assert photographer.getFlickrId().equals(PHOTOGRAPHER_FLICKR_ID) : "Flickr ID was incorrect";
+        assert photographer.getFullname().equals(PHOTOGRAPHER_FULLNAME) : "Full name was incorrect";
+        assert photographer.getToken().equals(PHOTOGRAPHER_TOKEN) : "Token was incorrect";
+        assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
+        assert !photographer.isAdministrator() : "Photographer was incorrectly marked as admin";
+        assert photographer.getId() != null : "ID was null";
+
+        String photographerString = photographer.toString();
+
+        assert photographerString.contains(PHOTOGRAPHER_FULLNAME) &&
+               photographerString.contains(PHOTOGRAPHER_USER) : "toString did not contain correct fields";
+    }
+
+    private Photographer getPhotographer() {
+        Query query = em.createQuery("select p from Photographer p where p.username = :user");
+        query.setParameter("user", PHOTOGRAPHER_USER);
+        return (Photographer) query.getSingleResult();
+    }
+
+
+    @Test(dependsOnMethods = {"testPersistChallenge", "testPersistPhotographer"})
+    public void testPersistImage() {
+        Image image = new Image();
+
+        image.setFlickrId(IMAGE_FLICKR_ID);
+        image.setMediumImage(IMAGE_MEDIUM_URL);
+        image.setPage(IMAGE_PAGE_URL);
+        image.setTitle(IMAGE_TITLE);
+
+        em.persist(image);
+
+        assert em.contains(image) : "Failed to save image";
+
+        Challenge challenge = getChallenge();
+
+        Photographer photographer = getPhotographer();
+
+        // Call these twice to make sure we are protected against double calls
+        photographer.addImage(image);
+        photographer.addImage(image);
+
+        challenge.addImage(image);
+        challenge.addImage(image);
+
+        em.persist(image);
+
+        assert image.getChallenge().getId().equals(challenge.getId()) : "Image did not have challenge set correctly";
+
+        assert image.getPhotographer().getId().equals(photographer.getId()) : "Image did not have photographer set correctly";
+    }
+
+    @Test(dependsOnMethods = {"testPersistImage"})
+    public void testRetrieveImageByPhotographer() {
+        Image image = getImage();
+
+        Photographer photographer = getPhotographer();
+
+        assert photographer.getImages().contains(image) : "Photographer did not contain image";
+    }
+
+    @Test(dependsOnMethods = {"testPersistImage"})
+    public void testImageFields() {
+        Image image = getImage();
+
+        assert image.getFlickrId().equals(IMAGE_FLICKR_ID) : "Flickr ID was incorrect";
+        assert image.getMediumImage().equals(IMAGE_MEDIUM_URL) : "Medium URL was incorrect";
+        assert image.getPage().equals(IMAGE_PAGE_URL) : "Page URL was incorrect";
+        assert image.getTitle().equals(IMAGE_TITLE) : "Title was incorrect";
+        assert image.getId() != null : "ID was null";
+
+        String imageString = image.toString();
+
+        assert imageString.contains(IMAGE_TITLE) : "toString did not contain correct fields";
+    }
+
+    private Image getImage() {
+        Query qI = em.createQuery("select i from Image i where i.flickrId = :flickr");
+        qI.setParameter("flickr", IMAGE_FLICKR_ID);
+        return (Image) qI.getSingleResult();
+    }
+
+    @Test(dependsOnMethods = {"testPersistImage"})
+    public void testRetrieveImageByChallenge() {
+        Image image = getImage();
+
+        Challenge challenge = getChallenge();
+
+        assert challenge.getImages().contains(image) : "Challenge did not contain image";
     }
 }
 

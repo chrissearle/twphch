@@ -19,15 +19,15 @@ public class Challenge implements Comparable<Challenge> {
     @Column(length = 255, name = "description", nullable = false)
     private String name;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "start_date")
     private Date startDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "voting_open_date")
     private Date votingOpenDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "end_date")
     private Date endDate;
 
@@ -41,15 +41,6 @@ public class Challenge implements Comparable<Challenge> {
         this.setStartDate(startDate);
         this.setVotingOpenDate(votingOpenDate);
         this.setEndDate(endDate);
-    }
-
-    public Challenge(Challenge challenge) {
-        this.setId(challenge.getId());
-        this.setTag(challenge.getTag());
-        this.setName(challenge.getName());
-        this.setStartDate(challenge.getStartDate());
-        this.setVotingOpenDate(challenge.getVotingOpenDate());
-        this.setEndDate(challenge.getEndDate());
     }
 
     protected Challenge() {
@@ -121,12 +112,14 @@ public class Challenge implements Comparable<Challenge> {
     public void addImage(Image image) {
         if (!images.contains(image)) {
             this.images.add(image);
+            image.setChallenge(this);
         }
     }
 
     public void removeImage(Image image) {
         if (images.contains(image)) {
             this.images.remove(image);
+            image.setChallenge(null);
         }
     }
 }

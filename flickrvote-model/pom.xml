@@ -38,28 +38,21 @@
             <version>1.8.0.7</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>
-            <groupId>toplink.essentials</groupId>
-            <artifactId>toplink-essentials</artifactId>
-            <version>2.1-60f</version>
-            <scope>test</scope>
-        </dependency>-->
+
         <dependency>
             <groupId>oracle-toplink</groupId>
             <artifactId>oracle-toplink</artifactId>
             <version>2.1-b60e-fcs</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
 
-    <repositories>
-        <repository>
-            <id>java.net.1</id>
-            <name>java.net Maven Repository 1</name>
-            <url>http://download.java.net/maven/1/</url>
-            <layout>legacy</layout>
-        </repository>
-    </repositories>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>1.6</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -78,8 +71,35 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>-javaagent:${basedir}/target/oracle-toplink-agent-2.1-b60e-fcs.jar</argLine>
+                    <workingDirectory>${basedir}/target</workingDirectory>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>oracle-toplink</groupId>
+                                    <artifactId>oracle-toplink-agent</artifactId>
+                                    <version>2.1-b60e-fcs</version>
+                                    <outputDirectory>${project.build.directory}</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
