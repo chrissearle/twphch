@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class JpaPhotographerDao implements PhotographerDao {
     private Logger log = Logger.getLogger(JpaPhotographerDao.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "FlickrVote")
     private EntityManager em;
 
     public Photographer findById(long id) {

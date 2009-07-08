@@ -6,7 +6,7 @@
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
-    <jee:jndi-lookup id="entityManagerFactory" jndi-name="java:comp/env/persistence/FlickrVote"/>
+    <jee:jndi-lookup id="FlickrVote" jndi-name="java:comp/env/persistence/FlickrVote"/>
 
     <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
 

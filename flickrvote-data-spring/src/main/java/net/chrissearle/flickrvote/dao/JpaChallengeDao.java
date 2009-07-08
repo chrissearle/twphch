@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class JpaChallengeDao implements ChallengeDao {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "FlickrVote")
     private EntityManager em;
 
     public Challenge findById(long id) {

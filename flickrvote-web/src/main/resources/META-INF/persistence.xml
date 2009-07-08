@@ -1,5 +1,6 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
     <persistence-unit name="FlickrVote" transaction-type="JTA">
+        <provider> oracle.toplink.essentials.ejb.cmp3.EntityManagerFactoryProvider</provider>
         <jta-data-source>jdbc/FlickrVoteDS</jta-data-source>
         <class>net.chrissearle.flickrvote.model.Challenge</class>
         <class>net.chrissearle.flickrvote.model.Image</class>

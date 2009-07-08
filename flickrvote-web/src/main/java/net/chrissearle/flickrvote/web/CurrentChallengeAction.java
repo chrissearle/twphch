@@ -1,9 +1,7 @@
 package net.chrissearle.flickrvote.web;
 
-import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
-import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.apache.log4j.Logger;
@@ -11,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class CurrentChallengeAction extends ActionSupport {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class CurrentChallengeAction extends ActionSupport{
     private Logger log = Logger.getLogger(CurrentChallengeAction.class);
 
     @Autowired
