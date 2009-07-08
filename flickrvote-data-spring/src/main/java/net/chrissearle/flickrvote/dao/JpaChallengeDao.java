@@ -2,19 +2,17 @@ package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Challenge;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.PersistenceUnit;
 import java.util.Date;
 import java.util.List;
 
 @Repository
-@Transactional
 public class JpaChallengeDao implements ChallengeDao {
-    @PersistenceUnit
+
+    @PersistenceContext
     private EntityManager em;
 
     public Challenge findById(long id) {

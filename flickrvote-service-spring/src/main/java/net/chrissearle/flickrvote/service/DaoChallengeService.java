@@ -7,15 +7,22 @@ import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
-@Service("challengeService")
+@Service
+@Transactional
 public class DaoChallengeService implements ChallengeService {
+    
+    private final ChallengeDao dao;
+
     @Autowired
-    private ChallengeDao dao;
+    public DaoChallengeService(ChallengeDao dao) {
+        this.dao = dao;
+    }
 
     public List<ChallengeInfo> getChallenges() {
         List<Challenge> allChallenges = dao.getAll();

@@ -3,16 +3,15 @@ package net.chrissearle.flickrvote.dao;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 
 @Repository
-@Transactional
+
 public class JpaPhotographerDao implements PhotographerDao {
     private Logger log = Logger.getLogger(JpaPhotographerDao.class);
 
-    @PersistenceUnit
+    @PersistenceContext
     private EntityManager em;
 
     public Photographer findById(long id) {

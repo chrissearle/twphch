@@ -4,11 +4,18 @@ import net.chrissearle.flickrvote.dao.PhotographerDao;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Service("photographerService")
+@Service
+@Transactional
 public class DaoPhotographerService implements PhotographerService {
+
+    private final PhotographerDao dao;
+
     @Autowired
-    private PhotographerDao dao;
+    public DaoPhotographerService(PhotographerDao dao) {
+        this.dao = dao;
+    }
 
     public void addPhotographer(String token, String username, String fullname, String flickrId) {
         Photographer photographer = new Photographer(token, username, fullname, flickrId);
