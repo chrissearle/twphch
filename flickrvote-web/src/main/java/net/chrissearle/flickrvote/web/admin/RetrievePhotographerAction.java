@@ -1,4 +1,4 @@
-package net.chrissearle.web.admin;
+package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographerService;
