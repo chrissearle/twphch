@@ -2,14 +2,14 @@ package net.chrissearle.flickrvote.flickr;
 
 public class FlickrImage {
     private final String flickrId;
-    private final String ownerId;
+    private final String photographerName;
     private final String title;
     private final String url;
     private final String imageUrl;
 
-    public FlickrImage(String flickrId, String ownerId, String title, String url, String imageUrl) {
+    public FlickrImage(String flickrId, String photographerName, String title, String url, String imageUrl) {
         this.flickrId = flickrId;
-        this.ownerId = ownerId;
+        this.photographerName = photographerName;
         this.title = title;
         this.url = url;
         this.imageUrl = imageUrl;
@@ -17,7 +17,7 @@ public class FlickrImage {
 
     public FlickrImage(FlickrImage flickrImage) {
         this.flickrId = flickrImage.getFlickrId();
-        this.ownerId = flickrImage.getOwnerId();
+        this.photographerName = flickrImage.getPhotographerName();
         this.title = flickrImage.getTitle();
         this.url = flickrImage.getUrl();
         this.imageUrl = flickrImage.getImageUrl();
@@ -27,8 +27,8 @@ public class FlickrImage {
         return flickrId;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getPhotographerName() {
+        return photographerName;
     }
 
     public String getTitle() {

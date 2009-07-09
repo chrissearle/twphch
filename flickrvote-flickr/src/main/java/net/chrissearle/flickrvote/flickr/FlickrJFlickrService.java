@@ -2,14 +2,14 @@ package net.chrissearle.flickrvote.flickr;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
-import com.aetrion.flickr.people.User;
-import com.aetrion.flickr.people.PeopleInterface;
-import com.aetrion.flickr.photos.PhotosInterface;
-import com.aetrion.flickr.photos.SearchParameters;
-import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.auth.Auth;
 import com.aetrion.flickr.auth.AuthInterface;
 import com.aetrion.flickr.auth.Permission;
+import com.aetrion.flickr.people.PeopleInterface;
+import com.aetrion.flickr.people.User;
+import com.aetrion.flickr.photos.Photo;
+import com.aetrion.flickr.photos.PhotosInterface;
+import com.aetrion.flickr.photos.SearchParameters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -17,10 +17,8 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
@@ -99,8 +97,18 @@ public class FlickrJFlickrService implements FlickrService {
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
+            PeopleInterface peopleInterface = flickr.getPeopleInterface();
+
             for (Photo p : photos) {
-                results.add(new FlickrImage(p.getId(), p.getOwner().getId(), p.getTitle(), p.getUrl(), p.getMediumUrl()));
+                User user = peopleInterface.getInfo(p.getOwner().getId());
+
+                String name = user.getRealName();
+
+                if (name == null || "".equals(name)) {
+                    name = user.getUsername();
+                }
+
+                results.add(new FlickrImage(p.getId(), name, p.getTitle(), p.getUrl(), p.getMediumUrl()));
             }
 
             return results;

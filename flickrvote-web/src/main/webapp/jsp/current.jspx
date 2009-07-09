@@ -18,7 +18,7 @@
     <s:iterator id="photo" value="images">
         <div class="photobox">
             <h3><s:property value="#photo.title"/> - <s:property value="#photo.photographerName"/></h3>
-            <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
+            <a href="${photo.url}"><img src="${photo.imageUrl}" alt="${photo.title}"/></a>
         </div>
     </s:iterator>
     </body>
