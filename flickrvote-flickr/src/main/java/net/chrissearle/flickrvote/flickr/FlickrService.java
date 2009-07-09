@@ -13,4 +13,6 @@ public interface FlickrService {
     FlickrAuth checkAuthenticate(String token) throws FlickrServiceException;
 
     List<FlickrImage> searchImagesByTag(String tag) throws FlickrServiceException;
+
+    FlickrAuth getUserByFlickrId(String id);
 }
