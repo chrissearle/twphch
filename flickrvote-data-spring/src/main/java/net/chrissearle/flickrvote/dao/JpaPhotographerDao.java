@@ -72,7 +72,7 @@ public class JpaPhotographerDao implements PhotographerDao {
     }
 
     public Photographer findByFlickrId(String id) {
-        Query query = em.createQuery("select p from Photographer p where p.flickrId = :id");
+        Query query = em.createQuery("select p from Photographer p where p.id = :id");
         query.setParameter("id", id);
 
         try {
