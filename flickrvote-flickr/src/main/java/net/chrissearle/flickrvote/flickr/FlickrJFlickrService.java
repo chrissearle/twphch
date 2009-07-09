@@ -97,10 +97,8 @@ public class FlickrJFlickrService implements FlickrService {
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
-            PeopleInterface peopleInterface = flickr.getPeopleInterface();
-
             for (Photo p : photos) {
-                User user = peopleInterface.getInfo(p.getOwner().getId());
+                User user = getUser(p.getOwner().getId());
 
                 String name = user.getRealName();
 
@@ -119,5 +117,29 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (FlickrException e) {
             throw new FlickrServiceException(e);
         }
+    }
+
+    public FlickrAuth getUserByFlickrId(String id) {
+        try {
+            User user = getUser(id);
+
+            if (user != null) {
+                return new FlickrAuth(id, null, user.getUsername(), user.getRealName());
+            }
+
+            return null;
+        } catch (SAXException e) {
+            throw new FlickrServiceException(e);
+        } catch (FlickrException e) {
+            throw new FlickrServiceException(e);
+        } catch (IOException e) {
+            throw new FlickrServiceException(e);
+        }
+    }
+
+    private User getUser(String id) throws IOException, SAXException, FlickrException {
+        PeopleInterface peopleInterface = flickr.getPeopleInterface();
+
+        return peopleInterface.getInfo(id);
     }
 }
