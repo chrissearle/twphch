@@ -51,5 +51,9 @@
             <result>/jsp/admin/challenges.jspx</result>
         </action>
 
+        <action name="getPhotographer" class="net.chrissearle.web.admin.RetrievePhotographerAction">
+            <result>/jsp/admin/index.jspx</result>
+        </action>
+
     </package>
 </struts>

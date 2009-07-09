@@ -1,11 +1,27 @@
 package net.chrissearle.web.admin;
 
-/**
- * Created by IntelliJ IDEA.
- * User: chris
- * Date: Jul 9, 2009
- * Time: 2:14:08 PM
- * To change this template use File | Settings | File Templates.
- */
+import com.opensymphony.xwork2.ActionSupport;
+import net.chrissearle.flickrvote.service.PhotographerService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class RetrievePhotographerAction {
+
+    @Autowired
+    private PhotographerService service;
+
+    private String id;
+
+    public String execute() {
+        service.retrieveAndStore(id);
+
+        return ActionSupport.SUCCESS;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
