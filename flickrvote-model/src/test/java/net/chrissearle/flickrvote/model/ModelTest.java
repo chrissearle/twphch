@@ -1,13 +1,14 @@
 package net.chrissearle.flickrvote.model;
 
-import org.testng.annotations.*;
 import org.joda.time.DateTime;
+import org.testng.annotations.*;
 
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.Date;
+import java.util.List;
 
 public class ModelTest {
     private EntityManagerFactory emf;
@@ -76,7 +77,7 @@ public class ModelTest {
         String challengeString = challenge.toString();
 
         assert challengeString.contains(CHALLENGE_TAG) &&
-               challengeString.contains(CHALLENGE_TITLE) : "toString did not contain correct fields";
+                challengeString.contains(CHALLENGE_TITLE) : "toString did not contain correct fields";
 
     }
 
@@ -94,7 +95,7 @@ public class ModelTest {
 
         assert em.contains(photographer) : "Failed to save photographer";
     }
-    
+
     @Test(dependsOnMethods = {"testPersistPhotographer"})
     public void testPhotographerFields() {
         Photographer photographer = getPhotographer();
@@ -109,7 +110,7 @@ public class ModelTest {
         String photographerString = photographer.toString();
 
         assert photographerString.contains(PHOTOGRAPHER_FULLNAME) &&
-               photographerString.contains(PHOTOGRAPHER_USER) : "toString did not contain correct fields";
+                photographerString.contains(PHOTOGRAPHER_USER) : "toString did not contain correct fields";
     }
 
     private Photographer getPhotographer() {
@@ -187,6 +188,25 @@ public class ModelTest {
         Challenge challenge = getChallenge();
 
         assert challenge.getImages().contains(image) : "Challenge did not contain image";
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testGetVotingChallenge() {
+        DateTime today = new DateTime();
+        Challenge challenge = new Challenge("#Test1", "Test 1", today.minusDays(3).toDate(),
+                today.minusDays(1).toDate(), today.plusDays(1).toDate());
+
+        em.persist(challenge);
+
+        Query query = em.createQuery("select c from Challenge c where c.votingOpenDate <= :now and c.endDate > :now");
+        query.setParameter("now", new Date());
+
+        List<Challenge> challenges = query.getResultList();
+
+        assert challenges.size() == 1 : "Incorrect challenge count " + challenges.size();
+
+        assert challenges.iterator().next().getTag().equals("#Test1") : "Incorrect challenge returned";
     }
 }
 
