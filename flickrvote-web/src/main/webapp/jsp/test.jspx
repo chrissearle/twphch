@@ -20,6 +20,11 @@
             <li><s:property value="#status.user.name"/> - <s:property value="#status.text"/></li>
         </s:iterator>
     </ul>
+
+    <hr/>
+
+    <s:url id="chart" action="chart/testchart"/>
+    <img src="${chart}" alt="chart"/>
     </body>
     </html>
 </jsp:root>
