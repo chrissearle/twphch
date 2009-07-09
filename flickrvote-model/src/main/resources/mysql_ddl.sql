@@ -4,9 +4,9 @@ CREATE TABLE challenge (
 id bigint(20) NOT NULL,
 tag varchar(50) NOT NULL,
 description varchar(255) NOT NULL,
-start_date date default NULL,
-voting_open_date date default NULL,
-end_date date default NULL,
+start_date datetime default NULL,
+voting_open_date datetime default NULL,
+end_date datetime default NULL,
 PRIMARY KEY  (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
