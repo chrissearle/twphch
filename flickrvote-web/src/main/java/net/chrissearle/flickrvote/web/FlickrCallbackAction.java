@@ -1,12 +1,12 @@
 package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.flickr.FlickrService;
+import net.chrissearle.flickrvote.service.PhotographerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class FlickrCallbackAction extends ActionSupport {
     @Autowired
-    private FlickrService flickrService;
+    private PhotographerService photographerService;
 
     private String frob;
 
@@ -19,7 +19,7 @@ public class FlickrCallbackAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
-        flickrService.authenticate(frob);
+        photographerService.checkLoginAndStore(frob);
 
         return SUCCESS;
     }
