@@ -34,7 +34,7 @@
             <result>/jsp/show.jspx</result>
         </action>
         <action name="frob" class="net.chrissearle.flickrvote.web.FlickrCallbackAction">
-            <result>/jsp/current.jspx</result>
+            <result type="redirectAction">current</result>
         </action>
         <action name="test" class="net.chrissearle.flickrvote.web.TestAction">
             <result>/jsp/test.jspx</result>
@@ -51,7 +51,7 @@
             <result>/jsp/admin/challenges.jspx</result>
         </action>
 
-        <action name="getPhotographer" class="net.chrissearle.web.admin.RetrievePhotographerAction">
+        <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.RetrievePhotographerAction">
             <result>/jsp/admin/index.jspx</result>
         </action>
 

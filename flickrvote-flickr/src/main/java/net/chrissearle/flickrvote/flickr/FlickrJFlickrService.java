@@ -88,7 +88,7 @@ public class FlickrJFlickrService implements FlickrService {
             PhotosInterface photosInterface = flickr.getPhotosInterface();
 
             String[] tags = new String[1];
-            tags[0] = tag;
+            tags[0] = new StringBuilder().append("#").append(tag).toString();
 
             SearchParameters params = new SearchParameters();
             params.setTags(tags);

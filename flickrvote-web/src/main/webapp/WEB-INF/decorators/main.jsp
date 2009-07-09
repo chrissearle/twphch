@@ -49,7 +49,7 @@
                 <div class="sidebaritem">
                     <h1>Voting is OPEN</h1>
 
-                    <h2><s:property value="voting.tag"/></h2>
+                    <h2>#<s:property value="voting.tag"/></h2>
 
                     <p><s:property value="voting.title"/></p>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="sidebaritem">
                     <h1>Current Challenge</h1>
 
-                    <h2><s:property value="challenge.tag"/></h2>
+                    <h2>#<s:property value="challenge.tag"/></h2>
 
                     <p><s:property value="challenge.title"/></p>
 
@@ -84,7 +84,7 @@
                                 <s:url id="showLink" action="show">
                                     <s:param name="challengeTag"><s:property value="#challenge.tag"/></s:param>
                                 </s:url>
-                                <s:a href="%{showLink}"><s:property value="#challenge.Tag"/> - <s:property
+                                <s:a href="%{showLink}">#<s:property value="#challenge.Tag"/> - <s:property
                                         value="#challenge.title"/></s:a>
                             </li>
                         </s:iterator>

@@ -13,7 +13,7 @@
         <s:head/>
     </head>
     <body>
-    <h1><s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
+    <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
 
     <s:iterator id="photo" value="images">
         <div class="photobox">
