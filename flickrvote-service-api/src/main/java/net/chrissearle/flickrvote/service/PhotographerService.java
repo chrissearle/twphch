@@ -6,4 +6,8 @@ public interface PhotographerService {
     void setAdministrator(String username, Boolean adminFlag);
 
     Boolean isAdministrator(String username);
+
+    void retrieveAndStore(String id);
+
+    public void checkLoginAndStore(String frob);
 }
