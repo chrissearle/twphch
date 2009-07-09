@@ -72,7 +72,6 @@ public class ModelTest {
         assert challenge.getStartDate().equals(START_DATE) : "Start date was incorrect";
         assert challenge.getVotingOpenDate().equals(VOTE_DATE) : "Voting date was incorrect";
         assert challenge.getEndDate().equals(END_DATE) : "End date was incorrect";
-        assert challenge.getId() != null : "ID was null";
 
         String challengeString = challenge.toString();
 
@@ -100,7 +99,7 @@ public class ModelTest {
     public void testPhotographerFields() {
         Photographer photographer = getPhotographer();
 
-        assert photographer.getFlickrId().equals(PHOTOGRAPHER_FLICKR_ID) : "Flickr ID was incorrect";
+        assert photographer.getId().equals(PHOTOGRAPHER_FLICKR_ID) : "Flickr ID was incorrect";
         assert photographer.getFullname().equals(PHOTOGRAPHER_FULLNAME) : "Full name was incorrect";
         assert photographer.getToken().equals(PHOTOGRAPHER_TOKEN) : "Token was incorrect";
         assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
@@ -124,7 +123,7 @@ public class ModelTest {
     public void testPersistImage() {
         Image image = new Image();
 
-        image.setFlickrId(IMAGE_FLICKR_ID);
+        image.setId(IMAGE_FLICKR_ID);
         image.setMediumImage(IMAGE_MEDIUM_URL);
         image.setPage(IMAGE_PAGE_URL);
         image.setTitle(IMAGE_TITLE);
@@ -146,7 +145,7 @@ public class ModelTest {
 
         em.persist(image);
 
-        assert image.getChallenge().getId().equals(challenge.getId()) : "Image did not have challenge set correctly";
+        assert image.getChallenge().getTag().equals(challenge.getTag()) : "Image did not have challenge set correctly";
 
         assert image.getPhotographer().getId().equals(photographer.getId()) : "Image did not have photographer set correctly";
     }
@@ -164,7 +163,7 @@ public class ModelTest {
     public void testImageFields() {
         Image image = getImage();
 
-        assert image.getFlickrId().equals(IMAGE_FLICKR_ID) : "Flickr ID was incorrect";
+        assert image.getId().equals(IMAGE_FLICKR_ID) : "Flickr ID was incorrect";
         assert image.getMediumImage().equals(IMAGE_MEDIUM_URL) : "Medium URL was incorrect";
         assert image.getPage().equals(IMAGE_PAGE_URL) : "Page URL was incorrect";
         assert image.getTitle().equals(IMAGE_TITLE) : "Title was incorrect";
@@ -176,7 +175,7 @@ public class ModelTest {
     }
 
     private Image getImage() {
-        Query qI = em.createQuery("select i from Image i where i.flickrId = :flickr");
+        Query qI = em.createQuery("select i from Image i where i.id = :flickr");
         qI.setParameter("flickr", IMAGE_FLICKR_ID);
         return (Image) qI.getSingleResult();
     }

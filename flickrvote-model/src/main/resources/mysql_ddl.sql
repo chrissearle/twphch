@@ -1,51 +1,31 @@
-CREATE DATABASE flickrvote;
-
 CREATE TABLE challenge (
-id bigint(20) NOT NULL,
-tag varchar(50) NOT NULL,
-description varchar(255) NOT NULL,
-start_date datetime default NULL,
-voting_open_date datetime default NULL,
-end_date datetime default NULL,
-PRIMARY KEY  (id)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+  tag varchar(50) NOT NULL,
+  end_date datetime DEFAULT NULL,
+  description varchar(255) NOT NULL,
+  start_date datetime DEFAULT NULL,
+  voting_open_date datetime DEFAULT NULL,
+  PRIMARY KEY (tag)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE photographer (
-id bigint(20) NOT NULL,
-token varchar(100) default NULL,
-username varchar(50) default NULL,
-fullname varchar(100) default NULL,
-flickr_id varchar(50) default NULL,
-administrator tinyint(1) default NULL,
-PRIMARY KEY  (id)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+  flickr_id varchar(50) NOT NULL,
+  administrator bit(1) DEFAULT NULL,
+  fullname varchar(100) DEFAULT NULL,
+  token varchar(100) DEFAULT NULL,
+  username varchar(50) DEFAULT NULL,
+  PRIMARY KEY (flickr_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE image (
-id bigint(20) NOT NULL,
-page varchar(255),
-medium_image VARCHAR(255),
-flickr_id VARCHAR(50),
-title varchar(100),
-photographer_id bigint(20),
-challenge_id bigint(29),
-PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-
-ALTER TABLE image ADD CONSTRAINT FK_image_photographer_id FOREIGN KEY (photographer_id) REFERENCES photographer (id);
-ALTER TABLE image ADD CONSTRAINT FK_image_challenge_id FOREIGN KEY (challenge_id) REFERENCES challenge (id);
-
-CREATE TABLE sequence (
-seq_name varchar(50) NOT NULL,
-seq_count decimal(38,0) default NULL,
-PRIMARY KEY  (seq_name)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO sequence (seq_name, seq_count) VALUES ("SEQ_GEN", 0);
-
-ALTER TABLE image DROP FOREIGN KEY FK_image_photographer_id;
-ALTER TABLE image DROP FOREIGN KEY FK_image_challenge_id;
-DROP TABLE image;
-DROP TABLE challenge;
-DROP TABLE photographer;
-DROP TABLE image;
-DELETE FROM sequence WHERE seq_name = 'SEQ_GEN';
+  flickr_id varchar(50) NOT NULL,
+  medium_image varchar(255) DEFAULT NULL,
+  page varchar(255) DEFAULT NULL,
+  title varchar(100) DEFAULT NULL,
+  photographer_flickr_id varchar(50) DEFAULT NULL,
+  challenge_tag varchar(50) DEFAULT NULL,
+  PRIMARY KEY (flickr_id),
+  KEY FK5FAA95BFBF9A4DC (photographer_flickr_id),
+  KEY FK5FAA95BFA7332EB (challenge_tag),
+  CONSTRAINT FK5FAA95BFA7332EB FOREIGN KEY (challenge_tag) REFERENCES challenge (tag),
+  CONSTRAINT FK5FAA95BFBF9A4DC FOREIGN KEY (photographer_flickr_id) REFERENCES photographer (flickr_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

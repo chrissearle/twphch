@@ -3,12 +3,8 @@ package net.chrissearle.flickrvote.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "image")
 public class Image {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
 
     @Column(length = 100, name = "title")
     private String title;
@@ -19,8 +15,9 @@ public class Image {
     @ManyToOne
     private Photographer photographer;
 
+    @Id
     @Column(name = "flickr_id", length = 50)
-    private String flickrId;
+    private String id;
 
     @Column(name = "page", length = 255)
     private String page;
@@ -32,14 +29,6 @@ public class Image {
     public String toString() {
         return new StringBuilder().append("ID: ").append(getId()).append(", TITLE: ").append(getTitle())
                 .toString();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -90,21 +79,14 @@ public class Image {
 
         Image img = (Image) obj;
 
-        // Simplest equality is id equality - same db object. If id is not present (we haven't persisted the object or
-        // we don't have the persistent version then check the page of the image - this is unique to the image.
-        if (getId() == null || img.getId() == null) {
-            return getPage().equals(img.getPage());
-        } else {
             return getId().equals(img.getId());
-        }
-
     }
 
-    public String getFlickrId() {
-        return flickrId;
+    public String getId() {
+        return id;
     }
 
-    public void setFlickrId(String flickrId) {
-        this.flickrId = flickrId;
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -6,13 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "challenge")
 public class Challenge implements Comparable<Challenge> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
     @Column(length = 50, name = "tag", nullable = false)
     private String tag;
 
@@ -45,11 +42,6 @@ public class Challenge implements Comparable<Challenge> {
     protected Challenge() {
     }
 
-
-    public Long getId() {
-        return id;
-    }
-
     public String getTag() {
         return tag;
     }
@@ -68,10 +60,6 @@ public class Challenge implements Comparable<Challenge> {
 
     public int compareTo(Challenge o) {
         return o.getStartDate().compareTo(getStartDate());
-    }
-
-    protected void setId(Long id) {
-        this.id = id;
     }
 
     protected void setTag(String tag) {
@@ -100,7 +88,7 @@ public class Challenge implements Comparable<Challenge> {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("ID: ").append(getId()).append(", TAG: ").append(getTag()).append(", NAME: ")
+        return new StringBuilder().append(", TAG: ").append(getTag()).append(", NAME: ")
                 .append(getName()).toString();
     }
 

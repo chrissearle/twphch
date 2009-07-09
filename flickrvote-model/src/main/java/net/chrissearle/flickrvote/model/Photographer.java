@@ -5,12 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "photographer")
 public class Photographer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
 
     @Column(length = 100, name = "token")
     private String token;
@@ -24,29 +20,22 @@ public class Photographer {
     @Column(name = "administrator")
     private Boolean administrator;
 
+    @Id
     @Column(name = "flickr_id", length = 50)
-    private String flickrId;
+    private String id;
 
     @OneToMany(mappedBy = "photographer")
     private List<Image> images = new ArrayList<Image>();
 
-    public Photographer(String token, String username, String fullname, String flickrId) {
+    public Photographer(String token, String username, String fullname, String id) {
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);
-        this.setFlickrId(flickrId);
+        this.setId(id);
         this.setAdministrator(false);
     }
 
     public Photographer() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getToken() {
@@ -101,17 +90,17 @@ public class Photographer {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("ID: ").append(getId()).append(", USERNAME: ").append(getUsername())
+        return new StringBuilder().append(", USERNAME: ").append(getUsername())
                 .append(", FULLNAME: ").append(getFullname()).append(", ADMINISTRATOR: ").append(isAdministrator())
                 .toString();
     }
 
 
-    public String getFlickrId() {
-        return flickrId;
+    public String getId() {
+        return id;
     }
 
-    public void setFlickrId(String flickrId) {
-        this.flickrId = flickrId;
+    public void setId(String id) {
+        this.id = id;
     }
 }
