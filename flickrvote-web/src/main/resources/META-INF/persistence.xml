@@ -1,17 +1,18 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
     <persistence-unit name="FlickrVote" transaction-type="JTA">
-        <provider> oracle.toplink.essentials.ejb.cmp3.EntityManagerFactoryProvider</provider>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>jdbc/FlickrVoteDS</jta-data-source>
         <class>net.chrissearle.flickrvote.model.Challenge</class>
         <class>net.chrissearle.flickrvote.model.Image</class>
         <class>net.chrissearle.flickrvote.model.Photographer</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
-            <property name="toplink.ddl-generation" value="create-tables"/>
-            <property name="toplink.application-location" value="/tmp/"/>
-            <property name="toplink.create-ddl-jdbc-file-name" value="create.sql"/>
-            <property name="toplink.drop-ddl-jdbc-file-name" value="drop.sql"/>
-            <property name="toplink.ddl-generation.output-mode" value="sql-script"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+
+
         </properties>
     </persistence-unit>
 </persistence>

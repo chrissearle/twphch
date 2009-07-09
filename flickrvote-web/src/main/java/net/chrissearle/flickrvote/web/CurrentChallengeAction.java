@@ -20,9 +20,9 @@ public class CurrentChallengeAction extends ActionSupport{
     @Autowired
     private FlickrService flickrService;
 
-    private ChallengeInfo challenge;
+    private ChallengeInfo challenge = null;
 
-    private List<FlickrImage> images;
+    private List<FlickrImage> images = null;
 
     public String execute() throws Exception {
         challenge = challengeService.getCurrentChallenge();
@@ -31,7 +31,9 @@ public class CurrentChallengeAction extends ActionSupport{
             log.debug("Current challenge " + challenge);
         }
 
-        images = flickrService.searchImagesByTag(challenge.getTag());
+        if (challenge != null) {
+            images = flickrService.searchImagesByTag(challenge.getTag());
+        }
 
         return SUCCESS;
     }

@@ -4,7 +4,7 @@
        xmlns:jee="http://www.springframework.org/schema/jee"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
 
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+<!--    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>-->
 
     <jee:jndi-lookup id="FlickrVote" jndi-name="java:comp/env/persistence/FlickrVote"/>
 
