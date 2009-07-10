@@ -7,7 +7,7 @@ import twitter4j.Status;
 
 import java.util.List;
 
-public class TestAction extends ActionSupport {
+public class TestAction {
     @Autowired
     private TwitterService twitterService;
 
@@ -16,7 +16,7 @@ public class TestAction extends ActionSupport {
     public String execute() throws Exception {
         setTwitterStatus(twitterService.getTimeline());
 
-        return SUCCESS;
+        return ActionSupport.SUCCESS;
     }
 
     public List<Status> getTwitterStatus() {

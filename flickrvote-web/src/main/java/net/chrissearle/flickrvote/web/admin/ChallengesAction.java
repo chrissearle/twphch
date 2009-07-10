@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collections;
 import java.util.List;
 
-public class ChallengesAction extends ActionSupport {
+public class ChallengesAction {
     @Autowired
     ChallengeService challengeService;
 
@@ -19,7 +19,7 @@ public class ChallengesAction extends ActionSupport {
 
         Collections.sort(challenges);
 
-        return SUCCESS;
+        return ActionSupport.SUCCESS;
     }
 
     public List<ChallengeInfo> getChallenges() {

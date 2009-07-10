@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class FlickrCallbackAction extends ActionSupport {
+public class FlickrCallbackAction {
     @Autowired
     private PhotographyService photographyService;
 
@@ -21,6 +21,6 @@ public class FlickrCallbackAction extends ActionSupport {
     public String execute() throws Exception {
         photographyService.checkLoginAndStore(frob);
 
-        return SUCCESS;
+        return ActionSupport.SUCCESS;
     }
 }

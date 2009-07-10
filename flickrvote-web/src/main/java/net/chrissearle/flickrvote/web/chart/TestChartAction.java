@@ -11,7 +11,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import java.util.Random;
 
-public class TestChartAction extends ActionSupport {
+public class TestChartAction {
 
     private JFreeChart chart;
 
@@ -35,7 +35,7 @@ public class TestChartAction extends ActionSupport {
                         false);
         chart.setBackgroundPaint(java.awt.Color.white);
 
-        return SUCCESS;
+        return ActionSupport.SUCCESS;
     }
 
     // this method will get called if we specify <param name="value">chart</param>

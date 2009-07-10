@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class ShowChallengeAction extends ActionSupport {
+public class ShowChallengeAction {
     @Autowired
     private ChallengeService challengeService;
 
@@ -36,7 +36,7 @@ public class ShowChallengeAction extends ActionSupport {
             images = challengeService.getImagesForChallenge(getChallengeTag());
         }
 
-        return SUCCESS;
+        return ActionSupport.SUCCESS;
     }
 
     public void setChallengeTag(String challengeTag) {
