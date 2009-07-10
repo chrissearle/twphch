@@ -4,15 +4,17 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class RetrievePhotographerAction {
+public class RetrieveImageAction {
 
     @Autowired
     private PhotographyService service;
 
     private String id;
 
+    private String tag;
+
     public String execute() {
-        service.retrieveAndStorePhotographer(id);
+        service.retrieveAndStoreImage(id, tag);
 
         return ActionSupport.SUCCESS;
     }
@@ -23,5 +25,13 @@ public class RetrievePhotographerAction {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

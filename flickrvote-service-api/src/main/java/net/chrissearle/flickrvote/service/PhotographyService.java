@@ -12,11 +12,13 @@ public interface PhotographyService {
 
     Boolean isAdministrator(String username);
 
-    void retrieveAndStore(String id);
+    void retrieveAndStorePhotographer(String id);
 
     public void checkLoginAndStore(String frob);
 
     List<FlickrImage> searchImagesByTag(String tag);
 
     URL getLoginUrl();
+
+    void retrieveAndStoreImage(String id, String tag);
 }

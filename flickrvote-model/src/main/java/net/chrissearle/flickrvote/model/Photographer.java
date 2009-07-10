@@ -24,7 +24,7 @@ public class Photographer {
     @Column(name = "flickr_id", length = 50)
     private String id;
 
-    @OneToMany(mappedBy = "photographer")
+    @OneToMany(mappedBy = "photographer", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Image> images = new ArrayList<Image>();
 
     public Photographer(String token, String username, String fullname, String id) {

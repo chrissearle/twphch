@@ -1,9 +1,12 @@
 package net.chrissearle.flickrvote.service;
 
-import net.chrissearle.flickrvote.dao.PhotographerDao;
+import net.chrissearle.flickrvote.dao.ChallengeDao;
+import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.FlickrAuth;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
+import net.chrissearle.flickrvote.model.Challenge;
+import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +19,15 @@ import java.util.List;
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
 
-    private final PhotographerDao dao;
+    private final PhotographyDao dao;
     private FlickrService flickrService;
+    private ChallengeDao challengeDao;
 
     @Autowired
-    public DaoPhotographyService(PhotographerDao dao, FlickrService flickrService) {
+    public DaoPhotographyService(PhotographyDao dao, FlickrService flickrService, ChallengeDao challengeDao) {
         this.dao = dao;
         this.flickrService = flickrService;
+        this.challengeDao = challengeDao;
     }
 
     public void addPhotographer(String token, String username, String fullname, String flickrId) {
@@ -46,9 +51,9 @@ public class DaoPhotographyService implements PhotographyService {
         return photographer != null && photographer.isAdministrator();
     }
 
-    public void retrieveAndStore(String id) {
+    public void retrieveAndStorePhotographer(String id) {
         // Check to see if present
-        Photographer photographer = dao.findByFlickrId(id);
+        Photographer photographer = dao.findPhotographerByFlickrId(id);
 
         if (photographer == null) {
             FlickrAuth auth = flickrService.getUserByFlickrId(id);
@@ -63,7 +68,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrAuth auth = flickrService.authenticate(frob);
 
         // Check to see if present
-        Photographer photographer = dao.findByFlickrId(auth.getFlickrId());
+        Photographer photographer = dao.findPhotographerByFlickrId(auth.getFlickrId());
 
         if (photographer == null) {
             photographer = new Photographer();
@@ -86,5 +91,40 @@ public class DaoPhotographyService implements PhotographyService {
 
     public URL getLoginUrl() {
         return flickrService.getLoginUrl();
+    }
+
+    public void retrieveAndStoreImage(String id, String tag) {
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge == null)
+            return;
+
+        Image image = dao.findImageByFlickrId(id);
+
+        if (image == null) {
+            FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
+
+            image = new Image();
+            image.setId(flickrImage.getFlickrId());
+            image.setMediumImage(flickrImage.getImageUrl());
+            image.setPage(flickrImage.getUrl());
+            image.setTitle(flickrImage.getTitle());
+
+            Photographer photographer = dao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+
+            if (photographer == null) {
+                retrieveAndStorePhotographer(flickrImage.getPhotographerFlickrId());
+
+                photographer = dao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+            }
+
+            photographer.addImage(image);
+
+            dao.save(photographer);
+
+            challenge.addImage(image);
+
+            challengeDao.save(challenge);
+        }
     }
 }

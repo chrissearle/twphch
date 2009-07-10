@@ -1,15 +1,19 @@
 package net.chrissearle.flickrvote.dao;
 
+import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Repository
 
-public class JpaPhotographerDao implements PhotographerDao {
-    private Logger log = Logger.getLogger(JpaPhotographerDao.class);
+public class JpaPhotographyDao implements PhotographyDao {
+    private Logger log = Logger.getLogger(JpaPhotographyDao.class);
 
     @PersistenceContext(unitName = "FlickrVote")
     private EntityManager em;
@@ -71,12 +75,24 @@ public class JpaPhotographerDao implements PhotographerDao {
         em.remove(photographer);
     }
 
-    public Photographer findByFlickrId(String id) {
+    public Photographer findPhotographerByFlickrId(String id) {
         Query query = em.createQuery("select p from Photographer p where p.id = :id");
         query.setParameter("id", id);
 
         try {
             return (Photographer) query.getSingleResult();
+        } catch (NoResultException e) {
+            // Just means that there is no photographer yet validated with flickr
+            return null;
+        }
+    }
+
+    public Image findImageByFlickrId(String id) {
+        Query query = em.createQuery("select i from Image i where i.id  = :id");
+        query.setParameter("id", id);
+
+        try {
+            return (Image) query.getSingleResult();
         } catch (NoResultException e) {
             // Just means that there is no photographer yet validated with flickr
             return null;

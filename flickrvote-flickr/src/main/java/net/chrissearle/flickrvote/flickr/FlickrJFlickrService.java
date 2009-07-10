@@ -97,16 +97,8 @@ public class FlickrJFlickrService implements FlickrService {
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
-            for (Photo p : photos) {
-                User user = getUser(p.getOwner().getId());
-
-                String name = user.getRealName();
-
-                if (name == null || "".equals(name)) {
-                    name = user.getUsername();
-                }
-
-                results.add(new FlickrImage(p.getId(), name, p.getTitle(), p.getUrl(), p.getMediumUrl()));
+            for (Photo photo : photos) {
+                results.add(convertPhotoToFlickrImage(photo));
             }
 
             return results;
@@ -135,6 +127,38 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         }
+    }
+
+    public FlickrImage getImageByFlickrId(String id) {
+        PhotosInterface photosInterface = flickr.getPhotosInterface();
+
+        try {
+            Photo photo = photosInterface.getPhoto(id);
+
+            if (photo != null) {
+                return convertPhotoToFlickrImage(photo);
+            }
+
+            return null;
+        } catch (SAXException e) {
+            throw new FlickrServiceException(e);
+        } catch (FlickrException e) {
+            throw new FlickrServiceException(e);
+        } catch (IOException e) {
+            throw new FlickrServiceException(e);
+        }
+    }
+
+    private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {
+        User user = getUser(photo.getOwner().getId());
+
+        String name = user.getRealName();
+
+        if (name == null || "".equals(name)) {
+            name = user.getUsername();
+        }
+
+        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl());
     }
 
     private User getUser(String id) throws IOException, SAXException, FlickrException {

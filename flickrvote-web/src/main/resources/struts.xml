@@ -66,5 +66,8 @@
             <result>/jsp/admin/index.jspx</result>
         </action>
 
+        <action name="getImage" class="net.chrissearle.flickrvote.web.admin.RetrieveImageAction">
+            <result>/jsp/admin/index.jspx</result>
+        </action>
     </package>
 </struts>

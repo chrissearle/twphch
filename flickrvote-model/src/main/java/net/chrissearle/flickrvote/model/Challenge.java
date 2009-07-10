@@ -28,7 +28,7 @@ public class Challenge implements Comparable<Challenge> {
     @Column(name = "end_date")
     private Date endDate;
 
-    @OneToMany(mappedBy = "challenge")
+    @OneToMany(mappedBy = "challenge", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Image> images = new ArrayList<Image>();
 
     public Challenge(String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
