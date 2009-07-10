@@ -1,24 +1,23 @@
 package net.chrissearle.flickrvote.web;
 
+import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-public class CurrentChallengeAction extends ActionSupport{
+public class CurrentChallengeAction extends ActionSupport {
     private Logger log = Logger.getLogger(CurrentChallengeAction.class);
 
     @Autowired
     private ChallengeService challengeService;
 
     @Autowired
-    private FlickrService flickrService;
+    private PhotographyService photographyService;
 
     private ChallengeInfo challenge = null;
 
@@ -32,7 +31,7 @@ public class CurrentChallengeAction extends ActionSupport{
         }
 
         if (challenge != null) {
-            images = flickrService.searchImagesByTag(challenge.getTag());
+            images = photographyService.searchImagesByTag(challenge.getTag());
         }
 
         return SUCCESS;

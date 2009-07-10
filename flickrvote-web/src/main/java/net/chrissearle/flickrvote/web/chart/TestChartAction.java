@@ -1,4 +1,4 @@
-package net.chrissearle.flickrvote.web;
+package net.chrissearle.flickrvote.web.chart;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.jfree.chart.JFreeChart;
@@ -17,7 +17,7 @@ public class TestChartAction extends ActionSupport {
 
     public String execute() throws Exception {
         // chart creation logic...
-        XYSeries dataSeries = new XYSeries(new Integer(1)); // pass a key for this serie
+        XYSeries dataSeries = new XYSeries(1); // pass a key for this serie
         Random rand = new Random();
 
         for (int i = 0; i <= 100; i++) {

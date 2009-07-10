@@ -8,13 +8,13 @@
     <package name="flickrVote" extends="struts-default" namespace="/">
         <interceptors>
             <interceptor name="flickrLinkInterceptor"
-                         class="net.chrissearle.flickrvote.web.FlickrLinkInterceptor"/>
+                         class="net.chrissearle.flickrvote.web.interceptors.FlickrLinkInterceptor"/>
 
             <interceptor name="challengeListInterceptor"
-                         class="net.chrissearle.flickrvote.web.ChallengeListInterceptor"/>
+                         class="net.chrissearle.flickrvote.web.interceptors.ChallengeListInterceptor"/>
 
             <interceptor name="votingChallengeInterceptor"
-                         class="net.chrissearle.flickrvote.web.VotingChallengeInterceptor"/>
+                         class="net.chrissearle.flickrvote.web.interceptors.VotingChallengeInterceptor"/>
 
             <interceptor-stack name="flickrVoteStack">
                 <interceptor-ref name="flickrLinkInterceptor"/>
@@ -42,7 +42,7 @@
     </package>
 
     <package name="flickrChart" extends="jfreechart-default" namespace="/chart">
-        <action name="testchart" class="net.chrissearle.flickrvote.web.TestChartAction">
+        <action name="testchart" class="net.chrissearle.flickrvote.web.chart.TestChartAction">
             <result name="success" type="chart">
                 <param name="value">chart</param>
                 <param name="type">png</param>

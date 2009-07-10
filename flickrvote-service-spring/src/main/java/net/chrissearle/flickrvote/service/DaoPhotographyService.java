@@ -2,21 +2,25 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.PhotographerDao;
 import net.chrissearle.flickrvote.flickr.FlickrAuth;
+import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.net.URL;
+import java.util.List;
+
 @Service
 @Transactional
-public class DaoPhotographerService implements PhotographerService {
+public class DaoPhotographyService implements PhotographyService {
 
     private final PhotographerDao dao;
     private FlickrService flickrService;
 
     @Autowired
-    public DaoPhotographerService(PhotographerDao dao, FlickrService flickrService) {
+    public DaoPhotographyService(PhotographerDao dao, FlickrService flickrService) {
         this.dao = dao;
         this.flickrService = flickrService;
     }
@@ -39,11 +43,7 @@ public class DaoPhotographerService implements PhotographerService {
     public Boolean isAdministrator(String username) {
         Photographer photographer = dao.findByUsername(username);
 
-        if (photographer != null) {
-            return photographer.isAdministrator();
-        }
-
-        return false;
+        return photographer != null && photographer.isAdministrator();
     }
 
     public void retrieveAndStore(String id) {
@@ -77,5 +77,14 @@ public class DaoPhotographerService implements PhotographerService {
         photographer.setToken(auth.getToken());
 
         dao.save(photographer);
+    }
+
+    public List<FlickrImage> searchImagesByTag(String tag) {
+        // We can implement author caching here later if we wish
+        return flickrService.searchImagesByTag(tag);
+    }
+
+    public URL getLoginUrl() {
+        return flickrService.getLoginUrl();
     }
 }
