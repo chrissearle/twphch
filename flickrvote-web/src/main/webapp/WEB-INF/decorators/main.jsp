@@ -28,9 +28,9 @@
 <div id="main">
     <div id="links">
         <!-- **** INSERT LINKS HERE **** -->
-        <s:a href="%{flickrLoginUrl}">Flickr Login</s:a> |
-        <a href="http://twitter.com/Twphch">Twitter</a> |
-        <a href="http://www.flickr.com/groups/twphch/">Flickr Group</a>
+        <s:a href="%{flickrLoginUrl}"><s:text name="link.flickr.login.title"/></s:a> |
+        <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
+        <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
 
     </div>
     <div id="logo"><h1>Twitter PhotoChallenge</h1>
