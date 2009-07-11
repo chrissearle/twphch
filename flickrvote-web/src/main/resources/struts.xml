@@ -50,6 +50,15 @@
                 <param name="height">480</param>
             </result>
         </action>
+
+        <action name="challengeVotes" class="net.chrissearle.flickrvote.web.chart.ChallengeVotesAction">
+            <result name="success" type="chart">
+                <param name="value">chart</param>
+                <param name="type">png</param>
+                <param name="width">500</param>
+                <param name="height">300</param>
+            </result>
+        </action>
     </package>
 
     <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
