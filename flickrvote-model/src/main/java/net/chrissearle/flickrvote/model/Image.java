@@ -25,9 +25,13 @@ public class Image {
     @Column(name = "medium_image", length = 255)
     private String mediumImage;
 
+    @Column(name = "final_vote_count", nullable = false)
+    private Long finalVoteCount = 0L;
+
     @Override
     public String toString() {
         return new StringBuilder().append("ID: ").append(getId()).append(", TITLE: ").append(getTitle())
+                .append("VOTES: ").append(getFinalVoteCount())
                 .toString();
     }
 
@@ -88,5 +92,13 @@ public class Image {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Long getFinalVoteCount() {
+        return finalVoteCount;
+    }
+
+    public void setFinalVoteCount(Long finalVoteCount) {
+        this.finalVoteCount = finalVoteCount;
     }
 }

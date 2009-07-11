@@ -168,6 +168,7 @@ public class ModelTest {
         assert image.getPage().equals(IMAGE_PAGE_URL) : "Page URL was incorrect";
         assert image.getTitle().equals(IMAGE_TITLE) : "Title was incorrect";
         assert image.getId() != null : "ID was null";
+        assert image.getFinalVoteCount() == 0 : "Image has votes wihtout voting";
 
         String imageString = image.toString();
 
