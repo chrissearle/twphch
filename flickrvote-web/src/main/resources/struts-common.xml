@@ -6,9 +6,24 @@
 
 <struts>
     <package name="flickrVoteCommon" extends="struts-default" namespace="/common">
+        <global-results>
+            <result type="freemarker" name="empty">/ftl/common/empty.ftl</result>
+        </global-results>
 
         <action name="flickrLoginLink" class="net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction">
-            <result type="freemarker" name="success">/jsp/common/flickrLoginLink.ftl</result>
+            <result type="freemarker" name="success">/ftl/common/flickrLoginLink.ftl</result>
+        </action>
+
+        <action name="currentChallengeBlock">
+            <result type="freemarker" name="success">/ftl/common/currentChallengeBlock.ftl</result>
+        </action>
+
+        <action name="votingChallengeBlock" class="net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction">
+            <result type="freemarker" name="success">/ftl/common/votingChallengeBlock.ftl</result>
+        </action>
+
+        <action name="challengeListBlock" class="net.chrissearle.flickrvote.web.common.ChallengeListBlockAction">
+            <result type="freemarker" name="success">/ftl/common/challengeListBlock.ftl</result>
         </action>
     </package>
 </struts>

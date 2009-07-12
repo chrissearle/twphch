@@ -45,33 +45,9 @@
     </div>
     <div id="content">
         <div id="column1">
-            <s:if test="voting != null">
-                <div class="sidebaritem">
-                    <h1>Voting is OPEN</h1>
-
-                    <h2>#<s:property value="voting.tag"/></h2>
-
-                    <p><s:property value="voting.title"/></p>
-                </div>
-            </s:if>
+            <s:action name="votingChallengeBlock" executeResult="true"/>
             <s:if test="challenge != null">
-                <div class="sidebaritem">
-                    <h1>Current Challenge</h1>
-
-                    <h2>#<s:property value="challenge.tag"/></h2>
-
-                    <p><s:property value="challenge.title"/></p>
-
-                    <h2>Dates</h2>
-
-                    <p>
-                        Start: <s:date name="challenge.startDate" format="dd.MM.yyyy"/>
-                        <br/>
-                        Voting start: <s:date name="challenge.voteDate" format="dd.MM.yyyy"/>
-                        <br/>
-                        End: <s:date name="challenge.endDate" format="dd.MM.yyyy"/>
-                    </p>
-                </div>
+                <s:action name="currentChallengeBlock" executeResult="true"/>
             </s:if>
             <div class="sidebaritem">
                 <h1>Older Challenges</h1>

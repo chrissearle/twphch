@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="flickrVote" extends="struts-default" namespace="/">
+        <action name="current" class="net.chrissearle.flickrvote.web.CurrentChallengeAction">
+            <result>/jsp/current.jspx</result>
+        </action>
+        <action name="show" class="net.chrissearle.flickrvote.web.ShowChallengeAction">
+            <result>/jsp/show.jspx</result>
+        </action>
+        <action name="frob" class="net.chrissearle.flickrvote.web.FlickrCallbackAction">
+            <result type="redirectAction">current</result>
+        </action>
+        <action name="test" class="net.chrissearle.flickrvote.web.TestAction">
+            <result>/jsp/test.jspx</result>
+        </action>
+    </package>
+</struts>
