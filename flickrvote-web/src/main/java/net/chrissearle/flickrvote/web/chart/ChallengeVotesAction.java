@@ -1,17 +1,16 @@
 package net.chrissearle.flickrvote.web.chart;
 
-import org.jfree.chart.JFreeChart;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.apache.commons.logging.impl.AvalonLogger;
-import org.apache.log4j.Logger;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
+import org.apache.log4j.Logger;
+import org.jfree.chart.JFreeChart;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class ChallengeVotesAction {
     private JFreeChart chart;
@@ -43,10 +42,12 @@ public class ChallengeVotesAction {
         }
 
         // TODO - create correct chart type - in the mean time - here's the data
-        Map data<String, Long> = new HashMap<String, Long>();
+        Map<String, Long> data = new HashMap<String, Long>();
 
-        for (ImageInfo imageInfo : images) {
-            data.put(imageInfo.getPhotographerName(), imageInfo.getFinalVoteCount());
+        if (images != null) {
+            for (ImageInfo imageInfo : images) {
+                data.put(imageInfo.getPhotographerName(), imageInfo.getFinalVoteCount());
+            }
         }
 
         return ActionSupport.SUCCESS;

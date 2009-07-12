@@ -2,10 +2,10 @@ package net.chrissearle.flickrvote;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.REST;
-import net.chrissearle.flickrvote.flickr.FlickrJFlickrService;
-import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.FlickrAuth;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrJFlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -13,8 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Properties;
 import java.util.List;
+import java.util.Properties;
 
 public class FlickrServiceTest extends FlickrJFlickrService {
     String token;
@@ -56,7 +56,7 @@ public class FlickrServiceTest extends FlickrJFlickrService {
 
         assert flickrAuth != null : "Flickr authentication failed";
         assert flickrAuth.getToken().equals(token) : "Token mismatch";
-        assert flickrAuth.getRealname().equals("Chris Searle") : "User name incorrect";
+        assert "Chris Searle".equals(flickrAuth.getRealname()) : "User name incorrect";
     }
 
     @Test(groups = "configured")

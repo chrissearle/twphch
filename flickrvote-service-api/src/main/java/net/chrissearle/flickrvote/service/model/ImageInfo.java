@@ -8,6 +8,7 @@ public class ImageInfo {
     private String imagePictureLink;
     private String photographerName;
     private Long finalVoteCount;
+    private Long rank;
 
     public ImageInfo(String title, String imageHomePage, String imagePictureLink, String photographerName, Long finalVoteCount) {
         this.setTitle(title);
@@ -15,6 +16,7 @@ public class ImageInfo {
         this.setImagePictureLink(imagePictureLink);
         this.setPhotographerName(photographerName);
         this.setFinalVoteCount(finalVoteCount);
+        this.rank = 0L;
     }
 
     public ImageInfo(Image image) {
@@ -23,6 +25,7 @@ public class ImageInfo {
         this.setImagePictureLink(image.getMediumImage());
         this.setPhotographerName(image.getPhotographer().getFullname());
         this.setFinalVoteCount(image.getFinalVoteCount());
+        this.rank = 0L;
     }
 
     public String getTitle() {
@@ -63,5 +66,13 @@ public class ImageInfo {
 
     public void setFinalVoteCount(Long finalVoteCount) {
         this.finalVoteCount = finalVoteCount;
+    }
+
+    public Long getRank() {
+        return rank;
+    }
+
+    public void setRank(Long rank) {
+        this.rank = rank;
     }
 }

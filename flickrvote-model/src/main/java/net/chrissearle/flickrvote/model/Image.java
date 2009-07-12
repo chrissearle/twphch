@@ -83,7 +83,7 @@ public class Image {
 
         Image img = (Image) obj;
 
-            return getId().equals(img.getId());
+        return getId().equals(img.getId());
     }
 
     public String getId() {
@@ -100,5 +100,17 @@ public class Image {
 
     public void setFinalVoteCount(Long finalVoteCount) {
         this.finalVoteCount = finalVoteCount;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (challenge != null ? challenge.hashCode() : 0);
+        result = 31 * result + (photographer != null ? photographer.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (page != null ? page.hashCode() : 0);
+        result = 31 * result + (mediumImage != null ? mediumImage.hashCode() : 0);
+        result = 31 * result + (finalVoteCount != null ? finalVoteCount.hashCode() : 0);
+        return result;
     }
 }
