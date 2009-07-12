@@ -13,6 +13,11 @@
         <s:head/>
     </head>
     <body>
+    <h2>Get Photographer</h2>
+    <s:form action="getPhotographer">
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:submit/>
+    </s:form>
     </body>
     </html>
 </jsp:root>

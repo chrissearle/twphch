@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
+
+        <action name="index" class="net.chrissearle.flickrvote.web.admin.IndexAction">
+            <result>/jsp/admin/index.jspx</result>
+        </action>
+
+        <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengesAction">
+            <result>/jsp/admin/challenges.jspx</result>
+        </action>
+
+        <action name="getPhotographerForm">
+            <result>/jsp/admin/getPhotographer.jspx</result>
+        </action>
+
+        <action name="getImageForm">
+            <result>/jsp/admin/getImage.jspx</result>
+        </action>
+
+        <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.RetrievePhotographerAction">
+            <result name="input">/jsp/admin/getPhotographer.jspx</result>
+            <result name="success">/jsp/admin/index.jspx</result>
+            <result name="error">/jsp/admin/error.jspx</result>
+        </action>
+
+        <action name="getImage" class="net.chrissearle.flickrvote.web.admin.RetrieveImageAction">
+            <result name="input">/jsp/admin/getImage.jspx</result>
+            <result name="success">/jsp/admin/index.jspx</result>
+            <result name="error">/jsp/admin/error.jspx</result>
+        </action>
+    </package>
+</struts>

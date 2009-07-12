@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class RetrieveImageAction {
+public class RetrieveImageAction extends ActionSupport {
 
     @Autowired
     private PhotographyService service;
@@ -16,7 +16,14 @@ public class RetrieveImageAction {
     public String execute() {
         service.retrieveAndStoreImage(id, tag);
 
-        return ActionSupport.SUCCESS;
+        return SUCCESS;
+    }
+
+    @Override
+    public void validate() {
+        if (getId().length() == 0) {
+            addFieldError("id", "Flickr ID must be provided");
+        }
     }
 
     public String getId() {

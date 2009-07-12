@@ -13,6 +13,11 @@
         <s:head/>
     </head>
     <body>
+    <h2>Get Image</h2>
+    <s:form action="getImage">
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:submit/>
+    </s:form>
     </body>
     </html>
 </jsp:root>

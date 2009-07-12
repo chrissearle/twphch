@@ -61,22 +61,5 @@
         </action>
     </package>
 
-    <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
-
-        <action name="index" class="net.chrissearle.flickrvote.web.admin.IndexAction">
-            <result>/jsp/admin/index.jspx</result>
-        </action>
-
-        <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengesAction">
-            <result>/jsp/admin/challenges.jspx</result>
-        </action>
-
-        <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.RetrievePhotographerAction">
-            <result>/jsp/admin/index.jspx</result>
-        </action>
-
-        <action name="getImage" class="net.chrissearle.flickrvote.web.admin.RetrieveImageAction">
-            <result>/jsp/admin/index.jspx</result>
-        </action>
-    </package>
+    <include file="struts-admin.xml"/>
 </struts>

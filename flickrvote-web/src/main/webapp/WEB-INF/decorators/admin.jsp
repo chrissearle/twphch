@@ -16,8 +16,21 @@
 </head>
 <body id="page-home">
 <div id="page">
+    <div id="menu">
+        <ul>
+            <li>
+                <s:url action="getPhotographerForm" id="getPhotographerFormUrl"/>
+                <s:a href="%{getPhotographerFormUrl}">Get Photographer</s:a>
+            </li>
+            <li>
+                <s:url action="getImageForm" id="getImageFormUrl"/>
+                <s:a href="%{getImageFormUrl}">Get Image</s:a>
+            </li>
+        </ul>
+    </div>
     <div id="content">
         <div id="main">
+            <h1>Admin</h1>
             <decorator:body/>
         </div>
     </div>
