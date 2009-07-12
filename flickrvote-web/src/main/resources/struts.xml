@@ -62,4 +62,5 @@
     </package>
 
     <include file="struts-admin.xml"/>
+    <include file="struts-common.xml"/>
 </struts>

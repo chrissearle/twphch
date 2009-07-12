@@ -1,0 +1,1 @@
+<a href="%{link}"><@s.text name="link.flickr.login.title"/></a>

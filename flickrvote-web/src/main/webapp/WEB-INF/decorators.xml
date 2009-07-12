@@ -10,6 +10,7 @@
         <pattern>/js/*</pattern>
         <pattern>/dojo/*</pattern>
         <pattern>/struts/*</pattern>
+        <pattern>/common/*</pattern>
     </excludes>
 
     <decorator name="admin" page="admin.jsp">

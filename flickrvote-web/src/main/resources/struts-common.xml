@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="flickrVoteCommon" extends="struts-default" namespace="/common">
+
+        <action name="flickrLoginLink" class="net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction">
+            <result type="freemarker" name="success">/jsp/common/flickrLoginLink.ftl</result>
+        </action>
+    </package>
+</struts>

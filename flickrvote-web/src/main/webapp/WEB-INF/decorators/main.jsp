@@ -28,7 +28,7 @@
 <div id="main">
     <div id="links">
         <!-- **** INSERT LINKS HERE **** -->
-        <s:a href="%{flickrLoginUrl}"><s:text name="link.flickr.login.title"/></s:a> |
+        <s:action name="flickrLoginLink" executeResult="true"/> |
         <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
         <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
 
