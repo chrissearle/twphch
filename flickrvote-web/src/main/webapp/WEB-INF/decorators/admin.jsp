@@ -26,6 +26,14 @@
                 <s:url action="getImageForm" id="getImageFormUrl"/>
                 <s:a href="%{getImageFormUrl}">Get Image</s:a>
             </li>
+            <li>
+                <s:url action="challenges" id="challengesUrl"/>
+                <s:a href="%{challengesUrl}">Challenges</s:a>
+            </li>
+            <li>
+                <s:url action="newChallengeForm" id="newChallengeFormUrl"/>
+                <s:a href="%{newChallengeFormUrl}">New Challenge</s:a>
+            </li>
         </ul>
     </div>
     <div id="content">

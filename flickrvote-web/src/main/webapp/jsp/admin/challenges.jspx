@@ -36,6 +36,8 @@
             </tr>
         </s:iterator>
     </table>
+    <hr/>
+    <s:action name="newChallengeForm" executeResult="true"/>
     </body>
     </html>
 </jsp:root>

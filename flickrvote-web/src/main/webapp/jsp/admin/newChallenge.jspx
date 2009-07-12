@@ -13,6 +13,16 @@
         <s:head/>
     </head>
     <body>
+    <h2>New challenge</h2>
+    <!-- TODO - date selectors and set date format -->
+    <s:form action="createChallenge">
+        <s:textfield label="Title" name="challenge.title"/>
+        <s:textfield label="Tag" name="challenge.tag"/>
+        <s:textfield label="Start Date" name="challenge.startDate"/>
+        <s:textfield label="Vote Start Date" name="challenge.voteDate"/>
+        <s:textfield label="End Date" name="challenge.endDate"/>
+        <s:submit/>
+    </s:form>
     </body>
     </html>
 </jsp:root>
