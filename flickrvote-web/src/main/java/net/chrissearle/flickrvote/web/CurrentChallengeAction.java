@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class CurrentChallengeAction {
+public class CurrentChallengeAction extends ActionSupport {
     private Logger log = Logger.getLogger(CurrentChallengeAction.class);
 
     @Autowired
@@ -23,6 +23,7 @@ public class CurrentChallengeAction {
 
     private List<FlickrImage> images = null;
 
+    @Override
     public String execute() throws Exception {
         challenge = challengeService.getCurrentChallenge();
 
@@ -34,7 +35,7 @@ public class CurrentChallengeAction {
             images = photographyService.searchImagesByTag(challenge.getTag());
         }
 
-        return ActionSupport.SUCCESS;
+        return SUCCESS;
     }
 
     public ChallengeInfo getChallenge() {

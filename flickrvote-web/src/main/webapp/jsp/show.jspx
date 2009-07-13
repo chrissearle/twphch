@@ -18,8 +18,8 @@
     <s:iterator id="photo" value="images">
         <div class="photobox">
             <!-- TODO - show badges for winners -->
-            <h3><s:property value="#photo.finalVoteCount"/> <s:property value="#photo.title"/> - <s:property
-                    value="#photo.photographerName"/></h3>
+            <h3><s:property value="#photo.rank"/>: <s:property value="#photo.title"/> - <s:property
+                    value="#photo.photographerName"/> (<s:property value="#photo.finalVoteCount"/> votes)</h3>
             <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
         </div>
     </s:iterator>

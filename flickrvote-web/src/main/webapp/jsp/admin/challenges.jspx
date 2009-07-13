@@ -13,6 +13,7 @@
         <s:head/>
     </head>
     <body>
+    <h3>Challenge List</h3>
     <table>
         <tr>
             <th>Challenge</th>

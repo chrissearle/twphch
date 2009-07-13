@@ -28,7 +28,7 @@
 <div id="main">
     <div id="links">
         <!-- **** INSERT LINKS HERE **** -->
-        <s:action name="flickrLoginLink" executeResult="true"/> |
+        <s:action name="flickrLoginLink" namespace="/common" executeResult="true"/> |
         <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
         <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
 
@@ -45,28 +45,11 @@
     </div>
     <div id="content">
         <div id="column1">
-            <s:action name="votingChallengeBlock" executeResult="true"/>
+            <s:action name="votingChallengeBlock" namespace="/common" executeResult="true"/>
             <s:if test="challenge != null">
-                <s:action name="currentChallengeBlock" executeResult="true"/>
+                <s:action name="currentChallengeBlock" namespace="/common" executeResult="true"/>
             </s:if>
-            <div class="sidebaritem">
-                <h1>Older Challenges</h1>
-
-                <div class="sbilinks">
-                    <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
-                    <ul>
-                        <s:iterator id="challenge" value="challengeList">
-                            <li>
-                                <s:url id="showLink" action="show">
-                                    <s:param name="challengeTag"><s:property value="#challenge.tag"/></s:param>
-                                </s:url>
-                                <s:a href="%{showLink}">#<s:property value="#challenge.Tag"/> - <s:property
-                                        value="#challenge.title"/></s:a>
-                            </li>
-                        </s:iterator>
-                    </ul>
-                </div>
-            </div>
+            <s:action name="challengeListBlock" namespace="/common" executeResult="true"/>
             <div class="sidebaritem">
                 <h1>Group Rules</h1>
 

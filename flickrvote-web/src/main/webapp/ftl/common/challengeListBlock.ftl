@@ -3,9 +3,9 @@
 
     <div class="sbilinks">
         <ul>
-            <@s.iterator id="challenge" value="challengeList">
+            <@s.iterator id="challenge" value="challenges">
             <li>
-                <@s.url id="showLink" action="show">
+                <@s.url id="showLink" namespace="/" action="show">
                 <@s.param name="challengeTag"><@s.property value="#challenge.tag"/></@s.param>
                 </@s.url>
                 <@s.a href="%{showLink}">#<@s.property value="#challenge.Tag"/>

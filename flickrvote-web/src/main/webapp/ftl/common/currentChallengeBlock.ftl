@@ -1,5 +1,5 @@
 <div class="sidebaritem">
-    <h1>Current Challenge</h1>
+    <h1>Challenge Information</h1>
 
     <h2>#<@s.property value="challenge.tag"/></h2>
 
