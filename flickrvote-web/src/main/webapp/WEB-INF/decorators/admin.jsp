@@ -15,33 +15,54 @@
     <decorator:head/>
 </head>
 <body id="page-home">
-<div id="page">
-    <div id="menu">
-        <ul>
-            <li>
-                <s:url action="getPhotographerForm" id="getPhotographerFormUrl"/>
-                <s:a href="%{getPhotographerFormUrl}">Get Photographer</s:a>
-            </li>
-            <li>
-                <s:url action="getImageForm" id="getImageFormUrl"/>
-                <s:a href="%{getImageFormUrl}">Get Image</s:a>
-            </li>
-            <li>
-                <s:url action="challenges" id="challengesUrl"/>
-                <s:a href="%{challengesUrl}">Challenges</s:a>
-            </li>
-            <li>
-                <s:url action="newChallengeForm" id="newChallengeFormUrl"/>
-                <s:a href="%{newChallengeFormUrl}">New Challenge</s:a>
-            </li>
-        </ul>
+<div id="container">
+    <div id="header">
+        <h1>Twitter PhotoChallenge Admin</h1>
+
+        <h2>Slogan</h2><br/>
+        <hr/>
     </div>
-    <div id="content">
-        <div id="main">
-            <h1>Admin</h1>
-            <decorator:body/>
-        </div>
+    <!-- end header -->
+
+    <div id="left">
+        <h3>Admin Menu</h3>
+
+        <p>
+            <s:url action="getPhotographerForm" id="getPhotographerFormUrl"/>
+            <s:a href="%{getPhotographerFormUrl}">Get Photographer</s:a>
+            <br/>
+            <s:url action="getImageForm" id="getImageFormUrl"/>
+            <s:a href="%{getImageFormUrl}">Get Image</s:a>
+            <br/>
+            <s:url action="challenges" id="challengesUrl"/>
+            <s:a href="%{challengesUrl}">Challenges</s:a>
+            <br/>
+            <s:url action="newChallengeForm" id="newChallengeFormUrl"/>
+            <s:a href="%{newChallengeFormUrl}">New Challenge</s:a>
+        </p>
     </div>
+    <!-- end left division -->
+
+    <div id="main">
+        <decorator:body/>
+    </div>
+
+    <div id="footer">
+        <hr/>
+
+        <p class="left">| <a href=
+                "http://jigsaw.w3.org/css-validator/">CSS</a> | <a href=
+                "http://validator.w3.org/check?uri=referer">XHTML 1.1</a>
+            |</p>
+
+        <p class="right">Some rights reserved <a href=
+                "mailto:support@syndicateme.net">syndicateme.net</a> 2007</p>
+
+        <p>&nbsp;</p>
+    </div>
+    <!-- end footer -->
 </div>
+<!-- end container -->
+
 </body>
 </html>
