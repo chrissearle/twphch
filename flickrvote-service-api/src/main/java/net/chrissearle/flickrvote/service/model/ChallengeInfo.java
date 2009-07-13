@@ -85,6 +85,6 @@ public class ChallengeInfo implements Comparable<ChallengeInfo> {
     }
 
     public int compareTo(ChallengeInfo challengeInfo) {
-        return startDate.compareTo(challengeInfo.getStartDate());
+        return challengeInfo.getStartDate().compareTo(getStartDate());
     }
 }
