@@ -3,6 +3,7 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CreateChallengeAction extends ActionSupport {
@@ -11,10 +12,18 @@ public class CreateChallengeAction extends ActionSupport {
     @Autowired
     private ChallengeService challengeService;
 
+    private static final int START_VOTE_TIME = 18;
+    private static final int START_CHALLENGE_TIME = 18;
+    private static final int END_CHALLENGE_TIME = 21;
+
     @Override
     public String execute() throws Exception {
+        DateTime start = new DateTime(challenge.getStartDate()).plusHours(START_CHALLENGE_TIME);
+        DateTime vote = new DateTime(challenge.getVoteDate()).plusHours(START_VOTE_TIME);
+        DateTime end = new DateTime(challenge.getEndDate()).plusHours(END_CHALLENGE_TIME);
+
         challengeService.addChallenge(challenge.getTitle(), challenge.getTag(),
-                challenge.getStartDate(), challenge.getVoteDate(), challenge.getEndDate());
+                start.toDate(), vote.toDate(), end.toDate());
 
         return SUCCESS;
     }
