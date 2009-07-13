@@ -1,6 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
           version="2.0">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
@@ -11,6 +12,7 @@
     <head>
         <title>Twitter Photo Challenge - Administration</title>
         <s:head/>
+        <sx:head/>
     </head>
     <body>
     <h3>Challenge List</h3>
@@ -37,8 +39,6 @@
             </tr>
         </s:iterator>
     </table>
-    <hr/>
-    <s:action name="newChallengeForm" executeResult="true"/>
     </body>
     </html>
 </jsp:root>

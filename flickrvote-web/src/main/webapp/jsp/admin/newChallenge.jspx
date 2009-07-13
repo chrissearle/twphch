@@ -1,6 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
           version="2.0">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
@@ -10,7 +11,7 @@
     <html>
     <head>
         <title>Twitter Photo Challenge - Administration</title>
-        <s:head/>
+        <sx:head/>
     </head>
     <body>
     <h2>New challenge</h2>
@@ -18,9 +19,9 @@
     <s:form action="createChallenge">
         <s:textfield label="Title" name="challenge.title"/>
         <s:textfield label="Tag" name="challenge.tag"/>
-        <s:textfield label="Start Date" name="challenge.startDate"/>
-        <s:textfield label="Vote Start Date" name="challenge.voteDate"/>
-        <s:textfield label="End Date" name="challenge.endDate"/>
+        <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
+        <sx:datetimepicker label="Vote Start Date" name="challenge.voteDate" displayFormat="dd.MM.yyyy"/>
+        <sx:datetimepicker label="End Date" name="challenge.endDate" displayFormat="dd.MM.yyyy"/>
         <s:submit/>
     </s:form>
     </body>
