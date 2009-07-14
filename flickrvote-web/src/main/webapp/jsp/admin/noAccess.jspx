@@ -1,0 +1,20 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge - Administration</title>
+    </head>
+    <body>
+    <h2>No Access</h2>
+
+    <p>Your user is not marked as an administrator - contact the flickr group admins to ask for access if you need it.</p>
+    </body>
+    </html>
+</jsp:root>

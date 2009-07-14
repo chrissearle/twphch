@@ -27,7 +27,7 @@ public class PhotographerInfo {
         return token;
     }
 
-    public Boolean isAdministratorFlag() {
+    public Boolean isAdministrator() {
         return administratorFlag;
     }
 }

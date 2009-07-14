@@ -6,6 +6,22 @@
 
 <struts>
     <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
+        <interceptors>
+            <interceptor name="authenticationInterceptor"
+                         class="net.chrissearle.flickrvote.web.interceptors.AuthenticationInterceptor"/>
+
+            <interceptor-stack name="authenticationStack">
+                <interceptor-ref name="authenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="authenticationStack"/>
+
+        <global-results>
+            <result name="notloggedin">/jsp/admin/notLoggedIn.jspx</result>
+            <result name="notadmin">/jsp/admin/noAccess.jspx</result>
+        </global-results>
 
         <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengesAction">
             <result>/jsp/admin/challenges.jspx</result>
@@ -39,6 +55,5 @@
             <result name="input">/jsp/admin/newChallenge.jspx</result>
             <result name="success" type="redirectAction">challenges</result>
         </action>
-
     </package>
 </struts>
