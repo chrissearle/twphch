@@ -1,0 +1,1 @@
+<@s.property value="#session.flickrUser.name"/>

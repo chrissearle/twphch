@@ -11,7 +11,8 @@
         </global-results>
 
         <action name="flickrLoginLink" class="net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction">
-            <result type="freemarker" name="success">/ftl/common/flickrLoginLink.ftl</result>
+            <result type="freemarker" name="login">/ftl/common/flickrLoginLink.ftl</result>
+            <result type="freemarker" name="success">/ftl/common/flickrUser.ftl</result>
         </action>
 
         <action name="currentChallengeBlock">
