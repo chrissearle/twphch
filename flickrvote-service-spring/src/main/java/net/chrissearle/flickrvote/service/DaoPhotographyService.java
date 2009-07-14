@@ -8,6 +8,7 @@ import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
+import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,7 +65,7 @@ public class DaoPhotographyService implements PhotographyService {
         }
     }
 
-    public void checkLoginAndStore(String frob) {
+    public PhotographerInfo checkLoginAndStore(String frob) {
         FlickrAuth auth = flickrService.authenticate(frob);
 
         // Check to see if present
@@ -82,6 +83,8 @@ public class DaoPhotographyService implements PhotographyService {
         photographer.setToken(auth.getToken());
 
         dao.save(photographer);
+
+        return new PhotographerInfo(photographer);
     }
 
     public List<FlickrImage> searchImagesByTag(String tag) {

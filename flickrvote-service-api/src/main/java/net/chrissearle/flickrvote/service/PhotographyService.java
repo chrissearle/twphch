@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
 import java.util.List;
@@ -14,7 +15,7 @@ public interface PhotographyService {
 
     void retrieveAndStorePhotographer(String id);
 
-    public void checkLoginAndStore(String frob);
+    public PhotographerInfo checkLoginAndStore(String frob);
 
     List<FlickrImage> searchImagesByTag(String tag);
 
