@@ -46,7 +46,7 @@ INSERT INTO photographer (flickr_id, administrator, fullname, token, username) V
 
 TRUNCATE image;
 
-INSERT INTO image (flickr_id, medium_image, page, title, photographer_id, challenge_tag, final_vote_count) VALUES
+INSERT INTO image (flickr_id, medium_image, page, title, photographer_flickr_id, challenge_tag, final_vote_count) VALUES
 ('3494281144','http://farm4.static.flickr.com/3652/3494281144_6f0ba74060.jpg','http://www.flickr.com/photos/oddne/3494281144/','5D_IMG_5566','65685797@N00','TwPhCh001',5),
 ('3526461577','http://farm3.static.flickr.com/2105/3526461577_c62d30fd45.jpg','http://www.flickr.com/photos/per_sistens/3526461577/','Glass & stripes','45601016@N00','TwPhCh001',1),
 ('3527551293','http://farm3.static.flickr.com/2359/3527551293_83cbfda16e.jpg','http://www.flickr.com/photos/mortenprom/3527551293/','Directions','9168553@N05','TwPhCh001',14),
