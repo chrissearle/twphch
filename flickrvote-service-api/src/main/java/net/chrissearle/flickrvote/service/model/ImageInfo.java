@@ -11,6 +11,8 @@ public class ImageInfo {
     private Long finalVoteCount;
     private Long rank;
 
+    public ImageInfo() {}
+    
     public ImageInfo(Image image) {
         this.setId(image.getId());
         this.setTitle(image.getTitle());
