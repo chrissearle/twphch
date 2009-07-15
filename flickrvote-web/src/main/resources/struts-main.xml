@@ -18,5 +18,8 @@
         <action name="test" class="net.chrissearle.flickrvote.web.TestAction">
             <result>/jsp/test.jspx</result>
         </action>
+        <action name="logout" class="net.chrissearle.flickrvote.web.LogoutAction">
+            <result type="redirectAction">current</result>
+        </action>
     </package>
 </struts>
