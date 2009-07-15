@@ -8,7 +8,7 @@
                 <@s.url id="showLink" namespace="/" action="show">
                 <@s.param name="challengeTag"><@s.property value="#challenge.tag"/></@s.param>
                 </@s.url>
-                <@s.a href="%{showLink}">#<@s.property value="#challenge.Tag"/>
+                <@s.a href="%{showLink}">#<@s.property value="#challenge.tag"/>
                 -
                 <@s.property value="#challenge.title"/></@s.a>
             </li>
