@@ -37,7 +37,6 @@ public class PrepareScoreForm extends ActionSupport {
             images = challengeService.getImagesForChallenge(tag);
         }
 
-
         return SUCCESS;
     }
 

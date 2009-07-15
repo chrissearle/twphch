@@ -14,4 +14,22 @@
         <br/>
         End: <@s.date name="challenge.endDate" format="dd.MM.yyyy"/>
     </p>
+
+    <@s.if test="challenge.closed">
+
+    <h2>Results</h2>
+
+    <@s.url id="chart" namespace="/chart" action="showChart">
+    <@s.param name="tag" value="challenge.tag"/>
+    </@s.url>
+    <@s.url id="chartFull" namespace="/" action="showChart">
+    <@s.param name="tag" value="challenge.tag"/>
+    </@s.url>
+    <p>
+        <img src="<@s.property value="chart"/>" alt="chart" width="140px"/>
+        <br/>
+        <@s.a href="%{chartFull}">View full size</@s.a>
+    </p>
+
+    </@s.if>
 </div>

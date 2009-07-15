@@ -37,12 +37,6 @@
 
         <h2>&quot;Follow me on twitter - http://twitter.com/Twphch&quot;</h2></div>
 
-    <div id="menu">
-        <ul>
-            <li><a id="selected" href="main.jsp#">Images</a></li>
-            <li><a href="main.jsp#">Results</a></li>
-        </ul>
-    </div>
     <div id="content">
         <div id="column1">
             <s:action name="votingChallengeBlock" namespace="/common" executeResult="true"/>

@@ -7,8 +7,6 @@ import net.chrissearle.flickrvote.service.model.ImageInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class ShowChallengeAction {
@@ -36,31 +34,9 @@ public class ShowChallengeAction {
 
         if (challenge != null) {
             images = challengeService.getImagesForChallenge(getChallengeTag());
-
-            doRanking();
         }
 
         return ActionSupport.SUCCESS;
-    }
-
-    private void doRanking() {
-        long rank = 0;
-        long lastSeenValue = Long.MAX_VALUE;
-
-        Collections.sort(images, new Comparator<ImageInfo>() {
-
-            public int compare(ImageInfo o1, ImageInfo o2) {
-                return o1.getFinalVoteCount().compareTo(o2.getFinalVoteCount());
-            }
-        });
-
-        for (ImageInfo image : images) {
-            if (image.getFinalVoteCount() < lastSeenValue) {
-                lastSeenValue = image.getFinalVoteCount();
-                rank++;
-            }
-            image.setRank(rank);
-        }
     }
 
     public void setChallengeTag(String challengeTag) {
