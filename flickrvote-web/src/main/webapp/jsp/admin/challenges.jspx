@@ -27,8 +27,8 @@
         <s:iterator id="challenge" value="challenges">
             <tr>
                 <td>
-                    <s:url id="showLink">
-                        <s:param name="challengeTag"><s:property value="#challenge.tag"/></s:param>
+                    <s:url id="showLink" action="scoreForm">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
                     <s:a href="%{showLink}"><s:property value="#challenge.tag"/></s:a>
                 </td>

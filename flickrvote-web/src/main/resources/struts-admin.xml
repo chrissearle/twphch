@@ -31,7 +31,7 @@
             <result>/jsp/admin/getPhotographer.jspx</result>
         </action>
 
-        <action name="getImageForm">
+        <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.PrepareImageFormAction">
             <result>/jsp/admin/getImage.jspx</result>
         </action>
 
@@ -53,6 +53,15 @@
 
         <action name="createChallenge" class="net.chrissearle.flickrvote.web.admin.CreateChallengeAction">
             <result name="input">/jsp/admin/newChallenge.jspx</result>
+            <result name="success" type="redirectAction">challenges</result>
+        </action>
+
+        <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.PrepareScoreForm">
+            <result>/jsp/admin/scoreForm.jspx</result>
+        </action>
+
+        <action name="score" class="net.chrissearle.flickrvote.web.admin.ScoreAction">
+            <result name="input">/jsp/admin/scoreForm.jspx</result>
             <result name="success" type="redirectAction">challenges</result>
         </action>
     </package>

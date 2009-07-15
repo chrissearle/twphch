@@ -87,4 +87,10 @@ public class ChallengeInfo implements Comparable<ChallengeInfo> {
     public int compareTo(ChallengeInfo challengeInfo) {
         return challengeInfo.getStartDate().compareTo(getStartDate());
     }
+
+    public Boolean isClosed() {
+        Date now = new Date();
+
+        return now.getTime() > endDate.getTime();
+    }
 }

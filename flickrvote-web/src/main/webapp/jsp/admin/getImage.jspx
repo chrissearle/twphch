@@ -15,6 +15,16 @@
     <body>
     <h2>Get Image</h2>
     <s:form action="getImage">
+        <s:select label="Challenge" list="challenges" listKey="tag" listValue="tag" name="tag"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
+        <s:textfield label="Flickr ID" name="id"/>
         <s:textfield label="Flickr ID" name="id"/>
         <s:submit/>
     </s:form>

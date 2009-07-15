@@ -130,4 +130,14 @@ public class DaoPhotographyService implements PhotographyService {
             challengeDao.save(challenge);
         }
     }
+
+    public void setScore(String imageId, Long score) {
+        Image image = dao.findImageByFlickrId(imageId);
+
+        if (image != null) {
+            image.setFinalVoteCount(score);
+        }
+
+        dao.save(image);
+    }
 }

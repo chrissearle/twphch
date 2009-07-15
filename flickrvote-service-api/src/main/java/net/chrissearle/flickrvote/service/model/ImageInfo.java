@@ -3,6 +3,7 @@ package net.chrissearle.flickrvote.service.model;
 import net.chrissearle.flickrvote.model.Image;
 
 public class ImageInfo {
+    private String id;
     private String title;
     private String imageHomePage;
     private String imagePictureLink;
@@ -10,20 +11,20 @@ public class ImageInfo {
     private Long finalVoteCount;
     private Long rank;
 
-    public ImageInfo(String title, String imageHomePage, String imagePictureLink, String photographerName, Long finalVoteCount) {
-        this.setTitle(title);
-        this.setImageHomePage(imageHomePage);
-        this.setImagePictureLink(imagePictureLink);
-        this.setPhotographerName(photographerName);
-        this.setFinalVoteCount(finalVoteCount);
-        this.rank = 0L;
-    }
-
     public ImageInfo(Image image) {
+        this.setId(image.getId());
         this.setTitle(image.getTitle());
         this.setImageHomePage(image.getPage());
         this.setImagePictureLink(image.getMediumImage());
-        this.setPhotographerName(image.getPhotographer().getFullname());
+
+        String name = image.getPhotographer().getFullname();
+
+        if (name == null || "".equals(name)) {
+            name = image.getPhotographer().getUsername();
+        }
+
+        this.setPhotographerName(name);
+
         this.setFinalVoteCount(image.getFinalVoteCount());
         this.rank = 0L;
     }
@@ -74,5 +75,13 @@ public class ImageInfo {
 
     public void setRank(Long rank) {
         this.rank = rank;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

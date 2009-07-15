@@ -22,4 +22,6 @@ public interface PhotographyService {
     URL getLoginUrl();
 
     void retrieveAndStoreImage(String id, String tag);
+
+    void setScore(String imageId, Long score);
 }

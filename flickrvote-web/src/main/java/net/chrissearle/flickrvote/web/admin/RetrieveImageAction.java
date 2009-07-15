@@ -1,36 +1,61 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
+import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class RetrieveImageAction extends ActionSupport {
+    Logger logger = Logger.getLogger(RetrieveImageAction.class);
 
     @Autowired
-    private PhotographyService service;
+    private PhotographyService photographyService;
 
-    private String id;
+    @Autowired
+    private ChallengeService challengeService;
+
+    private List<String> id;
 
     private String tag;
 
     public String execute() {
-        service.retrieveAndStoreImage(id, tag);
+        for (String imageId : id) {
+            if (!"".equals(imageId)) {
+                photographyService.retrieveAndStoreImage(imageId, tag);
+            }
+        }
 
         return SUCCESS;
     }
 
     @Override
     public void validate() {
-        if (getId().length() == 0) {
+        boolean seenId = false;
+
+        for (String imageId : id) {
+            if (!"".equals(imageId)) {
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Seen an ID " + imageId);
+                }
+
+                seenId = true;
+            }
+        }
+
+        if (!seenId) {
             addFieldError("id", "Flickr ID must be provided");
         }
+
     }
 
-    public String getId() {
+    public List<String> getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(List<String> id) {
         this.id = id;
     }
 

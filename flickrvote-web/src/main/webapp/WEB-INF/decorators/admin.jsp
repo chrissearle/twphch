@@ -19,7 +19,7 @@
     <div id="header">
         <h1>Twitter PhotoChallenge Admin</h1>
 
-        <h2>Slogan</h2><br/>
+        <h2><s:url namespace="/" value="current" id="mainLink"/><s:a href="%{mainLink}">Main Pages</s:a></h2><br/>
         <hr/>
     </div>
     <!-- end header -->

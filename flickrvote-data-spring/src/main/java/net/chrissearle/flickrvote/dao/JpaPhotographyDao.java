@@ -98,4 +98,8 @@ public class JpaPhotographyDao implements PhotographyDao {
             return null;
         }
     }
+
+    public void save(Image image) {
+        em.persist(image);
+    }
 }
