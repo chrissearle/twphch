@@ -2,21 +2,23 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              version="1.0">
     <persistence-unit name="FlickrVote-Model-Test" transaction-type="RESOURCE_LOCAL">
-        <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>net.chrissearle.flickrvote.model.Challenge</class>
         <class>net.chrissearle.flickrvote.model.Image</class>
         <class>net.chrissearle.flickrvote.model.Photographer</class>
         <class>net.chrissearle.flickrvote.model.Vote</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
         <properties>
-            <property name="toplink.jdbc.url" value="jdbc:hsqldb:mem:testdb"/>
-            <property name="toplink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
-            <property name="toplink.jdbc.user" value="sa"/>
-            <property name="toplink.jdbc.password" value=""/>
-            <property name="toplink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="toplink.ddl-generation.output-mode" value="database"/>
-            <property name="toplink.target-database" value="HSQL"/>
-            <property name="toplink.logging.level.sql" value="FINE"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/flickrvotetest"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="flickrvote"/>
+            <property name="hibernate.connection.password" value="flickrvote"/>
         </properties>
     </persistence-unit>
 </persistence>
