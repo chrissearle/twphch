@@ -8,8 +8,10 @@ import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer3D;
+import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.GradientPaintTransformType;
+import org.jfree.ui.StandardGradientPaintTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class JFreeChartChartService implements ChartService {
             dataset.setValue(image.getFinalVoteCount(), "Score", image.getPhotographerName());
         }
 
-        JFreeChart chart = ChartFactory.createBarChart3D(
+        JFreeChart chart = ChartFactory.createBarChart(
                 challenge.getTag(),
                 "Photographer",
                 "Score",
@@ -51,15 +53,33 @@ public class JFreeChartChartService implements ChartService {
         CategoryAxis domainAxis = plot.getDomainAxis();
         domainAxis.setCategoryLabelPositions(CategoryLabelPositions.createDownRotationLabelPositions(Math.PI / 6.0));
 
+        final Color background = new Color(65, 65, 65);
+        final Color foreground = new Color(213, 210, 214);
+        final Color orange = new Color(255, 156, 39);
+
+
         GradientPaint gp = new GradientPaint(
-                0.0f, 0.0f, Color.RED,
-                0.0f, 0.0f, Color.ORANGE
+                0.0f, 0.0f, background,
+                0.0f, 0.0f, orange
         );
 
-        BarRenderer3D renderer = (BarRenderer3D) plot.getRenderer();
+        BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setSeriesPaint(0, gp);
+        renderer.setDrawBarOutline(false);
+        renderer.setBaseSeriesVisibleInLegend(false);
+        renderer.setGradientPaintTransformer(new StandardGradientPaintTransformer(GradientPaintTransformType.HORIZONTAL));
+        
+        domainAxis.setLabelPaint(foreground);
+        domainAxis.setTickLabelPaint(foreground);
+        plot.getRangeAxis().setLabelPaint(foreground);
+        plot.getRangeAxis().setTickLabelPaint(foreground);
 
-        chart.setBackgroundPaint(java.awt.Color.white);
+        chart.setBackgroundPaint(background);
+        chart.getTitle().setPaint(foreground);
+        plot.setBackgroundPaint(background);
+        plot.setDomainGridlinePaint(foreground);
+        plot.setRangeGridlinePaint(foreground);
+
 
         return chart;
     }
