@@ -8,6 +8,7 @@ import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,8 @@ import java.util.*;
 @Service
 @Transactional
 public class DaoChallengeService implements ChallengeService {
-    
+    private Logger logger = Logger.getLogger(DaoChallengeService.class);
+
     private final ChallengeDao challengeDao;
     private final PhotographyDao photographyDao;
 
@@ -124,9 +126,19 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public boolean hasVoted(String photographerId) {
+        if (logger.isDebugEnabled()) {
+            logger.debug("hasVoted for: " + photographerId);
+        }
         Photographer photographer = photographyDao.findPhotographerByFlickrId(photographerId);
 
+        if (logger.isDebugEnabled()) {
+            logger.debug("hasVoted for: " + photographer);
+        }
+
         if (photographer.getVotes().size() > 0) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("hasVoted found: " + photographer.getVotes().size() + " for: " + photographer);
+            }
             return true;
         }
 
