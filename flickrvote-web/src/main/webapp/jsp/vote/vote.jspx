@@ -15,6 +15,7 @@
     <body>
     <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
 
+    <s:actionerror/>
     <s:form action="vote">
     <s:component name="votes" template="imageselect.ftl">
         <s:param name="images" value="images"/>

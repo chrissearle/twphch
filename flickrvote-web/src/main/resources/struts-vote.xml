@@ -22,12 +22,12 @@
             <result name="notloggedin" type="redirectAction">showVoteResult</result>
         </global-results>
 
-        <action name="voteForm" class="net.chrissearle.flickrvote.web.vote.ShowVoteFormAction">
-            <result name="success">/jsp/vote/vote.jspx</result>
+        <action name="voteForm" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="input">
+            <result name="input">/jsp/vote/vote.jspx</result>
             <result name="alreadyVoted" type="redirectAction">showVoteResult</result>
         </action>
         <action name="vote" class="net.chrissearle.flickrvote.web.vote.VoteAction">
-            <result name="success">/jsp/vote/thanks.jspx</result>
+            <result name="success" type="chain">showVoteResult</result>
             <result name="input">/jsp/vote/vote.jspx</result>
         </action>
         <action name="showVoteResult" class="net.chrissearle.flickrvote.web.vote.ShowVoteResultAction">

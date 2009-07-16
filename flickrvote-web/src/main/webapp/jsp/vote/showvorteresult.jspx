@@ -17,6 +17,8 @@
 
     <h2>Current Results</h2>
 
+    <s:actionmessage/>
+
     <s:url id="chart" namespace="/chart" action="showVotingChart"/>
 
     <p>
