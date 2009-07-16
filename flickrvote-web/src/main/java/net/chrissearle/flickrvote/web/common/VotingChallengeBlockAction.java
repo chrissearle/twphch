@@ -3,16 +3,24 @@ package net.chrissearle.flickrvote.web.common;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import org.apache.log4j.Logger;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class VotingChallengeBlockAction extends ActionSupport {
+import java.util.Map;
+
+public class VotingChallengeBlockAction extends ActionSupport implements SessionAware {
     Logger logger = Logger.getLogger(VotingChallengeBlockAction.class);
 
     @Autowired
     private ChallengeService challengeService;
 
     private ChallengeInfo challenge;
+
+    private Map<String, Object> session;
+
+    private Boolean voted;
 
     public ChallengeInfo getChallenge() {
         return challenge;
@@ -30,6 +38,24 @@ public class VotingChallengeBlockAction extends ActionSupport {
             return "empty";
         }
 
+        if (session.containsKey("flickrUser")) {
+            PhotographerInfo photographer = (PhotographerInfo) session.get("flickrUser");
+
+            voted = challengeService.hasVoted(photographer.getId());
+
+            if (logger.isDebugEnabled()) {
+                logger.debug("Setting voted to " + voted);
+            }
+        }
+
         return SUCCESS;
+    }
+
+    public void setSession(Map<String, Object> stringObjectMap) {
+        this.session = stringObjectMap;
+    }
+
+    public Boolean isVoted() {
+        return voted;
     }
 }

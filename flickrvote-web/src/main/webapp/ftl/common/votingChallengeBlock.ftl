@@ -9,8 +9,14 @@
 
     <@s.if test="#session.flickrUser">
     <p>
+        <@s.if test="voted == false">
         <@s.url id="votingLink" namespace="/vote" action="voteForm"/>
         <@s.a href="%{votingLink}">Vote Here</@s.a>
+        </@s.if>
+        <@s.else>
+        <@s.url id="votingResults" namespace="/vote" action="showVoteResult"/>
+        <@s.a href="%{votingResults}">Current Results</@s.a>
+        </@s.else>
     </p>
     </@s.if>
     <@s.else>
