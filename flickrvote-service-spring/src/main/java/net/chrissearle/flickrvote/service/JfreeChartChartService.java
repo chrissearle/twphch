@@ -44,7 +44,7 @@ public class JFreeChartChartService implements ChartService {
                 "Score",
                 dataset,
                 PlotOrientation.HORIZONTAL,
-                true,
+                false,
                 true,
                 false
         );
@@ -66,7 +66,6 @@ public class JFreeChartChartService implements ChartService {
         BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setSeriesPaint(0, gp);
         renderer.setDrawBarOutline(false);
-        renderer.setBaseSeriesVisibleInLegend(false);
         renderer.setGradientPaintTransformer(new StandardGradientPaintTransformer(GradientPaintTransformType.HORIZONTAL));
         
         domainAxis.setLabelPaint(foreground);
