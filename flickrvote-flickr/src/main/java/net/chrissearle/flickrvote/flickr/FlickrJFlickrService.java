@@ -18,7 +18,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
@@ -97,8 +99,13 @@ public class FlickrJFlickrService implements FlickrService {
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
+            Set<String> seenPhotographers = new HashSet<String>();
+
             for (Photo photo : photos) {
-                results.add(convertPhotoToFlickrImage(photo));
+                if (!seenPhotographers.contains(photo.getOwner().getId())) {
+                    results.add(convertPhotoToFlickrImage(photo));
+                    seenPhotographers.add(photo.getOwner().getId());
+                }
             }
 
             return results;
