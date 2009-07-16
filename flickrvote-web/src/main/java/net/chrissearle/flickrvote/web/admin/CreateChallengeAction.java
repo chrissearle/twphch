@@ -23,7 +23,7 @@ public class CreateChallengeAction extends ActionSupport {
         DateTime end = new DateTime(challenge.getEndDate()).plusHours(END_CHALLENGE_TIME);
 
         challengeService.addChallenge(challenge.getTitle(), challenge.getTag(),
-                start.toDate(), vote.toDate(), end.toDate());
+                start.toDate(), end.toDate(), vote.toDate());
 
         return SUCCESS;
     }
