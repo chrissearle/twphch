@@ -5,10 +5,7 @@ import net.chrissearle.flickrvote.service.ChartService;
 import org.jfree.chart.JFreeChart;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ShowChartAction extends ActionSupport {
-
-    private String tag;
-
+public class ShowVotingChartAction extends ActionSupport {
     private JFreeChart chart;
 
     @Autowired
@@ -16,7 +13,7 @@ public class ShowChartAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        chart = chartService.getChartForChallenge(tag);
+        chart = chartService.getVotingChart();
 
         return SUCCESS;
     }
@@ -26,7 +23,4 @@ public class ShowChartAction extends ActionSupport {
         return chart;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
 }

@@ -1,6 +1,8 @@
 package net.chrissearle.flickrvote.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "image")
@@ -27,6 +29,21 @@ public class Image {
 
     @Column(name = "final_vote_count", nullable = false)
     private Long finalVoteCount = 0L;
+
+    @OneToMany(mappedBy = "image", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private
+    List<Vote> votes = new ArrayList<Vote>();
+
+    @Version
+    private Long version;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     @Override
     public String toString() {
@@ -104,13 +121,19 @@ public class Image {
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (challenge != null ? challenge.hashCode() : 0);
-        result = 31 * result + (photographer != null ? photographer.hashCode() : 0);
-        result = 31 * result + (id != null ? id.hashCode() : 0);
-        result = 31 * result + (page != null ? page.hashCode() : 0);
-        result = 31 * result + (mediumImage != null ? mediumImage.hashCode() : 0);
-        result = 31 * result + (finalVoteCount != null ? finalVoteCount.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+
+    public void addVote(Vote vote) {
+        votes.add(vote);
+        vote.setImage(this);
     }
 }

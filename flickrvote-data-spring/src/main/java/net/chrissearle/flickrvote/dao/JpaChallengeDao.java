@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Challenge;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Repository
 public class JpaChallengeDao implements ChallengeDao {
+    private Logger logger = Logger.getLogger(JpaChallengeDao.class);
 
     @PersistenceContext(unitName = "FlickrVote")
     private EntityManager em;
@@ -71,6 +73,10 @@ public class JpaChallengeDao implements ChallengeDao {
         query.setParameter("now", new Date());
 
         List<Challenge> challenges = query.getResultList();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("Voting challenges: " + challenges);
+        }
 
         if (challenges.size() > 0) {
             return challenges.iterator().next();

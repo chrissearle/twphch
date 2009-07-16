@@ -54,4 +54,11 @@ public class TestChartChallengeService implements ChallengeService {
 
         return challenge;
     }
+
+    public boolean hasVoted(String photographerId) {
+        return false;
+    }
+
+    public void vote(String photographerId, String imageId) {
+    }
 }

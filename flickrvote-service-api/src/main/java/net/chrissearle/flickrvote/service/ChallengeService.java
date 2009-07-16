@@ -20,4 +20,8 @@ public interface ChallengeService {
     ChallengeInfo getVotingChallenge();
 
     ChallengeInfo getChallenge(String challengeTag);
+
+    boolean hasVoted(String photographerId);
+
+    void vote(String photographerId, String imageId);
 }

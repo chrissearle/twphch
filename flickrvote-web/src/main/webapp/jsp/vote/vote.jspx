@@ -1,0 +1,27 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge</title>
+        <s:head/>
+    </head>
+    <body>
+    <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
+
+    <s:form action="vote">
+    <s:component name="votes" template="imageselect.ftl">
+        <s:param name="images" value="images"/>
+    </s:component>
+    <s:submit/>
+    </s:form>
+
+    </body>
+    </html>
+</jsp:root>

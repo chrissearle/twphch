@@ -11,6 +11,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
+import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.GradientPaintTransformType;
 import org.jfree.ui.StandardGradientPaintTransformer;
@@ -46,8 +47,12 @@ public class JFreeChartChartService implements ChartService {
             dataset.setValue(image.getFinalVoteCount(), "Score", image.getPhotographerName());
         }
 
+        return generateChart(challenge.getTag(), challenge.getTitle(), dataset);
+    }
+
+    private JFreeChart generateChart(String tag, String subtitle, CategoryDataset dataset) {
         JFreeChart chart = ChartFactory.createBarChart(
-                challenge.getTag(),
+                tag,
                 "Photographer",
                 "Score",
                 dataset,
@@ -58,7 +63,7 @@ public class JFreeChartChartService implements ChartService {
         );
 
         List<Title> subtitles = new ArrayList<Title>(1);
-        TextTitle title = new TextTitle(challenge.getTitle());
+        TextTitle title = new TextTitle(subtitle);
         title.setPaint(foreground);
         subtitles.add(title);
 
@@ -67,7 +72,6 @@ public class JFreeChartChartService implements ChartService {
         CategoryPlot plot = chart.getCategoryPlot();
         CategoryAxis domainAxis = plot.getDomainAxis();
         domainAxis.setCategoryLabelPositions(CategoryLabelPositions.createDownRotationLabelPositions(Math.PI / 6.0));
-
 
 
         GradientPaint gp = new GradientPaint(
@@ -79,7 +83,7 @@ public class JFreeChartChartService implements ChartService {
         renderer.setSeriesPaint(0, gp);
         renderer.setDrawBarOutline(false);
         renderer.setGradientPaintTransformer(new StandardGradientPaintTransformer(GradientPaintTransformType.HORIZONTAL));
-        
+
         domainAxis.setLabelPaint(foreground);
         domainAxis.setTickLabelPaint(foreground);
         plot.getRangeAxis().setLabelPaint(foreground);
@@ -93,5 +97,19 @@ public class JFreeChartChartService implements ChartService {
 
 
         return chart;
+    }
+
+    public JFreeChart getVotingChart() {
+        ChallengeInfo challenge = challengeService.getVotingChallenge();
+
+        List<ImageInfo> images = challengeService.getImagesForChallenge(challenge.getTag());
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        for (ImageInfo image : images) {
+            dataset.setValue(image.getVoteCount(), "Score", image.getPhotographerName());
+        }
+
+        return generateChart(challenge.getTag(), challenge.getTitle(), dataset);
     }
 }

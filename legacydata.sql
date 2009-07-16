@@ -13,6 +13,8 @@ INSERT INTO challenge (tag, description, start_date, voting_open_date, end_date)
 ("TwPhCh010", "Silhuett", "2009-07-10 18:00", "2009-07-17 18:00", "2009-07-19 21:00"),
 ("TwPhCh011", "Ukjent enda", "2009-07-17 18:00", "2009-07-24 18:00", "2009-07-26 21:00");
 
+UPDATE challenge SET version = 0;
+
 TRUNCATE photographer;
 
 
@@ -104,6 +106,8 @@ INSERT INTO photographer (flickr_id, administrator, fullname, token, username) V
 ('95997259@N00', '\0', 'Ben Kulleseid', NULL, 'benrune'),
 ('9933345@N05', '\0', NULL, NULL, 'iacob'),
 ('99753969@N00', '\0', 'Michael Nielsen', NULL, 'Ruprect.DK');
+
+UPDATE photographer SET version = 0;
 
 TRUNCATE image;
 
@@ -365,3 +369,5 @@ INSERT INTO image (flickr_id, medium_image, page, title, photographer_flickr_id,
 ('3707203966', 'http://farm3.static.flickr.com/2542/3707203966_a0daa4a4a3.jpg', 'http://www.flickr.com/photos/paljoakim/3707203966/', 'Kissing in Lisbon', '10020498@N08', 'TwPhCh009', 7),
 ('3707253496', 'http://farm3.static.flickr.com/2446/3707253496_be574594ce.jpg', 'http://www.flickr.com/photos/h0bbel/3707253496/', 'Holiday Food (#190/365)', '65685448@N00', 'TwPhCh009', 7),
 ('384595718', 'http://farm1.static.flickr.com/182/384595718_751f9cddb7.jpg', 'http://www.flickr.com/photos/ruprect/384595718/', 'Leverpostej?', '99753969@N00', 'TwPhCh002', 0);
+
+UPDATE image SET version = 0;

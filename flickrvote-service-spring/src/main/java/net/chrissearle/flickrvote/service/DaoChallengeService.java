@@ -1,8 +1,11 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.ChallengeDao;
+import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
+import net.chrissearle.flickrvote.model.Photographer;
+import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +18,18 @@ import java.util.*;
 @Transactional
 public class DaoChallengeService implements ChallengeService {
     
-    private final ChallengeDao dao;
+    private final ChallengeDao challengeDao;
+    private final PhotographyDao photographyDao;
+
 
     @Autowired
-    public DaoChallengeService(ChallengeDao dao) {
-        this.dao = dao;
+    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao) {
+        this.challengeDao = challengeDao;
+        this.photographyDao = photographyDao;
     }
 
     public List<ChallengeInfo> getChallenges() {
-        List<Challenge> allChallenges = dao.getAll();
+        List<Challenge> allChallenges = challengeDao.getAll();
 
         List<ChallengeInfo> results = new ArrayList<ChallengeInfo>(allChallenges.size());
 
@@ -35,7 +41,7 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public List<ImageInfo> getImagesForChallenge(String challengeName) {
-        Challenge challenge = dao.findByTag(challengeName);
+        Challenge challenge = challengeDao.findByTag(challengeName);
 
         List<ImageInfo> results = new ArrayList<ImageInfo>(challenge.getImages().size());
 
@@ -72,11 +78,11 @@ public class DaoChallengeService implements ChallengeService {
     public void addChallenge(String title, String tag, Date startDate, Date endDate, Date voteDate) {
         Challenge challenge = new Challenge(tag, title, startDate, voteDate, endDate);
 
-        dao.save(challenge);
+        challengeDao.save(challenge);
     }
 
     public List<ChallengeInfo> getClosedChallenges() {
-        List<Challenge> challenges = dao.getClosedChallenges();
+        List<Challenge> challenges = challengeDao.getClosedChallenges();
 
         List<ChallengeInfo> results = new ArrayList<ChallengeInfo>(challenges.size());
 
@@ -88,7 +94,7 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public ChallengeInfo getCurrentChallenge() {
-        Challenge challenge = dao.getCurrentChallenge();
+        Challenge challenge = challengeDao.getCurrentChallenge();
 
         if (challenge != null) {
             return new ChallengeInfo(challenge);
@@ -98,7 +104,7 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public ChallengeInfo getVotingChallenge() {
-        Challenge challenge = dao.getVotingChallenge();
+        Challenge challenge = challengeDao.getVotingChallenge();
 
         if (challenge != null) {
             return new ChallengeInfo(challenge);
@@ -108,12 +114,38 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public ChallengeInfo getChallenge(String challengeTag) {
-        Challenge challenge = dao.findByTag(challengeTag);
+        Challenge challenge = challengeDao.findByTag(challengeTag);
 
         if (challenge != null) {
             return new ChallengeInfo(challenge);
         }
 
         return null;
+    }
+
+    public boolean hasVoted(String photographerId) {
+        Photographer photographer = photographyDao.findPhotographerByFlickrId(photographerId);
+
+        if (photographer.getVotes().size() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void vote(String photographerId, String imageId) {
+        Photographer photographer = photographyDao.findPhotographerByFlickrId(photographerId);
+
+        Image image = photographyDao.findImageByFlickrId(imageId);
+
+
+        if (photographer != null && image != null) {
+            Vote vote = new Vote();
+            photographer.addVote(vote);
+            image.addVote(vote);
+
+            photographyDao.save(photographer);
+            photographyDao.save(image);
+        }
     }
 }

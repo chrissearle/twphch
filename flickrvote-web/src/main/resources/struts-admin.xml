@@ -8,7 +8,7 @@
     <package name="flickrVoteAdmin" extends="struts-default" namespace="/admin">
         <interceptors>
             <interceptor name="authenticationInterceptor"
-                         class="net.chrissearle.flickrvote.web.interceptors.AuthenticationInterceptor"/>
+                         class="net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor"/>
 
             <interceptor-stack name="authenticationStack">
                 <interceptor-ref name="authenticationInterceptor"/>

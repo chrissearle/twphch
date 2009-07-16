@@ -31,6 +31,17 @@ public class Challenge implements Comparable<Challenge> {
     @OneToMany(mappedBy = "challenge", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Image> images = new ArrayList<Image>();
 
+    @Version
+    private Long version;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+    
     public Challenge(String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
         this.setTag(tag);
         this.setName(name);

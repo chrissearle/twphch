@@ -10,6 +10,7 @@ public class ImageInfo {
     private String photographerName;
     private Long finalVoteCount;
     private Long rank;
+    private Long voteCount = 0L;
 
     public ImageInfo() {}
     
@@ -29,6 +30,9 @@ public class ImageInfo {
 
         this.setFinalVoteCount(image.getFinalVoteCount());
         this.rank = 0L;
+        if (image.getVotes() != null) {
+            this.voteCount = (long) image.getVotes().size();
+        }
     }
 
     public String getTitle() {
@@ -85,5 +89,9 @@ public class ImageInfo {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Long getVoteCount() {
+        return voteCount;
     }
 }

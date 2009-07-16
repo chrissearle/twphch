@@ -27,6 +27,20 @@ public class Photographer {
     @OneToMany(mappedBy = "photographer", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Image> images = new ArrayList<Image>();
 
+    @OneToMany(mappedBy = "photographer", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Vote> votes = new ArrayList<Vote>();
+
+    @Version
+    private Long version;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+    
     public Photographer(String token, String username, String fullname, String id) {
         this.setToken(token);
         this.setUsername(username);
@@ -88,6 +102,12 @@ public class Photographer {
         }
     }
 
+    public void addVote(Vote vote) {
+        votes.add(vote);
+        vote.setPhotographer(this);
+    }
+
+
     @Override
     public String toString() {
         return new StringBuilder().append(", USERNAME: ").append(getUsername())
@@ -102,5 +122,13 @@ public class Photographer {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
     }
 }
