@@ -9,6 +9,8 @@ import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.chart.title.Title;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.GradientPaintTransformType;
 import org.jfree.ui.StandardGradientPaintTransformer;
@@ -16,10 +18,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class JFreeChartChartService implements ChartService {
+    public static final Color background = new Color(65, 65, 65);
+    public static final Color foreground = new Color(213, 210, 214);
+    public static final Color orange = new Color(255, 156, 39);
+
+
     private ChallengeService challengeService;
 
     @Autowired
@@ -49,13 +57,17 @@ public class JFreeChartChartService implements ChartService {
                 false
         );
 
+        List<Title> subtitles = new ArrayList<Title>(1);
+        TextTitle title = new TextTitle(challenge.getTitle());
+        title.setPaint(foreground);
+        subtitles.add(title);
+
+        chart.setSubtitles(subtitles);
+
         CategoryPlot plot = chart.getCategoryPlot();
         CategoryAxis domainAxis = plot.getDomainAxis();
         domainAxis.setCategoryLabelPositions(CategoryLabelPositions.createDownRotationLabelPositions(Math.PI / 6.0));
 
-        final Color background = new Color(65, 65, 65);
-        final Color foreground = new Color(213, 210, 214);
-        final Color orange = new Color(255, 156, 39);
 
 
         GradientPaint gp = new GradientPaint(
