@@ -6,7 +6,7 @@ import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.util.Map;
 
-public class AuthenticationInterceptor implements Interceptor {
+public class AuthenticationAuthInterceptor implements Interceptor {
     public void destroy() {
     }
 
@@ -20,10 +20,6 @@ public class AuthenticationInterceptor implements Interceptor {
 
         if (photographer == null) {
             return "notloggedin";
-        }
-
-        if (!photographer.isAdministrator()) {
-            return "notadmin";
         }
 
         return actionInvocation.invoke();
