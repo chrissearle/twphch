@@ -52,7 +52,10 @@
                     <ul>
                         <s:url action="rules" id="rulesLink"/>
                         <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
-                        <li><a href="main.jsp#">Link to how to enter a challenge</a></li>
+                        <s:url action="instructions" id="instructionsLink"/>
+                        <li><s:a href="%{instructionsLink}"><s:text name="instructions.title"/></s:a></li>
+                        <s:url action="faq" id="faqLink"/>
+                        <li><s:a href="%{faqLink}"><s:text name="faq.title"/></s:a></li>
                     </ul>
                 </div>
             </div>
