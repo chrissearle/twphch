@@ -150,4 +150,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
         return images;
     }
+
+    public String list() throws Exception {
+        return "list";
+    }
 }

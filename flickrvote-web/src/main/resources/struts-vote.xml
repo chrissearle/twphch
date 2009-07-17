@@ -24,10 +24,14 @@
 
         <action name="voteForm" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="input">
             <result name="input">/jsp/vote/vote.jspx</result>
-            <result name="alreadyVoted" type="redirectAction">showVoteResult</result>
+            <result name="alreadyVoted" type="redirectAction">showVotePhotos</result>
+        </action>
+        <action name="showVotePhotos" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="list">
+            <interceptor-ref name="defaultStack"/>
+            <result name="list">/jsp/vote/list.jspx</result>
         </action>
         <action name="vote" class="net.chrissearle.flickrvote.web.vote.VoteAction">
-            <result name="success" type="chain">showVoteResult</result>
+            <result name="success" type="chain">showVotePhotos</result>
             <result name="input">/jsp/vote/vote.jspx</result>
         </action>
         <action name="showVoteResult" class="net.chrissearle.flickrvote.web.vote.ShowVoteResultAction">

@@ -93,4 +93,10 @@ public class ChallengeInfo implements Comparable<ChallengeInfo> {
 
         return now.getTime() > endDate.getTime();
     }
+
+    public Boolean isVoting() {
+        Date now = new Date();
+
+        return now.getTime() < endDate.getTime() && now.getTime() > voteDate.getTime();
+    }
 }

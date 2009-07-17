@@ -32,4 +32,17 @@
     </p>
 
     </@s.if>
+
+    <@s.if test="challenge.voting">
+
+    <h2>Live Results</h2>
+    <@s.url id="votechart" namespace="/chart" action="showVotingChart"/>
+    <@s.url id="votechartFull" namespace="/vote" action="showVoteResult"/>
+    <p>
+        <img src="<@s.property value="votechart"/>" alt="chart" width="140px"/>
+        <br/>
+        <@s.a href="%{votechartFull}">View full size</@s.a>
+    </p>
+
+    </@s.if>
 </div>

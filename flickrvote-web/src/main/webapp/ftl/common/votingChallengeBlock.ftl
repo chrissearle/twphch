@@ -14,6 +14,8 @@
         <@s.a href="%{votingLink}">Vote Here</@s.a>
         </@s.if>
         <@s.else>
+        <@s.url id="votingPhotos" namespace="/vote" action="showVotePhotos"/>
+        <@s.a href="%{votingPhotos}">Photos</@s.a><br/>
         <@s.url id="votingResults" namespace="/vote" action="showVoteResult"/>
         <@s.a href="%{votingResults}">Current Results</@s.a>
         </@s.else>
@@ -21,6 +23,8 @@
     </@s.if>
     <@s.else>
     <p>You must be logged in to vote.</p>
+    <@s.url id="votingPhotos" namespace="/vote" action="showVotePhotos"/>
+    <@s.a href="%{votingPhotos}">Photos</@s.a><br/>
     <@s.url id="votingResultsLink" namespace="/vote" action="showVoteResult"/>
     <p><@s.a href="%{votingResultsLink}">Current Results</@s.a></p>
     </@s.else>
