@@ -310,3 +310,7 @@ div.photobox {
 div.photobox h3 {
     margin-bottom: 10px;
 }
+
+#column2 ol {
+    list-style: decimal;
+}

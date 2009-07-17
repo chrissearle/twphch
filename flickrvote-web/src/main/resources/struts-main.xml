@@ -24,5 +24,8 @@
         <action name="showChart" class="net.chrissearle.flickrvote.web.ShowChartAction">
             <result>/jsp/showchart.jspx</result>
         </action>
+        <action name="rules" class="net.chrissearle.flickrvote.web.InternationalizationLoaderAction">
+            <result>/jsp/rules.jspx</result>
+        </action>
     </package>
 </struts>

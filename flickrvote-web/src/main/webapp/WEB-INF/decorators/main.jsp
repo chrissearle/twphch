@@ -50,7 +50,8 @@
                 <div class="sbilinks">
                     <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
                     <ul>
-                        <li><a href="main.jsp#">Link to rules</a></li>
+                        <s:url action="rules" id="rulesLink"/>
+                        <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
                         <li><a href="main.jsp#">Link to how to enter a challenge</a></li>
                     </ul>
                 </div>
