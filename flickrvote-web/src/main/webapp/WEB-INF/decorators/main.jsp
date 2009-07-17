@@ -63,8 +63,10 @@
                 <h1><s:text name="language.title"/></h1>
 
                 <div class="sbilinks">
-                    <s:url id="enUrl" action="current"><s:param name="request_locale">en</s:param></s:url>
-                    <s:url id="noUrl" action="current"><s:param name="request_locale">no</s:param></s:url>
+                    <s:url id="enUrl" action="current" namespace="/"><s:param name="request_locale">en</s:param></s:url>
+                    <s:url id="noUrl" action="current" namespace="/"><s:param name="request_locale">no</s:param></s:url>
+                    <s:url id="seUrl" action="current" namespace="/"><s:param name="request_locale">se</s:param></s:url>
+                    <s:url id="dkUrl" action="current" namespace="/"><s:param name="request_locale">dk</s:param></s:url>
 
                     <s:url id="enFlagUrl" value='/images/famfamfam_flag_icons/png/gb.png'/>
                     <s:url id="noFlagUrl" value='/images/famfamfam_flag_icons/png/no.png'/>
