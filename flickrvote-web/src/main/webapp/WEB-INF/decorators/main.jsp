@@ -60,12 +60,24 @@
                 </div>
             </div>
             <div class="sidebaritem">
-                <h1>other information</h1>
-                <!-- **** INSERT OTHER INFORMATION HERE **** -->
-                <p>
-                    This space can be used for additional information such as a contact phone number, address
-                    or maybe even a graphic.
-                </p>
+                <h1><s:text name="language.title"/></h1>
+
+                <div class="sbilinks">
+                    <s:url id="enUrl" action="current"><s:param name="request_locale">en</s:param></s:url>
+                    <s:url id="noUrl" action="current"><s:param name="request_locale">no</s:param></s:url>
+
+                    <s:url id="enFlagUrl" value='/images/famfamfam_flag_icons/png/gb.png'/>
+                    <s:url id="noFlagUrl" value='/images/famfamfam_flag_icons/png/no.png'/>
+                    <s:url id="seFlagUrl" value='/images/famfamfam_flag_icons/png/se.png'/>
+                    <s:url id="dkFlagUrl" value='/images/famfamfam_flag_icons/png/dk.png'/>
+
+                    <ul>
+                        <li><s:a href="%{noUrl}"><img src="${noFlagUrl}" alt="no"/></s:a></li>
+                        <li><s:a href="%{enUrl}"><img src="${enFlagUrl}" alt="gb"/></s:a></li>
+                        <li><s:a href="%{seUrl}"><img src="${seFlagUrl}" alt="se"/></s:a></li>
+                        <li><s:a href="%{dkUrl}"><img src="${dkFlagUrl}" alt="dk"/></s:a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div id="column2">
