@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="net.chrissearle"/>
+
+    <bean id="openVotingJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetMethod" value="openVoting"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="announceNewChallengeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetMethod" value="announceNewChallenge"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="announceResultsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetMethod" value="announceResults"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- Schedules are 1 second past the hour - this allows the service to call the getVoting/getCurrent and get the correct challenge -->
+    <bean id="openVotingTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="openVotingJob"/>
+        <property name="cronExpression" value="1 0 18 ? * FRI"/>
+    </bean>
+
+    <bean id="announceNewChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="announceNewChallengeJob"/>
+        <property name="cronExpression" value="1 0 18 ? * FRI"/>
+    </bean>
+
+    <bean id="announceResultsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="announceResultsJob"/>
+        <property name="cronExpression" value="1 0 21 ? * SUN"/>
+    </bean>
+</beans>

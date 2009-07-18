@@ -187,6 +187,12 @@
             <artifactId>flickrvote-twitter</artifactId>
             <version>1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-scheduler-spring</artifactId>
+            <version>1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

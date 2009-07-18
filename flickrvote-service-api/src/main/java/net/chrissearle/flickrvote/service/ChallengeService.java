@@ -24,4 +24,9 @@ public interface ChallengeService {
     boolean hasVoted(String photographerId);
 
     void vote(String photographerId, String imageId);
+
+    // Scheduler jobs
+    void openVoting();
+    void announceNewChallenge();
+    void annouceResults();
 }

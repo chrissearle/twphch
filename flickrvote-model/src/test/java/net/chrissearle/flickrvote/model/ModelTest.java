@@ -208,6 +208,121 @@ public class ModelTest {
 
         assert challenges.iterator().next().getTag().equals("#Test1") : "Incorrect challenge returned";
     }
+
+    @Test
+    public void testPrepareGetVotedChallenge() {
+        DateTime today = new DateTime();
+
+        Challenge challenge1 = new Challenge("#TestC1", "Test C 1", today.toDate(), today.toDate(), today.toDate());
+        Challenge challenge2 = new Challenge("#TestC2", "Test C 2", today.toDate(), today.toDate(), today.toDate());
+        Challenge challenge3 = new Challenge("#TestC3", "Test C 3", today.toDate(), today.toDate(), today.toDate());
+
+        em.persist(challenge1);
+        em.persist(challenge2);
+        em.persist(challenge3);
+
+        Image image1 = new Image();
+
+        image1.setId("VoteTestImage1");
+        image1.setMediumImage("http://vote.test.image.medium.1");
+        image1.setPage("http://vote.test.image.page.1");
+        image1.setTitle("Vote Test Image 1");
+
+        Image image2 = new Image();
+
+        image2.setId("VoteTestImage2");
+        image2.setMediumImage("http://vote.test.image.medium.2");
+        image2.setPage("http://vote.test.image.page.2");
+        image2.setTitle("Vote Test Image 2");
+
+        Image image3 = new Image();
+
+        image3.setId("VoteTestImage3");
+        image3.setMediumImage("http://vote.test.image.medium.3");
+        image3.setPage("http://vote.test.image.page.3");
+        image3.setTitle("Vote Test Image 3");
+
+        em.persist(image1);
+        em.persist(image2);
+        em.persist(image3);
+
+        Photographer photographer1 = new Photographer(null, "VoteTestUser1", "VoteTestFull1", "VoteTestId1");
+        Photographer photographer2 = new Photographer(null, "VoteTestUser2", "VoteTestFull2", "VoteTestId2");
+        Photographer photographer3 = new Photographer(null, "VoteTestUser3", "VoteTestFull3", "VoteTestId3");
+
+        em.persist(photographer1);
+        em.persist(photographer2);
+        em.persist(photographer3);
+
+        photographer1.addImage(image1);
+        photographer2.addImage(image2);
+        photographer3.addImage(image3);
+
+        challenge2.addImage(image1);
+        challenge2.addImage(image2);
+        challenge2.addImage(image3);
+
+        Vote vote1 = new Vote();
+
+        photographer2.addVote(vote1);
+        image1.addVote(vote1);
+
+        Vote vote2 = new Vote();
+
+        photographer1.addVote(vote2);
+        image3.addVote(vote2);
+
+        Vote vote3 = new Vote();
+
+        photographer3.addVote(vote3);
+        image1.addVote(vote3);
+
+        em.persist(vote1);
+        em.persist(vote2);
+        em.persist(vote3);
+
+        assert em.contains(challenge1) : "Failed to save challenge 1";
+        assert em.contains(challenge2) : "Failed to save challenge 2";
+        assert em.contains(challenge3) : "Failed to save challenge 3";
+
+        assert em.contains(photographer1) : "Failed to save photographer 1";
+        assert em.contains(photographer2) : "Failed to save photographer 2";
+        assert em.contains(photographer3) : "Failed to save photographer 3";
+
+        assert em.contains(image1) : "Failed to save image1";
+        assert em.contains(image2) : "Failed to save image2";
+        assert em.contains(image3) : "Failed to save image3";
+
+        assert em.contains(vote1) : "Failed to save vote1";
+        assert em.contains(vote2) : "Failed to save vote2";
+        assert em.contains(vote3) : "Failed to save vote3";
+    }
+
+    @Test(dependsOnMethods = {"testPrepareGetVotedChallenge"})
+    @SuppressWarnings("unchecked")
+    public void testGetVotedChallenge() {
+        Query query = em.createQuery("select v from Vote v");
+        List<Vote> votes = (List<Vote>) query.getResultList();
+
+        assert votes != null : "Votes was null";
+        assert votes.size() == 3 : "Incorrect number of votes : " + votes.size();
+
+        Vote vote = votes.iterator().next();
+
+        assert vote.getImage().getChallenge().getTag().equals("#TestC2") : "Incorrect challenge : " + vote.getImage().getChallenge();
+    }
+
+    @Test(dependsOnMethods = {"testPrepareGetVotedChallenge"})
+    @SuppressWarnings("unchecked")
+    public void testGetVotedChallengeDirect() {
+        Query query = em.createQuery("select distinct c FROM Vote v, IN(v.image) i, IN(i.challenge) c");
+        List<Challenge> challenges = (List<Challenge>) query.getResultList();
+
+        assert challenges != null : "Challenges was null";
+        assert challenges.size() == 1 : "Incorrect number of challenges : " + challenges.size();
+
+        assert challenges.iterator().next().getTag().equals("#TestC2") : "Incorrect challenge : " + challenges.iterator().next();
+    }
 }
 
 

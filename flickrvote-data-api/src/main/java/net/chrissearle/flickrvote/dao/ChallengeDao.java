@@ -22,4 +22,6 @@ public interface ChallengeDao {
     Challenge getCurrentChallenge();
 
     Challenge getVotingChallenge();
+
+    Challenge getVotedChallenge();
 }

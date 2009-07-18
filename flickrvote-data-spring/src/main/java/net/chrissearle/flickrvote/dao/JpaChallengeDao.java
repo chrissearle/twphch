@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.flickrvote.model.Challenge;
+import net.chrissearle.flickrvote.model.Vote;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
@@ -43,14 +44,14 @@ public class JpaChallengeDao implements ChallengeDao {
     @SuppressWarnings("unchecked")
     public List<Challenge> getAll() {
         Query query = em.createQuery("select c from Challenge c");
-        return query.getResultList();
+        return (List<Challenge>) query.getResultList();
     }
 
     @SuppressWarnings("unchecked")
     public List<Challenge> getClosedChallenges() {
         Query query = em.createQuery("select c from Challenge c where c.endDate < :now");
         query.setParameter("now", new Date());
-        return query.getResultList();
+        return (List<Challenge>) query.getResultList();
     }
 
     @SuppressWarnings("unchecked")
@@ -58,7 +59,7 @@ public class JpaChallengeDao implements ChallengeDao {
         Query query = em.createQuery("select c from Challenge c where c.startDate <= :now and c.votingOpenDate > :now");
         query.setParameter("now", new Date());
 
-        List<Challenge> challenges = query.getResultList();
+        List<Challenge> challenges = (List<Challenge>) query.getResultList();
 
         if (challenges.size() > 0) {
             return challenges.iterator().next();
@@ -72,13 +73,30 @@ public class JpaChallengeDao implements ChallengeDao {
         Query query = em.createQuery("select c from Challenge c where c.votingOpenDate <= :now and c.endDate > :now");
         query.setParameter("now", new Date());
 
-        List<Challenge> challenges = query.getResultList();
+        List<Challenge> challenges = (List<Challenge>) query.getResultList();
 
         if (logger.isDebugEnabled()) {
             logger.debug("Voting challenges: " + challenges);
         }
 
         if (challenges.size() > 0) {
+            return challenges.iterator().next();
+        }
+
+        return null;
+    }
+
+    /**
+     * Return challenge with votes
+     *
+     * @return challenge with votes - null if no votes found
+     */
+    @SuppressWarnings("unchecked")
+    public Challenge getVotedChallenge() {
+        Query query = em.createQuery("select distinct c FROM Vote v, IN(v.image) i, IN(i.challenge) c");
+        List<Challenge> challenges = (List<Challenge>) query.getResultList();
+
+        if (challenges != null && challenges.size() > 0) {
             return challenges.iterator().next();
         }
 

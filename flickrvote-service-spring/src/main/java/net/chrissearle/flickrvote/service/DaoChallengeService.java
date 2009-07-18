@@ -160,4 +160,64 @@ public class DaoChallengeService implements ChallengeService {
             photographyDao.save(image);
         }
     }
+
+    public void openVoting() {
+        Challenge challenge = challengeDao.getVotingChallenge();
+
+        if (challenge == null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("No voting challenge found to open");
+            }
+
+            return;
+        }
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Opening voting for " + challenge);
+        }
+
+        // TODO - Twitter
+        // TODO - Flickr Forum
+    }
+
+    public void announceNewChallenge() {
+        Challenge challenge = challengeDao.getCurrentChallenge();
+
+        if (challenge == null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("No current challenge found to announce");
+            }
+
+            return;
+        }
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Announcing for " + challenge);
+        }
+
+        // TODO - Twitter
+        // TODO - Flickr Forum
+    }
+
+    public void annouceResults() {
+        Challenge challenge = challengeDao.getVotedChallenge();
+
+        if (challenge == null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("No challenge found to handle results");
+            }
+
+            return;
+        }
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Results for " + challenge);
+        }
+
+        // TODO - Sum up votes
+        // TODO - Twitter
+        // TODO - Flickr forum
+        // TODO - Badges
+
+    }
 }
