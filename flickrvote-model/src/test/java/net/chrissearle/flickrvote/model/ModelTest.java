@@ -300,20 +300,6 @@ public class ModelTest {
 
     @Test(dependsOnMethods = {"testPrepareGetVotedChallenge"})
     @SuppressWarnings("unchecked")
-    public void testGetVotedChallenge() {
-        Query query = em.createQuery("select v from Vote v");
-        List<Vote> votes = (List<Vote>) query.getResultList();
-
-        assert votes != null : "Votes was null";
-        assert votes.size() == 3 : "Incorrect number of votes : " + votes.size();
-
-        Vote vote = votes.iterator().next();
-
-        assert vote.getImage().getChallenge().getTag().equals("#TestC2") : "Incorrect challenge : " + vote.getImage().getChallenge();
-    }
-
-    @Test(dependsOnMethods = {"testPrepareGetVotedChallenge"})
-    @SuppressWarnings("unchecked")
     public void testGetVotedChallengeDirect() {
         Query query = em.createQuery("select distinct c FROM Vote v, IN(v.image) i, IN(i.challenge) c");
         List<Challenge> challenges = (List<Challenge>) query.getResultList();
@@ -323,7 +309,43 @@ public class ModelTest {
 
         assert challenges.iterator().next().getTag().equals("#TestC2") : "Incorrect challenge : " + challenges.iterator().next();
     }
+
+    @Test(dependsOnMethods = {"testGetVotedChallengeDirect"})
+    @SuppressWarnings("unchecked")
+    public void testSumVotes() {
+        Query query = em.createQuery("select distinct c FROM Vote v, IN(v.image) i, IN(i.challenge) c");
+        Challenge challenge = (Challenge) query.getSingleResult();
+
+        // Sum up votes
+        List<Image> images = challenge.getImages();
+
+        for (Image image : images) {
+            image.setFinalVoteCount((long) image.getVotes().size());
+            em.persist(image);
+
+            if (image.getId().equals("VoteTestImage1")) {
+                assert image.getFinalVoteCount() == 2 : "Incorrect number of votes for image 1" + image.getFinalVoteCount();
+            }
+
+            if (image.getId().equals("VoteTestImage2")) {
+                assert image.getFinalVoteCount() == 0 : "Incorrect number of votes for image 2" + image.getFinalVoteCount();
+            }
+
+            if (image.getId().equals("VoteTestImage3")) {
+                assert image.getFinalVoteCount() == 1 : "Incorrect number of votes for image 3" + image.getFinalVoteCount();
+            }
+        }
+    }
+
+    @Test(dependsOnMethods = {"testSumVotes"})
+    @SuppressWarnings("unchecked")
+    public void testClearVotes() {
+        Query clearQuery = em.createQuery("DELETE FROM Vote v");
+        clearQuery.executeUpdate();
+
+        Query query = em.createQuery("select distinct c FROM Vote v, IN(v.image) i, IN(i.challenge) c");
+        List<Challenge> results = (List<Challenge>) query.getResultList();
+
+        assert results.size() == 0 : "Found challenges where there are none " + results;
+    }
 }
-
-
-

@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Chart" verbose="1">
+<suite name="Service" verbose="1">
     <test name="Chart">
         <classes>
             <class name="net.chrissearle.flickrvote.service.TestChartService"/>
+        </classes>
+    </test>
+    <test name="ShortURL">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.TestBitlyShortUrlService"/>
         </classes>
     </test>
 </suite>

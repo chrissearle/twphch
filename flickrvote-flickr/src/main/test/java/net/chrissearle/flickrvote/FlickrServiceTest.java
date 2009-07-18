@@ -13,6 +13,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -65,5 +66,14 @@ public class FlickrServiceTest extends FlickrJFlickrService {
 
         assert images != null : "Image list was null";
         assert images.size() > 30 : "Not enough images";
+    }
+
+    public void postOpenVote(String tag, String name, Date endDate) {
+    }
+
+    public void postNewChallenge(String tag, String name, Date votingOpenDate, Date endDate) {
+    }
+
+    public void postResultsAndAddBadges(String tag, String name, List<FlickrImage> firstPlace, List<FlickrImage> secondPlace, List<FlickrImage> thirdPlace) {
     }
 }

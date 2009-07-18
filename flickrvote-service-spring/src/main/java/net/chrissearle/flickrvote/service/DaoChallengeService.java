@@ -2,17 +2,21 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
+import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.twitter.TwitterService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.MessageFormat;
 import java.util.*;
 
 @Service
@@ -22,12 +26,19 @@ public class DaoChallengeService implements ChallengeService {
 
     private final ChallengeDao challengeDao;
     private final PhotographyDao photographyDao;
+    private final ShortUrlService shortUrlService;
+    private final TwitterService twitterService;
+    private final FlickrService flickrService;
 
 
     @Autowired
-    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao) {
+    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ShortUrlService shortUrlService,
+                               TwitterService twitterService, FlickrService flickrService) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
+        this.shortUrlService = shortUrlService;
+        this.twitterService = twitterService;
+        this.flickrService = flickrService;
     }
 
     public List<ChallengeInfo> getChallenges() {
@@ -176,8 +187,14 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Opening voting for " + challenge);
         }
 
-        // TODO - Twitter
-        // TODO - Flickr Forum
+        // TODO - cannot hard code this
+        String votingUrl = shortUrlService.shortenUrl("http://www.chrissearle.org/twitterphotochallenge/vote/showVotePhotos.action");
+
+        // TODO - cannot hard code this
+        twitterService.twitter(MessageFormat.format("Voting opens for {0} - {1} : {2}",
+                challenge.getTag(), challenge.getName(), votingUrl));
+
+        flickrService.postOpenVote(challenge.getTag(), challenge.getName(), challenge.getEndDate());
     }
 
     public void announceNewChallenge() {
@@ -195,8 +212,14 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Announcing for " + challenge);
         }
 
-        // TODO - Twitter
-        // TODO - Flickr Forum
+        // TODO - cannot hard code this
+        String currentUrl = shortUrlService.shortenUrl("http://www.chrissearle.org/twitterphotochallenge/");
+
+        // TODO - cannot hard code this
+        twitterService.twitter(MessageFormat.format("New Challenge {0} - {1} : {2}",
+                challenge.getTag(), challenge.getName(), currentUrl));
+
+        flickrService.postNewChallenge(challenge.getTag(), challenge.getName(), challenge.getVotingOpenDate(), challenge.getEndDate());
     }
 
     public void annouceResults() {
@@ -214,10 +237,29 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Results for " + challenge);
         }
 
-        // TODO - Sum up votes
-        // TODO - Twitter
-        // TODO - Flickr forum
-        // TODO - Badges
+        // Sum up votes
+        List<Image> images = challenge.getImages();
 
+        for (Image image : images) {
+            image.setFinalVoteCount((long) image.getVotes().size());
+            photographyDao.save(image);
+        }
+
+        photographyDao.clearVotes();
+
+        // TODO - cannot hard code this
+        String resultsUrl = shortUrlService.shortenUrl(MessageFormat.format("http://www.chrissearle.org/twitterphotochallenge/show.action?challengeTag={0}",
+                challenge.getTag()));
+
+        // TODO - cannot hard code this
+        twitterService.twitter(MessageFormat.format("Challenge Results {0} - {1} : {2}",
+                challenge.getTag(), challenge.getName(), resultsUrl));
+
+        // TODO - populate
+        List<FlickrImage> goldImages = new ArrayList<FlickrImage>();
+        List<FlickrImage> silverImages = new ArrayList<FlickrImage>();
+        List<FlickrImage> bronzeImages = new ArrayList<FlickrImage>();
+
+        flickrService.postResultsAndAddBadges(challenge.getTag(), challenge.getName(), goldImages, silverImages, bronzeImages);
     }
 }

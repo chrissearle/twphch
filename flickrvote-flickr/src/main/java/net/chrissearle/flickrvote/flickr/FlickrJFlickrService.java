@@ -17,10 +17,7 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
@@ -154,6 +151,40 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         }
+    }
+
+    public void postOpenVote(String tag, String name, Date endDate) {
+        // TODO - post a new forum post
+        postForum("", "");
+    }
+
+    public void postNewChallenge(String tag, String name, Date votingOpenDate, Date endDate) {
+        // TODO - post a new forum post
+        postForum("", "");
+    }
+
+    public void postResultsAndAddBadges(String tag, String name, List<FlickrImage> firstPlace, List<FlickrImage> secondPlace, List<FlickrImage> thirdPlace) {
+        // TODO - post a new forum post
+        postForum("", "");
+
+        for (FlickrImage flickrImage : firstPlace) {
+            addBadge(1, flickrImage.getFlickrId(), tag, name);
+        }
+        for (FlickrImage flickrImage : secondPlace) {
+            addBadge(2, flickrImage.getFlickrId(), tag, name);
+        }
+        for (FlickrImage flickrImage : thirdPlace) {
+            addBadge(3, flickrImage.getFlickrId(), tag, name);
+        }
+    }
+
+
+    private void postForum(String title, String text) {
+        // TODO post
+    }
+
+    private void addBadge(int place, String imageId, String challengeTag, String challengeName) {
+        // TODO post
     }
 
     private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {

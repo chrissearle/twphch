@@ -19,4 +19,6 @@ public interface PhotographyDao {
     Image findImageByFlickrId(String id);
 
     void save(Image image);
+
+    void clearVotes();
 }

@@ -102,4 +102,9 @@ public class JpaPhotographyDao implements PhotographyDao {
     public void save(Image image) {
         em.persist(image);
     }
+
+    public void clearVotes() {
+        Query query = em.createQuery("DELETE FROM Vote v");
+        query.executeUpdate();
+    }
 }
