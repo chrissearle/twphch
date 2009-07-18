@@ -2,7 +2,6 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.MessageFormat;
 import java.util.*;
 
 @Service
@@ -26,19 +24,18 @@ public class DaoChallengeService implements ChallengeService {
 
     private final ChallengeDao challengeDao;
     private final PhotographyDao photographyDao;
-    private final ShortUrlService shortUrlService;
     private final TwitterService twitterService;
     private final FlickrService flickrService;
-
+    private ChallengeMessageService challengeMessageService;
 
     @Autowired
-    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ShortUrlService shortUrlService,
+    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ChallengeMessageService challengeMessageService,
                                TwitterService twitterService, FlickrService flickrService) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
-        this.shortUrlService = shortUrlService;
         this.twitterService = twitterService;
         this.flickrService = flickrService;
+        this.challengeMessageService = challengeMessageService;
     }
 
     public List<ChallengeInfo> getChallenges() {
@@ -72,7 +69,6 @@ public class DaoChallengeService implements ChallengeService {
         long lastSeenValue = Long.MAX_VALUE;
 
         Collections.sort(images, new Comparator<ImageInfo>() {
-
             public int compare(ImageInfo o1, ImageInfo o2) {
                 return o2.getFinalVoteCount().compareTo(o1.getFinalVoteCount());
             }
@@ -187,14 +183,9 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Opening voting for " + challenge);
         }
 
-        // TODO - cannot hard code this
-        String votingUrl = shortUrlService.shortenUrl("http://www.chrissearle.org/twitterphotochallenge/vote/showVotePhotos.action");
-
-        // TODO - cannot hard code this
-        twitterService.twitter(MessageFormat.format("Voting opens for {0} - {1} : {2}",
-                challenge.getTag(), challenge.getName(), votingUrl));
-
-        flickrService.postOpenVote(challenge.getTag(), challenge.getName(), challenge.getEndDate());
+        twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
+        flickrService.postForum(challengeMessageService.getVotingForumTitle(challenge),
+                challengeMessageService.getVotingForumText(challenge));
     }
 
     public void announceNewChallenge() {
@@ -212,14 +203,9 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Announcing for " + challenge);
         }
 
-        // TODO - cannot hard code this
-        String currentUrl = shortUrlService.shortenUrl("http://www.chrissearle.org/twitterphotochallenge/");
-
-        // TODO - cannot hard code this
-        twitterService.twitter(MessageFormat.format("New Challenge {0} - {1} : {2}",
-                challenge.getTag(), challenge.getName(), currentUrl));
-
-        flickrService.postNewChallenge(challenge.getTag(), challenge.getName(), challenge.getVotingOpenDate(), challenge.getEndDate());
+        twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
+        flickrService.postForum(challengeMessageService.getCurrentForumTitle(challenge),
+                challengeMessageService.getCurrentForumText(challenge));
     }
 
     public void annouceResults() {
@@ -247,19 +233,47 @@ public class DaoChallengeService implements ChallengeService {
 
         photographyDao.clearVotes();
 
-        // TODO - cannot hard code this
-        String resultsUrl = shortUrlService.shortenUrl(MessageFormat.format("http://www.chrissearle.org/twitterphotochallenge/show.action?challengeTag={0}",
-                challenge.getTag()));
+        String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
-        // TODO - cannot hard code this
-        twitterService.twitter(MessageFormat.format("Challenge Results {0} - {1} : {2}",
-                challenge.getTag(), challenge.getName(), resultsUrl));
+        twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
 
-        // TODO - populate
-        List<FlickrImage> goldImages = new ArrayList<FlickrImage>();
-        List<FlickrImage> silverImages = new ArrayList<FlickrImage>();
-        List<FlickrImage> bronzeImages = new ArrayList<FlickrImage>();
+        List<ImageInfo> imageResults = new ArrayList<ImageInfo>();
 
-        flickrService.postResultsAndAddBadges(challenge.getTag(), challenge.getName(), goldImages, silverImages, bronzeImages);
+        for (Image image : images) {
+            imageResults.add(new ImageInfo(image));
+        }
+
+        doRanking(imageResults);
+
+        StringBuilder messageGold = new StringBuilder();
+        StringBuilder messageSilver = new StringBuilder();
+        StringBuilder messageBronze = new StringBuilder();
+
+        for (ImageInfo imageInfo : imageResults) {
+            String badgeText = "";
+
+            String forumPost = challengeMessageService.getResultsForumSingle(imageInfo);
+
+            if (imageInfo.getRank() == 1) {
+                // Gold
+                badgeText = challengeMessageService.getBadgeText(1, challengeMessageService.getGoldBadgeUrl(), challenge);
+                messageGold.append(forumPost);
+            }
+            if (imageInfo.getRank() == 2) {
+                // Silver
+                badgeText = challengeMessageService.getBadgeText(2, challengeMessageService.getSilverBadgeUrl(), challenge);
+                messageSilver.append(forumPost);
+            }
+            if (imageInfo.getRank() == 3) {
+                // Bronze
+                badgeText = challengeMessageService.getBadgeText(3, challengeMessageService.getBronzeBadgeUrl(), challenge);
+                messageBronze.append(forumPost);
+            }
+            flickrService.postComment(imageInfo.getId(), badgeText);
+        }
+
+        String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
+
+        flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
     }
 }

@@ -12,4 +12,9 @@
             <class name="net.chrissearle.flickrvote.service.TestBitlyShortUrlService"/>
         </classes>
     </test>
+    <test name="Messages">
+        <classes>
+            <class name="net.chrissearle.flickrvote.service.TestMessageSourceChallengeMessageService"/>
+        </classes>
+    </test>
 </suite>

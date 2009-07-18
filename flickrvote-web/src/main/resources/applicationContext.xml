@@ -25,4 +25,8 @@
         <constructor-arg index="0" value="${bitly.login}"/>
         <constructor-arg index="1" value="${bitly.key}"/>
     </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
 </beans>

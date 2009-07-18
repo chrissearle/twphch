@@ -1,7 +1,6 @@
 package net.chrissearle.flickrvote.flickr;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 
 public interface FlickrService {
@@ -17,9 +16,7 @@ public interface FlickrService {
 
     FlickrImage getImageByFlickrId(String id);
 
-    void postOpenVote(String tag, String name, Date endDate);
-
-    void postNewChallenge(String tag, String name, Date votingOpenDate, Date endDate);
-
-    void postResultsAndAddBadges(String tag, String name, List<FlickrImage> firstPlace, List<FlickrImage> secondPlace, List<FlickrImage> thirdPlace);
+    void postForum(String title, String message);
+    
+    void postComment(String id, String comment);
 }
