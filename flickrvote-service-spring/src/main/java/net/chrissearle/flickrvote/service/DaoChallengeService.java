@@ -208,7 +208,7 @@ public class DaoChallengeService implements ChallengeService {
                 challengeMessageService.getCurrentForumText(challenge));
     }
 
-    public void annouceResults() {
+    public void announceResults() {
         Challenge challenge = challengeDao.getVotedChallenge();
 
         if (challenge == null) {

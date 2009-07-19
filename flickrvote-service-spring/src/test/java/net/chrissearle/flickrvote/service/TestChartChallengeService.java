@@ -68,6 +68,6 @@ public class TestChartChallengeService implements ChallengeService {
     public void announceNewChallenge() {
     }
 
-    public void annouceResults() {
+    public void announceResults() {
     }
 }

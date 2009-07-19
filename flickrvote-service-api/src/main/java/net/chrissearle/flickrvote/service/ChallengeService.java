@@ -28,5 +28,5 @@ public interface ChallengeService {
     // Scheduler jobs
     void openVoting();
     void announceNewChallenge();
-    void annouceResults();
+    void announceResults();
 }

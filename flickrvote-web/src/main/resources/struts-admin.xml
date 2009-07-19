@@ -64,5 +64,17 @@
             <result name="input">/jsp/admin/scoreForm.jspx</result>
             <result name="success" type="redirectAction">challenges</result>
         </action>
+
+        <action name="cronOpenVoting" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="openVoting">
+            <result name="success" type="redirectAction">challenges</result>
+        </action>
+
+        <action name="cronNewChallenge" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="newChallenge">
+            <result name="success" type="redirectAction">challenges</result>
+        </action>
+
+        <action name="cronResults" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="results">
+            <result name="success" type="redirectAction">challenges</result>
+        </action>
     </package>
 </struts>

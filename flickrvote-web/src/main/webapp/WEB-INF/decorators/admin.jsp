@@ -39,6 +39,15 @@
             <br/>
             <s:url action="newChallengeForm" id="newChallengeFormUrl"/>
             <s:a href="%{newChallengeFormUrl}">New Challenge</s:a>
+            <br/>
+            <s:url action="cronOpenVoting" id="cronOpenVotingUrl"/>
+            <s:a href="%{cronOpenVotingUrl}">Cron: Open Voting</s:a>
+            <br/>
+            <s:url action="cronNewChallenge" id="cronNewChallengeUrl"/>
+            <s:a href="%{cronNewChallengeUrl}">Cron: New Challenge</s:a>
+            <br/>
+            <s:url action="cronResults" id="cronResultsUrl"/>
+            <s:a href="%{cronResultsUrl}">Cron: Results</s:a>
         </p>
     </div>
     <!-- end left division -->
