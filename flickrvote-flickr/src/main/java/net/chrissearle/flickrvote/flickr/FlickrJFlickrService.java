@@ -10,6 +10,7 @@ import com.aetrion.flickr.people.User;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -24,6 +25,8 @@ import java.util.Set;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
+    private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
+    
     @Autowired
     protected Flickr flickr;
 
@@ -157,10 +160,16 @@ public class FlickrJFlickrService implements FlickrService {
     }
 
     public void postForum(String title, String text) {
+        if (logger.isInfoEnabled()) {
+            logger.info("Posting to forum TITLE: " + title + " TEXT: " + text);
+        }
         // TODO post
     }
 
     public void postComment(String imageId, String comment) {
+        if (logger.isInfoEnabled()) {
+            logger.info("Posting to comment ID: " + imageId+ " COMMENT: " + comment);
+        }
         // TODO post
     }
 
