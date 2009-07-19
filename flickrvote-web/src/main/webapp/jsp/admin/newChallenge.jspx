@@ -15,7 +15,6 @@
     </head>
     <body>
     <h2>New challenge</h2>
-    <!-- TODO - date selectors and set date format -->
     <s:form action="createChallenge">
         <s:textfield label="Title" name="challenge.title"/>
         <s:textfield label="Tag" name="challenge.tag"/>
