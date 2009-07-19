@@ -17,7 +17,7 @@
         </layout>
     </appender>
     <appender name="infoLog" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="/usr/local/java/glassfish/glassfish/domains/domain1/logs/twphch.log"/>
+        <param name="file" value="/var/logs/glassfish/twphch.log"/>
         <param name="MaxFileSize" value="1000KB"/>
         <!-- Keep one backup file -->
         <param name="MaxBackupIndex" value="2"/>
