@@ -13,7 +13,7 @@ public class ShowVotingChartAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        chart = chartService.getVotingChart();
+        chart = chartService.getVotingChart(getText("chart.score.axis.title"), getText("chart.photographer.axis.title"));
 
         return SUCCESS;
     }

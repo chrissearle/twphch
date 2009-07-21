@@ -1,5 +1,5 @@
 <div class="sidebaritem">
-    <h1>Older Challenges</h1>
+    <h1><@s.text name="sidebar.olderchallenges.title"/></h1>
 
     <div class="sbilinks">
         <ul>

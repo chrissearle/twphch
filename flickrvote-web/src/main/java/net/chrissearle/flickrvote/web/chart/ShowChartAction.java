@@ -16,7 +16,7 @@ public class ShowChartAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        chart = chartService.getChartForChallenge(tag);
+        chart = chartService.getChartForChallenge(tag, getText("chart.score.axis.title"), getText("chart.photographer.axis.title"));
 
         return SUCCESS;
     }

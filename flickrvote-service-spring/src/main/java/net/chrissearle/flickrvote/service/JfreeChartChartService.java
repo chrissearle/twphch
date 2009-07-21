@@ -36,7 +36,7 @@ public class JFreeChartChartService implements ChartService {
         this.challengeService = challengeService;
     }
 
-    public JFreeChart getChartForChallenge(String tag) {
+    public JFreeChart getChartForChallenge(String tag, String scoreAxisTitle, String photographerAxisTitle) {
         ChallengeInfo challenge = challengeService.getChallenge(tag);
 
         List<ImageInfo> images = challengeService.getImagesForChallenge(tag);
@@ -44,17 +44,17 @@ public class JFreeChartChartService implements ChartService {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         for (ImageInfo image : images) {
-            dataset.setValue(image.getFinalVoteCount(), "Score", image.getPhotographerName());
+            dataset.setValue(image.getFinalVoteCount(), scoreAxisTitle, image.getPhotographerName());
         }
 
-        return generateChart(challenge.getTag(), challenge.getTitle(), dataset);
+        return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 
-    private JFreeChart generateChart(String tag, String subtitle, CategoryDataset dataset) {
+    private JFreeChart generateChart(String tag, String subtitle, CategoryDataset dataset, String scoreAxisTitle, String photographerAxisTitle) {
         JFreeChart chart = ChartFactory.createBarChart(
                 tag,
-                "Photographer",
-                "Score",
+                photographerAxisTitle,
+                scoreAxisTitle,
                 dataset,
                 PlotOrientation.HORIZONTAL,
                 false,
@@ -99,7 +99,7 @@ public class JFreeChartChartService implements ChartService {
         return chart;
     }
 
-    public JFreeChart getVotingChart() {
+    public JFreeChart getVotingChart(String scoreAxisTitle, String photographerAxisTitle) {
         ChallengeInfo challenge = challengeService.getVotingChallenge();
 
         List<ImageInfo> images = challengeService.getImagesForChallenge(challenge.getTag());
@@ -107,9 +107,9 @@ public class JFreeChartChartService implements ChartService {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         for (ImageInfo image : images) {
-            dataset.setValue(image.getVoteCount(), "Score", image.getPhotographerName());
+            dataset.setValue(image.getVoteCount(), scoreAxisTitle, image.getPhotographerName());
         }
 
-        return generateChart(challenge.getTag(), challenge.getTitle(), dataset);
+        return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 }

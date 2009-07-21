@@ -33,9 +33,9 @@
         <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
 
     </div>
-    <div id="logo"><h1>Twitter PhotoChallenge</h1>
+    <div id="logo"><h1><s:text name="main.title"/></h1>
 
-        <h2>&quot;Follow me on twitter - http://twitter.com/Twphch&quot;</h2></div>
+        <h2>&quot;<s:text name="main.motto"/>&quot;</h2></div>
 
     <div id="content">
         <div id="column1">
@@ -45,7 +45,7 @@
             </s:if>
             <s:action name="challengeListBlock" namespace="/common" executeResult="true"/>
             <div class="sidebaritem">
-                <h1>Group Rules</h1>
+                <h1><s:text name="sidebar.grouprules.title"/></h1>
 
                 <div class="sbilinks">
                     <!-- **** INSERT ADDITIONAL LINKS HERE **** -->

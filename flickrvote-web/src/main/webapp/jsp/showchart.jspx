@@ -9,7 +9,7 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
-        <title>Twitter Photo Challenge</title>
+        <title><s:text name="main.title"/></title>
         <s:head/>
     </head>
     <body>
@@ -17,7 +17,7 @@
 
     <s:if test="challenge.closed">
 
-    <h2>Results</h2>
+    <h2><s:text name="showchart.results.title"/></h2>
 
     <s:url id="chart" namespace="/chart" action="showChart">
     <s:param name="tag" value="challenge.tag"/>

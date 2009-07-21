@@ -23,7 +23,7 @@ public class TestChartService {
 
     @Test
     public void testChart() throws IOException {
-        JFreeChart chart = chartService.getChartForChallenge("TestChart");
+        JFreeChart chart = chartService.getChartForChallenge("TestChart", "Votes", "Photographer");
 
         ChartUtilities.saveChartAsPNG(new File("/tmp/testchart.png"), chart, 500, 1000);
         ChartUtilities.saveChartAsJPEG(new File("/tmp/testchart.jpg"), chart, 500, 1000);

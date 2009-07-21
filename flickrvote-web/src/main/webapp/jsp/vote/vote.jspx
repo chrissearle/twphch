@@ -9,7 +9,7 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
-        <title>Twitter Photo Challenge</title>
+        <title><s:text name="main.title"/></title>
         <s:head/>
     </head>
     <body>

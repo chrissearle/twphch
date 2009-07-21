@@ -9,13 +9,13 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
-        <title>Twitter Photo Challenge</title>
+        <title><s:text name="main.title"/></title>
         <s:head/>
     </head>
     <body>
     <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
 
-    <h2>Current Results</h2>
+    <h2><s:text name="showvoteresult.results.title"/></h2>
 
     <s:url id="chart" namespace="/chart" action="showVotingChart"/>
 
