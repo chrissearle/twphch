@@ -168,7 +168,7 @@ public class DaoChallengeService implements ChallengeService {
         }
     }
 
-    public void openVoting() {
+    public ChallengeInfo openVoting() {
         Challenge challenge = challengeDao.getVotingChallenge();
 
         if (challenge == null) {
@@ -176,7 +176,7 @@ public class DaoChallengeService implements ChallengeService {
                 logger.debug("No voting challenge found to open");
             }
 
-            return;
+            return null;
         }
 
         if (logger.isInfoEnabled()) {
@@ -186,9 +186,11 @@ public class DaoChallengeService implements ChallengeService {
         twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
         flickrService.postForum(challengeMessageService.getVotingForumTitle(challenge),
                 challengeMessageService.getVotingForumText(challenge));
+        
+        return new ChallengeInfo(challenge);
     }
 
-    public void announceNewChallenge() {
+    public ChallengeInfo announceNewChallenge() {
         Challenge challenge = challengeDao.getCurrentChallenge();
 
         if (challenge == null) {
@@ -196,7 +198,7 @@ public class DaoChallengeService implements ChallengeService {
                 logger.debug("No current challenge found to announce");
             }
 
-            return;
+            return null;
         }
 
         if (logger.isInfoEnabled()) {
@@ -206,9 +208,11 @@ public class DaoChallengeService implements ChallengeService {
         twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
         flickrService.postForum(challengeMessageService.getCurrentForumTitle(challenge),
                 challengeMessageService.getCurrentForumText(challenge));
+
+        return new ChallengeInfo(challenge);
     }
 
-    public void announceResults() {
+    public ChallengeInfo announceResults() {
         Challenge challenge = challengeDao.getVotedChallenge();
 
         if (challenge == null) {
@@ -216,7 +220,7 @@ public class DaoChallengeService implements ChallengeService {
                 logger.debug("No challenge found to handle results");
             }
 
-            return;
+            return null;
         }
 
         if (logger.isInfoEnabled()) {
@@ -275,5 +279,7 @@ public class DaoChallengeService implements ChallengeService {
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
 
         flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
+
+        return new ChallengeInfo(challenge);
     }
 }

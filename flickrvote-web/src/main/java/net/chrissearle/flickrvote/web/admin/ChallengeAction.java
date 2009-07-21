@@ -6,15 +6,25 @@ import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class CreateChallengeAction extends ActionSupport {
-    private ChallengeInfo challenge;
+import java.util.Collections;
+import java.util.List;
 
+public class ChallengeAction extends ActionSupport {
     @Autowired
-    private ChallengeService challengeService;
+    ChallengeService challengeService;
+
+    private List<ChallengeInfo> challenges;
+
+    private ChallengeInfo challenge;
 
     private static final int START_VOTE_TIME = 18;
     private static final int START_CHALLENGE_TIME = 18;
     private static final int END_CHALLENGE_TIME = 21;
+
+    @Override
+    public String input() throws Exception {
+        return INPUT;
+    }
 
     @Override
     public String execute() throws Exception {
@@ -28,14 +38,16 @@ public class CreateChallengeAction extends ActionSupport {
         return SUCCESS;
     }
 
-    @Override
-    public void validate() {
-        if (challenge.getTitle().length() == 0) {
-            addFieldError("challenge.title", "Title must be filled out");
-        }
-        if (challenge.getTag().length() == 0) {
-            addFieldError("challenge.tag", "Tag must be filled out");
-        }
+    public String browse() {
+        challenges = challengeService.getChallenges();
+
+        Collections.sort(challenges);
+
+        return "browse";
+    }
+
+    public List<ChallengeInfo> getChallenges() {
+        return challenges;
     }
 
     public ChallengeInfo getChallenge() {
@@ -45,4 +57,5 @@ public class CreateChallengeAction extends ActionSupport {
     public void setChallenge(ChallengeInfo challenge) {
         this.challenge = challenge;
     }
+
 }

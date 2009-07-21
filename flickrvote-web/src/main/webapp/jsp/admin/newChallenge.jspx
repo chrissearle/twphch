@@ -15,11 +15,16 @@
     </head>
     <body>
     <h2>New challenge</h2>
+    <br/>
+
     <s:form action="createChallenge">
         <s:textfield label="Title" name="challenge.title"/>
         <s:textfield label="Tag" name="challenge.tag"/>
+        <br/>
         <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
+        <br/>
         <sx:datetimepicker label="Vote Start Date" name="challenge.voteDate" displayFormat="dd.MM.yyyy"/>
+        <br/>
         <sx:datetimepicker label="End Date" name="challenge.endDate" displayFormat="dd.MM.yyyy"/>
         <s:submit/>
     </s:form>

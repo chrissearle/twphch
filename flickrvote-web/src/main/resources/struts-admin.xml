@@ -23,26 +23,47 @@
             <result name="notadmin">/jsp/admin/noAccess.jspx</result>
         </global-results>
 
-        <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengesAction">
-            <result>/jsp/admin/challenges.jspx</result>
+        <action name="challenges" class="net.chrissearle.flickrvote.web.admin.ChallengeAction" method="browse">
+            <result name="browse">/jsp/admin/challenges.jspx</result>
         </action>
+
+        <action name="createChallengeForm" class="net.chrissearle.flickrvote.web.admin.ChallengeAction" method="input">
+            <result name="input">/jsp/admin/newChallenge.jspx</result>
+        </action>
+
+        <action name="createChallenge" class="net.chrissearle.flickrvote.web.admin.ChallengeAction">
+            <result name="input">/jsp/admin/newChallenge.jspx</result>
+            <result name="success" type="chain">challenges</result>
+        </action>
+
+
+
+
+
+        <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.PrepareScoreForm">
+            <result name="input">/jsp/admin/scoreForm.jspx</result>
+        </action>
+
+        <action name="score" class="net.chrissearle.flickrvote.web.admin.ScoreAction">
+            <result name="input">/jsp/admin/scoreForm.jspx</result>
+            <result name="success" type="chain">challenges</result>
+        </action>
+
+
 
         <action name="getPhotographerForm">
             <result>/jsp/admin/getPhotographer.jspx</result>
         </action>
-
-        <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.PrepareImageFormAction">
-            <result>/jsp/admin/getImage.jspx</result>
-        </action>
-
-        <action name="newChallengeForm">
-            <result>/jsp/admin/newChallenge.jspx</result>
-        </action>
-
         <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.RetrievePhotographerAction">
             <result name="input">/jsp/admin/getPhotographer.jspx</result>
             <result name="success" type="redirectAction">challenges</result>
             <result name="error">/jsp/admin/error.jspx</result>
+        </action>
+
+
+
+        <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.PrepareImageFormAction">
+            <result>/jsp/admin/getImage.jspx</result>
         </action>
 
         <action name="getImage" class="net.chrissearle.flickrvote.web.admin.RetrieveImageAction">
@@ -51,30 +72,18 @@
             <result name="error">/jsp/admin/error.jspx</result>
         </action>
 
-        <action name="createChallenge" class="net.chrissearle.flickrvote.web.admin.CreateChallengeAction">
-            <result name="input">/jsp/admin/newChallenge.jspx</result>
-            <result name="success" type="redirectAction">challenges</result>
+
+
+        <action name="cronOpenVoting" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="openVoting">
+            <result name="success" type="chain">challenges</result>
         </action>
 
-        <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.PrepareScoreForm">
-            <result>/jsp/admin/scoreForm.jspx</result>
+        <action name="cronNewChallenge" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="newChallenge">
+            <result name="success" type="chain">challenges</result>
         </action>
 
-        <action name="score" class="net.chrissearle.flickrvote.web.admin.ScoreAction">
-            <result name="input">/jsp/admin/scoreForm.jspx</result>
-            <result name="success" type="redirectAction">challenges</result>
-        </action>
-
-        <action name="cronOpenVoting" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="openVoting">
-            <result name="success" type="redirectAction">challenges</result>
-        </action>
-
-        <action name="cronNewChallenge" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="newChallenge">
-            <result name="success" type="redirectAction">challenges</result>
-        </action>
-
-        <action name="cronResults" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="results">
-            <result name="success" type="redirectAction">challenges</result>
+        <action name="cronResults" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="results">
+            <result name="success" type="chain">challenges</result>
         </action>
 
         <action name="getAdminFrob" class="net.chrissearle.flickrvote.web.admin.GetAdminFrobAction">

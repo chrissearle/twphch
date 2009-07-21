@@ -1,0 +1,33 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="challenge.tag">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>Tag must be filled out.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="expression">TwPhCh[0-9][0-9][0-9]</param>
+            <message>Tag must be of the form TwPhChXXX where XXX are numbers 0-9. No spaces.</message>
+        </field-validator>
+    </field>
+    <field name="challenge.title">
+        <field-validator type="requiredstring">
+            <message>Title must be filled out</message>
+        </field-validator>
+    </field>
+    <field name="challenge.startDate">
+        <field-validator type="required">
+            <message>Start Date is required</message>
+        </field-validator>
+    </field>
+    <field name="challenge.voteDate">
+        <field-validator type="required">
+            <message>Vote Date is required</message>
+        </field-validator>
+    </field>
+    <field name="challenge.endDate">
+        <field-validator type="required">
+            <message>End Date is required</message>
+        </field-validator>
+    </field>
+</validators>

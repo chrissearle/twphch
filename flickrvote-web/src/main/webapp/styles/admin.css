@@ -121,3 +121,17 @@ a:hover {
     font-size: 100%;
     margin-top: 5px;
 }
+
+table {
+    margin: 15px;
+}
+
+td {
+  padding: 3px;
+}
+
+ul.actionMessage {
+    padding: 10px;
+    border: solid 1px darkblue;
+    background-color: lightblue;
+}

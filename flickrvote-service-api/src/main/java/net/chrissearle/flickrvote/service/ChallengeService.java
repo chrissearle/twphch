@@ -26,7 +26,7 @@ public interface ChallengeService {
     void vote(String photographerId, String imageId);
 
     // Scheduler jobs
-    void openVoting();
-    void announceNewChallenge();
-    void announceResults();
+    ChallengeInfo openVoting();
+    ChallengeInfo announceNewChallenge();
+    ChallengeInfo announceResults();
 }

@@ -62,12 +62,15 @@ public class TestChartChallengeService implements ChallengeService {
     public void vote(String photographerId, String imageId) {
     }
 
-    public void openVoting() {
+    public ChallengeInfo openVoting() {
+        return null;
     }
 
-    public void announceNewChallenge() {
+    public ChallengeInfo announceNewChallenge() {
+        return null;
     }
 
-    public void announceResults() {
+    public ChallengeInfo announceResults() {
+        return null;
     }
 }
