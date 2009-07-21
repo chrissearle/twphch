@@ -8,6 +8,7 @@ import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
+import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -105,11 +106,11 @@ public class DaoPhotographyService implements PhotographyService {
         return flickrService.getLoginUrl();
     }
 
-    public void retrieveAndStoreImage(String id, String tag) {
+    public ImageInfo retrieveAndStoreImage(String id, String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge == null)
-            return;
+            return null;
 
         Image image = dao.findImageByFlickrId(id);
 
@@ -137,7 +138,11 @@ public class DaoPhotographyService implements PhotographyService {
             challenge.addImage(image);
 
             challengeDao.save(challenge);
+
+            return new ImageInfo(image);
         }
+
+        return null;
     }
 
     public void setScore(String imageId, Long score) {

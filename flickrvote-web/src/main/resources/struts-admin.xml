@@ -62,14 +62,13 @@
 
 
 
-        <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.PrepareImageFormAction">
-            <result>/jsp/admin/getImage.jspx</result>
+        <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.ImageAction" method="input">
+            <result name="input">/jsp/admin/getImage.jspx</result>
         </action>
 
-        <action name="getImage" class="net.chrissearle.flickrvote.web.admin.RetrieveImageAction">
+        <action name="getImage" class="net.chrissearle.flickrvote.web.admin.ImageAction">
             <result name="input">/jsp/admin/getImage.jspx</result>
-            <result name="success" type="redirectAction">challenges</result>
-            <result name="error">/jsp/admin/error.jspx</result>
+            <result name="success" type="chain">challenges</result>
         </action>
 
 

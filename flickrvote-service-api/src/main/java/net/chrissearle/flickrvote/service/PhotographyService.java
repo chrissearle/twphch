@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
@@ -21,7 +22,7 @@ public interface PhotographyService {
 
     URL getLoginUrl();
 
-    void retrieveAndStoreImage(String id, String tag);
+    ImageInfo retrieveAndStoreImage(String id, String tag);
 
     void setScore(String imageId, Long score);
 }
