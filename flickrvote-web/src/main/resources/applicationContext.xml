@@ -7,6 +7,9 @@
     <context:component-scan base-package="net.chrissearle"/>
     <context:property-placeholder location="file:/etc/flickrvote.properties"/>
 
+    <bean id="adminAuthTokenHolder" class="net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder">
+        <property name="adminAuthToken" value="${flickr.admin.auth.token}"/>
+    </bean>
 
     <bean id="flickr" class="com.aetrion.flickr.Flickr">
         <constructor-arg index="0" value="${flickr.key}"/>

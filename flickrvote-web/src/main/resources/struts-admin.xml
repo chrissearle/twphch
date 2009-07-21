@@ -76,5 +76,9 @@
         <action name="cronResults" class="net.chrissearle.flickrvote.web.admin.CallCronOpenVotingAction" method="results">
             <result name="success" type="redirectAction">challenges</result>
         </action>
+
+        <action name="getAdminFrob" class="net.chrissearle.flickrvote.web.admin.GetAdminFrobAction">
+            <result name="success">/jsp/admin/adminFrob.jspx</result>
+        </action>
     </package>
 </struts>

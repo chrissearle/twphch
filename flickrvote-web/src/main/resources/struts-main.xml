@@ -21,10 +21,10 @@
         <action name="showChart" class="net.chrissearle.flickrvote.web.ShowChartAction">
             <result>/jsp/showchart.jspx</result>
         </action>
-        <action name="instructions" class="net.chrissearle.flickrvote.web.InternationalizationLoaderAction">
+        <action name="instructions">
             <result>/jsp/instructions.jspx</result>
         </action>
-        <action name="faq" class="net.chrissearle.flickrvote.web.InternationalizationLoaderAction">
+        <action name="faq">
             <result>/jsp/faq.jspx</result>
         </action>
     </package>

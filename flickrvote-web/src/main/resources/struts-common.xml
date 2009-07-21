@@ -15,7 +15,7 @@
             <result type="freemarker" name="success">/ftl/common/flickrUser.ftl</result>
         </action>
 
-        <action name="currentChallengeBlock" class="net.chrissearle.flickrvote.web.InternationalizationLoaderAction">
+        <action name="currentChallengeBlock">
             <result type="freemarker" name="success">/ftl/common/currentChallengeBlock.ftl</result>
         </action>
 
