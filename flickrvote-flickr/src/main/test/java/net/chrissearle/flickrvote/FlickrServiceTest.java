@@ -19,7 +19,7 @@ import java.util.Properties;
 
 public class FlickrServiceTest extends FlickrJFlickrService {
     String token;
-
+    
     @BeforeTest(groups = "configured")
     public void setupConfigured() throws IOException, ParserConfigurationException {
         InputStream in = getClass().getResourceAsStream("/flickrvote-flickr.properties");
@@ -28,6 +28,8 @@ public class FlickrServiceTest extends FlickrJFlickrService {
 
         flickr = new Flickr(properties.getProperty("flickr.key"),
                 properties.getProperty("flickr.secret"), new REST());
+
+        adminAuthToken = properties.getProperty("flickr.admin.auth.token");
 
         this.token = properties.getProperty("flickr.test.token");
     }

@@ -7,6 +7,8 @@ import java.util.Date;
 public interface FlickrService {
     URL getLoginUrl() throws FlickrServiceException;
 
+    URL getLoginUrl(boolean write) throws FlickrServiceException;
+
     FlickrAuth authenticate(String frob) throws FlickrServiceException;
 
     FlickrAuth checkAuthenticate(String token) throws FlickrServiceException;

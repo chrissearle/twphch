@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.flickr;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
+import com.aetrion.flickr.RequestContext;
 import com.aetrion.flickr.auth.Auth;
 import com.aetrion.flickr.auth.AuthInterface;
 import com.aetrion.flickr.auth.Permission;
@@ -10,6 +11,7 @@ import com.aetrion.flickr.people.User;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
+import com.aetrion.flickr.photos.comments.CommentsInterface;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,16 +26,34 @@ import java.util.*;
 public class FlickrJFlickrService implements FlickrService {
     private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
 
-    @Autowired
     protected Flickr flickr;
 
+    protected String adminAuthToken;
+
+    @Autowired
+    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder) {
+        this.flickr = flickr;
+        this.adminAuthToken = tokenHolder.getAdminAuthToken();
+    }
+
+    protected FlickrJFlickrService() {}
+
     public URL getLoginUrl() throws FlickrServiceException {
+        return getLoginUrl(false);
+    }
+
+    public URL getLoginUrl(boolean write) throws FlickrServiceException {
         try {
             AuthInterface authInterface = flickr.getAuthInterface();
 
             String frob = authInterface.getFrob();
 
-            return authInterface.buildAuthenticationUrl(Permission.READ, frob);
+            Permission permission = Permission.READ;
+            if (write) {
+                permission = Permission.WRITE;
+            }
+
+            return authInterface.buildAuthenticationUrl(permission, frob);
         } catch (MalformedURLException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {
@@ -64,9 +84,7 @@ public class FlickrJFlickrService implements FlickrService {
 
     public FlickrAuth checkAuthenticate(String token) throws FlickrServiceException {
         try {
-            AuthInterface authInterface = flickr.getAuthInterface();
-
-            Auth auth = authInterface.checkToken(token);
+            Auth auth = getAuthByToken(token);
 
             return new FlickrAuth(auth.getUser().getId(), auth.getToken(),
                     auth.getUser().getUsername(), auth.getUser().getRealName());
@@ -77,6 +95,12 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (FlickrException e) {
             throw new FlickrServiceException(e);
         }
+    }
+
+    private Auth getAuthByToken(String token) throws IOException, SAXException, FlickrException {
+        AuthInterface authInterface = flickr.getAuthInterface();
+
+        return authInterface.checkToken(token);
     }
 
     @SuppressWarnings("unchecked")
@@ -176,7 +200,25 @@ public class FlickrJFlickrService implements FlickrService {
         if (logger.isInfoEnabled()) {
             logger.info("Posting to comment ID: " + imageId + " COMMENT: " + comment);
         }
-        // TODO post
+
+        CommentsInterface commentsInterface = flickr.getCommentsInterface();
+
+        RequestContext context = RequestContext.getRequestContext();
+
+        try {
+            context.setAuth(getAuthByToken(adminAuthToken));
+
+            // TODO - enable this
+/*
+            commentsInterface.addComment(imageId, comment);
+*/
+        } catch (IOException e) {
+            throw new FlickrServiceException(e);
+        } catch (SAXException e) {
+            throw new FlickrServiceException(e);
+        } catch (FlickrException e) {
+            throw new FlickrServiceException(e);
+        }
     }
 
     private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {
