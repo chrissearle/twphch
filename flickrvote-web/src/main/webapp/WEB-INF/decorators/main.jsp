@@ -27,7 +27,7 @@
 <body>
 <div id="main">
     <div id="links">
-        <s:url action="current" namespace="/" id="homepageUrl"/><s:a href="%{homepageUrl}"><s:text name="link.homepage"/></s:a>
+        <s:url action="current" namespace="/" id="homepageUrl"/><s:a href="%{homepageUrl}"><s:text name="link.homepage"/></s:a> |
         <s:action name="flickrLoginLink" namespace="/common" executeResult="true"/> |
         <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
         <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
