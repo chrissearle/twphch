@@ -48,6 +48,9 @@
             <br/>
             <s:url action="cronResults" id="cronResultsUrl"/>
             <s:a href="%{cronResultsUrl}">Cron: Results</s:a>
+            <br/>
+            <s:url action="frob" id="frobUrl"/>
+            <s:a href="%{frobUrl}">Show admin frob URL</s:a>
         </p>
     </div>
     <!-- end left division -->
