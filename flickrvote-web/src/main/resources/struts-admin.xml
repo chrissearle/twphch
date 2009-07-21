@@ -40,7 +40,7 @@
 
 
 
-        <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.PrepareScoreForm">
+        <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.ScoreAction" method="input">
             <result name="input">/jsp/admin/scoreForm.jspx</result>
         </action>
 
