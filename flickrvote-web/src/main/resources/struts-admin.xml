@@ -51,13 +51,13 @@
 
 
 
-        <action name="getPhotographerForm">
-            <result>/jsp/admin/getPhotographer.jspx</result>
-        </action>
-        <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.RetrievePhotographerAction">
+        <action name="getPhotographerForm" class="net.chrissearle.flickrvote.web.admin.PhotographerAction" method="input">
             <result name="input">/jsp/admin/getPhotographer.jspx</result>
-            <result name="success" type="redirectAction">challenges</result>
-            <result name="error">/jsp/admin/error.jspx</result>
+        </action>
+        
+        <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.PhotographerAction">
+            <result name="input">/jsp/admin/getPhotographer.jspx</result>
+            <result name="success" type="chain">challenges</result>
         </action>
 
 

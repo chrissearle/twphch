@@ -13,7 +13,7 @@ public interface PhotographyService {
 
     Boolean isAdministrator(String username);
 
-    void retrieveAndStorePhotographer(String id);
+    PhotographerInfo retrieveAndStorePhotographer(String id);
 
     public PhotographerInfo checkLoginAndStore(String frob);
 

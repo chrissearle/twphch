@@ -135,3 +135,9 @@ ul.actionMessage {
     border: solid 1px darkblue;
     background-color: lightblue;
 }
+
+ul.errorMessage {
+    padding: 10px;
+    border: solid 1px red;
+    background-color: lightyellow;
+}

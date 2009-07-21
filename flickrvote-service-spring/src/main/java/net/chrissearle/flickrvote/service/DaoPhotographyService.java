@@ -52,7 +52,7 @@ public class DaoPhotographyService implements PhotographyService {
         return photographer != null && photographer.isAdministrator();
     }
 
-    public void retrieveAndStorePhotographer(String id) {
+    public PhotographerInfo retrieveAndStorePhotographer(String id) {
         // Check to see if present
         Photographer photographer = dao.findPhotographerByFlickrId(id);
 
@@ -62,7 +62,11 @@ public class DaoPhotographyService implements PhotographyService {
             photographer = new Photographer(auth.getToken(), auth.getUsername(), auth.getRealname(), auth.getFlickrId());
 
             dao.save(photographer);
+
+            return new PhotographerInfo(photographer);
         }
+
+        return null;
     }
 
     public PhotographerInfo checkLoginAndStore(String frob) {
