@@ -5,14 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.chrissearle</groupId>
-        <artifactId>maven</artifactId>
-        <version>16-SNAPSHOT</version>
+        <artifactId>flickrvote-common</artifactId>
+        <version>1-SNAPSHOT</version>
     </parent>
 
-    <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote-model</artifactId>
+    <groupId>net.chrissearle</groupId>
+    <version>${projectVersion}</version>
+
     <packaging>jar</packaging>
-    <version>1-SNAPSHOT</version>
 
     <name>TwPhCh voting app - Model</name>
 
@@ -20,14 +21,12 @@
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
-            <version>1.0</version>
         </dependency>
 
         <!-- Testing -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.8</version>
             <classifier>jdk15</classifier>
             <scope>test</scope>
         </dependency>
@@ -35,45 +34,33 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
              <groupId>org.hibernate</groupId>
              <artifactId>hibernate-entitymanager</artifactId>
-             <version>3.3.1.ga</version>
             <scope>test</scope>
          </dependency>
          <dependency>
              <groupId>org.hibernate</groupId>
              <artifactId>hibernate</artifactId>
-             <version>3.2.6.ga</version>
              <scope>test</scope>
          </dependency>
          <dependency>
              <groupId>concurrent</groupId>
              <artifactId>concurrent</artifactId>
-             <version>1.3.4</version>
              <scope>test</scope>
          </dependency>
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>1.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

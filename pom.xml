@@ -12,6 +12,7 @@
     <name>TwPhCh voting app - Grouping POM</name>
 
     <modules>
+        <module>flickrvote-common</module>
         <module>flickrvote-model</module>
         <module>flickrvote-flickr</module>
         <module>flickrvote-data-api</module>
@@ -19,7 +20,7 @@
         <module>flickrvote-twitter</module>
         <module>flickrvote-service-api</module>
         <module>flickrvote-service-spring</module>
-        <module>flickrvote-web</module>
         <module>flickrvote-scheduler-spring</module>
+        <module>flickrvote-web</module>
     </modules>
 </project>

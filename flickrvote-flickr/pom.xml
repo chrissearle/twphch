@@ -6,13 +6,15 @@
 
     <parent>
         <groupId>net.chrissearle</groupId>
-        <artifactId>maven</artifactId>
-        <version>16-SNAPSHOT</version>
+        <artifactId>flickrvote-common</artifactId>
+        <version>1-SNAPSHOT</version>
     </parent>
 
-    <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote-flickr</artifactId>
-    <version>1-SNAPSHOT</version>
+    <groupId>net.chrissearle</groupId>
+    <version>${projectVersion}</version>
+ 
+   <packaging>jar</packaging>
 
     <name>TwPhCh voting app - Flickr Interface</name>
 
@@ -21,31 +23,26 @@
         <dependency>
             <groupId>com.aetrion.flickr</groupId>
             <artifactId>flickrapi</artifactId>
-            <version>1.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>2.5.6</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>2.5.6</version>
         </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.8</version>
             <classifier>jdk15</classifier>
             <scope>test</scope>
         </dependency>
@@ -53,13 +50,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

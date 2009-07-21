@@ -5,14 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.chrissearle</groupId>
-        <artifactId>maven</artifactId>
-        <version>16-SNAPSHOT</version>
+        <artifactId>flickrvote-common</artifactId>
+        <version>1-SNAPSHOT</version>
     </parent>
 
-    <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote-data-api</artifactId>
+    <groupId>net.chrissearle</groupId>
+    <version>${projectVersion}</version>
+
     <packaging>jar</packaging>
-    <version>1-SNAPSHOT</version>
 
     <name>TwPhCh voting app - Data - API</name>
 
@@ -20,7 +21,7 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-model</artifactId>
-            <version>1-SNAPSHOT</version>
+            <version>${projectVersion}</version>
         </dependency>
     </dependencies>
 </project>
