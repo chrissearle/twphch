@@ -7,19 +7,19 @@
     <context:component-scan base-package="net.chrissearle"/>
 
     <bean id="openVotingJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetBeanName" value="challengeService"/>
         <property name="targetMethod" value="openVoting"/>
         <property name="concurrent" value="false"/>
     </bean>
 
     <bean id="announceNewChallengeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetBeanName" value="challengeService"/>
         <property name="targetMethod" value="announceNewChallenge"/>
         <property name="concurrent" value="false"/>
     </bean>
 
     <bean id="announceResultsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetBeanName" ref="challengeService"/>
+        <property name="targetBeanName" value="challengeService"/>
         <property name="targetMethod" value="announceResults"/>
         <property name="concurrent" value="false"/>
     </bean>

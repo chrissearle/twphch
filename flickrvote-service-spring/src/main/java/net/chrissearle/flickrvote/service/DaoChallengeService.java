@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-@Service
+@Service("challengeService")
 @Transactional
 public class DaoChallengeService implements ChallengeService {
     private Logger logger = Logger.getLogger(DaoChallengeService.class);
