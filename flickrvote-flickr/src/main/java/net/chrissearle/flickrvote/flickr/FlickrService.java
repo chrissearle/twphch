@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.flickr;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Date;
 
 public interface FlickrService {
     URL getLoginUrl() throws FlickrServiceException;
@@ -10,7 +11,7 @@ public interface FlickrService {
 
     FlickrAuth checkAuthenticate(String token) throws FlickrServiceException;
 
-    List<FlickrImage> searchImagesByTag(String tag) throws FlickrServiceException;
+    List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException;
 
     FlickrAuth getUserByFlickrId(String id);
 

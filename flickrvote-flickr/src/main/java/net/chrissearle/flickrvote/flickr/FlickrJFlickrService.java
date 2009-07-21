@@ -18,22 +18,14 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
     private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
-    
+
     @Autowired
     protected Flickr flickr;
-
-/*
-    @Autowired
-    private PhotographerService photographerService;
-*/
 
     public URL getLoginUrl() throws FlickrServiceException {
         try {
@@ -88,7 +80,7 @@ public class FlickrJFlickrService implements FlickrService {
     }
 
     @SuppressWarnings("unchecked")
-    public List<FlickrImage> searchImagesByTag(String tag) throws FlickrServiceException {
+    public List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException {
         try {
             PhotosInterface photosInterface = flickr.getPhotosInterface();
 
@@ -98,20 +90,34 @@ public class FlickrJFlickrService implements FlickrService {
             SearchParameters params = new SearchParameters();
             params.setTags(tags);
 
-            List<Photo> photos = photosInterface.search(params, 500, 1);
+            List<Photo> photos = (List<Photo>) photosInterface.search(params, 500, 1);
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
-            Set<String> seenPhotographers = new HashSet<String>();
+            Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
 
             for (Photo photo : photos) {
-                if (!seenPhotographers.contains(photo.getOwner().getId())) {
-                    results.add(convertPhotoToFlickrImage(photo));
-                    seenPhotographers.add(photo.getOwner().getId());
+                FlickrImage image = getImageByFlickrId(photo.getId());
+
+                if (earliestDate != null && image.getDateTaken() != null && image.getDateTaken().getTime() < earliestDate.getTime()) {
+                    if (logger.isInfoEnabled()) {
+                        logger.info("Image was taken before challenge start: " + image);
+                    }
+                } else {
+                    if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("Seen " + image);
+                        }
+                        seenPhotographers.put(photo.getOwner().getId(), image);
+                    } else {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("Not replacing " + seenPhotographers.get(photo.getOwner().getId()) + " with " + image);
+                        }
+                    }
                 }
             }
 
-            return results;
+            return new ArrayList<FlickrImage>(seenPhotographers.values());
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {
@@ -168,7 +174,7 @@ public class FlickrJFlickrService implements FlickrService {
 
     public void postComment(String imageId, String comment) {
         if (logger.isInfoEnabled()) {
-            logger.info("Posting to comment ID: " + imageId+ " COMMENT: " + comment);
+            logger.info("Posting to comment ID: " + imageId + " COMMENT: " + comment);
         }
         // TODO post
     }
@@ -182,7 +188,7 @@ public class FlickrJFlickrService implements FlickrService {
             name = user.getUsername();
         }
 
-        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl());
+        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken());
     }
 
     private User getUser(String id) throws IOException, SAXException, FlickrException {

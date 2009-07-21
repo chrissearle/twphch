@@ -62,7 +62,7 @@ public class FlickrServiceTest extends FlickrJFlickrService {
 
     @Test(groups = "configured")
     public void testSearchTags() {
-        List<FlickrImage> images = searchImagesByTag("#TwPhCh001");
+        List<FlickrImage> images = searchImagesByTag("#TwPhCh001", null);
 
         assert images != null : "Image list was null";
         assert images.size() > 30 : "Not enough images";

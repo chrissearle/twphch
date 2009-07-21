@@ -88,8 +88,69 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public List<FlickrImage> searchImagesByTag(String tag) {
-        // We can implement author caching here later if we wish
-        return flickrService.searchImagesByTag(tag);
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge == null) {
+            return null;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        return flickrService.searchImagesByTag(tag, challenge.getStartDate());
     }
 
     public URL getLoginUrl() {

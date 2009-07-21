@@ -1,5 +1,7 @@
 package net.chrissearle.flickrvote.flickr;
 
+import java.util.Date;
+
 public class FlickrImage {
     private final String flickrId;
     private final String photographerName;
@@ -8,13 +10,16 @@ public class FlickrImage {
     private final String imageUrl;
     private String photographerFlickrId;
 
-    public FlickrImage(String flickrId, String photographerName, String photoId, String title, String url, String imageUrl) {
+    private Date dateTaken;
+
+    public FlickrImage(String flickrId, String photographerName, String photoId, String title, String url, String imageUrl, Date dateTaken) {
         this.flickrId = flickrId;
         this.photographerName = photographerName;
         this.title = title;
         this.url = url;
         this.imageUrl = imageUrl;
         this.setPhotographerFlickrId(photoId);
+        this.dateTaken = dateTaken;
     }
 
     public FlickrImage(FlickrImage flickrImage) {
@@ -52,5 +57,26 @@ public class FlickrImage {
 
     public void setPhotographerFlickrId(String photographerFlickrId) {
         this.photographerFlickrId = photographerFlickrId;
+    }
+
+    public Date getDateTaken() {
+        return dateTaken;
+    }
+
+    public void setDateTaken(Date dateTaken) {
+        this.dateTaken = dateTaken;
+    }
+
+    @Override
+    public String toString() {
+        return "FlickrImage{" +
+                "flickrId='" + flickrId + '\'' +
+                ", photographerName='" + photographerName + '\'' +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", photographerFlickrId='" + photographerFlickrId + '\'' +
+                ", dateTaken=" + dateTaken +
+                '}';
     }
 }
