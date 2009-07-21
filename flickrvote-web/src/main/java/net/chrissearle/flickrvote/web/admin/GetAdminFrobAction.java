@@ -1,11 +1,24 @@
 package net.chrissearle.flickrvote.web.admin;
 
-/**
- * Created by IntelliJ IDEA.
- * User: chris
- * Date: Jul 21, 2009
- * Time: 1:30:27 PM
- * To change this template use File | Settings | File Templates.
- */
-public class GetAdminFrobAction {
+import org.springframework.beans.factory.annotation.Autowired;
+import net.chrissearle.flickrvote.flickr.FlickrService;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class GetAdminFrobAction extends ActionSupport {
+    @Autowired
+    private FlickrService flickrService;
+
+    private String adminUrl;
+
+    @Override
+    public String execute() throws Exception {
+        adminUrl = flickrService.getLoginUrl(true).toExternalForm();
+
+        return SUCCESS;
+    }
+
+    public String getAdminUrl() {
+        return adminUrl;
+    }
+
 }
