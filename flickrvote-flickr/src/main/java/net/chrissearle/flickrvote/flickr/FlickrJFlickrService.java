@@ -22,6 +22,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 
+import net.chrissearle.flickrvote.mail.ForumPostService;
+
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
     private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
@@ -30,10 +32,13 @@ public class FlickrJFlickrService implements FlickrService {
 
     protected String adminAuthToken;
 
+    private ForumPostService forumPostService;
+
     @Autowired
-    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder) {
+    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder, ForumPostService forumPostService) {
         this.flickr = flickr;
         this.adminAuthToken = tokenHolder.getAdminAuthToken();
+        this.forumPostService = forumPostService;
     }
 
     protected FlickrJFlickrService() {}
@@ -194,6 +199,8 @@ public class FlickrJFlickrService implements FlickrService {
             logger.info("Posting to forum TITLE: " + title + " TEXT: " + text);
         }
         // TODO post
+        
+        forumPostService.sendForumPost(title, text);
     }
 
     public void postComment(String imageId, String comment) {

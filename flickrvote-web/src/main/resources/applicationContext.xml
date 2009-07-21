@@ -32,4 +32,19 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}"/>
+    </bean>
+
+    <!-- this is a template message that we can pre-load with default state -->
+    <bean id="mailTemplate" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.from.address}"/>
+        <property name="to" value="${mail.to.address.forum}"/>
+    </bean>
+
+    <bean id="forumPostMessageManager" class="net.chrissearle.flickrvote.mail.ForumPostMessageManager">
+        <constructor-arg index="0" ref="mailSender"/>
+        <constructor-arg index="1" ref="mailTemplate"/>
+    </bean>
 </beans>

@@ -130,19 +130,13 @@
 
         <dependency>
             <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-data-api</artifactId>
+            <artifactId>flickrvote-mail-spring</artifactId>
             <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-data-spring</artifactId>
-            <version>${projectVersion}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-service-api</artifactId>
             <version>${projectVersion}</version>
         </dependency>
 

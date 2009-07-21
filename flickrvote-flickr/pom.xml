@@ -41,6 +41,12 @@
         </dependency>
 
         <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-mail-api</artifactId>
+            <version>${projectVersion}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <classifier>jdk15</classifier>
