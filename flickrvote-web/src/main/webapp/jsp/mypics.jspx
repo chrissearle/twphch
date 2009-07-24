@@ -1,0 +1,27 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title><s:text name="main.title"/></title>
+        <s:head/>
+    </head>
+    <body>
+    <h1><s:property value="#session.flickrUser.name"/></h1>
+
+    <s:iterator id="photo" value="images">
+        <div class="photobox">
+            <h3><s:property value="#photo.challengeTag"/>: <s:property value="#photo.title"/> - <s:property
+                    value="#photo.challengeName"/> (<s:property value="#photo.finalVoteCount"/> votes)</h3>
+            <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
+        </div>
+    </s:iterator>
+    </body>
+    </html>
+</jsp:root>

@@ -27,5 +27,10 @@
         <action name="faq">
             <result>/jsp/faq.jspx</result>
         </action>
+
+        <action name="myPics" class="net.chrissearle.flickrvote.web.MyPicsAction">
+            <result name="success">/jsp/mypics.jspx</result>
+            <result name="notloggedin" type="redirectAction">current</result>
+        </action>
     </package>
 </struts>

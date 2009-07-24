@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,7 +10,12 @@ public class CallCronAction extends ActionSupport {
     @Autowired
     private ChallengeService challengeService;
 
+    @Autowired
+    private PhotographyService photographyService;
+
     public String openVoting() throws Exception {
+        photographyService.freezeChallenge();
+
         ChallengeInfo challenge = challengeService.openVoting();
 
         if (challenge != null) {

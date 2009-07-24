@@ -11,16 +11,19 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
+    private Logger logger = Logger.getLogger(DaoPhotographyService.class);
 
     private final PhotographyDao photographyDao;
     private ChallengeDao challengeDao;
@@ -61,7 +64,7 @@ public class DaoPhotographyService implements PhotographyService {
 
     public PhotographerInfo retrieveAndStorePhotographer(String id) {
         // Check to see if present
-        Photographer photographer = photographyDao.findPhotographerByFlickrId(id);
+        Photographer photographer = photographyDao.findById(id);
 
         if (photographer == null) {
             FlickrAuth auth = flickrService.getUserByFlickrId(id);
@@ -80,7 +83,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrAuth auth = flickrService.authenticate(frob);
 
         // Check to see if present
-        Photographer photographer = photographyDao.findPhotographerByFlickrId(auth.getFlickrId());
+        Photographer photographer = photographyDao.findById(auth.getFlickrId());
 
         if (photographer == null) {
             photographer = new Photographer();
@@ -118,7 +121,7 @@ public class DaoPhotographyService implements PhotographyService {
         if (challenge == null)
             return null;
 
-        Image image = photographyDao.findImageByFlickrId(id);
+        Image image = imageDao.findById(id);
 
         if (image == null) {
             FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
@@ -129,12 +132,12 @@ public class DaoPhotographyService implements PhotographyService {
             image.setPage(flickrImage.getUrl());
             image.setTitle(flickrImage.getTitle());
 
-            Photographer photographer = photographyDao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+            Photographer photographer = photographyDao.findById(flickrImage.getPhotographerFlickrId());
 
             if (photographer == null) {
                 retrieveAndStorePhotographer(flickrImage.getPhotographerFlickrId());
 
-                photographer = photographyDao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+                photographer = photographyDao.findById(flickrImage.getPhotographerFlickrId());
             }
 
             photographer.addImage(image);
@@ -152,12 +155,51 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public void setScore(String imageId, Long score) {
-        Image image = photographyDao.findImageByFlickrId(imageId);
+        Image image = imageDao.findById(imageId);
 
         if (image != null) {
             image.setFinalVoteCount(score);
         }
 
         imageDao.persist(image);
+    }
+
+    public List<ImageInfo> getImagesForPhotographer(String id) {
+        Photographer photographer = photographyDao.findById(id);
+
+        if (photographer == null || photographer.getImages() == null || photographer.getImages().size() == 0) {
+            return null;
+        }
+        
+        List<ImageInfo> images = new ArrayList<ImageInfo>(photographer.getImages().size());
+
+        for (Image image : photographer.getImages()) {
+            images.add(new ImageInfo(image));
+        }
+
+        return images;
+    }
+
+    public void freezeChallenge() {
+        if (logger.isInfoEnabled()) {
+            logger.info("Freezing challenge");
+        }
+
+        Challenge challenge = challengeDao.getVotingChallenge();
+
+        if (challenge == null) {
+            return;
+        }
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Freezing challenge : " + challenge);
+        }
+
+
+        List<FlickrImage> images = flickrService.searchImagesByTag(challenge.getTag(), challenge.getStartDate());
+
+        for (FlickrImage image : images) {
+            retrieveAndStoreImage(image.getFlickrId(), challenge.getTag());
+        }
     }
 }

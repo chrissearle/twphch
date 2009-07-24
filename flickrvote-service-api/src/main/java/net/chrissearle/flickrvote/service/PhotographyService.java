@@ -25,4 +25,8 @@ public interface PhotographyService {
     ImageInfo retrieveAndStoreImage(String id, String tag);
 
     void setScore(String imageId, Long score);
+
+    List<ImageInfo> getImagesForPhotographer(String id);
+
+    void freezeChallenge();
 }

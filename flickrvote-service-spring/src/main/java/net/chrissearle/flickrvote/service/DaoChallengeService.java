@@ -140,7 +140,7 @@ public class DaoChallengeService implements ChallengeService {
         if (logger.isDebugEnabled()) {
             logger.debug("hasVoted for: " + photographerId);
         }
-        Photographer photographer = photographyDao.findPhotographerByFlickrId(photographerId);
+        Photographer photographer = photographyDao.findById(photographerId);
 
         if (logger.isDebugEnabled()) {
             logger.debug("hasVoted for: " + photographer);
@@ -157,9 +157,9 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public void vote(String photographerId, String imageId) {
-        Photographer photographer = photographyDao.findPhotographerByFlickrId(photographerId);
+        Photographer photographer = photographyDao.findById(photographerId);
 
-        Image image = photographyDao.findImageByFlickrId(imageId);
+        Image image = imageDao.findById(imageId);
 
 
         if (photographer != null && image != null) {
