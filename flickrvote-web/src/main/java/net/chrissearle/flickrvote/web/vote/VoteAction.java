@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +62,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
         }
 
         addActionMessage("Thankyou for your vote");
-        
+
         return SUCCESS;
     }
 
@@ -146,7 +148,25 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     public List<ImageInfo> getImages() {
         if (logger.isDebugEnabled()) {
-            logger.debug("getImages: "+ images);
+            logger.debug("getImages: " + images);
+        }
+
+        long rank = 0;
+        long lastSeenValue = Long.MAX_VALUE;
+
+        Collections.sort(images, new Comparator<ImageInfo>() {
+
+            public int compare(ImageInfo o1, ImageInfo o2) {
+                return o2.getVoteCount().compareTo(o1.getVoteCount());
+            }
+        });
+
+        for (ImageInfo image : images) {
+            if (image.getVoteCount() < lastSeenValue) {
+                lastSeenValue = image.getVoteCount();
+                rank++;
+            }
+            image.setRank(rank);
         }
 
         return images;
