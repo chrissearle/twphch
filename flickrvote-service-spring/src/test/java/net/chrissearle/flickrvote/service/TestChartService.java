@@ -18,7 +18,7 @@ public class TestChartService {
     @BeforeClass
     public void setup() {
         challengeService = new TestChartChallengeService();
-        chartService = new JFreeChartChartService(challengeService);
+        chartService = new JFreeChartChartService(challengeService, null);
     }
 
     @Test

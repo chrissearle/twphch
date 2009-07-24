@@ -37,9 +37,6 @@
         </action>
 
 
-
-
-
         <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.ScoreAction" method="input">
             <result name="input">/jsp/admin/scoreForm.jspx</result>
         </action>
@@ -50,16 +47,15 @@
         </action>
 
 
-
-        <action name="getPhotographerForm" class="net.chrissearle.flickrvote.web.admin.PhotographerAction" method="input">
+        <action name="getPhotographerForm" class="net.chrissearle.flickrvote.web.admin.PhotographerAction"
+                method="input">
             <result name="input">/jsp/admin/getPhotographer.jspx</result>
         </action>
-        
+
         <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.PhotographerAction">
             <result name="input">/jsp/admin/getPhotographer.jspx</result>
             <result name="success" type="chain">challenges</result>
         </action>
-
 
 
         <action name="getImageForm" class="net.chrissearle.flickrvote.web.admin.ImageAction" method="input">
@@ -72,12 +68,12 @@
         </action>
 
 
-
         <action name="cronOpenVoting" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="openVoting">
             <result name="success" type="chain">challenges</result>
         </action>
 
-        <action name="cronNewChallenge" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="newChallenge">
+        <action name="cronNewChallenge" class="net.chrissearle.flickrvote.web.admin.CallCronAction"
+                method="newChallenge">
             <result name="success" type="chain">challenges</result>
         </action>
 
@@ -87,6 +83,10 @@
 
         <action name="getAdminFrob" class="net.chrissearle.flickrvote.web.admin.GetAdminFrobAction">
             <result name="success">/jsp/admin/adminFrob.jspx</result>
+        </action>
+
+        <action name="rankIt" class="net.chrissearle.flickrvote.web.admin.RankItAction">
+            <result name="success" type="chain">challenges</result>
         </action>
     </package>
 </struts>

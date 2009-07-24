@@ -30,6 +30,9 @@ public class Image {
     @Column(name = "final_vote_count", nullable = false)
     private Long finalVoteCount = 0L;
 
+    @Column(name = "final_rank", nullable = false)
+    private Long finalRank = 0L;
+
     @OneToMany(mappedBy = "image", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private
     List<Vote> votes = new ArrayList<Vote>();
@@ -47,9 +50,15 @@ public class Image {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("ID: ").append(getId()).append(", TITLE: ").append(getTitle())
-                .append("VOTES: ").append(getFinalVoteCount())
-                .toString();
+        return "Image{" +
+                "title='" + title + '\'' +
+                ", id='" + id + '\'' +
+                ", page='" + page + '\'' +
+                ", mediumImage='" + mediumImage + '\'' +
+                ", finalVoteCount=" + finalVoteCount +
+                ", finalRank=" + finalRank +
+                ", version=" + version +
+                '}';
     }
 
     public String getTitle() {
@@ -117,6 +126,14 @@ public class Image {
 
     public void setFinalVoteCount(Long finalVoteCount) {
         this.finalVoteCount = finalVoteCount;
+    }
+
+    public Long getFinalRank() {
+        return finalRank;
+    }
+
+    public void setFinalRank(Long finalRank) {
+        this.finalRank = finalRank;
     }
 
     @Override

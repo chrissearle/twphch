@@ -23,6 +23,7 @@
             <th>Start Date</th>
             <th>Voting Opens</th>
             <th>End Date</th>
+            <th>Commands</th>
         </tr>
         <s:iterator id="challenge" value="challenges">
             <tr>
@@ -36,6 +37,12 @@
                 <td><s:date name="#challenge.startDate" format="dd.MM.yyyy"/></td>
                 <td><s:date name="#challenge.voteDate" format="dd.MM.yyyy"/></td>
                 <td><s:date name="#challenge.endDate" format="dd.MM.yyyy"/></td>
+                <td>
+                    <s:url id="rankItLink" action="rankIt">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
+                    </s:url>
+                    <s:a href="%{rankItLink}">Rank It</s:a>
+                </td>
             </tr>
         </s:iterator>
     </table>

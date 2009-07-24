@@ -21,6 +21,9 @@
         <action name="showChart" class="net.chrissearle.flickrvote.web.ShowChartAction">
             <result>/jsp/showchart.jspx</result>
         </action>
+        <action name="showPhotographerChart">
+            <result>/jsp/showphotographerchart.jspx</result>
+        </action>
         <action name="instructions">
             <result>/jsp/instructions.jspx</result>
         </action>

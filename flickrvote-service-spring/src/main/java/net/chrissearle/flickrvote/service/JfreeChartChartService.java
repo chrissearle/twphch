@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 @Service
@@ -30,16 +30,25 @@ public class JFreeChartChartService implements ChartService {
 
 
     private ChallengeService challengeService;
+    private PhotographyService photographyService;
 
     @Autowired
-    public JFreeChartChartService(ChallengeService challengeService) {
+    public JFreeChartChartService(ChallengeService challengeService, PhotographyService photographyService) {
         this.challengeService = challengeService;
+        this.photographyService = photographyService;
     }
 
     public JFreeChart getChartForChallenge(String tag, String scoreAxisTitle, String photographerAxisTitle) {
         ChallengeInfo challenge = challengeService.getChallenge(tag);
 
         List<ImageInfo> images = challengeService.getImagesForChallenge(tag);
+
+        Collections.sort(images, new Comparator<ImageInfo>() {
+
+            public int compare(ImageInfo o1, ImageInfo o2) {
+                return o2.getFinalVoteCount().compareTo(o1.getFinalVoteCount());
+            }
+        });
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
@@ -111,5 +120,33 @@ public class JFreeChartChartService implements ChartService {
         }
 
         return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
+    }
+
+    public JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle) {
+        List<ImageInfo> images = photographyService.getImagesForPhotographer(id);
+
+        List<ChallengeInfo> challenges = challengeService.getChallenges();
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        Map<String, ImageInfo> imageMap = new HashMap<String, ImageInfo>();
+        String photographerName = null;
+
+        for (ImageInfo image : images) {
+            imageMap.put(image.getChallengeTag(), image);
+            if (photographerName == null) {
+                photographerName = image.getPhotographerName();
+            }
+        }
+
+        for (ChallengeInfo challenge : challenges) {
+            if (imageMap.containsKey(challenge.getTag())) {
+                dataset.setValue(imageMap.get(challenge.getTag()).getFinalVoteCount(), rankAxisTitle, challenge.getTag());
+            } else {
+                dataset.setValue(-1, rankAxisTitle, challenge.getTag());
+            }
+        }
+
+        return generateChart(photographerName == null ? "" : photographerName, "", dataset, rankAxisTitle, challengeAxisTitle);
     }
 }

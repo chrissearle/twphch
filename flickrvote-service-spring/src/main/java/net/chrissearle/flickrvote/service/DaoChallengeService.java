@@ -63,27 +63,26 @@ public class DaoChallengeService implements ChallengeService {
             results.add(new ImageInfo(image));
         }
 
-        doRanking(results);
-
         return results;
     }
 
-    private void doRanking(List<ImageInfo> images) {
+    private void doRanking(List<Image> images) {
         long rank = 0;
         long lastSeenValue = Long.MAX_VALUE;
 
-        Collections.sort(images, new Comparator<ImageInfo>() {
-            public int compare(ImageInfo o1, ImageInfo o2) {
+        Collections.sort(images, new Comparator<Image>() {
+            public int compare(Image o1, Image o2) {
                 return o2.getFinalVoteCount().compareTo(o1.getFinalVoteCount());
             }
         });
 
-        for (ImageInfo image : images) {
+        for (Image image : images) {
             if (image.getFinalVoteCount() < lastSeenValue) {
                 lastSeenValue = image.getFinalVoteCount();
                 rank++;
             }
-            image.setRank(rank);
+            image.setFinalRank(rank);
+            imageDao.persist(image);
         }
     }
 
@@ -241,6 +240,8 @@ public class DaoChallengeService implements ChallengeService {
 
         photographyDao.clearVotes();
 
+        doRanking(images);
+
         String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
         twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
@@ -250,8 +251,6 @@ public class DaoChallengeService implements ChallengeService {
         for (Image image : images) {
             imageResults.add(new ImageInfo(image));
         }
-
-        doRanking(imageResults);
 
         StringBuilder messageGold = new StringBuilder();
         StringBuilder messageSilver = new StringBuilder();
@@ -285,5 +284,16 @@ public class DaoChallengeService implements ChallengeService {
         flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
 
         return new ChallengeInfo(challenge);
+    }
+
+
+    public void rankChallenge(String tag) {
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge == null) {
+            return;
+        }
+
+        doRanking(challenge.getImages());
     }
 }

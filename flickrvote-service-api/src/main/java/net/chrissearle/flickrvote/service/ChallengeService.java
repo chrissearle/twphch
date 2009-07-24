@@ -25,6 +25,8 @@ public interface ChallengeService {
 
     void vote(String photographerId, String imageId);
 
+    void rankChallenge(String tag);
+
     // Scheduler jobs
     ChallengeInfo openVoting();
     ChallengeInfo announceNewChallenge();

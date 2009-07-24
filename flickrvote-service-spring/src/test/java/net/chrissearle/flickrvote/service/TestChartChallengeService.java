@@ -62,6 +62,9 @@ public class TestChartChallengeService implements ChallengeService {
     public void vote(String photographerId, String imageId) {
     }
 
+    public void rankChallenge(String tag) {
+    }
+
     public ChallengeInfo openVoting() {
         return null;
     }

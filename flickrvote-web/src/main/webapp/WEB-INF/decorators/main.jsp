@@ -44,6 +44,9 @@
                 <s:action name="currentChallengeBlock" namespace="/common" executeResult="true"/>
             </s:if>
             <s:action name="challengeListBlock" namespace="/common" executeResult="true"/>
+            <s:if test="#session.flickrUser">
+                <s:action name="photographerBlock" namespace="/common" executeResult="true"/>
+            </s:if>
             <div class="sidebaritem">
                 <h1><s:text name="sidebar.grouprules.title"/></h1>
 
