@@ -44,7 +44,7 @@
             <s:url action="getImageForm" id="getImageFormUrl"/>
             <s:a href="%{getImageFormUrl}">Get image by ID</s:a>
             <br/>
-            <s:url action="frob" id="frobUrl"/>
+            <s:url action="getAdminFrob" id="frobUrl"/>
             <s:a href="%{frobUrl}">Show admin auth link</s:a>
         </p>
 
