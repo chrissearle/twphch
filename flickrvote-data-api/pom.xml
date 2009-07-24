@@ -21,7 +21,7 @@
         <dependency>
             <groupId>net.chrissearle.common</groupId>
             <artifactId>jpa</artifactId>
-            <version>1-SNAPSHOT</version>
+            <version>1</version>
         </dependency>
 
         <dependency>
