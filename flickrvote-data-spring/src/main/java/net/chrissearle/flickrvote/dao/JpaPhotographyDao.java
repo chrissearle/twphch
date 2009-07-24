@@ -1,33 +1,25 @@
 package net.chrissearle.flickrvote.dao;
 
+import net.chrissearle.common.jpa.JpaDao;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Repository
 
-public class JpaPhotographyDao implements PhotographyDao {
+public class JpaPhotographyDao extends JpaDao<String, Photographer> implements PhotographyDao {
     private Logger log = Logger.getLogger(JpaPhotographyDao.class);
-
-    @PersistenceContext(unitName = "FlickrVote")
-    private EntityManager em;
-
-    public Photographer findById(long id) {
-        return em.find(Photographer.class, id);
-    }
 
     public Photographer findByUsername(String username) {
         if (log.isDebugEnabled()) {
             log.debug("findByUsername : " + username);
         }
 
-        Query query = em.createQuery("select p from Photographer p where p.username = :username");
+        Query query = entityManager.createQuery("select p from Photographer p where p.username = :username");
         query.setParameter("username", username);
 
         try {
@@ -43,7 +35,7 @@ public class JpaPhotographyDao implements PhotographyDao {
     }
 
     public Photographer findByToken(String token) {
-        Query query = em.createQuery("select p from Photographer p where p.token = :token");
+        Query query = entityManager.createQuery("select p from Photographer p where p.token = :token");
         query.setParameter("token", token);
 
         try {
@@ -54,7 +46,8 @@ public class JpaPhotographyDao implements PhotographyDao {
         }
     }
 
-    public void save(Photographer photographer) {
+    @Override
+    public void persist(Photographer photographer) {
         Photographer p = findByUsername(photographer.getUsername());
 
         if (p != null) {
@@ -68,15 +61,11 @@ public class JpaPhotographyDao implements PhotographyDao {
             photographer = p;
         }
 
-        em.persist(photographer);
-    }
-
-    public void delete(Photographer photographer) {
-        em.remove(photographer);
+        super.persist(photographer);
     }
 
     public Photographer findPhotographerByFlickrId(String id) {
-        Query query = em.createQuery("select p from Photographer p where p.id = :id");
+        Query query = entityManager.createQuery("select p from Photographer p where p.id = :id");
         query.setParameter("id", id);
 
         try {
@@ -88,7 +77,7 @@ public class JpaPhotographyDao implements PhotographyDao {
     }
 
     public Image findImageByFlickrId(String id) {
-        Query query = em.createQuery("select i from Image i where i.id  = :id");
+        Query query = entityManager.createQuery("select i from Image i where i.id  = :id");
         query.setParameter("id", id);
 
         try {
@@ -99,12 +88,8 @@ public class JpaPhotographyDao implements PhotographyDao {
         }
     }
 
-    public void save(Image image) {
-        em.persist(image);
-    }
-
     public void clearVotes() {
-        Query query = em.createQuery("DELETE FROM Vote v");
+        Query query = entityManager.createQuery("DELETE FROM Vote v");
         query.executeUpdate();
     }
 }

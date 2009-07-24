@@ -1,19 +1,12 @@
 package net.chrissearle.flickrvote.dao;
 
+import net.chrissearle.common.jpa.Dao;
 import net.chrissearle.flickrvote.model.Challenge;
 
 import java.util.List;
 
-public interface ChallengeDao {
-    public Challenge findById(long id);
-
+public interface ChallengeDao extends Dao<String, Challenge> {
     public Challenge findByTag(String tag);
-
-    public void save(Challenge challenge);
-
-    public Challenge update(Challenge challenge);
-
-    public void delete(Challenge challenge);
 
     List<Challenge> getAll();
 

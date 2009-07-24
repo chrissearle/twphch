@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.ChallengeDao;
+import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
@@ -24,15 +25,18 @@ public class DaoChallengeService implements ChallengeService {
 
     private final ChallengeDao challengeDao;
     private final PhotographyDao photographyDao;
+    private final ImageDao imageDao;
+
     private final TwitterService twitterService;
     private final FlickrService flickrService;
     private ChallengeMessageService challengeMessageService;
 
     @Autowired
-    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ChallengeMessageService challengeMessageService,
-                               TwitterService twitterService, FlickrService flickrService) {
+    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao,
+                               ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
+        this.imageDao = imageDao;
         this.twitterService = twitterService;
         this.flickrService = flickrService;
         this.challengeMessageService = challengeMessageService;
@@ -87,7 +91,7 @@ public class DaoChallengeService implements ChallengeService {
     public void addChallenge(String title, String tag, Date startDate, Date endDate, Date voteDate) {
         Challenge challenge = new Challenge(tag, title, startDate, voteDate, endDate);
 
-        challengeDao.save(challenge);
+        challengeDao.persist(challenge);
     }
 
     public List<ChallengeInfo> getClosedChallenges() {
@@ -163,8 +167,8 @@ public class DaoChallengeService implements ChallengeService {
             photographer.addVote(vote);
             image.addVote(vote);
 
-            photographyDao.save(photographer);
-            photographyDao.save(image);
+            photographyDao.persist(photographer);
+            imageDao.persist(image);
         }
     }
 
@@ -232,7 +236,7 @@ public class DaoChallengeService implements ChallengeService {
 
         for (Image image : images) {
             image.setFinalVoteCount((long) image.getVotes().size());
-            photographyDao.save(image);
+            imageDao.persist(image);
         }
 
         photographyDao.clearVotes();

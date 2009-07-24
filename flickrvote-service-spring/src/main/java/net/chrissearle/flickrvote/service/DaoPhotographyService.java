@@ -1,6 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.ChallengeDao;
+import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.FlickrAuth;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
@@ -21,48 +22,53 @@ import java.util.List;
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
 
-    private final PhotographyDao dao;
-    private FlickrService flickrService;
+    private final PhotographyDao photographyDao;
     private ChallengeDao challengeDao;
+    private ImageDao imageDao;
+
+    private FlickrService flickrService;
 
     @Autowired
-    public DaoPhotographyService(PhotographyDao dao, FlickrService flickrService, ChallengeDao challengeDao) {
-        this.dao = dao;
-        this.flickrService = flickrService;
+    public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
+                                 FlickrService flickrService) {
+        this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
+        this.imageDao = imageDao;
+
+        this.flickrService = flickrService;
     }
 
     public void addPhotographer(String token, String username, String fullname, String flickrId) {
         Photographer photographer = new Photographer(token, username, fullname, flickrId);
 
-        dao.save(photographer);
+        photographyDao.persist(photographer);
     }
 
     public void setAdministrator(String username, Boolean adminFlag) {
-        Photographer photographer = dao.findByUsername(username);
+        Photographer photographer = photographyDao.findByUsername(username);
 
         if (photographer != null) {
             photographer.setAdministrator(adminFlag);
-            dao.save(photographer);
+            photographyDao.persist(photographer);
         }
     }
 
     public Boolean isAdministrator(String username) {
-        Photographer photographer = dao.findByUsername(username);
+        Photographer photographer = photographyDao.findByUsername(username);
 
         return photographer != null && photographer.isAdministrator();
     }
 
     public PhotographerInfo retrieveAndStorePhotographer(String id) {
         // Check to see if present
-        Photographer photographer = dao.findPhotographerByFlickrId(id);
+        Photographer photographer = photographyDao.findPhotographerByFlickrId(id);
 
         if (photographer == null) {
             FlickrAuth auth = flickrService.getUserByFlickrId(id);
 
             photographer = new Photographer(auth.getToken(), auth.getUsername(), auth.getRealname(), auth.getFlickrId());
 
-            dao.save(photographer);
+            photographyDao.persist(photographer);
 
             return new PhotographerInfo(photographer);
         }
@@ -74,7 +80,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrAuth auth = flickrService.authenticate(frob);
 
         // Check to see if present
-        Photographer photographer = dao.findPhotographerByFlickrId(auth.getFlickrId());
+        Photographer photographer = photographyDao.findPhotographerByFlickrId(auth.getFlickrId());
 
         if (photographer == null) {
             photographer = new Photographer();
@@ -87,7 +93,7 @@ public class DaoPhotographyService implements PhotographyService {
         photographer.setUsername(auth.getUsername());
         photographer.setToken(auth.getToken());
 
-        dao.save(photographer);
+        photographyDao.persist(photographer);
 
         return new PhotographerInfo(photographer);
     }
@@ -112,7 +118,7 @@ public class DaoPhotographyService implements PhotographyService {
         if (challenge == null)
             return null;
 
-        Image image = dao.findImageByFlickrId(id);
+        Image image = photographyDao.findImageByFlickrId(id);
 
         if (image == null) {
             FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
@@ -123,21 +129,21 @@ public class DaoPhotographyService implements PhotographyService {
             image.setPage(flickrImage.getUrl());
             image.setTitle(flickrImage.getTitle());
 
-            Photographer photographer = dao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+            Photographer photographer = photographyDao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
 
             if (photographer == null) {
                 retrieveAndStorePhotographer(flickrImage.getPhotographerFlickrId());
 
-                photographer = dao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
+                photographer = photographyDao.findPhotographerByFlickrId(flickrImage.getPhotographerFlickrId());
             }
 
             photographer.addImage(image);
 
-            dao.save(photographer);
+            photographyDao.persist(photographer);
 
             challenge.addImage(image);
 
-            challengeDao.save(challenge);
+            challengeDao.persist(challenge);
 
             return new ImageInfo(image);
         }
@@ -146,12 +152,12 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public void setScore(String imageId, Long score) {
-        Image image = dao.findImageByFlickrId(imageId);
+        Image image = photographyDao.findImageByFlickrId(imageId);
 
         if (image != null) {
             image.setFinalVoteCount(score);
         }
 
-        dao.save(image);
+        imageDao.persist(image);
     }
 }
