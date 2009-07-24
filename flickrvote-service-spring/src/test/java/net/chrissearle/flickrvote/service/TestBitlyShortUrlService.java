@@ -30,7 +30,7 @@ public class TestBitlyShortUrlService {
 
     @Test
     public void testShortenUrl() {
-        String shortUrl = service.shortenUrl("http://www.chrissearle.org/twitterphotochallenge");
+        String shortUrl = service.shortenUrl("http://vote.twphch.com/twitterphotochallenge");
 
         assert shortUrl.contains("bit.ly") : "Short URL did not point to bit.ly";
 
