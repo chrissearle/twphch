@@ -26,9 +26,9 @@
             <result name="input">/jsp/vote/vote.jspx</result>
             <result name="alreadyVoted" type="redirectAction">showVotePhotos</result>
         </action>
-        <action name="showVotePhotos" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="list">
+        <action name="showVotePhotos" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="browse">
             <interceptor-ref name="defaultStack"/>
-            <result name="list">/jsp/vote/list.jspx</result>
+            <result name="browse">/jsp/vote/list.jspx</result>
         </action>
         <action name="vote" class="net.chrissearle.flickrvote.web.vote.VoteAction">
             <result name="success" type="chain">showVotePhotos</result>
