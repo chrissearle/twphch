@@ -10,7 +10,7 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() throws Exception {
-        session.remove("flickrUser");
+        session.remove(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
         return SUCCESS;
     }

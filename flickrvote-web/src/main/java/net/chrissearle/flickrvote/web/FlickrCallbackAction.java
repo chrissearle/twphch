@@ -27,7 +27,7 @@ public class FlickrCallbackAction implements SessionAware {
     public String execute() throws Exception {
         PhotographerInfo photographer = photographyService.checkLoginAndStore(frob);
 
-        session.put("flickrUser", photographer);
+        session.put(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY, photographer);
 
         return ActionSupport.SUCCESS;
     }

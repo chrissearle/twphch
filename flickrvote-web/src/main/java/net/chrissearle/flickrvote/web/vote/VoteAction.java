@@ -6,6 +6,7 @@ import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("execute");
         }
 
-        PhotographerInfo photographer = (PhotographerInfo) session.get("flickrUser");
+        PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
         if (logger.isDebugEnabled()) {
             logger.debug("Votes by: " + photographer.getName() + " : " + votes);
@@ -82,7 +83,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
                     boolean seenPhotographer = false;
 
-                    PhotographerInfo photographer = (PhotographerInfo) session.get("flickrUser");
+                    PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
                     for (ImageInfo image : images) {
                         if (image.getPhotographerName().equals(photographer.getName())) {
@@ -112,8 +113,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("input");
         }
 
-        if (session.containsKey("flickrUser")) {
-            PhotographerInfo photographer = (PhotographerInfo) session.get("flickrUser");
+        if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
+            PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
             if (challengeService.hasVoted(photographer.getId())) {
                 return "alreadyVoted";
