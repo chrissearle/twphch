@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="1.0">
+    <persistence-unit name="FlickrVote-Model-CLI" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>net.chrissearle.flickrvote.model.Challenge</class>
+        <class>net.chrissearle.flickrvote.model.Image</class>
+        <class>net.chrissearle.flickrvote.model.Photographer</class>
+        <class>net.chrissearle.flickrvote.model.Vote</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

@@ -22,7 +22,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-@Service
+@Service("chartService")
 public class JFreeChartChartService implements ChartService {
     public static final Color background = new Color(65, 65, 65);
     public static final Color foreground = new Color(213, 210, 214);

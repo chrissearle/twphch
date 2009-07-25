@@ -2,11 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Service" verbose="1">
-    <test name="Chart">
-        <classes>
-            <class name="net.chrissearle.flickrvote.service.TestChartService"/>
-        </classes>
-    </test>
     <test name="ShortURL">
         <classes>
             <class name="net.chrissearle.flickrvote.service.TestBitlyShortUrlService"/>

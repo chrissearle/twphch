@@ -24,5 +24,6 @@
         <module>flickrvote-mail-api</module>
         <module>flickrvote-mail-spring</module>
         <module>flickrvote-web</module>
+        <module>flickrvote-service-spring-cli</module>
     </modules>
 </project>

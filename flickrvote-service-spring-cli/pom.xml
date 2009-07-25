@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>net.chrissearle</groupId>
+        <artifactId>flickrvote-common</artifactId>
+        <version>1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>net.chrissearle</groupId>
+    <artifactId>flickrvote-service-spring-cli</artifactId>
+    <version>${projectVersion}</version>
+
+    <packaging>jar</packaging>
+
+    <name>TwPhCh voting app - Service - CLI</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-service-spring</artifactId>
+            <version>${projectVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-mail-spring</artifactId>
+            <version>${projectVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-data-spring</artifactId>
+            <version>${projectVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>concurrent</groupId>
+            <artifactId>concurrent</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <assembleDirectory>${project.build.directory}/scripts</assembleDirectory>
+                    <platforms>
+                        <platform>unix</platform>
+                    </platforms>
+                    <programs>
+                        <program>
+                            <mainClass>net.chrissearle.flickrvote.service.cli.BitlyShortUrlCli</mainClass>
+                            <name>bitly</name>
+                        </program>
+                        <program>
+                            <mainClass>net.chrissearle.flickrvote.service.cli.ChallengeChartCli</mainClass>
+                            <name>challengechart</name>
+                        </program>
+                        <program>
+                            <mainClass>net.chrissearle.flickrvote.service.cli.VotingChartCli</mainClass>
+                            <name>votechart</name>
+                        </program>
+                        <program>
+                            <mainClass>net.chrissearle.flickrvote.service.cli.PhotographerChartCli</mainClass>
+                            <name>photographerchart</name>
+                        </program>
+                    </programs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

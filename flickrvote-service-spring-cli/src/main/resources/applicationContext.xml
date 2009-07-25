@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <context:component-scan base-package="net.chrissearle"/>
+    <context:property-placeholder location="file:/etc/flickrvote.properties"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false"/>
+                <property name="generateDdl" value="false"/>
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/flickrvote"/>
+        <property name="username" value="flickrvote"/>
+        <property name="password" value="flickrvote"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <tx:annotation-driven/>
+
+    <bean id="adminAuthTokenHolder" class="net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder">
+        <property name="adminAuthToken" value="${flickr.admin.auth.token}"/>
+    </bean>
+
+    <bean id="flickr" class="com.aetrion.flickr.Flickr">
+        <constructor-arg index="0" value="${flickr.key}"/>
+        <constructor-arg index="1" value="${flickr.secret}"/>
+        <constructor-arg index="2">
+            <bean class="com.aetrion.flickr.REST"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="twitter" class="twitter4j.Twitter">
+        <constructor-arg index="0" value="${twitter.user}"/>
+        <constructor-arg index="1" value="${twitter.password}"/>
+    </bean>
+
+    <bean id="bitly" class="com.rosaloves.net.shorturl.bitly.BitlyFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="${bitly.login}"/>
+        <constructor-arg index="1" value="${bitly.key}"/>
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}"/>
+    </bean>
+
+    <!-- this is a template message that we can pre-load with default state -->
+    <bean id="mailTemplate" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.from.address}"/>
+        <property name="to" value="${mail.to.address.forum}"/>
+    </bean>
+
+    <bean id="forumPostMessageManager" class="net.chrissearle.flickrvote.mail.ForumPostMessageManager">
+        <constructor-arg index="0" ref="mailSender"/>
+        <constructor-arg index="1" ref="mailTemplate"/>
+    </bean>
+</beans>
