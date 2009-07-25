@@ -29,4 +29,6 @@ public interface PhotographyService {
     List<ImageInfo> getImagesForPhotographer(String id);
 
     void freezeChallenge();
+
+    List<ImageInfo> getGoldWinners();
 }

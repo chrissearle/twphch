@@ -35,5 +35,9 @@
             <result name="success">/jsp/mypics.jspx</result>
             <result name="notloggedin" type="redirectAction">current</result>
         </action>
+
+        <action name="hallOfFame" class="net.chrissearle.flickrvote.web.HallOfFameAction">
+            <result name="success">/jsp/halloffame.jspx</result>
+        </action>
     </package>
 </struts>

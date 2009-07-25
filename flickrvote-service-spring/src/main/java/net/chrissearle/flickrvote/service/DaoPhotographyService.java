@@ -202,4 +202,14 @@ public class DaoPhotographyService implements PhotographyService {
             retrieveAndStoreImage(image.getFlickrId(), challenge.getTag());
         }
     }
+
+    public List<ImageInfo> getGoldWinners() {
+        List<ImageInfo> images = new ArrayList<ImageInfo>();
+
+        for (Image image : imageDao.getImagesWithRank(1L)) {
+            images.add(new ImageInfo(image));
+        }
+
+        return images;
+    }
 }
