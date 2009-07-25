@@ -24,7 +24,10 @@ public class ShowPhotograperChartAction extends ActionSupport implements Session
     public String execute() throws Exception {
         PhotographerInfo photographer = (PhotographerInfo)session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        chart = chartService.getChartForPhotographer(photographer.getId(), getText("chart.rank.axis.title"), getText("chart.challenge.axis.title"));
+        chart = chartService.getChartForPhotographer(photographer.getId(),
+                getText("chart.rank.axis.title"),
+                getText("chart.challenge.axis.title"),
+                getText("chart.noimage.text"));
 
         return SUCCESS;
     }

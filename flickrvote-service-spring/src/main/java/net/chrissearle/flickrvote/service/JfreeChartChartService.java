@@ -9,6 +9,7 @@ import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
 import org.jfree.data.category.CategoryDataset;
@@ -122,10 +123,10 @@ public class JFreeChartChartService implements ChartService {
         return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 
-    public JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle) {
+    public JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle, String noImageText) {
         List<ImageInfo> images = photographyService.getImagesForPhotographer(id);
 
-        List<ChallengeInfo> challenges = challengeService.getChallenges();
+        List<ChallengeInfo> challenges = challengeService.getClosedChallenges();
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
@@ -143,10 +144,17 @@ public class JFreeChartChartService implements ChartService {
             if (imageMap.containsKey(challenge.getTag())) {
                 dataset.setValue(imageMap.get(challenge.getTag()).getFinalVoteCount(), rankAxisTitle, challenge.getTag());
             } else {
-                dataset.setValue(-1, rankAxisTitle, challenge.getTag());
+                dataset.setValue(0L, rankAxisTitle, challenge.getTag());
             }
         }
 
-        return generateChart(photographerName == null ? "" : photographerName, "", dataset, rankAxisTitle, challengeAxisTitle);
+        JFreeChart chart = generateChart(photographerName == null ? "" : photographerName, "", dataset, rankAxisTitle, challengeAxisTitle);
+
+        CategoryItemRenderer renderer = chart.getCategoryPlot().getRenderer();
+        renderer.setItemLabelGenerator(new RankLabelGenerator(images, noImageText));
+        renderer.setItemLabelPaint(foreground);
+        renderer.setItemLabelsVisible(true);
+
+        return chart;
     }
 }

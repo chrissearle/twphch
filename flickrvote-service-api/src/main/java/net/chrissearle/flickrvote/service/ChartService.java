@@ -7,5 +7,5 @@ public interface ChartService {
 
     JFreeChart getVotingChart(String scoreAxisTitle, String photographerAxisTitle);
 
-    JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle);
+    JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle, String noImageText);
 }

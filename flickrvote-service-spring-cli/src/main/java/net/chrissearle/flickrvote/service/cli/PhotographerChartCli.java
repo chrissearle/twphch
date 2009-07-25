@@ -21,7 +21,7 @@ public class PhotographerChartCli extends AbstractCliService {
     private void generateChart(String id) throws IOException {
         ChartService service = (ChartService) context.getBean("chartService");
 
-        JFreeChart chart = service.getChartForPhotographer(id, "Votes", "Photographer");
+        JFreeChart chart = service.getChartForPhotographer(id, "Votes (Rank)", "Photographer", "---");
 
         ChartUtilities.saveChartAsPNG(new File(id + ".png"), chart, 500, 1000);
     }
