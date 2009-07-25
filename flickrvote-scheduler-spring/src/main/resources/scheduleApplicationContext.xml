@@ -39,4 +39,14 @@
         <property name="jobDetail" ref="announceResultsJob"/>
         <property name="cronExpression" value="1 0 21 ? * SUN"/>
     </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="openVotingTrigger"/>
+                <ref bean="announceNewChallengeTrigger"/>
+                <ref bean="announceResultsTrigger"/>
+            </list>
+        </property>
+    </bean>
 </beans>
