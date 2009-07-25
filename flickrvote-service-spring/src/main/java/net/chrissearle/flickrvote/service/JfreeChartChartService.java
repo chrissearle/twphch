@@ -151,9 +151,9 @@ public class JFreeChartChartService implements ChartService {
         JFreeChart chart = generateChart(photographerName == null ? "" : photographerName, "", dataset, rankAxisTitle, challengeAxisTitle);
 
         CategoryItemRenderer renderer = chart.getCategoryPlot().getRenderer();
-        renderer.setItemLabelGenerator(new RankLabelGenerator(images, noImageText));
-        renderer.setItemLabelPaint(foreground);
-        renderer.setItemLabelsVisible(true);
+        renderer.setBaseItemLabelGenerator(new RankLabelGenerator(images, noImageText));
+        renderer.setBaseItemLabelPaint(foreground);
+        renderer.setBaseItemLabelsVisible(true);
 
         return chart;
     }
