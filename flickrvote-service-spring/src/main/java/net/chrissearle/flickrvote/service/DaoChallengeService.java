@@ -276,7 +276,9 @@ public class DaoChallengeService implements ChallengeService {
                 badgeText = challengeMessageService.getBadgeText(3, challengeMessageService.getBronzeBadgeUrl(), challenge);
                 messageBronze.append(forumPost);
             }
-            flickrService.postComment(imageInfo.getId(), badgeText);
+	    if (!"".equals(badgeText)) {
+                flickrService.postComment(imageInfo.getId(), badgeText);
+            }
         }
 
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
