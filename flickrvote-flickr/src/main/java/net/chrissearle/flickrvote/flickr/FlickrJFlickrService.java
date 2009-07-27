@@ -12,6 +12,7 @@ import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.photos.comments.CommentsInterface;
+import net.chrissearle.flickrvote.mail.ForumPostService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 
-import net.chrissearle.flickrvote.mail.ForumPostService;
-
 @Service("flickrService")
 public class FlickrJFlickrService implements FlickrService {
     private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
@@ -31,6 +30,7 @@ public class FlickrJFlickrService implements FlickrService {
     protected Flickr flickr;
 
     protected String adminAuthToken;
+    protected Boolean adminActiveFlag;
 
     private ForumPostService forumPostService;
 
@@ -38,10 +38,12 @@ public class FlickrJFlickrService implements FlickrService {
     public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder, ForumPostService forumPostService) {
         this.flickr = flickr;
         this.adminAuthToken = tokenHolder.getAdminAuthToken();
+        this.adminActiveFlag = tokenHolder.isActiveFlag();
         this.forumPostService = forumPostService;
     }
 
-    protected FlickrJFlickrService() {}
+    protected FlickrJFlickrService() {
+    }
 
     public URL getLoginUrl() throws FlickrServiceException {
         return getLoginUrl(false);
@@ -199,33 +201,37 @@ public class FlickrJFlickrService implements FlickrService {
             logger.info("Posting to forum TITLE: " + title + " TEXT: " + text);
         }
         // TODO post
-        
+
         forumPostService.sendForumPost(title, text);
     }
 
     public void postComment(String imageId, String comment) {
-        if (logger.isInfoEnabled()) {
-            logger.info("Posting to comment ID: " + imageId + " COMMENT: " + comment);
+        if (logger.isDebugEnabled()) {
+            logger.info("Posting comment check: " + adminActiveFlag);
         }
 
-        CommentsInterface commentsInterface = flickr.getCommentsInterface();
+        if (adminActiveFlag) {
+            if (logger.isInfoEnabled()) {
+                logger.info("Posting to comment ID: " + imageId + " COMMENT: " + comment);
+            }
 
-        RequestContext context = RequestContext.getRequestContext();
+            CommentsInterface commentsInterface = flickr.getCommentsInterface();
 
-        try {
-            context.setAuth(getAuthByToken(adminAuthToken));
+            RequestContext context = RequestContext.getRequestContext();
 
-            // TODO - enable this
-/*
-            commentsInterface.addComment(imageId, comment);
-*/
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
+            try {
+                context.setAuth(getAuthByToken(adminAuthToken));
+
+                commentsInterface.addComment(imageId, comment);
+            } catch (IOException e) {
+                throw new FlickrServiceException(e);
+            } catch (SAXException e) {
+                throw new FlickrServiceException(e);
+            } catch (FlickrException e) {
+                throw new FlickrServiceException(e);
+            }
         }
+
     }
 
     private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {

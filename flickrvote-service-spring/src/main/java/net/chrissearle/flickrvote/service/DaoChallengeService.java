@@ -4,6 +4,7 @@ import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.FlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
@@ -11,6 +12,8 @@ import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.twitter.TwitterService;
+import net.chrissearle.flickrvote.twitter.TwitterServiceException;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -186,10 +189,23 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Opening voting for " + challenge);
         }
 
-        twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
-        flickrService.postForum(challengeMessageService.getVotingForumTitle(challenge),
-                challengeMessageService.getVotingForumText(challenge));
-        
+        try {
+            twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
+        } catch (TwitterServiceException tse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            }
+        }
+
+        try {
+            flickrService.postForum(challengeMessageService.getVotingForumTitle(challenge),
+                    challengeMessageService.getVotingForumText(challenge));
+        } catch (FlickrServiceException fse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            }
+        }
+
         return new ChallengeInfo(challenge);
     }
 
@@ -208,9 +224,21 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Announcing for " + challenge);
         }
 
-        twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
-        flickrService.postForum(challengeMessageService.getCurrentForumTitle(challenge),
-                challengeMessageService.getCurrentForumText(challenge));
+        try {
+            twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
+        } catch (TwitterServiceException tse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            }
+        }
+        try {
+            flickrService.postForum(challengeMessageService.getCurrentForumTitle(challenge),
+                    challengeMessageService.getCurrentForumText(challenge));
+        } catch (FlickrServiceException fse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            }
+        }
 
         return new ChallengeInfo(challenge);
     }
@@ -244,7 +272,13 @@ public class DaoChallengeService implements ChallengeService {
 
         String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
-        twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
+        try {
+            twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
+        } catch (TwitterServiceException tse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            }
+        }
 
         List<ImageInfo> imageResults = new ArrayList<ImageInfo>();
 
@@ -276,14 +310,26 @@ public class DaoChallengeService implements ChallengeService {
                 badgeText = challengeMessageService.getBadgeText(3, challengeMessageService.getBronzeBadgeUrl(), challenge);
                 messageBronze.append(forumPost);
             }
-	    if (!"".equals(badgeText)) {
-                flickrService.postComment(imageInfo.getId(), badgeText);
+            if (!"".equals(badgeText)) {
+                try {
+                    flickrService.postComment(imageInfo.getId(), badgeText);
+                } catch (FlickrServiceException fse) {
+                    if (logger.isEnabledFor(Level.WARN)) {
+                        logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+                    }
+                }
             }
         }
 
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
 
-        flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
+        try {
+            flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
+        } catch (FlickrServiceException fse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            }
+        }
 
         return new ChallengeInfo(challenge);
     }
