@@ -24,6 +24,9 @@
         <action name="showPhotographerChart">
             <result>/jsp/showphotographerchart.jspx</result>
         </action>
+        <action name="rules">
+            <result>/jsp/rules.jspx</result>
+        </action>
         <action name="instructions">
             <result>/jsp/instructions.jspx</result>
         </action>
