@@ -82,28 +82,28 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             if (images != null) {
                 if (images.size() <= voteCount) {
                     voteCount = images.size();
+                }
 
-                    boolean seenPhotographer = false;
+                boolean seenPhotographer = false;
 
-                    PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+                PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-                    for (ImageInfo image : images) {
-                        if (image.getPhotographerName().equals(photographer.getName())) {
-                            seenPhotographer = true;
+                for (ImageInfo image : images) {
+                    if (image.getPhotographerName().equals(photographer.getName())) {
+                        seenPhotographer = true;
 
-                            if (votes != null && votes.contains(image.getId())) {
-                                addActionError("You may not vote for yourself");
-                            }
+                        if (votes != null && votes.contains(image.getId())) {
+                            addActionError("You may not vote for yourself");
                         }
                     }
+                }
 
-                    if (seenPhotographer) {
-                        voteCount--;
-                    }
+                if (seenPhotographer) {
+                    voteCount--;
+                }
 
-                    if (votes == null || votes.size() != voteCount) {
-                        addActionError("Incorrect number of votes - you must vote for " + voteCount + " photos");
-                    }
+                if (votes == null || votes.size() != voteCount) {
+                    addActionError("Incorrect number of votes - you must vote for " + voteCount + " photos");
                 }
             }
         }
