@@ -20,6 +20,8 @@
     <!-- **** colour scheme stylesheet **** -->
     <link href="<s:url value='/styles/orange.css'/>" rel="stylesheet" type="text/css" media="all"/>
 
+    <script type="text/javascript" src="<s:url value='/js/jquery-1.3.2.min.js'/>"> </script>
+
     <decorator:head/>
 
 </head>
