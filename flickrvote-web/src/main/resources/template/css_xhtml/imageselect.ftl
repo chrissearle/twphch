@@ -9,8 +9,6 @@
     <#assign itemKeyStr=itemKey.toString() />
     <div class="photobox">
         <h3><@s.property value="#photo.title"/> - <@s.property value="#photo.photographerName"/></h3>
-        <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
-        <br /><br />
         <input type="checkbox" name="${parameters.name?html}" value="${itemKeyStr?html}" id="${parameters.name?html}-${itemCount}"<#rt/>
                 <#if tag.contains(parameters.nameValue, itemKey)>
          checked="checked"<#rt/>
@@ -25,7 +23,8 @@
                 <#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
         />
         <label for="${parameters.name?html}-${itemCount}" class="checkboxLabel">${itemValue?html}</label>
-
+        <br /><br />
+        <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
     </div>
 </@s.iterator>
 <#else>
