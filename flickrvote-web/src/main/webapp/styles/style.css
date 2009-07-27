@@ -314,3 +314,24 @@ div.photobox h3 {
 #column2 ol {
     list-style: decimal;
 }
+
+ul.actionMessage {
+    padding: 10px;
+    border: solid 1px #FF9C27;
+    background-color: #545454;
+}
+
+ul.actionMessage li {
+    list-style: none;
+}
+
+ul.errorMessage {
+    padding: 10px;
+    border: solid 1px #FF9C27;
+    background-color: lightyellow;
+    color: darkred;
+}
+
+ul.errorMessage li {
+    list-style: none;
+}
