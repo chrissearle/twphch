@@ -28,7 +28,7 @@ public class Challenge implements Comparable<Challenge> {
     @Column(name = "end_date")
     private Date endDate;
 
-    @OneToMany(mappedBy = "challenge", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "challenge", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Image> images = new ArrayList<Image>();
 
     @Version
@@ -41,7 +41,7 @@ public class Challenge implements Comparable<Challenge> {
     public void setVersion(Long version) {
         this.version = version;
     }
-    
+
     public Challenge(String tag, String name, Date startDate, Date votingOpenDate, Date endDate) {
         this.setTag(tag);
         this.setName(name);
@@ -77,19 +77,19 @@ public class Challenge implements Comparable<Challenge> {
         this.tag = tag;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected void setStartDate(Date startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    protected void setVotingOpenDate(Date votingOpenDate) {
+    public void setVotingOpenDate(Date votingOpenDate) {
         this.votingOpenDate = votingOpenDate;
     }
 
-    protected void setEndDate(Date endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

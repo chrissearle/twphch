@@ -15,6 +15,10 @@ public class ChallengeAction extends ActionSupport {
 
     private List<ChallengeInfo> challenges;
 
+    private String tag;
+
+    private Boolean editFlag = false;
+
     private ChallengeInfo challenge;
 
     private static final int START_VOTE_TIME = 18;
@@ -23,17 +27,21 @@ public class ChallengeAction extends ActionSupport {
 
     @Override
     public String input() throws Exception {
+        if (tag != null && !"".equals(tag)) {
+            editFlag = true;
+            challenge = challengeService.getChallenge(tag);
+        }
+
         return INPUT;
     }
 
     @Override
     public String execute() throws Exception {
-        DateTime start = new DateTime(challenge.getStartDate()).plusHours(START_CHALLENGE_TIME);
-        DateTime vote = new DateTime(challenge.getVoteDate()).plusHours(START_VOTE_TIME);
-        DateTime end = new DateTime(challenge.getEndDate()).plusHours(END_CHALLENGE_TIME);
+        challenge.setStartDate(new DateTime(challenge.getStartDate()).plusHours(START_CHALLENGE_TIME).toDate());
+        challenge.setVoteDate(new DateTime(challenge.getVoteDate()).plusHours(START_VOTE_TIME).toDate());
+        challenge.setEndDate(new DateTime(challenge.getEndDate()).plusHours(END_CHALLENGE_TIME).toDate());
 
-        challengeService.addChallenge(challenge.getTitle(), challenge.getTag(),
-                start.toDate(), end.toDate(), vote.toDate());
+        challengeService.saveChallenge(challenge);
 
         return SUCCESS;
     }
@@ -58,4 +66,19 @@ public class ChallengeAction extends ActionSupport {
         this.challenge = challenge;
     }
 
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public Boolean isEditFlag() {
+        return editFlag;
+    }
+
+    public String delete() throws Exception {
+        addActionMessage("Challenge removed");
+
+        challengeService.remove(challenge.getTag());
+
+        return SUCCESS;
+    }
 }

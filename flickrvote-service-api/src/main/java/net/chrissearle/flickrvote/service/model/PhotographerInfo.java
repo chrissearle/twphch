@@ -11,7 +11,7 @@ public class PhotographerInfo {
 
     public PhotographerInfo(Photographer photographer) {
         this.id = photographer.getId();
-        this.name = photographer.getFullname() == null ? photographer.getFullname() : photographer.getUsername();
+        this.name = photographer.getFullname() != null ? photographer.getFullname() : photographer.getUsername();
         this.token = photographer.getToken();
         this.twitter = photographer.getTwitter();
         this.administratorFlag = photographer.isAdministrator();

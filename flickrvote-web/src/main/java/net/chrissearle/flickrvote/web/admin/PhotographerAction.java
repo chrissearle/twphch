@@ -22,15 +22,11 @@ public class PhotographerAction extends ActionSupport {
         try {
             PhotographerInfo photographer = service.retrieveAndStorePhotographer(id);
 
-            if (photographer == null) {
-                addActionMessage("Photographer already present.");
-            } else {
-                addActionMessage(photographer.getName() + " was retrieved.");
-            }
+            addActionMessage(photographer.getName() + " was retrieved/updated.");
         } catch (FlickrServiceException e) {
             addActionError("Error retrieving photographer: " + e.getMessage());
         }
-        
+
         return SUCCESS;
     }
 

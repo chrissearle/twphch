@@ -33,7 +33,7 @@ public class Image {
     @Column(name = "final_rank", nullable = false)
     private Long finalRank = 0L;
 
-    @OneToMany(mappedBy = "image", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "image", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private
     List<Vote> votes = new ArrayList<Vote>();
 

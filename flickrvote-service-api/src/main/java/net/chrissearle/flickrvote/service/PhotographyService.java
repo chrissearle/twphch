@@ -10,7 +10,7 @@ import java.util.List;
 public interface PhotographyService {
     void addPhotographer(String token, String username, String fullname, String flickrId);
 
-    void setAdministrator(String username, Boolean adminFlag);
+    void setAdministrator(String id, Boolean adminFlag);
 
     Boolean isAdministrator(String username);
 
@@ -33,4 +33,8 @@ public interface PhotographyService {
     List<ImageInfo> getGoldWinners();
 
     void setTwitter(String id, String twitter);
+
+    List<PhotographerInfo> getPhotographers();
+
+    PhotographerInfo findById(String id);
 }

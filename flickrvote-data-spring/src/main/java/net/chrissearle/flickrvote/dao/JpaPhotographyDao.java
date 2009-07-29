@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.List;
 
 @Repository
 public class JpaPhotographyDao extends JpaDao<String, Photographer> implements PhotographyDao {
@@ -65,5 +66,12 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
     public void clearVotes() {
         Query query = entityManager.createQuery("DELETE FROM Vote v");
         query.executeUpdate();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Photographer> all() {
+        Query query = entityManager.createQuery("SELECT p FROM Photographer p");
+
+        return (List<Photographer>) query.getResultList();
     }
 }

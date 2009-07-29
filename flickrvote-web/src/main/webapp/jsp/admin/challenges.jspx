@@ -27,17 +27,22 @@
         </tr>
         <s:iterator id="challenge" value="challenges">
             <tr>
-                <td>
-                    <s:url id="showLink" action="scoreForm">
-                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
-                    </s:url>
-                    <s:a href="%{showLink}"><s:property value="#challenge.tag"/></s:a>
-                </td>
+                <td><s:property value="#challenge.tag"/></td>
                 <td><s:property value="#challenge.title"/></td>
                 <td><s:date name="#challenge.startDate" format="dd.MM.yyyy"/></td>
                 <td><s:date name="#challenge.voteDate" format="dd.MM.yyyy"/></td>
                 <td><s:date name="#challenge.endDate" format="dd.MM.yyyy"/></td>
                 <td>
+                    <s:url id="editLink" action="challengeForm">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
+                    </s:url>
+                    <s:a href="%{editLink}">Edit</s:a>
+                    |
+                    <s:url id="showLink" action="scoreForm">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
+                    </s:url>
+                    <s:a href="%{showLink}">Scores</s:a>
+                    |
                     <s:url id="rankItLink" action="rankIt">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>

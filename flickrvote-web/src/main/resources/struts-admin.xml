@@ -27,15 +27,19 @@
             <result name="browse">/jsp/admin/challenges.jspx</result>
         </action>
 
-        <action name="createChallengeForm" class="net.chrissearle.flickrvote.web.admin.ChallengeAction" method="input">
-            <result name="input">/jsp/admin/newChallenge.jspx</result>
+        <action name="challengeForm" class="net.chrissearle.flickrvote.web.admin.ChallengeAction" method="input">
+            <result name="input">/jsp/admin/challenge.jspx</result>
         </action>
 
-        <action name="createChallenge" class="net.chrissearle.flickrvote.web.admin.ChallengeAction">
-            <result name="input">/jsp/admin/newChallenge.jspx</result>
+        <action name="challenge" class="net.chrissearle.flickrvote.web.admin.ChallengeAction">
+            <result name="input">/jsp/admin/challenge.jspx</result>
             <result name="success" type="chain">challenges</result>
         </action>
 
+        <action name="deleteChallenge" class="net.chrissearle.flickrvote.web.admin.ChallengeAction" method="delete">
+            <result name="input">/jsp/admin/challenge.jspx</result>
+            <result name="success" type="chain">challenges</result>
+        </action>
 
         <action name="scoreForm" class="net.chrissearle.flickrvote.web.admin.ScoreAction" method="input">
             <result name="input">/jsp/admin/scoreForm.jspx</result>
@@ -54,7 +58,7 @@
 
         <action name="getPhotographer" class="net.chrissearle.flickrvote.web.admin.PhotographerAction">
             <result name="input">/jsp/admin/getPhotographer.jspx</result>
-            <result name="success" type="chain">challenges</result>
+            <result name="success" type="chain">photographerList</result>
         </action>
 
 
@@ -87,6 +91,14 @@
 
         <action name="rankIt" class="net.chrissearle.flickrvote.web.admin.RankItAction">
             <result name="success" type="chain">challenges</result>
+        </action>
+
+        <action name="photographerList" class="net.chrissearle.flickrvote.web.admin.PhotographerDataAction"
+                method="browse">
+            <result name="browse">/jsp/admin/photoList.jspx</result>
+        </action>
+        <action name="toggleAdmin" class="net.chrissearle.flickrvote.web.admin.PhotographerDataAction">
+            <result name="success" type="chain">photographerList</result>
         </action>
     </package>
 </struts>

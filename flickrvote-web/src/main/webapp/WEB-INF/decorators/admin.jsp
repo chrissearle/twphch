@@ -28,11 +28,14 @@
         <h3>Admin Menu</h3>
 
         <p>
-            <s:url action="createChallengeForm" id="newChallengeFormUrl"/>
+            <s:url action="challengeForm" id="newChallengeFormUrl"/>
             <s:a href="%{newChallengeFormUrl}">New Challenge</s:a>
             <br/>
             <s:url action="challenges" id="challengesUrl"/>
             <s:a href="%{challengesUrl}">Challenges</s:a>
+            <br/>
+            <s:url action="photographerList" id="photographersUrl"/>
+            <s:a href="%{photographersUrl}">Photographers</s:a>
         </p>
 
         <h3>Flickr Menu</h3>

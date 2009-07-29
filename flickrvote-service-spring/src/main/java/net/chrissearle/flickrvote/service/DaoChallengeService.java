@@ -19,7 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 @Service("challengeService")
 @Transactional
@@ -90,8 +93,18 @@ public class DaoChallengeService implements ChallengeService {
     }
 
 
-    public void addChallenge(String title, String tag, Date startDate, Date endDate, Date voteDate) {
-        Challenge challenge = new Challenge(tag, title, startDate, voteDate, endDate);
+    public void saveChallenge(ChallengeInfo challengeInfo) {
+        Challenge challenge = challengeDao.findByTag(challengeInfo.getTag());
+
+        if (challenge != null) {
+            challenge.setName(challengeInfo.getTitle());
+            challenge.setStartDate(challengeInfo.getStartDate());
+            challenge.setVotingOpenDate(challengeInfo.getVoteDate());
+            challenge.setEndDate(challengeInfo.getEndDate());
+        } else {
+            challenge = new Challenge(challengeInfo.getTag(), challengeInfo.getTitle(),
+                    challengeInfo.getStartDate(), challengeInfo.getVoteDate(), challengeInfo.getEndDate());
+        }
 
         challengeDao.persist(challenge);
     }
@@ -332,6 +345,12 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         return new ChallengeInfo(challenge);
+    }
+
+    public void remove(String tag) {
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        challengeDao.remove(challenge);
     }
 
 

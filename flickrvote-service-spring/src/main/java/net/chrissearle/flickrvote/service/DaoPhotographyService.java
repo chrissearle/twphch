@@ -52,8 +52,8 @@ public class DaoPhotographyService implements PhotographyService {
         photographyDao.persist(photographer);
     }
 
-    public void setAdministrator(String username, Boolean adminFlag) {
-        Photographer photographer = photographyDao.findByUsername(username);
+    public void setAdministrator(String id, Boolean adminFlag) {
+        Photographer photographer = photographyDao.findById(id);
 
         if (photographer != null) {
             photographer.setAdministrator(adminFlag);
@@ -71,17 +71,18 @@ public class DaoPhotographyService implements PhotographyService {
         // Check to see if present
         Photographer photographer = photographyDao.findById(id);
 
+        FlickrAuth auth = flickrService.getUserByFlickrId(id);
+
         if (photographer == null) {
-            FlickrAuth auth = flickrService.getUserByFlickrId(id);
-
             photographer = new Photographer(auth.getToken(), auth.getUsername(), auth.getRealname(), auth.getFlickrId());
-
-            photographyDao.persist(photographer);
-
-            return new PhotographerInfo(photographer);
+        } else {
+            photographer.setUsername(auth.getUsername());
+            photographer.setFullname(auth.getRealname());
         }
 
-        return null;
+        photographyDao.persist(photographer);
+
+        return new PhotographerInfo(photographer);
     }
 
     public PhotographerInfo checkLoginAndStore(String frob) {
@@ -234,5 +235,25 @@ public class DaoPhotographyService implements PhotographyService {
                 }
             }
         }
+    }
+
+    public List<PhotographerInfo> getPhotographers() {
+        List<PhotographerInfo> photographers = new ArrayList<PhotographerInfo>();
+
+        for (Photographer photographer : photographyDao.all()) {
+            photographers.add(new PhotographerInfo(photographer));
+        }
+
+        return photographers;
+    }
+
+    public PhotographerInfo findById(String id) {
+        Photographer photographer = photographyDao.findById(id);
+
+        if (photographer != null) {
+            return new PhotographerInfo(photographer);
+        }
+
+        return null;
     }
 }

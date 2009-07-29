@@ -14,12 +14,16 @@
         <sx:head/>
     </head>
     <body>
-    <h2>New challenge</h2>
+    <h2>
+        <s:if test="editFlag">Edit challenge</s:if>
+        <s:else>New challenge</s:else>
+    </h2>
     <br/>
 
-    <s:form action="createChallenge">
+    <s:form action="challenge">
         <s:textfield label="Title" name="challenge.title"/>
-        <s:textfield label="Tag" name="challenge.tag"/>
+        <s:if test="editFlag">Tag: <s:property value="challenge.tag"/><s:hidden name="challenge.tag"/></s:if>
+        <s:else><s:textfield label="Tag" name="challenge.tag"/></s:else>
         <br/>
         <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
         <br/>
@@ -27,7 +31,11 @@
         <br/>
         <sx:datetimepicker label="End Date" name="challenge.endDate" displayFormat="dd.MM.yyyy"/>
         <s:submit/>
+        <s:if test="editFlag">
+            <s:submit action="deleteChallenge" value="Delete"/>
+        </s:if>
     </s:form>
+
     </body>
     </html>
 </jsp:root>
