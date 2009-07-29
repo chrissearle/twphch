@@ -126,7 +126,7 @@ table {
     margin: 15px;
 }
 
-td {
+th, td {
   padding: 3px;
 }
 
