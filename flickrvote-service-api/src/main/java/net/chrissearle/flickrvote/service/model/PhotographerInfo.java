@@ -4,14 +4,16 @@ import net.chrissearle.flickrvote.model.Photographer;
 
 public class PhotographerInfo {
     private String id;
-    private String name;
     private String token;
     private String twitter;
     private Boolean administratorFlag;
+    private String fullname;
+    private String username;
 
     public PhotographerInfo(Photographer photographer) {
         this.id = photographer.getId();
-        this.name = photographer.getFullname() != null ? photographer.getFullname() : photographer.getUsername();
+        this.fullname = photographer.getFullname();
+        this.username = photographer.getUsername();
         this.token = photographer.getToken();
         this.twitter = photographer.getTwitter();
         this.administratorFlag = photographer.isAdministrator();
@@ -22,7 +24,11 @@ public class PhotographerInfo {
     }
 
     public String getName() {
-        return name;
+        if (fullname != null && !"".equals(fullname)) {
+            return fullname;
+        }
+
+        return username;
     }
 
     public String getToken() {
@@ -39,5 +45,13 @@ public class PhotographerInfo {
 
     public void setTwitter(String twitter) {
         this.twitter = twitter;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

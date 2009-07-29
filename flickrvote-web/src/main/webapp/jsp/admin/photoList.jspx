@@ -18,7 +18,8 @@
     <h3>Photographer List</h3>
     <table>
         <tr>
-            <th>Name</th>
+            <th>Real Name</th>
+            <th>Username</th>
             <th>Flickr ID</th>
             <th>Twitter ID</th>
             <th>Admin?</th>
@@ -27,7 +28,22 @@
         </tr>
         <s:iterator id="photographer" value="photographers">
             <tr>
-                <td><s:property value="#photographer.name"/></td>
+                <td>
+                    <s:if test="#photographer.fullname == #photographer.name">
+                        <strong><s:property value="#photographer.fullname"/></strong>
+                    </s:if>
+                    <s:else>
+                        <s:property value="#photographer.fullname"/>
+                    </s:else>
+                </td>
+                <td>
+                    <s:if test="#photographer.username == #photographer.name &amp;&amp; #photographer.username != #photographer.fullname">
+                        <strong><s:property value="#photographer.username"/></strong>
+                    </s:if>
+                    <s:else>
+                        <s:property value="#photographer.username"/>
+                    </s:else>
+                </td>
                 <td><s:property value="#photographer.id"/></td>
                 <td><s:property value="#photographer.twitter"/></td>
                 <td>
