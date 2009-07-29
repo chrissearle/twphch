@@ -14,6 +14,7 @@ administrator bit(1) DEFAULT NULL,
 fullname varchar(100) DEFAULT NULL,
 token varchar(100) DEFAULT NULL,
 username varchar(50) DEFAULT NULL,
+twitter varchar(15) DEFAULT NULL,
 version bigint(20) DEFAULT NULL,
 PRIMARY KEY (flickr_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

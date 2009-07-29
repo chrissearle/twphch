@@ -17,6 +17,9 @@ public class Photographer {
     @Column(length = 100, name = "fullname")
     private String fullname;
 
+    @Column(length = 15, name = "twitter")
+    private String twitter;
+
     @Column(name = "administrator")
     private Boolean administrator;
 
@@ -107,15 +110,6 @@ public class Photographer {
         vote.setPhotographer(this);
     }
 
-
-    @Override
-    public String toString() {
-        return new StringBuilder().append(", USERNAME: ").append(getUsername())
-                .append(", FULLNAME: ").append(getFullname()).append(", ADMINISTRATOR: ").append(isAdministrator())
-                .toString();
-    }
-
-
     public String getId() {
         return id;
     }
@@ -130,5 +124,26 @@ public class Photographer {
 
     public void setVotes(List<Vote> votes) {
         this.votes = votes;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
+    @Override
+    public String toString() {
+        return "Photographer{" +
+                "token='" + token + '\'' +
+                ", username='" + username + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", twitter='" + twitter + '\'' +
+                ", administrator=" + administrator +
+                ", id='" + id + '\'' +
+                ", version=" + version +
+                '}';
     }
 }

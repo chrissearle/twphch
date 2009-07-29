@@ -26,6 +26,7 @@ public class ModelTest {
     private static final Date END_DATE = new DateTime(2009, 5, 17, 21, 0, 0, 0).toDate();
     private static final Date VOTE_DATE = new DateTime(2009, 5, 15, 18, 0, 0, 0).toDate();
     private static final String PHOTOGRAPHER_TOKEN = "0250295209475-9235720975";
+    private static final String TWITTER = "FooTwitter";
 
     @BeforeTest
     private void initialize() {
@@ -89,6 +90,7 @@ public class ModelTest {
     @Test
     public void testPersistPhotographer() {
         Photographer photographer = new Photographer(PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID);
+        photographer.setTwitter(TWITTER);
 
         em.persist(photographer);
 
@@ -105,6 +107,7 @@ public class ModelTest {
         assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
         assert !photographer.isAdministrator() : "Photographer was incorrectly marked as admin";
         assert photographer.getId() != null : "ID was null";
+        assert photographer.getTwitter().equals(TWITTER) : "Incorrect twitter account";
 
         String photographerString = photographer.toString();
 
