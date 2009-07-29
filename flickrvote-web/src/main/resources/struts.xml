@@ -13,4 +13,5 @@
     <include file="struts-main.xml"/>
     <include file="struts-vote.xml"/>
     <include file="struts-chart.xml"/>
+    <include file="struts-account.xml"/>
 </struts>

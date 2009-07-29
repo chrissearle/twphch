@@ -212,4 +212,14 @@ public class DaoPhotographyService implements PhotographyService {
 
         return images;
     }
+
+    public void setTwitter(String id, String twitter) {
+        Photographer photographer = photographyDao.findById(id);
+
+        if (photographer != null) {
+            photographer.setTwitter(twitter);
+
+            photographyDao.persist(photographer);
+        }
+    }
 }

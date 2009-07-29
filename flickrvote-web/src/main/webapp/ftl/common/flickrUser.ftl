@@ -1,5 +1,5 @@
-<@s.url id="myPicsLink" namespace="/" action="myPics"/>
-<@s.a href="%{myPicsLink}"><@s.property value="#session.flickrUser.name"/></@s.a>
+<@s.url id="myAccountLink" namespace="/account" action="account"/>
+<@s.a href="%{myAccountLink}"><@s.property value="#session.flickrUser.name"/></@s.a>
 <@s.if test="#session.flickrUser.administrator">
  |
 <@s.url id="adminLink" namespace="/admin" action="challenges"/>

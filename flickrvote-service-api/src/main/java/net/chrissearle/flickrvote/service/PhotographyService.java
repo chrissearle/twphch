@@ -31,4 +31,6 @@ public interface PhotographyService {
     void freezeChallenge();
 
     List<ImageInfo> getGoldWinners();
+
+    void setTwitter(String id, String twitter);
 }

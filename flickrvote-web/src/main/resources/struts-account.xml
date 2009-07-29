@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="flickrAccount" extends="struts-default" namespace="/account">
+        <interceptors>
+            <interceptor name="authenticationInterceptor"
+                         class="net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor"/>
+
+            <interceptor-stack name="authenticationStack">
+                <interceptor-ref name="authenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="authenticationStack"/>
+
+        <global-results>
+            <result name="notloggedin" type="redirectAction">
+                <param name="actionName">current</param>
+                <param name="namespace">/</param>
+            </result>
+        </global-results>
+
+        <action name="account" class="net.chrissearle.flickrvote.web.account.ShowAccountAction">
+            <result>/jsp/account/show.jspx</result>
+        </action>
+
+        <action name="edit" class="net.chrissearle.flickrvote.web.account.AccountAction" method="input">
+            <result name="input">/jsp/account/editform.jspx</result>
+        </action>
+
+        <action name="save" class="net.chrissearle.flickrvote.web.account.AccountAction">
+            <result name="input">/jsp/account/editform.jspx</result>
+            <result name="success" type="chain">account</result>
+        </action>
+    </package>
+</struts>
