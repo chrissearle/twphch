@@ -28,4 +28,15 @@ public class Twitter4jTwitterService implements TwitterService {
             }
         }
     }
+
+    public void follow(String twitterId) {
+        try {
+            if (!twitter.existsFriendship(twitter.getUserId(), twitterId)) {
+                twitter.createFriendship(twitterId);
+                twitter.enableNotification(twitterId);
+            }
+        } catch (TwitterException e) {
+            throw new TwitterServiceException("Unable to follow " + twitterId, e);
+        }
+    }
 }

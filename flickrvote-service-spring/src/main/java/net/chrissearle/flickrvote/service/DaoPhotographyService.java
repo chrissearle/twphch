@@ -11,6 +11,9 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.twitter.TwitterService;
+import net.chrissearle.flickrvote.twitter.TwitterServiceException;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,15 +33,17 @@ public class DaoPhotographyService implements PhotographyService {
     private ImageDao imageDao;
 
     private FlickrService flickrService;
+    private TwitterService twitterService;
 
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrService flickrService) {
+                                 FlickrService flickrService, TwitterService twitterService) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
 
         this.flickrService = flickrService;
+        this.twitterService = twitterService;
     }
 
     public void addPhotographer(String token, String username, String fullname, String flickrId) {
@@ -170,7 +175,7 @@ public class DaoPhotographyService implements PhotographyService {
         if (photographer == null || photographer.getImages() == null || photographer.getImages().size() == 0) {
             return null;
         }
-        
+
         List<ImageInfo> images = new ArrayList<ImageInfo>(photographer.getImages().size());
 
         for (Image image : photographer.getImages()) {
@@ -220,6 +225,14 @@ public class DaoPhotographyService implements PhotographyService {
             photographer.setTwitter(twitter);
 
             photographyDao.persist(photographer);
+
+            try {
+                twitterService.follow(twitter);
+            } catch (TwitterServiceException tse) {
+                if (logger.isEnabledFor(Level.WARN)) {
+                    logger.warn("Unable to follow" + tse.getMessage(), tse);
+                }
+            }
         }
     }
 }
