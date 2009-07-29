@@ -91,7 +91,7 @@ public class ImageAction extends ActionSupport implements Preparable {
     }
 
     public void prepare() throws Exception {
-        challenges = challengeService.getClosedChallenges();
+        challenges = challengeService.getChallenges();
     }
 
     public List<ChallengeInfo> getChallenges() {
