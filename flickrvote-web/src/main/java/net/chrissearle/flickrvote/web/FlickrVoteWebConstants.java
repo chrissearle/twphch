@@ -9,4 +9,5 @@ public interface FlickrVoteWebConstants {
     int START_VOTE_TIME = 18;
     int START_CHALLENGE_TIME = 18;
     int END_CHALLENGE_TIME = 21;
+    String TAGPREFIX = "TwPhCh";
 }

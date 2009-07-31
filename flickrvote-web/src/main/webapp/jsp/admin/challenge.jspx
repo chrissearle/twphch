@@ -21,9 +21,10 @@
     <br/>
 
     <s:form action="challenge">
-        <s:textfield label="Title" name="challenge.title"/>
-        <s:if test="editFlag">Tag: <s:property value="challenge.tag"/><s:hidden name="challenge.tag"/></s:if>
+        <s:if test="editFlag"><p>Tag: <s:property value="challenge.tag"/><s:hidden name="challenge.tag"/></p></s:if>
         <s:else><s:textfield label="Tag" name="challenge.tag"/></s:else>
+
+        <s:textfield label="Title" name="challenge.title"/>
         <br/>
         <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
 

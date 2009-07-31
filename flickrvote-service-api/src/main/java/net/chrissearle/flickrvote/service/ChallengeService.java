@@ -37,4 +37,6 @@ public interface ChallengeService {
     void remove(String tag);
 
     List<ChallengeInfo> isDateAvailable(Date startDate);
+
+    ChallengeInfo getMostRecent();
 }

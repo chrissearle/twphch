@@ -20,4 +20,6 @@ public interface ChallengeDao extends Dao<String, Challenge> {
     Challenge getVotedChallenge();
 
     List<Challenge> findWithin(Date date);
+
+    Challenge getMostRecent();
 }

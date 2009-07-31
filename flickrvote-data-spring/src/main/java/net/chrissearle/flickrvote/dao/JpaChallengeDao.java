@@ -5,6 +5,7 @@ import net.chrissearle.flickrvote.model.Challenge;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
@@ -88,5 +89,16 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         query.setParameter("date", date);
 
         return (List<Challenge>) query.getResultList();
+    }
+
+    public Challenge getMostRecent() {
+        Query query = entityManager.createQuery("select c from Challenge c where c.startDate = (select MAX(c.startDate) FROM c)");
+
+        try {
+            return (Challenge) query.getSingleResult();
+        } catch (NoResultException e) {
+            // Means nothing - just that the db is empty
+            return null;
+        }
     }
 }

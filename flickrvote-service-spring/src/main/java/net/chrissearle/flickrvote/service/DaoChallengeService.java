@@ -360,6 +360,16 @@ public class DaoChallengeService implements ChallengeService {
         return challenges;
     }
 
+    public ChallengeInfo getMostRecent() {
+        Challenge challenge = challengeDao.getMostRecent();
+
+        if (challenge != null) {
+            return new ChallengeInfo(challenge);
+        }
+
+        return null;
+    }
+
 
     public void rankChallenge(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);

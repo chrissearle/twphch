@@ -8,7 +8,9 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
+import java.util.Formatter;
 import java.util.List;
+import java.util.Locale;
 
 public class ChallengeAction extends ActionSupport {
     @Autowired
@@ -27,6 +29,28 @@ public class ChallengeAction extends ActionSupport {
         if (tag != null && !"".equals(tag)) {
             editFlag = true;
             challenge = challengeService.getChallenge(tag);
+        } else {
+            // Set some defaults
+            ChallengeInfo mostRecentChallenge = challengeService.getMostRecent();
+
+            if (mostRecentChallenge != null) {
+                challenge = new ChallengeInfo();
+
+                challenge.setStartDate(mostRecentChallenge.getVoteDate());
+
+                int numIndex = mostRecentChallenge.getTag().indexOf(FlickrVoteWebConstants.TAGPREFIX)
+                        + FlickrVoteWebConstants.TAGPREFIX.length();
+
+                int tagNum = Integer.valueOf(mostRecentChallenge.getTag().substring(numIndex));
+
+                StringBuilder sb = new StringBuilder();
+
+                Formatter formatter = new Formatter(sb, Locale.getDefault());
+
+                formatter.format(FlickrVoteWebConstants.TAGPREFIX + "%03d", tagNum + 1);
+
+                challenge.setTag(sb.toString());
+            }
         }
 
         return INPUT;
