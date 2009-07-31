@@ -18,16 +18,27 @@
         <property name="concurrent" value="false"/>
     </bean>
 
+    <bean id="freezeChallengeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="photographyService"/>
+        <property name="targetMethod" value="FreezeChallenge"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
     <bean id="announceResultsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetBeanName" value="challengeService"/>
         <property name="targetMethod" value="announceResults"/>
         <property name="concurrent" value="false"/>
     </bean>
 
-    <!-- Schedules are 1 second past the hour - this allows the service to call the getVoting/getCurrent and get the correct challenge -->
+    <!-- Schedules are a touch past the hour - this allows the service to call the getVoting/getCurrent and get the correct challenge -->
+    <bean id="freezeChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="freezeChallengeJob"/>
+        <property name="cronExpression" value="1 0 18 ? * FRI"/>
+    </bean>
+
     <bean id="openVotingTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="openVotingJob"/>
-        <property name="cronExpression" value="1 0 18 ? * FRI"/>
+        <property name="cronExpression" value="2 0 18 ? * FRI"/>
     </bean>
 
     <bean id="announceNewChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
@@ -43,6 +54,7 @@
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
+                <ref bean="freezeChallengeTrigger"/>
                 <ref bean="openVotingTrigger"/>
                 <ref bean="announceNewChallengeTrigger"/>
                 <ref bean="announceResultsTrigger"/>

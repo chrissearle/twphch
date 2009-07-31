@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Service("photographyService")
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
     private Logger logger = Logger.getLogger(DaoPhotographyService.class);
