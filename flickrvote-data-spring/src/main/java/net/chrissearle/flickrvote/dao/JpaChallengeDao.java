@@ -18,7 +18,12 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
     public Challenge findByTag(String tag) {
         Query query = entityManager.createQuery("select c from Challenge c where c.tag = :tag");
         query.setParameter("tag", tag);
-        return (Challenge) query.getSingleResult();
+
+        try {
+            return (Challenge) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @SuppressWarnings("unchecked")
