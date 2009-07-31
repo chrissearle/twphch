@@ -259,7 +259,7 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public Map<String, String> checkSearch(String tag) {
-        Challenge challenge = challengeDao.getCurrentChallenge();
+        Challenge challenge = challengeDao.findByTag(tag);
 
         return flickrService.checkSearch(tag, challenge.getStartDate());
     }
