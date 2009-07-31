@@ -256,7 +256,11 @@ public class FlickrJFlickrService implements FlickrService {
                     if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
                         seenPhotographers.put(photo.getOwner().getId(), image);
                     } else {
-                        issues.put(image.getFlickrId(), "Photographer already seen: " + image.getUrl());
+                        issues.put(image.getFlickrId(),
+                                "Photographer already seen: "
+                                        + image.getUrl()
+                                        + ":"
+                                        + seenPhotographers.get(photo.getOwner().getId()).getUrl());
                     }
                 }
             }
