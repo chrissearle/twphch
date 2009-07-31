@@ -26,10 +26,9 @@
         <s:else><s:textfield label="Tag" name="challenge.tag"/></s:else>
         <br/>
         <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
-        <br/>
-        <sx:datetimepicker label="Vote Start Date" name="challenge.voteDate" displayFormat="dd.MM.yyyy"/>
-        <br/>
-        <sx:datetimepicker label="End Date" name="challenge.endDate" displayFormat="dd.MM.yyyy"/>
+
+        <p>Start date must be a friday. Vote start date and end date are automatically
+            calculated as the following friday and sunday.</p>
         <s:submit/>
         <s:if test="editFlag">
             <s:submit action="deleteChallenge" value="Delete"/>

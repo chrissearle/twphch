@@ -81,4 +81,12 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
 
         return null;
     }
+
+    @SuppressWarnings("unchecked")
+    public List<Challenge> findWithin(Date date) {
+        Query query = entityManager.createQuery("select c from Challenge c where c.startDate <= :date and c.votingOpenDate > :date");
+        query.setParameter("date", date);
+
+        return (List<Challenge>) query.getResultList();
+    }
 }

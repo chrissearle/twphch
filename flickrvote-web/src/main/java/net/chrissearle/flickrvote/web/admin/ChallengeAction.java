@@ -3,6 +3,7 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,10 +22,6 @@ public class ChallengeAction extends ActionSupport {
 
     private ChallengeInfo challenge;
 
-    private static final int START_VOTE_TIME = 18;
-    private static final int START_CHALLENGE_TIME = 18;
-    private static final int END_CHALLENGE_TIME = 21;
-
     @Override
     public String input() throws Exception {
         if (tag != null && !"".equals(tag)) {
@@ -37,9 +34,11 @@ public class ChallengeAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        challenge.setStartDate(new DateTime(challenge.getStartDate()).plusHours(START_CHALLENGE_TIME).toDate());
-        challenge.setVoteDate(new DateTime(challenge.getVoteDate()).plusHours(START_VOTE_TIME).toDate());
-        challenge.setEndDate(new DateTime(challenge.getEndDate()).plusHours(END_CHALLENGE_TIME).toDate());
+        DateTime startDate = new DateTime(challenge.getStartDate());
+
+        challenge.setStartDate(startDate.plusHours(FlickrVoteWebConstants.START_CHALLENGE_TIME).toDate());
+        challenge.setVoteDate(startDate.plusDays(7).plusHours(FlickrVoteWebConstants.START_VOTE_TIME).toDate());
+        challenge.setEndDate(startDate.plusDays(9).plusHours(FlickrVoteWebConstants.END_CHALLENGE_TIME).toDate());
 
         challengeService.saveChallenge(challenge);
 

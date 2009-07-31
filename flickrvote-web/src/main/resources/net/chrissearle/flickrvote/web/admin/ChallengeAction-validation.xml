@@ -16,18 +16,16 @@
         </field-validator>
     </field>
     <field name="challenge.startDate">
-        <field-validator type="required">
+        <field-validator type="required" short-circuit="true">
             <message>Start Date is required</message>
         </field-validator>
-    </field>
-    <field name="challenge.voteDate">
-        <field-validator type="required">
-            <message>Vote Date is required</message>
+        <field-validator type="dayofweek" short-circuit="true">
+            <param name="dayOfWeek">FRI</param>
+            <message>Start Date must be a friday</message>
         </field-validator>
-    </field>
-    <field name="challenge.endDate">
-        <field-validator type="required">
-            <message>End Date is required</message>
+        <field-validator type="overlap">
+            <param name="keyName">challenge.tag</param>
+            <message>Start Date would overlap with an existing challenge</message>
         </field-validator>
     </field>
 </validators>

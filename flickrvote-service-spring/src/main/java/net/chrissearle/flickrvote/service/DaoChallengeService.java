@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service("challengeService")
 @Transactional
@@ -351,6 +348,16 @@ public class DaoChallengeService implements ChallengeService {
         Challenge challenge = challengeDao.findByTag(tag);
 
         challengeDao.remove(challenge);
+    }
+
+    public List<ChallengeInfo> isDateAvailable(Date startDate) {
+        List<ChallengeInfo> challenges = new ArrayList<ChallengeInfo>();
+
+        for (Challenge challenge : challengeDao.findWithin(startDate)) {
+            challenges.add(new ChallengeInfo(challenge));
+        }
+
+        return challenges;
     }
 
 

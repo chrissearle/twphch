@@ -3,6 +3,7 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ChallengeService {
@@ -34,4 +35,6 @@ public interface ChallengeService {
     ChallengeInfo announceResults();
 
     void remove(String tag);
+
+    List<ChallengeInfo> isDateAvailable(Date startDate);
 }
