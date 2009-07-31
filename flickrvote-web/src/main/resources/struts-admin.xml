@@ -97,8 +97,13 @@
                 method="browse">
             <result name="browse">/jsp/admin/photoList.jspx</result>
         </action>
+
         <action name="toggleAdmin" class="net.chrissearle.flickrvote.web.admin.PhotographerDataAction">
             <result name="success" type="chain">photographerList</result>
+        </action>
+
+        <action name="checkSearch" class="net.chrissearle.flickrvote.web.admin.SearchTagCheckAction">
+            <result name="success" type="chain">challenges</result>
         </action>
     </package>
 </struts>

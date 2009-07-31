@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -255,5 +256,11 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         return null;
+    }
+
+    public Map<String, String> checkSearch(String tag) {
+        Challenge challenge = challengeDao.getCurrentChallenge();
+
+        return flickrService.checkSearch(tag, challenge.getStartDate());
     }
 }

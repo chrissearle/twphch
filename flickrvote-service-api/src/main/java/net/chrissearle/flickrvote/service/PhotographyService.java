@@ -6,6 +6,7 @@ import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 public interface PhotographyService {
     void addPhotographer(String token, String username, String fullname, String flickrId);
@@ -37,4 +38,6 @@ public interface PhotographyService {
     List<PhotographerInfo> getPhotographers();
 
     PhotographerInfo findById(String id);
+
+    Map<String, String> checkSearch(String tag);
 }

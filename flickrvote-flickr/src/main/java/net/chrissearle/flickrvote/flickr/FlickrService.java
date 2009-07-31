@@ -1,8 +1,9 @@
 package net.chrissearle.flickrvote.flickr;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public interface FlickrService {
     URL getLoginUrl() throws FlickrServiceException;
@@ -20,6 +21,8 @@ public interface FlickrService {
     FlickrImage getImageByFlickrId(String id);
 
     void postForum(String title, String message);
-    
+
     void postComment(String id, String comment);
+
+    Map<String, String> checkSearch(String tag, Date earliestDate);
 }

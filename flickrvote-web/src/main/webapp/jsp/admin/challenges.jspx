@@ -47,6 +47,11 @@
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
                     <s:a href="%{rankItLink}">Rank It</s:a>
+                    |
+                    <s:url id="checkItLink" action="checkSearch">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
+                    </s:url>
+                    <s:a href="%{checkItLink}">Check It</s:a>
                 </td>
             </tr>
         </s:iterator>

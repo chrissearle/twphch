@@ -110,18 +110,9 @@ public class FlickrJFlickrService implements FlickrService {
         return authInterface.checkToken(token);
     }
 
-    @SuppressWarnings("unchecked")
     public List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException {
         try {
-            PhotosInterface photosInterface = flickr.getPhotosInterface();
-
-            String[] tags = new String[1];
-            tags[0] = new StringBuilder().append("#").append(tag).toString();
-
-            SearchParameters params = new SearchParameters();
-            params.setTags(tags);
-
-            List<Photo> photos = (List<Photo>) photosInterface.search(params, 500, 1);
+            List<Photo> photos = retrieveByTag(tag);
 
             List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
 
@@ -156,6 +147,20 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (FlickrException e) {
             throw new FlickrServiceException(e);
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<Photo> retrieveByTag(String tag) throws IOException, SAXException, FlickrException {
+        PhotosInterface photosInterface = flickr.getPhotosInterface();
+
+        String[] tags = new String[1];
+        tags[0] = new StringBuilder().append("#").append(tag).toString();
+
+        SearchParameters params = new SearchParameters();
+        params.setTags(tags);
+
+        List<Photo> photos = (List<Photo>) photosInterface.search(params, 500, 1);
+        return photos;
     }
 
     public FlickrAuth getUserByFlickrId(String id) {
@@ -232,6 +237,38 @@ public class FlickrJFlickrService implements FlickrService {
             }
         }
 
+    }
+
+    public Map<String, String> checkSearch(String tag, Date earliestDate) {
+        try {
+            List<Photo> photos = retrieveByTag(tag);
+
+            Map<String, String> issues = new HashMap<String, String>();
+
+            Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
+
+            for (Photo photo : photos) {
+                FlickrImage image = getImageByFlickrId(photo.getId());
+
+                if (earliestDate != null && image.getDateTaken() != null && image.getDateTaken().getTime() < earliestDate.getTime()) {
+                    issues.put(image.getFlickrId(), "Image was taken before challenge start: " + image.getUrl());
+                } else {
+                    if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
+                        seenPhotographers.put(photo.getOwner().getId(), image);
+                    } else {
+                        issues.put(image.getFlickrId(), "Photographer already seen: " + image.getUrl());
+                    }
+                }
+            }
+
+            return issues;
+        } catch (IOException e) {
+            throw new FlickrServiceException(e);
+        } catch (SAXException e) {
+            throw new FlickrServiceException(e);
+        } catch (FlickrException e) {
+            throw new FlickrServiceException(e);
+        }
     }
 
     private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {
