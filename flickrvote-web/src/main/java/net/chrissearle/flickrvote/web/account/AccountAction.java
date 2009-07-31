@@ -50,6 +50,10 @@ public class AccountAction extends ActionSupport implements SessionAware, Prepar
     }
 
     public void setTwitter(String twitter) {
+        if (twitter.startsWith("@")) {
+            twitter = twitter.substring(1);
+        }
+
         this.twitter = twitter;
     }
 }

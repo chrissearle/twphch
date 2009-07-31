@@ -5,4 +5,5 @@
 <validators>
     <validator name="dayofweek" class="net.chrissearle.flickrvote.web.validators.DayOfWeekValidator"/>
     <validator name="overlap" class="net.chrissearle.flickrvote.web.validators.OverlapValidator"/>
+    <validator name="twitterexists" class="net.chrissearle.flickrvote.web.validators.TwitterValidator"/>
 </validators>

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
+import twitter4j.User;
 
 @Service
 public class Twitter4jTwitterService implements TwitterService {
@@ -37,6 +38,16 @@ public class Twitter4jTwitterService implements TwitterService {
             }
         } catch (TwitterException e) {
             throw new TwitterServiceException("Unable to follow " + twitterId, e);
+        }
+    }
+
+    public boolean twitterExists(String twitterId) {
+        try {
+            User user = twitter.showUser(twitterId);
+            return true;
+        } catch (TwitterException e) {
+            // Short cut - returns false even if twitter is down.
+            return false;
         }
     }
 }

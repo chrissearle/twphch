@@ -5,5 +5,8 @@
         <field-validator type="requiredstring" short-circuit="true">
             <message key="account.twitter.missing.message"/>
         </field-validator>
+        <field-validator type="twitterexists">
+            <message key="account.twitter.not.found.message"/>
+        </field-validator>
     </field>
 </validators>

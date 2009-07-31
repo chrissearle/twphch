@@ -263,4 +263,8 @@ public class DaoPhotographyService implements PhotographyService {
 
         return flickrService.checkSearch(tag, challenge.getStartDate());
     }
+
+    public boolean checkTwitterExists(String twitter) {
+        return twitterService.twitterExists(twitter);
+    }
 }
