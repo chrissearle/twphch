@@ -121,7 +121,7 @@ public class FlickrJFlickrService implements FlickrService {
             for (Photo photo : photos) {
                 FlickrImage image = getImageByFlickrId(photo.getId());
 
-                if (earliestDate != null && image.getDateTaken() != null && image.getDateTaken().getTime() < earliestDate.getTime()) {
+                if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
                     if (logger.isInfoEnabled()) {
                         logger.info("Image was taken before challenge start: " + image);
                     }
@@ -250,7 +250,7 @@ public class FlickrJFlickrService implements FlickrService {
             for (Photo photo : photos) {
                 FlickrImage image = getImageByFlickrId(photo.getId());
 
-                if (earliestDate != null && image.getDateTaken() != null && image.getDateTaken().getTime() < earliestDate.getTime()) {
+                if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
                     issues.put(image.getFlickrId(), "Image was taken before challenge start: " + image.getUrl());
                 } else {
                     if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
@@ -284,7 +284,7 @@ public class FlickrJFlickrService implements FlickrService {
             name = user.getUsername();
         }
 
-        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken());
+        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
     }
 
     private User getUser(String id) throws IOException, SAXException, FlickrException {

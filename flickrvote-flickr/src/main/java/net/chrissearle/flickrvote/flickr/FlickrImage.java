@@ -8,27 +8,20 @@ public class FlickrImage {
     private final String title;
     private final String url;
     private final String imageUrl;
+    private final Date postedDate;
     private String photographerFlickrId;
 
-    private Date dateTaken;
+    private Date takenDate;
 
-    public FlickrImage(String flickrId, String photographerName, String photoId, String title, String url, String imageUrl, Date dateTaken) {
+    public FlickrImage(String flickrId, String photographerName, String photoId, String title, String url, String imageUrl, Date takenDate, Date postedDate) {
         this.flickrId = flickrId;
         this.photographerName = photographerName;
         this.title = title;
         this.url = url;
         this.imageUrl = imageUrl;
         this.setPhotographerFlickrId(photoId);
-        this.dateTaken = dateTaken;
-    }
-
-    public FlickrImage(FlickrImage flickrImage) {
-        this.flickrId = flickrImage.getFlickrId();
-        this.photographerName = flickrImage.getPhotographerName();
-        this.title = flickrImage.getTitle();
-        this.url = flickrImage.getUrl();
-        this.imageUrl = flickrImage.getImageUrl();
-        this.photographerFlickrId = flickrImage.getPhotographerFlickrId();
+        this.takenDate = takenDate;
+        this.postedDate = postedDate;
     }
 
     public String getFlickrId() {
@@ -59,13 +52,18 @@ public class FlickrImage {
         this.photographerFlickrId = photographerFlickrId;
     }
 
-    public Date getDateTaken() {
-        return dateTaken;
+    public Date getTakenDate() {
+        return takenDate;
     }
 
-    public void setDateTaken(Date dateTaken) {
-        this.dateTaken = dateTaken;
+    public void setTakenDate(Date takenDate) {
+        this.takenDate = takenDate;
     }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+    
 
     @Override
     public String toString() {
@@ -76,7 +74,8 @@ public class FlickrImage {
                 ", url='" + url + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", photographerFlickrId='" + photographerFlickrId + '\'' +
-                ", dateTaken=" + dateTaken +
+                ", takenDate=" + takenDate +
+                ", postedDate=" + postedDate +
                 '}';
     }
 }

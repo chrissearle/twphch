@@ -3,6 +3,7 @@ package net.chrissearle.flickrvote.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 @Entity
 @Table(name = "image")
@@ -33,6 +34,10 @@ public class Image {
     @Column(name = "final_rank", nullable = false)
     private Long finalRank = 0L;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "posted_date")
+    private Date postedDate;
+
     @OneToMany(mappedBy = "image", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private
     List<Vote> votes = new ArrayList<Vote>();
@@ -57,6 +62,7 @@ public class Image {
                 ", mediumImage='" + mediumImage + '\'' +
                 ", finalVoteCount=" + finalVoteCount +
                 ", finalRank=" + finalRank +
+                ", postedDate=" + postedDate +
                 ", version=" + version +
                 '}';
     }
@@ -152,5 +158,13 @@ public class Image {
     public void addVote(Vote vote) {
         votes.add(vote);
         vote.setImage(this);
+    }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
     }
 }

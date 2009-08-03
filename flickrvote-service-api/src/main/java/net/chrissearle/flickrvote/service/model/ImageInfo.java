@@ -2,6 +2,8 @@ package net.chrissearle.flickrvote.service.model;
 
 import net.chrissearle.flickrvote.model.Image;
 
+import java.util.Date;
+
 public class ImageInfo {
     private String id;
     private String title;
@@ -13,6 +15,7 @@ public class ImageInfo {
     private Long voteCount = 0L;
     private String challengeName;
     private String challengeTag;
+    private Date postedDate;
 
     public ImageInfo() {
     }
@@ -25,6 +28,7 @@ public class ImageInfo {
         this.setChallengeName(image.getChallenge().getName());
         this.setChallengeTag(image.getChallenge().getTag());
         this.setRank(image.getFinalRank());
+        this.setPostedDate(image.getPostedDate());
 
         String name = image.getPhotographer().getFullname();
 
@@ -115,5 +119,13 @@ public class ImageInfo {
 
     public void setChallengeTag(String challengeTag) {
         this.challengeTag = challengeTag;
+    }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
     }
 }

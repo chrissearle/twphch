@@ -130,14 +130,15 @@ public class DaoPhotographyService implements PhotographyService {
 
         Image image = imageDao.findById(id);
 
-        if (image == null) {
-            FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
+        FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
 
+        if (image == null) {
             image = new Image();
             image.setId(flickrImage.getFlickrId());
             image.setMediumImage(flickrImage.getImageUrl());
             image.setPage(flickrImage.getUrl());
             image.setTitle(flickrImage.getTitle());
+            image.setPostedDate(flickrImage.getPostedDate());
 
             Photographer photographer = photographyDao.findById(flickrImage.getPhotographerFlickrId());
 
@@ -154,11 +155,14 @@ public class DaoPhotographyService implements PhotographyService {
             challenge.addImage(image);
 
             challengeDao.persist(challenge);
+        } else {
+            image.setTitle(flickrImage.getTitle());
+            image.setPostedDate(flickrImage.getPostedDate());
 
-            return new ImageInfo(image);
+            imageDao.persist(image);
         }
 
-        return null;
+        return new ImageInfo(image);
     }
 
     public void setScore(String imageId, Long score) {
