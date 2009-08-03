@@ -20,7 +20,7 @@
 
     <bean id="freezeChallengeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetBeanName" value="photographyService"/>
-        <property name="targetMethod" value="FreezeChallenge"/>
+        <property name="targetMethod" value="freezeChallenge"/>
         <property name="concurrent" value="false"/>
     </bean>
 
