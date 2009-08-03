@@ -41,11 +41,7 @@ public class ImageAction extends ActionSupport implements Preparable {
                 try {
                     ImageInfo image = photographyService.retrieveAndStoreImage(imageId, tag);
 
-                    if (image != null) {
-                        addActionMessage("&laquo;" + image.getTitle() + "&raquo; av " + image.getPhotographerName() + " retrieved.");
-                    } else {
-                        addActionError("No image found for " + imageId);
-                    }
+                    addActionMessage("&laquo;" + image.getTitle() + "&raquo; av " + image.getPhotographerName() + " retrieved/updated.");
                 } catch (FlickrServiceException e) {
                     addActionError("Error retrieving image " + imageId + ": " + e.getMessage());
                 }

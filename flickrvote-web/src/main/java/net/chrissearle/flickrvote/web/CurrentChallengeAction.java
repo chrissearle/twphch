@@ -8,6 +8,8 @@ import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CurrentChallengeAction extends ActionSupport {
@@ -34,6 +36,12 @@ public class CurrentChallengeAction extends ActionSupport {
         if (challenge != null) {
             images = photographyService.searchImagesByTag(challenge.getTag());
         }
+
+        Collections.sort(images, new Comparator<FlickrImage>() {
+            public int compare(FlickrImage o1, FlickrImage o2) {
+                return o2.getPostedDate().compareTo(o1.getPostedDate());
+            }
+        });
 
         return SUCCESS;
     }

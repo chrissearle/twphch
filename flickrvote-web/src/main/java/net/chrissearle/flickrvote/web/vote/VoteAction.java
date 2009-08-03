@@ -155,9 +155,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
         long lastSeenValue = Long.MAX_VALUE;
 
         Collections.sort(images, new Comparator<ImageInfo>() {
-
             public int compare(ImageInfo o1, ImageInfo o2) {
-                return o2.getVoteCount().compareTo(o1.getVoteCount());
+                return o2.getPostedDate().compareTo(o1.getPostedDate());
             }
         });
 

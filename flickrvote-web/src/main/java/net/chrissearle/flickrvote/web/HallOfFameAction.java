@@ -19,7 +19,6 @@ public class HallOfFameAction extends ActionSupport {
         images = photographyService.getGoldWinners();
 
         Collections.sort(images, new Comparator<ImageInfo>() {
-
             public int compare(ImageInfo o1, ImageInfo o2) {
                 return o2.getChallengeTag().compareTo(o1.getChallengeTag());
             }
