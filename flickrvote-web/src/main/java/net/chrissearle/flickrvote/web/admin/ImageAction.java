@@ -10,6 +10,8 @@ import net.chrissearle.flickrvote.service.model.ImageInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ImageAction extends ActionSupport implements Preparable {
@@ -73,8 +75,7 @@ public class ImageAction extends ActionSupport implements Preparable {
 
     }
 
-    public List<String> getId
-            () {
+    public List<String> getId() {
         return id;
     }
 
@@ -92,6 +93,12 @@ public class ImageAction extends ActionSupport implements Preparable {
 
     public void prepare() throws Exception {
         challenges = challengeService.getChallenges();
+
+        Collections.sort(challenges, new Comparator<ChallengeInfo>() {
+            public int compare(ChallengeInfo o1, ChallengeInfo o2) {
+                return o2.getTag().compareTo(o1.getTag());
+            }
+        });
     }
 
     public List<ChallengeInfo> getChallenges() {
