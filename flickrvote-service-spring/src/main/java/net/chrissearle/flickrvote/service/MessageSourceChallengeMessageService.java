@@ -67,7 +67,7 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         Object[] params = new Object[1];
         params[0] = challenge.getTag();
 
-        return shortUrlService.shortenUrl(messageSource.getMessage("url.show", params, Locale.getDefault()));
+        return messageSource.getMessage("url.show", params, Locale.getDefault());
     }
 
     public String getVotingTwitter(Challenge challenge) {
@@ -126,6 +126,8 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
     }
 
     public String getResultsTwitter(Challenge challenge, String resultsUrl) {
+        resultsUrl = shortUrlService.shortenUrl(resultsUrl);
+        
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
         params[1] = challenge.getName();
