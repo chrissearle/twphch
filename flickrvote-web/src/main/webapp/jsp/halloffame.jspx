@@ -18,7 +18,7 @@
     <s:iterator id="photo" value="images">
         <div class="photobox">
             <h3><s:property value="#photo.challengeTag"/> - <s:property value="#photo.challengeName"/> : <s:property value="#photo.title"/> - <s:property
-                    value="#photo.photographerName"/> (<s:property value="#photo.finalVoteCount"/> votes)</h3>
+                    value="#photo.photographerName"/> (<s:property value="#photo.finalVoteCount"/> <s:text name="votes"/>)</h3>
             <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
         </div>
     </s:iterator>
