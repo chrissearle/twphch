@@ -19,14 +19,17 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
     private ShortUrlService shortUrlService;
 
     private String votingUrl;
+    private String votingUrlShort;
     private String currentUrl;
+    private String currentUrlShort;
     private String rulesUrl;
+    private String rulesUrlShort;
     private String goldBadgeUrl;
     private String silverBadgeUrl;
     private String bronzeBadgeUrl;
 
     private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    
+
     @Autowired
     public MessageSourceChallengeMessageService(ShortUrlService shortUrlService) {
         this.shortUrlService = shortUrlService;
@@ -37,13 +40,16 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
     }
 
     public void afterPropertiesSet() throws Exception {
-        this.votingUrl = shortUrlService.shortenUrl(getUrlProperty("url.voting"));
-        this.currentUrl = shortUrlService.shortenUrl(getUrlProperty("url.current"));
-        this.rulesUrl = shortUrlService.shortenUrl(getUrlProperty("url.rules"));
+        votingUrl = getUrlProperty("url.voting");
+        votingUrlShort = shortUrlService.shortenUrl(votingUrl);
+        currentUrl = getUrlProperty("url.current");
+        currentUrlShort = shortUrlService.shortenUrl(currentUrl);
+        rulesUrl = getUrlProperty("url.rules");
+        rulesUrlShort = shortUrlService.shortenUrl(rulesUrl);
 
-        this.goldBadgeUrl = getUrlProperty("gold.badge");
-        this.silverBadgeUrl = getUrlProperty("silver.badge");
-        this.bronzeBadgeUrl = getUrlProperty("bronze.badge");
+        goldBadgeUrl = getUrlProperty("gold.badge");
+        silverBadgeUrl = getUrlProperty("silver.badge");
+        bronzeBadgeUrl = getUrlProperty("bronze.badge");
     }
 
     private String getUrlProperty(String urlKey) {
@@ -74,7 +80,7 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
         params[1] = challenge.getName();
-        params[2] = votingUrl;
+        params[2] = votingUrlShort;
 
         return messageSource.getMessage("twitter.voting", params, Locale.getDefault());
     }
@@ -102,7 +108,7 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
         params[1] = challenge.getName();
-        params[2] = currentUrl;
+        params[2] = currentUrlShort;
 
         return messageSource.getMessage("twitter.current", params, Locale.getDefault());
     }

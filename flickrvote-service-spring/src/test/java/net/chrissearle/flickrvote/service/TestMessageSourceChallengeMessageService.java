@@ -81,7 +81,8 @@ public class TestMessageSourceChallengeMessageService {
     public void testGetResultsUrl() {
         resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
-        assert resultsUrl.contains("bit.ly") : "Message missing link";
+        assert resultsUrl.contains("http") : "Message missing link";
+        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
 
     @Test(dependsOnMethods = {"testGetResultsUrl"})
@@ -128,7 +129,8 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getName()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("http") : "Message missing link";
+        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
 
     @Test
@@ -141,7 +143,8 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getName()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("http") : "Message missing link";
+        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
 
     @Test
@@ -269,6 +272,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(image3.getTitle()) : "Message missing title 3";
         assert message.contains(image3.getImageHomePage()) : "Message missing home page 3";
         assert message.contains(image3.getImagePictureLink()) : "Message missing picture link 3";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("http") : "Message missing link";
+        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
 }
