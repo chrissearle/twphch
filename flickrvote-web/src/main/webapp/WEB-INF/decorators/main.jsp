@@ -20,7 +20,12 @@
     <!-- **** colour scheme stylesheet **** -->
     <link href="<s:url value='/styles/orange.css'/>" rel="stylesheet" type="text/css" media="all"/>
 
-    <script type="text/javascript" src="<s:url value='/js/jquery-1.3.2.min.js'/>"> </script>
+    <script type="text/javascript" src="<s:url value='/js/jquery-1.3.2.min.js'/>"></script>
+
+    <link rel="alternate" type="application/rss+xml" title="<s:text name="rss.link.fame"/>"
+          href="<s:url namespace="/rss" action="hallOfFame"/>"/>
+    <link rel="alternate" type="application/rss+xml" title="<s:text name="rss.link.front"/>"
+          href="<s:url namespace="/rss" action="current"/>"/>
 
     <decorator:head/>
 
@@ -29,7 +34,8 @@
 <body>
 <div id="main">
     <div id="links">
-        <s:url action="current" namespace="/" id="homepageUrl"/><s:a href="%{homepageUrl}"><s:text name="link.homepage"/></s:a> |
+        <s:url action="current" namespace="/" id="homepageUrl"/><s:a href="%{homepageUrl}"><s:text
+            name="link.homepage"/></s:a> |
         <s:action name="flickrLoginLink" namespace="/common" executeResult="true"/> |
         <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
         <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>

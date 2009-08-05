@@ -1,0 +1,31 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://backend.userland.com/rss2"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/xml"/>
+    <jsp:output omit-xml-declaration="no"/>
+    <rss version="2.0">
+        <channel>
+            <title><s:text name="rss.fame.title"/></title>
+            <link>http://vote.twphch.com/twitterphotochallenge/hallOfFame.action</link>
+            <description><s:text name="rss.fame.description"/></description>
+            <s:set name="now" value="%{new java.util.Date()}"/>
+            <!-- FIXME - This needs forcing to english -->
+            <pubDate><s:date name="now" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
+            <s:iterator id="item" value="images">
+                <item>
+                    <title><s:property value="#item.challengeTag"/> - <s:property value="#item.challengeName"/></title>
+                    <link><s:property value="#item.imageHomePage"/></link>
+                    <description>
+                        <s:property value="#item.title"/> (<s:property value="#item.finalVoteCount"/>&amp;nbsp;<s:text
+                            name="votes"/>)
+                        <br/>
+                        <img src="${item.imagePictureLink}"/>
+                    </description>
+                    <!-- FIXME - This needs forcing to english -->
+                    <pubDate><s:date name="#item.postedDate" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
+                </item>
+            </s:iterator>
+        </channel>
+    </rss>
+</jsp:root>

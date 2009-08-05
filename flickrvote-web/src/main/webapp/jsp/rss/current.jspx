@@ -1,0 +1,29 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://backend.userland.com/rss2"
+          xmlns:s="/struts-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/xml"/>
+    <jsp:output omit-xml-declaration="no"/>
+    <rss version="2.0">
+        <channel>
+            <title><s:text name="rss.front.title"/>: <s:property value="challenge.tag"/> - <s:property
+                    value="challenge.title"/></title>
+            <link>http://vote.twphch.com/</link>
+            <description><s:text name="rss.front.description"/></description>
+            <s:set name="now" value="%{new java.util.Date()}"/>
+            <!-- FIXME - This needs forcing to english -->
+            <pubDate><s:date name="now" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
+            <s:iterator id="item" value="images">
+                <item>
+                    <title><s:property value="#item.title"/></title>
+                    <link><s:property value="#item.url"/></link>
+                    <description>
+                        <img src="${item.imageUrl}"/>
+                    </description>
+                    <!-- FIXME - This needs forcing to english -->
+                    <pubDate><s:date name="#item.postedDate" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
+                </item>
+            </s:iterator>
+        </channel>
+    </rss>
+</jsp:root>

@@ -11,6 +11,7 @@
     <include file="struts-admin.xml"/>
     <include file="struts-common.xml"/>
     <include file="struts-main.xml"/>
+    <include file="struts-rss.xml"/>
     <include file="struts-vote.xml"/>
     <include file="struts-chart.xml"/>
     <include file="struts-account.xml"/>
