@@ -1,6 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
+          xmlns:fv="/flickrvote-tags"
           version="2.0">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
@@ -18,10 +19,10 @@
     <s:if test="images.size() == 0">
         <p><s:text name="current.no.pics"/></p>
     </s:if>
-    <s:iterator id="photo" value="images">
+    <s:iterator id="displayItem" value="images">
         <div class="photobox">
-            <h3><s:property value="#photo.imageTitle"/> - <s:property value="#photo.photographerName"/></h3>
-            <a href="${photo.pageUrl}"><img src="${photo.imageUrl}" alt="${photo.imageTitle}"/></a>
+            <h3><fv:photographer photographer="${displayItem}"/>: <s:property value="#displayItem.imageTitle"/></h3>
+            <fv:image image="${displayItem}"/>
         </div>
     </s:iterator>
     </body>
