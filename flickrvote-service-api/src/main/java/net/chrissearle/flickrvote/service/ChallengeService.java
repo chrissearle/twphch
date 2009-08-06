@@ -9,6 +9,7 @@ import java.util.List;
 public interface ChallengeService {
     List<ChallengeInfo> getChallenges();
 
+    @Deprecated
     List<ImageInfo> getImagesForChallenge(String challengeName);
 
     void saveChallenge(ChallengeInfo challenge);

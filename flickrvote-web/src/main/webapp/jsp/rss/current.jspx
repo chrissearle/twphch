@@ -15,8 +15,8 @@
             <pubDate><s:date name="now" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
             <s:iterator id="item" value="images">
                 <item>
-                    <title><s:property value="#item.title"/></title>
-                    <link><s:property value="#item.url"/></link>
+                    <title><s:property value="#item.imageTitle"/></title>
+                    <link><s:property value="#item.pageUrl"/></link>
                     <description>
                         <img src="${item.imageUrl}"/>
                     </description>

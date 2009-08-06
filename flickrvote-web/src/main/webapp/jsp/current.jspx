@@ -20,8 +20,8 @@
     </s:if>
     <s:iterator id="photo" value="images">
         <div class="photobox">
-            <h3><s:property value="#photo.title"/> - <s:property value="#photo.photographer.name"/></h3>
-            <a href="${photo.url}"><img src="${photo.imageUrl}" alt="${photo.title}"/></a>
+            <h3><s:property value="#photo.imageTitle"/> - <s:property value="#photo.photographerName"/></h3>
+            <a href="${photo.pageUrl}"><img src="${photo.imageUrl}" alt="${photo.imageTitle}"/></a>
         </div>
     </s:iterator>
     </body>

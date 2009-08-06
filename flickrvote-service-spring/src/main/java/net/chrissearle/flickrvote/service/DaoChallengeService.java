@@ -57,6 +57,7 @@ public class DaoChallengeService implements ChallengeService {
         return results;
     }
 
+    @Deprecated
     public List<ImageInfo> getImagesForChallenge(String challengeName) {
         Challenge challenge = challengeDao.findByTag(challengeName);
 

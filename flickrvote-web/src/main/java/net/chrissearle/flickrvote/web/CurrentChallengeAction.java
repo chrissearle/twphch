@@ -7,6 +7,7 @@ import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageList;
+import net.chrissearle.flickrvote.web.model.DisplayImage;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,7 +29,7 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     private ImageList imageList;
 
-    private List<ImageItem> images;
+    private List<DisplayImage> images;
 
     @Override
     public String execute() throws Exception {
@@ -43,7 +44,7 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
         return challenge;
     }
 
-    public List<ImageItem> getImages() {
+    public List<DisplayImage> getImages() {
         return images;
     }
 
@@ -58,12 +59,14 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
             imageList = photographyService.getChallengeImages(challenge);
         }
 
-        images = new ArrayList<ImageItem>(imageList.getImages().size());
+        images = new ArrayList<DisplayImage>(imageList.getImages().size());
 
-        images.addAll(imageList.getImages());
+        for (ImageItem image : imageList.getImages()) {
+            images.add(new DisplayImage(image));
+        }
 
-        Collections.sort(images, new Comparator<ImageItem>() {
-            public int compare(ImageItem o1, ImageItem o2) {
+        Collections.sort(images, new Comparator<DisplayImage>() {
+            public int compare(DisplayImage o1, DisplayImage o2) {
                 return o2.getPostedDate().compareTo(o1.getPostedDate());
             }
         });
