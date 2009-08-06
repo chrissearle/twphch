@@ -278,13 +278,7 @@ public class FlickrJFlickrService implements FlickrService {
     private FlickrImage convertPhotoToFlickrImage(Photo photo) throws IOException, SAXException, FlickrException {
         User user = getUser(photo.getOwner().getId());
 
-        String name = user.getRealName();
-
-        if (name == null || "".equals(name)) {
-            name = user.getUsername();
-        }
-
-        FlickrPhotographer photographer = new FlickrPhotographer(photo.getOwner().getId(), null, photo.getOwner().getUsername(), photo.getOwner().getRealName(), photo.getOwner().getBuddyIconUrl());
+        FlickrPhotographer photographer = new FlickrPhotographer(user.getId(), null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
         return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
     }
 
