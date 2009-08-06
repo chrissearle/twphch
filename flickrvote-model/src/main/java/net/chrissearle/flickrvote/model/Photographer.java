@@ -36,6 +36,9 @@ public class Photographer {
     @Version
     private Long version;
 
+    @Column(name = "icon_url")
+    private String iconUrl;
+
     public Long getVersion() {
         return version;
     }
@@ -43,13 +46,14 @@ public class Photographer {
     public void setVersion(Long version) {
         this.version = version;
     }
-    
-    public Photographer(String token, String username, String fullname, String id) {
+
+    public Photographer(String token, String username, String fullname, String id, String url) {
         this.setToken(token);
         this.setUsername(username);
         this.setFullname(fullname);
         this.setId(id);
         this.setAdministrator(false);
+        this.setIconUrl(url);
     }
 
     public Photographer() {
@@ -134,16 +138,25 @@ public class Photographer {
         this.twitter = twitter;
     }
 
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
     @Override
     public String toString() {
         return "Photographer{" +
-                "token='" + token + '\'' +
+                "administrator=" + administrator +
+                ", token='" + token + '\'' +
                 ", username='" + username + '\'' +
                 ", fullname='" + fullname + '\'' +
                 ", twitter='" + twitter + '\'' +
-                ", administrator=" + administrator +
                 ", id='" + id + '\'' +
                 ", version=" + version +
+                ", iconUrl='" + iconUrl + '\'' +
                 '}';
     }
 }

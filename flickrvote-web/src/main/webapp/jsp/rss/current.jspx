@@ -6,8 +6,8 @@
     <jsp:output omit-xml-declaration="no"/>
     <rss version="2.0">
         <channel>
-            <title><s:text name="rss.front.title"/>: <s:property value="challenge.tag"/> - <s:property
-                    value="challenge.title"/></title>
+            <title><s:text name="rss.front.title"/>: <s:property value="imageList.title"/> - <s:property
+                    value="imageList.description"/></title>
             <link>http://vote.twphch.com/</link>
             <description><s:text name="rss.front.description"/></description>
             <s:set name="now" value="%{new java.util.Date()}"/>

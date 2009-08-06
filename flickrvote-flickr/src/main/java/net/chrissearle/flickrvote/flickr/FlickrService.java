@@ -10,13 +10,13 @@ public interface FlickrService {
 
     URL getLoginUrl(boolean write) throws FlickrServiceException;
 
-    FlickrAuth authenticate(String frob) throws FlickrServiceException;
+    FlickrPhotographer authenticate(String frob) throws FlickrServiceException;
 
-    FlickrAuth checkAuthenticate(String token) throws FlickrServiceException;
+    FlickrPhotographer checkAuthenticate(String token) throws FlickrServiceException;
 
     List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException;
 
-    FlickrAuth getUserByFlickrId(String id);
+    FlickrPhotographer getUserByFlickrId(String id);
 
     FlickrImage getImageByFlickrId(String id);
 

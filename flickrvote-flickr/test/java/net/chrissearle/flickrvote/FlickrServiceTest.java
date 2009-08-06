@@ -2,9 +2,9 @@ package net.chrissearle.flickrvote;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.REST;
-import net.chrissearle.flickrvote.flickr.FlickrAuth;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrJFlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,7 +19,7 @@ import java.util.Properties;
 
 public class FlickrServiceTest extends FlickrJFlickrService {
     String token;
-    
+
     @BeforeTest(groups = "configured")
     public void setupConfigured() throws IOException, ParserConfigurationException {
         InputStream in = getClass().getResourceAsStream("/flickrvote-flickr.properties");
@@ -55,11 +55,11 @@ public class FlickrServiceTest extends FlickrJFlickrService {
     @Test(groups = "configured")
     public void testAuthenticate() {
 
-        FlickrAuth flickrAuth = checkAuthenticate(token);
+        FlickrPhotographer flickrPhotographer = checkAuthenticate(token);
 
-        assert flickrAuth != null : "Flickr authentication failed";
-        assert flickrAuth.getToken().equals(token) : "Token mismatch";
-        assert "Chris Searle".equals(flickrAuth.getRealname()) : "User name incorrect";
+        assert flickrPhotographer != null : "Flickr authentication failed";
+        assert flickrPhotographer.getToken().equals(token) : "Token mismatch";
+        assert "Chris Searle".equals(flickrPhotographer.getRealname()) : "User name incorrect";
     }
 
     @Test(groups = "configured")

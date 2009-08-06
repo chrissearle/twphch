@@ -9,8 +9,8 @@
         <action name="hallOfFame" class="net.chrissearle.flickrvote.web.rss.HallOfFameAction">
             <result>/jsp/rss/fame.jspx</result>
         </action>
-        <action name="current" class="net.chrissearle.flickrvote.web.rss.CurrentAction">
-            <result>/jsp/rss/current.jspx</result>
+        <action name="current" class="net.chrissearle.flickrvote.web.CurrentChallengeAction" method="executeRss">
+            <result name="rss">/jsp/rss/current.jspx</result>
         </action>
     </package>
 </struts>

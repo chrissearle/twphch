@@ -18,6 +18,7 @@ public class ModelTest {
     private static final String PHOTOGRAPHER_USER = "user";
     private static final String PHOTOGRAPHER_FULLNAME = "full";
     private static final String PHOTOGRAPHER_FLICKR_ID = "foo";
+    private static final String PHOTOGRAPHER_ICON_URL = "http://iconurl";
     private static final String IMAGE_FLICKR_ID = "Foo";
     private static final String IMAGE_MEDIUM_URL = "http://www.foo.com";
     private static final String IMAGE_PAGE_URL = "http://www.bar.com";
@@ -89,7 +90,7 @@ public class ModelTest {
 
     @Test
     public void testPersistPhotographer() {
-        Photographer photographer = new Photographer(PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID);
+        Photographer photographer = new Photographer(PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID, PHOTOGRAPHER_ICON_URL);
         photographer.setTwitter(TWITTER);
 
         em.persist(photographer);
@@ -105,6 +106,7 @@ public class ModelTest {
         assert photographer.getFullname().equals(PHOTOGRAPHER_FULLNAME) : "Full name was incorrect";
         assert photographer.getToken().equals(PHOTOGRAPHER_TOKEN) : "Token was incorrect";
         assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
+        assert photographer.getUsername().equals(PHOTOGRAPHER_ICON_URL) : "Icon was incorrect";
         assert !photographer.isAdministrator() : "Photographer was incorrectly marked as admin";
         assert photographer.getId() != null : "ID was null";
         assert photographer.getTwitter().equals(TWITTER) : "Incorrect twitter account";
@@ -249,9 +251,9 @@ public class ModelTest {
         em.persist(image2);
         em.persist(image3);
 
-        Photographer photographer1 = new Photographer(null, "VoteTestUser1", "VoteTestFull1", "VoteTestId1");
-        Photographer photographer2 = new Photographer(null, "VoteTestUser2", "VoteTestFull2", "VoteTestId2");
-        Photographer photographer3 = new Photographer(null, "VoteTestUser3", "VoteTestFull3", "VoteTestId3");
+        Photographer photographer1 = new Photographer(null, "VoteTestUser1", "VoteTestFull1", "VoteTestId1", "Icon1");
+        Photographer photographer2 = new Photographer(null, "VoteTestUser2", "VoteTestFull2", "VoteTestId2", "Icon2");
+        Photographer photographer3 = new Photographer(null, "VoteTestUser3", "VoteTestFull3", "VoteTestId3", "Icon3");
 
         em.persist(photographer1);
         em.persist(photographer2);

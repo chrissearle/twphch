@@ -3,14 +3,14 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.FlickrAuth;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
+import net.chrissearle.flickrvote.model.ChallengeState;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.service.model.*;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
@@ -20,9 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service("photographyService")
 @Transactional
@@ -47,12 +45,6 @@ public class DaoPhotographyService implements PhotographyService {
         this.twitterService = twitterService;
     }
 
-    public void addPhotographer(String token, String username, String fullname, String flickrId) {
-        Photographer photographer = new Photographer(token, username, fullname, flickrId);
-
-        photographyDao.persist(photographer);
-    }
-
     public void setAdministrator(String id, Boolean adminFlag) {
         Photographer photographer = photographyDao.findById(id);
 
@@ -72,13 +64,15 @@ public class DaoPhotographyService implements PhotographyService {
         // Check to see if present
         Photographer photographer = photographyDao.findById(id);
 
-        FlickrAuth auth = flickrService.getUserByFlickrId(id);
+        FlickrPhotographer flickrPhotographer = flickrService.getUserByFlickrId(id);
 
         if (photographer == null) {
-            photographer = new Photographer(auth.getToken(), auth.getUsername(), auth.getRealname(), auth.getFlickrId());
+            photographer = new Photographer(flickrPhotographer.getToken(), flickrPhotographer.getUsername(),
+                    flickrPhotographer.getRealname(), flickrPhotographer.getFlickrId(), flickrPhotographer.getIconUrl());
         } else {
-            photographer.setUsername(auth.getUsername());
-            photographer.setFullname(auth.getRealname());
+            photographer.setUsername(flickrPhotographer.getUsername());
+            photographer.setFullname(flickrPhotographer.getRealname());
+            photographer.setIconUrl(flickrPhotographer.getIconUrl());
         }
 
         photographyDao.persist(photographer);
@@ -87,27 +81,57 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public PhotographerInfo checkLoginAndStore(String frob) {
-        FlickrAuth auth = flickrService.authenticate(frob);
+        FlickrPhotographer flickrPhotographer = flickrService.authenticate(frob);
 
         // Check to see if present
-        Photographer photographer = photographyDao.findById(auth.getFlickrId());
+        String flickrId = flickrPhotographer.getFlickrId();
+
+        Photographer photographer = photographyDao.findById(flickrId);
 
         if (photographer == null) {
             photographer = new Photographer();
 
-            photographer.setId(auth.getFlickrId());
+            photographer.setId(flickrId);
             photographer.setAdministrator(false);
         }
 
-        photographer.setFullname(auth.getRealname());
-        photographer.setUsername(auth.getUsername());
-        photographer.setToken(auth.getToken());
+        photographer.setFullname(flickrPhotographer.getRealname());
+        photographer.setUsername(flickrPhotographer.getUsername());
+        photographer.setToken(flickrPhotographer.getToken());
+        photographer.setIconUrl(flickrPhotographer.getIconUrl());
 
         photographyDao.persist(photographer);
 
         return new PhotographerInfo(photographer);
     }
 
+    public ImageList getChallengeImages(ChallengeInfo challengeInfo) {
+        Set<ImageItem> images = new HashSet<ImageItem>();
+
+        String tag = challengeInfo.getTag();
+
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge == null) {
+            return null;
+        }
+
+        if (challenge.getVotingState() == ChallengeState.OPEN) {
+            // Grab images from flickr
+            for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
+                images.add(new ImageItem(image));
+            }
+        } else {
+            // Grab images from db
+            for (Image image : challenge.getImages()) {
+                images.add(new ImageItem(image));
+            }
+        }
+
+        return new ImageList(challenge.getTag(), challenge.getName(), images);
+    }
+
+    @Deprecated
     public List<FlickrImage> searchImagesByTag(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
@@ -140,12 +164,13 @@ public class DaoPhotographyService implements PhotographyService {
             image.setTitle(flickrImage.getTitle());
             image.setPostedDate(flickrImage.getPostedDate());
 
-            Photographer photographer = photographyDao.findById(flickrImage.getPhotographerFlickrId());
+            String photographerId = flickrImage.getPhotographer().getFlickrId();
+            Photographer photographer = photographyDao.findById(photographerId);
 
             if (photographer == null) {
-                retrieveAndStorePhotographer(flickrImage.getPhotographerFlickrId());
+                retrieveAndStorePhotographer(photographerId);
 
-                photographer = photographyDao.findById(flickrImage.getPhotographerFlickrId());
+                photographer = photographyDao.findById(photographerId);
             }
 
             photographer.addImage(image);

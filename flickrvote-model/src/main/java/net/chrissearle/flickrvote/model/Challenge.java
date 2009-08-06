@@ -120,4 +120,20 @@ public class Challenge implements Comparable<Challenge> {
             image.setChallenge(null);
         }
     }
+
+    public ChallengeState getVotingState() {
+        long now = new Date().getTime();
+        long end = getEndDate().getTime();
+        long voting = getVotingOpenDate().getTime();
+
+        if (now >= end) {
+            return ChallengeState.CLOSED;
+        }
+
+        if (now >= voting && now < end) {
+            return ChallengeState.VOTING;
+        }
+
+        return ChallengeState.OPEN;
+    }
 }

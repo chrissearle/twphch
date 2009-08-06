@@ -72,14 +72,14 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
-    public FlickrAuth authenticate(String frob) throws FlickrServiceException {
+    public FlickrPhotographer authenticate(String frob) throws FlickrServiceException {
         try {
             AuthInterface authInterface = flickr.getAuthInterface();
 
             Auth auth = authInterface.getToken(frob);
 
-            return new FlickrAuth(auth.getUser().getId(), auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName());
+            return new FlickrPhotographer(auth.getUser().getId(), auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getBuddyIconUrl());
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {
@@ -89,12 +89,12 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
-    public FlickrAuth checkAuthenticate(String token) throws FlickrServiceException {
+    public FlickrPhotographer checkAuthenticate(String token) throws FlickrServiceException {
         try {
             Auth auth = getAuthByToken(token);
 
-            return new FlickrAuth(auth.getUser().getId(), auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName());
+            return new FlickrPhotographer(auth.getUser().getId(), auth.getToken(),
+                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getBuddyIconUrl());
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         } catch (SAXException e) {
@@ -163,12 +163,12 @@ public class FlickrJFlickrService implements FlickrService {
         return photos;
     }
 
-    public FlickrAuth getUserByFlickrId(String id) {
+    public FlickrPhotographer getUserByFlickrId(String id) {
         try {
             User user = getUser(id);
 
             if (user != null) {
-                return new FlickrAuth(id, null, user.getUsername(), user.getRealName());
+                return new FlickrPhotographer(id, null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
             }
 
             return null;
@@ -284,7 +284,8 @@ public class FlickrJFlickrService implements FlickrService {
             name = user.getUsername();
         }
 
-        return new FlickrImage(photo.getId(), name, photo.getOwner().getId(), photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
+        FlickrPhotographer photographer = new FlickrPhotographer(photo.getOwner().getId(), null, photo.getOwner().getUsername(), photo.getOwner().getRealName(), photo.getOwner().getBuddyIconUrl());
+        return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
     }
 
     private User getUser(String id) throws IOException, SAXException, FlickrException {

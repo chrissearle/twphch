@@ -1,23 +1,18 @@
 package net.chrissearle.flickrvote.flickr;
 
-public class FlickrAuth {
+public class FlickrPhotographer {
     private final String flickrId;
     private final String token;
     private final String username;
     private final String realname;
+    private final String iconUrl;
 
-    public FlickrAuth(String flickrId, String token, String username, String realname) {
+    public FlickrPhotographer(String flickrId, String token, String username, String realname, String iconUrl) {
         this.flickrId = flickrId;
         this.token = token;
         this.username = username;
         this.realname = realname;
-    }
-
-    public FlickrAuth(FlickrAuth flickrAuth) {
-        this.flickrId = flickrAuth.getFlickrId();
-        this.token = flickrAuth.getToken();
-        this.username = flickrAuth.getUsername();
-        this.realname = flickrAuth.getRealname();
+        this.iconUrl = iconUrl;
     }
 
     public String getFlickrId() {
@@ -34,5 +29,9 @@ public class FlickrAuth {
 
     public String getRealname() {
         return realname;
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
     }
 }

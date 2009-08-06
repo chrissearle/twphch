@@ -1,7 +1,9 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageList;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
@@ -9,8 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface PhotographyService {
-    void addPhotographer(String token, String username, String fullname, String flickrId);
-
     void setAdministrator(String id, Boolean adminFlag);
 
     Boolean isAdministrator(String username);
@@ -19,6 +19,9 @@ public interface PhotographyService {
 
     public PhotographerInfo checkLoginAndStore(String frob);
 
+    ImageList getChallengeImages(ChallengeInfo challenge);
+
+    @Deprecated
     List<FlickrImage> searchImagesByTag(String tag);
 
     URL getLoginUrl();
