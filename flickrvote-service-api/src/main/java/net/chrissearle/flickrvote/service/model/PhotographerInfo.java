@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.service.model;
 
 import net.chrissearle.flickrvote.model.Photographer;
 
+@Deprecated
 public class PhotographerInfo {
     private String id;
     private String token;

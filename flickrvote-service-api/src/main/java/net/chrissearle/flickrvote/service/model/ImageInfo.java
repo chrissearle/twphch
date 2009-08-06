@@ -4,6 +4,7 @@ import net.chrissearle.flickrvote.model.Image;
 
 import java.util.Date;
 
+@Deprecated
 public class ImageInfo {
     private String id;
     private String title;

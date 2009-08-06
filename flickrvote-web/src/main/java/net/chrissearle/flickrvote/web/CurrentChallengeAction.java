@@ -40,14 +40,6 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
         return "rss";
     }
 
-    public ChallengeInfo getChallenge() {
-        return challenge;
-    }
-
-    public List<DisplayImage> getImages() {
-        return images;
-    }
-
     public void prepare() throws Exception {
         challenge = challengeService.getCurrentChallenge();
 
@@ -70,6 +62,14 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
                 return o2.getPostedDate().compareTo(o1.getPostedDate());
             }
         });
+    }
+
+    public ChallengeInfo getChallenge() {
+        return challenge;
+    }
+
+    public List<DisplayImage> getImages() {
+        return images;
     }
 
     public ImageList getImageList() {

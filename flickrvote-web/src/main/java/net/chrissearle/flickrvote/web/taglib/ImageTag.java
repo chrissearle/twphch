@@ -13,6 +13,7 @@ public class ImageTag extends TagSupport {
     private Logger logger = Logger.getLogger(ImageTag.class);
 
     private Image image;
+    private Boolean showBadge = true;
 
     public Image getImage() {
         return image;
@@ -22,12 +23,43 @@ public class ImageTag extends TagSupport {
         this.image = image;
     }
 
+    public Boolean isShowBadge() {
+        return showBadge;
+    }
+
+    public void setShowBadge(Boolean showBadge) {
+        this.showBadge = showBadge;
+    }
+
     @Override
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
 
         try {
             StringBuilder text = new StringBuilder();
+
+            if (showBadge) {
+                String badge = null;
+                if (image.getRank() == 1) {
+                    badge = "gold";
+                }
+                if (image.getRank() == 2) {
+                    badge = "silver";
+                }
+                if (image.getRank() == 3) {
+                    badge = "bronze";
+                }
+
+                if (badge != null) {
+                    text.append("<img src=\"/twitterphotochallenge/images/");
+                    text.append(badge);
+                    text.append(".jpg\" alt=\"");
+                    text.append(badge);
+                    text.append("\"/>");
+                    text.append("<br/>");
+                    text.append("<br/>");
+                }
+            }
 
             text.append("<a href=\"");
             text.append(image.getPageUrl());
