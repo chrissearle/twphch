@@ -4,7 +4,7 @@
 
 <@s.iterator id="photo" value="parameters.images">
 <#assign itemCount = itemCount + 1/>
-<#assign itemKey = stack.findValue("id")/>
+<#assign itemKey = stack.findValue("imageId")/>
 <#assign itemValue = parameters.votevalue />
 <#assign itemKeyStr=itemKey.toString() />
 <div class="photobox">
@@ -30,7 +30,7 @@
         <label for="${parameters.name?html}-${itemCount}" class="checkboxLabel">${itemValue?html}</label></p>
 
     <div id="photobox_<@s.property value='#photo.imageId'/>">
-        <a href="${photo.url}"><img src="${photo.imageUrl}" alt="${photo.imageTitle}"/></a>
+        <a href="${photo.pageUrl}"><img src="${photo.imageUrl}" alt="${photo.imageTitle}"/></a>
     </div>
 </div>
 </@s.iterator>
