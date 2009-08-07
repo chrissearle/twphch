@@ -1,33 +1,47 @@
 package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.web.model.DisplayImage;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-public class HallOfFameAction extends ActionSupport {
+public class HallOfFameAction extends ActionSupport implements Preparable {
     @Autowired
     private PhotographyService photographyService;
-    private List<ImageInfo> images;
+
+    private List<DisplayImage> displayImages;
 
     @Override
     public String execute() throws Exception {
-        images = photographyService.getGoldWinners();
-
-        Collections.sort(images, new Comparator<ImageInfo>() {
-            public int compare(ImageInfo o1, ImageInfo o2) {
-                return o2.getChallengeTag().compareTo(o1.getChallengeTag());
-            }
-        });
-
         return SUCCESS;
     }
 
-    public List<ImageInfo> getImages() {
-        return images;
+    public String executeRss() {
+        return "rss";
+    }
+
+    public List<DisplayImage> getDisplayImages() {
+        return displayImages;
+    }
+
+    public void prepare() throws Exception {
+        Set<ImageItem> images = photographyService.getGoldWinners();
+
+        displayImages = new ArrayList<DisplayImage>(images.size());
+
+        for (ImageItem image : images) {
+            displayImages.add(new DisplayImage(image));
+        }
+
+        Collections.sort(displayImages, new Comparator<DisplayImage>() {
+
+            public int compare(DisplayImage o1, DisplayImage o2) {
+                return o2.getChallengeTag().compareTo(o1.getChallengeTag());
+            }
+        });
     }
 }

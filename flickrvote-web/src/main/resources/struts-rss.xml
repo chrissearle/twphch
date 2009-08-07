@@ -6,8 +6,8 @@
 
 <struts>
     <package name="flickrRss" extends="struts-default" namespace="/rss">
-        <action name="hallOfFame" class="net.chrissearle.flickrvote.web.rss.HallOfFameAction">
-            <result>/jsp/rss/fame.jspx</result>
+        <action name="hallOfFame" class="net.chrissearle.flickrvote.web.HallOfFameAction" method="executeRss">
+            <result name="rss">/jsp/rss/halloffame.jspx</result>
         </action>
         <action name="current" class="net.chrissearle.flickrvote.web.CurrentChallengeAction" method="executeRss">
             <result name="rss">/jsp/rss/current.jspx</result>

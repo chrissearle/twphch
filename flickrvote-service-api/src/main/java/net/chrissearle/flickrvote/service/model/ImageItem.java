@@ -15,6 +15,7 @@ public class ImageItem {
     final private Long rank;
 
     final private PhotographerItem photographer;
+    final private ChallengeSummary challenge;
 
     public ImageItem(FlickrImage image) {
         this.id = image.getFlickrId();
@@ -26,6 +27,7 @@ public class ImageItem {
         this.rank = 0L;
 
         this.photographer = new PhotographerItem(image.getPhotographer());
+        this.challenge = null;
     }
 
     public ImageItem(Image image) {
@@ -53,6 +55,7 @@ public class ImageItem {
         }
 
         this.photographer = new PhotographerItem(image.getPhotographer());
+        this.challenge = new ChallengeSummary(image.getChallenge());
     }
 
     public String getId() {
@@ -85,5 +88,9 @@ public class ImageItem {
 
     public Long getVoteCount() {
         return voteCount;
+    }
+
+    public ChallengeSummary getChallenge() {
+        return challenge;
     }
 }

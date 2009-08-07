@@ -25,35 +25,35 @@ public class DisplayChallengeSummary implements Challenge {
         voting = summary.isVoting();
     }
 
-    public String getTag() {
+    public String getChallengeTag() {
         return tag;
     }
 
-    public String getDescription() {
+    public String getChallengeDescription() {
         return description;
     }
 
-    public Date getStart() {
+    public Date getChallengeStart() {
         return start;
     }
 
-    public Date getVote() {
+    public Date getChallengeVote() {
         return vote;
     }
 
-    public Date getEnd() {
+    public Date getChallengeEnd() {
         return end;
     }
 
-    public boolean isOpen() {
+    public boolean isChallengeOpen() {
         return open;
     }
 
-    public boolean isClosed() {
+    public boolean isChallengeClosed() {
         return closed;
     }
 
-    public boolean isVoting() {
+    public boolean isChallengeVoting() {
         return voting;
     }
 }

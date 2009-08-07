@@ -30,9 +30,9 @@ public class ChallengeTitleTag extends TagSupport {
             StringBuilder text = new StringBuilder();
 
             text.append("#");
-            text.append(challenge.getTag());
+            text.append(challenge.getChallengeTag());
             text.append(" - ");
-            text.append(challenge.getDescription());
+            text.append(challenge.getChallengeDescription());
 
             out.print(text.toString());
         } catch (IOException e) {

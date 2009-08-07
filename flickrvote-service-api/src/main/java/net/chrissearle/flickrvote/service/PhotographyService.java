@@ -3,13 +3,17 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface PhotographyService {
+    Set<ImageItem> getGoldWinners();
+
     void setAdministrator(String id, Boolean adminFlag);
 
     Boolean isAdministrator(String username);
@@ -32,8 +36,6 @@ public interface PhotographyService {
     List<ImageInfo> getImagesForPhotographer(String id);
 
     void freezeChallenge();
-
-    List<ImageInfo> getGoldWinners();
 
     void setTwitter(String id, String twitter);
 

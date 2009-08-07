@@ -17,7 +17,9 @@
                     <title><s:property value="#displayImage.imageTitle"/></title>
                     <link><s:property value="#displayImage.pageUrl"/></link>
                     <description>
-                        <img src="${displayImage.imageUrl}"/>
+                        <fv:photographer photographer="${displayImage}"/>
+                        <br/>
+                        <fv:image image="${displayImage}"/>
                     </description>
                     <!-- FIXME - This needs forcing to english -->
                     <pubDate><s:date name="#displayImage.postedDate" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>

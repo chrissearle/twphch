@@ -240,11 +240,11 @@ public class DaoPhotographyService implements PhotographyService {
         }
     }
 
-    public List<ImageInfo> getGoldWinners() {
-        List<ImageInfo> images = new ArrayList<ImageInfo>();
+    public Set<ImageItem> getGoldWinners() {
+        Set<ImageItem> images = new HashSet<ImageItem>();
 
         for (Image image : imageDao.getImagesWithRank(1L)) {
-            images.add(new ImageInfo(image));
+            images.add(new ImageItem(image));
         }
 
         return images;

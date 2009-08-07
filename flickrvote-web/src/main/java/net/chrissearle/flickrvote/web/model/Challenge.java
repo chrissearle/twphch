@@ -3,19 +3,19 @@ package net.chrissearle.flickrvote.web.model;
 import java.util.Date;
 
 public interface Challenge {
-    String getTag();
+    String getChallengeTag();
 
-    String getDescription();
+    String getChallengeDescription();
 
-    Date getStart();
+    Date getChallengeStart();
 
-    Date getVote();
+    Date getChallengeVote();
 
-    Date getEnd();
+    Date getChallengeEnd();
 
-    boolean isOpen();
+    boolean isChallengeOpen();
 
-    boolean isClosed();
+    boolean isChallengeClosed();
 
-    boolean isVoting();
+    boolean isChallengeVoting();
 }

@@ -1,10 +1,11 @@
 package net.chrissearle.flickrvote.web.model;
 
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 
 import java.util.Date;
 
-public class DisplayImage implements Image, Photographer {
+public class DisplayImage implements Image, Photographer, Challenge {
     private final String imageId;
     private final String imageTitle;
     private final String imagePageUrl;
@@ -19,6 +20,14 @@ public class DisplayImage implements Image, Photographer {
     private final String iconUrl;
     private final Boolean adminFlag;
     private final Boolean activeFlag;
+    private String challengeTag;
+    private String challengeDescription;
+    private Date challengeStart;
+    private Date challengeEnd;
+    private Date challengeVote;
+    private Boolean challengeOpen;
+    private Boolean challengeVoting;
+    private Boolean challengeClosed;
 
     public DisplayImage(ImageItem image) {
         this.imageId = image.getId();
@@ -35,6 +44,29 @@ public class DisplayImage implements Image, Photographer {
         this.iconUrl = image.getPhotographer().getIconUrl();
         this.adminFlag = image.getPhotographer().isAdministratorFlag();
         this.activeFlag = image.getPhotographer().isActiveFlag();
+
+        ChallengeSummary challengeSummary = image.getChallenge();
+
+        if (challengeSummary != null) {
+            this.challengeTag = challengeSummary.getTag();
+            this.challengeDescription = challengeSummary.getTitle();
+            this.challengeStart = challengeSummary.getStartDate();
+            this.challengeEnd = challengeSummary.getEndDate();
+            this.challengeVote = challengeSummary.getVoteDate();
+            this.challengeOpen = challengeSummary.isOpen();
+            this.challengeVoting = challengeSummary.isVoting();
+            this.challengeClosed = challengeSummary.isClosed();
+        } else {
+            // Means that it was originally a flickr search set
+            this.challengeTag = "";
+            this.challengeDescription = "";
+            this.challengeStart = null;
+            this.challengeEnd = null;
+            this.challengeVote = null;
+            this.challengeOpen = true;
+            this.challengeVoting = false;
+            this.challengeClosed = false;
+        }
     }
 
     public String getImageId() {
@@ -98,5 +130,37 @@ public class DisplayImage implements Image, Photographer {
 
     public Boolean isActive() {
         return activeFlag;
+    }
+
+    public String getChallengeTag() {
+        return challengeTag;
+    }
+
+    public boolean isChallengeClosed() {
+        return challengeClosed;
+    }
+
+    public String getChallengeDescription() {
+        return challengeDescription;
+    }
+
+    public Date getChallengeEnd() {
+        return challengeEnd;
+    }
+
+    public boolean isChallengeOpen() {
+        return challengeOpen;
+    }
+
+    public Date getChallengeStart() {
+        return challengeStart;
+    }
+
+    public Date getChallengeVote() {
+        return challengeVote;
+    }
+
+    public boolean isChallengeVoting() {
+        return challengeVoting;
     }
 }
