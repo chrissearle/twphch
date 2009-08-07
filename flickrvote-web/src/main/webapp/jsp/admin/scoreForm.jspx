@@ -1,7 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
@@ -15,13 +15,13 @@
     <body>
     <h2>Score Images</h2>
 
-    <p>Challenge: <s:property value="challenge.tag"/> - <s:property value="challenge.title"/></p>
+    <p>Challenge: <fv:challengeTitle challenge="${challenge}"/></p>
 
     <s:form action="score">
-        <s:iterator value="images" id="image">
-            <s:property value="#image.photographerName"/>
-            <s:hidden name="id" value="%{#image.id}"/>
-            <s:textfield name="score" value="%{#image.finalVoteCount}"/>
+        <s:iterator id="scoreRow" value="scores">
+            <s:property value="#scoreRow.photographerName"/> - <s:property value="#scoreRow.imageTitle"/>
+            <s:hidden name="id" value="%{#scoreRow.imageId}"/>
+            <s:textfield name="score" value="%{#scoreRow.score}"/>
         </s:iterator>
         <s:submit/>
     </s:form>

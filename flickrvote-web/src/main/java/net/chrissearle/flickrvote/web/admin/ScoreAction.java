@@ -3,11 +3,18 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
+import net.chrissearle.flickrvote.web.model.ScoreAdmin;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ScoreAction extends ActionSupport {
@@ -17,11 +24,11 @@ public class ScoreAction extends ActionSupport {
 
     private List<Long> score;
 
-    private ChallengeInfo challenge;
+    private Challenge challenge;
 
     private String tag;
 
-    private List<ImageInfo> images;
+    private List<ScoreAdmin> scores;
 
     @Autowired
     private PhotographyService photographyService;
@@ -35,14 +42,28 @@ public class ScoreAction extends ActionSupport {
             logger.debug("Challenge ID " + tag);
         }
 
-        challenge = challengeService.getChallenge(tag);
+        ChallengeSummary challengeSummary = challengeService.getChallengeSummary(tag);
 
         if (logger.isDebugEnabled()) {
-            logger.debug("Challenge " + challenge);
+            logger.debug("Challenge " + challengeSummary);
         }
 
-        if (challenge != null) {
-            images = challengeService.getImagesForChallenge(tag);
+        if (challengeSummary != null) {
+            challenge = new DisplayChallengeSummary(challengeSummary);
+
+            ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
+
+            scores = new ArrayList<ScoreAdmin>(challengeItem.getImages().size());
+
+            for (ImageItem image : challengeItem.getImages()) {
+                scores.add(new ScoreAdmin(image));
+            }
+
+            Collections.sort(scores, new Comparator<ScoreAdmin>() {
+                public int compare(ScoreAdmin o1, ScoreAdmin o2) {
+                    return o2.getScore().compareTo(o1.getScore());
+                }
+            });
         }
 
         return INPUT;
@@ -72,7 +93,7 @@ public class ScoreAction extends ActionSupport {
     }
 
 
-    public ChallengeInfo getChallenge() {
+    public Challenge getChallenge() {
         return challenge;
     }
 
@@ -80,7 +101,7 @@ public class ScoreAction extends ActionSupport {
         this.tag = tag;
     }
 
-    public List<ImageInfo> getImages() {
-        return images;
+    public List<ScoreAdmin> getScores() {
+        return scores;
     }
 }
