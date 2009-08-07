@@ -1,7 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
@@ -13,7 +13,7 @@
         <s:head/>
     </head>
     <body>
-    <h1><s:property value="photographer.name"/></h1>
+    <h1><fv:photographer photographer="${photographer}"/></h1>
 
     <s:form action="save">
         <s:textfield label="Twitter" name="twitter"/>

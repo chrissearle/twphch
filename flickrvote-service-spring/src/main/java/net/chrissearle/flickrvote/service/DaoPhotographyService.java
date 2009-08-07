@@ -13,7 +13,7 @@ import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
@@ -63,7 +63,7 @@ public class DaoPhotographyService implements PhotographyService {
         return photographer != null && photographer.isAdministrator();
     }
 
-    public PhotographerInfo retrieveAndStorePhotographer(String id) {
+    public PhotographerItem retrieveAndStorePhotographer(String id) {
         // Check to see if present
         Photographer photographer = photographyDao.findById(id);
 
@@ -80,10 +80,10 @@ public class DaoPhotographyService implements PhotographyService {
 
         photographyDao.persist(photographer);
 
-        return new PhotographerInfo(photographer);
+        return new PhotographerItem(photographer);
     }
 
-    public PhotographerInfo checkLoginAndStore(String frob) {
+    public PhotographerItem checkLoginAndStore(String frob) {
         FlickrPhotographer flickrPhotographer = flickrService.authenticate(frob);
 
         // Check to see if present
@@ -105,7 +105,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         photographyDao.persist(photographer);
 
-        return new PhotographerInfo(photographer);
+        return new PhotographerItem(photographer);
     }
 
     public ChallengeItem getChallengeImages(String tag) {
@@ -250,7 +250,7 @@ public class DaoPhotographyService implements PhotographyService {
         return images;
     }
 
-    public void setTwitter(String id, String twitter) {
+    public PhotographerItem setTwitter(String id, String twitter) {
         Photographer photographer = photographyDao.findById(id);
 
         if (photographer != null) {
@@ -265,24 +265,28 @@ public class DaoPhotographyService implements PhotographyService {
                     logger.warn("Unable to follow" + tse.getMessage(), tse);
                 }
             }
+
+            return new PhotographerItem(photographer);
         }
+
+        return null;
     }
 
-    public List<PhotographerInfo> getPhotographers() {
-        List<PhotographerInfo> photographers = new ArrayList<PhotographerInfo>();
+    public List<PhotographerItem> getPhotographers() {
+        List<PhotographerItem> photographers = new ArrayList<PhotographerItem>();
 
         for (Photographer photographer : photographyDao.all()) {
-            photographers.add(new PhotographerInfo(photographer));
+            photographers.add(new PhotographerItem(photographer));
         }
 
         return photographers;
     }
 
-    public PhotographerInfo findById(String id) {
+    public PhotographerItem findById(String id) {
         Photographer photographer = photographyDao.findById(id);
 
         if (photographer != null) {
-            return new PhotographerInfo(photographer);
+            return new PhotographerItem(photographer);
         }
 
         return null;

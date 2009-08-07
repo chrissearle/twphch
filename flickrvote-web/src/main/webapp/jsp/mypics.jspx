@@ -1,7 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
@@ -13,7 +13,7 @@
         <s:head/>
     </head>
     <body>
-    <h1><s:property value="#session.flickrUser.name"/></h1>
+    <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
 
     <s:url id="goldUrl" value='/images/gold.jpg'/>
     <s:url id="silverUrl" value='/images/silver.jpg'/>
@@ -21,7 +21,8 @@
 
     <s:iterator id="photo" value="images">
         <div class="photobox">
-            <h3><s:property value="#photo.challengeTag"/> - <s:property value="#photo.rank"/>: <s:property value="#photo.title"/> - <s:property
+            <h3><s:property value="#photo.challengeTag"/> - <s:property value="#photo.rank"/>: <s:property
+                    value="#photo.title"/> - <s:property
                     value="#photo.challengeName"/> (<s:property value="#photo.finalVoteCount"/> votes)</h3>
             <s:if test="#photo.rank == 1">
                 <img src="${goldUrl}" alt="Gold"/><br/><br/>

@@ -5,8 +5,8 @@ import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
+import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,16 +51,17 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("execute");
         }
 
-        PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+        Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
         if (logger.isDebugEnabled()) {
-            logger.debug("Votes by: " + photographer.getName() + " : " + votes);
+            logger.debug("Votes by: " + photographer.getPhotographerName() + " : " + votes);
         }
 
         for (String imageId : votes) {
-            challengeService.vote(photographer.getId(), imageId);
+            challengeService.vote(photographer.getPhotographerId(), imageId);
         }
 
+        // FIXME i18n
         addActionMessage("Thankyou for your vote");
 
         return SUCCESS;
@@ -85,10 +86,10 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
                     boolean seenPhotographer = false;
 
-                    PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+                    Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
                     for (ImageInfo image : images) {
-                        if (image.getPhotographerName().equals(photographer.getName())) {
+                        if (image.getPhotographerName().equals(photographer.getPhotographerName())) {
                             seenPhotographer = true;
 
                             if (votes != null && votes.contains(image.getId())) {
@@ -116,9 +117,9 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
         }
 
         if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
-            PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-            if (challengeService.hasVoted(photographer.getId())) {
+            if (challengeService.hasVoted(photographer.getPhotographerId())) {
                 return "alreadyVoted";
             }
         }

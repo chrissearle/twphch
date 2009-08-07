@@ -4,7 +4,7 @@ import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
 import java.net.URL;
 import java.util.List;
@@ -18,9 +18,9 @@ public interface PhotographyService {
 
     Boolean isAdministrator(String username);
 
-    PhotographerInfo retrieveAndStorePhotographer(String id);
+    PhotographerItem retrieveAndStorePhotographer(String id);
 
-    public PhotographerInfo checkLoginAndStore(String frob);
+    public PhotographerItem checkLoginAndStore(String frob);
 
     ChallengeItem getChallengeImages(String tag);
 
@@ -37,11 +37,11 @@ public interface PhotographyService {
 
     void freezeChallenge();
 
-    void setTwitter(String id, String twitter);
+    PhotographerItem setTwitter(String id, String twitter);
 
-    List<PhotographerInfo> getPhotographers();
+    List<PhotographerItem> getPhotographers();
 
-    PhotographerInfo findById(String id);
+    PhotographerItem findById(String id);
 
     Map<String, String> checkSearch(String tag);
 

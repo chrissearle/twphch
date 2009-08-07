@@ -29,7 +29,7 @@
         <s:iterator id="photographer" value="photographers">
             <tr>
                 <td>
-                    <s:if test="#photographer.fullname == #photographer.name">
+                    <s:if test="#photographer.fullname == #photographer.photographerName">
                         <strong><s:property value="#photographer.fullname"/></strong>
                     </s:if>
                     <s:else>
@@ -37,17 +37,17 @@
                     </s:else>
                 </td>
                 <td>
-                    <s:if test="#photographer.username == #photographer.name &amp;&amp; #photographer.username != #photographer.fullname">
+                    <s:if test="#photographer.username == #photographer.photographerName &amp;&amp; #photographer.username != #photographer.fullname">
                         <strong><s:property value="#photographer.username"/></strong>
                     </s:if>
                     <s:else>
                         <s:property value="#photographer.username"/>
                     </s:else>
                 </td>
-                <td><s:property value="#photographer.id"/></td>
-                <td><s:property value="#photographer.twitter"/></td>
+                <td><s:property value="#photographer.photographerId"/></td>
+                <td><s:property value="#photographer.twitterAccount"/></td>
                 <td>
-                    <s:if test="#photographer.administrator">Yes</s:if>
+                    <s:if test="#photographer.admin">Yes</s:if>
                     <s:else>No</s:else>
                 </td>
                 <td>
@@ -56,12 +56,12 @@
                 </td>
                 <td>
                     <s:url id="toggleAdminUrl" action="toggleAdmin"><s:param name="id"
-                                                                             value="#photographer.id"/></s:url>
-                    <s:if test="#photographer.administrator"><s:a href="%{toggleAdminUrl}">Admin: Off</s:a></s:if>
+                                                                             value="#photographer.photographerId"/></s:url>
+                    <s:if test="#photographer.admin"><s:a href="%{toggleAdminUrl}">Admin: Off</s:a></s:if>
                     <s:else><s:a href="%{toggleAdminUrl}">Admin: On</s:a></s:else>
                     |
                     <s:url id="retrieveUrl" action="getPhotographer"><s:param name="id"
-                                                                              value="#photographer.id"/></s:url>
+                                                                              value="#photographer.photographerId"/></s:url>
                     <s:a href="%{retrieveUrl}">Update from Flickr</s:a>
                 </td>
             </tr>

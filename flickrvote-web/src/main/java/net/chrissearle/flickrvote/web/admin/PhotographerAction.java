@@ -3,7 +3,7 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PhotographerAction extends ActionSupport {
@@ -20,7 +20,7 @@ public class PhotographerAction extends ActionSupport {
 
     public String execute() {
         try {
-            PhotographerInfo photographer = service.retrieveAndStorePhotographer(id);
+            PhotographerItem photographer = service.retrieveAndStorePhotographer(id);
 
             addActionMessage(photographer.getName() + " was retrieved/updated.");
         } catch (FlickrServiceException e) {

@@ -3,7 +3,7 @@ package net.chrissearle.flickrvote.web;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,16 +26,16 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
             return "notloggedin";
         }
 
-        PhotographerInfo photographer = (PhotographerInfo) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+        Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        images = photographyService.getImagesForPhotographer(photographer.getId());
+        images = photographyService.getImagesForPhotographer(photographer.getPhotographerId());
 
         Collections.sort(images, new Comparator<ImageInfo>() {
             public int compare(ImageInfo o1, ImageInfo o2) {
                 return o1.getChallengeTag().compareTo(o2.getChallengeTag());
             }
         });
-        
+
         return SUCCESS;
     }
 

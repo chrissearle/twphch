@@ -78,8 +78,11 @@ public class FlickrJFlickrService implements FlickrService {
 
             Auth auth = authInterface.getToken(frob);
 
-            return new FlickrPhotographer(auth.getUser().getId(), auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getBuddyIconUrl());
+            // Auth user does not populate correct buddy icon
+            User user = getUser(auth.getUser().getId());
+
+            return new FlickrPhotographer(user.getId(), auth.getToken(),
+                    user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {
@@ -89,6 +92,7 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
+    // FIXME - this can probably be removed since we haven't found a use for it yet.
     public FlickrPhotographer checkAuthenticate(String token) throws FlickrServiceException {
         try {
             Auth auth = getAuthByToken(token);

@@ -2,8 +2,8 @@ package net.chrissearle.flickrvote.web.chart;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChartService;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
+import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;
 import org.jfree.chart.JFreeChart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class ShowPhotograperChartAction extends ActionSupport implements Session
 
     @Override
     public String execute() throws Exception {
-        PhotographerInfo photographer = (PhotographerInfo)session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+        Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        chart = chartService.getChartForPhotographer(photographer.getId(),
+        chart = chartService.getChartForPhotographer(photographer.getPhotographerId(),
                 getText("chart.rank.axis.title"),
                 getText("chart.challenge.axis.title"),
                 getText("chart.noimage.text"));

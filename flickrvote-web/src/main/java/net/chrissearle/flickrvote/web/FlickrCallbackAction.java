@@ -2,7 +2,8 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.PhotographerInfo;
+import net.chrissearle.flickrvote.web.model.DisplayPhotographer;
+import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +26,7 @@ public class FlickrCallbackAction implements SessionAware {
     }
 
     public String execute() throws Exception {
-        PhotographerInfo photographer = photographyService.checkLoginAndStore(frob);
+        Photographer photographer = new DisplayPhotographer(photographyService.checkLoginAndStore(frob));
 
         session.put(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY, photographer);
 
