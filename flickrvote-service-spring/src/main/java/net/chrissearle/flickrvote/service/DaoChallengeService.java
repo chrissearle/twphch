@@ -9,7 +9,9 @@ import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
-import net.chrissearle.flickrvote.service.model.*;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.twitter.TwitterService;
@@ -93,19 +95,6 @@ public class DaoChallengeService implements ChallengeService {
         return challenges;
     }
 
-    @Deprecated
-    public List<ImageInfo> getImagesForChallenge(String challengeName) {
-        Challenge challenge = challengeDao.findByTag(challengeName);
-
-        List<ImageInfo> results = new ArrayList<ImageInfo>(challenge.getImages().size());
-
-        for (Image image : challenge.getImages()) {
-            results.add(new ImageInfo(image));
-        }
-
-        return results;
-    }
-
     private void doRanking(List<Image> images) {
         long rank = 0;
         long lastSeenValue = Long.MAX_VALUE;
@@ -124,17 +113,6 @@ public class DaoChallengeService implements ChallengeService {
             image.setFinalRank(rank);
             imageDao.persist(image);
         }
-    }
-
-    @Deprecated
-    public ChallengeInfo getVotingChallenge() {
-        Challenge challenge = challengeDao.getVotingChallenge();
-
-        if (challenge != null) {
-            return new ChallengeInfo(challenge);
-        }
-
-        return null;
     }
 
     public boolean hasVoted(String photographerId) {

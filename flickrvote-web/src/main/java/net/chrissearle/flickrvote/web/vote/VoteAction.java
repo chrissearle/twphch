@@ -3,18 +3,21 @@ package net.chrissearle.flickrvote.web.vote;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
+import net.chrissearle.flickrvote.web.model.DisplayImage;
 import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class VoteAction extends ActionSupport implements SessionAware, Preparable {
     Logger logger = Logger.getLogger(VoteAction.class);
@@ -23,11 +26,15 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     List<String> votes;
 
-    private ChallengeInfo challenge;
-    private List<ImageInfo> images;
+    private Challenge challenge;
+
+    private List<DisplayImage> images;
 
     @Autowired
     private ChallengeService challengeService;
+
+    @Autowired
+    private PhotographyService photographyService;
 
     public void setVotes(List<String> votes) {
         if (logger.isDebugEnabled()) {
@@ -73,26 +80,29 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("validate");
         }
 
-        ChallengeInfo challenge = challengeService.getVotingChallenge();
+        Set<ChallengeSummary> votingChallenges = challengeService.getChallengesByType(ChallengeType.VOTING);
 
         int voteCount = 5;
 
-        if (challenge != null) {
-            List<ImageInfo> images = challengeService.getImagesForChallenge(challenge.getTag());
+        if (votingChallenges.size() > 0) {
+            ChallengeSummary challenge = votingChallenges.iterator().next();
 
-            if (images != null) {
-                if (images.size() <= voteCount) {
-                    voteCount = images.size();
+            ChallengeItem challengeItem = photographyService.getChallengeImages(challenge.getTag());
+
+            if (challengeItem.getImages().size() > 0) {
+                if (challengeItem.getImages().size() <= voteCount) {
+                    voteCount = challengeItem.getImages().size();
 
                     boolean seenPhotographer = false;
 
                     Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-                    for (ImageInfo image : images) {
-                        if (image.getPhotographerName().equals(photographer.getPhotographerName())) {
+                    for (ImageItem image : challengeItem.getImages()) {
+                        if (image.getPhotographer().getName().equals(photographer.getPhotographerName())) {
                             seenPhotographer = true;
 
                             if (votes != null && votes.contains(image.getId())) {
+                                // FIXME i18n
                                 addActionError("You may not vote for yourself");
                             }
                         }
@@ -104,6 +114,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                 }
 
                 if (votes == null || votes.size() != voteCount) {
+                    // FIXME i18n
                     addActionError("Incorrect number of votes - you must vote for " + voteCount + " photos");
                 }
             }
@@ -132,43 +143,32 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("prepare");
         }
 
-        challenge = challengeService.getVotingChallenge();
+        Set<ChallengeSummary> votingChallenges = challengeService.getChallengesByType(ChallengeType.VOTING);
 
-        if (challenge != null) {
-            images = challengeService.getImagesForChallenge(challenge.getTag());
+        if (votingChallenges.size() > 0) {
+            challenge = new DisplayChallengeSummary(votingChallenges.iterator().next());
+
+            ChallengeItem challengeItem = photographyService.getChallengeImages(challenge.getChallengeTag());
+
+            images = new ArrayList<DisplayImage>(challengeItem.getImages().size());
+
+            for (ImageItem image : challengeItem.getImages()) {
+                images.add(new DisplayImage(image));
+            }
+
+            Collections.sort(images, new Comparator<DisplayImage>() {
+                public int compare(DisplayImage o1, DisplayImage o2) {
+                    return o2.getPostedDate().compareTo(o1.getPostedDate());
+                }
+            });
         }
     }
 
-    public ChallengeInfo getChallenge() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("getChallenge: " + challenge);
-        }
-
+    public Challenge getChallenge() {
         return challenge;
     }
 
-    public List<ImageInfo> getImages() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("getImages: " + images);
-        }
-
-        long rank = 0;
-        long lastSeenValue = Long.MAX_VALUE;
-
-        Collections.sort(images, new Comparator<ImageInfo>() {
-            public int compare(ImageInfo o1, ImageInfo o2) {
-                return o2.getPostedDate().compareTo(o1.getPostedDate());
-            }
-        });
-
-        for (ImageInfo image : images) {
-            if (image.getVoteCount() < lastSeenValue) {
-                lastSeenValue = image.getVoteCount();
-                rank++;
-            }
-            image.setRank(rank);
-        }
-
+    public List<DisplayImage> getDisplayImages() {
         return images;
     }
 

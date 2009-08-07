@@ -1,7 +1,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
@@ -20,15 +20,15 @@
         </script>
     </head>
     <body>
-    <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
     <s:actionerror/>
     <s:form action="vote">
-    <s:component name="votes" template="imageselect.ftl">
-        <s:param name="images" value="images"/>
-        <s:param name="votevalue" value="%{getText('vote.text')}"/>
-    </s:component>
-    <s:submit/>
+        <s:component name="votes" template="imageselect.ftl">
+            <s:param name="images" value="displayImages"/>
+            <s:param name="votevalue" value="%{getText('vote.text')}"/>
+        </s:component>
+        <s:submit/>
     </s:form>
 
     <p id="voteText" style="display:none"><s:text name="vote.text"/></p>

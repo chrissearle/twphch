@@ -49,19 +49,6 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
         return title;
     }
 
-    @Override
-    public String toString() {
-        return new StringBuilder()
-                .append("ChallengeInfo{")
-                .append("title='").append(title)
-                .append(", tag='").append(tag)
-                .append(", startDate=").append(startDate)
-                .append(", endDate=").append(endDate)
-                .append(", voteDate=").append(voteDate)
-                .append("}")
-                .toString();
-    }
-
     public Boolean isClosed() {
         return closed;
     }
@@ -72,5 +59,19 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
 
     public Boolean isOpen() {
         return open;
+    }
+
+    @Override
+    public String toString() {
+        return "ChallengeSummaryInstance{" +
+                "closed=" + closed +
+                ", title='" + title + '\'' +
+                ", tag='" + tag + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", voteDate=" + voteDate +
+                ", open=" + open +
+                ", voting=" + voting +
+                '}';
     }
 }

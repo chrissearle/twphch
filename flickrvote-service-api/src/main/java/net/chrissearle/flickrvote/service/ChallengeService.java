@@ -1,9 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
 
 import java.util.Date;
 import java.util.List;
@@ -13,12 +11,6 @@ public interface ChallengeService {
     ChallengeSummary getChallengeSummary(String tag);
 
     Set<ChallengeSummary> getChallengesByType(ChallengeType type);
-
-    @Deprecated
-    List<ImageInfo> getImagesForChallenge(String challengeName);
-
-    @Deprecated
-    ChallengeInfo getVotingChallenge();
 
     boolean hasVoted(String photographerId);
 
