@@ -13,19 +13,19 @@
         <s:head/>
     </head>
     <body>
-    <h1>#<s:property value="imageList.title"/> - <s:property value="imageList.description"/></h1>
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
-    <s:iterator id="displayItem" value="images">
+    <s:iterator id="displayImage" value="displayImages">
         <div class="photobox">
             <h3>
-                <s:property value="#displayItem.rank"/>
+                <s:property value="#displayImage.rank"/>
                 :
-                <fv:photographer photographer="${displayItem}"/>
+                <fv:photographer photographer="${displayImage}"/>
                 :
-                <s:property value="#displayItem.imageTitle"/>
-                (<s:property value="#displayItem.voteCount"/> votes)
+                <s:property value="#displayImage.imageTitle"/>
+                (<s:property value="#displayImage.voteCount"/> votes)
             </h3>
-            <fv:image image="${displayItem}"/>
+            <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
 

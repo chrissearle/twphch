@@ -4,6 +4,7 @@ import net.chrissearle.flickrvote.model.Challenge;
 
 import java.util.Date;
 
+@Deprecated
 public class ChallengeInfo implements Comparable<ChallengeInfo> {
     private String title;
     private String tag;

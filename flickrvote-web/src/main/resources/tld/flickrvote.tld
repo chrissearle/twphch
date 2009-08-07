@@ -28,4 +28,14 @@
             <name>showBadge</name>
         </attribute>
     </tag>
+    <tag>
+        <name>challengeTitle</name>
+        <tag-class>net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>challenge</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>

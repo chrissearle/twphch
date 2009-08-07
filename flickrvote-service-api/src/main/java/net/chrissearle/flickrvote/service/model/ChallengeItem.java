@@ -2,13 +2,13 @@ package net.chrissearle.flickrvote.service.model;
 
 import java.util.Set;
 
-public class ImageList {
+public class ChallengeItem {
     private String title;
     private String description;
 
     private Set<ImageItem> images;
 
-    public ImageList(String title, String description, Set<ImageItem> images) {
+    public ChallengeItem(String title, String description, Set<ImageItem> images) {
         this.description = description;
         this.title = title;
         this.images = images;

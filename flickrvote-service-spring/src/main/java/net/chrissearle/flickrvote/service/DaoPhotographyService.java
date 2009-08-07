@@ -10,7 +10,10 @@ import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.ChallengeState;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
-import net.chrissearle.flickrvote.service.model.*;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
@@ -105,10 +108,8 @@ public class DaoPhotographyService implements PhotographyService {
         return new PhotographerInfo(photographer);
     }
 
-    public ImageList getChallengeImages(ChallengeInfo challengeInfo) {
+    public ChallengeItem getChallengeImages(String tag) {
         Set<ImageItem> images = new HashSet<ImageItem>();
-
-        String tag = challengeInfo.getTag();
 
         Challenge challenge = challengeDao.findByTag(tag);
 
@@ -128,7 +129,7 @@ public class DaoPhotographyService implements PhotographyService {
             }
         }
 
-        return new ImageList(challenge.getTag(), challenge.getName(), images);
+        return new ChallengeItem(challenge.getTag(), challenge.getName(), images);
     }
 
     @Deprecated

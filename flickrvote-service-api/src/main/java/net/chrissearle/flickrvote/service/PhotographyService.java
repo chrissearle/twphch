@@ -1,9 +1,8 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
-import net.chrissearle.flickrvote.service.model.ImageList;
 import net.chrissearle.flickrvote.service.model.PhotographerInfo;
 
 import java.net.URL;
@@ -19,7 +18,7 @@ public interface PhotographyService {
 
     public PhotographerInfo checkLoginAndStore(String frob);
 
-    ImageList getChallengeImages(ChallengeInfo challenge);
+    ChallengeItem getChallengeImages(String tag);
 
     @Deprecated
     List<FlickrImage> searchImagesByTag(String tag);

@@ -29,10 +29,12 @@ public class PhotographerTag extends TagSupport {
         try {
             StringBuilder text = new StringBuilder();
 
-            text.append("<img src=\"");
-            text.append(photographer.getIconUrl());
-            text.append("\"/>");
-            text.append("&nbsp;");
+            if (photographer.getIconUrl() != null) {
+                text.append("<img src=\"");
+                text.append(photographer.getIconUrl());
+                text.append("\"/>");
+                text.append("&nbsp;");
+            }
 
             text.append(photographer.getPhotographerName());
 

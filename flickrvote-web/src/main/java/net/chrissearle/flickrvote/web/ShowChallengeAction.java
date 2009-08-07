@@ -3,9 +3,11 @@ package net.chrissearle.flickrvote.web;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.ImageList;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,38 +28,38 @@ public class ShowChallengeAction {
 
     private String challengeTag;
 
-    private ChallengeInfo challenge;
-
-    private ImageList imageList;
-
     private List<DisplayImage> images;
+
+    private Challenge challenge;
 
     public String execute() throws Exception {
         if (logger.isDebugEnabled()) {
             logger.debug("Challenge ID " + challengeTag);
         }
 
-        challenge = challengeService.getChallenge(challengeTag);
+        ChallengeSummary challengeSummary = challengeService.getChallengeSummary(challengeTag);
 
         if (logger.isDebugEnabled()) {
-            logger.debug("Challenge " + challenge);
+            logger.debug("Challenge " + challengeSummary);
         }
 
-        if (challenge != null) {
-            imageList = photographyService.getChallengeImages(challenge);
-        }
+        if (challengeSummary != null) {
+            challenge = new DisplayChallengeSummary(challengeSummary);
 
-        images = new ArrayList<DisplayImage>(imageList.getImages().size());
+            ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
 
-        for (ImageItem image : imageList.getImages()) {
-            images.add(new DisplayImage(image));
-        }
+            images = new ArrayList<DisplayImage>(challengeItem.getImages().size());
 
-        Collections.sort(images, new Comparator<DisplayImage>() {
-            public int compare(DisplayImage o1, DisplayImage o2) {
-                return o2.getVoteCount().compareTo(o1.getVoteCount());
+            for (ImageItem image : challengeItem.getImages()) {
+                images.add(new DisplayImage(image));
             }
-        });
+
+            Collections.sort(images, new Comparator<DisplayImage>() {
+                public int compare(DisplayImage o1, DisplayImage o2) {
+                    return o2.getVoteCount().compareTo(o1.getVoteCount());
+                }
+            });
+        }
 
         return ActionSupport.SUCCESS;
     }
@@ -66,15 +68,11 @@ public class ShowChallengeAction {
         this.challengeTag = challengeTag;
     }
 
-    public ChallengeInfo getChallenge() {
-        return challenge;
-    }
-
-    public List<DisplayImage> getImages() {
+    public List<DisplayImage> getDisplayImages() {
         return images;
     }
 
-    public ImageList getImageList() {
-        return imageList;
+    public Challenge getChallenge() {
+        return challenge;
     }
 }

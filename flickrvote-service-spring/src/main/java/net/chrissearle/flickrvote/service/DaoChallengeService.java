@@ -10,6 +10,8 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
@@ -45,6 +47,54 @@ public class DaoChallengeService implements ChallengeService {
         this.challengeMessageService = challengeMessageService;
     }
 
+    public ChallengeSummary getChallengeSummary(String tag) {
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge != null) {
+            return new ChallengeSummary(challenge);
+        }
+
+        return null;
+    }
+
+    public Set<ChallengeSummary> getChallengesByType(ChallengeType type) {
+        Set<ChallengeSummary> challenges = new HashSet<ChallengeSummary>();
+
+        switch (type) {
+            case NORMAL:
+                // Get all challenges
+
+                for (Challenge challenge : challengeDao.getAll()) {
+                    challenges.add(new ChallengeSummary(challenge));
+                }
+
+                break;
+            case OPEN:
+                // Get open challenges
+
+                challenges.add(new ChallengeSummary(challengeDao.getCurrentChallenge()));
+
+                break;
+            case VOTING:
+                // Get voting challenges
+
+                challenges.add(new ChallengeSummary(challengeDao.getVotingChallenge()));
+
+                break;
+            case CLOSED:
+                // Get closed challenges
+
+                for (Challenge challenge : challengeDao.getClosedChallenges()) {
+                    challenges.add(new ChallengeSummary(challenge));
+                }
+
+                break;
+        }
+
+        return challenges;
+    }
+
+    @Deprecated
     public List<ChallengeInfo> getChallenges() {
         List<Challenge> allChallenges = challengeDao.getAll();
 
@@ -107,6 +157,7 @@ public class DaoChallengeService implements ChallengeService {
         challengeDao.persist(challenge);
     }
 
+    @Deprecated
     public List<ChallengeInfo> getClosedChallenges() {
         List<Challenge> challenges = challengeDao.getClosedChallenges();
 
@@ -119,6 +170,7 @@ public class DaoChallengeService implements ChallengeService {
         return results;
     }
 
+    @Deprecated
     public ChallengeInfo getCurrentChallenge() {
         Challenge challenge = challengeDao.getCurrentChallenge();
 
@@ -129,6 +181,7 @@ public class DaoChallengeService implements ChallengeService {
         return null;
     }
 
+    @Deprecated
     public ChallengeInfo getVotingChallenge() {
         Challenge challenge = challengeDao.getVotingChallenge();
 
@@ -139,6 +192,7 @@ public class DaoChallengeService implements ChallengeService {
         return null;
     }
 
+    @Deprecated
     public ChallengeInfo getChallenge(String challengeTag) {
         Challenge challenge = challengeDao.findByTag(challengeTag);
 

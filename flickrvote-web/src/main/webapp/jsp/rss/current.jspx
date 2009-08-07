@@ -1,27 +1,26 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://backend.userland.com/rss2"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/xml"/>
     <jsp:output omit-xml-declaration="no"/>
     <rss version="2.0">
         <channel>
-            <title><s:text name="rss.front.title"/>: <s:property value="imageList.title"/> - <s:property
-                    value="imageList.description"/></title>
+            <title><s:text name="rss.front.title"/>: <fv:challengeTitle challenge="${challenge}"/></title>
             <link>http://vote.twphch.com/</link>
             <description><s:text name="rss.front.description"/></description>
             <s:set name="now" value="%{new java.util.Date()}"/>
             <!-- FIXME - This needs forcing to english -->
             <pubDate><s:date name="now" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
-            <s:iterator id="item" value="images">
+            <s:iterator id="displayImage" value="displayImages">
                 <item>
-                    <title><s:property value="#item.imageTitle"/></title>
-                    <link><s:property value="#item.pageUrl"/></link>
+                    <title><s:property value="#displayImage.imageTitle"/></title>
+                    <link><s:property value="#displayImage.pageUrl"/></link>
                     <description>
-                        <img src="${item.imageUrl}"/>
+                        <img src="${displayImage.imageUrl}"/>
                     </description>
                     <!-- FIXME - This needs forcing to english -->
-                    <pubDate><s:date name="#item.postedDate" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
+                    <pubDate><s:date name="#displayImage.postedDate" format="EEE, d MMM yyyy HH:mm:ss Z"/></pubDate>
                 </item>
             </s:iterator>
         </channel>

@@ -14,15 +14,15 @@
         <s:head/>
     </head>
     <body>
-    <h1>#<s:property value="imageList.title"/> - <s:property value="imageList.description"/></h1>
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
     <s:if test="images.size() == 0">
         <p><s:text name="current.no.pics"/></p>
     </s:if>
-    <s:iterator id="displayItem" value="images">
+    <s:iterator id="displayImage" value="displayImages">
         <div class="photobox">
-            <h3><fv:photographer photographer="${displayItem}"/>: <s:property value="#displayItem.imageTitle"/></h3>
-            <fv:image image="${displayItem}"/>
+            <h3><fv:photographer photographer="${displayImage}"/>: <s:property value="#displayImage.imageTitle"/></h3>
+            <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
     </body>
