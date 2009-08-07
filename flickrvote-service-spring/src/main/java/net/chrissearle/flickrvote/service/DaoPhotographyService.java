@@ -201,17 +201,17 @@ public class DaoPhotographyService implements PhotographyService {
         imageDao.persist(image);
     }
 
-    public List<ImageInfo> getImagesForPhotographer(String id) {
+    public Set<ImageItem> getImagesForPhotographer(String id) {
         Photographer photographer = photographyDao.findById(id);
 
         if (photographer == null || photographer.getImages() == null || photographer.getImages().size() == 0) {
             return null;
         }
 
-        List<ImageInfo> images = new ArrayList<ImageInfo>(photographer.getImages().size());
+        Set<ImageItem> images = new HashSet<ImageItem>();
 
         for (Image image : photographer.getImages()) {
-            images.add(new ImageInfo(image));
+            images.add(new ImageItem(image));
         }
 
         return images;

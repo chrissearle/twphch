@@ -1,7 +1,9 @@
 package net.chrissearle.flickrvote.service;
 
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
@@ -40,24 +42,27 @@ public class JFreeChartChartService implements ChartService {
     }
 
     public JFreeChart getChartForChallenge(String tag, String scoreAxisTitle, String photographerAxisTitle) {
-        ChallengeInfo challenge = challengeService.getChallenge(tag);
+        ChallengeSummary challengeSummary = challengeService.getChallengeSummary(tag);
 
-        List<ImageInfo> images = challengeService.getImagesForChallenge(tag);
+        ChallengeItem challenge = photographyService.getChallengeImages(tag);
 
-        Collections.sort(images, new Comparator<ImageInfo>() {
+        List<ImageItem> images = new ArrayList<ImageItem>(challenge.getImages().size());
+        images.addAll(challenge.getImages());
 
-            public int compare(ImageInfo o1, ImageInfo o2) {
-                return o2.getFinalVoteCount().compareTo(o1.getFinalVoteCount());
+        Collections.sort(images, new Comparator<ImageItem>() {
+
+            public int compare(ImageItem o1, ImageItem o2) {
+                return o2.getVoteCount().compareTo(o1.getVoteCount());
             }
         });
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for (ImageInfo image : images) {
-            dataset.setValue(image.getFinalVoteCount(), scoreAxisTitle, image.getPhotographerName());
+        for (ImageItem image : images) {
+            dataset.setValue(image.getVoteCount(), scoreAxisTitle, image.getPhotographer().getName());
         }
 
-        return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
+        return generateChart(challengeSummary.getTag(), challengeSummary.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 
     private JFreeChart generateChart(String tag, String subtitle, CategoryDataset dataset, String scoreAxisTitle, String photographerAxisTitle) {
@@ -110,39 +115,54 @@ public class JFreeChartChartService implements ChartService {
     }
 
     public JFreeChart getVotingChart(String scoreAxisTitle, String photographerAxisTitle) {
-        ChallengeInfo challenge = challengeService.getVotingChallenge();
+        Set<ChallengeSummary> challenges = challengeService.getChallengesByType(ChallengeType.VOTING);
 
-        List<ImageInfo> images = challengeService.getImagesForChallenge(challenge.getTag());
+        // Currently only support one voting challenge in the front end
+        ChallengeSummary challengeSummary = challenges.iterator().next();
+
+        ChallengeItem challenge = photographyService.getChallengeImages(challengeSummary.getTag());
+
+        List<ImageItem> images = new ArrayList<ImageItem>(challenge.getImages().size());
+        images.addAll(challenge.getImages());
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for (ImageInfo image : images) {
-            dataset.setValue(image.getVoteCount(), scoreAxisTitle, image.getPhotographerName());
+        for (ImageItem image : images) {
+            dataset.setValue(image.getVoteCount(), scoreAxisTitle, image.getPhotographer().getName());
         }
 
-        return generateChart(challenge.getTag(), challenge.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
+        return generateChart(challengeSummary.getTag(), challengeSummary.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 
     public JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle, String noImageText) {
-        List<ImageInfo> images = photographyService.getImagesForPhotographer(id);
+        Set<ImageItem> images = photographyService.getImagesForPhotographer(id);
 
-        List<ChallengeInfo> challenges = challengeService.getClosedChallenges();
+        List<ChallengeSummary> challenges = new ArrayList<ChallengeSummary>();
+
+        challenges.addAll(challengeService.getChallengesByType(ChallengeType.CLOSED));
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        Map<String, ImageInfo> imageMap = new HashMap<String, ImageInfo>();
+        Map<String, ImageItem> imageMap = new HashMap<String, ImageItem>();
         String photographerName = null;
 
-        for (ImageInfo image : images) {
-            imageMap.put(image.getChallengeTag(), image);
+        for (ImageItem image : images) {
+            imageMap.put(image.getChallenge().getTag(), image);
             if (photographerName == null) {
-                photographerName = image.getPhotographerName();
+                photographerName = image.getPhotographer().getName();
             }
         }
 
-        for (ChallengeInfo challenge : challenges) {
+        Collections.sort(challenges, new Comparator<ChallengeSummary>() {
+
+            public int compare(ChallengeSummary o1, ChallengeSummary o2) {
+                return o2.getTag().compareTo(o1.getTag());
+            }
+        });
+
+        for (ChallengeSummary challenge : challenges) {
             if (imageMap.containsKey(challenge.getTag())) {
-                dataset.setValue(imageMap.get(challenge.getTag()).getFinalVoteCount(), rankAxisTitle, challenge.getTag());
+                dataset.setValue(imageMap.get(challenge.getTag()).getVoteCount(), rankAxisTitle, challenge.getTag());
             } else {
                 dataset.setValue(0L, rankAxisTitle, challenge.getTag());
             }

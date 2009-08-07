@@ -2,15 +2,13 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.web.model.DisplayImage;
 import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MyPicsAction extends ActionSupport implements SessionAware {
     private Map<String, Object> session;
@@ -18,7 +16,7 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
     @Autowired
     private PhotographyService photographyService;
 
-    private List<ImageInfo> images;
+    private List<DisplayImage> images;
 
     @Override
     public String execute() throws Exception {
@@ -28,10 +26,14 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
 
         Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        images = photographyService.getImagesForPhotographer(photographer.getPhotographerId());
+        images = new ArrayList<DisplayImage>();
 
-        Collections.sort(images, new Comparator<ImageInfo>() {
-            public int compare(ImageInfo o1, ImageInfo o2) {
+        for (ImageItem image : photographyService.getImagesForPhotographer(photographer.getPhotographerId())) {
+            images.add(new DisplayImage(image));
+        }
+
+        Collections.sort(images, new Comparator<DisplayImage>() {
+            public int compare(DisplayImage o1, DisplayImage o2) {
                 return o1.getChallengeTag().compareTo(o2.getChallengeTag());
             }
         });
@@ -43,7 +45,7 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
         this.session = stringObjectMap;
     }
 
-    public List<ImageInfo> getImages() {
+    public List<DisplayImage> getDisplayImages() {
         return images;
     }
 }

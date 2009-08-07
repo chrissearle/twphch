@@ -2,21 +2,22 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ShowChartAction extends ActionSupport {
 
     private String tag;
 
-    private ChallengeInfo challenge;
+    private Challenge challenge;
 
     @Autowired
     private ChallengeService challengeService;
 
     @Override
     public String execute() throws Exception {
-        challenge = challengeService.getChallenge(tag);
+        challenge = new DisplayChallengeSummary(challengeService.getChallengeSummary(tag));
 
         return SUCCESS;
     }
@@ -25,7 +26,7 @@ public class ShowChartAction extends ActionSupport {
         this.tag = tag;
     }
 
-    public ChallengeInfo getChallenge() {
+    public Challenge getChallenge() {
         return challenge;
     }
 }

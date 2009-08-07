@@ -33,7 +33,7 @@ public interface PhotographyService {
 
     void setScore(String imageId, Long score);
 
-    List<ImageInfo> getImagesForPhotographer(String id);
+    Set<ImageItem> getImagesForPhotographer(String id);
 
     void freezeChallenge();
 

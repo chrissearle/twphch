@@ -15,25 +15,17 @@
     <body>
     <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
 
-    <s:url id="goldUrl" value='/images/gold.jpg'/>
-    <s:url id="silverUrl" value='/images/silver.jpg'/>
-    <s:url id="bronzeUrl" value='/images/bronze.jpg'/>
-
-    <s:iterator id="photo" value="images">
+    <s:iterator id="displayImage" value="displayImages">
         <div class="photobox">
-            <h3><s:property value="#photo.challengeTag"/> - <s:property value="#photo.rank"/>: <s:property
-                    value="#photo.title"/> - <s:property
-                    value="#photo.challengeName"/> (<s:property value="#photo.finalVoteCount"/> votes)</h3>
-            <s:if test="#photo.rank == 1">
-                <img src="${goldUrl}" alt="Gold"/><br/><br/>
-            </s:if>
-            <s:if test="#photo.rank == 2">
-                <img src="${silverUrl}" alt="Silver"/><br/><br/>
-            </s:if>
-            <s:if test="#photo.rank == 3">
-                <img src="${bronzeUrl}" alt="Bronze"/><br/><br/>
-            </s:if>
-            <a href="${photo.imageHomePage}"><img src="${photo.imagePictureLink}" alt="${photo.title}"/></a>
+            <h3>
+                <fv:challengeTitle challenge="${displayImage}"/>
+                :
+                <s:property value="#displayImage.rank"/>
+                :
+                <s:property value="#displayImage.imageTitle"/>
+                (<s:property value="#displayImage.voteCount"/> votes)
+            </h3>
+            <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
     </body>
