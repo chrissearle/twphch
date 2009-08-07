@@ -1,96 +1,30 @@
 package net.chrissearle.flickrvote.service.model;
 
-import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.model.Image;
-
 import java.util.Date;
 
-public class ImageItem {
-    final private String id;
-    final private String title;
-    final private String url;
-    final private String imageUrl;
-    final private Date postedDate;
-    final private Long voteCount;
-    final private Long rank;
+/**
+ * Created by IntelliJ IDEA.
+ * User: chris
+ * Date: Aug 7, 2009
+ * Time: 12:53:04 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public interface ImageItem {
+    String getId();
 
-    final private PhotographerItem photographer;
-    final private ChallengeSummary challenge;
+    String getImageUrl();
 
-    public ImageItem(FlickrImage image) {
-        this.id = image.getFlickrId();
-        this.title = image.getTitle();
-        this.url = image.getUrl();
-        this.imageUrl = image.getImageUrl();
-        this.postedDate = image.getPostedDate();
-        this.voteCount = 0L;
-        this.rank = 0L;
+    PhotographerItem getPhotographer();
 
-        this.photographer = new PhotographerItem(image.getPhotographer());
-        this.challenge = null;
-    }
+    Date getPostedDate();
 
-    public ImageItem(Image image) {
-        this.id = image.getId();
-        this.title = image.getTitle();
-        this.url = image.getPage();
-        this.imageUrl = image.getMediumImage();
-        this.postedDate = image.getPostedDate();
-        switch (image.getChallenge().getVotingState()) {
-            case CLOSED:
-                this.voteCount = image.getFinalVoteCount();
-                this.rank = image.getFinalRank();
-                break;
-            case VOTING:
-                this.voteCount = (long) image.getVotes().size();
-                this.rank = 0L;
-                break;
-            case OPEN:
-                this.voteCount = 0L;
-                this.rank = 0L;
-                break;
-            default:
-                this.voteCount = 0L;
-                this.rank = 0L;
-        }
+    Long getRank();
 
-        this.photographer = new PhotographerItem(image.getPhotographer());
-        this.challenge = new ChallengeSummary(image.getChallenge());
-    }
+    String getTitle();
 
-    public String getId() {
-        return id;
-    }
+    String getUrl();
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+    Long getVoteCount();
 
-    public PhotographerItem getPhotographer() {
-        return photographer;
-    }
-
-    public Date getPostedDate() {
-        return postedDate;
-    }
-
-    public Long getRank() {
-        return rank;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public Long getVoteCount() {
-        return voteCount;
-    }
-
-    public ChallengeSummary getChallenge() {
-        return challenge;
-    }
+    ChallengeSummary getChallenge();
 }

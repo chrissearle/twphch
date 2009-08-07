@@ -42,11 +42,11 @@ public interface ChallengeService {
     void rankChallenge(String tag);
 
     // Scheduler jobs
-    ChallengeInfo openVoting();
+    ChallengeSummary openVoting();
 
-    ChallengeInfo announceNewChallenge();
+    ChallengeSummary announceNewChallenge();
 
-    ChallengeInfo announceResults();
+    ChallengeSummary announceResults();
 
     void remove(String tag);
 

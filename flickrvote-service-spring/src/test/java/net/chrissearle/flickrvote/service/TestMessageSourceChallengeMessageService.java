@@ -2,8 +2,7 @@ package net.chrissearle.flickrvote.service;
 
 import com.rosaloves.net.shorturl.bitly.Bitly;
 import com.rosaloves.net.shorturl.bitly.BitlyFactory;
-import net.chrissearle.flickrvote.model.Challenge;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -17,7 +16,9 @@ import java.util.Properties;
 
 public class TestMessageSourceChallengeMessageService {
     private ChallengeMessageService challengeMessageService;
-    private Challenge challenge;
+
+    private ChallengeSummary challenge;
+
     private String resultsUrl;
 
     @BeforeClass
@@ -38,7 +39,7 @@ public class TestMessageSourceChallengeMessageService {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:messages");
         messageSource.setFallbackToSystemLocale(true);
-        
+
         service.setMessageSource(messageSource);
         service.afterPropertiesSet();
 
@@ -50,7 +51,14 @@ public class TestMessageSourceChallengeMessageService {
 
         DateTime endDate = startDate.plusDays(7).plusHours(3);
 
-        challenge = new Challenge("TestTag", "Test Name", startDate.toDate(), voteDate.toDate(), endDate.toDate());
+        TestChallengeSummary testChallenge = new TestChallengeSummary();
+        testChallenge.setTag("TestTag");
+        testChallenge.setTitle("Test Name");
+        testChallenge.setStartDate(startDate.toDate());
+        testChallenge.setEndDate(endDate.toDate());
+        testChallenge.setVoteDate(voteDate.toDate());
+
+        challenge = testChallenge;
     }
 
     @Test
@@ -61,7 +69,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Avstemning") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("bit.ly") : "Message missing link";
     }
 
@@ -73,7 +81,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Oppgaven") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("bit.ly") : "Message missing link";
     }
 
@@ -93,7 +101,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Resultatene fra oppgaven") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("bit.ly") : "Message missing link";
     }
 
@@ -105,7 +113,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Avstemning") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
     }
 
     @Test
@@ -116,7 +124,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Oppgaven") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
     }
 
     @Test
@@ -127,7 +135,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("tillatt") : "Message missing words";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
         assert message.contains("http") : "Message missing link";
         assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
@@ -141,7 +149,7 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("tilbakemelding") : "Message missing words";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
         assert message.contains("http") : "Message missing link";
         assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
@@ -156,7 +164,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("notsowide") : "Message missing words";
         assert message.contains("1.") : "Message missing place";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("gold") : "Message missing badge";
     }
 
@@ -169,7 +177,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("notsowide") : "Message missing words";
         assert message.contains("2.") : "Message missing place";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("silver") : "Message missing badge";
     }
 
@@ -182,7 +190,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("notsowide") : "Message missing words";
         assert message.contains("3.") : "Message missing place";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("bronze") : "Message missing badge";
     }
 
@@ -194,19 +202,28 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("Resultatene fra oppgaven") : "Message missing words";
         assert message.contains(challenge.getTag()) : "Message missing tag";
-        assert message.contains(challenge.getName()) : "Message missing name";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
     }
 
     @Test
     public void testGetResultsForumSingle() {
-        ImageInfo image = new ImageInfo();
-        image.setFinalVoteCount(43L);
-        image.setPhotographerName("Test Photographer");
+        TestPhotographerItem photographer = new TestPhotographerItem();
+        photographer.setId("Test Photographer ID");
+        photographer.setActiveFlag(false);
+        photographer.setAdministratorFlag(false);
+        photographer.setFullname("Test Photographer");
+        photographer.setUsername("testPhotographer");
+        photographer.setIconUrl("http://iconUrl");
+        photographer.setTwitter("twitter");
+
+        TestImageItem image = new TestImageItem();
+        image.setVoteCount(43L);
+        image.setPhotographer(photographer);
         image.setId("TestImageId");
-        image.setImageHomePage("http://test.image.home.page");
+        image.setUrl("http://test.image.home.page");
         image.setRank(1L);
         image.setTitle("Test Image");
-        image.setImagePictureLink("http://test.image.picture.link");
+        image.setImageUrl("http://test.image.picture.link");
 
         String message = challengeMessageService.getResultsForumSingle(image);
 
@@ -214,40 +231,68 @@ public class TestMessageSourceChallengeMessageService {
 
         assert message.contains("stemmer") : "Message missing words";
         assert message.contains("43") : "Message missing votes";
-        assert message.contains(image.getPhotographerName()) : "Message missing photographer";
+        assert message.contains(image.getPhotographer().getName()) : "Message missing photographer";
         assert message.contains(image.getTitle()) : "Message missing title";
-        assert message.contains(image.getImageHomePage()) : "Message missing home page";
-        assert message.contains(image.getImagePictureLink()) : "Message missing picture link";
+        assert message.contains(image.getUrl()) : "Message missing home page";
+        assert message.contains(image.getImageUrl()) : "Message missing picture link";
     }
 
     @Test
     public void testGetResultsForumText() {
-        ImageInfo image1 = new ImageInfo();
-        image1.setFinalVoteCount(43L);
-        image1.setPhotographerName("Test Photographer 1");
+        TestPhotographerItem photographer1 = new TestPhotographerItem();
+        photographer1.setId("Test Photographer ID 1");
+        photographer1.setActiveFlag(false);
+        photographer1.setAdministratorFlag(false);
+        photographer1.setFullname("Test Photographer 1");
+        photographer1.setUsername("testPhotographer1");
+        photographer1.setIconUrl("http://iconUrl1");
+        photographer1.setTwitter("twitter1");
+
+        TestPhotographerItem photographer2 = new TestPhotographerItem();
+        photographer2.setId("Test Photographer ID 2");
+        photographer2.setActiveFlag(false);
+        photographer2.setAdministratorFlag(false);
+        photographer2.setFullname("Test Photographer 2");
+        photographer2.setUsername("testPhotographer2");
+        photographer2.setIconUrl("http://iconUrl2");
+        photographer2.setTwitter("twitter2");
+
+        TestPhotographerItem photographer3 = new TestPhotographerItem();
+        photographer3.setId("Test Photographer ID 3");
+        photographer3.setActiveFlag(false);
+        photographer3.setAdministratorFlag(false);
+        photographer3.setFullname("Test Photographer 3");
+        photographer3.setUsername("testPhotographer3");
+        photographer3.setIconUrl("http://iconUrl3");
+        photographer3.setTwitter("twitter3");
+
+        TestImageItem image1 = new TestImageItem();
+        image1.setVoteCount(43L);
+        image1.setPhotographer(photographer1);
         image1.setId("TestImageId");
-        image1.setImageHomePage("http://test.image1.home.page");
+        image1.setUrl("http://test.image.home.page");
         image1.setRank(1L);
         image1.setTitle("Test Image 1");
-        image1.setImagePictureLink("http://test.image1.picture.link");
+        image1.setImageUrl("http://test.image.picture.link");
 
-        ImageInfo image2 = new ImageInfo();
-        image2.setFinalVoteCount(38L);
-        image2.setPhotographerName("Test Photographer 2");
+        TestImageItem image2 = new TestImageItem();
+        image2.setVoteCount(38L);
+        image2.setPhotographer(photographer2);
         image2.setId("TestImageId2");
-        image2.setImageHomePage("http://test.image2.home.page");
+        image2.setUrl("http://test.image2.home.page");
         image2.setRank(2L);
         image2.setTitle("Test Image 2");
-        image2.setImagePictureLink("http://test.image2.picture.link");
+        image2.setImageUrl("http://test.image2.picture.link");
 
-        ImageInfo image3 = new ImageInfo();
-        image3.setFinalVoteCount(27L);
-        image3.setPhotographerName("Test Photographer 3");
+
+        TestImageItem image3 = new TestImageItem();
+        image3.setVoteCount(27L);
+        image3.setPhotographer(photographer3);
         image3.setId("TestImageId3");
-        image3.setImageHomePage("http://test.image3.home.page");
+        image3.setUrl("http://test.image3.home.page");
         image3.setRank(3L);
         image3.setTitle("Test Image 3");
-        image3.setImagePictureLink("http://test.image3.picture.link");
+        image3.setImageUrl("http://test.image3.picture.link");
 
         String message = challengeMessageService.getResultsForumText(challengeMessageService.getResultsUrl(challenge),
                 challengeMessageService.getResultsForumSingle(image1),
@@ -260,18 +305,18 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("43") : "Message missing votes";
         assert message.contains("38") : "Message missing votes";
         assert message.contains("27") : "Message missing votes";
-        assert message.contains(image1.getPhotographerName()) : "Message missing photographer 1";
+        assert message.contains(image1.getPhotographer().getName()) : "Message missing photographer 1";
         assert message.contains(image1.getTitle()) : "Message missing title 1";
-        assert message.contains(image1.getImageHomePage()) : "Message missing home page 1";
-        assert message.contains(image1.getImagePictureLink()) : "Message missing picture link 1";
-        assert message.contains(image2.getPhotographerName()) : "Message missing photographer 2";
+        assert message.contains(image1.getUrl()) : "Message missing home page 1";
+        assert message.contains(image1.getImageUrl()) : "Message missing picture link 1";
+        assert message.contains(image2.getPhotographer().getName()) : "Message missing photographer 2";
         assert message.contains(image2.getTitle()) : "Message missing title 2";
-        assert message.contains(image2.getImageHomePage()) : "Message missing home page 2";
-        assert message.contains(image2.getImagePictureLink()) : "Message missing picture link 2";
-        assert message.contains(image3.getPhotographerName()) : "Message missing photographer 3";
+        assert message.contains(image2.getUrl()) : "Message missing home page 2";
+        assert message.contains(image2.getImageUrl()) : "Message missing picture link 2";
+        assert message.contains(image3.getPhotographer().getName()) : "Message missing photographer 3";
         assert message.contains(image3.getTitle()) : "Message missing title 3";
-        assert message.contains(image3.getImageHomePage()) : "Message missing home page 3";
-        assert message.contains(image3.getImagePictureLink()) : "Message missing picture link 3";
+        assert message.contains(image3.getUrl()) : "Message missing home page 3";
+        assert message.contains(image3.getImageUrl()) : "Message missing picture link 3";
         assert message.contains("http") : "Message missing link";
         assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }

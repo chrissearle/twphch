@@ -9,10 +9,7 @@ import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
-import net.chrissearle.flickrvote.service.model.ChallengeSummary;
-import net.chrissearle.flickrvote.service.model.ChallengeType;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.*;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
@@ -51,7 +48,7 @@ public class DaoChallengeService implements ChallengeService {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge != null) {
-            return new ChallengeSummary(challenge);
+            return new ChallengeSummaryInstance(challenge);
         }
 
         return null;
@@ -65,27 +62,27 @@ public class DaoChallengeService implements ChallengeService {
                 // Get all challenges
 
                 for (Challenge challenge : challengeDao.getAll()) {
-                    challenges.add(new ChallengeSummary(challenge));
+                    challenges.add(new ChallengeSummaryInstance(challenge));
                 }
 
                 break;
             case OPEN:
                 // Get open challenges
 
-                challenges.add(new ChallengeSummary(challengeDao.getCurrentChallenge()));
+                challenges.add(new ChallengeSummaryInstance(challengeDao.getCurrentChallenge()));
 
                 break;
             case VOTING:
                 // Get voting challenges
 
-                challenges.add(new ChallengeSummary(challengeDao.getVotingChallenge()));
+                challenges.add(new ChallengeSummaryInstance(challengeDao.getVotingChallenge()));
 
                 break;
             case CLOSED:
                 // Get closed challenges
 
                 for (Challenge challenge : challengeDao.getClosedChallenges()) {
-                    challenges.add(new ChallengeSummary(challenge));
+                    challenges.add(new ChallengeSummaryInstance(challenge));
                 }
 
                 break;
@@ -239,8 +236,8 @@ public class DaoChallengeService implements ChallengeService {
         }
     }
 
-    public ChallengeInfo openVoting() {
-        Challenge challenge = challengeDao.getVotingChallenge();
+    public ChallengeSummary openVoting() {
+        ChallengeSummary challenge = new ChallengeSummaryInstance(challengeDao.getVotingChallenge());
 
         if (challenge == null) {
             if (logger.isDebugEnabled()) {
@@ -271,11 +268,11 @@ public class DaoChallengeService implements ChallengeService {
             }
         }
 
-        return new ChallengeInfo(challenge);
+        return challenge;
     }
 
-    public ChallengeInfo announceNewChallenge() {
-        Challenge challenge = challengeDao.getCurrentChallenge();
+    public ChallengeSummary announceNewChallenge() {
+        ChallengeSummary challenge = new ChallengeSummaryInstance(challengeDao.getCurrentChallenge());
 
         if (challenge == null) {
             if (logger.isDebugEnabled()) {
@@ -305,11 +302,13 @@ public class DaoChallengeService implements ChallengeService {
             }
         }
 
-        return new ChallengeInfo(challenge);
+        return challenge;
     }
 
-    public ChallengeInfo announceResults() {
-        Challenge challenge = challengeDao.getVotedChallenge();
+    public ChallengeSummary announceResults() {
+        Challenge votedChallenge = challengeDao.getVotedChallenge();
+
+        ChallengeSummary challenge = new ChallengeSummaryInstance(votedChallenge);
 
         if (challenge == null) {
             if (logger.isDebugEnabled()) {
@@ -324,7 +323,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         // Sum up votes
-        List<Image> images = challenge.getImages();
+        List<Image> images = votedChallenge.getImages();
 
         for (Image image : images) {
             image.setFinalVoteCount((long) image.getVotes().size());
@@ -345,39 +344,39 @@ public class DaoChallengeService implements ChallengeService {
             }
         }
 
-        List<ImageInfo> imageResults = new ArrayList<ImageInfo>();
+        List<ImageItem> imageResults = new ArrayList<ImageItem>();
 
         for (Image image : images) {
-            imageResults.add(new ImageInfo(image));
+            imageResults.add(new ImageItemInstance(image));
         }
 
         StringBuilder messageGold = new StringBuilder();
         StringBuilder messageSilver = new StringBuilder();
         StringBuilder messageBronze = new StringBuilder();
 
-        for (ImageInfo imageInfo : imageResults) {
+        for (ImageItem imageItem : imageResults) {
             String badgeText = "";
 
-            String forumPost = challengeMessageService.getResultsForumSingle(imageInfo);
+            String forumPost = challengeMessageService.getResultsForumSingle(imageItem);
 
-            if (imageInfo.getRank() == 1) {
+            if (imageItem.getRank() == 1) {
                 // Gold
                 badgeText = challengeMessageService.getBadgeText(1, challengeMessageService.getGoldBadgeUrl(), challenge);
                 messageGold.append(forumPost);
             }
-            if (imageInfo.getRank() == 2) {
+            if (imageItem.getRank() == 2) {
                 // Silver
                 badgeText = challengeMessageService.getBadgeText(2, challengeMessageService.getSilverBadgeUrl(), challenge);
                 messageSilver.append(forumPost);
             }
-            if (imageInfo.getRank() == 3) {
+            if (imageItem.getRank() == 3) {
                 // Bronze
                 badgeText = challengeMessageService.getBadgeText(3, challengeMessageService.getBronzeBadgeUrl(), challenge);
                 messageBronze.append(forumPost);
             }
             if (!"".equals(badgeText)) {
                 try {
-                    flickrService.postComment(imageInfo.getId(), badgeText);
+                    flickrService.postComment(imageItem.getId(), badgeText);
                 } catch (FlickrServiceException fse) {
                     if (logger.isEnabledFor(Level.WARN)) {
                         logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
@@ -396,7 +395,7 @@ public class DaoChallengeService implements ChallengeService {
             }
         }
 
-        return new ChallengeInfo(challenge);
+        return challenge;
     }
 
     public void remove(String tag) {

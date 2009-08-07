@@ -2,27 +2,17 @@ package net.chrissearle.flickrvote.service.model;
 
 import java.util.Set;
 
-public class ChallengeItem {
-    private String title;
-    private String description;
+/**
+ * Created by IntelliJ IDEA.
+ * User: chris
+ * Date: Aug 7, 2009
+ * Time: 12:55:30 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public interface ChallengeItem {
+    String getTitle();
 
-    private Set<ImageItem> images;
+    String getDescription();
 
-    public ChallengeItem(String title, String description, Set<ImageItem> images) {
-        this.description = description;
-        this.title = title;
-        this.images = images;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Set<ImageItem> getImages() {
-        return images;
-    }
+    Set<ImageItem> getImages();
 }

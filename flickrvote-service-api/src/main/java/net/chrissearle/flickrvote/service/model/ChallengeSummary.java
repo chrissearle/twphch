@@ -1,79 +1,28 @@
 package net.chrissearle.flickrvote.service.model;
 
-import net.chrissearle.flickrvote.model.Challenge;
-import net.chrissearle.flickrvote.model.ChallengeState;
-
 import java.util.Date;
 
-public class ChallengeSummary implements Comparable<ChallengeSummary> {
-    private String title;
-    private String tag;
-    private Date startDate;
-    private Date endDate;
-    private Date voteDate;
+/**
+ * Created by IntelliJ IDEA.
+ * User: chris
+ * Date: Aug 7, 2009
+ * Time: 12:55:02 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public interface ChallengeSummary {
+    String getTag();
 
-    boolean closed;
-    boolean open;
-    boolean voting;
+    Date getStartDate();
 
-    public ChallengeSummary(Challenge challenge) {
-        title = challenge.getName();
-        tag = challenge.getTag();
-        startDate = challenge.getStartDate();
-        endDate = challenge.getEndDate();
-        voteDate = challenge.getVotingOpenDate();
+    Date getEndDate();
 
-        this.open = (challenge.getVotingState() == ChallengeState.OPEN);
-        this.closed = (challenge.getVotingState() == ChallengeState.CLOSED);
-        this.voting = (challenge.getVotingState() == ChallengeState.VOTING);
-    }
+    Date getVoteDate();
 
-    public String getTag() {
-        return tag;
-    }
+    String getTitle();
 
-    public Date getStartDate() {
-        return startDate;
-    }
+    Boolean isClosed();
 
-    public Date getEndDate() {
-        return endDate;
-    }
+    Boolean isVoting();
 
-    public Date getVoteDate() {
-        return voteDate;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    @Override
-    public String toString() {
-        return new StringBuilder()
-                .append("ChallengeInfo{")
-                .append("title='").append(title)
-                .append(", tag='").append(tag)
-                .append(", startDate=").append(startDate)
-                .append(", endDate=").append(endDate)
-                .append(", voteDate=").append(voteDate)
-                .append("}")
-                .toString();
-    }
-
-    public int compareTo(ChallengeSummary challengeInfo) {
-        return challengeInfo.getStartDate().compareTo(getStartDate());
-    }
-
-    public Boolean isClosed() {
-        return closed;
-    }
-
-    public Boolean isVoting() {
-        return voting;
-    }
-
-    public Boolean isOpen() {
-        return open;
-    }
+    Boolean isOpen();
 }

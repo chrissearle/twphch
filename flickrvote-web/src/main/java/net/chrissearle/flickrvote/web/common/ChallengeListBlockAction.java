@@ -2,28 +2,42 @@ package net.chrissearle.flickrvote.web.common;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ChallengeListBlockAction extends ActionSupport {
     @Autowired
     private ChallengeService challengeService;
 
-    private List<ChallengeInfo> challenges;
+    private List<Challenge> challenges;
 
     @Override
     public String execute() throws Exception {
-        challenges = challengeService.getClosedChallenges();
+        challenges = new ArrayList<Challenge>();
 
-        Collections.sort(challenges);
+        for (ChallengeSummary challenge : challengeService.getChallengesByType(ChallengeType.CLOSED)) {
+            challenges.add(new DisplayChallengeSummary(challenge));
+        }
+
+        Collections.sort(challenges, new Comparator<Challenge>() {
+
+            public int compare(Challenge o1, Challenge o2) {
+                return o2.getChallengeTag().compareTo(o1.getChallengeTag());
+            }
+        });
 
         return SUCCESS;
     }
 
-    public List<ChallengeInfo> getChallenges() {
+    public List<Challenge> getChallenges() {
         return challenges;
     }
 }

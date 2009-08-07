@@ -1,7 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
-import net.chrissearle.flickrvote.model.Challenge;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 
 /**
  * Tightly coupled with ChallengeService - simply collects all message source handling in one place
@@ -9,25 +9,25 @@ import net.chrissearle.flickrvote.service.model.ImageInfo;
 public interface ChallengeMessageService {
     String getResultsForumText(String resultsUrl, String firstPlace, String secondPlace, String thirdPlace);
 
-    String getVotingTwitter(Challenge challenge);
+    String getVotingTwitter(ChallengeSummary challenge);
 
-    String getVotingForumTitle(Challenge challenge);
+    String getVotingForumTitle(ChallengeSummary challenge);
 
-    String getVotingForumText(Challenge challenge);
+    String getVotingForumText(ChallengeSummary challenge);
 
-    String getCurrentTwitter(Challenge challenge);
+    String getCurrentTwitter(ChallengeSummary challenge);
 
-    String getCurrentForumTitle(Challenge challenge);
+    String getCurrentForumTitle(ChallengeSummary challenge);
 
-    String getCurrentForumText(Challenge challenge);
+    String getCurrentForumText(ChallengeSummary challenge);
 
-    String getResultsTwitter(Challenge challenge, String resultsUrl);
+    String getResultsTwitter(ChallengeSummary challenge, String resultsUrl);
 
-    String getResultsForumTitle(Challenge challenge);
+    String getResultsForumTitle(ChallengeSummary challenge);
 
-    String getResultsUrl(Challenge challenge);
+    String getResultsUrl(ChallengeSummary challenge);
 
-    String getBadgeText(int place, String badgeUrl, Challenge challenge);
+    String getBadgeText(int place, String badgeUrl, ChallengeSummary challenge);
 
     String getGoldBadgeUrl();
 
@@ -35,5 +35,5 @@ public interface ChallengeMessageService {
 
     String getBronzeBadgeUrl();
 
-    String getResultsForumSingle(ImageInfo image);
+    String getResultsForumSingle(ImageItem image);
 }

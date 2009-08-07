@@ -1,7 +1,7 @@
 package net.chrissearle.flickrvote.service;
 
-import net.chrissearle.flickrvote.model.Challenge;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -69,107 +69,107 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         return messageSource.getMessage("flickr.forum.results.text", params, Locale.getDefault());
     }
 
-    public String getResultsUrl(Challenge challenge) {
+    public String getResultsUrl(ChallengeSummary challenge) {
         Object[] params = new Object[1];
         params[0] = challenge.getTag();
 
         return messageSource.getMessage("url.show", params, Locale.getDefault());
     }
 
-    public String getVotingTwitter(Challenge challenge) {
+    public String getVotingTwitter(ChallengeSummary challenge) {
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
         params[2] = votingUrlShort;
 
         return messageSource.getMessage("twitter.voting", params, Locale.getDefault());
     }
 
-    public String getVotingForumTitle(Challenge challenge) {
+    public String getVotingForumTitle(ChallengeSummary challenge) {
         Object[] params = new Object[2];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
 
         return messageSource.getMessage("flickr.forum.voting.title", params, Locale.getDefault());
     }
 
-    public String getVotingForumText(Challenge challenge) {
+    public String getVotingForumText(ChallengeSummary challenge) {
         Object[] params = new Object[5];
-        params[0] = df.format(challenge.getVotingOpenDate());
+        params[0] = df.format(challenge.getVoteDate());
         params[1] = df.format(challenge.getEndDate());
         params[2] = challenge.getTag();
-        params[3] = challenge.getName();
+        params[3] = challenge.getTitle();
         params[4] = votingUrl;
 
         return messageSource.getMessage("flickr.forum.voting.text", params, Locale.getDefault());
     }
 
-    public String getCurrentTwitter(Challenge challenge) {
+    public String getCurrentTwitter(ChallengeSummary challenge) {
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
         params[2] = currentUrlShort;
 
         return messageSource.getMessage("twitter.current", params, Locale.getDefault());
     }
 
-    public String getCurrentForumTitle(Challenge challenge) {
+    public String getCurrentForumTitle(ChallengeSummary challenge) {
         Object[] params = new Object[2];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
 
         return messageSource.getMessage("flickr.forum.current.title", params, Locale.getDefault());
     }
 
-    public String getCurrentForumText(Challenge challenge) {
+    public String getCurrentForumText(ChallengeSummary challenge) {
         Object[] params = new Object[5];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
-        params[2] = df.format(challenge.getVotingOpenDate());
+        params[1] = challenge.getTitle();
+        params[2] = df.format(challenge.getVoteDate());
         params[3] = rulesUrl;
 
         return messageSource.getMessage("flickr.forum.current.text", params, Locale.getDefault());
     }
 
-    public String getResultsTwitter(Challenge challenge, String resultsUrl) {
+    public String getResultsTwitter(ChallengeSummary challenge, String resultsUrl) {
         resultsUrl = shortUrlService.shortenUrl(resultsUrl);
-        
+
         Object[] params = new Object[3];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
         params[2] = resultsUrl;
 
         return messageSource.getMessage("twitter.results", params, Locale.getDefault());
     }
 
-    public String getResultsForumTitle(Challenge challenge) {
+    public String getResultsForumTitle(ChallengeSummary challenge) {
         Object[] params = new Object[2];
         params[0] = challenge.getTag();
-        params[1] = challenge.getName();
+        params[1] = challenge.getTitle();
 
         return messageSource.getMessage("flickr.forum.results.title", params, Locale.getDefault());
     }
 
 
-    public String getBadgeText(int place, String badgeUrl, Challenge challenge) {
+    public String getBadgeText(int place, String badgeUrl, ChallengeSummary challenge) {
         Object[] params = new Object[4];
 
         params[0] = place;
         params[1] = challenge.getTag();
-        params[2] = challenge.getName();
+        params[2] = challenge.getTitle();
         params[3] = badgeUrl;
 
         return messageSource.getMessage("badge.basic", params, Locale.getDefault());
     }
 
-    public String getResultsForumSingle(ImageInfo image) {
+    public String getResultsForumSingle(ImageItem image) {
         Object[] params = new Object[5];
 
         params[0] = image.getTitle();
-        params[1] = image.getPhotographerName();
-        params[2] = image.getFinalVoteCount();
-        params[3] = image.getImageHomePage();
-        params[4] = image.getImagePictureLink();
+        params[1] = image.getPhotographer().getName();
+        params[2] = image.getVoteCount();
+        params[3] = image.getUrl();
+        params[4] = image.getImageUrl();
 
         return messageSource.getMessage("flickr.forum.results.single", params, Locale.getDefault());
     }

@@ -10,11 +10,11 @@
             <@s.iterator id="challenge" value="challenges">
             <li>
                 <@s.url id="showLink" namespace="/" action="show">
-                <@s.param name="challengeTag"><@s.property value="#challenge.tag"/></@s.param>
+                <@s.param name="challengeTag"><@s.property value="#challenge.challengeTag"/></@s.param>
                 </@s.url>
-                <@s.a href="%{showLink}">#<@s.property value="#challenge.tag"/>
+                <@s.a href="%{showLink}">#<@s.property value="#challenge.challengeTag"/>
                 -
-                <@s.property value="#challenge.title"/></@s.a>
+                <@s.property value="#challenge.challengeDescription"/></@s.a>
             </li>
             </@s.iterator>
         </ul>

@@ -1,72 +1,26 @@
 package net.chrissearle.flickrvote.service.model;
 
-import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
-import net.chrissearle.flickrvote.model.Photographer;
+/**
+ * Created by IntelliJ IDEA.
+ * User: chris
+ * Date: Aug 7, 2009
+ * Time: 12:53:38 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public interface PhotographerItem {
+    Boolean isActiveFlag();
 
-public class PhotographerItem {
-    private final String id;
-    private final String twitter;
-    private final String fullname;
-    private final String username;
+    Boolean isAdministratorFlag();
 
-    private final String iconUrl;
+    String getFullname();
 
-    private final Boolean administratorFlag;
-    private final Boolean activeFlag;
+    String getId();
 
-    public PhotographerItem(Photographer photographer) {
-        this.id = photographer.getId();
-        this.twitter = photographer.getTwitter();
-        this.fullname = photographer.getFullname();
-        this.username = photographer.getUsername();
-        this.administratorFlag = photographer.isAdministrator();
-        this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
-        this.iconUrl = photographer.getIconUrl();
-    }
+    String getTwitter();
 
-    public PhotographerItem(FlickrPhotographer photographer) {
-        this.id = photographer.getFlickrId();
-        this.twitter = null;
-        this.fullname = photographer.getRealname();
-        this.username = photographer.getUsername();
-        this.administratorFlag = false;
-        this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
-        this.iconUrl = photographer.getIconUrl();
-    }
+    String getUsername();
 
-    public Boolean isActiveFlag() {
-        return activeFlag;
-    }
+    String getIconUrl();
 
-    public Boolean isAdministratorFlag() {
-        return administratorFlag;
-    }
-
-    public String getFullname() {
-        return fullname;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTwitter() {
-        return twitter;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getIconUrl() {
-        return iconUrl;
-    }
-
-    public String getName() {
-        if (fullname != null && !"".equals(fullname)) {
-            return fullname;
-        }
-
-        return username;
-    }
+    String getName();
 }

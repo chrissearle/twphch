@@ -10,10 +10,7 @@ import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.ChallengeState;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
-import net.chrissearle.flickrvote.service.model.ChallengeItem;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
-import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.PhotographerItem;
+import net.chrissearle.flickrvote.service.model.*;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
@@ -80,7 +77,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         photographyDao.persist(photographer);
 
-        return new PhotographerItem(photographer);
+        return new PhotographerItemInstance(photographer);
     }
 
     public PhotographerItem checkLoginAndStore(String frob) {
@@ -105,7 +102,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         photographyDao.persist(photographer);
 
-        return new PhotographerItem(photographer);
+        return new PhotographerItemInstance(photographer);
     }
 
     public ChallengeItem getChallengeImages(String tag) {
@@ -120,16 +117,16 @@ public class DaoPhotographyService implements PhotographyService {
         if (challenge.getVotingState() == ChallengeState.OPEN) {
             // Grab images from flickr
             for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
-                images.add(new ImageItem(image));
+                images.add(new ImageItemInstance(image));
             }
         } else {
             // Grab images from db
             for (Image image : challenge.getImages()) {
-                images.add(new ImageItem(image));
+                images.add(new ImageItemInstance(image));
             }
         }
 
-        return new ChallengeItem(challenge.getTag(), challenge.getName(), images);
+        return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
     }
 
     @Deprecated
@@ -211,7 +208,7 @@ public class DaoPhotographyService implements PhotographyService {
         Set<ImageItem> images = new HashSet<ImageItem>();
 
         for (Image image : photographer.getImages()) {
-            images.add(new ImageItem(image));
+            images.add(new ImageItemInstance(image));
         }
 
         return images;
@@ -244,7 +241,7 @@ public class DaoPhotographyService implements PhotographyService {
         Set<ImageItem> images = new HashSet<ImageItem>();
 
         for (Image image : imageDao.getImagesWithRank(1L)) {
-            images.add(new ImageItem(image));
+            images.add(new ImageItemInstance(image));
         }
 
         return images;
@@ -266,7 +263,7 @@ public class DaoPhotographyService implements PhotographyService {
                 }
             }
 
-            return new PhotographerItem(photographer);
+            return new PhotographerItemInstance(photographer);
         }
 
         return null;
@@ -276,7 +273,7 @@ public class DaoPhotographyService implements PhotographyService {
         List<PhotographerItem> photographers = new ArrayList<PhotographerItem>();
 
         for (Photographer photographer : photographyDao.all()) {
-            photographers.add(new PhotographerItem(photographer));
+            photographers.add(new PhotographerItemInstance(photographer));
         }
 
         return photographers;
@@ -286,7 +283,7 @@ public class DaoPhotographyService implements PhotographyService {
         Photographer photographer = photographyDao.findById(id);
 
         if (photographer != null) {
-            return new PhotographerItem(photographer);
+            return new PhotographerItemInstance(photographer);
         }
 
         return null;
