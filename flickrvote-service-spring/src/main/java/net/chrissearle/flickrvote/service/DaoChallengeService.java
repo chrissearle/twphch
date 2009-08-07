@@ -150,17 +150,6 @@ public class DaoChallengeService implements ChallengeService {
         return null;
     }
 
-    @Deprecated
-    public ChallengeInfo getChallenge(String challengeTag) {
-        Challenge challenge = challengeDao.findByTag(challengeTag);
-
-        if (challenge != null) {
-            return new ChallengeInfo(challenge);
-        }
-
-        return null;
-    }
-
     public boolean hasVoted(String photographerId) {
         if (logger.isDebugEnabled()) {
             logger.debug("hasVoted for: " + photographerId);

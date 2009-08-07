@@ -23,9 +23,6 @@ public interface ChallengeService {
     @Deprecated
     ChallengeInfo getVotingChallenge();
 
-    @Deprecated
-    ChallengeInfo getChallenge(String challengeTag);
-
     boolean hasVoted(String photographerId);
 
     void vote(String photographerId, String imageId);
