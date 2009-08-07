@@ -60,7 +60,7 @@ public class DaoChallengeService implements ChallengeService {
         Set<ChallengeSummary> challenges = new HashSet<ChallengeSummary>();
 
         switch (type) {
-            case NORMAL:
+            case ALL:
                 // Get all challenges
 
                 for (Challenge challenge : challengeDao.getAll()) {
@@ -137,47 +137,6 @@ public class DaoChallengeService implements ChallengeService {
             image.setFinalRank(rank);
             imageDao.persist(image);
         }
-    }
-
-
-    public void saveChallenge(ChallengeInfo challengeInfo) {
-        Challenge challenge = challengeDao.findByTag(challengeInfo.getTag());
-
-        if (challenge != null) {
-            challenge.setName(challengeInfo.getTitle());
-            challenge.setStartDate(challengeInfo.getStartDate());
-            challenge.setVotingOpenDate(challengeInfo.getVoteDate());
-            challenge.setEndDate(challengeInfo.getEndDate());
-        } else {
-            challenge = new Challenge(challengeInfo.getTag(), challengeInfo.getTitle(),
-                    challengeInfo.getStartDate(), challengeInfo.getVoteDate(), challengeInfo.getEndDate());
-        }
-
-        challengeDao.persist(challenge);
-    }
-
-    @Deprecated
-    public List<ChallengeInfo> getClosedChallenges() {
-        List<Challenge> challenges = challengeDao.getClosedChallenges();
-
-        List<ChallengeInfo> results = new ArrayList<ChallengeInfo>(challenges.size());
-
-        for (Challenge challenge : challenges) {
-            results.add(new ChallengeInfo(challenge));
-        }
-
-        return results;
-    }
-
-    @Deprecated
-    public ChallengeInfo getCurrentChallenge() {
-        Challenge challenge = challengeDao.getCurrentChallenge();
-
-        if (challenge != null) {
-            return new ChallengeInfo(challenge);
-        }
-
-        return null;
     }
 
     @Deprecated
@@ -416,14 +375,29 @@ public class DaoChallengeService implements ChallengeService {
         return challenges;
     }
 
-    public ChallengeInfo getMostRecent() {
+    public ChallengeSummary getMostRecent() {
         Challenge challenge = challengeDao.getMostRecent();
 
         if (challenge != null) {
-            return new ChallengeInfo(challenge);
+            return new ChallengeSummaryInstance(challenge);
         }
 
         return null;
+    }
+
+    public void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate) {
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge != null) {
+            challenge.setName(title);
+            challenge.setStartDate(startDate);
+            challenge.setVotingOpenDate(voteDate);
+            challenge.setEndDate(endDate);
+        } else {
+            challenge = new Challenge(tag, title, startDate, voteDate, endDate);
+        }
+
+        challengeDao.persist(challenge);
     }
 
 

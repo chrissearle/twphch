@@ -2,39 +2,43 @@ package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
+import net.chrissearle.flickrvote.web.model.ChallengeAdmin;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.Formatter;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class ChallengeAction extends ActionSupport {
     @Autowired
     ChallengeService challengeService;
 
-    private List<ChallengeInfo> challenges;
+    private List<ChallengeSummary> challenges;
 
     private String tag;
 
     private Boolean editFlag = false;
 
-    private ChallengeInfo challenge;
+    private ChallengeAdmin challenge;
 
     @Override
     public String input() throws Exception {
         if (tag != null && !"".equals(tag)) {
             editFlag = true;
-            challenge = challengeService.getChallenge(tag);
+            ChallengeSummary challengeSummary = challengeService.getChallengeSummary(tag);
+
+            challenge = new ChallengeAdmin();
+            challenge.setTag(challengeSummary.getTag());
+            challenge.setTitle(challengeSummary.getTitle());
+            challenge.setStartDate(challengeSummary.getStartDate());
         } else {
             // Set some defaults
-            ChallengeInfo mostRecentChallenge = challengeService.getMostRecent();
+            ChallengeSummary mostRecentChallenge = challengeService.getMostRecent();
 
             if (mostRecentChallenge != null) {
-                challenge = new ChallengeInfo();
+                challenge = new ChallengeAdmin();
 
                 challenge.setStartDate(mostRecentChallenge.getVoteDate());
 
@@ -58,34 +62,38 @@ public class ChallengeAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        DateTime startDate = new DateTime(challenge.getStartDate());
+        DateTime start = new DateTime(challenge.getStartDate());
 
-        challenge.setStartDate(startDate.plusHours(FlickrVoteWebConstants.START_CHALLENGE_TIME).toDate());
-        challenge.setVoteDate(startDate.plusDays(7).plusHours(FlickrVoteWebConstants.START_VOTE_TIME).toDate());
-        challenge.setEndDate(startDate.plusDays(9).plusHours(FlickrVoteWebConstants.END_CHALLENGE_TIME).toDate());
+        Date startDate = start.plusHours(FlickrVoteWebConstants.START_CHALLENGE_TIME).toDate();
+        Date voteDate = start.plusDays(7).plusHours(FlickrVoteWebConstants.START_VOTE_TIME).toDate();
+        Date endDate = start.plusDays(9).plusHours(FlickrVoteWebConstants.END_CHALLENGE_TIME).toDate();
 
-        challengeService.saveChallenge(challenge);
+        challengeService.saveChallenge(challenge.getTag(), challenge.getTitle(), startDate, voteDate, endDate);
 
         return SUCCESS;
     }
 
     public String browse() {
-        challenges = challengeService.getChallenges();
+        challenges = new ArrayList<ChallengeSummary>(challengeService.getChallengesByType(ChallengeType.ALL));
 
-        Collections.sort(challenges);
+        Collections.sort(challenges, new Comparator<ChallengeSummary>() {
+            public int compare(ChallengeSummary o1, ChallengeSummary o2) {
+                return o2.getTag().compareTo(o1.getTag());
+            }
+        });
 
         return "browse";
     }
 
-    public List<ChallengeInfo> getChallenges() {
+    public List<ChallengeSummary> getChallenges() {
         return challenges;
     }
 
-    public ChallengeInfo getChallenge() {
+    public ChallengeAdmin getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(ChallengeInfo challenge) {
+    public void setChallenge(ChallengeAdmin challenge) {
         this.challenge = challenge;
     }
 

@@ -14,20 +14,11 @@ public interface ChallengeService {
 
     Set<ChallengeSummary> getChallengesByType(ChallengeType type);
 
-
     @Deprecated
     List<ChallengeInfo> getChallenges();
 
     @Deprecated
     List<ImageInfo> getImagesForChallenge(String challengeName);
-
-    void saveChallenge(ChallengeInfo challenge);
-
-    @Deprecated
-    List<ChallengeInfo> getClosedChallenges();
-
-    @Deprecated
-    ChallengeInfo getCurrentChallenge();
 
     @Deprecated
     ChallengeInfo getVotingChallenge();
@@ -52,5 +43,7 @@ public interface ChallengeService {
 
     List<ChallengeInfo> isDateAvailable(Date startDate);
 
-    ChallengeInfo getMostRecent();
+    ChallengeSummary getMostRecent();
+
+    void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate);
 }
