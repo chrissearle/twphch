@@ -134,17 +134,6 @@ public class DaoPhotographyService implements PhotographyService {
         return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
     }
 
-    @Deprecated
-    public List<FlickrImage> searchImagesByTag(String tag) {
-        Challenge challenge = challengeDao.findByTag(tag);
-
-        if (challenge == null) {
-            return null;
-        }
-
-        return flickrService.searchImagesByTag(tag, challenge.getStartDate());
-    }
-
     public URL getLoginUrl() {
         return flickrService.getLoginUrl();
     }
