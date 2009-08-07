@@ -16,7 +16,7 @@
         </action>
 
         <action name="currentChallengeBlock">
-            <result type="freemarker" name="success">/ftl/common/currentChallengeBlock.ftl</result>
+            <result type="freemarker" name="success">/ftl/common/challengeDetailsBlock.ftl</result>
         </action>
 
         <action name="photographerBlock">
