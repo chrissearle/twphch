@@ -27,10 +27,14 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     private List<DisplayImage> images;
 
-    private Challenge challenge;
+    private Challenge challenge = null;
 
     @Override
     public String execute() throws Exception {
+        if (challenge == null) {
+            return "noCurrentChallenge";
+        }
+
         return SUCCESS;
     }
 

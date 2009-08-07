@@ -73,13 +73,19 @@ public class DaoChallengeService implements ChallengeService {
             case OPEN:
                 // Get open challenges
 
-                challenges.add(new ChallengeSummaryInstance(challengeDao.getCurrentChallenge()));
+                Challenge currentChallenge = challengeDao.getCurrentChallenge();
+                if (currentChallenge != null) {
+                    challenges.add(new ChallengeSummaryInstance(currentChallenge));
+                }
 
                 break;
             case VOTING:
                 // Get voting challenges
 
-                challenges.add(new ChallengeSummaryInstance(challengeDao.getVotingChallenge()));
+                Challenge votingChallenge = challengeDao.getVotingChallenge();
+                if (votingChallenge != null) {
+                    challenges.add(new ChallengeSummaryInstance(votingChallenge));
+                }
 
                 break;
             case CLOSED:

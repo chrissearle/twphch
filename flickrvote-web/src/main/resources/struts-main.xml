@@ -8,6 +8,7 @@
     <package name="flickrVote" extends="struts-default" namespace="/">
         <action name="current" class="net.chrissearle.flickrvote.web.CurrentChallengeAction">
             <result>/jsp/current.jspx</result>
+            <result name="noCurrentChallenge">/jsp/nocurrent.jspx</result>
         </action>
         <action name="show" class="net.chrissearle.flickrvote.web.ShowChallengeAction">
             <result>/jsp/show.jspx</result>
