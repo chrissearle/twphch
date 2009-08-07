@@ -3,7 +3,7 @@ package net.chrissearle.flickrvote.web.validators;
 import com.opensymphony.xwork2.validator.ValidationException;
 import com.opensymphony.xwork2.validator.validators.FieldValidatorSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class OverlapValidator extends FieldValidatorSupport {
 
         Date startDateWithTime = new DateTime(fieldValue).plusHours(FlickrVoteWebConstants.START_CHALLENGE_TIME).toDate();
 
-        List<ChallengeInfo> challenges = challengeService.isDateAvailable(startDateWithTime);
+        List<ChallengeSummary> challenges = challengeService.isDateAvailable(startDateWithTime);
 
         if (challenges.size() > 1) {
             // Guaranteed crash

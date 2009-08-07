@@ -354,11 +354,11 @@ public class DaoChallengeService implements ChallengeService {
         challengeDao.remove(challenge);
     }
 
-    public List<ChallengeInfo> isDateAvailable(Date startDate) {
-        List<ChallengeInfo> challenges = new ArrayList<ChallengeInfo>();
+    public List<ChallengeSummary> isDateAvailable(Date startDate) {
+        List<ChallengeSummary> challenges = new ArrayList<ChallengeSummary>();
 
         for (Challenge challenge : challengeDao.findWithin(startDate)) {
-            challenges.add(new ChallengeInfo(challenge));
+            challenges.add(new ChallengeSummaryInstance(challenge));
         }
 
         return challenges;
