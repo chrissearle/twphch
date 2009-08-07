@@ -2,7 +2,6 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
@@ -29,7 +28,7 @@ public interface PhotographyService {
 
     URL getLoginUrl();
 
-    ImageInfo retrieveAndStoreImage(String id, String tag);
+    ImageItem retrieveAndStoreImage(String id, String tag);
 
     void setScore(String imageId, Long score);
 

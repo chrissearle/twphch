@@ -6,7 +6,7 @@ import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ChallengeInfo;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,9 +39,9 @@ public class ImageAction extends ActionSupport implements Preparable {
         for (String imageId : id) {
             if (!"".equals(imageId)) {
                 try {
-                    ImageInfo image = photographyService.retrieveAndStoreImage(imageId, tag);
+                    ImageItem image = photographyService.retrieveAndStoreImage(imageId, tag);
 
-                    addActionMessage("&laquo;" + image.getTitle() + "&raquo; av " + image.getPhotographerName() + " retrieved/updated.");
+                    addActionMessage("&laquo;" + image.getTitle() + "&raquo; av " + image.getPhotographer().getName() + " retrieved/updated.");
                 } catch (FlickrServiceException e) {
                     addActionError("Error retrieving image " + imageId + ": " + e.getMessage());
                 }

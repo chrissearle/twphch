@@ -11,7 +11,6 @@ import net.chrissearle.flickrvote.model.ChallengeState;
 import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
-import net.chrissearle.flickrvote.service.model.ImageInfo;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeItemInstance;
@@ -150,7 +149,7 @@ public class DaoPhotographyService implements PhotographyService {
         return flickrService.getLoginUrl();
     }
 
-    public ImageInfo retrieveAndStoreImage(String id, String tag) {
+    public ImageItem retrieveAndStoreImage(String id, String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge == null)
@@ -191,7 +190,7 @@ public class DaoPhotographyService implements PhotographyService {
             imageDao.persist(image);
         }
 
-        return new ImageInfo(image);
+        return new ImageItemInstance(image);
     }
 
     public void setScore(String imageId, Long score) {
