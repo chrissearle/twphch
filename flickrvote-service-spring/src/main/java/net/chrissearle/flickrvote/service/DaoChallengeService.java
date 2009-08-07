@@ -94,19 +94,6 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     @Deprecated
-    public List<ChallengeInfo> getChallenges() {
-        List<Challenge> allChallenges = challengeDao.getAll();
-
-        List<ChallengeInfo> results = new ArrayList<ChallengeInfo>(allChallenges.size());
-
-        for (Challenge challenge : allChallenges) {
-            results.add(new ChallengeInfo(challenge));
-        }
-
-        return results;
-    }
-
-    @Deprecated
     public List<ImageInfo> getImagesForChallenge(String challengeName) {
         Challenge challenge = challengeDao.findByTag(challengeName);
 

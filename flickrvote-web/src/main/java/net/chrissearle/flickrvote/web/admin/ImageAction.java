@@ -5,11 +5,15 @@ import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -27,7 +31,7 @@ public class ImageAction extends ActionSupport implements Preparable {
 
     private String tag;
 
-    private List<ChallengeInfo> challenges;
+    private List<Challenge> challenges;
 
     @Override
     public String input() throws Exception {
@@ -88,16 +92,21 @@ public class ImageAction extends ActionSupport implements Preparable {
     }
 
     public void prepare() throws Exception {
-        challenges = challengeService.getChallenges();
 
-        Collections.sort(challenges, new Comparator<ChallengeInfo>() {
-            public int compare(ChallengeInfo o1, ChallengeInfo o2) {
-                return o2.getTag().compareTo(o1.getTag());
+        challenges = new ArrayList<Challenge>();
+
+        for (ChallengeSummary challenge : challengeService.getChallengesByType(ChallengeType.ALL)) {
+            challenges.add(new DisplayChallengeSummary(challenge));
+        }
+
+        Collections.sort(challenges, new Comparator<Challenge>() {
+            public int compare(Challenge o1, Challenge o2) {
+                return o2.getChallengeTag().compareTo(o1.getChallengeTag());
             }
         });
     }
 
-    public List<ChallengeInfo> getChallenges() {
+    public List<Challenge> getChallenges() {
         return challenges;
     }
 }

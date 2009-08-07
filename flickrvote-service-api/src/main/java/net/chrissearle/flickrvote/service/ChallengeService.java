@@ -15,9 +15,6 @@ public interface ChallengeService {
     Set<ChallengeSummary> getChallengesByType(ChallengeType type);
 
     @Deprecated
-    List<ChallengeInfo> getChallenges();
-
-    @Deprecated
     List<ImageInfo> getImagesForChallenge(String challengeName);
 
     @Deprecated
