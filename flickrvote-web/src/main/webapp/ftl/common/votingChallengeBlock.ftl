@@ -1,11 +1,11 @@
 <div class="sidebaritem">
     <h1><@s.text name="sidebar.voting.title"/></h1>
 
-    <h2>#<@s.property value="challenge.tag"/></h2>
+    <h2>#<@s.property value="challenge.challengeTag"/></h2>
 
-    <p><@s.property value="challenge.title"/></p>
+    <p><@s.property value="challenge.challengeTitle"/></p>
 
-    <p><@s.text name="sidebar.voting.ends"/>: <@s.date name="challenge.endDate" format="dd.MM.yyyy"/> kl 21:00</p>
+    <p><@s.text name="sidebar.voting.ends"/>: <@s.date name="challenge.challengeEnd" format="dd.MM.yyyy"/> kl 21:00</p>
 
     <@s.if test="#session.flickrUser">
     <p>

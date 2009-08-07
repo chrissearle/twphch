@@ -2,14 +2,18 @@ package net.chrissearle.flickrvote.web.common;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.model.ChallengeInfo;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
+import java.util.Set;
 
 public class VotingChallengeBlockAction extends ActionSupport implements SessionAware {
     Logger logger = Logger.getLogger(VotingChallengeBlockAction.class);
@@ -17,26 +21,29 @@ public class VotingChallengeBlockAction extends ActionSupport implements Session
     @Autowired
     private ChallengeService challengeService;
 
-    private ChallengeInfo challenge;
+    private Challenge challenge;
 
     private Map<String, Object> session;
 
     private Boolean voted;
 
-    public ChallengeInfo getChallenge() {
+    public Challenge getChallenge() {
         return challenge;
     }
 
     @Override
     public String execute() throws Exception {
-        challenge = challengeService.getVotingChallenge();
+        Set<ChallengeSummary> challenges = challengeService.getChallengesByType(ChallengeType.VOTING);
+
+        if (challenges.size() == 0) {
+            return "empty";
+        }
+
+        // Front end assumes one voting challenge
+        challenge = new DisplayChallengeSummary(challenges.iterator().next());
 
         if (logger.isDebugEnabled()) {
             logger.debug("Voting challenge: " + challenge);
-        }
-
-        if (challenge == null) {
-            return "empty";
         }
 
         if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
