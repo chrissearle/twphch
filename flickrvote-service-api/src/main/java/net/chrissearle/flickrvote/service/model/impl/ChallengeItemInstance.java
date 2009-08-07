@@ -1,4 +1,7 @@
-package net.chrissearle.flickrvote.service.model;
+package net.chrissearle.flickrvote.service.model.impl;
+
+import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.model.ImageItem;
 
 import java.util.Set;
 

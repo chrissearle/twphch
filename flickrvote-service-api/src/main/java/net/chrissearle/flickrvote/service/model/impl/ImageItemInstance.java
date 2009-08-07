@@ -1,7 +1,10 @@
-package net.chrissearle.flickrvote.service.model;
+package net.chrissearle.flickrvote.service.model.impl;
 
 import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.model.Image;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
 import java.util.Date;
 

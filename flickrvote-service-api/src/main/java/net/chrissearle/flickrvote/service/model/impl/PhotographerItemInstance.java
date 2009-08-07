@@ -1,7 +1,8 @@
-package net.chrissearle.flickrvote.service.model;
+package net.chrissearle.flickrvote.service.model.impl;
 
 import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
 import net.chrissearle.flickrvote.model.Photographer;
+import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
 public class PhotographerItemInstance implements PhotographerItem {
     private final String id;

@@ -1,7 +1,8 @@
-package net.chrissearle.flickrvote.service.model;
+package net.chrissearle.flickrvote.service.model.impl;
 
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.ChallengeState;
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 
 import java.util.Date;
 

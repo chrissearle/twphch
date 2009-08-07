@@ -10,6 +10,8 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.model.Vote;
 import net.chrissearle.flickrvote.service.model.*;
+import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
+import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
