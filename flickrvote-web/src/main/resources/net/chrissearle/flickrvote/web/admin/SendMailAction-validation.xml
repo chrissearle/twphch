@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="title">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>Subject must be filled out.</message>
+        </field-validator>
+    </field>
+    <field name="text">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>Body must be filled out.</message>
+        </field-validator>
+    </field>
+</validators>

@@ -114,5 +114,14 @@
             <result name="input">/jsp/admin/tweet.jspx</result>
             <result name="success" type="chain">challenges</result>
         </action>
+
+        <action name="mailForm" class="net.chrissearle.flickrvote.web.admin.SendMailAction" method="input">
+            <result name="input">/jsp/admin/mail.jspx</result>
+        </action>
+
+        <action name="mail" class="net.chrissearle.flickrvote.web.admin.SendMailAction">
+            <result name="input">/jsp/admin/mail.jspx</result>
+            <result name="success" type="chain">challenges</result>
+        </action>
     </package>
 </struts>
