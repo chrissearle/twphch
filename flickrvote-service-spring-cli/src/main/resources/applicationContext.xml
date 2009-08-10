@@ -67,7 +67,7 @@
         <property name="to" value="${mail.to.address.forum}"/>
     </bean>
 
-    <bean id="forumPostMessageManager" class="net.chrissearle.flickrvote.mail.ForumPostMessageManager">
+    <bean id="forumPostMessageManager" class="net.chrissearle.flickrvote.mail.PostMessageManager">
         <constructor-arg index="0" ref="mailSender"/>
         <constructor-arg index="1" ref="mailTemplate"/>
     </bean>

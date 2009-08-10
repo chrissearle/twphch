@@ -38,6 +38,11 @@
             <artifactId>log4j</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>net.chrissearle</groupId>
+            <artifactId>flickrvote-mail-api</artifactId>
+            <version>${projectVersion}</version>
+        </dependency>
     </dependencies>
 
 </project>
