@@ -48,7 +48,7 @@
         <property name="to" value="${mail.to.address.forum}"/>
     </bean>
 
-    <bean id="postMessageManager" class="net.chrissearle.mail.SimpleMailMessageManager">
+    <bean id="simpleMailMessageManager" class="net.chrissearle.mail.SimpleMailMessageManager">
         <constructor-arg index="0" ref="mailSender"/>
         <constructor-arg index="1" ref="mailTemplate"/>
     </bean>
