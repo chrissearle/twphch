@@ -63,6 +63,16 @@
             <s:url action="cronResults" id="cronResultsUrl"/>
             <s:a href="%{cronResultsUrl}">Calculate/announce results</s:a>
         </p>
+
+        <h3>External Menu</h3>
+
+        <p>
+            <s:url action="tweetForm" id="tweetUrl"/>
+            <s:a href="%{tweetUrl}">Tweet</s:a>
+            <br/>
+            <s:url action="mailForm" id="mailUrl"/>
+            <s:a href="%{mailUrl}">Mail</s:a>
+        </p>
     </div>
     <!-- end left division -->
 
