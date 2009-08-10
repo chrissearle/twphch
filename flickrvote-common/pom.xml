@@ -66,6 +66,18 @@
                 <version>1.4</version>
             </dependency>
 
+            <dependency>
+                <groupId>net.chrissearle.common</groupId>
+                <artifactId>simple-mail-api</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle.common</groupId>
+                <artifactId>simple-mail-spring</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
             <!-- Database -->
             <dependency>
                 <groupId>mysql</groupId>
@@ -77,6 +89,12 @@
                 <groupId>javax.persistence</groupId>
                 <artifactId>persistence-api</artifactId>
                 <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle.common</groupId>
+                <artifactId>jpa</artifactId>
+                <version>1</version>
             </dependency>
 
             <!-- Hibernate -->

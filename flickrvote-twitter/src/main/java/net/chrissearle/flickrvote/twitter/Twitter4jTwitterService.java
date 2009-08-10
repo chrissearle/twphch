@@ -1,6 +1,6 @@
 package net.chrissearle.flickrvote.twitter;
 
-import net.chrissearle.flickrvote.mail.PostService;
+import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +14,13 @@ public class Twitter4jTwitterService implements TwitterService {
 
     private Logger logger = Logger.getLogger(Twitter4jTwitterService.class);
     private Boolean twitterActiveFlag;
-    private PostService postService;
+    private SimpleMailService mailService;
 
     @Autowired
-    public Twitter4jTwitterService(Twitter twitter, TwitterHolder twitterHolder, PostService postService) {
+    public Twitter4jTwitterService(Twitter twitter, TwitterHolder twitterHolder, SimpleMailService mailService) {
         this.twitter = twitter;
         this.twitterActiveFlag = twitterHolder.isActiveFlag();
-        this.postService = postService;
+        this.mailService = mailService;
     }
 
     public void twitter(String text) {
@@ -28,7 +28,7 @@ public class Twitter4jTwitterService implements TwitterService {
             try {
                 twitter.updateStatus(text);
             } catch (TwitterException e) {
-                postService.sendPost("Unable to tweet " + e.getMessage(), text);
+                mailService.sendPost("Unable to tweet " + e.getMessage(), text);
                 throw new TwitterServiceException("Unable to tweet " + text, e);
             }
         }

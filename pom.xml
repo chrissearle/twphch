@@ -21,8 +21,6 @@
         <module>flickrvote-service-api</module>
         <module>flickrvote-service-spring</module>
         <module>flickrvote-scheduler-spring</module>
-        <module>flickrvote-mail-api</module>
-        <module>flickrvote-mail-spring</module>
         <module>flickrvote-web</module>
         <module>flickrvote-service-spring-cli</module>
     </modules>

@@ -12,7 +12,7 @@ import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.photos.comments.CommentsInterface;
-import net.chrissearle.flickrvote.mail.PostService;
+import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,14 +32,14 @@ public class FlickrJFlickrService implements FlickrService {
     protected String adminAuthToken;
     protected Boolean adminActiveFlag;
 
-    private PostService postService;
+    private SimpleMailService mailService;
 
     @Autowired
-    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder, PostService postService) {
+    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder, SimpleMailService mailService) {
         this.flickr = flickr;
         this.adminAuthToken = tokenHolder.getAdminAuthToken();
         this.adminActiveFlag = tokenHolder.isActiveFlag();
-        this.postService = postService;
+        this.mailService = mailService;
     }
 
     protected FlickrJFlickrService() {
@@ -211,7 +211,7 @@ public class FlickrJFlickrService implements FlickrService {
         }
         // TODO post
 
-        postService.sendPost(title, text);
+        mailService.sendPost(title, text);
     }
 
     public void postComment(String imageId, String comment) {

@@ -40,8 +40,8 @@
         </dependency>
 
         <dependency>
-            <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-mail-api</artifactId>
+            <groupId>net.chrissearle.common</groupId>
+            <artifactId>simple-mail-api</artifactId>
         </dependency>
 
         <dependency>

@@ -127,8 +127,8 @@
         </dependency>
 
         <dependency>
-            <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-mail-spring</artifactId>
+            <groupId>net.chrissearle.common</groupId>
+            <artifactId>simple-mail-spring</artifactId>
         </dependency>
 
         <dependency>
