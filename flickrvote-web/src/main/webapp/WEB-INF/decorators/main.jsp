@@ -97,7 +97,12 @@
             <decorator:body/>
         </div>
     </div>
-    <div id="footer"><a href="http://www.dcarter.co.uk">design by dcarter</a></div>
+    <div id="footer">
+        <!-- FIXME i18n -->
+        <a href="http://www.dcarter.co.uk">design by dcarter</a>
+        |
+        <a href="http://github.com/chrissearle/twphch/tree/master"><s:text name="github.link"/></a>
+    </div>
 </div>
 </body>
 </html>
