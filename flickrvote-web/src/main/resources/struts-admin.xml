@@ -105,5 +105,14 @@
         <action name="checkSearch" class="net.chrissearle.flickrvote.web.admin.SearchTagCheckAction">
             <result name="success" type="chain">challenges</result>
         </action>
+
+        <action name="tweetForm" class="net.chrissearle.flickrvote.web.admin.SendTweetAction" method="input">
+            <result name="input">/jsp/admin/tweet.jspx</result>
+        </action>
+
+        <action name="tweet" class="net.chrissearle.flickrvote.web.admin.SendTweetAction">
+            <result name="input">/jsp/admin/tweet.jspx</result>
+            <result name="success" type="chain">challenges</result>
+        </action>
     </package>
 </struts>
