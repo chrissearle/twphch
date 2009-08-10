@@ -12,7 +12,6 @@
 
     <artifactId>flickrvote-service-api</artifactId>
     <groupId>net.chrissearle</groupId>
-    <version>${projectVersion}</version>
 
     <packaging>jar</packaging>
 
@@ -27,13 +26,11 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-model</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-flickr</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
     </dependencies>
 </project>

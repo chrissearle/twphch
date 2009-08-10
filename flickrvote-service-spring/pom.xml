@@ -12,7 +12,6 @@
 
     <artifactId>flickrvote-service-spring</artifactId>
     <groupId>net.chrissearle</groupId>
-    <version>${projectVersion}</version>
 
     <packaging>jar</packaging>
 
@@ -22,25 +21,21 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-flickr</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-service-api</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-data-api</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-twitter</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>

@@ -11,7 +11,6 @@
 
     <artifactId>flickrvote-web</artifactId>
     <groupId>net.chrissearle</groupId>
-    <version>${projectVersion}</version>
 
     <packaging>war</packaging>
 
@@ -125,37 +124,31 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-flickr</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-mail-spring</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-data-spring</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-service-spring</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-twitter</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-scheduler-spring</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
     </dependencies>
 

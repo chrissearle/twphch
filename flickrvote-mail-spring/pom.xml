@@ -11,7 +11,6 @@
 
     <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote-mail-spring</artifactId>
-    <version>${projectVersion}</version>
 
     <name>TwPhCh voting app - Email Interface Spring</name>
 
@@ -28,7 +27,6 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-mail-api</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
 
     </dependencies>

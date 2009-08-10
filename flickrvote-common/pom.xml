@@ -15,10 +15,6 @@
     <name>TwPhCh voting app - Dependency Management</name>
     <packaging>pom</packaging>
 
-    <properties>
-        <projectVersion>1-SNAPSHOT</projectVersion>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <!-- Utilities -->
@@ -199,6 +195,80 @@
                 <artifactId>testng</artifactId>
                 <version>5.8</version>
                 <classifier>jdk15</classifier>
+            </dependency>
+
+
+            <!-- Project artifacts -->
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-data-api</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-data-spring</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-flickr</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-mail-api</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-mail-spring</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-model</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-scheduler-spring</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-service-api</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-service-spring-cli</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-service-spring</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-twitter</artifactId>
+                <version>1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>flickrvote-web</artifactId>
+                <version>1-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

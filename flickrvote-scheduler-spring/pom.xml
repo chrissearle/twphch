@@ -10,7 +10,6 @@
 
     <artifactId>flickrvote-scheduler-spring</artifactId>
     <groupId>net.chrissearle</groupId>
-    <version>${projectVersion}</version>
 
     <packaging>jar</packaging>
 
@@ -41,12 +40,10 @@
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-service-api</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
         <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-service-spring</artifactId>
-            <version>${projectVersion}</version>
         </dependency>
     </dependencies>
 </project>
