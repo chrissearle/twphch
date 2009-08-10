@@ -106,7 +106,7 @@ public class ModelTest {
         assert photographer.getFullname().equals(PHOTOGRAPHER_FULLNAME) : "Full name was incorrect";
         assert photographer.getToken().equals(PHOTOGRAPHER_TOKEN) : "Token was incorrect";
         assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
-        assert photographer.getUsername().equals(PHOTOGRAPHER_ICON_URL) : "Icon was incorrect";
+        assert photographer.getIconUrl().equals(PHOTOGRAPHER_ICON_URL) : "Icon was incorrect";
         assert !photographer.isAdministrator() : "Photographer was incorrectly marked as admin";
         assert photographer.getId() != null : "ID was null";
         assert photographer.getTwitter().equals(TWITTER) : "Incorrect twitter account";
