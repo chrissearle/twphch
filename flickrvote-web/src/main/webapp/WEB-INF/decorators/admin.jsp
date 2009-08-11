@@ -49,6 +49,9 @@
             <br/>
             <s:url action="getAdminFrob" id="frobUrl"/>
             <s:a href="%{frobUrl}">Show admin auth link</s:a>
+            <br/>
+            <s:url action="frontpage" id="frontpageUrl"/>
+            <s:a href="%{frontpageUrl}">Generate HTML for pasting in flickr group description</s:a>
         </p>
 
         <h3>Cron Menu</h3>

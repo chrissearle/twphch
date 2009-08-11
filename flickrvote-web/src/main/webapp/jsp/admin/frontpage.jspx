@@ -1,0 +1,31 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0" xmlns:fv="/flickrvote-tags">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title><s:text name="main.title"/></title>
+        <s:head/>
+    </head>
+    <body>
+    <h1>Source for group frontpage</h1>
+
+    <pre><code>
+        <s:iterator id="displayImage" value="displayImages">
+            &amp;lt;b&amp;gt;Gratulerer <s:property
+                value="#displayImage.photographerName"/> med seieren i &amp;lt;a href="http://vote.twphch.com/twitterphotochallenge/show.action?challengeTag=<s:property
+                value="challengeTag"/>"&amp;gt;#<s:property value="#displayImage.challengeTag"/>&amp;lt;/a&amp;gt; &amp;laquo;<s:property
+                value="#displayImage.challengeDescription"/>&amp;raquo;&amp;lt;/b&amp;gt;
+            &amp;lt;a href="<s:property value="#displayImage.pageUrl"/>"&amp;gt;&amp;lt;img src="<s:property
+                value="#displayImage.imageUrl"/>/&amp;gt;&amp;lt;/a&amp;gt;
+        </s:iterator>
+    </code></pre>
+    </body>
+    </html>
+</jsp:root>
+

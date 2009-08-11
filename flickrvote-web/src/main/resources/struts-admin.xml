@@ -123,5 +123,9 @@
             <result name="input">/jsp/admin/mail.jspx</result>
             <result name="success" type="chain">challenges</result>
         </action>
+
+        <action name="frontpage" class="net.chrissearle.flickrvote.web.admin.FrontPageAction">
+            <result>/jsp/admin/frontpage.jspx</result>
+        </action>
     </package>
 </struts>
