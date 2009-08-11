@@ -2,7 +2,7 @@
     <h1><@s.text name="sidebar.photographer.title"/></h1>
 
     <p>
-        <@s.url id="myPicsLink" namespace="/" action="myPics"/>
+        <@s.url id="myPicsLink" namespace="/account" action="mypics"/>
         <@s.a href="%{myPicsLink}"><@s.text name="mypics.link.text"/></@s.a>
     </p>
 

@@ -1,8 +1,9 @@
-package net.chrissearle.flickrvote.web;
+package net.chrissearle.flickrvote.web.account;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
 import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;

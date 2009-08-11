@@ -37,5 +37,9 @@
             <result name="input">/jsp/account/editform.jspx</result>
             <result name="success" type="chain">account</result>
         </action>
+
+        <action name="mypics" class="net.chrissearle.flickrvote.web.account.MyPicsAction">
+            <result name="success">/jsp/account/mypics.jspx</result>
+        </action>
     </package>
 </struts>
