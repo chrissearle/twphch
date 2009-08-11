@@ -8,7 +8,7 @@
         </layout>
     </appender>
     <appender name="debugLog" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="/tmp/debug.log"/>
+        <param name="file" value="/var/log/glassfish/twphchdebug.log"/>
         <param name="MaxFileSize" value="1000KB"/>
         <!-- Keep one backup file -->
         <param name="MaxBackupIndex" value="1"/>

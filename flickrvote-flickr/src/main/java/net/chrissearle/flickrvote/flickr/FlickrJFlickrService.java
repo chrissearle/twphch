@@ -125,19 +125,23 @@ public class FlickrJFlickrService implements FlickrService {
             for (Photo photo : photos) {
                 FlickrImage image = getImageByFlickrId(photo.getId());
 
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Search result: " + image);
+                }
+
                 if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
                     if (logger.isInfoEnabled()) {
-                        logger.info("Image was taken before challenge start: " + image);
+                        logger.info("Image was taken before challenge start: " + image.getFlickrId() + " " + image.getTakenDate());
                     }
                 } else {
                     if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
                         if (logger.isInfoEnabled()) {
-                            logger.info("Seen " + image);
+                            logger.info("Seen " + image.getFlickrId());
                         }
                         seenPhotographers.put(photo.getOwner().getId(), image);
                     } else {
                         if (logger.isInfoEnabled()) {
-                            logger.info("Not replacing " + seenPhotographers.get(photo.getOwner().getId()) + " with " + image);
+                            logger.info("Not replacing " + seenPhotographers.get(photo.getOwner().getId()).getFlickrId() + " with " + image.getFlickrId());
                         }
                     }
                 }
