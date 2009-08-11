@@ -127,5 +127,13 @@
         <action name="frontpage" class="net.chrissearle.flickrvote.web.admin.FrontPageAction">
             <result>/jsp/admin/frontpage.jspx</result>
         </action>
+
+        <action name="showPhotographerImages" class="net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction">
+            <result>/jsp/admin/showphotoimages.jspx</result>
+        </action>
+
+        <action name="imagerefresh" class="net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction">
+            <result name="success" type="chain">showPhotographerImages</result>
+        </action>
     </package>
 </struts>

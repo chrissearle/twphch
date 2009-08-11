@@ -63,6 +63,11 @@
                     <s:url id="retrieveUrl" action="getPhotographer"><s:param name="id"
                                                                               value="#photographer.photographerId"/></s:url>
                     <s:a href="%{retrieveUrl}">Update from Flickr</s:a>
+                    |
+                    <s:url id="photographerImagesUrl" action="showPhotographerImages">
+                        <s:param name="photographerId" value="#photographer.photographerId"/>
+                    </s:url>
+                    <s:a href="%{photographerImagesUrl}">Images</s:a>
                 </td>
             </tr>
         </s:iterator>

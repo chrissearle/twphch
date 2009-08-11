@@ -1,0 +1,39 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
+          version="2.0" xmlns:fv="/flickrvote-tags">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge - Administration</title>
+        <s:head/>
+        <sx:head/>
+    </head>
+    <body>
+    <h3><fv:photographer photographer="${photographer}"/> - image list</h3>
+    <table>
+        <s:iterator id="displayImage" value="displayImages">
+            <tr>
+                <td><fv:image image="${displayImage}" showBadge="false"/></td>
+                <td>
+                    <s:property value="#displayImage.imageTitle"/>
+                    <br/>
+                    <fv:challengeTitle challenge="${displayImage}"/>
+                    <br/>
+                    <s:url action="imagerefresh" id="imagerefreshUrl">
+                        <s:param name="id" value="#displayImage.imageId"/>
+                        <s:param name="photographerId" value="#displayImage.photographerId"/>
+                    </s:url>
+                    <s:a href="%{imagerefreshUrl}">refresh from flickr</s:a>
+                </td>
+            </tr>
+        </s:iterator>
+    </table>
+    </body>
+    </html>
+</jsp:root>
