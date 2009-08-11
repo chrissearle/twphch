@@ -41,5 +41,9 @@
         <action name="mypics" class="net.chrissearle.flickrvote.web.account.MyPicsAction">
             <result name="success">/jsp/account/mypics.jspx</result>
         </action>
+
+        <action name="refresh" class="net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction">
+            <result name="success" type="chain">mypics</result>
+        </action>
     </package>
 </struts>

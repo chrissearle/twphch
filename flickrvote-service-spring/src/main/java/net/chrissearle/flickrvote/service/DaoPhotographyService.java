@@ -149,6 +149,10 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
 
         if (image == null) {
+            if (logger.isInfoEnabled()) {
+                logger.info("Storing image " + flickrImage.getFlickrId());
+            }
+
             image = new Image();
             image.setId(flickrImage.getFlickrId());
             image.setMediumImage(flickrImage.getImageUrl());
@@ -173,8 +177,14 @@ public class DaoPhotographyService implements PhotographyService {
 
             challengeDao.persist(challenge);
         } else {
+            if (logger.isInfoEnabled()) {
+                logger.info("Refreshing image " + flickrImage.getFlickrId());
+            }
+
             image.setTitle(flickrImage.getTitle());
             image.setPostedDate(flickrImage.getPostedDate());
+            image.setPage(flickrImage.getUrl());
+            image.setMediumImage(flickrImage.getImageUrl());
 
             imageDao.persist(image);
         }
@@ -291,5 +301,15 @@ public class DaoPhotographyService implements PhotographyService {
 
     public boolean checkTwitterExists(String twitter) {
         return twitterService.twitterExists(twitter);
+    }
+
+    public ImageItem findImageById(String imageId) {
+        Image image = imageDao.findById(imageId);
+
+        if (image != null) {
+            return new ImageItemInstance(image);
+        }
+
+        return null;
     }
 }

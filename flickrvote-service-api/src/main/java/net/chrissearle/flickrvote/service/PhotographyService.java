@@ -41,4 +41,6 @@ public interface PhotographyService {
     Map<String, String> checkSearch(String tag);
 
     boolean checkTwitterExists(String twitter);
+
+    ImageItem findImageById(String imageId);
 }
