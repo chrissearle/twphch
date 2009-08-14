@@ -92,22 +92,6 @@ public class FlickrJFlickrService implements FlickrService {
         }
     }
 
-    // FIXME - this can probably be removed since we haven't found a use for it yet.
-    public FlickrPhotographer checkAuthenticate(String token) throws FlickrServiceException {
-        try {
-            Auth auth = getAuthByToken(token);
-
-            return new FlickrPhotographer(auth.getUser().getId(), auth.getToken(),
-                    auth.getUser().getUsername(), auth.getUser().getRealName(), auth.getUser().getBuddyIconUrl());
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        }
-    }
-
     private Auth getAuthByToken(String token) throws IOException, SAXException, FlickrException {
         AuthInterface authInterface = flickr.getAuthInterface();
 
@@ -213,8 +197,8 @@ public class FlickrJFlickrService implements FlickrService {
         if (logger.isInfoEnabled()) {
             logger.info("Posting to forum TITLE: " + title + " TEXT: " + text);
         }
-        // TODO post
 
+        // The flickr API does not support group discussion posts. So all we can do is mail it.
         mailService.sendPost(title, text);
     }
 

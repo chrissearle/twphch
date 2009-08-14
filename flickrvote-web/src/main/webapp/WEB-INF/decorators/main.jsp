@@ -98,8 +98,7 @@
         </div>
     </div>
     <div id="footer">
-        <!-- FIXME i18n -->
-        <a href="http://www.dcarter.co.uk">design by dcarter</a>
+        <a href="http://www.dcarter.co.uk"><s:text name="footer.design.by"/>&nbsp;dcarter</a>
         |
         <a href="http://github.com/chrissearle/twphch/tree/master"><s:text name="github.link"/></a>
     </div>

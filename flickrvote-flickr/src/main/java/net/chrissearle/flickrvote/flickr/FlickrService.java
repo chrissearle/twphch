@@ -12,8 +12,6 @@ public interface FlickrService {
 
     FlickrPhotographer authenticate(String frob) throws FlickrServiceException;
 
-    FlickrPhotographer checkAuthenticate(String token) throws FlickrServiceException;
-
     List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException;
 
     FlickrPhotographer getUserByFlickrId(String id);

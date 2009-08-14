@@ -68,8 +68,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             challengeService.vote(photographer.getPhotographerId(), imageId);
         }
 
-        // FIXME i18n
-        addActionMessage("Thankyou for your vote");
+        addActionMessage(getText("vote.thanks"));
 
         return SUCCESS;
     }
@@ -102,8 +101,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                             seenPhotographer = true;
 
                             if (votes != null && votes.contains(image.getId())) {
-                                // FIXME i18n
-                                addActionError("You may not vote for yourself");
+                                addActionError(getText("vote.self.vote"));
                             }
                         }
                     }
@@ -114,8 +112,10 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                 }
 
                 if (votes == null || votes.size() != voteCount) {
-                    // FIXME i18n
-                    addActionError("Incorrect number of votes - you must vote for " + voteCount + " photos");
+                    String[] params = new String[1];
+                    params[0] = "" + voteCount;
+
+                    addActionError(getText("vote.vote.count", params));
                 }
             }
         }

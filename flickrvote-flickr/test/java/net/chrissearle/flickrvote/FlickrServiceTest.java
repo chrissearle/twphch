@@ -53,16 +53,6 @@ public class FlickrServiceTest extends FlickrJFlickrService {
     }
 
     @Test(groups = "configured")
-    public void testAuthenticate() {
-
-        FlickrPhotographer flickrPhotographer = checkAuthenticate(token);
-
-        assert flickrPhotographer != null : "Flickr authentication failed";
-        assert flickrPhotographer.getToken().equals(token) : "Token mismatch";
-        assert "Chris Searle".equals(flickrPhotographer.getRealname()) : "User name incorrect";
-    }
-
-    @Test(groups = "configured")
     public void testSearchTags() {
         List<FlickrImage> images = searchImagesByTag("#TwPhCh001", null);
 

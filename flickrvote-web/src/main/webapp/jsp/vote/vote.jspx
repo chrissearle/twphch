@@ -30,8 +30,6 @@
         </s:component>
         <s:submit/>
     </s:form>
-
-    <p id="voteText" style="display:none"><s:text name="vote.text"/></p>
     </body>
     </html>
 </jsp:root>
