@@ -81,8 +81,14 @@ public class FlickrJFlickrService implements FlickrService {
             // Auth user does not populate correct buddy icon
             User user = getUser(auth.getUser().getId());
 
-            return new FlickrPhotographer(user.getId(), auth.getToken(),
+            FlickrPhotographer flickrPhotographer = new FlickrPhotographer(user.getId(), auth.getToken(),
                     user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+
+            if (logger.isInfoEnabled()) {
+                logger.info(flickrPhotographer.getUsername() + " has just logged in");
+            }
+
+            return flickrPhotographer;
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {
@@ -120,12 +126,12 @@ public class FlickrJFlickrService implements FlickrService {
                 } else {
                     if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
                         if (logger.isInfoEnabled()) {
-                            logger.info("Seen " + image.getFlickrId());
+                            logger.info("Image seen " + image.getFlickrId());
                         }
                         seenPhotographers.put(photo.getOwner().getId(), image);
                     } else {
                         if (logger.isInfoEnabled()) {
-                            logger.info("Not replacing " + seenPhotographers.get(photo.getOwner().getId()).getFlickrId() + " with " + image.getFlickrId());
+                            logger.info("Not replacing image " + seenPhotographers.get(photo.getOwner().getId()).getFlickrId() + " with " + image.getFlickrId());
                         }
                     }
                 }
@@ -160,7 +166,13 @@ public class FlickrJFlickrService implements FlickrService {
             User user = getUser(id);
 
             if (user != null) {
-                return new FlickrPhotographer(id, null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+                FlickrPhotographer flickrPhotographer = new FlickrPhotographer(id, null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+
+                if (logger.isInfoEnabled()) {
+                    logger.info("Photographer retrieved " + flickrPhotographer.getUsername());
+                }
+
+                return flickrPhotographer;
             }
 
             return null;
@@ -180,7 +192,13 @@ public class FlickrJFlickrService implements FlickrService {
             Photo photo = photosInterface.getPhoto(id);
 
             if (photo != null) {
-                return convertPhotoToFlickrImage(photo);
+                FlickrImage flickrImage = convertPhotoToFlickrImage(photo);
+
+                if (logger.isInfoEnabled()) {
+                    logger.info("Image retrieved " + flickrImage.getFlickrId());
+                }
+
+                return flickrImage;
             }
 
             return null;
@@ -194,8 +212,8 @@ public class FlickrJFlickrService implements FlickrService {
     }
 
     public void postForum(String title, String text) {
-        if (logger.isInfoEnabled()) {
-            logger.info("Posting to forum TITLE: " + title + " TEXT: " + text);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Posting to forum TITLE: " + title + " TEXT: " + text);
         }
 
         // The flickr API does not support group discussion posts. So all we can do is mail it.
@@ -204,12 +222,16 @@ public class FlickrJFlickrService implements FlickrService {
 
     public void postComment(String imageId, String comment) {
         if (logger.isDebugEnabled()) {
-            logger.info("Posting comment check: " + adminActiveFlag);
+            logger.debug("Posting comment check: " + adminActiveFlag);
         }
 
         if (adminActiveFlag) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Posting to comment ID: " + imageId + " COMMENT: " + comment);
+            }
+
             if (logger.isInfoEnabled()) {
-                logger.info("Posting to comment ID: " + imageId + " COMMENT: " + comment);
+                logger.info("Image commented: " + imageId);
             }
 
             CommentsInterface commentsInterface = flickr.getCommentsInterface();
@@ -271,12 +293,19 @@ public class FlickrJFlickrService implements FlickrService {
         User user = getUser(photo.getOwner().getId());
 
         FlickrPhotographer photographer = new FlickrPhotographer(user.getId(), null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+
         return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
     }
 
     private User getUser(String id) throws IOException, SAXException, FlickrException {
         PeopleInterface peopleInterface = flickr.getPeopleInterface();
 
-        return peopleInterface.getInfo(id);
+        User user = peopleInterface.getInfo(id);
+
+        if (logger.isInfoEnabled()) {
+            logger.info("User info fetched for " + user.getUsername());
+        }
+
+        return user;
     }
 }

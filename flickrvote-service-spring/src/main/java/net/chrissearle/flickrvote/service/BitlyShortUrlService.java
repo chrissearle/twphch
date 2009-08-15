@@ -30,7 +30,13 @@ public class BitlyShortUrlService implements ShortUrlService {
         try {
             BitlyUrl shortUrl = bitly.shorten(longUrl);
 
-            return shortUrl.getShortUrl().toExternalForm();
+            String shortUrlString = shortUrl.getShortUrl().toExternalForm();
+
+            if (logger.isInfoEnabled()) {
+                logger.info("Shortened " + longUrl + " to " + shortUrlString);
+            }
+
+            return shortUrlString;
         } catch (IOException e) {
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to shorten longUrl: " + longUrl);
