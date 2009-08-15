@@ -7,7 +7,6 @@
 <struts>
     <constant name="struts.custom.i18n.resources" value="global_messages"/>
     <constant name="struts.ui.theme" value="css_xhtml"/>
-    <constant name="struts.devMode" value="true"/>
 
     <include file="struts-admin.xml"/>
     <include file="struts-common.xml"/>
