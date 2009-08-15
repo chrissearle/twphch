@@ -23,7 +23,7 @@ public class TestMessageSourceChallengeMessageService {
 
     @BeforeClass
     public void setup() throws Exception {
-        File configuration = new File("/etc/flickrvote.properties");
+        File configuration = new File("/etc/flickrvote/flickrvote.properties");
 
         InputStream in = new FileInputStream(configuration);
         Properties properties = new Properties();

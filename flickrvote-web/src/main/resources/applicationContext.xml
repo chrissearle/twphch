@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="net.chrissearle"/>
-    <context:property-placeholder location="file:/etc/flickrvote.properties"/>
+    <context:property-placeholder location="file:/etc/flickrvote/flickrvote.properties"/>
 
     <bean id="adminAuthTokenHolder" class="net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder">
         <property name="adminAuthToken" value="${flickr.admin.auth.token}"/>

@@ -16,7 +16,7 @@ public class TestBitlyShortUrlService {
 
     @BeforeClass
     public void setUp() throws IOException {
-        File configuration = new File("/etc/flickrvote.properties");
+        File configuration = new File("/etc/flickrvote/flickrvote.properties");
 
         InputStream in = new FileInputStream(configuration);
         Properties properties = new Properties();
