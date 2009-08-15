@@ -52,4 +52,8 @@
         <constructor-arg index="0" ref="mailSender"/>
         <constructor-arg index="1" ref="mailTemplate"/>
     </bean>
+
+    <bean id="reportServiceConfiguration" class="net.chrissearle.flickrvote.service.ReportServiceConfiguration">
+        <property name="historyReportPath" value="${history.report.path}"/>
+    </bean>
 </beans>

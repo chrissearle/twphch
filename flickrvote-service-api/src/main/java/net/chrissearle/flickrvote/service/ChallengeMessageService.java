@@ -3,6 +3,8 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 
+import java.util.Date;
+
 /**
  * Tightly coupled with ChallengeService - simply collects all message source handling in one place
  */
@@ -36,4 +38,28 @@ public interface ChallengeMessageService {
     String getBronzeBadgeUrl();
 
     String getResultsForumSingle(ImageItem image);
+
+    String getHistoryReportTitle();
+
+    String getInfoSectionTitle();
+
+    String getInfoStartDate(Date date);
+
+    String getInfoVoteDate(Date date);
+
+    String getInfoEndDate(Date date);
+
+    String getImageSectionTitle();
+
+    String getHistoryImageTitleTitle();
+
+    String getHistoryImageRankTitle();
+
+    String getHistoryImageVoteTitle();
+
+    String getHistoryImagePostedTitle();
+
+    String getHistoryImageUrlTitle();
+
+    String getHistoryImagePhotographerTitle();
 }

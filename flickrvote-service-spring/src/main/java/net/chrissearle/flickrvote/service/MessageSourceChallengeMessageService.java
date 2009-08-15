@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 @Service
@@ -172,6 +173,63 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         params[4] = image.getImageUrl();
 
         return messageSource.getMessage("flickr.forum.results.single", params, Locale.getDefault());
+    }
+
+    public String getHistoryReportTitle() {
+        return messageSource.getMessage("history.report.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getInfoSectionTitle() {
+        return messageSource.getMessage("history.report.info.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getInfoStartDate(Date date) {
+        Object[] params = new Object[1];
+        params[0] = df.format(date);
+
+        return messageSource.getMessage("history.report.info.start", params, Locale.getDefault());
+    }
+
+    public String getInfoVoteDate(Date date) {
+        Object[] params = new Object[1];
+        params[0] = df.format(date);
+
+        return messageSource.getMessage("history.report.info.vote", params, Locale.getDefault());
+    }
+
+    public String getInfoEndDate(Date date) {
+        Object[] params = new Object[1];
+        params[0] = df.format(date);
+
+        return messageSource.getMessage("history.report.info.end", params, Locale.getDefault());
+    }
+
+    public String getImageSectionTitle() {
+        return messageSource.getMessage("history.report.image.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImagePhotographerTitle() {
+        return messageSource.getMessage("history.report.image.photographer.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImagePostedTitle() {
+        return messageSource.getMessage("history.report.image.posted.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImageRankTitle() {
+        return messageSource.getMessage("history.report.image.rank.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImageTitleTitle() {
+        return messageSource.getMessage("history.report.image.title.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImageUrlTitle() {
+        return messageSource.getMessage("history.report.image.url.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getHistoryImageVoteTitle() {
+        return messageSource.getMessage("history.report.image.vote.title", new Object[0], Locale.getDefault());
     }
 
     public String getGoldBadgeUrl() {

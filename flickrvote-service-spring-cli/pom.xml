@@ -27,10 +27,6 @@
         </dependency>
         <dependency>
             <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-mail-spring</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-data-spring</artifactId>
         </dependency>
 
@@ -68,6 +64,10 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
         </dependency>
+        <dependency>
+            <groupId>net.chrissearle.common</groupId>
+            <artifactId>simple-mail-spring</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -97,6 +97,10 @@
                         <program>
                             <mainClass>net.chrissearle.flickrvote.service.cli.PhotographerChartCli</mainClass>
                             <name>photographerchart</name>
+                        </program>
+                        <program>
+                            <mainClass>net.chrissearle.flickrvote.service.cli.PdfReportCli</mainClass>
+                            <name>pdf</name>
                         </program>
                     </programs>
                 </configuration>

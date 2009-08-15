@@ -57,6 +57,11 @@
             <artifactId>bitlyj</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+        </dependency>
+
         <!-- Testing -->
         <dependency>
             <groupId>org.testng</groupId>

@@ -33,6 +33,11 @@
 
     <bean id="adminAuthTokenHolder" class="net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder">
         <property name="adminAuthToken" value="${flickr.admin.auth.token}"/>
+        <property name="adminAuthActive" value="${flickr.admin.auth.active}"/>
+    </bean>
+
+    <bean id="twitterHolder" class="net.chrissearle.flickrvote.twitter.TwitterHolder">
+        <property name="active" value="${twitter.active}"/>
     </bean>
 
     <bean id="flickr" class="com.aetrion.flickr.Flickr">
@@ -67,8 +72,12 @@
         <property name="to" value="${mail.to.address.forum}"/>
     </bean>
 
-    <bean id="forumPostMessageManager" class="net.chrissearle.flickrvote.mail.PostMessageManager">
+    <bean id="simpleMailMessageManager" class="net.chrissearle.mail.SimpleMailMessageManager">
         <constructor-arg index="0" ref="mailSender"/>
         <constructor-arg index="1" ref="mailTemplate"/>
+    </bean>
+
+    <bean id="reportServiceConfiguration" class="net.chrissearle.flickrvote.service.ReportServiceConfiguration">
+        <property name="historyReportPath" value="${history.report.path}"/>
     </bean>
 </beans>

@@ -30,6 +30,12 @@
         <property name="concurrent" value="false"/>
     </bean>
 
+    <bean id="generateHistoryPdfJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="reportService"/>
+        <property name="targetMethod" value="generateHistoryReport"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
     <!-- Schedules are a touch past the hour - this allows the service to call the getVoting/getCurrent and get the correct challenge -->
     <bean id="freezeChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="freezeChallengeJob"/>
@@ -51,6 +57,11 @@
         <property name="cronExpression" value="1 0 21 ? * SUN"/>
     </bean>
 
+    <bean id="generateHistoryPdfTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="generateHistoryPdfJob"/>
+        <property name="cronExpression" value="10 0 21 ? * SUN"/>
+    </bean>
+
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
@@ -58,6 +69,7 @@
                 <ref bean="openVotingTrigger"/>
                 <ref bean="announceNewChallengeTrigger"/>
                 <ref bean="announceResultsTrigger"/>
+                <ref bean="generateHistoryPdfTrigger"/>
             </list>
         </property>
     </bean>
