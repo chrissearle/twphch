@@ -2,6 +2,7 @@ package net.chrissearle.flickrvote.web.common;
 
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.ReportService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.web.model.Challenge;
@@ -17,7 +18,12 @@ public class ChallengeListBlockAction extends ActionSupport {
     @Autowired
     private ChallengeService challengeService;
 
+    @Autowired
+    private ReportService reportService;
+
     private List<Challenge> challenges;
+
+    private Long reportLength;
 
     @Override
     public String execute() throws Exception {
@@ -34,10 +40,21 @@ public class ChallengeListBlockAction extends ActionSupport {
             }
         });
 
+        reportLength = reportService.getHistoryReportSize();
+
         return SUCCESS;
     }
 
     public List<Challenge> getChallenges() {
         return challenges;
+    }
+
+    public long getReportLength() {
+        // Return length in megabytes
+        return (reportLength / (1024 * 1024));
+    }
+
+    public Boolean isReportAvailable() {
+        return !(reportLength == ReportService.REPORT_UNAVAILABLE);
     }
 }

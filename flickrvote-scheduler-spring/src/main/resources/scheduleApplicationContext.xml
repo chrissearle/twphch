@@ -59,7 +59,7 @@
 
     <bean id="generateHistoryPdfTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="generateHistoryPdfJob"/>
-        <property name="cronExpression" value="10 0 21 ? * SUN"/>
+        <property name="cronExpression" value="0 0 23 * * ?"/>
     </bean>
 
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

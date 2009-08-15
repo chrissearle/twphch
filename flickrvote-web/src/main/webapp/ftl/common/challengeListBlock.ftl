@@ -17,6 +17,12 @@
                 <@s.property value="#challenge.challengeDescription"/></@s.a>
             </li>
             </@s.iterator>
+            <@s.if test="reportAvailable">
+            <li>
+                <@s.url id="reportUrl" action="historyReport" namespace="/"/>
+                <@s.a href="%{reportUrl}"><@s.text name="report.link.title"/> <@s.property value="reportLength"/> Mb</@s.a>
+            </li>
+            </@s.if>
         </ul>
     </div>
 </div>

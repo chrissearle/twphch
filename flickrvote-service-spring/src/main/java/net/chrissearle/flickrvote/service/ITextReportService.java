@@ -13,9 +13,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -231,6 +229,51 @@ public class ITextReportService implements ReportService {
     }
 
     public byte[] getHistoryReport() {
-        return new byte[0];  //To change body of implemented methods use File | Settings | File Templates.
+        long length = getHistoryReportSize();
+
+        try {
+            // Apparently arrays are max bound by int not long.
+            if (length > 0 && length < Integer.MAX_VALUE) {
+
+                InputStream in = new FileInputStream(new File(historyReportPath));
+
+                byte[] bytes = new byte[(int) length];
+
+                int offset = 0;
+                int numRead = 0;
+                while (offset < bytes.length
+                        && (numRead = in.read(bytes, offset, bytes.length - offset)) >= 0) {
+                    offset += numRead;
+                }
+
+                if (offset < bytes.length) {
+                    if (logger.isEnabledFor(Level.ERROR)) {
+                        logger.error("Failed to read history file");
+                    }
+                } else {
+                    in.close();
+                    return bytes;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            if (logger.isEnabledFor(Level.ERROR)) {
+                logger.error("Failed to find history file", e);
+            }
+        } catch (IOException e) {
+            if (logger.isEnabledFor(Level.ERROR)) {
+                logger.error("File error reading history file", e);
+            }
+        }
+        return new byte[0];
+    }
+
+    public long getHistoryReportSize() {
+        File file = new File(historyReportPath);
+
+        if (!file.exists() || !file.canRead()) {
+            return REPORT_UNAVAILABLE;
+        }
+
+        return file.length();
     }
 }
