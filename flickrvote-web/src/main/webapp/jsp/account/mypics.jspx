@@ -25,7 +25,7 @@
                 <s:property value="#displayImage.rank"/>
                 :
                 <s:property value="#displayImage.imageTitle"/>
-                (<s:property value="#displayImage.voteCount"/> votes)
+                (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
             </h3>
 
             <p>

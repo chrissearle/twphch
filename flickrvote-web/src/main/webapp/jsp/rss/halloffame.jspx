@@ -20,7 +20,7 @@
                         <fv:photographer photographer="${displayImage}"/>
                         :
                         <s:property value="#displayImage.imageTitle"/>
-                        (<s:property value="#displayImage.voteCount"/> votes)
+                        (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
                         <br/>
                         <fv:image image="${displayImage}" showBadge="false"/>
                     </description>
