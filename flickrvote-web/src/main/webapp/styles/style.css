@@ -266,6 +266,17 @@ ol li {
     border-bottom: 1px dashed;
 }
 
+#column2 ul.column2links a, #column2 ul.column2links a:hover {
+    padding: 5px 0px 4px 19px;
+    border-bottom: none;
+}
+
+#column2 ul.column2links li {
+    line-height: 24px;
+    margin: 0px;
+    list-style: none;
+}
+
 #column2 a:hover {
     border-bottom: 1px solid;
 }

@@ -1,0 +1,32 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          version="2.0" xmlns:fv="/flickrvote-tags">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title><s:text name="main.title"/></title>
+        <s:head/>
+    </head>
+    <body>
+    <h1><s:text name="list.challenges.title"/></h1>
+    <ul class="column2links">
+        <s:iterator id="challenge" value="challenges">
+            <li>
+                <s:url id="challengeUrl" action="show">
+                    <s:param name="challengeTag" value="#challenge.challengeTag"/>
+                </s:url>
+                <s:a href="%{challengeUrl}">
+                    <fv:challengeTitle challenge="${challenge}"/>
+                </s:a>
+            </li>
+        </s:iterator>
+    </ul>
+
+    </body>
+    </html>
+</jsp:root>

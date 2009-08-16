@@ -43,5 +43,8 @@
                 <param name="contentDisposition">attachment;filename="flickrvote_history.pdf"</param>
             </result>
         </action>
+        <action name="listChallenges" class="net.chrissearle.flickrvote.web.common.ChallengeListAction" method="browse">
+            <result name="success">/jsp/listchallenges.jspx</result>
+        </action>
     </package>
 </struts>

@@ -17,6 +17,10 @@
                 <@s.property value="#challenge.challengeDescription"/></@s.a>
             </li>
             </@s.iterator>
+            <li>
+                <@s.url id="challengeListUrl" action="listChallenges" namespace="/"/>
+                <@s.a href="%{challengeListUrl}"><@s.text name="link.list.challenges"/></@s.a>
+            </li>
             <@s.if test="reportAvailable">
             <li>
                 <@s.url id="reportUrl" action="historyReport" namespace="/"/>

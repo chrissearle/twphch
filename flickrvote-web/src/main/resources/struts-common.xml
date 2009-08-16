@@ -27,7 +27,7 @@
             <result type="freemarker" name="success">/ftl/common/votingChallengeBlock.ftl</result>
         </action>
 
-        <action name="challengeListBlock" class="net.chrissearle.flickrvote.web.common.ChallengeListBlockAction">
+        <action name="challengeListBlock" class="net.chrissearle.flickrvote.web.common.ChallengeListAction">
             <result type="freemarker" name="success">/ftl/common/challengeListBlock.ftl</result>
         </action>
     </package>
