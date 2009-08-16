@@ -33,8 +33,7 @@
 
     </@s.if>
 
-    <@s.if test="challenge.challengeVoting">
-
+    <@s.if test="challenge.challengeVoting && #session.flickrUser && voted">
     <h2><@s.text name="sidebar.details.liveresults"/></h2>
     <@s.url id="votechart" namespace="/chart" action="showVotingChart"/>
     <@s.url id="votechartFull" namespace="/vote" action="showVoteResult"/>
@@ -43,6 +42,5 @@
         <br/>
         <@s.a href="%{votechartFull}"><@s.text name="sidebar.link.viewfullsize"/></@s.a>
     </p>
-
     </@s.if>
 </div>

@@ -23,7 +23,9 @@
                 <fv:photographer photographer="${displayImage}"/>
                 :
                 <s:property value="#displayImage.imageTitle"/>
-                (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
+                <s:if test="#session.flickrUser &amp;&amp; voted">
+                    (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
+                </s:if>
             </h3>
             <fv:image image="${displayImage}"/>
         </div>

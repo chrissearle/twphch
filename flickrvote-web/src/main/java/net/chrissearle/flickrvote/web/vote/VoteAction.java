@@ -30,6 +30,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     private List<DisplayImage> images;
 
+    private Boolean voted;
+
     @Autowired
     private ChallengeService challengeService;
 
@@ -162,6 +164,16 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                 }
             });
         }
+
+        if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
+            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+
+            voted = challengeService.hasVoted(photographer.getPhotographerId());
+
+            if (logger.isDebugEnabled()) {
+                logger.debug("Setting voted to " + voted);
+            }
+        }
     }
 
     public Challenge getChallenge() {
@@ -174,5 +186,9 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     public String browse() throws Exception {
         return "browse";
+    }
+
+    public Boolean isVoted() {
+        return voted;
     }
 }

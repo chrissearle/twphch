@@ -25,7 +25,5 @@
     <p><@s.text name="sidebar.voting.notloggedin"/>.</p>
     <@s.url id="votingPhotos" namespace="/vote" action="showVotePhotos"/>
     <@s.a href="%{votingPhotos}"><@s.text name="sidebar.voting.photos"/></@s.a><br/>
-    <@s.url id="votingResultsLink" namespace="/vote" action="showVoteResult"/>
-    <p><@s.a href="%{votingResultsLink}"><@s.text name="sidebar.voting.results"/></@s.a></p>
     </@s.else>
 </div>
