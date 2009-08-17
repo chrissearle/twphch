@@ -74,7 +74,7 @@ public class ImageItemInstance implements ImageItem {
     }
 
     public Date getPostedDate() {
-        return new Date(postedDate.getTime());
+        return postedDate == null ? null : new Date(postedDate.getTime());
     }
 
     public Long getRank() {

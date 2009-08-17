@@ -34,15 +34,15 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
     }
 
     public Date getStartDate() {
-        return new Date(startDate.getTime());
+        return startDate == null ? null : new Date(startDate.getTime());
     }
 
     public Date getEndDate() {
-        return new Date(endDate.getTime());
+        return endDate == null ? null : new Date(endDate.getTime());
     }
 
     public Date getVoteDate() {
-        return new Date(voteDate.getTime());
+        return voteDate == null ? null : new Date(voteDate.getTime());
     }
 
     public String getTitle() {

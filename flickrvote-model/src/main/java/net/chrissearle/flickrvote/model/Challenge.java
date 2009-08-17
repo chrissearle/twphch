@@ -62,11 +62,11 @@ public class Challenge {
     }
 
     public Date getVotingOpenDate() {
-        return new Date(votingOpenDate.getTime());
+        return votingOpenDate == null ? null : new Date(votingOpenDate.getTime());
     }
 
     public Date getEndDate() {
-        return new Date(endDate.getTime());
+        return endDate == null ? null : new Date(endDate.getTime());
     }
 
     protected void setTag(String tag) {
@@ -78,15 +78,15 @@ public class Challenge {
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = new Date(startDate.getTime());
+        this.startDate = startDate == null ? null : new Date(startDate.getTime());
     }
 
     public void setVotingOpenDate(Date votingOpenDate) {
-        this.votingOpenDate = new Date(votingOpenDate.getTime());
+        this.votingOpenDate = votingOpenDate == null ? null : new Date(votingOpenDate.getTime());
     }
 
     public void setEndDate(Date endDate) {
-        this.endDate = new Date(endDate.getTime());
+        this.endDate = endDate == null ? null : new Date(endDate.getTime());
     }
 
     public Date getStartDate() {

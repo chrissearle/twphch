@@ -10,11 +10,11 @@ public class ChallengeAdmin implements Serializable {
     private Date startDate;
 
     public Date getStartDate() {
-        return new Date(startDate.getTime());
+        return startDate == null ? null : new Date(startDate.getTime());
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = new Date(startDate.getTime());
+    public void setStartDate(Date date) {
+        this.startDate = date == null ? null : new Date(date.getTime());
     }
 
     public String getTag() {

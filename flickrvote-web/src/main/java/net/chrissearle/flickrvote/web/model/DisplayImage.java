@@ -20,14 +20,14 @@ public class DisplayImage implements Image, Photographer, Challenge {
     private final String iconUrl;
     private final Boolean adminFlag;
     private final Boolean activeFlag;
-    private String challengeTag;
-    private String challengeDescription;
-    private Date challengeStart;
-    private Date challengeEnd;
-    private Date challengeVote;
-    private Boolean challengeOpen;
-    private Boolean challengeVoting;
-    private Boolean challengeClosed;
+    private final String challengeTag;
+    private final String challengeDescription;
+    private final Date challengeStart;
+    private final Date challengeEnd;
+    private final Date challengeVote;
+    private final Boolean challengeOpen;
+    private final Boolean challengeVoting;
+    private final Boolean challengeClosed;
 
     public DisplayImage(ImageItem image) {
         this.imageId = image.getId();
@@ -86,7 +86,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getPostedDate() {
-        return new Date(postedDate.getTime());
+        return postedDate == null ? null : new Date(postedDate.getTime());
     }
 
     public Long getVoteCount() {
@@ -145,7 +145,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getChallengeEnd() {
-        return new Date(challengeEnd.getTime());
+        return challengeEnd == null ? null : new Date(challengeEnd.getTime());
     }
 
     public boolean isChallengeOpen() {
@@ -153,11 +153,11 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getChallengeStart() {
-        return new Date(challengeStart.getTime());
+        return challengeStart == null ? null : new Date(challengeStart.getTime());
     }
 
     public Date getChallengeVote() {
-        return new Date(challengeVote.getTime());
+        return challengeVote == null ? null : new Date(challengeVote.getTime());
     }
 
     public boolean isChallengeVoting() {

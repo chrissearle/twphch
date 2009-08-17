@@ -161,10 +161,10 @@ public class Image {
     }
 
     public Date getPostedDate() {
-        return new Date(postedDate.getTime());
+        return postedDate == null ? null : new Date(postedDate.getTime());
     }
 
-    public void setPostedDate(Date postedDate) {
-        this.postedDate = new Date(postedDate.getTime());
+    public void setPostedDate(Date date) {
+        postedDate = date == null ? null : new Date(date.getTime());
     }
 }

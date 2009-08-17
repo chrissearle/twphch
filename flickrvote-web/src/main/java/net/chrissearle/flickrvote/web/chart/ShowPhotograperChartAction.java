@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 public class ShowPhotograperChartAction extends ActionSupport implements SessionAware {
+    private static final long serialVersionUID = -2037780221800573153L;
 
     private JFreeChart chart;
 
