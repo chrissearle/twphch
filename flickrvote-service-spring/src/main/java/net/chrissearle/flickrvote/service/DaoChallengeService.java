@@ -158,15 +158,17 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public ChallengeSummary openVoting() {
-        ChallengeSummary challenge = new ChallengeSummaryInstance(challengeDao.getVotingChallenge());
+        Challenge votingChallenge = challengeDao.getVotingChallenge();
 
-        if (challenge == null) {
+        if (votingChallenge == null) {
             if (logger.isDebugEnabled()) {
                 logger.debug("No voting challenge found to open");
             }
 
             return null;
         }
+
+        ChallengeSummary challenge = new ChallengeSummaryInstance(votingChallenge);
 
         if (logger.isInfoEnabled()) {
             logger.info("Opening voting for " + challenge);
