@@ -302,6 +302,14 @@
         </dependencies>
     </dependencyManagement>
 
+
+    <distributionManagement>
+        <site>
+            <id>chrissearle.github.com</id>
+            <url>file:///</url>
+        </site>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
