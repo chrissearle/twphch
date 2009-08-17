@@ -12,8 +12,6 @@ import java.util.Map;
 
 public class ShowPhotograperChartAction extends ActionSupport implements SessionAware {
 
-    private String tag;
-
     private JFreeChart chart;
 
     @Autowired
@@ -35,10 +33,6 @@ public class ShowPhotograperChartAction extends ActionSupport implements Session
     // this method will get called if we specify <param name="value">chart</param>
     public JFreeChart getChart() {
         return chart;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 
     public void setSession(Map<String, Object> stringObjectMap) {
