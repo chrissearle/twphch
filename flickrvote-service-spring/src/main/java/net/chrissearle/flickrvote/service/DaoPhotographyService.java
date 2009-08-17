@@ -119,16 +119,29 @@ public class DaoPhotographyService implements PhotographyService {
             return null;
         }
 
+        Map<String, ImageItem> seenImages = new HashMap<String, ImageItem>();
+
         if (challenge.getVotingState() == ChallengeState.OPEN) {
             // Grab images from flickr
             for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
-                images.add(new ImageItemInstance(image));
+                ImageItemInstance imageItem = new ImageItemInstance(image);
+                images.add(imageItem);
+                seenImages.put(image.getPhotographer().getFlickrId(), imageItem);
             }
-        } else {
-            // Grab images from db
-            for (Image image : challenge.getImages()) {
-                images.add(new ImageItemInstance(image));
+        }
+
+        // Grab images from db. Merge in if flickr images have already been fetched
+        for (Image image : challenge.getImages()) {
+            final String photographerId = image.getPhotographer().getId();
+
+            if (seenImages.containsKey(photographerId)) {
+                // The db has an image for a photographer that has been found by search.
+                // This only happens when administrators add an image manually.
+                // In this case - use the db image.
+                images.remove(seenImages.get(photographerId));
             }
+
+            images.add(new ImageItemInstance(image));
         }
 
         return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
@@ -139,6 +152,10 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     public ImageItem retrieveAndStoreImage(String id, String tag) {
+        return retrieveAndStoreImage(id, tag, true);
+    }
+
+    public ImageItem retrieveAndStoreImage(String id, String tag, boolean replaceExisting) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge == null)
@@ -152,6 +169,22 @@ public class DaoPhotographyService implements PhotographyService {
             if (logger.isInfoEnabled()) {
                 logger.info("Storing image " + flickrImage.getFlickrId());
             }
+            String photographerId = flickrImage.getPhotographer().getFlickrId();
+            Photographer photographer = photographyDao.findById(photographerId);
+
+            Image existing = checkForExistingImage(photographer, tag);
+
+            if (existing != null) {
+                // Found an existing image for this challenge by this photographer
+                if (replaceExisting) {
+                    // Normal functionality - remove the existing one - we're doing an update
+                    photographer.removeImage(existing);
+                    imageDao.remove(existing);
+                } else {
+                    // Special case - e.g. we don't want to replace admin overridden images at freeze.
+                    return new ImageItemInstance(existing);
+                }
+            }
 
             image = new Image();
             image.setId(flickrImage.getFlickrId());
@@ -160,8 +193,6 @@ public class DaoPhotographyService implements PhotographyService {
             image.setTitle(flickrImage.getTitle());
             image.setPostedDate(flickrImage.getPostedDate());
 
-            String photographerId = flickrImage.getPhotographer().getFlickrId();
-            Photographer photographer = photographyDao.findById(photographerId);
 
             if (photographer == null) {
                 retrieveAndStorePhotographer(photographerId);
@@ -190,6 +221,15 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         return new ImageItemInstance(image);
+    }
+
+    private Image checkForExistingImage(Photographer photographer, String tag) {
+        for (Image image : photographer.getImages()) {
+            if (image.getChallenge().getTag().equals(tag)) {
+                return image;
+            }
+        }
+        return null;
     }
 
     public void setScore(String imageId, Long score) {
@@ -237,7 +277,7 @@ public class DaoPhotographyService implements PhotographyService {
         List<FlickrImage> images = flickrService.searchImagesByTag(challenge.getTag(), challenge.getStartDate());
 
         for (FlickrImage image : images) {
-            retrieveAndStoreImage(image.getFlickrId(), challenge.getTag());
+            retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
         }
     }
 
