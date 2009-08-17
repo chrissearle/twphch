@@ -15,6 +15,8 @@
     <packaging>jar</packaging>
 
     <name>TwPhCh voting app - Model</name>
+    <description>Database model for the Twitter Photo Challenge voting app</description>
+    <url>http://chrissearle.github.com/twphch/flickrvote-model</url>
 
     <dependencies>
         <dependency>

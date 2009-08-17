@@ -15,6 +15,8 @@
     <packaging>jar</packaging>
 
     <name>TwPhCh voting app - Data - API</name>
+    <description>Database access API for the Twitter Photo Challenge voting app</description>
+    <url>http://chrissearle.github.com/twphch/flickrvote-data-api</url>
 
     <dependencies>
         <dependency>

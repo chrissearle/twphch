@@ -12,8 +12,21 @@
     <artifactId>flickrvote-common</artifactId>
     <version>1-SNAPSHOT</version>
 
-    <name>TwPhCh voting app - Dependency Management</name>
+    <name>TwPhCh voting app</name>
     <packaging>pom</packaging>
+    <url>http://chrissearle.github.com/twphch/</url>
+    <description>Twitter Photo Challenge voting application</description>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>http://github.com/chrissearle/twphch/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:git://github.com/chrissearle/twphch</connection>
+        <developerConnection>scm:git:git://github.com/chrissearle/twphch</developerConnection>
+    </scm>
+
 
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
