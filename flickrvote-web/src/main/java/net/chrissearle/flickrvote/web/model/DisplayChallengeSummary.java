@@ -13,6 +13,7 @@ public class DisplayChallengeSummary implements Challenge {
     private Boolean open;
     private Boolean closed;
     private Boolean voting;
+    private static final String TAG_PREFIX = "TwPhCh";
 
     public DisplayChallengeSummary(ChallengeSummary summary) {
         tag = summary.getTag();
@@ -55,5 +56,12 @@ public class DisplayChallengeSummary implements Challenge {
 
     public boolean isChallengeVoting() {
         return voting;
+    }
+
+    public String getShortTag() {
+        if (tag.indexOf(TAG_PREFIX) > -1) {
+            return tag.substring(TAG_PREFIX.length());
+        }
+        return tag;
     }
 }

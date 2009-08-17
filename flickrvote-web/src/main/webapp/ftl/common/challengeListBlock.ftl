@@ -12,7 +12,7 @@
                 <@s.url id="showLink" namespace="/" action="show">
                 <@s.param name="challengeTag"><@s.property value="#challenge.challengeTag"/></@s.param>
                 </@s.url>
-                <@s.a href="%{showLink}">#<@s.property value="#challenge.challengeTag"/>
+                <@s.a href="%{showLink}">#<@s.property value="#challenge.shortTag"/>
                 -
                 <@s.property value="#challenge.challengeDescription"/></@s.a>
             </li>
