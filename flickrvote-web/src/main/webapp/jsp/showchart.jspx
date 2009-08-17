@@ -13,22 +13,22 @@
         <s:head/>
     </head>
     <body>
-    <h1>#<s:property value="challenge.tag"/> - <s:property value="challenge.title"/></h1>
+    <h1>#<s:property value="challenge.challengeTag"/> - <s:property value="challenge.challengeDescription"/></h1>
 
-    <s:if test="challenge.closed">
+    <s:if test="challenge.challengeClosed">
 
-    <h2><s:text name="showchart.results.title"/></h2>
+        <h2><s:text name="showchart.results.title"/></h2>
 
-    <s:url id="chart" namespace="/chart" action="showChart">
-    <s:param name="tag" value="challenge.tag"/>
-    </s:url>
+        <s:url id="chart" namespace="/chart" action="showChart">
+            <s:param name="tag" value="challenge.challengeTag"/>
+        </s:url>
 
-    <p>
-        <img src="${chart}" alt="chart"/>
-    </p>
+        <p>
+            <img src="${chart}" alt="chart"/>
+        </p>
 
     </s:if>
-    
+
     </body>
     </html>
 </jsp:root>
