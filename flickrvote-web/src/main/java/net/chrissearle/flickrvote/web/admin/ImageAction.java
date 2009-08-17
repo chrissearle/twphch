@@ -19,13 +19,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ImageAction extends ActionSupport implements Preparable {
-    Logger logger = Logger.getLogger(ImageAction.class);
+    private static final long serialVersionUID = 110326130351611401L;
+
+    private transient Logger logger = Logger.getLogger(ImageAction.class);
 
     @Autowired
-    private PhotographyService photographyService;
+    private transient PhotographyService photographyService;
 
     @Autowired
-    private ChallengeService challengeService;
+    private transient ChallengeService challengeService;
 
     private List<String> id;
 

@@ -24,7 +24,6 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
     private String currentUrl;
     private String currentUrlShort;
     private String rulesUrl;
-    private String rulesUrlShort;
     private String goldBadgeUrl;
     private String silverBadgeUrl;
     private String bronzeBadgeUrl;
@@ -46,7 +45,6 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         currentUrl = getUrlProperty("url.current");
         currentUrlShort = shortUrlService.shortenUrl(currentUrl);
         rulesUrl = getUrlProperty("url.rules");
-        rulesUrlShort = shortUrlService.shortenUrl(rulesUrl);
 
         goldBadgeUrl = getUrlProperty("gold.badge");
         silverBadgeUrl = getUrlProperty("silver.badge");

@@ -10,7 +10,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class ImageTag extends TagSupport {
-    private Logger logger = Logger.getLogger(ImageTag.class);
+    private static final long serialVersionUID = -3442973149583766220L;
+
+    private transient Logger logger = Logger.getLogger(ImageTag.class);
 
     private Image image;
     private Boolean showBadge = true;

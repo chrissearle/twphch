@@ -86,7 +86,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getPostedDate() {
-        return postedDate;
+        return new Date(postedDate.getTime());
     }
 
     public Long getVoteCount() {
@@ -145,7 +145,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getChallengeEnd() {
-        return challengeEnd;
+        return new Date(challengeEnd.getTime());
     }
 
     public boolean isChallengeOpen() {
@@ -153,11 +153,11 @@ public class DisplayImage implements Image, Photographer, Challenge {
     }
 
     public Date getChallengeStart() {
-        return challengeStart;
+        return new Date(challengeStart.getTime());
     }
 
     public Date getChallengeVote() {
-        return challengeVote;
+        return new Date(challengeVote.getTime());
     }
 
     public boolean isChallengeVoting() {

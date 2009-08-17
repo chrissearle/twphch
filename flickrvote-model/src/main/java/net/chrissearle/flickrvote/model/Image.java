@@ -2,8 +2,8 @@ package net.chrissearle.flickrvote.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "image")
@@ -161,10 +161,10 @@ public class Image {
     }
 
     public Date getPostedDate() {
-        return postedDate;
+        return new Date(postedDate.getTime());
     }
 
     public void setPostedDate(Date postedDate) {
-        this.postedDate = postedDate;
+        this.postedDate = new Date(postedDate.getTime());
     }
 }

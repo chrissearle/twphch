@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "challenge")
-public class Challenge implements Comparable<Challenge> {
+public class Challenge {
 
     @Id
     @Column(length = 50, name = "tag", nullable = false)
@@ -62,15 +62,11 @@ public class Challenge implements Comparable<Challenge> {
     }
 
     public Date getVotingOpenDate() {
-        return votingOpenDate;
+        return new Date(votingOpenDate.getTime());
     }
 
     public Date getEndDate() {
-        return endDate;
-    }
-
-    public int compareTo(Challenge o) {
-        return o.getStartDate().compareTo(getStartDate());
+        return new Date(endDate.getTime());
     }
 
     protected void setTag(String tag) {
@@ -82,19 +78,19 @@ public class Challenge implements Comparable<Challenge> {
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+        this.startDate = new Date(startDate.getTime());
     }
 
     public void setVotingOpenDate(Date votingOpenDate) {
-        this.votingOpenDate = votingOpenDate;
+        this.votingOpenDate = new Date(votingOpenDate.getTime());
     }
 
     public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+        this.endDate = new Date(endDate.getTime());
     }
 
     public Date getStartDate() {
-        return startDate;
+        return new Date(startDate.getTime());
     }
 
     @Override

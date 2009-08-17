@@ -20,7 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 
 public class VoteAction extends ActionSupport implements SessionAware, Preparable {
-    Logger logger = Logger.getLogger(VoteAction.class);
+    private static final long serialVersionUID = 3592153769459598022L;
+
+    private transient Logger logger = Logger.getLogger(VoteAction.class);
 
     private Map<String, Object> session;
 
@@ -33,10 +35,10 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
     private Boolean voted;
 
     @Autowired
-    private ChallengeService challengeService;
+    private transient ChallengeService challengeService;
 
     @Autowired
-    private PhotographyService photographyService;
+    private transient PhotographyService photographyService;
 
     public void setVotes(List<String> votes) {
         if (logger.isDebugEnabled()) {

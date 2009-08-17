@@ -10,7 +10,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class ChallengeTitleTag extends TagSupport {
-    private Logger logger = Logger.getLogger(ChallengeTitleTag.class);
+    private static final long serialVersionUID = -7133187698295844912L;
+
+    private transient Logger logger = Logger.getLogger(ChallengeTitleTag.class);
 
     private Challenge challenge;
 

@@ -10,7 +10,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class PhotographerTag extends TagSupport {
-    private Logger logger = Logger.getLogger(PhotographerTag.class);
+    private static final long serialVersionUID = 945856035489099235L;
+
+    private transient Logger logger = Logger.getLogger(PhotographerTag.class);
 
     private Photographer photographer;
 

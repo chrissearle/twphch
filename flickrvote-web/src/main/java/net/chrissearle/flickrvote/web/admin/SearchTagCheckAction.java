@@ -16,8 +16,8 @@ public class SearchTagCheckAction extends ActionSupport {
     public String execute() throws Exception {
         Map<String, String> searchIssues = photographyService.checkSearch(tag);
 
-        for (String key : searchIssues.keySet()) {
-            addActionMessage("Issue with picture ID " + key + ": " + searchIssues.get(key));
+        for (final Map.Entry<String, String> entry : searchIssues.entrySet()) {
+            addActionMessage("Issue with picture ID " + entry.getKey() + ": " + entry.getValue());
         }
 
         return SUCCESS;

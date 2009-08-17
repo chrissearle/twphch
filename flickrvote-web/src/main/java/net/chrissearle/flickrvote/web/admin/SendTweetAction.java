@@ -3,17 +3,19 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SendTweetAction extends ActionSupport {
-    Logger logger = Logger.getLogger(SendTweetAction.class);
+    private static final long serialVersionUID = -731316433063598691L;
+
+    private transient Logger logger = Logger.getLogger(SendTweetAction.class);
 
     private String tweet;
 
     @Autowired
-    private TwitterService twitterService;
+    private transient TwitterService twitterService;
 
     @Override
     public String execute() throws Exception {

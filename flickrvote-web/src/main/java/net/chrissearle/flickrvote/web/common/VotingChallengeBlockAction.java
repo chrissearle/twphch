@@ -16,10 +16,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class VotingChallengeBlockAction extends ActionSupport implements SessionAware {
-    Logger logger = Logger.getLogger(VotingChallengeBlockAction.class);
+    private static final long serialVersionUID = 1953138483852395428L;
+
+    private transient Logger logger = Logger.getLogger(VotingChallengeBlockAction.class);
 
     @Autowired
-    private ChallengeService challengeService;
+    private transient ChallengeService challengeService;
 
     private Challenge challenge;
 

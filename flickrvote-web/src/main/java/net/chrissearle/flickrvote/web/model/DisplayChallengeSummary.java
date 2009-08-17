@@ -34,15 +34,15 @@ public class DisplayChallengeSummary implements Challenge {
     }
 
     public Date getChallengeStart() {
-        return start;
+        return new Date(start.getTime());
     }
 
     public Date getChallengeVote() {
-        return vote;
+        return new Date(vote.getTime());
     }
 
     public Date getChallengeEnd() {
-        return end;
+        return new Date(end.getTime());
     }
 
     public boolean isChallengeOpen() {

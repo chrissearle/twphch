@@ -18,7 +18,9 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ScoreAction extends ActionSupport {
-    Logger logger = Logger.getLogger(ScoreAction.class);
+    private static final long serialVersionUID = -398904299718446646L;
+
+    private transient Logger logger = Logger.getLogger(ScoreAction.class);
 
     private List<String> id;
 
@@ -31,10 +33,10 @@ public class ScoreAction extends ActionSupport {
     private List<ScoreAdmin> scores;
 
     @Autowired
-    private PhotographyService photographyService;
+    private transient PhotographyService photographyService;
 
     @Autowired
-    private ChallengeService challengeService;
+    private transient ChallengeService challengeService;
 
     @Override
     public String input() throws Exception {

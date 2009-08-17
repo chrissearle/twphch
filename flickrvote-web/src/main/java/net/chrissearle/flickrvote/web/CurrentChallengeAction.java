@@ -17,13 +17,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 
 public class CurrentChallengeAction extends ActionSupport implements Preparable {
-    private Logger log = Logger.getLogger(CurrentChallengeAction.class);
+    private static final long serialVersionUID = 2961184426759693084L;
+
+    private transient Logger log = Logger.getLogger(CurrentChallengeAction.class);
 
     @Autowired
-    private ChallengeService challengeService;
+    private transient ChallengeService challengeService;
 
     @Autowired
-    private PhotographyService photographyService;
+    private transient PhotographyService photographyService;
 
     private List<DisplayImage> images;
 

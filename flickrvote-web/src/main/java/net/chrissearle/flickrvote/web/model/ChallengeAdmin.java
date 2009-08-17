@@ -1,19 +1,20 @@
 package net.chrissearle.flickrvote.web.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ChallengeAdmin {
+public class ChallengeAdmin implements Serializable {
     private String tag;
     private String title;
 
     private Date startDate;
 
     public Date getStartDate() {
-        return startDate;
+        return new Date(startDate.getTime());
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+        this.startDate = new Date(startDate.getTime());
     }
 
     public String getTag() {

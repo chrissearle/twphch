@@ -1,8 +1,9 @@
 package net.chrissearle.flickrvote.web.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public interface Challenge {
+public interface Challenge extends Serializable {
     String getChallengeTag();
 
     String getChallengeDescription();

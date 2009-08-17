@@ -46,6 +46,10 @@ public class ITextReportService implements ReportService {
     }
 
     public void generateHistoryReport() {
+        if (logger.isInfoEnabled()) {
+            logger.info("Generating history report");
+        }
+
         try {
             Document document = new Document();
 
@@ -67,7 +71,30 @@ public class ITextReportService implements ReportService {
 
             document.close();
 
-            tempFile.renameTo(new File(historyReportPath));
+            if (logger.isInfoEnabled()) {
+                logger.info("Renaming " + tempFile.getAbsolutePath() + " to " + historyReportPath);
+            }
+
+            File pdfFile = new File(historyReportPath);
+            if (pdfFile.exists()) {
+                if (!pdfFile.delete()) {
+                    if (logger.isEnabledFor(Level.WARN)) {
+                        logger.warn("Could not delete file " + historyReportPath);
+                    }
+                }
+            }
+
+            if (pdfFile.canWrite()) {
+                if (!tempFile.renameTo(pdfFile)) {
+                    if (logger.isEnabledFor(Level.WARN)) {
+                        logger.warn("Could not rename file " + tempFile.getAbsolutePath() + " to " + historyReportPath);
+                    }
+                }
+            } else {
+                if (logger.isEnabledFor(Level.WARN)) {
+                    logger.warn("Cannot write to file " + historyReportPath);
+                }
+            }
         } catch (DocumentException e) {
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to create PDF", e);
@@ -231,11 +258,13 @@ public class ITextReportService implements ReportService {
     public byte[] getHistoryReport() {
         long length = getHistoryReportSize();
 
+        InputStream in = null;
+
         try {
             // Apparently arrays are max bound by int not long.
             if (length > 0 && length < Integer.MAX_VALUE) {
 
-                InputStream in = new FileInputStream(new File(historyReportPath));
+                in = new FileInputStream(new File(historyReportPath));
 
                 byte[] bytes = new byte[(int) length];
 
@@ -262,6 +291,16 @@ public class ITextReportService implements ReportService {
         } catch (IOException e) {
             if (logger.isEnabledFor(Level.ERROR)) {
                 logger.error("File error reading history file", e);
+            }
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    if (logger.isEnabledFor(Level.WARN)) {
+                        logger.warn("Unable to close stream in finally block");
+                    }
+                }
             }
         }
         return new byte[0];

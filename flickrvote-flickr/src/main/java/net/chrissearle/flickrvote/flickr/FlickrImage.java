@@ -18,8 +18,8 @@ public class FlickrImage {
         this.title = title;
         this.url = url;
         this.imageUrl = imageUrl;
-        this.takenDate = takenDate;
-        this.postedDate = postedDate;
+        this.takenDate = new Date(takenDate.getTime());
+        this.postedDate = new Date(postedDate.getTime());
     }
 
     public String getFlickrId() {
@@ -43,15 +43,15 @@ public class FlickrImage {
     }
 
     public Date getTakenDate() {
-        return takenDate;
+        return new Date(takenDate.getTime());
     }
 
     public void setTakenDate(Date takenDate) {
-        this.takenDate = takenDate;
+        this.takenDate = new Date(takenDate.getTime());
     }
 
     public Date getPostedDate() {
-        return postedDate;
+        return new Date(postedDate.getTime());
     }
 
     @Override
