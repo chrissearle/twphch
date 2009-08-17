@@ -108,8 +108,6 @@ public class FlickrJFlickrService implements FlickrService {
         try {
             List<Photo> photos = retrieveByTag(tag);
 
-            List<FlickrImage> results = new ArrayList<FlickrImage>(photos.size());
-
             Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
 
             for (Photo photo : photos) {
