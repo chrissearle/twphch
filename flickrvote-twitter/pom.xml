@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.chrissearle</groupId>
-        <artifactId>flickrvote-common</artifactId>
+        <artifactId>flickrvote</artifactId>
         <version>1-SNAPSHOT</version>
     </parent>
 
@@ -14,7 +14,13 @@
 
     <packaging>jar</packaging>
 
-    <name>TwPhCh voting app - Twitter</name>
+   <name>Twitter interface</name>
+   <description>Interface to twitter for the Twitter Photo Challenge voting app</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/chrissearle/twphch</connection>
+        <developerConnection>scm:git:git://github.com/chrissearle/twphch</developerConnection>
+    </scm>
 
     <dependencies>
         <dependency>
