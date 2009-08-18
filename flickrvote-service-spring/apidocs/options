@@ -1,0 +1,44 @@
+-classpath
+'/Users/chris/src/twphch/flickrvote/flickrvote-service-spring/target/classes:/Users/chris/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar:/Users/chris/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/Users/chris/.m2/repository/net/chrissearle/flickrvote-data-api/1-SNAPSHOT/flickrvote-data-api-1-SNAPSHOT.jar:/Users/chris/.m2/repository/net/chrissearle/common/simple-mail-api/1/simple-mail-api-1.jar:/Users/chris/.m2/repository/net/chrissearle/flickrvote-flickr/1-SNAPSHOT/flickrvote-flickr-1-SNAPSHOT.jar:/Users/chris/.m2/repository/com/rosaloves/bitlyj/1.0-SNAPSHOT/bitlyj-1.0-SNAPSHOT.jar:/Users/chris/.m2/repository/bouncycastle/bcprov-jdk14/138/bcprov-jdk14-138.jar:/Users/chris/.m2/repository/bouncycastle/bcmail-jdk14/138/bcmail-jdk14-138.jar:/Users/chris/.m2/repository/net/homeip/yusuke/twitter4j/2.0.9/twitter4j-2.0.9.jar:/Users/chris/.m2/repository/axis/axis-jaxrpc/1.2.1/axis-jaxrpc-1.2.1.jar:/Users/chris/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/Users/chris/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/Users/chris/.m2/repository/net/chrissearle/flickrvote-twitter/1-SNAPSHOT/flickrvote-twitter-1-SNAPSHOT.jar:/Users/chris/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/Users/chris/.m2/repository/net/sf/json-lib/json-lib/2.0/json-lib-2.0-jdk15.jar:/Users/chris/.m2/repository/net/chrissearle/common/jpa/1/jpa-1.jar:/Users/chris/.m2/repository/net/chrissearle/flickrvote-service-api/1-SNAPSHOT/flickrvote-service-api-1-SNAPSHOT.jar:/Users/chris/.m2/repository/net/sf/ezmorph/ezmorph/1.0.2/ezmorph-1.0.2.jar:/Users/chris/.m2/repository/org/springframework/spring-tx/2.5.6/spring-tx-2.5.6.jar:/Users/chris/.m2/repository/org/springframework/spring-core/2.5.6/spring-core-2.5.6.jar:/Users/chris/.m2/repository/commons-lang/commons-lang/2.3/commons-lang-2.3.jar:/Users/chris/.m2/repository/org/springframework/spring-beans/2.5.6/spring-beans-2.5.6.jar:/Users/chris/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar:/Users/chris/.m2/repository/axis/axis/1.2.1/axis-1.2.1.jar:/Users/chris/.m2/repository/net/chrissearle/flickrvote-model/1-SNAPSHOT/flickrvote-model-1-SNAPSHOT.jar:/Users/chris/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/Users/chris/.m2/repository/com/aetrion/flickr/flickrapi/1.1/flickrapi-1.1.jar:/Users/chris/.m2/repository/org/springframework/spring-context/2.5.6/spring-context-2.5.6.jar:/Users/chris/.m2/repository/commons-discovery/commons-discovery/0.2/commons-discovery-0.2.jar:/Users/chris/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/chris/.m2/repository/com/lowagie/itext/2.1.5/itext-2.1.5.jar'
+-doclet
+'gr.spinellis.umlgraph.doclet.UmlGraphDoc'
+-docletpath
+'/Users/chris/.m2/repository/gr/spinellis/UmlGraph/4.6/UmlGraph-4.6.jar'
+-encoding
+'UTF-8'
+-protected
+-quiet
+-sourcepath
+'/Users/chris/src/twphch/flickrvote/flickrvote-service-spring/src/main/java'
+-inferrel -inferdep -quiet -hide java.* -collpackages java.util.* -qualify -postfixpackage
+                        -nodefontsize 9
+                        -nodefontpackagesize 7
+                        -link http://java.sun.com/j2se/1.5.0/docs/api/
+                        -link http://java.sun.com/javaee/5/docs/api/
+-author
+-bottom
+'Copyright &#169; 2007-2009. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/chris/src/twphch/flickrvote/flickrvote-service-spring/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Service Implementation (spring) 1-SNAPSHOT API'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-model/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-model/target/site/apidocs'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-flickr/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-flickr/target/site/apidocs'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-data-api/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-data-api/target/site/apidocs'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-data-spring/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-data-spring/target/site/apidocs'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-twitter/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-twitter/target/site/apidocs'
+-linkoffline
+'http://chrissearle.github.com/twphch/flickrvote-service-api/apidocs' '/Users/chris/src/twphch/flickrvote/flickrvote-service-api/target/site/apidocs'
+-use
+-version
+-windowtitle
+'Service Implementation (spring) 1-SNAPSHOT API'

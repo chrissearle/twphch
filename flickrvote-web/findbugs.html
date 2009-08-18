@@ -1,0 +1,1377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Twitter PhotoChallenge - FindBugs Bug Detector Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Web App
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">      
+  
+
+  
+    
+            
+  
+    
+             Last Published: 2009-08-18
+              &nbsp;| Version: 1-SNAPSHOT
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+              <strong>FindBugs Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jdepend-report.html">JDepend</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+              <h5>Parent Project</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../index.html">Twitter Photo Challenge</a>
+          </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>FindBugs Bug Detector Report</h2>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a></p>
+<p>FindBugs Version is <i>1.3.8</i></p>
+<p>Threshold is <i>Low</i></p>
+<p>Effort is <i>Default</i></p>
+</div>
+<div class="section"><h2>Summary</h2>
+<table class="bodyTable"><tr class="a"><th>Classes</th>
+<th>Bugs</th>
+<th>Errors</th>
+<th>Missing Classes</th>
+</tr>
+<tr class="b"><td>209</td>
+<td>89</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h2>Files</h2>
+<table class="bodyTable"><tr class="a"><th>Class</th>
+<th>Bugs</th>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.CurrentChallengeAction">net.chrissearle.flickrvote.web.CurrentChallengeAction</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.CurrentChallengeAction$1">net.chrissearle.flickrvote.web.CurrentChallengeAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.HallOfFameAction">net.chrissearle.flickrvote.web.HallOfFameAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.HallOfFameAction$1">net.chrissearle.flickrvote.web.HallOfFameAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.HistoryReportAction">net.chrissearle.flickrvote.web.HistoryReportAction</a></td>
+<td>3</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.LogoutAction">net.chrissearle.flickrvote.web.LogoutAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.ShowChallengeAction$1">net.chrissearle.flickrvote.web.ShowChallengeAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.ShowChartAction">net.chrissearle.flickrvote.web.ShowChartAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.account.AccountAction">net.chrissearle.flickrvote.web.account.AccountAction</a></td>
+<td>5</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.account.MyPicsAction">net.chrissearle.flickrvote.web.account.MyPicsAction</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.account.MyPicsAction$1">net.chrissearle.flickrvote.web.account.MyPicsAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction">net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.account.ShowAccountAction">net.chrissearle.flickrvote.web.account.ShowAccountAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.CallCronAction">net.chrissearle.flickrvote.web.admin.CallCronAction</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.ChallengeAction">net.chrissearle.flickrvote.web.admin.ChallengeAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.ChallengeAction$1">net.chrissearle.flickrvote.web.admin.ChallengeAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.FrontPageAction">net.chrissearle.flickrvote.web.admin.FrontPageAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.FrontPageAction$1">net.chrissearle.flickrvote.web.admin.FrontPageAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.GetAdminFrobAction">net.chrissearle.flickrvote.web.admin.GetAdminFrobAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.ImageAction">net.chrissearle.flickrvote.web.admin.ImageAction</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.ImageAction$1">net.chrissearle.flickrvote.web.admin.ImageAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.PhotographerAction">net.chrissearle.flickrvote.web.admin.PhotographerAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.PhotographerDataAction">net.chrissearle.flickrvote.web.admin.PhotographerDataAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.PhotographerDataAction$1">net.chrissearle.flickrvote.web.admin.PhotographerDataAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.RankItAction">net.chrissearle.flickrvote.web.admin.RankItAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.ScoreAction">net.chrissearle.flickrvote.web.admin.ScoreAction</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.ScoreAction$1">net.chrissearle.flickrvote.web.admin.ScoreAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.SearchTagCheckAction">net.chrissearle.flickrvote.web.admin.SearchTagCheckAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.SendMailAction">net.chrissearle.flickrvote.web.admin.SendMailAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.SendTweetAction">net.chrissearle.flickrvote.web.admin.SendTweetAction</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction">net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction</a></td>
+<td>3</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction$1">net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.chart.ShowChartAction">net.chrissearle.flickrvote.web.chart.ShowChartAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction">net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.chart.ShowVotingChartAction">net.chrissearle.flickrvote.web.chart.ShowVotingChartAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.common.ChallengeListAction">net.chrissearle.flickrvote.web.common.ChallengeListAction</a></td>
+<td>5</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.common.ChallengeListAction$1">net.chrissearle.flickrvote.web.common.ChallengeListAction$1</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction">net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction">net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor">net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor">net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.model.ChallengeAdmin">net.chrissearle.flickrvote.web.model.ChallengeAdmin</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.model.DisplayChallengeSummary">net.chrissearle.flickrvote.web.model.DisplayChallengeSummary</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.model.DisplayImage">net.chrissearle.flickrvote.web.model.DisplayImage</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag">net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.taglib.ImageTag">net.chrissearle.flickrvote.web.taglib.ImageTag</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.taglib.PhotographerTag">net.chrissearle.flickrvote.web.taglib.PhotographerTag</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.vote.ShowVoteResultAction">net.chrissearle.flickrvote.web.vote.ShowVoteResultAction</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.web.vote.VoteAction">net.chrissearle.flickrvote.web.vote.VoteAction</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.web.vote.VoteAction$1">net.chrissearle.flickrvote.web.vote.VoteAction$1</a></td>
+<td>1</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.CurrentChallengeAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.CurrentChallengeAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The field net.chrissearle.flickrvote.web.CurrentChallengeAction.log is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/CurrentChallengeAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.CurrentChallengeAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.CurrentChallengeAction$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.web.CurrentChallengeAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/CurrentChallengeAction.html#74">74-75</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.HallOfFameAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.HallOfFameAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.HallOfFameAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HallOfFameAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.HallOfFameAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HallOfFameAction.html#12">12-46</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.HallOfFameAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.HallOfFameAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.HallOfFameAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HallOfFameAction.html#42">42-43</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.HistoryReportAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.HistoryReportAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.HistoryReportAction defines non-transient non-serializable instance field reportService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HistoryReportAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.HistoryReportAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HistoryReportAction.html#10">10-28</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>HistoryReportAction.file not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/HistoryReportAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.LogoutAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.LogoutAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.LogoutAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/LogoutAction.html#8">8-20</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>LogoutAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/LogoutAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.ShowChallengeAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.ShowChallengeAction$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.web.ShowChallengeAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/ShowChallengeAction.html#58">58-59</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.ShowChartAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.ShowChartAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.ShowChartAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/ShowChartAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.ShowChartAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/ShowChartAction.html#9">9-30</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.account.AccountAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.account.AccountAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.account.AccountAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/AccountAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.model.DisplayPhotographer stored into non-transient field AccountAction.photographer</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD_STORE" class="externalLink">SE_BAD_FIELD_STORE</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/AccountAction.html#44">44</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.account.AccountAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/AccountAction.html#15">15-61</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>AccountAction.photographer not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/AccountAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>AccountAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/AccountAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.account.MyPicsAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.account.MyPicsAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.account.MyPicsAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/MyPicsAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.account.MyPicsAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/MyPicsAction.html#14">14-50</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>MyPicsAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/MyPicsAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.account.MyPicsAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.account.MyPicsAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.account.MyPicsAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/MyPicsAction.html#37">37-38</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/RefreshFromFlickrAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/RefreshFromFlickrAction.html#8">8-32</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.account.ShowAccountAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.account.ShowAccountAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.account.ShowAccountAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/ShowAccountAction.html#10">10-26</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>ShowAccountAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/account/ShowAccountAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.CallCronAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.CallCronAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.CallCronAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/CallCronAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.admin.CallCronAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/CallCronAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.CallCronAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/CallCronAction.html#9">9-53</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ChallengeAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ChallengeAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.ChallengeAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ChallengeAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.admin.ChallengeAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ChallengeAction.html#14">14-113</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ChallengeAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ChallengeAction$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.web.admin.ChallengeAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ChallengeAction.html#80">80-81</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.FrontPageAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.FrontPageAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.admin.FrontPageAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/FrontPageAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.FrontPageAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/FrontPageAction.html#11">11-38</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.FrontPageAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.FrontPageAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.admin.FrontPageAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/FrontPageAction.html#29">29-30</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.GetAdminFrobAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.GetAdminFrobAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.GetAdminFrobAction defines non-transient non-serializable instance field flickrService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/GetAdminFrobAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.admin.GetAdminFrobAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/GetAdminFrobAction.html#7">7-21</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ImageAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ImageAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The field net.chrissearle.flickrvote.web.admin.ImageAction.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ImageAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ImageAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ImageAction$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.web.admin.ImageAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ImageAction.html#105">105-106</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.PhotographerAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.PhotographerAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.admin.PhotographerAction defines non-transient non-serializable instance field service</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/PhotographerAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.PhotographerAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/PhotographerAction.html#9">9-39</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.PhotographerDataAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.PhotographerDataAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.PhotographerDataAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/PhotographerDataAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.admin.PhotographerDataAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/PhotographerDataAction.html#16">16-64</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.PhotographerDataAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.PhotographerDataAction$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.web.admin.PhotographerDataAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/PhotographerDataAction.html#38">38-39</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.RankItAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.RankItAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.admin.RankItAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/RankItAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.RankItAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/RankItAction.html#7">7-22</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ScoreAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ScoreAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The field net.chrissearle.flickrvote.web.admin.ScoreAction.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ScoreAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ScoreAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ScoreAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.admin.ScoreAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ScoreAction.html#65">65-66</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.SearchTagCheckAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.SearchTagCheckAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.SearchTagCheckAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/SearchTagCheckAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.admin.SearchTagCheckAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/SearchTagCheckAction.html#9">9-28</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.SendMailAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.SendMailAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.admin.SendMailAction defines non-transient non-serializable instance field mailService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/SendMailAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.SendMailAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/SendMailAction.html#7">7-41</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.SendTweetAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.SendTweetAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The field net.chrissearle.flickrvote.web.admin.SendTweetAction.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/SendTweetAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ShowPhotographerImagesAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.model.DisplayPhotographer stored into non-transient field ShowPhotographerImagesAction.photographer</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD_STORE" class="externalLink">SE_BAD_FIELD_STORE</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ShowPhotographerImagesAction.html#28">28</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ShowPhotographerImagesAction.html#16">16-55</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.admin.ShowPhotographerImagesAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/admin/ShowPhotographerImagesAction.html#38">38-39</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.chart.ShowChartAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.chart.ShowChartAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.chart.ShowChartAction defines non-transient non-serializable instance field chartService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowChartAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.chart.ShowChartAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowChartAction.html#8">8-31</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction defines non-transient non-serializable instance field chartService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowPhotograperChartAction.html#-1">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction defines non-transient non-serializable instance field session</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowPhotograperChartAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>ShowPhotograperChartAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowPhotograperChartAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.chart.ShowVotingChartAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.chart.ShowVotingChartAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.chart.ShowVotingChartAction defines non-transient non-serializable instance field chartService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowVotingChartAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.chart.ShowVotingChartAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/chart/ShowVotingChartAction.html#8">8-23</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.common.ChallengeListAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.common.ChallengeListAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.common.ChallengeListAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.common.ChallengeListAction defines non-transient non-serializable instance field reportService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.web.common.ChallengeListAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#18">18-67</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>ChallengeListAction.challenges not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>ChallengeListAction.reportLength not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.common.ChallengeListAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.common.ChallengeListAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.common.ChallengeListAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/ChallengeListAction.html#61">61-62</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction defines non-transient non-serializable instance field photographyService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/FlickrLoginLinkAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/FlickrLoginLinkAction.html#11">11-34</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>FlickrLoginLinkAction.session not initialized in constructor</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/FlickrLoginLinkAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction defines non-transient non-serializable instance field session</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/VotingChallengeBlockAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>The field net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/common/VotingChallengeBlockAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor"></a><div class="section"><h3>net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.interceptors.AuthenticationAdminInterceptor is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/interceptors/AuthenticationAdminInterceptor.html#10">10-30</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor"></a><div class="section"><h3>net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/interceptors/AuthenticationAuthInterceptor.html#9">9-23</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.model.ChallengeAdmin"></a><div class="section"><h3>net.chrissearle.flickrvote.web.model.ChallengeAdmin</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.model.ChallengeAdmin is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/model/ChallengeAdmin.html#6">6-34</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.model.DisplayChallengeSummary"></a><div class="section"><h3>net.chrissearle.flickrvote.web.model.DisplayChallengeSummary</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.model.DisplayChallengeSummary is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/model/DisplayChallengeSummary.html#18">18-65</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.model.DisplayImage"></a><div class="section"><h3>net.chrissearle.flickrvote.web.model.DisplayImage</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.model.DisplayImage is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/model/DisplayImage.html#32">32-164</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag"></a><div class="section"><h3>net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The field net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/taglib/ChallengeTitleTag.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.taglib.ImageTag"></a><div class="section"><h3>net.chrissearle.flickrvote.web.taglib.ImageTag</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The field net.chrissearle.flickrvote.web.taglib.ImageTag.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/taglib/ImageTag.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.taglib.PhotographerTag"></a><div class="section"><h3>net.chrissearle.flickrvote.web.taglib.PhotographerTag</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.taglib.PhotographerTag defines non-transient non-serializable instance field photographer</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/taglib/PhotographerTag.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>The field net.chrissearle.flickrvote.web.taglib.PhotographerTag.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/taglib/PhotographerTag.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.vote.ShowVoteResultAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.vote.ShowVoteResultAction</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class net.chrissearle.flickrvote.web.vote.ShowVoteResultAction defines non-transient non-serializable instance field challengeService</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/vote/ShowVoteResultAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="a"><td>net.chrissearle.flickrvote.web.vote.ShowVoteResultAction is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/vote/ShowVoteResultAction.html#13">13-30</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.vote.VoteAction"></a><div class="section"><h3>net.chrissearle.flickrvote.web.vote.VoteAction</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class net.chrissearle.flickrvote.web.vote.VoteAction defines non-transient non-serializable instance field session</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/vote/VoteAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+<tr class="b"><td>The field net.chrissearle.flickrvote.web.vote.VoteAction.logger is transient but isn't set by deserialization</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_TRANSIENT_FIELD_NOT_RESTORED" class="externalLink">SE_TRANSIENT_FIELD_NOT_RESTORED</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/vote/VoteAction.html#-1">Not available</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.web.vote.VoteAction1"></a><div class="section"><h3>net.chrissearle.flickrvote.web.vote.VoteAction$1</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>The class net.chrissearle.flickrvote.web.vote.VoteAction$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/web/vote/VoteAction.html#164">164-165</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007-2009
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

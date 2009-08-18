@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Twitter PhotoChallenge - Reactor Dependency Convergence</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Twitter interface
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">      
+  
+
+  
+    
+            
+  
+    
+             Last Published: 2009-08-18
+              &nbsp;| Version: 1-SNAPSHOT
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-info.html">Project Information</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="index.html">About</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="integration.html">Continuous Integration</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+              <strong>Dependency Convergence</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="dependency-management.html">Dependency Management</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="issue-tracking.html">Issue Tracking</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="mail-lists.html">Mailing Lists</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugin-management.html">Plugin Management</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="license.html">Project License</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugins.html">Project Plugins</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="project-summary.html">Project Summary</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="team-list.html">Project Team</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="source-repository.html">Source Repository</a>
+          </li>
+              </ul>
+        </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+              <h5>Parent Project</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../index.html">Twitter Photo Challenge</a>
+          </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Reactor Dependency Convergence</h2>
+<table class="bodyTable"><caption><b>Legend:</b></caption>
+<tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td>All projects share one version of the dependency.</td>
+</tr>
+<tr class="b"><td><img alt="error" src="images/icon_error_sml.gif" /></td>
+<td>At least one project has a differing version of the dependency.</td>
+</tr>
+</table>
+<br />
+<table class="bodyTable"><caption><b>Statistics:</b></caption>
+<tr class="a"><th>Number of sub-projects:</th>
+<td>11</td>
+</tr>
+<tr class="b"><th>Number of dependencies (NOD):</th>
+<td>43</td>
+</tr>
+<tr class="a"><th>Number of unique artifacts (NOA):</th>
+<td>43</td>
+</tr>
+<tr class="b"><th>Number of SNAPSHOT artifacts (NOS):</th>
+<td>1</td>
+</tr>
+<tr class="a"><th>Convergence (NOD/NOA):</th>
+<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100%</b></td>
+</tr>
+<tr class="b"><th>Ready for Release (100% Convergence and no SNAPSHOTS):</th>
+<td><img alt="error" src="images/icon_error_sml.gif" />&#160;<b>Error</b><br />
+You have SNAPSHOT dependencies.</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>Dependencies used in sub-projects</h3>
+<div class="section"><h4>com.aetrion.flickr:flickrapi</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>com.lowagie:itext</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.5</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>com.rosaloves:bitlyj</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>commons-collections:commons-collections</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.2.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>concurrent:concurrent</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.3.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>javax.mail:mail</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>javax.persistence:persistence-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>javax.servlet:jsp-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.0</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>javax.servlet:servlet-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>jfree:jfreechart</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0.9</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>joda-time:joda-time</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>log4j:log4j</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.2.14</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>mysql:mysql-connector-java</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">5.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle.common:jpa</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle.common:simple-mail-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle.common:simple-mail-spring</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-data-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-data-spring</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-flickr</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-model</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-scheduler-spring</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-service-api</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-service-spring</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.chrissearle:flickrvote-twitter</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>net.homeip.yusuke:twitter4j</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.0.9</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.apache.struts:struts2-core</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.apache.struts:struts2-dojo-plugin</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.apache.struts:struts2-jfreechart-plugin</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.apache.struts:struts2-sitemesh-plugin</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.apache.struts:struts2-spring-plugin</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.hibernate:hibernate</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.2.6.ga</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.hibernate:hibernate-entitymanager</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.3.1.ga</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.opensymphony.quartz:quartz</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.6.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-aop</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-beans</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-context</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-context-support</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-core</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-jdbc</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-orm</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-tx</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-web</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.testng:testng</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">5.8</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007-2009
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
