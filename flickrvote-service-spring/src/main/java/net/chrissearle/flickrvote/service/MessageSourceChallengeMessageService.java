@@ -21,7 +21,6 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
 
     private String votingUrl;
     private String votingUrlShort;
-    private String currentUrl;
     private String currentUrlShort;
     private String rulesUrl;
     private String goldBadgeUrl;
@@ -42,8 +41,7 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
     public void afterPropertiesSet() throws Exception {
         votingUrl = getUrlProperty("url.voting");
         votingUrlShort = shortUrlService.shortenUrl(votingUrl);
-        currentUrl = getUrlProperty("url.current");
-        currentUrlShort = shortUrlService.shortenUrl(currentUrl);
+        currentUrlShort = shortUrlService.shortenUrl(getUrlProperty("url.current"));
         rulesUrl = getUrlProperty("url.rules");
 
         goldBadgeUrl = getUrlProperty("gold.badge");

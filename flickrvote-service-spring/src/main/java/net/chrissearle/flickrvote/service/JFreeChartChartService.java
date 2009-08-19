@@ -49,12 +49,7 @@ public class JFreeChartChartService implements ChartService {
         List<ImageItem> images = new ArrayList<ImageItem>(challenge.getImages().size());
         images.addAll(challenge.getImages());
 
-        Collections.sort(images, new Comparator<ImageItem>() {
-
-            public int compare(ImageItem o1, ImageItem o2) {
-                return o2.getVoteCount().compareTo(o1.getVoteCount());
-            }
-        });
+        Collections.sort(images, new Comparators.ImageItemSortByVoteCount());
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
@@ -153,12 +148,7 @@ public class JFreeChartChartService implements ChartService {
             }
         }
 
-        Collections.sort(challenges, new Comparator<ChallengeSummary>() {
-
-            public int compare(ChallengeSummary o1, ChallengeSummary o2) {
-                return o2.getTag().compareTo(o1.getTag());
-            }
-        });
+        Collections.sort(challenges, new Comparators.ChallengeSummarySortByTag());
 
         for (ChallengeSummary challenge : challenges) {
             if (imageMap.containsKey(challenge.getTag())) {
@@ -177,4 +167,5 @@ public class JFreeChartChartService implements ChartService {
 
         return chart;
     }
+
 }

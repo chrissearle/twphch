@@ -11,7 +11,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class RankLabelGenerator extends AbstractCategoryItemLabelGenerator implements CategoryItemLabelGenerator {
+    private static final long serialVersionUID = -4147924585049132201L;
+
     private Map<String, ImageItem> images;
+    
     private String noImageText;
 
     public RankLabelGenerator(Set<ImageItem> images, String noImageText) {

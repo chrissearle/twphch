@@ -19,7 +19,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Service("reportService")
@@ -109,19 +108,15 @@ public class ITextReportService implements ReportService {
     private void addChallenges(Document document) throws DocumentException {
         List<ChallengeSummary> challenges = new ArrayList<ChallengeSummary>(challengeService.getChallengesByType(ChallengeType.CLOSED));
 
-        Collections.sort(challenges, new Comparator<ChallengeSummary>() {
-            public int compare(ChallengeSummary o1, ChallengeSummary o2) {
-                return o1.getStartDate().compareTo(o2.getStartDate());
-            }
-        });
+        Collections.sort(challenges, new Comparators.ChallengeSummarySortByStartDateComparator());
 
         int chapterCount = 1;
         for (ChallengeSummary challenge : challenges) {
-            chapterCount = addChallengeChapter(document, chapterCount++, challenge);
+            addChallengeChapter(document, chapterCount++, challenge);
         }
     }
 
-    private int addChallengeChapter(Document document, int chapterCount, ChallengeSummary challenge) throws DocumentException {
+    private void addChallengeChapter(Document document, int chapterCount, ChallengeSummary challenge) throws DocumentException {
         Chapter challengeChapter = new Chapter(new Paragraph("#" + challenge.getTag(), new Font(Font.TIMES_ROMAN, 24, Font.BOLD)), chapterCount);
         challengeChapter.setNumberDepth(0);
         challengeChapter.setBookmarkOpen(true);
@@ -134,7 +129,6 @@ public class ITextReportService implements ReportService {
         addImagesSection(challengeChapter, challenge);
 
         document.add(challengeChapter);
-        return chapterCount;
     }
 
     private void addImagesSection(Chapter challengeChapter, ChallengeSummary challenge) {
@@ -144,11 +138,7 @@ public class ITextReportService implements ReportService {
 
         List<ImageItem> images = new ArrayList<ImageItem>(challengeDetails.getImages());
 
-        Collections.sort(images, new Comparator<ImageItem>() {
-            public int compare(ImageItem o1, ImageItem o2) {
-                return o2.getVoteCount().compareTo(o1.getVoteCount());
-            }
-        });
+        Collections.sort(images, new Comparators.ImageItemSortByVoteCount());
 
         String title = challengeMessageService.getImageSectionTitle();
 
@@ -315,4 +305,5 @@ public class ITextReportService implements ReportService {
 
         return file.length();
     }
+
 }

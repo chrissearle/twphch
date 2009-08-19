@@ -49,9 +49,6 @@ public class ImageItemInstance implements ImageItem {
                 this.rank = 0L;
                 break;
             case OPEN:
-                this.voteCount = 0L;
-                this.rank = 0L;
-                break;
             default:
                 this.voteCount = 0L;
                 this.rank = 0L;

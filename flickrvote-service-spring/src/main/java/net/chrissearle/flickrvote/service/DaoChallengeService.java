@@ -105,11 +105,7 @@ public class DaoChallengeService implements ChallengeService {
         long rank = 0;
         long lastSeenValue = Long.MAX_VALUE;
 
-        Collections.sort(images, new Comparator<Image>() {
-            public int compare(Image o1, Image o2) {
-                return o2.getFinalVoteCount().compareTo(o1.getFinalVoteCount());
-            }
-        });
+        Collections.sort(images, new Comparators.ImageSortByFinalVoteCount());
 
         for (Image image : images) {
             if (image.getFinalVoteCount() < lastSeenValue) {
@@ -195,15 +191,17 @@ public class DaoChallengeService implements ChallengeService {
     }
 
     public ChallengeSummary announceNewChallenge() {
-        ChallengeSummary challenge = new ChallengeSummaryInstance(challengeDao.getCurrentChallenge());
+        Challenge currentChallenge = challengeDao.getCurrentChallenge();
 
-        if (challenge == null) {
+        if (currentChallenge == null) {
             if (logger.isDebugEnabled()) {
                 logger.debug("No current challenge found to announce");
             }
 
             return null;
         }
+
+        ChallengeSummary challenge = new ChallengeSummaryInstance(currentChallenge);
 
         if (logger.isInfoEnabled()) {
             logger.info("Announcing for " + challenge);
@@ -231,15 +229,15 @@ public class DaoChallengeService implements ChallengeService {
     public ChallengeSummary announceResults() {
         Challenge votedChallenge = challengeDao.getVotedChallenge();
 
-        ChallengeSummary challenge = new ChallengeSummaryInstance(votedChallenge);
-
-        if (challenge == null) {
+        if (votedChallenge == null) {
             if (logger.isDebugEnabled()) {
                 logger.debug("No challenge found to handle results");
             }
 
             return null;
         }
+
+        ChallengeSummary challenge = new ChallengeSummaryInstance(votedChallenge);
 
         if (logger.isInfoEnabled()) {
             logger.info("Results for " + challenge);
@@ -372,4 +370,5 @@ public class DaoChallengeService implements ChallengeService {
 
         doRanking(challenge.getImages());
     }
+
 }
