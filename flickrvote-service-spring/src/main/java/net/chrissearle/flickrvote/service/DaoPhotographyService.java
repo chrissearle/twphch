@@ -43,6 +43,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * Class DaoPhotographyService implements PhotographyService using the various DAO objects
+ *
+ * @author chris
+ */
 @Service("photographyService")
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
@@ -55,6 +60,15 @@ public class DaoPhotographyService implements PhotographyService {
     private FlickrService flickrService;
     private TwitterService twitterService;
 
+    /**
+     * Constructor DaoPhotographyService creates a new DaoPhotographyService instance.
+     *
+     * @param photographyDao of type PhotographyDao
+     * @param challengeDao   of type ChallengeDao
+     * @param imageDao       of type ImageDao
+     * @param flickrService  of type FlickrService
+     * @param twitterService of type TwitterService
+     */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
                                  FlickrService flickrService, TwitterService twitterService) {
@@ -66,6 +80,12 @@ public class DaoPhotographyService implements PhotographyService {
         this.twitterService = twitterService;
     }
 
+    /**
+     * Method setAdministrator sets the administration flag of a user.
+     *
+     * @param id        user ID
+     * @param adminFlag boolean
+     */
     public void setAdministrator(String id, Boolean adminFlag) {
         Photographer photographer = photographyDao.findById(id);
 
@@ -75,12 +95,24 @@ public class DaoPhotographyService implements PhotographyService {
         }
     }
 
+    /**
+     * Method isAdministrator checks if administration flag is set.
+     *
+     * @param username - username of the user
+     * @return Boolean
+     */
     public Boolean isAdministrator(String username) {
         Photographer photographer = photographyDao.findByUsername(username);
 
         return photographer != null && photographer.isAdministrator();
     }
 
+    /**
+     * Method retrieveAndStorePhotographer causes flickr to grab a photographer and will save/update the local db.
+     *
+     * @param id - flickr ID
+     * @return the photographer retrieved. Null if none found.
+     */
     public PhotographerItem retrieveAndStorePhotographer(String id) {
         // Check to see if present
         Photographer photographer = photographyDao.findById(id);
@@ -101,6 +133,12 @@ public class DaoPhotographyService implements PhotographyService {
         return new PhotographerItemInstance(photographer);
     }
 
+    /**
+     * Method checkLoginAndStore causes flickr to check that a given login has succeeded. The photographer will be stored/updated.
+     *
+     * @param frob - the frob string from flickr.
+     * @return the photographer
+     */
     public PhotographerItem checkLoginAndStore(String frob) {
         FlickrPhotographer flickrPhotographer = flickrService.authenticate(frob);
 
@@ -126,6 +164,12 @@ public class DaoPhotographyService implements PhotographyService {
         return new PhotographerItemInstance(photographer);
     }
 
+    /**
+     * Method getChallengeImages retrieves all images for a challenge,
+     *
+     * @param tag of type String
+     * @return ChallengeItem
+     */
     public ChallengeItem getChallengeImages(String tag) {
         Set<ImageItem> images = new HashSet<ImageItem>();
 
@@ -163,15 +207,35 @@ public class DaoPhotographyService implements PhotographyService {
         return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
     }
 
+    /**
+     * Method getLoginUrl returns the loginUrl for flickr authentication.
+     *
+     * @return the loginUrl for flickr authentication.
+     */
     public URL getLoginUrl() {
         return flickrService.getLoginUrl();
     }
 
+    /**
+     * Method retrieveAndStoreImage causes a flickr retrieval of the image (and photographer). Saves/updates to the local db.
+     *
+     * @param id  flickr ID of image
+     * @param tag challenge tag
+     * @return ImageItem - null if no image found
+     */
     public ImageItem retrieveAndStoreImage(String id, String tag) {
         return retrieveAndStoreImage(id, tag, true);
     }
 
-    public ImageItem retrieveAndStoreImage(String id, String tag, boolean replaceExisting) {
+    /**
+     * Method retrieveAndStoreImage causes a flickr retrieval of the image (and photographer). Saves/updates to the local db.
+     *
+     * @param id              flickr ID of image
+     * @param tag             challenge tag
+     * @param replaceExisting - if true will remove an image if retrieving an image with the same photographer for the same challenge.
+     * @return ImageItem - null if no image found
+     */
+    protected ImageItem retrieveAndStoreImage(String id, String tag, boolean replaceExisting) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge == null)
@@ -239,6 +303,13 @@ public class DaoPhotographyService implements PhotographyService {
         return new ImageItemInstance(image);
     }
 
+    /**
+     * Method checkForExistingImage checks to see if the photographer has an image for the given challenge
+     *
+     * @param photographer of type Photographer
+     * @param tag          of type String
+     * @return Image
+     */
     private Image checkForExistingImage(Photographer photographer, String tag) {
         for (Image image : photographer.getImages()) {
             if (image.getChallenge().getTag().equals(tag)) {
@@ -248,6 +319,12 @@ public class DaoPhotographyService implements PhotographyService {
         return null;
     }
 
+    /**
+     * Method setScore - sets the final vote count of an image.
+     *
+     * @param imageId of type String
+     * @param score   of type Long
+     */
     public void setScore(String imageId, Long score) {
         Image image = imageDao.findById(imageId);
 
@@ -258,6 +335,12 @@ public class DaoPhotographyService implements PhotographyService {
         imageDao.persist(image);
     }
 
+    /**
+     * Method getImagesForPhotographer retrieves all images for a given photographer
+     *
+     * @param id photographer id
+     * @return Set<ImageItem>
+     */
     public Set<ImageItem> getImagesForPhotographer(String id) {
         Photographer photographer = photographyDao.findById(id);
 
@@ -274,6 +357,9 @@ public class DaoPhotographyService implements PhotographyService {
         return images;
     }
 
+    /**
+     * Method freezeChallenge - takes the current challenge - performs a flickr search and stores the results locally.
+     */
     public void freezeChallenge() {
         if (logger.isInfoEnabled()) {
             logger.info("Freezing challenge");
@@ -297,6 +383,11 @@ public class DaoPhotographyService implements PhotographyService {
         }
     }
 
+    /**
+     * Method getGoldWinners returns all images with first place.
+     *
+     * @return list of images with rank 1.
+     */
     public Set<ImageItem> getGoldWinners() {
         Set<ImageItem> images = new HashSet<ImageItem>();
 
@@ -307,6 +398,13 @@ public class DaoPhotographyService implements PhotographyService {
         return images;
     }
 
+    /**
+     * Method setTwitter sets a photographer's twitter ID
+     *
+     * @param id      photograher ID
+     * @param twitter twitter ID
+     * @return PhotographerItem - the updated photographer
+     */
     public PhotographerItem setTwitter(String id, String twitter) {
         Photographer photographer = photographyDao.findById(id);
 
@@ -329,6 +427,11 @@ public class DaoPhotographyService implements PhotographyService {
         return null;
     }
 
+    /**
+     * Method getPhotographers returns all photographers.
+     *
+     * @return all photographers.
+     */
     public List<PhotographerItem> getPhotographers() {
         List<PhotographerItem> photographers = new ArrayList<PhotographerItem>();
 
@@ -339,6 +442,12 @@ public class DaoPhotographyService implements PhotographyService {
         return photographers;
     }
 
+    /**
+     * Method findById finds a photographer based on photographer ID
+     *
+     * @param id photographer ID
+     * @return PhotographerItem - null if none found.
+     */
     public PhotographerItem findById(String id) {
         Photographer photographer = photographyDao.findById(id);
 
@@ -349,16 +458,34 @@ public class DaoPhotographyService implements PhotographyService {
         return null;
     }
 
+    /**
+     * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.
+     *
+     * @param tag - tag of an existing challenge
+     * @return Map<String, String>
+     */
     public Map<String, String> checkSearch(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         return flickrService.checkSearch(tag, challenge.getStartDate());
     }
 
+    /**
+     * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.
+     *
+     * @param twitter of type String
+     * @return boolean
+     */
     public boolean checkTwitterExists(String twitter) {
         return twitterService.twitterExists(twitter);
     }
 
+    /**
+     * Method findImageById finds an image based on id
+     *
+     * @param imageId of type String
+     * @return ImageItem - null if none found.
+     */
     public ImageItem findImageById(String imageId) {
         Image image = imageDao.findById(imageId);
 
