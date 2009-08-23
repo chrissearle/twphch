@@ -49,6 +49,10 @@
             <result name="input">/jsp/account/editform.jspx</result>
         </action>
 
+        <action name="check" class="net.chrissearle.flickrvote.web.account.CheckImageAction">
+            <result name="success">/jsp/account/check.jspx</result>
+        </action>
+
         <action name="save" class="net.chrissearle.flickrvote.web.account.AccountAction">
             <result name="input">/jsp/account/editform.jspx</result>
             <result name="success" type="chain">account</result>

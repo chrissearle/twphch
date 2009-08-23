@@ -20,6 +20,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
           version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
@@ -32,29 +33,31 @@
         <s:head/>
     </head>
     <body>
-    <h1><fv:photographer photographer="${photographer}"/></h1>
+    <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
 
-    <p>
-        <s:url id="checkUrl" action="check"/>
-        <s:a href="%{checkUrl}"><s:text name="account.check.link"/></s:a>
-        <br/>
-        <s:text name="warning.flickr.slow"/>
-    </p>
+    <s:if test="takenDateIssues.size() > 0">
+        <h3><s:text name="date.too.early"/></h3>
 
-    <p><s:text name="account.flickrid.title"/>: <s:property value="photographer.photographerId"/></p>
+        <s:iterator id="image" value="takenDateIssues">
+            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
+            <fv:image image="${image}"/>
+        </s:iterator>
+    </s:if>
 
-    <s:url id="editTwitterUrl" action="edit"/>
+    <s:if test="multipleImageIssues.size() > 0">
+        <h3><s:text name="too.many.images"/></h3>
 
-    <p>
-        <s:if test="photographer.twitterAccount != null">
-            <s:text name="account.twitter.title"/>: <s:property value="photographer.twitterAccount"/>
-            (<s:a href="%{editTwitterUrl}"><s:text name="account.twitter.edit"/></s:a>)
-        </s:if>
-        <s:else>
-            <s:text name="account.twitter.missing"/>
-            (<s:a href="%{editTwitterUrl}"><s:text name="account.twitter.add"/></s:a>)
-        </s:else>
-    </p>
+        <s:iterator id="image" value="multipleImageIssues">
+            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
+            <fv:image image="${image}"/>
+        </s:iterator>
+    </s:if>
+
+    <s:if test="multipleImageIssues.size() == 0 &amp;&amp; takenDateIssues.size() == 0">
+        <h3><s:text name="no.issues.result"/></h3>
+    </s:if>
+
     </body>
     </html>
 </jsp:root>
+        
