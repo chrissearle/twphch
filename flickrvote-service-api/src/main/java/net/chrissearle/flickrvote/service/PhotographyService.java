@@ -18,11 +18,11 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -143,9 +143,9 @@ public interface PhotographyService {
      * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.
      *
      * @param tag - tag of an existing challenge
-     * @return Map<String, String>
+     * @return Set<ImageItemStatus>
      */
-    Map<String, String> checkSearch(String tag);
+    Set<ImageItemStatus> checkSearch(String tag);
 
     /**
      * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.

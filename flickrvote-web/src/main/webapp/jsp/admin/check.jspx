@@ -14,3 +14,46 @@
   ~    limitations under the License.
   -->
 
+
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
+          version="2.0" xmlns:fv="/flickrvote-tags">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge - Administration</title>
+        <s:head/>
+        <sx:head/>
+    </head>
+    <body>
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
+
+    <s:if test="takenDateIssues.size() > 0">
+        <h3>Date too early</h3>
+
+        <s:iterator id="image" value="takenDateIssues">
+            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
+            <fv:image image="${image}"/>
+        </s:iterator>
+    </s:if>
+
+    <s:if test="multipleImageIssues.size() > 0">
+        <h3>Multiple Images by photographer</h3>
+
+        <s:iterator id="image" value="multipleImageIssues">
+            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
+            <fv:image image="${image}"/>
+        </s:iterator>
+    </s:if>
+
+    </body>
+    </html>
+</jsp:root>

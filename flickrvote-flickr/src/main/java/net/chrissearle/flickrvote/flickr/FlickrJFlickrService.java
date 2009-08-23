@@ -267,29 +267,38 @@ public class FlickrJFlickrService implements FlickrService {
 
     }
 
-    public Map<String, String> checkSearch(String tag, Date earliestDate) {
+    public Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate) {
         try {
             List<Photo> photos = retrieveByTag(tag);
 
-            Map<String, String> issues = new HashMap<String, String>();
+            Set<FlickrImageStatus> issues = new HashSet<FlickrImageStatus>();
 
-            Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
+            Map<String, FlickrImageStatus> seenPhotographers = new HashMap<String, FlickrImageStatus>();
 
             for (Photo photo : photos) {
                 FlickrImage image = getImageByFlickrId(photo.getId());
+                FlickrPhotographer photographer = image.getPhotographer();
 
                 if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
-                    issues.put(image.getFlickrId(), "Image was taken before challenge start: " + image.getUrl());
+
+                    FlickrImageStatus status = new FlickrImageStatus(FlickrImageStatus.ImageStatus.TAKEN_DATE,
+                            photographer, image);
+                    issues.add(status);
                 } else {
                     if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
-                        seenPhotographers.put(photo.getOwner().getId(), image);
+                        FlickrImageStatus status = new FlickrImageStatus(FlickrImageStatus.ImageStatus.MULTIPLE_IMAGES,
+                                photographer, image);
+
+                        seenPhotographers.put(photo.getOwner().getId(), status);
                     } else {
-                        issues.put(image.getFlickrId(),
-                                "Photographer already seen: "
-                                        + image.getUrl()
-                                        + ":"
-                                        + seenPhotographers.get(photo.getOwner().getId()).getUrl());
+                        seenPhotographers.get(photo.getOwner().getId()).addImage(image);
                     }
+                }
+            }
+
+            for (FlickrImageStatus status : seenPhotographers.values()) {
+                if (status.getImageCount() > 1) {
+                    issues.add(status);
                 }
             }
 

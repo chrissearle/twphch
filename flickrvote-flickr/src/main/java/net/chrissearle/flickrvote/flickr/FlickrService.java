@@ -19,7 +19,7 @@ package net.chrissearle.flickrvote.flickr;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 public interface FlickrService {
     URL getLoginUrl() throws FlickrServiceException;
@@ -38,5 +38,5 @@ public interface FlickrService {
 
     void postComment(String id, String comment);
 
-    Map<String, String> checkSearch(String tag, Date earliestDate);
+    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
 }

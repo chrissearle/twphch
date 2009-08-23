@@ -17,29 +17,74 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
+import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItemStatus;
+import net.chrissearle.flickrvote.service.model.Status;
+import net.chrissearle.flickrvote.web.model.Challenge;
+import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
+import net.chrissearle.flickrvote.web.model.DisplayImage;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Map;
+import java.util.*;
 
 public class SearchTagCheckAction extends ActionSupport {
     @Autowired
     private PhotographyService photographyService;
 
+    @Autowired
+    private ChallengeService challengeService;
+
     private String tag;
+    private Set<DisplayImage> takenDateIssues;
+    private List<DisplayImage> multipleImageIssues;
+    private Challenge challenge;
 
     @Override
     public String execute() throws Exception {
-        Map<String, String> searchIssues = photographyService.checkSearch(tag);
+        challenge = new DisplayChallengeSummary(challengeService.getChallengeSummary(tag));
 
-        for (final Map.Entry<String, String> entry : searchIssues.entrySet()) {
-            addActionMessage("Issue with picture ID " + entry.getKey() + ": " + entry.getValue());
+        Set<ImageItemStatus> searchIssues = photographyService.checkSearch(tag);
+
+        takenDateIssues = new HashSet<DisplayImage>();
+        multipleImageIssues = new ArrayList<DisplayImage>();
+
+        for (ImageItemStatus status : searchIssues) {
+            if (status.getStatus() == Status.TAKEN_DATE_TOO_EARLY) {
+                for (ImageItem image : status.getImages()) {
+                    takenDateIssues.add(new DisplayImage(image));
+                }
+            }
+            if (status.getStatus() == Status.MULTIPLE_IMAGE_BY_SAME_PHOTOGRAPHER) {
+                for (ImageItem image : status.getImages()) {
+                    multipleImageIssues.add(new DisplayImage(image));
+                }
+            }
         }
+
+        Collections.sort(multipleImageIssues, new Comparator<DisplayImage>() {
+            public int compare(DisplayImage o1, DisplayImage o2) {
+                return o1.getPhotographerId().compareTo(o2.getPhotographerId());
+            }
+        });
 
         return SUCCESS;
     }
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public List<DisplayImage> getMultipleImageIssues() {
+        return multipleImageIssues;
+    }
+
+    public Set<DisplayImage> getTakenDateIssues() {
+        return takenDateIssues;
+    }
+
+    public Challenge getChallenge() {
+        return challenge;
     }
 }

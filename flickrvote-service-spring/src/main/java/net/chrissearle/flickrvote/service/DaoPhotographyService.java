@@ -20,6 +20,7 @@ import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrImageStatus;
 import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.model.Challenge;
@@ -28,9 +29,11 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeItemInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
+import net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance;
 import net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
@@ -462,12 +465,18 @@ public class DaoPhotographyService implements PhotographyService {
      * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.
      *
      * @param tag - tag of an existing challenge
-     * @return Map<String, String>
+     * @return Set<ImageItemStatus>
      */
-    public Map<String, String> checkSearch(String tag) {
+    public Set<ImageItemStatus> checkSearch(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
-        return flickrService.checkSearch(tag, challenge.getStartDate());
+        Set<ImageItemStatus> results = new HashSet<ImageItemStatus>();
+
+        for (FlickrImageStatus status : flickrService.checkSearch(tag, challenge.getStartDate())) {
+            results.add(new ImageItemStatusInstance(status));
+        }
+
+        return results;
     }
 
     /**
