@@ -16,6 +16,25 @@
 
 package net.chrissearle.flickrvote.model;
 
+/**
+ * Enum ChallengeState represents which state a given challenge is in.
+ *
+ * @author chris
+ */
 public enum ChallengeState {
-    OPEN, VOTING, CLOSED;
+    /**
+     * Challenge is currently open for new entries
+     */
+    OPEN,
+
+    /**
+     * Challenge is closed for new entries but open for voting
+     */
+    VOTING,
+
+    /**
+     * Challenge is closed and complete. No further changes are expected
+     */
+    CLOSED
+
 }
