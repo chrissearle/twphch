@@ -8,13 +8,13 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.vote.VoteAction
-	c1792 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./VoteAction.html">
+	c1810 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./VoteAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VoteAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.vote.ShowVoteResultAction
-	c1793 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowVoteResultAction.html">
+	c1811 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowVoteResultAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowVoteResultAction </td></tr>
 		</table></td></tr>

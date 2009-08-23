@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" href="./JFreeChartChartService.html" alt="" coords="990,20,1017,44" />
+<area shape="rect" href="./ITextReportService.html" alt="" coords="32,20,56,44" />
+<area shape="rect" href="./DaoChallengeService.html" alt="" coords="630,212,654,236" />
+<area shape="rect" href="../scheduler/FreezeAndOpenVotingJob.html" alt="" coords="1084,14,1116,49" />
+<area shape="rect" href="../web/admin/ScoreAction.html" alt="" coords="1180,14,1212,49" />
+<area shape="rect" href="../web/admin/RankItAction.html" alt="" coords="1276,14,1308,49" />
+<area shape="rect" href="../web/admin/ImageAction.html" alt="" coords="1372,14,1404,49" />
+<area shape="rect" href="../web/admin/ChallengeAction.html" alt="" coords="124,14,156,49" />
+<area shape="rect" href="../web/admin/CallCronAction.html" alt="" coords="1468,14,1500,49" />
+<area shape="rect" href="../web/common/VotingChallengeBlockAction.html" alt="" coords="218,14,253,49" />
+<area shape="rect" href="../web/common/ChallengeListAction.html" alt="" coords="314,14,349,49" />
+<area shape="rect" href="../web/ShowChartAction.html" alt="" coords="413,14,442,49" />
+<area shape="rect" href="../web/ShowChallengeAction.html" alt="" coords="509,14,538,49" />
+<area shape="rect" href="../web/CurrentChallengeAction.html" alt="" coords="605,14,634,49" />
+<area shape="rect" href="../web/validators/OverlapValidator.html" alt="" coords="698,14,733,49" />
+<area shape="rect" href="../web/vote/VoteAction.html" alt="" coords="796,14,828,49" />
+<area shape="rect" href="../web/vote/ShowVoteResultAction.html" alt="" coords="892,14,924,49" />
+</map>

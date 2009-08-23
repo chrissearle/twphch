@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" href="../account/ShowAccountAction.html" alt="" coords="26,14,61,49" />
+<area shape="rect" href="../account/AccountAction.html" alt="" coords="122,14,157,49" />
+<area shape="rect" href="../admin/ShowPhotographerImagesAction.html" alt="" coords="412,14,444,49" />
+<area shape="rect" href="./DisplayImage.html" alt="" coords="358,212,377,236" />
+<area shape="rect" href="../admin/PhotographerDataAction.html" alt="" coords="220,14,252,49" />
+<area shape="rect" href="./DisplayPhotographer.html" alt="" coords="236,212,260,236" />
+<area shape="rect" href="../taglib/PhotographerTag.html" alt="" coords="316,14,348,49" />
+</map>

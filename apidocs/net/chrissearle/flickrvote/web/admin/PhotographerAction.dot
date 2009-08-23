@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c7880 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
+	c8058 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -16,17 +16,17 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.PhotographerAction
-	c7905 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PhotographerAction.html">
+	c8083 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PhotographerAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PhotographerAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.PhotographerAction extends com.opensymphony.xwork2.ActionSupport
-	c7949:p -> c7905:p [dir=back,arrowtail=empty];
+	c8127:p -> c8083:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.PhotographerAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c7905:p -> c7880:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c8083:p -> c8058:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// com.opensymphony.xwork2.ActionSupport
-	c7949 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c8127 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

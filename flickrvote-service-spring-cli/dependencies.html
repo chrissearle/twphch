@@ -12,7 +12,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Twitter PhotoChallenge - Project Dependencies</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
@@ -20,7 +19,8 @@
       @import url("./css/site.css");
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
-          </head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
   <body class="composite">
     <div id="banner">
                     <span id="bannerLeft">
@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-08-18
+             Last Published: 2009-08-23
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -90,12 +90,6 @@
       
             
       
-            
-      
-            
-      
-            
-      
               
             <li class="expanded">
                     <a href="project-info.html">Project Information</a>
@@ -118,10 +112,6 @@
           </li>
                   
     <li class="none">
-                    <a href="dependency-management.html">Dependency Management</a>
-          </li>
-                  
-    <li class="none">
                     <a href="issue-tracking.html">Issue Tracking</a>
           </li>
                   
@@ -130,15 +120,7 @@
           </li>
                   
     <li class="none">
-                    <a href="plugin-management.html">Plugin Management</a>
-          </li>
-                  
-    <li class="none">
                     <a href="license.html">Project License</a>
-          </li>
-                  
-    <li class="none">
-                    <a href="plugins.html">Project Plugins</a>
           </li>
                   
     <li class="none">
@@ -157,10 +139,6 @@
               
                 
               
-      
-            
-      
-            
       
             
       
@@ -203,993 +181,741 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <a name="Project_Dependencies"></a><div class="section"><h2>Project Dependencies</h2>
-<a name="compile"></a><div class="section"><h3>compile</h3>
+        <div class="section"><h2>Project Dependencies</h2>
+<div class="section"><h3>compile</h3>
 <p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
 <table class="bodyTable"><tr class="a"><th>GroupId</th>
 <th>ArtifactId</th>
 <th>Version</th>
+<th>Classifier</th>
 <th>Type</th>
+<th>Optional</th>
 </tr>
 <tr class="b"><td>concurrent</td>
 <td>concurrent</td>
 <td>1.3.4</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>javax.mail</td>
-<td><a href="https://glassfish.dev.java.net/javaee5/mail/" class="externalLink">mail</a></td>
+<td>mail</td>
 <td>1.4</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>log4j</td>
-<td><a href="http://logging.apache.org/log4j/docs/" class="externalLink">log4j</a></td>
-<td>1.2.14</td>
-<td>jar</td>
-</tr>
-<tr class="a"><td>mysql</td>
-<td><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">mysql-connector-java</a></td>
+<tr class="b"><td>mysql</td>
+<td>mysql-connector-java</td>
 <td>5.1.6</td>
+<td>-</td>
 <td>jar</td>
-</tr>
-<tr class="b"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">flickrvote-data-spring</a></td>
-<td>1-SNAPSHOT</td>
-<td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">flickrvote-service-spring</a></td>
+<td>flickrvote-data-spring</td>
 <td>1-SNAPSHOT</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>net.chrissearle.common</td>
+<tr class="b"><td>net.chrissearle</td>
+<td>flickrvote-service-spring</td>
+<td>1-SNAPSHOT</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="a"><td>net.chrissearle.common</td>
 <td>simple-mail-spring</td>
 <td>1</td>
+<td>-</td>
 <td>jar</td>
-</tr>
-<tr class="a"><td>org.hibernate</td>
-<td><a href="http://www.hibernate.org" class="externalLink">hibernate</a></td>
-<td>3.2.6.ga</td>
-<td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.hibernate</td>
-<td><a href="http://entitymanager.hibernate.org" class="externalLink">hibernate-entitymanager</a></td>
-<td>3.3.1.ga</td>
+<td>hibernate</td>
+<td>3.2.6.ga</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-aop</a></td>
-<td>2.5.6</td>
+<tr class="a"><td>org.hibernate</td>
+<td>hibernate-entitymanager</td>
+<td>3.3.1.ga</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-jdbc</a></td>
+<td>spring-aop</td>
 <td>2.5.6</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-orm</a></td>
+<td>spring-jdbc</td>
 <td>2.5.6</td>
+<td>-</td>
 <td>jar</td>
+<td> </td>
+</tr>
+<tr class="b"><td>org.springframework</td>
+<td>spring-orm</td>
+<td>2.5.6</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
 </tr>
 </table>
 </div>
 </div>
-<a name="Project_Transitive_Dependencies"></a><div class="section"><h2>Project Transitive Dependencies</h2>
+<div class="section"><h2>Project Transitive Dependencies</h2>
 <p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
-<a name="compile"></a><div class="section"><h3>compile</h3>
+<div class="section"><h3>compile</h3>
 <p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
-<table class="bodyTable"><tr class="b"><th>GroupId</th>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
 <th>ArtifactId</th>
 <th>Version</th>
 <th>Classifier</th>
 <th>Type</th>
+<th>Optional</th>
 </tr>
-<tr class="a"><td>antlr</td>
-<td><a href="http://www.antlr.org/" class="externalLink">antlr</a></td>
+<tr class="b"><td>antlr</td>
+<td>antlr</td>
 <td>2.7.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>aopalliance</td>
-<td><a href="http://aopalliance.sourceforge.net" class="externalLink">aopalliance</a></td>
+<tr class="a"><td>aopalliance</td>
+<td>aopalliance</td>
 <td>1.0</td>
 <td>-</td>
 <td>jar</td>
-</tr>
-<tr class="a"><td>asm</td>
-<td><a href="http://asm.objectweb.org/" class="externalLink">asm</a></td>
-<td>1.5.3</td>
-<td>-</td>
-<td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>asm</td>
-<td><a href="http://asm.objectweb.org/" class="externalLink">asm-attrs</a></td>
+<td>asm</td>
 <td>1.5.3</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>axis</td>
+<tr class="a"><td>asm</td>
+<td>asm-attrs</td>
+<td>1.5.3</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="b"><td>axis</td>
 <td>axis</td>
 <td>1.2.1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>axis</td>
+<tr class="a"><td>axis</td>
 <td>axis-jaxrpc</td>
 <td>1.2.1</td>
 <td>-</td>
 <td>jar</td>
-</tr>
-<tr class="a"><td>bouncycastle</td>
-<td><a href="http://www.bouncycastle.org/java.html" class="externalLink">bcmail-jdk14</a></td>
-<td>138</td>
-<td>-</td>
-<td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>bouncycastle</td>
-<td><a href="http://www.bouncycastle.org/java.html" class="externalLink">bcprov-jdk14</a></td>
+<td>bcmail-jdk14</td>
 <td>138</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>cglib</td>
-<td><a href="http://cglib.sourceforge.net/" class="externalLink">cglib</a></td>
+<tr class="a"><td>bouncycastle</td>
+<td>bcprov-jdk14</td>
+<td>138</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="b"><td>cglib</td>
+<td>cglib</td>
 <td>2.1_3</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>com.aetrion.flickr</td>
-<td><a href="http://flickrj.sourceforge.net/" class="externalLink">flickrapi</a></td>
+<tr class="a"><td>com.aetrion.flickr</td>
+<td>flickrapi</td>
 <td>1.1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>com.lowagie</td>
-<td><a href="http://www.lowagie.com/iText/" class="externalLink">itext</a></td>
+<tr class="b"><td>com.lowagie</td>
+<td>itext</td>
 <td>2.1.5</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>com.rosaloves</td>
-<td><a href="http://maven.apache.org" class="externalLink">bitlyj</a></td>
+<tr class="a"><td>com.rosaloves</td>
+<td>bitlyj</td>
 <td>1.0-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>commons-beanutils</td>
+<tr class="b"><td>commons-beanutils</td>
 <td>commons-beanutils</td>
 <td>1.7.0</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>commons-collections</td>
-<td><a href="http://commons.apache.org/collections/" class="externalLink">commons-collections</a></td>
+<tr class="a"><td>commons-collections</td>
+<td>commons-collections</td>
 <td>3.2.1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>commons-discovery</td>
+<tr class="b"><td>commons-discovery</td>
 <td>commons-discovery</td>
 <td>0.2</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>commons-lang</td>
-<td><a href="http://jakarta.apache.org/commons/lang/" class="externalLink">commons-lang</a></td>
+<tr class="a"><td>commons-lang</td>
+<td>commons-lang</td>
 <td>2.3</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>commons-logging</td>
-<td><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">commons-logging</a></td>
+<tr class="b"><td>commons-logging</td>
+<td>commons-logging</td>
 <td>1.0.4</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>dom4j</td>
-<td><a href="http://dom4j.org" class="externalLink">dom4j</a></td>
+<tr class="a"><td>dom4j</td>
+<td>dom4j</td>
 <td>1.6.1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>javax.activation</td>
-<td><a href="http://java.sun.com/products/javabeans/jaf/index.jsp" class="externalLink">activation</a></td>
+<tr class="b"><td>javax.activation</td>
+<td>activation</td>
 <td>1.1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>javax.persistence</td>
-<td><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">persistence-api</a></td>
+<tr class="a"><td>javax.persistence</td>
+<td>persistence-api</td>
 <td>1.0</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>javax.transaction</td>
+<tr class="b"><td>javax.transaction</td>
 <td>jta</td>
 <td>1.0.1B</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>jboss</td>
-<td><a href="http://www.jboss.org/products/javassist" class="externalLink">javassist</a></td>
+<tr class="a"><td>jboss</td>
+<td>javassist</td>
 <td>3.3.ga</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>jboss</td>
-<td><a href="http://www.jboss.org" class="externalLink">jboss-common-core</a></td>
+<tr class="b"><td>jboss</td>
+<td>jboss-common-core</td>
 <td>2.0.4.GA</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="b"><td>jfree</td>
-<td><a href="http://www.jfree.org/jcommon/" class="externalLink">jcommon</a></td>
+<tr class="a"><td>jfree</td>
+<td>jcommon</td>
 <td>1.0.12</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
-<tr class="a"><td>jfree</td>
-<td><a href="http://www.jfree.org/jfreechart/" class="externalLink">jfreechart</a></td>
+<tr class="b"><td>jfree</td>
+<td>jfreechart</td>
 <td>1.0.9</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
+</tr>
+<tr class="a"><td>log4j</td>
+<td>log4j</td>
+<td>1.2.14</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">flickrvote-data-api</a></td>
+<td>flickrvote-data-api</td>
 <td>1-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">flickrvote-flickr</a></td>
+<td>flickrvote-flickr</td>
 <td>1-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">flickrvote-model</a></td>
+<td>flickrvote-model</td>
 <td>1-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">flickrvote-service-api</a></td>
+<td>flickrvote-service-api</td>
 <td>1-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.chrissearle</td>
-<td><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">flickrvote-twitter</a></td>
+<td>flickrvote-twitter</td>
 <td>1-SNAPSHOT</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.chrissearle.common</td>
 <td>jpa</td>
 <td>1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.chrissearle.common</td>
 <td>simple-mail-api</td>
 <td>1</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.homeip.yusuke</td>
-<td><a href="http://yusuke.homeip.net/twitter4j/" class="externalLink">twitter4j</a></td>
+<td>twitter4j</td>
 <td>2.0.9</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.sf.ehcache</td>
-<td><a href="http://ehcache.sf.net" class="externalLink">ehcache</a></td>
+<td>ehcache</td>
 <td>1.2.3</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>net.sf.ezmorph</td>
-<td><a href="http://ezmorph.sourceforge.net" class="externalLink">ezmorph</a></td>
+<td>ezmorph</td>
 <td>1.0.2</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>net.sf.json-lib</td>
-<td><a href="http://json-lib.sourceforge.net" class="externalLink">json-lib</a></td>
+<td>json-lib</td>
 <td>2.0</td>
 <td>jdk15</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>org.hibernate</td>
-<td><a href="http://annotations.hibernate.org" class="externalLink">hibernate-annotations</a></td>
+<td>hibernate-annotations</td>
 <td>3.3.0.ga</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.hibernate</td>
 <td>hibernate-commons-annotations</td>
 <td>3.0.0.ga</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>org.hibernate</td>
-<td><a href="http://validator.hibernate.org" class="externalLink">hibernate-validator</a></td>
+<td>hibernate-validator</td>
 <td>3.0.0.ga</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-beans</a></td>
+<td>spring-beans</td>
 <td>2.5.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-context</a></td>
+<td>spring-context</td>
 <td>2.5.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-context-support</a></td>
+<td>spring-context-support</td>
 <td>2.5.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="a"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-core</a></td>
+<td>spring-core</td>
 <td>2.5.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 <tr class="b"><td>org.springframework</td>
-<td><a href="http://www.springframework.org" class="externalLink">spring-tx</a></td>
+<td>spring-tx</td>
 <td>2.5.6</td>
 <td>-</td>
 <td>jar</td>
+<td> </td>
 </tr>
 </table>
 </div>
 </div>
-<a name="Project_Dependency_Graph"></a><div class="section"><h2>Project Dependency Graph</h2>
-<script language="javascript" type="text/javascript">
-      function toggleDependencyDetail( divId, imgId )
-      {
-        var div = document.getElementById( divId );
-        var img = document.getElementById( imgId );
-        if( div.style.display == '' )
-        {
-          div.style.display = 'none';
-          img.src='./images/icon_info_sml.gif';
-        }
-        else
-        {
-          div.style.display = '';
-          img.src='./images/close.gif';
-        }
-      }
-</script>
-<a name="Dependency_Tree"></a><div class="section"><h3>Dependency Tree</h3>
-<ul><li>net.chrissearle:flickrvote-service-spring-cli:jar:1-SNAPSHOT <img id="_809090545" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_29431132', '_809090545' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_29431132" style="display:none"><table class="bodyTable"><tr class="a"><th>CLI (spring)</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Command line applications in spring for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-spring-cli</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>log4j:log4j:jar:1.2.14 (compile) <img id="_860376614" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1117815765', '_860376614' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1117815765" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle:flickrvote-service-spring:jar:1-SNAPSHOT (compile) <img id="_2144769975" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1316207695', '_2144769975' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1316207695" style="display:none"><table class="bodyTable"><tr class="a"><th>Service Implementation (spring)</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Implementation of the service API in spring for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-spring</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.chrissearle:flickrvote-flickr:jar:1-SNAPSHOT (compile) <img id="_1306309675" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_425201960', '_1306309675' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_425201960" style="display:none"><table class="bodyTable"><tr class="a"><th>Flickr interface</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Interface to flickr for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-flickr</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>com.aetrion.flickr:flickrapi:jar:1.1 (compile) <img id="_375286973" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2035315947', '_375286973' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2035315947" style="display:none"><table class="bodyTable"><tr class="a"><th>FlickrJ</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Flickrj is Java API which wraps the REST-based Flickr API</p>
-<p><b>URL: </b><a href="http://flickrj.sourceforge.net/" class="externalLink">http://flickrj.sourceforge.net/</a></p>
-<p><b>Project License: </b><a href="http://flickrj.cvs.sourceforge.net/*checkout*/flickrj/api/LICENSE.txt?revision=1.1" class="externalLink">BSD License</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>axis:axis:jar:1.2.1 (compile) <img id="_1366301240" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_28341714', '_1366301240' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_28341714" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - axis:axis:jar:1.2.1</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div><ul><li>commons-logging:commons-logging:jar:1.0.4 (compile) <img id="_435489540" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_609192577', '_435489540' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_609192577" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
-    well known logging systems.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-discovery:commons-discovery:jar:0.2 (compile) <img id="_222983400" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_511582720', '_222983400' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_511582720" style="display:none"><table class="bodyTable"><tr class="a"><th>Discovery</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons Discovery</p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
+<div class="section"><h2>Project Dependency Graph</h2>
+<div class="section"><h3>Dependency Tree</h3>
+<p><ul><li><a href="#net.chrissearle:flickrvote-service-spring-cli:jar">net.chrissearle:flickrvote-service-spring-cli:jar</a>
+<ul><li><a href="#net.chrissearle:flickrvote-service-spring:jar">net.chrissearle:flickrvote-service-spring:jar</a>
+<ul><li><a href="#net.chrissearle:flickrvote-service-api:jar">net.chrissearle:flickrvote-service-api:jar</a>
+<ul><li><a href="#jfree:jfreechart:jar">jfree:jfreechart:jar</a>
+<ul><li><a href="#jfree:jcommon:jar">jfree:jcommon:jar</a>
 </li>
-<li>axis:axis-jaxrpc:jar:1.2.1 (compile) <img id="_938319218" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_670353739', '_938319218' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_670353739" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - axis:axis-jaxrpc:jar:1.2.1</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
 </ul>
+</p>
 </li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_1938215422" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2128700222', '_1938215422' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2128700222" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_146071464" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1871829825', '_146071464' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1871829825" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>log4j:log4j:jar:1.2.14 (compile) <img id="_1539890253" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_50663979', '_1539890253' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_50663979" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle.common:simple-mail-api:jar:1 (compile) <img id="_583728831" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_872280967', '_583728831' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_872280967" style="display:none"><table class="bodyTable"><tr class="a"><th>Simple email sending - API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Root maven pom</p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
+<li><a href="#net.chrissearle:flickrvote-flickr:jar">net.chrissearle:flickrvote-flickr:jar</a>
+</li>
 </ul>
+</p>
 </li>
-<li>net.chrissearle:flickrvote-service-api:jar:1-SNAPSHOT (compile) <img id="_1049969450" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1897609895', '_1049969450' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1897609895" style="display:none"><table class="bodyTable"><tr class="a"><th>Service API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Service access API for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-api</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>jfree:jfreechart:jar:1.0.9 (compile) <img id="_1544046970" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1426395541', '_1544046970' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1426395541" style="display:none"><table class="bodyTable"><tr class="a"><th>jfreechart</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>JFreeChart is a class library, written in Java, for generating charts. Utilising the Java2D APIs, it currently
+<li><a href="#net.chrissearle:flickrvote-twitter:jar">net.chrissearle:flickrvote-twitter:jar</a>
+<ul><li><a href="#net.homeip.yusuke:twitter4j:jar">net.homeip.yusuke:twitter4j:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#com.rosaloves:bitlyj:jar">com.rosaloves:bitlyj:jar</a>
+<ul><li><a href="#net.sf.json-lib:json-lib:jar:jdk15">net.sf.json-lib:json-lib:jar:jdk15</a>
+<ul><li><a href="#commons-beanutils:commons-beanutils:jar">commons-beanutils:commons-beanutils:jar</a>
+</li>
+<li><a href="#net.sf.ezmorph:ezmorph:jar">net.sf.ezmorph:ezmorph:jar</a>
+<ul><li><a href="#commons-lang:commons-lang:jar">commons-lang:commons-lang:jar</a>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#com.lowagie:itext:jar">com.lowagie:itext:jar</a>
+<ul><li><a href="#bouncycastle:bcmail-jdk14:jar">bouncycastle:bcmail-jdk14:jar</a>
+</li>
+<li><a href="#bouncycastle:bcprov-jdk14:jar">bouncycastle:bcprov-jdk14:jar</a>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#net.chrissearle:flickrvote-data-spring:jar">net.chrissearle:flickrvote-data-spring:jar</a>
+<ul><li><a href="#net.chrissearle:flickrvote-data-api:jar">net.chrissearle:flickrvote-data-api:jar</a>
+</li>
+<li><a href="#net.chrissearle:flickrvote-model:jar">net.chrissearle:flickrvote-model:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#mysql:mysql-connector-java:jar">mysql:mysql-connector-java:jar</a>
+</li>
+<li><a href="#org.hibernate:hibernate-entitymanager:jar">org.hibernate:hibernate-entitymanager:jar</a>
+<ul><li><a href="#org.hibernate:hibernate-annotations:jar">org.hibernate:hibernate-annotations:jar</a>
+<ul><li><a href="#javax.persistence:persistence-api:jar">javax.persistence:persistence-api:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#org.hibernate:hibernate-commons-annotations:jar">org.hibernate:hibernate-commons-annotations:jar</a>
+</li>
+<li><a href="#org.hibernate:hibernate-validator:jar">org.hibernate:hibernate-validator:jar</a>
+</li>
+<li><a href="#jboss:javassist:jar">jboss:javassist:jar</a>
+</li>
+<li><a href="#jboss:jboss-common-core:jar">jboss:jboss-common-core:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#org.hibernate:hibernate:jar">org.hibernate:hibernate:jar</a>
+<ul><li><a href="#net.sf.ehcache:ehcache:jar">net.sf.ehcache:ehcache:jar</a>
+</li>
+<li><a href="#javax.transaction:jta:jar">javax.transaction:jta:jar</a>
+</li>
+<li><a href="#asm:asm-attrs:jar">asm:asm-attrs:jar</a>
+</li>
+<li><a href="#dom4j:dom4j:jar">dom4j:dom4j:jar</a>
+</li>
+<li><a href="#antlr:antlr:jar">antlr:antlr:jar</a>
+</li>
+<li><a href="#cglib:cglib:jar">cglib:cglib:jar</a>
+</li>
+<li><a href="#asm:asm:jar">asm:asm:jar</a>
+</li>
+<li><a href="#commons-collections:commons-collections:jar">commons-collections:commons-collections:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#concurrent:concurrent:jar">concurrent:concurrent:jar</a>
+</li>
+<li><a href="#org.springframework:spring-orm:jar">org.springframework:spring-orm:jar</a>
+</li>
+<li><a href="#org.springframework:spring-jdbc:jar">org.springframework:spring-jdbc:jar</a>
+<ul><li><a href="#org.springframework:spring-tx:jar">org.springframework:spring-tx:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#org.springframework:spring-aop:jar">org.springframework:spring-aop:jar</a>
+</li>
+<li><a href="#javax.mail:mail:jar">javax.mail:mail:jar</a>
+<ul><li><a href="#javax.activation:activation:jar">javax.activation:activation:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#net.chrissearle.common:simple-mail-spring:jar">net.chrissearle.common:simple-mail-spring:jar</a>
+<ul><li><a href="#org.springframework:spring-context-support:jar">org.springframework:spring-context-support:jar</a>
+<ul><li><a href="#aopalliance:aopalliance:jar">aopalliance:aopalliance:jar</a>
+</li>
+<li><a href="#commons-logging:commons-logging:jar">commons-logging:commons-logging:jar</a>
+</li>
+<li><a href="#org.springframework:spring-beans:jar">org.springframework:spring-beans:jar</a>
+</li>
+<li><a href="#org.springframework:spring-context:jar">org.springframework:spring-context:jar</a>
+</li>
+<li><a href="#org.springframework:spring-core:jar">org.springframework:spring-core:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#log4j:log4j:jar">log4j:log4j:jar</a>
+</li>
+<li><a href="#net.chrissearle.common:simple-mail-api:jar">net.chrissearle.common:simple-mail-api:jar</a>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section"><h3>Dependency Listings</h3>
+<p><a name="net.chrissearle:flickrvote-service-spring-cli:jar"><b>CLI (spring)</b>
+</a>
+</p>
+<p>Command line applications in spring for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-spring-cli</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-service-spring:jar"><b>Service Implementation (spring)</b>
+</a>
+</p>
+<p>Implementation of the service API in spring for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-spring</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-service-api:jar"><b>Service API</b>
+</a>
+</p>
+<p>Service access API for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-service-api</a>
+</p>
+<p><a name="jfree:jfreechart:jar"><b>jfreechart</b>
+</a>
+</p>
+<p>JFreeChart is a class library, written in Java, for generating charts. Utilising the Java2D APIs, it currently
         supports bar charts, pie charts, line charts, XY-plots and time series plots.</p>
-<p><b>URL: </b><a href="http://www.jfree.org/jfreechart/" class="externalLink">http://www.jfree.org/jfreechart/</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU Lesser General Public Licence</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>jfree:jcommon:jar:1.0.12 (compile) <img id="_1848949379" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_554012695', '_1848949379' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_554012695" style="display:none"><table class="bodyTable"><tr class="a"><th>jcommon</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>JCommon is a free general purpose Java class library that is used in several projects at www.jfree.org,
+<p><a href="http://www.jfree.org/jfreechart/" class="externalLink">http://www.jfree.org/jfreechart/</a>
+</p>
+<p><a name="jfree:jcommon:jar"><b>jcommon</b>
+</a>
+</p>
+<p>JCommon is a free general purpose Java class library that is used in several projects at www.jfree.org,
         including JFreeChart and JFreeReport.</p>
-<p><b>URL: </b><a href="http://www.jfree.org/jcommon/" class="externalLink">http://www.jfree.org/jcommon/</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU Lesser General Public Licence</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>net.chrissearle:flickrvote-model:jar:1-SNAPSHOT (compile) <img id="_618661042" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_298023801', '_618661042' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_298023801" style="display:none"><table class="bodyTable"><tr class="a"><th>Database model</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Database model for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle:flickrvote-flickr:jar:1-SNAPSHOT (compile) <img id="_172592450" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_657093128', '_172592450' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_657093128" style="display:none"><table class="bodyTable"><tr class="a"><th>Flickr interface</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Interface to flickr for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-flickr</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>net.chrissearle:flickrvote-data-api:jar:1-SNAPSHOT (compile) <img id="_920076230" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1241060370', '_920076230' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1241060370" style="display:none"><table class="bodyTable"><tr class="a"><th>Database API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Database access API for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-data-api</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.chrissearle.common:jpa:jar:1 (compile) <img id="_593172214" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2129029443', '_593172214' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2129029443" style="display:none"><table class="bodyTable"><tr class="a"><th>Generic Base DAO for JPA</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Based on http://java.dzone.com/articles/jpa-implementation-patterns</p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>javax.persistence:persistence-api:jar:1.0 (compile) <img id="_471636144" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_855075032', '_471636144' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_855075032" style="display:none"><table class="bodyTable"><tr class="a"><th>Enterprise JavaBeans (EJB) 3.0</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
-    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
-<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
-<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>net.chrissearle:flickrvote-model:jar:1-SNAPSHOT (compile) <img id="_1997936488" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1259340627', '_1997936488' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1259340627" style="display:none"><table class="bodyTable"><tr class="a"><th>Database model</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Database model for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>net.chrissearle:flickrvote-twitter:jar:1-SNAPSHOT (compile) <img id="_1744949092" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_234040090', '_1744949092' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_234040090" style="display:none"><table class="bodyTable"><tr class="a"><th>Twitter interface</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Interface to twitter for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-twitter</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.homeip.yusuke:twitter4j:jar:2.0.9 (compile) <img id="_1027103491" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1559325697', '_1027103491' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1559325697" style="display:none"><table class="bodyTable"><tr class="a"><th>twitter4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>A Java library for the Twitter API</p>
-<p><b>URL: </b><a href="http://yusuke.homeip.net/twitter4j/" class="externalLink">http://yusuke.homeip.net/twitter4j/</a></p>
-<p><b>Project License: </b><a href="http://yusuke.homeip.net/twitter4j/en/LICENSE.txt" class="externalLink">BSD style</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_896524611" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1965475133', '_896524611' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1965475133" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_1913317770" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_119872937', '_1913317770' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_119872937" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>log4j:log4j:jar:1.2.14 (compile) <img id="_66769739" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_909193010', '_66769739' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_909193010" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle.common:simple-mail-api:jar:1 (compile) <img id="_432148784" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1167469664', '_432148784' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1167469664" style="display:none"><table class="bodyTable"><tr class="a"><th>Simple email sending - API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Root maven pom</p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_1202584706" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1536813265', '_1202584706' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1536813265" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>aopalliance:aopalliance:jar:1.0 (compile) <img id="_2102948199" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1908329138', '_2102948199' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1908329138" style="display:none"><table class="bodyTable"><tr class="a"><th>AOP alliance</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>AOP Alliance</p>
-<p><b>URL: </b><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a></p>
-<p><b>Project License: </b>Public Domain</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_2044763442" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_505567324', '_2044763442' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_505567324" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_2042490479" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1550105129', '_2042490479' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1550105129" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-tx:jar:2.5.6 (compile) <img id="_1441270840" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_727866708', '_1441270840' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_727866708" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Transaction</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Transaction</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_1083604146" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_473267742', '_1083604146' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_473267742" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_511635935" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_717770871', '_511635935' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_717770871" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_1255750293" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1837002908', '_1255750293' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1837002908" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>log4j:log4j:jar:1.2.14 (compile) <img id="_516165142" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_315185735', '_516165142' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_315185735" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>com.rosaloves:bitlyj:jar:1.0-SNAPSHOT (compile) <img id="_256295287" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1409570900', '_256295287' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1409570900" style="display:none"><table class="bodyTable"><tr class="a"><th>bitlyj</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://maven.apache.org" class="externalLink">http://maven.apache.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache Software License 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.sf.json-lib:json-lib:jar:jdk15:2.0 (compile) <img id="_159659457" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_434077200', '_159659457' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_434077200" style="display:none"><table class="bodyTable"><tr class="a"><th>json-lib</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Java library for transforming beans, maps, collections, java
+<p><a href="http://www.jfree.org/jcommon/" class="externalLink">http://www.jfree.org/jcommon/</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-flickr:jar"><b>Flickr interface</b>
+</a>
+</p>
+<p>Interface to flickr for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-flickr</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-twitter:jar"><b>Twitter interface</b>
+</a>
+</p>
+<p>Interface to twitter for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-twitter</a>
+</p>
+<p><a name="net.homeip.yusuke:twitter4j:jar"><b>twitter4j</b>
+</a>
+</p>
+<p>A Java library for the Twitter API</p>
+<p><a href="http://yusuke.homeip.net/twitter4j/" class="externalLink">http://yusuke.homeip.net/twitter4j/</a>
+</p>
+<p><a name="com.rosaloves:bitlyj:jar"><b>bitlyj</b>
+</a>
+</p>
+<p><a href="http://maven.apache.org" class="externalLink">http://maven.apache.org</a>
+</p>
+<p><a name="net.sf.json-lib:json-lib:jar:jdk15"><b>json-lib</b>
+</a>
+</p>
+<p>Java library for transforming beans, maps, collections, java
       arrays and XML to JSON.</p>
-<p><b>URL: </b><a href="http://json-lib.sourceforge.net" class="externalLink">http://json-lib.sourceforge.net</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>commons-beanutils:commons-beanutils:jar:1.7.0 (compile) <img id="_2013143956" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1214128088', '_2013143956' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1214128088" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - commons-beanutils:commons-beanutils:jar:1.7.0</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-collections:commons-collections:jar:3.2.1 (compile) <img id="_500796268" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_40729549', '_500796268' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_40729549" style="display:none"><table class="bodyTable"><tr class="a"><th>Commons Collections</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Types that extend and augment the Java Collections Framework.</p>
-<p><b>URL: </b><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-lang:commons-lang:jar:2.3 (compile) <img id="_773478798" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_22124063', '_773478798' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_22124063" style="display:none"><table class="bodyTable"><tr class="a"><th>Lang</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons.Lang, a package of Java utility classes for the
+<p><a href="http://json-lib.sourceforge.net" class="externalLink">http://json-lib.sourceforge.net</a>
+</p>
+<p><a name="commons-beanutils:commons-beanutils:jar"><b>Unnamed - commons-beanutils:commons-beanutils:jar:1.7.0</b>
+</a>
+</p>
+<p><a name="net.sf.ezmorph:ezmorph:jar"><b>ezmorph</b>
+</a>
+</p>
+<p>Simple java library for transforming an Object to another Object.</p>
+<p><a href="http://ezmorph.sourceforge.net" class="externalLink">http://ezmorph.sourceforge.net</a>
+</p>
+<p><a name="commons-lang:commons-lang:jar"><b>Lang</b>
+</a>
+</p>
+<p>Commons.Lang, a package of Java utility classes for the
         classes that are in java.lang's hierarchy, or are considered to be so
         standard as to justify existence in java.lang.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/lang/" class="externalLink">http://jakarta.apache.org/commons/lang/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.sf.ezmorph:ezmorph:jar:1.0.2 (compile) <img id="_996542193" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_224226418', '_996542193' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_224226418" style="display:none"><table class="bodyTable"><tr class="a"><th>ezmorph</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Simple java library for transforming an Object to another Object.</p>
-<p><b>URL: </b><a href="http://ezmorph.sourceforge.net" class="externalLink">http://ezmorph.sourceforge.net</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>commons-lang:commons-lang:jar:2.3 (compile) <img id="_869824620" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_498045664', '_869824620' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_498045664" style="display:none"><table class="bodyTable"><tr class="a"><th>Lang</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons.Lang, a package of Java utility classes for the
-        classes that are in java.lang's hierarchy, or are considered to be so
-        standard as to justify existence in java.lang.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/lang/" class="externalLink">http://jakarta.apache.org/commons/lang/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>com.lowagie:itext:jar:2.1.5 (compile) <img id="_1441666351" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_836930330', '_1441666351' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_836930330" style="display:none"><table class="bodyTable"><tr class="a"><th>iText, a Free Java-PDF library</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>iText, a free Java-PDF library</p>
-<p><b>URL: </b><a href="http://www.lowagie.com/iText/" class="externalLink">http://www.lowagie.com/iText/</a></p>
-<p><b>Project License: </b><a href="http://www.mozilla.org/MPL/MPL-1.1.html" class="externalLink">Mozilla Public License</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>bouncycastle:bcmail-jdk14:jar:138 (compile) <img id="_2023059533" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1758389256', '_2023059533' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1758389256" style="display:none"><table class="bodyTable"><tr class="a"><th>Legion of the Bouncy Castle Java Cryptography APIs</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. The package is organised so that it contains a light-weight API suitable for use in any environment (including the newly released J2ME) with the additional infrastructure to conform the algorithms to the JCE framework.</p>
-<p><b>URL: </b><a href="http://www.bouncycastle.org/java.html" class="externalLink">http://www.bouncycastle.org/java.html</a></p>
-<p><b>Project License: </b><a href="http://www.bouncycastle.org/licence.html" class="externalLink">Bouncy Castle License</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>bouncycastle:bcprov-jdk14:jar:138 (compile) <img id="_1108550117" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1248456295', '_1108550117' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1248456295" style="display:none"><table class="bodyTable"><tr class="a"><th>Legion of the Bouncy Castle Java Cryptography APIs</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. The package is organised so that it contains a light-weight API suitable for use in any environment (including the newly released J2ME) with the additional infrastructure to conform the algorithms to the JCE framework.</p>
-<p><b>URL: </b><a href="http://www.bouncycastle.org/java.html" class="externalLink">http://www.bouncycastle.org/java.html</a></p>
-<p><b>Project License: </b><a href="http://www.bouncycastle.org/licence.html" class="externalLink">Bouncy Castle License</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>net.chrissearle:flickrvote-data-spring:jar:1-SNAPSHOT (compile) <img id="_1406208174" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_109861422', '_1406208174' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_109861422" style="display:none"><table class="bodyTable"><tr class="a"><th>Database Implementation (spring)</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Implementation of the database API in spring for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-data-spring</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.chrissearle:flickrvote-data-api:jar:1-SNAPSHOT (compile) <img id="_933090789" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1982800953', '_933090789' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1982800953" style="display:none"><table class="bodyTable"><tr class="a"><th>Database API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Database access API for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-data-api</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle:flickrvote-model:jar:1-SNAPSHOT (compile) <img id="_677197341" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1898874025', '_677197341' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1898874025" style="display:none"><table class="bodyTable"><tr class="a"><th>Database model</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Database model for the Twitter Photo Challenge voting app</p>
-<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>javax.persistence:persistence-api:jar:1.0 (compile) <img id="_784010663" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2140618568', '_784010663' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2140618568" style="display:none"><table class="bodyTable"><tr class="a"><th>Enterprise JavaBeans (EJB) 3.0</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
+<p><a href="http://jakarta.apache.org/commons/lang/" class="externalLink">http://jakarta.apache.org/commons/lang/</a>
+</p>
+<p><a name="com.lowagie:itext:jar"><b>iText, a Free Java-PDF library</b>
+</a>
+</p>
+<p>iText, a free Java-PDF library</p>
+<p><a href="http://www.lowagie.com/iText/" class="externalLink">http://www.lowagie.com/iText/</a>
+</p>
+<p><a name="bouncycastle:bcmail-jdk14:jar"><b>Legion of the Bouncy Castle Java Cryptography APIs</b>
+</a>
+</p>
+<p>The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. The package is organised so that it contains a light-weight API suitable for use in any environment (including the newly released J2ME) with the additional infrastructure to conform the algorithms to the JCE framework.</p>
+<p><a href="http://www.bouncycastle.org/java.html" class="externalLink">http://www.bouncycastle.org/java.html</a>
+</p>
+<p><a name="bouncycastle:bcprov-jdk14:jar"><b>Legion of the Bouncy Castle Java Cryptography APIs</b>
+</a>
+</p>
+<p>The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. The package is organised so that it contains a light-weight API suitable for use in any environment (including the newly released J2ME) with the additional infrastructure to conform the algorithms to the JCE framework.</p>
+<p><a href="http://www.bouncycastle.org/java.html" class="externalLink">http://www.bouncycastle.org/java.html</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-data-spring:jar"><b>Database Implementation (spring)</b>
+</a>
+</p>
+<p>Implementation of the database API in spring for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-data-spring</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-data-api:jar"><b>Database API</b>
+</a>
+</p>
+<p>Database access API for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-data-api</a>
+</p>
+<p><a name="net.chrissearle:flickrvote-model:jar"><b>Database model</b>
+</a>
+</p>
+<p>Database model for the Twitter Photo Challenge voting app</p>
+<p><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a>
+</p>
+<p><a name="mysql:mysql-connector-java:jar"><b>MySQL java connector</b>
+</a>
+</p>
+<p>MySQL java connector</p>
+<p><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">http://dev.mysql.com/usingmysql/java/</a>
+</p>
+<p><a name="org.hibernate:hibernate-entitymanager:jar"><b>Hibernate Entity Manager</b>
+</a>
+</p>
+<p>Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the EJB3 persistence specification.</p>
+<p><a href="http://entitymanager.hibernate.org" class="externalLink">http://entitymanager.hibernate.org</a>
+</p>
+<p><a name="org.hibernate:hibernate-annotations:jar"><b>Hibernate Annotations</b>
+</a>
+</p>
+<p>EJB3-style annotations for Hibernate</p>
+<p><a href="http://annotations.hibernate.org" class="externalLink">http://annotations.hibernate.org</a>
+</p>
+<p><a name="javax.persistence:persistence-api:jar"><b>Enterprise JavaBeans (EJB) 3.0</b>
+</a>
+</p>
+<p>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
     The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
-<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
-<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-tx:jar:2.5.6 (compile) <img id="_206427541" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1710400665', '_206427541' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1710400665" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Transaction</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Transaction</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>log4j:log4j:jar:1.2.14 (compile) <img id="_1749015842" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_264476145', '_1749015842' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_264476145" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>mysql:mysql-connector-java:jar:5.1.6 (compile) <img id="_631233324" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_224166116', '_631233324' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_224166116" style="display:none"><table class="bodyTable"><tr class="a"><th>MySQL java connector</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>MySQL java connector</p>
-<p><b>URL: </b><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">http://dev.mysql.com/usingmysql/java/</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/gpl.txt" class="externalLink">The GNU General Public License, Version 2</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.hibernate:hibernate-entitymanager:jar:3.3.1.ga (compile) <img id="_2063985641" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_33891501', '_2063985641' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_33891501" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate Entity Manager</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the EJB3 persistence specification.</p>
-<p><b>URL: </b><a href="http://entitymanager.hibernate.org" class="externalLink">http://entitymanager.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>javax.persistence:persistence-api:jar:1.0 (compile) <img id="_1439127217" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_644941275', '_1439127217' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_644941275" style="display:none"><table class="bodyTable"><tr class="a"><th>Enterprise JavaBeans (EJB) 3.0</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
-    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
-<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
-<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.hibernate:hibernate:jar:3.2.6.ga (compile) <img id="_847874323" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1765916289', '_847874323' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1765916289" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Relational Persistence for Java</p>
-<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.hibernate:hibernate-annotations:jar:3.3.0.ga (compile) <img id="_2098494751" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_816320708', '_2098494751' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_816320708" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate Annotations</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>EJB3-style annotations for Hibernate</p>
-<p><b>URL: </b><a href="http://annotations.hibernate.org" class="externalLink">http://annotations.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>org.hibernate:hibernate:jar:3.2.6.ga (compile) <img id="_1717143194" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_727450323', '_1717143194' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_727450323" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Relational Persistence for Java</p>
-<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>javax.persistence:persistence-api:jar:1.0 (compile) <img id="_468345018" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_99159143', '_468345018' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_99159143" style="display:none"><table class="bodyTable"><tr class="a"><th>Enterprise JavaBeans (EJB) 3.0</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
-    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
-<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
-<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.hibernate:hibernate-commons-annotations:jar:3.0.0.ga (compile) <img id="_1525856729" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_845620012', '_1525856729' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_845620012" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate Commons Annotations</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Hibernate Commons Annotations is a utility project used by annotations based Hibernate sub-projects.</p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>commons-logging:commons-logging:jar:1.0.4 (compile) <img id="_683914827" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1082611444', '_683914827' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1082611444" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
-    well known logging systems.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.hibernate:hibernate-validator:jar:3.0.0.ga (compile) <img id="_1393549406" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_108915160', '_1393549406' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_108915160" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate Validator</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Following the DRY (Don't Repeat Yourself) principle, Hibernate Validator let's you express your domain constraints once (and only once) and ensure their compliance at various level of your system automatically.</p>
-<p><b>URL: </b><a href="http://validator.hibernate.org" class="externalLink">http://validator.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>jboss:javassist:jar:3.3.ga (compile) <img id="_1097486123" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1057014240', '_1097486123' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1057014240" style="display:none"><table class="bodyTable"><tr class="a"><th>Javassist</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Javassist (Java programming assistant) is a load-time reflective system for Java.</p>
-<p><b>URL: </b><a href="http://www.jboss.org/products/javassist" class="externalLink">http://www.jboss.org/products/javassist</a></p>
-<p><b>Project License: </b><a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/jboss/javassist/License.html?rev=HEAD&amp;content-type=text/html" class="externalLink">MPL 1.1</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>jboss:jboss-common-core:jar:2.0.4.GA (compile) <img id="_66310218" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_924369894', '_66310218' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_924369894" style="display:none"><table class="bodyTable"><tr class="a"><th>JBoss Common Classes</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>JBoss Common Core Utility classes</p>
-<p><b>URL: </b><a href="http://www.jboss.org" class="externalLink">http://www.jboss.org</a></p>
-<p><b>Project License: </b><a href="http://repository.jboss.com/licenses/lgpl.txt" class="externalLink">lgpl</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.hibernate:hibernate:jar:3.2.6.ga (compile) <img id="_787251051" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2104577651', '_787251051' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2104577651" style="display:none"><table class="bodyTable"><tr class="a"><th>Hibernate</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Relational Persistence for Java</p>
-<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
-<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>net.sf.ehcache:ehcache:jar:1.2.3 (compile) <img id="_1286666071" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_922924939', '_1286666071' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_922924939" style="display:none"><table class="bodyTable"><tr class="a"><th>ehcache</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>ehcache is a pure Java, in-process cache with the following features:
+<p><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a>
+</p>
+<p><a name="org.hibernate:hibernate-commons-annotations:jar"><b>Hibernate Commons Annotations</b>
+</a>
+</p>
+<p>Hibernate Commons Annotations is a utility project used by annotations based Hibernate sub-projects.</p>
+<p><a name="org.hibernate:hibernate-validator:jar"><b>Hibernate Validator</b>
+</a>
+</p>
+<p>Following the DRY (Don't Repeat Yourself) principle, Hibernate Validator let's you express your domain constraints once (and only once) and ensure their compliance at various level of your system automatically.</p>
+<p><a href="http://validator.hibernate.org" class="externalLink">http://validator.hibernate.org</a>
+</p>
+<p><a name="jboss:javassist:jar"><b>Javassist</b>
+</a>
+</p>
+<p>Javassist (Java programming assistant) is a load-time reflective system for Java.</p>
+<p><a href="http://www.jboss.org/products/javassist" class="externalLink">http://www.jboss.org/products/javassist</a>
+</p>
+<p><a name="jboss:jboss-common-core:jar"><b>JBoss Common Classes</b>
+</a>
+</p>
+<p>JBoss Common Core Utility classes</p>
+<p><a href="http://www.jboss.org" class="externalLink">http://www.jboss.org</a>
+</p>
+<p><a name="org.hibernate:hibernate:jar"><b>Hibernate</b>
+</a>
+</p>
+<p>Relational Persistence for Java</p>
+<p><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a>
+</p>
+<p><a name="net.sf.ehcache:ehcache:jar"><b>ehcache</b>
+</a>
+</p>
+<p>ehcache is a pure Java, in-process cache with the following features:
 
    1. Fast.
    2. Simple.
@@ -1207,1383 +933,137 @@
    14. Available under the Apache 1.1 license. EHCache's copyright and licensing has been reviewed and approved by the Apache Software Foundation, making EHCache suitable for use in Apache projects.
    15. Production tested. EHCache is used on a large and very busy eCommerce site.
    16. Web caching, pull-through caches and other common caching implementations are provided in the ehcache-constructs module.</p>
-<p><b>URL: </b><a href="http://ehcache.sf.net" class="externalLink">http://ehcache.sf.net</a></p>
-<p><b>Project License: </b><a href="http://ehcache.sourceforge.net/LICENSE.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>commons-logging:commons-logging:jar:1.0.4 (compile) <img id="_902348521" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2076193143', '_902348521' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2076193143" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
+<p><a href="http://ehcache.sf.net" class="externalLink">http://ehcache.sf.net</a>
+</p>
+<p><a name="javax.transaction:jta:jar"><b>Java Transaction API</b>
+</a>
+</p>
+<p>The javax.transaction package. It is appropriate for inclusion in a classpath, and may be added to a Java 2 installation.</p>
+<p><a href="http://java.sun.com/products/jta" class="externalLink">http://java.sun.com/products/jta</a>
+</p>
+<p><a name="asm:asm-attrs:jar"><b>asm-attrs</b>
+</a>
+</p>
+<p><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a>
+</p>
+<p><a name="dom4j:dom4j:jar"><b>dom4j</b>
+</a>
+</p>
+<p>dom4j: the flexible XML framework for Java</p>
+<p><a href="http://dom4j.org" class="externalLink">http://dom4j.org</a>
+</p>
+<p><a name="antlr:antlr:jar"><b>AntLR</b>
+</a>
+</p>
+<p><a href="http://www.antlr.org/" class="externalLink">http://www.antlr.org/</a>
+</p>
+<p><a name="cglib:cglib:jar"><b>cglib</b>
+</a>
+</p>
+<p><a href="http://cglib.sourceforge.net/" class="externalLink">http://cglib.sourceforge.net/</a>
+</p>
+<p><a name="asm:asm:jar"><b>asm</b>
+</a>
+</p>
+<p><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a>
+</p>
+<p><a name="commons-collections:commons-collections:jar"><b>Commons Collections</b>
+</a>
+</p>
+<p>Types that extend and augment the Java Collections Framework.</p>
+<p><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a>
+</p>
+<p><a name="concurrent:concurrent:jar"><b>Dough Lea's util.concurrent package</b>
+</a>
+</p>
+<p><a name="org.springframework:spring-orm:jar"><b>Spring Framework: ORM</b>
+</a>
+</p>
+<p>Spring Framework: ORM</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="org.springframework:spring-jdbc:jar"><b>Spring Framework: JDBC</b>
+</a>
+</p>
+<p>Spring Framework: JDBC</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="org.springframework:spring-tx:jar"><b>Spring Framework: Transaction</b>
+</a>
+</p>
+<p>Spring Framework: Transaction</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="org.springframework:spring-aop:jar"><b>Spring Framework: AOP</b>
+</a>
+</p>
+<p>Spring Framework: AOP</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="javax.mail:mail:jar"><b>JavaMail API</b>
+</a>
+</p>
+<p>The JavaMail API provides a platform-independent and protocol-independent framework to build mail and messaging applications.</p>
+<p><a href="https://glassfish.dev.java.net/javaee5/mail/" class="externalLink">https://glassfish.dev.java.net/javaee5/mail/</a>
+</p>
+<p><a name="javax.activation:activation:jar"><b>JavaBeans Activation Framework (JAF)</b>
+</a>
+</p>
+<p>JavaBeans Activation Framework (JAF) is a standard extension to the Java platform that lets you take advantage of standard services to: determine the type of an arbitrary piece of data; encapsulate access to it; discover the operations available on it; and instantiate the appropriate bean to perform the operation(s).</p>
+<p><a href="http://java.sun.com/products/javabeans/jaf/index.jsp" class="externalLink">http://java.sun.com/products/javabeans/jaf/index.jsp</a>
+</p>
+<p><a name="net.chrissearle.common:simple-mail-spring:jar"><b>Simple email sending - spring implementation</b>
+</a>
+</p>
+<p>Root maven pom</p>
+<p><a name="org.springframework:spring-context-support:jar"><b>Spring Framework: Context Support</b>
+</a>
+</p>
+<p>Spring Framework: Context Support</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="aopalliance:aopalliance:jar"><b>AOP alliance</b>
+</a>
+</p>
+<p>AOP Alliance</p>
+<p><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a>
+</p>
+<p><a name="commons-logging:commons-logging:jar"><b>Logging</b>
+</a>
+</p>
+<p>Commons Logging is a thin adapter allowing configurable bridging to other,
     well known logging systems.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-collections:commons-collections:jar:3.2.1 (compile) <img id="_1159571537" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_186999015', '_1159571537' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_186999015" style="display:none"><table class="bodyTable"><tr class="a"><th>Commons Collections</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Types that extend and augment the Java Collections Framework.</p>
-<p><b>URL: </b><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>javax.transaction:jta:jar:1.0.1B (compile) <img id="_473600577" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1876604749', '_473600577' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1876604749" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - javax.transaction:jta:jar:1.0.1B</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-logging:commons-logging:jar:1.0.4 (compile) <img id="_239396248" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_758305694', '_239396248' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_758305694" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
-    well known logging systems.</p>
-<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
-<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>asm:asm-attrs:jar:1.5.3 (compile) <img id="_1233016495" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_895892376', '_1233016495' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_895892376" style="display:none"><table class="bodyTable"><tr class="a"><th>asm-attrs</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>dom4j:dom4j:jar:1.6.1 (compile) <img id="_1246311767" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1268617029', '_1246311767' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1268617029" style="display:none"><table class="bodyTable"><tr class="a"><th>dom4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>dom4j: the flexible XML framework for Java</p>
-<p><b>URL: </b><a href="http://dom4j.org" class="externalLink">http://dom4j.org</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>antlr:antlr:jar:2.7.6 (compile) <img id="_465282577" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_676035732', '_465282577' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_676035732" style="display:none"><table class="bodyTable"><tr class="a"><th>AntLR</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://www.antlr.org/" class="externalLink">http://www.antlr.org/</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>cglib:cglib:jar:2.1_3 (compile) <img id="_1733765498" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_914872494', '_1733765498' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_914872494" style="display:none"><table class="bodyTable"><tr class="a"><th>cglib</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://cglib.sourceforge.net/" class="externalLink">http://cglib.sourceforge.net/</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div><ul><li>asm:asm:jar:1.5.3 (compile) <img id="_379498852" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_744955899', '_379498852' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_744955899" style="display:none"><table class="bodyTable"><tr class="a"><th>asm</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>asm:asm:jar:1.5.3 (compile) <img id="_961773252" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1258941676', '_961773252' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1258941676" style="display:none"><table class="bodyTable"><tr class="a"><th>asm</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
-<p><b>Project License: </b>No project license is defined for this project.</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>commons-collections:commons-collections:jar:3.2.1 (compile) <img id="_2130496363" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1649470290', '_2130496363' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1649470290" style="display:none"><table class="bodyTable"><tr class="a"><th>Commons Collections</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Types that extend and augment the Java Collections Framework.</p>
-<p><b>URL: </b><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>concurrent:concurrent:jar:1.3.4 (compile) <img id="_1962001812" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_607651698', '_1962001812' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_607651698" style="display:none"><table class="bodyTable"><tr class="a"><th>Dough Lea's util.concurrent package</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b><a href="&gt;http://gee.cs.oswego.edu/dl/classes/EDU/oswego/cs/dl/util/concurrent/intro.html">Public domain, Sun Microsoystems</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-orm:jar:2.5.6 (compile) <img id="_1243542892" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_892855305', '_1243542892' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_892855305" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: ORM</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: ORM</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>aopalliance:aopalliance:jar:1.0 (compile) <img id="_626886292" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_706022440', '_626886292' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_706022440" style="display:none"><table class="bodyTable"><tr class="a"><th>AOP alliance</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>AOP Alliance</p>
-<p><b>URL: </b><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a></p>
-<p><b>Project License: </b>Public Domain</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_1947512027" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2135606235', '_1947512027' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2135606235" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_1012563869" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1966982972', '_1012563869' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1966982972" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_346269238" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_676827725', '_346269238' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_676827725" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_1218832235" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_804519752', '_1218832235' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_804519752" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-tx:jar:2.5.6 (compile) <img id="_274766167" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_401070235', '_274766167' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_401070235" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Transaction</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Transaction</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-jdbc:jar:2.5.6 (compile) <img id="_1768377711" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1925923987', '_1768377711' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1925923987" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: JDBC</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: JDBC</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_559066307" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1684647759', '_559066307' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1684647759" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_567375437" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_633788215', '_567375437' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_633788215" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_2050979359" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1339640416', '_2050979359' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1339640416" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-tx:jar:2.5.6 (compile) <img id="_535978655" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_798574564', '_535978655' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_798574564" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Transaction</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Transaction</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>org.springframework:spring-aop:jar:2.5.6 (compile) <img id="_2118651351" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1385228868', '_2118651351' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1385228868" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: AOP</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: AOP</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>aopalliance:aopalliance:jar:1.0 (compile) <img id="_1015052104" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_679981521', '_1015052104' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_679981521" style="display:none"><table class="bodyTable"><tr class="a"><th>AOP alliance</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>AOP Alliance</p>
-<p><b>URL: </b><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a></p>
-<p><b>Project License: </b>Public Domain</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_631018878" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_463698773', '_631018878' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_463698773" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_1295222208" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1745298565', '_1295222208' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1745298565" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>javax.mail:mail:jar:1.4 (compile) <img id="_1765573369" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_67823597', '_1765573369' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_67823597" style="display:none"><table class="bodyTable"><tr class="a"><th>JavaMail API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>The JavaMail API provides a platform-independent and protocol-independent framework to build mail and messaging applications.</p>
-<p><b>URL: </b><a href="https://glassfish.dev.java.net/javaee5/mail/" class="externalLink">https://glassfish.dev.java.net/javaee5/mail/</a></p>
-<p><b>Project License: </b><a href="https://glassfish.dev.java.net/public/CDDLv1.0.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>javax.activation:activation:jar:1.1 (compile) <img id="_1710992269" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1336071368', '_1710992269' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1336071368" style="display:none"><table class="bodyTable"><tr class="a"><th>JavaBeans Activation Framework (JAF)</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>JavaBeans Activation Framework (JAF) is a standard extension to the Java platform that lets you take advantage of standard services to: determine the type of an arbitrary piece of data; encapsulate access to it; discover the operations available on it; and instantiate the appropriate bean to perform the operation(s).</p>
-<p><b>URL: </b><a href="http://java.sun.com/products/javabeans/jaf/index.jsp" class="externalLink">http://java.sun.com/products/javabeans/jaf/index.jsp</a></p>
-<p><b>Project License: </b><a href="https://glassfish.dev.java.net/public/CDDLv1.0.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>net.chrissearle.common:simple-mail-spring:jar:1 (compile) <img id="_1407835254" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1397341179', '_1407835254' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1397341179" style="display:none"><table class="bodyTable"><tr class="a"><th>Simple email sending - spring implementation</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Root maven pom</p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>org.springframework:spring-context-support:jar:2.5.6 (compile) <img id="_1975378665" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_295624577', '_1975378665' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_295624577" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context Support</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context Support</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div><ul><li>aopalliance:aopalliance:jar:1.0 (compile) <img id="_1034671295" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_67721578', '_1034671295' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_67721578" style="display:none"><table class="bodyTable"><tr class="a"><th>AOP alliance</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>AOP Alliance</p>
-<p><b>URL: </b><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a></p>
-<p><b>Project License: </b>Public Domain</p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-beans:jar:2.5.6 (compile) <img id="_178947790" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_795927225', '_178947790' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_795927225" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Beans</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Beans</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-context:jar:2.5.6 (compile) <img id="_498746654" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1172778443', '_498746654' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1172778443" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Context</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Context</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>org.springframework:spring-core:jar:2.5.6 (compile) <img id="_104475816" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_180633265', '_104475816' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_180633265" style="display:none"><table class="bodyTable"><tr class="a"><th>Spring Framework: Core</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Spring Framework: Core</p>
-<p><b>URL: </b><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-<li>log4j:log4j:jar:1.2.14 (compile) <img id="_591438687" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1319274667', '_591438687' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1319274667" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Log4j</p>
-<p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-<li>net.chrissearle.common:simple-mail-api:jar:1 (compile) <img id="_1956061687" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_453844923', '_1956061687' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_453844923" style="display:none"><table class="bodyTable"><tr class="a"><th>Simple email sending - API</th>
-</tr>
-<tr class="b"><td><p><b>Description: </b>Root maven pom</p>
-<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
-</td>
-</tr>
-</table>
-</div></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a>
+</p>
+<p><a name="org.springframework:spring-beans:jar"><b>Spring Framework: Beans</b>
+</a>
+</p>
+<p>Spring Framework: Beans</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="org.springframework:spring-context:jar"><b>Spring Framework: Context</b>
+</a>
+</p>
+<p>Spring Framework: Context</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="org.springframework:spring-core:jar"><b>Spring Framework: Core</b>
+</a>
+</p>
+<p>Spring Framework: Core</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="log4j:log4j:jar"><b>Log4j</b>
+</a>
+</p>
+<p>Log4j</p>
+<p><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a>
+</p>
+<p><a name="net.chrissearle.common:simple-mail-api:jar"><b>Simple email sending - API</b>
+</a>
+</p>
+<p>Root maven pom</p>
 </div>
-</div>
-<a name="Licenses"></a><div class="section"><h2>Licenses</h2>
-<p><b>Apache Software License 2.0: </b>bitlyj</p>
-<p><b>BSD License: </b>FlickrJ</p>
-<p><b>Unknown: </b>AntLR, Discovery, Unnamed - axis:axis-jaxrpc:jar:1.2.1, Unnamed - axis:axis:jar:1.2.1, Unnamed - commons-beanutils:commons-beanutils:jar:1.7.0, Unnamed - javax.transaction:jta:jar:1.0.1B, asm, asm-attrs, cglib, dom4j</p>
-<p><b>Common Development and Distribution License (CDDL) v1.0: </b>Enterprise JavaBeans (EJB) 3.0, JavaBeans Activation Framework (JAF), JavaMail API</p>
-<p><b>Mozilla Public License: </b>iText, a Free Java-PDF library</p>
-<p><b>Public Domain: </b>AOP alliance</p>
-<p><b>Bouncy Castle License: </b>Legion of the Bouncy Castle Java Cryptography APIs</p>
-<p><b>GNU Lesser General Public Licence: </b>jcommon, jfreechart</p>
-<p><b>BSD style: </b>twitter4j</p>
-<p><b>Apache License, Version 2.0: </b>CLI (spring), Database API, Database Implementation (spring), Database model, Flickr interface, Generic Base DAO for JPA, Service API, Service Implementation (spring), Simple email sending - API, Simple email sending - spring implementation, Twitter interface</p>
-<p><b>lgpl: </b>JBoss Common Classes</p>
-<p><b>MPL 1.1: </b>Javassist</p>
-<p><b>The GNU General Public License, Version 2: </b>MySQL java connector</p>
-<p><b>GNU LESSER GENERAL PUBLIC LICENSE: </b>Hibernate, Hibernate Annotations, Hibernate Commons Annotations, Hibernate Entity Manager, Hibernate Validator</p>
-<p><b>The Apache Software License, Version 2.0: </b>Commons Collections, Lang, Log4j, Logging, Spring Framework: AOP, Spring Framework: Beans, Spring Framework: Context, Spring Framework: Context Support, Spring Framework: Core, Spring Framework: JDBC, Spring Framework: ORM, Spring Framework: Transaction, ehcache, ezmorph, json-lib</p>
-<p><b>Public domain, Sun Microsoystems: </b>Dough Lea's util.concurrent package</p>
-</div>
-<a name="Dependency_File_Details"></a><div class="section"><h2>Dependency File Details</h2>
-<table class="bodyTable"><tbody><tr class="a"><th align="left">Filename</th>
-<th align="right">Size</th>
-<th align="right">Entries</th>
-<th align="right">Classes</th>
-<th align="right">Packages</th>
-<th align="center">JDK Rev</th>
-<th align="center">Debug</th>
-</tr>
-<tr class="b"><td align="left">antlr-2.7.6.jar</td>
-<td align="right">433.04 kB</td>
-<td align="right">226</td>
-<td align="right">224</td>
-<td align="right">12</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">aopalliance-1.0.jar</td>
-<td align="right">4.36 kB</td>
-<td align="right">15</td>
-<td align="right">9</td>
-<td align="right">2</td>
-<td align="center">1.3</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">asm-1.5.3.jar</td>
-<td align="right">25.74 kB</td>
-<td align="right">19</td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="center">1.2</td>
-<td align="center">release</td>
-</tr>
-<tr class="a"><td align="left">asm-attrs-1.5.3.jar</td>
-<td align="right">16.36 kB</td>
-<td align="right">22</td>
-<td align="right">16</td>
-<td align="right">1</td>
-<td align="center">1.2</td>
-<td align="center">release</td>
-</tr>
-<tr class="b"><td align="left">axis-1.2.1.jar</td>
-<td align="right">1.53 MB</td>
-<td align="right">845</td>
-<td align="right">768</td>
-<td align="right">59</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">axis-jaxrpc-1.2.1.jar</td>
-<td align="right">31.32 kB</td>
-<td align="right">67</td>
-<td align="right">54</td>
-<td align="right">9</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">bcmail-jdk14-138.jar</td>
-<td align="right">187.53 kB</td>
-<td align="right">161</td>
-<td align="right">144</td>
-<td align="right">8</td>
-<td align="center">1.2</td>
-<td align="center">release</td>
-</tr>
-<tr class="a"><td align="left">bcprov-jdk14-138.jar</td>
-<td align="right">1.48 MB</td>
-<td align="right">1,372</td>
-<td align="right">1,292</td>
-<td align="right">72</td>
-<td align="center">1.2</td>
-<td align="center">release</td>
-</tr>
-<tr class="b"><td align="left">cglib-2.1_3.jar</td>
-<td align="right">275.72 kB</td>
-<td align="right">243</td>
-<td align="right">228</td>
-<td align="right">8</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">flickrapi-1.1.jar</td>
-<td align="right">166.45 kB</td>
-<td align="right">141</td>
-<td align="right">110</td>
-<td align="right">27</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">itext-2.1.5.jar</td>
-<td align="right">1.07 MB</td>
-<td align="right">518</td>
-<td align="right">471</td>
-<td align="right">22</td>
-<td align="center">1.4</td>
-<td align="center">release</td>
-</tr>
-<tr class="a"><td align="left">bitlyj-1.0-SNAPSHOT.jar</td>
-<td align="right">14.10 kB</td>
-<td align="right">30</td>
-<td align="right">16</td>
-<td align="right">3</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">commons-beanutils-1.7.0.jar</td>
-<td align="right">184.25 kB</td>
-<td align="right">129</td>
-<td align="right">111</td>
-<td align="right">5</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">commons-collections-3.2.1.jar</td>
-<td align="right">561.90 kB</td>
-<td align="right">482</td>
-<td align="right">458</td>
-<td align="right">12</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">commons-discovery-0.2.jar</td>
-<td align="right">69.77 kB</td>
-<td align="right">80</td>
-<td align="right">58</td>
-<td align="right">8</td>
-<td align="center">1.1</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">commons-lang-2.3.jar</td>
-<td align="right">239.53 kB</td>
-<td align="right">140</td>
-<td align="right">124</td>
-<td align="right">9</td>
-<td align="center">1.1</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">commons-logging-1.0.4.jar</td>
-<td align="right">37.12 kB</td>
-<td align="right">29</td>
-<td align="right">18</td>
-<td align="right">2</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">concurrent-1.3.4.jar</td>
-<td align="right">184.85 kB</td>
-<td align="right">230</td>
-<td align="right">221</td>
-<td align="right">2</td>
-<td align="center">1.1</td>
-<td align="center">release</td>
-</tr>
-<tr class="b"><td align="left">dom4j-1.6.1.jar</td>
-<td align="right">306.54 kB</td>
-<td align="right">208</td>
-<td align="right">190</td>
-<td align="right">14</td>
-<td align="center">1.3</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">activation-1.1.jar</td>
-<td align="right">61.51 kB</td>
-<td align="right">50</td>
-<td align="right">38</td>
-<td align="right">3</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">mail-1.4.jar</td>
-<td align="right">379.75 kB</td>
-<td align="right">273</td>
-<td align="right">250</td>
-<td align="right">12</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">persistence-api-1.0.jar</td>
-<td align="right">50.93 kB</td>
-<td align="right">97</td>
-<td align="right">91</td>
-<td align="right">2</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">jta-1.0.1B.jar</td>
-<td align="right">8.52 kB</td>
-<td align="right">22</td>
-<td align="right">17</td>
-<td align="right">2</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">javassist-3.3.ga.jar</td>
-<td align="right">448.89 kB</td>
-<td align="right">271</td>
-<td align="right">254</td>
-<td align="right">15</td>
-<td align="center">1.2</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">jboss-common-core-2.0.4.GA.jar</td>
-<td align="right">409.50 kB</td>
-<td align="right">376</td>
-<td align="right">338</td>
-<td align="right">28</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">jcommon-1.0.12.jar</td>
-<td align="right">302.00 kB</td>
-<td align="right">242</td>
-<td align="right">208</td>
-<td align="right">18</td>
-<td align="center">1.3</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">jfreechart-1.0.9.jar</td>
-<td align="right">1.23 MB</td>
-<td align="right">634</td>
-<td align="right">562</td>
-<td align="right">36</td>
-<td align="center">1.3</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">log4j-1.2.14.jar</td>
-<td align="right">358.83 kB</td>
-<td align="right">288</td>
-<td align="right">256</td>
-<td align="right">19</td>
-<td align="center">1.1</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">mysql-connector-java-5.1.6.jar</td>
-<td align="right">686.78 kB</td>
-<td align="right">258</td>
-<td align="right">225</td>
-<td align="right">11</td>
-<td align="center">1.6</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">flickrvote-data-api-1-SNAPSHOT.jar</td>
-<td align="right">3.54 kB</td>
-<td align="right">14</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">release</td>
-</tr>
-<tr class="b"><td align="left">flickrvote-data-spring-1-SNAPSHOT.jar</td>
-<td align="right">6.56 kB</td>
-<td align="right">14</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">flickrvote-flickr-1-SNAPSHOT.jar</td>
-<td align="right">10.84 kB</td>
-<td align="right">17</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">flickrvote-model-1-SNAPSHOT.jar</td>
-<td align="right">10.70 kB</td>
-<td align="right">17</td>
-<td align="right">5</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">flickrvote-service-api-1-SNAPSHOT.jar</td>
-<td align="right">13.83 kB</td>
-<td align="right">29</td>
-<td align="right">16</td>
-<td align="right">3</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">flickrvote-service-spring-1-SNAPSHOT.jar</td>
-<td align="right">34.54 kB</td>
-<td align="right">26</td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">flickrvote-twitter-1-SNAPSHOT.jar</td>
-<td align="right">5.16 kB</td>
-<td align="right">15</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">jpa-1.jar</td>
-<td align="right">3.56 kB</td>
-<td align="right">13</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">simple-mail-api-1.jar</td>
-<td align="right">2.17 kB</td>
-<td align="right">11</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">release</td>
-</tr>
-<tr class="b"><td align="left">simple-mail-spring-1.jar</td>
-<td align="right">3.16 kB</td>
-<td align="right">11</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">twitter4j-2.0.9.jar</td>
-<td align="right">239.62 kB</td>
-<td align="right">198</td>
-<td align="right">185</td>
-<td align="right">4</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">ehcache-1.2.3.jar</td>
-<td align="right">203.17 kB</td>
-<td align="right">137</td>
-<td align="right">117</td>
-<td align="right">13</td>
-<td align="center">1.3</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">ezmorph-1.0.2.jar</td>
-<td align="right">75.97 kB</td>
-<td align="right">58</td>
-<td align="right">43</td>
-<td align="right">6</td>
-<td align="center">1.1</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">json-lib-2.0-jdk15.jar</td>
-<td align="right">108.17 kB</td>
-<td align="right">73</td>
-<td align="right">51</td>
-<td align="right">10</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">hibernate-3.2.6.ga.jar</td>
-<td align="right">2.17 MB</td>
-<td align="right">1,445</td>
-<td align="right">1,361</td>
-<td align="right">78</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">hibernate-annotations-3.3.0.ga.jar</td>
-<td align="right">258.92 kB</td>
-<td align="right">154</td>
-<td align="right">142</td>
-<td align="right">7</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">hibernate-commons-annotations-3.0.0.ga.jar</td>
-<td align="right">64.87 kB</td>
-<td align="right">68</td>
-<td align="right">57</td>
-<td align="right">6</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">hibernate-entitymanager-3.3.1.ga.jar</td>
-<td align="right">113.81 kB</td>
-<td align="right">92</td>
-<td align="right">77</td>
-<td align="right">8</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">hibernate-validator-3.0.0.ga.jar</td>
-<td align="right">59.56 kB</td>
-<td align="right">72</td>
-<td align="right">53</td>
-<td align="right">3</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">spring-aop-2.5.6.jar</td>
-<td align="right">318.30 kB</td>
-<td align="right">272</td>
-<td align="right">248</td>
-<td align="right">15</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">spring-beans-2.5.6.jar</td>
-<td align="right">476.84 kB</td>
-<td align="right">327</td>
-<td align="right">297</td>
-<td align="right">15</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">spring-context-2.5.6.jar</td>
-<td align="right">465.76 kB</td>
-<td align="right">407</td>
-<td align="right">344</td>
-<td align="right">48</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">spring-context-support-2.5.6.jar</td>
-<td align="right">94.61 kB</td>
-<td align="right">74</td>
-<td align="right">57</td>
-<td align="right">8</td>
-<td align="center">1.4</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">spring-core-2.5.6.jar</td>
-<td align="right">278.80 kB</td>
-<td align="right">214</td>
-<td align="right">212</td>
-<td align="right">19</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">spring-jdbc-2.5.6.jar</td>
-<td align="right">327.62 kB</td>
-<td align="right">266</td>
-<td align="right">245</td>
-<td align="right">15</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><td align="left">spring-orm-2.5.6.jar</td>
-<td align="right">368.95 kB</td>
-<td align="right">312</td>
-<td align="right">293</td>
-<td align="right">14</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="a"><td align="left">spring-tx-2.5.6.jar</td>
-<td align="right">225.75 kB</td>
-<td align="right">216</td>
-<td align="right">185</td>
-<td align="right">20</td>
-<td align="center">1.5</td>
-<td align="center">debug</td>
-</tr>
-<tr class="b"><th align="left">Total</th>
-<th align="right">Size</th>
-<th align="right">Entries</th>
-<th align="right">Classes</th>
-<th align="right">Packages</th>
-<th align="center">JDK Rev</th>
-<th align="center">Debug</th>
-</tr>
-<tr class="a"><td align="right">56</td>
-<td align="right">16.48 MB</td>
-<td align="right">12,020</td>
-<td align="right">10,787</td>
-<td align="right">723</td>
-<td align="center">1.6</td>
-<td align="right">48</td>
-</tr>
-<tr class="b"><td align="right">compile: 56</td>
-<td align="right">compile: 16.48 MB</td>
-<td align="right">compile: 12,020</td>
-<td align="right">compile: 10,787</td>
-<td align="right">compile: 723</td>
-<td align="center">-</td>
-<td align="right">compile: 48</td>
-</tr>
-</tbody>
-</table>
-</div>
-<a name="Dependency_Repository_Locations"></a><div class="section"><h2>Dependency Repository Locations</h2>
-<table class="bodyTable"><tbody><tr class="a"><th align="left">Repo ID</th>
-<th align="left">URL</th>
-<th align="center">Release</th>
-<th align="center">Snapshot</th>
-</tr>
-<tr class="b"><td align="left">central</td>
-<td align="left"><a href="http://repo1.maven.org/maven2" class="externalLink">http://repo1.maven.org/maven2</a></td>
-<td align="center">Yes</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">codehaus-repository</td>
-<td align="left"><a href="http://repository.codehaus.org" class="externalLink">http://repository.codehaus.org</a></td>
-<td align="center">Yes</td>
-<td align="center">Yes</td>
-</tr>
-<tr class="b"><td align="left">chrissearle-snapshots</td>
-<td align="left"><a href="http://dev.chrissearle.net/nexus/content/groups/public-snapshots" class="externalLink">http://dev.chrissearle.net/nexus/content/groups/public-snapshots</a></td>
-<td align="center">Yes</td>
-<td align="center">Yes</td>
-</tr>
-<tr class="a"><td align="left">apache-snapshot-repository</td>
-<td align="left"><a href="http://people.apache.org/repo/m2-snapshot-repository" class="externalLink">http://people.apache.org/repo/m2-snapshot-repository</a></td>
-<td align="center">Yes</td>
-<td align="center">Yes</td>
-</tr>
-<tr class="b"><td align="left">apache.snapshots</td>
-<td align="left"><a href="http://people.apache.org/repo/m2-snapshot-repository" class="externalLink">http://people.apache.org/repo/m2-snapshot-repository</a></td>
-<td align="center">-</td>
-<td align="center">Yes</td>
-</tr>
-<tr class="a"><td align="left">chrissearle</td>
-<td align="left"><a href="http://dev.chrissearle.net/nexus/content/groups/public" class="externalLink">http://dev.chrissearle.net/nexus/content/groups/public</a></td>
-<td align="center">Yes</td>
-<td align="center">-</td>
-</tr>
-</tbody>
-</table>
-<p>Repository locations for each of the Dependencies.</p>
-<table class="bodyTable"><tbody><tr class="b"><th align="left">Artifact</th>
-<th align="center">central</th>
-<th align="center">codehaus-repository</th>
-<th align="center">chrissearle-snapshots</th>
-<th align="center">apache-snapshot-repository</th>
-<th align="center">apache.snapshots</th>
-<th align="center">chrissearle</th>
-</tr>
-<tr class="a"><td align="left">antlr:antlr:jar:2.7.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/antlr/antlr/2.7.6/antlr-2.7.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/antlr/antlr/2.7.6/antlr-2.7.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">aopalliance:aopalliance:jar:1.0</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">asm:asm:jar:1.5.3</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/asm/asm/1.5.3/asm-1.5.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/asm/asm/1.5.3/asm-1.5.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">asm:asm-attrs:jar:1.5.3</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/asm/asm-attrs/1.5.3/asm-attrs-1.5.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/asm/asm-attrs/1.5.3/asm-attrs-1.5.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">axis:axis:jar:1.2.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/axis/axis/1.2.1/axis-1.2.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/axis/axis/1.2.1/axis-1.2.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">axis:axis-jaxrpc:jar:1.2.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/axis/axis-jaxrpc/1.2.1/axis-jaxrpc-1.2.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/axis/axis-jaxrpc/1.2.1/axis-jaxrpc-1.2.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">bouncycastle:bcmail-jdk14:jar:138</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/bouncycastle/bcmail-jdk14/138/bcmail-jdk14-138.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/bouncycastle/bcmail-jdk14/138/bcmail-jdk14-138.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">bouncycastle:bcprov-jdk14:jar:138</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/bouncycastle/bcprov-jdk14/138/bcprov-jdk14-138.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/bouncycastle/bcprov-jdk14/138/bcprov-jdk14-138.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">cglib:cglib:jar:2.1_3</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/cglib/cglib/2.1_3/cglib-2.1_3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">com.aetrion.flickr:flickrapi:jar:1.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/com/aetrion/flickr/flickrapi/1.1/flickrapi-1.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/com/aetrion/flickr/flickrapi/1.1/flickrapi-1.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">com.lowagie:itext:jar:2.1.5</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/com/lowagie/itext/2.1.5/itext-2.1.5.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/com/lowagie/itext/2.1.5/itext-2.1.5.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">com.rosaloves:bitlyj:jar:1.0-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public-snapshots/com/rosaloves/bitlyj/1.0-SNAPSHOT/bitlyj-1.0-20090731.194423-2.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public-snapshots" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">commons-beanutils:commons-beanutils:jar:1.7.0</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">commons-collections:commons-collections:jar:3.2.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">commons-discovery:commons-discovery:jar:0.2</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/commons-discovery/commons-discovery/0.2/commons-discovery-0.2.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-discovery/commons-discovery/0.2/commons-discovery-0.2.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">commons-lang:commons-lang:jar:2.3</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/commons-lang/commons-lang/2.3/commons-lang-2.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-lang/commons-lang/2.3/commons-lang-2.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">commons-logging:commons-logging:jar:1.0.4</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">concurrent:concurrent:jar:1.3.4</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">dom4j:dom4j:jar:1.6.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">javax.activation:activation:jar:1.1</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/activation/activation/1.1/activation-1.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">javax.mail:mail:jar:1.4</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/javax/mail/mail/1.4/mail-1.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/mail/mail/1.4/mail-1.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">javax.persistence:persistence-api:jar:1.0</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">javax.transaction:jta:jar:1.0.1B</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/transaction/jta/1.0.1B/jta-1.0.1B.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">jboss:javassist:jar:3.3.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/jboss/javassist/3.3.ga/javassist-3.3.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jboss/javassist/3.3.ga/javassist-3.3.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">jboss:jboss-common-core:jar:2.0.4.GA</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/jboss/jboss-common-core/2.0.4.GA/jboss-common-core-2.0.4.GA.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jboss/jboss-common-core/2.0.4.GA/jboss-common-core-2.0.4.GA.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">jfree:jcommon:jar:1.0.12</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/jfree/jcommon/1.0.12/jcommon-1.0.12.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jfree/jcommon/1.0.12/jcommon-1.0.12.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">jfree:jfreechart:jar:1.0.9</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">log4j:log4j:jar:1.2.14</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/log4j/log4j/1.2.14/log4j-1.2.14.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/log4j/log4j/1.2.14/log4j-1.2.14.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">mysql:mysql-connector-java:jar:5.1.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">net.chrissearle:flickrvote-data-api:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">net.chrissearle:flickrvote-data-spring:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="b"><td align="left">net.chrissearle:flickrvote-flickr:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">net.chrissearle:flickrvote-model:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="b"><td align="left">net.chrissearle:flickrvote-service-api:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">net.chrissearle:flickrvote-service-spring:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="b"><td align="left">net.chrissearle:flickrvote-twitter:jar:1-SNAPSHOT</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">net.chrissearle.common:jpa:jar:1</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/chrissearle/common/jpa/1/jpa-1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">net.chrissearle.common:simple-mail-api:jar:1</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/chrissearle/common/simple-mail-api/1/simple-mail-api-1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">net.chrissearle.common:simple-mail-spring:jar:1</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/chrissearle/common/simple-mail-spring/1/simple-mail-spring-1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">net.homeip.yusuke:twitter4j:jar:2.0.9</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/net/homeip/yusuke/twitter4j/2.0.9/twitter4j-2.0.9.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/homeip/yusuke/twitter4j/2.0.9/twitter4j-2.0.9.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">net.sf.ehcache:ehcache:jar:1.2.3</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">net.sf.ezmorph:ezmorph:jar:1.0.2</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/net/sf/ezmorph/ezmorph/1.0.2/ezmorph-1.0.2.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/sf/ezmorph/ezmorph/1.0.2/ezmorph-1.0.2.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">net.sf.json-lib:json-lib:jar:jdk15:2.0</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/net/sf/json-lib/json-lib/2.0/json-lib-2.0-jdk15.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/sf/json-lib/json-lib/2.0/json-lib-2.0-jdk15.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.hibernate:hibernate:jar:3.2.6.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate/3.2.6.ga/hibernate-3.2.6.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate/3.2.6.ga/hibernate-3.2.6.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.hibernate:hibernate-annotations:jar:3.3.0.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-annotations/3.3.0.ga/hibernate-annotations-3.3.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-annotations/3.3.0.ga/hibernate-annotations-3.3.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.hibernate:hibernate-commons-annotations:jar:3.0.0.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-commons-annotations/3.0.0.ga/hibernate-commons-annotations-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-commons-annotations/3.0.0.ga/hibernate-commons-annotations-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.hibernate:hibernate-entitymanager:jar:3.3.1.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-entitymanager/3.3.1.ga/hibernate-entitymanager-3.3.1.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-entitymanager/3.3.1.ga/hibernate-entitymanager-3.3.1.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.hibernate:hibernate-validator:jar:3.0.0.ga</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-validator/3.0.0.ga/hibernate-validator-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-validator/3.0.0.ga/hibernate-validator-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.springframework:spring-aop:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-aop/2.5.6/spring-aop-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-aop/2.5.6/spring-aop-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.springframework:spring-beans:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-beans/2.5.6/spring-beans-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-beans/2.5.6/spring-beans-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.springframework:spring-context:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-context/2.5.6/spring-context-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-context/2.5.6/spring-context-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.springframework:spring-context-support:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-context-support/2.5.6/spring-context-support-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-context-support/2.5.6/spring-context-support-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.springframework:spring-core:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-core/2.5.6/spring-core-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-core/2.5.6/spring-core-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.springframework:spring-jdbc:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-jdbc/2.5.6/spring-jdbc-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-jdbc/2.5.6/spring-jdbc-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><td align="left">org.springframework:spring-orm:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-orm/2.5.6/spring-orm-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-orm/2.5.6/spring-orm-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="b"><td align="left">org.springframework:spring-tx:jar:2.5.6</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/springframework/spring-tx/2.5.6/spring-tx-2.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/springframework/spring-tx/2.5.6/spring-tx-2.5.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
-</tr>
-<tr class="a"><th align="left">Total</th>
-<th align="center">central</th>
-<th align="center">codehaus-repository</th>
-<th align="center">chrissearle-snapshots</th>
-<th align="center">apache-snapshot-repository</th>
-<th align="center">apache.snapshots</th>
-<th align="center">chrissearle</th>
-</tr>
-<tr class="b"><td align="left">56 (compile: 56)</td>
-<td align="center">44</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">48</td>
-</tr>
-</tbody>
-</table>
 </div>
 
       </div>

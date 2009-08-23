@@ -8,50 +8,50 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.ShowChartAction
-	c1268 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
+	c1281 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChartAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction
-	c1269 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChallengeAction.html">
+	c1282 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChallengeAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.LogoutAction
-	c1270 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./LogoutAction.html">
+	c1283 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./LogoutAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> LogoutAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.HistoryReportAction
-	c1271 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HistoryReportAction.html">
+	c1284 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HistoryReportAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> HistoryReportAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.HallOfFameAction
-	c1272 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HallOfFameAction.html">
+	c1285 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HallOfFameAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> HallOfFameAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.FlickrVoteWebConstants
-	c1273 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrVoteWebConstants.html">
+	c1286 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrVoteWebConstants.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> FlickrVoteWebConstants </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.FlickrCallbackAction
-	c1274 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrCallbackAction.html">
+	c1287 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrCallbackAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrCallbackAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction
-	c1275 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CurrentChallengeAction.html">
+	c1288 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CurrentChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> CurrentChallengeAction </td></tr>
 		</table></td></tr>

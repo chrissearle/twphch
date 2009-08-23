@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" href="../account/MyPicsAction.html" alt="" coords="26,110,61,145" />
+<area shape="rect" href="./DisplayImage.html" alt="" coords="409,212,427,236" />
+<area shape="rect" href="../admin/ShowPhotographerImagesAction.html" alt="" coords="123,14,155,49" />
+<area shape="rect" href="../admin/FrontPageAction.html" alt="" coords="219,110,251,145" />
+<area shape="rect" href="../ShowChallengeAction.html" alt="" coords="542,14,571,49" />
+<area shape="rect" href="../HallOfFameAction.html" alt="" coords="367,110,397,145" />
+<area shape="rect" href="../CurrentChallengeAction.html" alt="" coords="638,14,667,49" />
+<area shape="rect" href="../vote/VoteAction.html" alt="" coords="733,14,765,49" />
+</map>

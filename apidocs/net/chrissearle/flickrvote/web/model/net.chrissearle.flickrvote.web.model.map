@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" href="./ScoreAdmin.html" alt="" coords="34,20,53,44" />
+<area shape="rect" href="./DisplayPhotographer.html" alt="" coords="128,116,152,140" />
+<area shape="rect" href="./DisplayImage.html" alt="" coords="226,116,245,140" />
+<area shape="rect" href="./DisplayChallengeSummary.html" alt="" coords="318,116,345,140" />
+<area shape="rect" href="./ChallengeAdmin.html" alt="" coords="417,20,438,44" />
+</map>

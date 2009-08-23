@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" href="./Vote.html" alt="" coords="37,212,50,236" />
+<area shape="rect" href="./Photographer.html" alt="" coords="128,308,146,332" />
+<area shape="rect" href="./Image.html" alt="" coords="129,404,145,428" />
+<area shape="rect" href="../dao/JpaPhotographyDao.html" alt="" coords="125,206,154,241" />
+<area shape="rect" href="../service/DaoPhotographyService.html" alt="" coords="249,14,278,49" />
+</map>

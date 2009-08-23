@@ -61,6 +61,7 @@ span.keyword {
 
 span.srcUncovered {
     background: #ff9090;
+    font-weight: bold;
 }
 
 span.string {

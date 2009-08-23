@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" href="./ShowPhotographerImagesAction.html" alt="" coords="28,20,60,44" />
+<area shape="rect" href="./SendTweetAction.html" alt="" coords="129,20,150,44" />
+<area shape="rect" href="./SendMailAction.html" alt="" coords="225,20,246,44" />
+<area shape="rect" href="./SearchTagCheckAction.html" alt="" coords="318,20,345,44" />
+<area shape="rect" href="./ScoreAction.html" alt="" coords="418,20,437,44" />
+<area shape="rect" href="./RankItAction.html" alt="" coords="514,20,533,44" />
+<area shape="rect" href="./PhotographerDataAction.html" alt="" coords="606,20,633,44" />
+<area shape="rect" href="./PhotographerAction.html" alt="" coords="704,20,728,44" />
+<area shape="rect" href="./ImageAction.html" alt="" coords="802,20,821,44" />
+<area shape="rect" href="./GetAdminFrobAction.html" alt="" coords="896,20,920,44" />
+<area shape="rect" href="./FrontPageAction.html" alt="" coords="993,20,1014,44" />
+<area shape="rect" href="./ChallengeAction.html" alt="" coords="1089,20,1110,44" />
+<area shape="rect" href="./CallCronAction.html" alt="" coords="1185,20,1206,44" />
+</map>

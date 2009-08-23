@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c8898 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
+	c9086 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -16,19 +16,19 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction
-	c8933 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrLoginLinkAction.html">
+	c9121 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrLoginLinkAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrLoginLinkAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction extends com.opensymphony.xwork2.ActionSupport
-	c8967:p -> c8933:p [dir=back,arrowtail=empty];
+	c9155:p -> c9121:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction implements org.apache.struts2.interceptor.SessionAware
-	c8968:p -> c8933:p [dir=back,arrowtail=empty,style=dashed];
+	c9156:p -> c9121:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c8933:p -> c8898:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9121:p -> c9086:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// org.apache.struts2.interceptor.SessionAware
-	c8968 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c9156 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
@@ -36,7 +36,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c8967 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c9155 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

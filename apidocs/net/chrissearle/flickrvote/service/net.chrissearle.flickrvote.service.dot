@@ -8,122 +8,128 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.ReportServiceConfiguration
-	c421 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ReportServiceConfiguration.html">
+	c425 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ReportServiceConfiguration.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ReportServiceConfiguration </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator
-	c422 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./RankLabelGenerator.html">
+	c426 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./RankLabelGenerator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> RankLabelGenerator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService
-	c423 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MessageSourceChallengeMessageService.html">
+	c427 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MessageSourceChallengeMessageService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> MessageSourceChallengeMessageService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService
-	c424 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./JFreeChartChartService.html">
+	c428 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./JFreeChartChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChartChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ITextReportService
-	c425 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ITextReportService.html">
+	c429 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ITextReportService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ITextReportService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService
-	c426 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DaoPhotographyService.html">
+	c430 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DaoPhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DaoPhotographyService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.DaoChallengeService
-	c427 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DaoChallengeService.html">
+	c431 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DaoChallengeService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DaoChallengeService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.service.Comparators
+	c432 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Comparators.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Comparators </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.BitlyShortUrlService
-	c428 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./BitlyShortUrlService.html">
+	c433 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./BitlyShortUrlService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> BitlyShortUrlService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ShortUrlService
-	c429 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
+	c434 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ShortUrlService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ReportService
-	c430 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ReportService.html">
+	c435 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ReportService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ReportService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c431 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographyService.html">
+	c436 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChartService
-	c432 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChartService.html">
+	c437 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c433 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeService.html">
+	c438 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService
-	c434 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeMessageService.html">
+	c439 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeMessageService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeMessageService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService implements net.chrissearle.flickrvote.service.ChallengeMessageService
-	c434:p -> c423:p [dir=back,arrowtail=empty,style=dashed];
+	c439:p -> c427:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.JFreeChartChartService implements net.chrissearle.flickrvote.service.ChartService
-	c432:p -> c424:p [dir=back,arrowtail=empty,style=dashed];
+	c437:p -> c428:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.ITextReportService implements net.chrissearle.flickrvote.service.ReportService
-	c430:p -> c425:p [dir=back,arrowtail=empty,style=dashed];
+	c435:p -> c429:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.DaoPhotographyService implements net.chrissearle.flickrvote.service.PhotographyService
-	c431:p -> c426:p [dir=back,arrowtail=empty,style=dashed];
+	c436:p -> c430:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.DaoChallengeService implements net.chrissearle.flickrvote.service.ChallengeService
-	c433:p -> c427:p [dir=back,arrowtail=empty,style=dashed];
+	c438:p -> c431:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.BitlyShortUrlService implements net.chrissearle.flickrvote.service.ShortUrlService
-	c429:p -> c428:p [dir=back,arrowtail=empty,style=dashed];
+	c434:p -> c433:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService NAVASSOC net.chrissearle.flickrvote.service.ShortUrlService
-	c423:p -> c429:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c424:p -> c433:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c424:p -> c431:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c425:p -> c433:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c425:p -> c431:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChallengeMessageService
-	c425:p -> c434:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c425:p -> c432:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoChallengeService NAVASSOC net.chrissearle.flickrvote.service.ChallengeMessageService
 	c427:p -> c434:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
+	c428:p -> c438:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
+	c428:p -> c436:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
+	c429:p -> c438:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
+	c429:p -> c436:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChallengeMessageService
+	c429:p -> c439:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChartService
+	c429:p -> c437:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoChallengeService NAVASSOC net.chrissearle.flickrvote.service.ChallengeMessageService
+	c431:p -> c439:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

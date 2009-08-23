@@ -8,31 +8,31 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.twitter.TwitterServiceException
-	c317 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterServiceException.html">
+	c320 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterServiceException.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TwitterServiceException </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.twitter.TwitterService
-	c318 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterService.html">
+	c321 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> TwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.twitter.TwitterHolder
-	c319 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterHolder.html">
+	c322 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterHolder.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TwitterHolder </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService
-	c320 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Twitter4jTwitterService.html">
+	c323 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Twitter4jTwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Twitter4jTwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.twitter.Twitter4jTwitterService implements net.chrissearle.flickrvote.twitter.TwitterService
-	c318:p -> c320:p [dir=back,arrowtail=empty,style=dashed];
+	c321:p -> c323:p [dir=back,arrowtail=empty,style=dashed];
 }
 

@@ -8,34 +8,34 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.flickr.FlickrService
-	c2900 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrService.html">
+	c2928 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> FlickrService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService
-	c2902 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrJFlickrService.html">
+	c2930 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrJFlickrService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrJFlickrService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.flickr.FlickrJFlickrService implements net.chrissearle.flickrvote.flickr.FlickrService
-	c2900:p -> c2902:p [dir=back,arrowtail=empty,style=dashed];
+	c2928:p -> c2930:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService NAVASSOC org.apache.log4j.Logger
-	c2902:p -> c2994:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2930:p -> c3023:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService NAVASSOC com.aetrion.flickr.Flickr
-	c2902:p -> c2995:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2930:p -> c3024:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService NAVASSOC net.chrissearle.mail.SimpleMailService
-	c2902:p -> c2996:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService DEPEND com.aetrion.flickr.auth.Auth
-	c2902:p -> c2997:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c2930:p -> c3025:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService DEPEND com.aetrion.flickr.photos.Photo
-	c2902:p -> c2998:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c2930:p -> c3026:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService DEPEND com.aetrion.flickr.people.User
-	c2902:p -> c2999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c2930:p -> c3027:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.flickr.FlickrJFlickrService DEPEND com.aetrion.flickr.auth.Auth
+	c2930:p -> c3028:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.mail.SimpleMailService
-	c2996 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3025 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SimpleMailService </td></tr>
@@ -43,38 +43,38 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.aetrion.flickr.photos.Photo
-	c2998 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3026 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Photo </td></tr>
 			<tr><td><font point-size="7.0"> com.aetrion.flickr.photos </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// com.aetrion.flickr.auth.Auth
-	c2997 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// com.aetrion.flickr.people.User
+	c3027 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Auth </td></tr>
-			<tr><td><font point-size="7.0"> com.aetrion.flickr.auth </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// org.apache.log4j.Logger
-	c2994 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Logger </td></tr>
-			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
+			<tr><td> User </td></tr>
+			<tr><td><font point-size="7.0"> com.aetrion.flickr.people </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.aetrion.flickr.Flickr
-	c2995 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3024 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Flickr </td></tr>
 			<tr><td><font point-size="7.0"> com.aetrion.flickr </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// com.aetrion.flickr.people.User
-	c2999 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// org.apache.log4j.Logger
+	c3023 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> User </td></tr>
-			<tr><td><font point-size="7.0"> com.aetrion.flickr.people </font></td></tr>
+			<tr><td> Logger </td></tr>
+			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// com.aetrion.flickr.auth.Auth
+	c3028 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Auth </td></tr>
+			<tr><td><font point-size="7.0"> com.aetrion.flickr.auth </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

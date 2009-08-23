@@ -8,65 +8,65 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.model.ScoreAdmin
-	c1478 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ScoreAdmin.html">
+	c1493 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ScoreAdmin.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ScoreAdmin </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Photographer
-	c1479 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Photographer.html">
+	c1494 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Photographer.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Photographer </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Image
-	c1480 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
+	c1495 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Image </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayPhotographer
-	c1481 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayPhotographer.html">
+	c1496 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayPhotographer.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayPhotographer </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c1482 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
+	c1497 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayChallengeSummary
-	c1483 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayChallengeSummary.html">
+	c1498 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayChallengeSummary </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.ChallengeAdmin
-	c1484 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeAdmin.html">
+	c1499 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeAdmin.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeAdmin </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c1485 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Challenge.html">
+	c1500 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayPhotographer implements net.chrissearle.flickrvote.web.model.Photographer
-	c1479:p -> c1481:p [dir=back,arrowtail=empty,style=dashed];
+	c1494:p -> c1496:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Image
-	c1480:p -> c1482:p [dir=back,arrowtail=empty,style=dashed];
+	c1495:p -> c1497:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Photographer
-	c1479:p -> c1482:p [dir=back,arrowtail=empty,style=dashed];
+	c1494:p -> c1497:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Challenge
-	c1485:p -> c1482:p [dir=back,arrowtail=empty,style=dashed];
+	c1500:p -> c1497:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.model.DisplayChallengeSummary implements net.chrissearle.flickrvote.web.model.Challenge
-	c1485:p -> c1483:p [dir=back,arrowtail=empty,style=dashed];
+	c1500:p -> c1498:p [dir=back,arrowtail=empty,style=dashed];
 }
 

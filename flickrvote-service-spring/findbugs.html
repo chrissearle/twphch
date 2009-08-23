@@ -12,7 +12,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Twitter PhotoChallenge - FindBugs Bug Detector Report</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
@@ -20,7 +19,8 @@
       @import url("./css/site.css");
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
-          </head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
   <body class="composite">
     <div id="banner">
                     <span id="bannerLeft">
@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-08-18
+             Last Published: 2009-08-23
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -71,12 +71,6 @@
               
                 
               
-      
-            
-      
-            
-      
-            
       
             
       
@@ -120,10 +114,6 @@
       
             
       
-            
-      
-            
-      
               
             <li class="expanded">
                     <a href="project-reports.html">Project Reports</a>
@@ -146,10 +136,6 @@
         </li>
                   
     <li class="none">
-                    <a href="apidocs/index.html">JavaDocs</a>
-          </li>
-                  
-    <li class="none">
                     <a href="jdepend-report.html">JDepend</a>
           </li>
                   
@@ -159,10 +145,6 @@
                   
     <li class="none">
                     <a href="xref/index.html">Source Xref</a>
-          </li>
-                  
-    <li class="none">
-                    <a href="surefire-report.html">Surefire Report</a>
           </li>
                   
     <li class="none">
@@ -198,10 +180,14 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section"><h2>FindBugs Bug Detector Report</h2>
-<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a></p>
-<p>FindBugs Version is <i>1.3.8</i></p>
-<p>Threshold is <i>Low</i></p>
-<p>Effort is <i>Default</i></p>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a>
+</p>
+<p>FindBugs Version is <i>1.3.8</i>
+</p>
+<p>Threshold is <i>Low</i>
+</p>
+<p>Effort is <i>Default</i>
+</p>
 </div>
 <div class="section"><h2>Summary</h2>
 <table class="bodyTable"><tr class="a"><th>Classes</th>
@@ -210,7 +196,7 @@
 <th>Missing Classes</th>
 </tr>
 <tr class="b"><td>147</td>
-<td>10</td>
+<td>6</td>
 <td>0</td>
 <td>0</td>
 </tr>
@@ -220,147 +206,102 @@
 <table class="bodyTable"><tr class="a"><th>Class</th>
 <th>Bugs</th>
 </tr>
-<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.DaoChallengeService">net.chrissearle.flickrvote.service.DaoChallengeService</a></td>
-<td>2</td>
-</tr>
-<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.DaoChallengeService$1">net.chrissearle.flickrvote.service.DaoChallengeService$1</a></td>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByStartDateComparator">net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByStartDateComparator</a>
+</td>
 <td>1</td>
 </tr>
-<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.ITextReportService">net.chrissearle.flickrvote.service.ITextReportService</a></td>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByTag">net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByTag</a>
+</td>
 <td>1</td>
 </tr>
-<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.ITextReportService$1">net.chrissearle.flickrvote.service.ITextReportService$1</a></td>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.Comparators$ImageItemSortByVoteCount">net.chrissearle.flickrvote.service.Comparators$ImageItemSortByVoteCount</a>
+</td>
 <td>1</td>
 </tr>
-<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.ITextReportService$2">net.chrissearle.flickrvote.service.ITextReportService$2</a></td>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount">net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount</a>
+</td>
 <td>1</td>
 </tr>
-<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.JFreeChartChartService$1">net.chrissearle.flickrvote.service.JFreeChartChartService$1</a></td>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService">net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</a>
+</td>
 <td>1</td>
 </tr>
-<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.JFreeChartChartService$2">net.chrissearle.flickrvote.service.JFreeChartChartService$2</a></td>
-<td>1</td>
-</tr>
-<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService">net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</a></td>
-<td>1</td>
-</tr>
-<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.RankLabelGenerator">net.chrissearle.flickrvote.service.RankLabelGenerator</a></td>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.RankLabelGenerator">net.chrissearle.flickrvote.service.RankLabelGenerator</a>
+</td>
 <td>1</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.DaoChallengeService"></a><div class="section"><h3>net.chrissearle.flickrvote.service.DaoChallengeService</h3>
-<table class="bodyTable"><tr class="a"><th>Bug</th>
-<th>Category</th>
-<th>Details</th>
-<th>Line</th>
-<th>Priority</th>
-</tr>
-<tr class="b"><td>Redundant nullcheck of challenge, which is known to be non-null in net.chrissearle.flickrvote.service.DaoChallengeService.announceNewChallenge()</td>
-<td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" class="externalLink">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/DaoChallengeService.html#200">200</a></td>
-<td>Low</td>
-</tr>
-<tr class="a"><td>Redundant nullcheck of challenge, which is known to be non-null in net.chrissearle.flickrvote.service.DaoChallengeService.announceResults()</td>
-<td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" class="externalLink">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/DaoChallengeService.html#236">236</a></td>
-<td>Low</td>
-</tr>
-</table>
-</div>
-<a name="net.chrissearle.flickrvote.service.DaoChallengeService1"></a><div class="section"><h3>net.chrissearle.flickrvote.service.DaoChallengeService$1</h3>
+<a name="net.chrissearle.flickrvote.service.ComparatorsChallengeSummarySortByStartDateComparator"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByStartDateComparator</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 <th>Priority</th>
 </tr>
-<tr class="a"><td>The class net.chrissearle.flickrvote.service.DaoChallengeService$1 could be refactored into a named _static_ inner class</td>
-<td>PERFORMANCE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/DaoChallengeService.html#109">109-110</a></td>
+<tr class="a"><td>net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByStartDateComparator is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a>
+</td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/Comparators.html#30">30-32</a></td>
 <td>Low</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.ITextReportService"></a><div class="section"><h3>net.chrissearle.flickrvote.service.ITextReportService</h3>
+<a name="net.chrissearle.flickrvote.service.ComparatorsChallengeSummarySortByTag"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByTag</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 <th>Priority</th>
 </tr>
-<tr class="a"><td>Dead store to chapterCount in net.chrissearle.flickrvote.service.ITextReportService.addChallenges(Document)</td>
-<td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE" class="externalLink">DLS_DEAD_LOCAL_STORE</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/ITextReportService.html#120">120</a></td>
+<tr class="a"><td>net.chrissearle.flickrvote.service.Comparators$ChallengeSummarySortByTag is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a>
+</td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/Comparators.html#17">17-20</a></td>
 <td>Low</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.ITextReportService1"></a><div class="section"><h3>net.chrissearle.flickrvote.service.ITextReportService$1</h3>
+<a name="net.chrissearle.flickrvote.service.ComparatorsImageItemSortByVoteCount"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.Comparators$ImageItemSortByVoteCount</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 <th>Priority</th>
 </tr>
-<tr class="a"><td>The class net.chrissearle.flickrvote.service.ITextReportService$1 could be refactored into a named _static_ inner class</td>
-<td>PERFORMANCE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/ITextReportService.html#113">113-114</a></td>
+<tr class="a"><td>net.chrissearle.flickrvote.service.Comparators$ImageItemSortByVoteCount is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a>
+</td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/Comparators.html#11">11-13</a></td>
 <td>Low</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.ITextReportService2"></a><div class="section"><h3>net.chrissearle.flickrvote.service.ITextReportService$2</h3>
+<a name="net.chrissearle.flickrvote.service.ComparatorsImageSortByFinalVoteCount"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 <th>Priority</th>
 </tr>
-<tr class="a"><td>The class net.chrissearle.flickrvote.service.ITextReportService$2 could be refactored into a named _static_ inner class</td>
-<td>PERFORMANCE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/ITextReportService.html#148">148-149</a></td>
+<tr class="a"><td>net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount is Serializable; consider declaring a serialVersionUID</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a>
+</td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/Comparators.html#24">24-26</a></td>
 <td>Low</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.JFreeChartChartService1"></a><div class="section"><h3>net.chrissearle.flickrvote.service.JFreeChartChartService$1</h3>
-<table class="bodyTable"><tr class="b"><th>Bug</th>
-<th>Category</th>
-<th>Details</th>
-<th>Line</th>
-<th>Priority</th>
-</tr>
-<tr class="a"><td>The class net.chrissearle.flickrvote.service.JFreeChartChartService$1 could be refactored into a named _static_ inner class</td>
-<td>PERFORMANCE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/JFreeChartChartService.html#54">54-55</a></td>
-<td>Low</td>
-</tr>
-</table>
-</div>
-<a name="net.chrissearle.flickrvote.service.JFreeChartChartService2"></a><div class="section"><h3>net.chrissearle.flickrvote.service.JFreeChartChartService$2</h3>
-<table class="bodyTable"><tr class="b"><th>Bug</th>
-<th>Category</th>
-<th>Details</th>
-<th>Line</th>
-<th>Priority</th>
-</tr>
-<tr class="a"><td>The class net.chrissearle.flickrvote.service.JFreeChartChartService$2 could be refactored into a named _static_ inner class</td>
-<td>PERFORMANCE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/JFreeChartChartService.html#158">158-159</a></td>
-<td>Low</td>
-</tr>
-</table>
-</div>
-<a name="net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService"></a><div class="section"><h3>net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</h3>
+<a name="net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
@@ -369,23 +310,26 @@
 </tr>
 <tr class="a"><td>MessageSourceChallengeMessageService.messageSource not initialized in constructor</td>
 <td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a></td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" class="externalLink">UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR</a>
+</td>
 <td><a href="./xref/net/chrissearle/flickrvote/service/MessageSourceChallengeMessageService.html#-1">Not available</a></td>
 <td>Low</td>
 </tr>
 </table>
 </div>
-<a name="net.chrissearle.flickrvote.service.RankLabelGenerator"></a><div class="section"><h3>net.chrissearle.flickrvote.service.RankLabelGenerator</h3>
+<a name="net.chrissearle.flickrvote.service.RankLabelGenerator"></a>
+<div class="section"><h3>net.chrissearle.flickrvote.service.RankLabelGenerator</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 <th>Priority</th>
 </tr>
-<tr class="a"><td>net.chrissearle.flickrvote.service.RankLabelGenerator is Serializable; consider declaring a serialVersionUID</td>
+<tr class="a"><td>Class net.chrissearle.flickrvote.service.RankLabelGenerator defines non-transient non-serializable instance field images</td>
 <td>BAD_PRACTICE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_NO_SERIALVERSIONID" class="externalLink">SE_NO_SERIALVERSIONID</a></td>
-<td><a href="./xref/net/chrissearle/flickrvote/service/RankLabelGenerator.html#18">18-36</a></td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a>
+</td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/RankLabelGenerator.html#-1">Not available</a></td>
 <td>Low</td>
 </tr>
 </table>
