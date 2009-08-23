@@ -21,6 +21,17 @@ import net.chrissearle.flickrvote.model.Image;
 
 import java.util.List;
 
+/**
+ * Interface ImageDao provides access to the data layer for image objects.
+ *
+ * @author chris
+ */
 public interface ImageDao extends Dao<String, Image> {
+    /**
+     * Method getImagesWithRank will return all images with a given rank.
+     *
+     * @param rank of type long
+     * @return Images with the given rank.
+     */
     List<Image> getImagesWithRank(long rank);
 }

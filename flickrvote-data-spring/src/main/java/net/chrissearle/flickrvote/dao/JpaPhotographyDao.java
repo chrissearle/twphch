@@ -25,10 +25,21 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * Class JpaPhotographyDao implements PhotographyDao using JPA
+ *
+ * @author chris
+ */
 @Repository
 public class JpaPhotographyDao extends JpaDao<String, Photographer> implements PhotographyDao {
     private Logger log = Logger.getLogger(JpaPhotographyDao.class);
 
+    /**
+     * Method findByUsername finds the photographer with the given username. Null if none found.
+     *
+     * @param username of type String
+     * @return Photographer
+     */
     public Photographer findByUsername(String username) {
         if (log.isDebugEnabled()) {
             log.debug("findByUsername : " + username);
@@ -49,6 +60,12 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
         }
     }
 
+    /**
+     * Method findByToken finds the photographer with the given token. Null if none found.
+     *
+     * @param token of type String
+     * @return Photographer
+     */
     public Photographer findByToken(String token) {
         Query query = entityManager.createQuery("select p from Photographer p where p.token = :token");
         query.setParameter("token", token);
@@ -61,6 +78,11 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
         }
     }
 
+    /**
+     * Method persist saves the photographer if new, updates fullname and token if existing.
+     *
+     * @param photographer of type Photographer
+     */
     @Override
     public void persist(Photographer photographer) {
         Photographer p = findByUsername(photographer.getUsername());
@@ -79,11 +101,19 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
         super.persist(photographer);
     }
 
+    /**
+     * Method clearVotes removes all votes from the entire system.
+     */
     public void clearVotes() {
         Query query = entityManager.createQuery("DELETE FROM Vote v");
         query.executeUpdate();
     }
 
+    /**
+     * Method all returns all photographers
+     *
+     * @return List<Photographer>
+     */
     @SuppressWarnings("unchecked")
     public List<Photographer> all() {
         Query query = entityManager.createQuery("SELECT p FROM Photographer p");

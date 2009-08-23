@@ -26,10 +26,21 @@ import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class JpaChallengeDao implements ChallengeDao using JPA
+ *
+ * @author chris
+ */
 @Repository
 public class JpaChallengeDao extends JpaDao<String, Challenge> implements ChallengeDao {
     private Logger logger = Logger.getLogger(JpaChallengeDao.class);
 
+    /**
+     * Method findByTag returns the challenge with the given tag. Null if no matching challenge found.
+     *
+     * @param tag of type String
+     * @return Challenge
+     */
     @SuppressWarnings("unchecked")
     public Challenge findByTag(String tag) {
         Query query = entityManager.createQuery("select c from Challenge c where c.tag = :tag");
@@ -42,12 +53,22 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         }
     }
 
+    /**
+     * Method getAll returns all challenges.
+     *
+     * @return all challenges.
+     */
     @SuppressWarnings("unchecked")
     public List<Challenge> getAll() {
         Query query = entityManager.createQuery("select c from Challenge c");
         return (List<Challenge>) query.getResultList();
     }
 
+    /**
+     * Method getClosedChallenges returns all challenges in a closed state.
+     *
+     * @return all closed challenges.
+     */
     @SuppressWarnings("unchecked")
     public List<Challenge> getClosedChallenges() {
         Query query = entityManager.createQuery("select c from Challenge c where c.endDate < :now");
@@ -55,6 +76,11 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         return (List<Challenge>) query.getResultList();
     }
 
+    /**
+     * Method getCurrentChallenge returns the the currently open challenge. Null if none found.
+     *
+     * @return the currently open challenge.
+     */
     @SuppressWarnings("unchecked")
     public Challenge getCurrentChallenge() {
         Query query = entityManager.createQuery("select c from Challenge c where c.startDate <= :now and c.votingOpenDate > :now");
@@ -69,6 +95,11 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         return null;
     }
 
+    /**
+     * Method getVotingChallenge returns the current voting challenge. Null if none found.
+     *
+     * @return the current voting challenge.
+     */
     @SuppressWarnings("unchecked")
     public Challenge getVotingChallenge() {
         Query query = entityManager.createQuery("select c from Challenge c where c.votingOpenDate <= :now and c.endDate > :now");
@@ -88,9 +119,9 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
     }
 
     /**
-     * Return challenge with votes
+     * Method getVotedChallenge returns a challenge with existing votes. Returns null if none found.
      *
-     * @return challenge with votes - null if no votes found
+     * @return the challenge with votes.
      */
     @SuppressWarnings("unchecked")
     public Challenge getVotedChallenge() {
@@ -104,6 +135,12 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         return null;
     }
 
+    /**
+     * Method findWithin finds the challenges where date is between start (inclusive) and voting open (exclusive).
+     *
+     * @param date of type Date
+     * @return list of matching challenges
+     */
     @SuppressWarnings("unchecked")
     public List<Challenge> findWithin(Date date) {
         Query query = entityManager.createQuery("select c from Challenge c where c.startDate <= :date and c.votingOpenDate > :date");
@@ -112,6 +149,11 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
         return (List<Challenge>) query.getResultList();
     }
 
+    /**
+     * Method getMostRecent returns the challenge with the latest start date.
+     *
+     * @return the challenge with the latest start date.
+     */
     public Challenge getMostRecent() {
         Query query = entityManager.createQuery("select c from Challenge c where c.startDate = (select MAX(c.startDate) FROM c)");
 

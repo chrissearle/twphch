@@ -23,8 +23,19 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * Class JpaImageDao implements ImageDao using JPA
+ *
+ * @author chris
+ */
 @Repository
 public class JpaImageDao extends JpaDao<String, Image> implements ImageDao {
+    /**
+     * Method getImagesWithRank will return all images with a given rank.
+     *
+     * @param rank of type long
+     * @return Images with the given rank.
+     */
     @SuppressWarnings("unchecked")
     public List<Image> getImagesWithRank(long rank) {
         Query query = entityManager.createQuery("select i from Image i where i.finalRank = :rank");

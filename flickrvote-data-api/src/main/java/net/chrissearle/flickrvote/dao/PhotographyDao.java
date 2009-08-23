@@ -21,12 +21,37 @@ import net.chrissearle.flickrvote.model.Photographer;
 
 import java.util.List;
 
+/**
+ * Interface PhotographyDao provides access to the data layer for photographer objects.
+ *
+ * @author chris
+ */
 public interface PhotographyDao extends Dao<String, Photographer> {
+    /**
+     * Method findByUsername finds the photographer with the given username. Null if none found.
+     *
+     * @param username of type String
+     * @return Photographer
+     */
     Photographer findByUsername(String username);
 
+    /**
+     * Method findByToken finds the photographer with the given token. Null if none found.
+     *
+     * @param token of type String
+     * @return Photographer
+     */
     Photographer findByToken(String token);
 
+    /**
+     * Method clearVotes removes all votes from the entire system.
+     */
     void clearVotes();
 
+    /**
+     * Method all returns all photographers
+     *
+     * @return List<Photographer>
+     */
     List<Photographer> all();
 }
