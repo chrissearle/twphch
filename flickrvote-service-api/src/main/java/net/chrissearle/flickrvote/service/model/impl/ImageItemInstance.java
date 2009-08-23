@@ -9,6 +9,8 @@ import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import java.util.Date;
 
 public class ImageItemInstance implements ImageItem {
+    private static final long serialVersionUID = -5643560820163884573L;
+
     final private String id;
     final private String title;
     final private String url;

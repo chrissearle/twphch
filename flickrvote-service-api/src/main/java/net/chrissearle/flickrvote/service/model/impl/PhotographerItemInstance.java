@@ -5,6 +5,8 @@ import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
 public class PhotographerItemInstance implements PhotographerItem {
+    private static final long serialVersionUID = -90698707988568539L;
+
     private final String id;
     private final String twitter;
     private final String fullname;

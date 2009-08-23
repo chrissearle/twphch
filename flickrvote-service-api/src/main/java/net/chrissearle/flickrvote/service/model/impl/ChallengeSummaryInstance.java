@@ -7,6 +7,8 @@ import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import java.util.Date;
 
 public class ChallengeSummaryInstance implements ChallengeSummary {
+    private static final long serialVersionUID = 4652749486204211082L;
+
     private String title;
     private String tag;
     private Date startDate;

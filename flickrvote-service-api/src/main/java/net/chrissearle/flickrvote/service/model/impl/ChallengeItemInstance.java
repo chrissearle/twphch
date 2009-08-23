@@ -6,6 +6,8 @@ import net.chrissearle.flickrvote.service.model.ImageItem;
 import java.util.Set;
 
 public class ChallengeItemInstance implements ChallengeItem {
+    private static final long serialVersionUID = -4088537902778903669L;
+
     private String title;
     private String description;
 
