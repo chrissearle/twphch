@@ -67,9 +67,9 @@ digraph G {
 	c2177:p -> c2167:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.dao.PhotographyDao DEPEND net.chrissearle.flickrvote.model.Photographer
 	c2180:p -> c2167:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Image
-	c2192:p -> c2168:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Photographer
 	c2192:p -> c2167:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Image
+	c2192:p -> c2168:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

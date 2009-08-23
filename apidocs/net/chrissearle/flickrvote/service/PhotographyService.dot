@@ -235,16 +235,16 @@ digraph G {
 	c5564:p -> c5503:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.ITextReportService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c5496:p -> c5508:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ChallengeItem
-	c5497:p -> c5511:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c5497:p -> c5508:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ChallengeItem
+	c5497:p -> c5511:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.PhotographerItem
 	c5497:p -> c5507:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.PhotographyService DEPEND net.chrissearle.flickrvote.service.model.ChallengeItem
-	c5503:p -> c5511:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c5503:p -> c5508:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.PhotographyService DEPEND net.chrissearle.flickrvote.service.model.ChallengeItem
+	c5503:p -> c5511:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService DEPEND net.chrissearle.flickrvote.service.model.PhotographerItem
 	c5503:p -> c5507:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.PhotographyService

@@ -76,30 +76,30 @@ digraph G {
 	c4730:p -> c4740:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChartService
 	c4730:p -> c4738:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.pdf.PdfWriter
+	c4730:p -> c4845:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.Section
-	c4730:p -> c4811:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.Chapter
-	c4730:p -> c4812:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ITextReportService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4730:p -> c4744:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4730:p -> c4849:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.pdf.PdfPTable
+	c4730:p -> c4854:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ITextReportService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c4730:p -> c4742:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.pdf.PdfWriter
-	c4730:p -> c4850:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.Document
-	c4730:p -> c4852:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.pdf.PdfPTable
+	c4730:p -> c4856:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ITextReportService DEPEND com.lowagie.text.Chapter
 	c4730:p -> c4857:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ITextReportService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
+	c4730:p -> c4744:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c4737:p -> c4742:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
 	c4739:p -> c4744:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4740:p -> c4744:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c4740:p -> c4742:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
+	c4740:p -> c4744:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// com.lowagie.text.Document
-	c4852 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4856 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Document </td></tr>
 			<tr><td><font point-size="7.0"> com.lowagie.text </font></td></tr>
@@ -113,28 +113,28 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.lowagie.text.pdf.PdfPTable
-	c4857 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4854 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PdfPTable </td></tr>
 			<tr><td><font point-size="7.0"> com.lowagie.text.pdf </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.lowagie.text.Chapter
-	c4812 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4857 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Chapter </td></tr>
 			<tr><td><font point-size="7.0"> com.lowagie.text </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.lowagie.text.pdf.PdfWriter
-	c4850 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4845 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PdfWriter </td></tr>
 			<tr><td><font point-size="7.0"> com.lowagie.text.pdf </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.lowagie.text.Section
-	c4811 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4849 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Section </td></tr>
 			<tr><td><font point-size="7.0"> com.lowagie.text </font></td></tr>

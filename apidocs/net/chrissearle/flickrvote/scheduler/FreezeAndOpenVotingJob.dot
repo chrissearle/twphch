@@ -35,12 +35,12 @@ digraph G {
 	c6838:p -> c6827:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
 	c6838:p -> c6825:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.ChallengeService
-	c6838:p -> c6827:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND org.quartz.JobExecutionContext
 	c6838:p -> c6895:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.PhotographyService
 	c6838:p -> c6825:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.ChallengeService
+	c6838:p -> c6827:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.quartz.JobExecutionContext
 	c6895 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">

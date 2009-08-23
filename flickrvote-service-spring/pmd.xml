@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="3.9" timestamp="2009-08-23T10:10:27.582" elapsedTime="0s">
+<pmd version="3.9" timestamp="2009-08-23T12:30:46.579" elapsedTime="0s">
 <file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/ITextReportService.java">
-<violation line="31" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="47" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'chartService'.
 </violation>
-<violation line="79" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<violation line="95" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
-<violation line="80" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<violation line="96" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
-<violation line="88" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<violation line="104" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
 <file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/JFreeChartChartService.java">
-<violation line="26" rule="DuplicateImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#DuplicateImports" priority="4">
+<violation line="42" rule="DuplicateImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#DuplicateImports" priority="4">
 Avoid duplicate imports such as 'java.util.List'
 </violation>
 </file>

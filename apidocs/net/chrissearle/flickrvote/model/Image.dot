@@ -54,9 +54,9 @@ digraph G {
 	c2274:p -> c2272:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Image
 	c2276:p -> c2274:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Image
-	c2298:p -> c2274:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Photographer
 	c2298:p -> c2273:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Image
+	c2298:p -> c2274:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

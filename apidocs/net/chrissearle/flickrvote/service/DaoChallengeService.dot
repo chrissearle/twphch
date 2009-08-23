@@ -99,14 +99,14 @@ digraph G {
 	c4987:p -> c4966:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.DaoChallengeService NAVASSOC net.chrissearle.flickrvote.service.ChallengeMessageService
 	c4987:p -> c4995:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4987:p -> c4999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeType
 	c4987:p -> c4998:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4994:p -> c4999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
+	c4987:p -> c4999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeType
 	c4994:p -> c4998:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ChallengeService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
+	c4994:p -> c4999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
 	c4995:p -> c4999:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.log4j.Logger

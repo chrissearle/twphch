@@ -40,21 +40,21 @@ digraph G {
 	c4596:p -> c4606:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
 	c4596:p -> c4604:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.chart.JFreeChart
-	c4596:p -> c4703:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.data.category.CategoryDataset
+	c4596:p -> c4673:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.chart.JFreeChart
 	c4596:p -> c4704:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChartService DEPEND org.jfree.chart.JFreeChart
-	c4605:p -> c4703:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4605:p -> c4704:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.JFreeChart
-	c4703 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4704 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChart </td></tr>
 			<tr><td><font point-size="7.0"> org.jfree.chart </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.data.category.CategoryDataset
-	c4704 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4673 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryDataset </td></tr>

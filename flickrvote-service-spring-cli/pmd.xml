@@ -1,30 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="3.9" timestamp="2009-08-23T10:11:03.916" elapsedTime="0s">
-<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring-cli/src/main/java/net/chrissearle/flickrvote/service/cli/ChallengeChartCli.java">
-<violation line="6" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'org.springframework.beans.factory.annotation.Autowired'
-</violation>
-<violation line="10" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'java.util.Map'
-</violation>
-</file>
-<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring-cli/src/main/java/net/chrissearle/flickrvote/service/cli/PhotographerChartCli.java">
-<violation line="4" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'net.chrissearle.flickrvote.service.PhotographyService'
-</violation>
-<violation line="7" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'org.springframework.beans.factory.annotation.Autowired'
-</violation>
-<violation line="11" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'java.util.Map'
-</violation>
-</file>
-<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring-cli/src/main/java/net/chrissearle/flickrvote/service/cli/VotingChartCli.java">
-<violation line="6" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'org.springframework.beans.factory.annotation.Autowired'
-</violation>
-<violation line="10" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service.cli" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'java.util.Map'
-</violation>
-</file>
+<pmd version="3.9" timestamp="2009-08-23T12:31:22.849" elapsedTime="0s">
 </pmd>

@@ -53,16 +53,16 @@ digraph G {
 	c4491:p -> c4571:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService NAVASSOC net.chrissearle.flickrvote.service.ShortUrlService
 	c4491:p -> c4498:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
+	c4491:p -> c4505:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND org.springframework.context.MessageSource
 	c4491:p -> c4571:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
 	c4491:p -> c4507:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
-	c4491:p -> c4505:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4503:p -> c4507:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
 	c4503:p -> c4505:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
+	c4503:p -> c4507:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.springframework.context.MessageSource
 	c4571 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
