@@ -1,4 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" href="./FlickrPhotographer.html" alt="" coords="32,116,56,140" />
-<area shape="rect" href="./FlickrImage.html" alt="" coords="34,20,53,44" />
+<area shape="rect" href="./FlickrPhotographer.html" alt="" coords="45,212,69,236" />
+<area shape="rect" href="./FlickrImageStatus.html" alt="" coords="46,20,68,44" />
+<area shape="rect" href="./FlickrImage.html" alt="" coords="85,116,104,140" />
 </map>

@@ -8,34 +8,34 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.model.Vote
-	c1923 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Vote.html">
+	c2037 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Vote.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Vote </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Photographer
-	c1927 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Photographer.html">
+	c2041 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Photographer.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Photographer </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Image
-	c1931 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
+	c2045 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Image </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Vote NAVASSOC net.chrissearle.flickrvote.model.Photographer
-	c1923:p -> c1927:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2037:p -> c2041:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Vote NAVASSOC net.chrissearle.flickrvote.model.Image
-	c1923:p -> c1931:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2037:p -> c2045:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Photographer NAVASSOC net.chrissearle.flickrvote.model.Image
-	c1927:p -> c1931:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2041:p -> c2045:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Photographer NAVASSOC net.chrissearle.flickrvote.model.Vote
-	c1927:p -> c1923:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2041:p -> c2037:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Photographer
-	c1931:p -> c1927:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2045:p -> c2041:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Vote
-	c1931:p -> c1923:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2045:p -> c2037:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

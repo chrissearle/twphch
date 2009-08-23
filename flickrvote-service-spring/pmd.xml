@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="3.9" timestamp="2009-08-23T12:30:46.579" elapsedTime="0s">
+<pmd version="3.9" timestamp="2009-08-23T18:36:09.072" elapsedTime="0s">
 <file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/ITextReportService.java">
 <violation line="47" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'chartService'.

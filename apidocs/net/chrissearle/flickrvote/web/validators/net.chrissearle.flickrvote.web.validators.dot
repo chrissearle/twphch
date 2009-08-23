@@ -8,19 +8,19 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.validators.TwitterValidator
-	c1706 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterValidator.html">
+	c1808 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TwitterValidator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.validators.OverlapValidator
-	c1707 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OverlapValidator.html">
+	c1809 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OverlapValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> OverlapValidator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.validators.DayOfWeekValidator
-	c1708 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DayOfWeekValidator.html">
+	c1810 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DayOfWeekValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DayOfWeekValidator </td></tr>
 		</table></td></tr>

@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.twitter.TwitterService
-	c7428 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../twitter/TwitterService.html">
+	c8500 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../twitter/TwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> TwitterService </td></tr>
@@ -16,26 +16,26 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.SendTweetAction
-	c7461 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SendTweetAction.html">
+	c8537 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SendTweetAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> SendTweetAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.SendTweetAction extends com.opensymphony.xwork2.ActionSupport
-	c7511:p -> c7461:p [dir=back,arrowtail=empty];
+	c8587:p -> c8537:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.SendTweetAction NAVASSOC org.apache.log4j.Logger
-	c7461:p -> c7512:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c8537:p -> c8588:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.SendTweetAction NAVASSOC net.chrissearle.flickrvote.twitter.TwitterService
-	c7461:p -> c7428:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c8537:p -> c8500:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// org.apache.log4j.Logger
-	c7512 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c8588 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c7511 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c8587 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

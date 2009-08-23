@@ -1,7 +1,8 @@
 <map id="G" name="G">
 <area shape="rect" href="./FlickrServiceException.html" alt="" coords="32,20,56,44" />
 <area shape="rect" href="./FlickrJFlickrService.html" alt="" coords="128,116,152,140" />
-<area shape="rect" href="./FlickrPhotographer.html" alt="" coords="224,116,248,140" />
-<area shape="rect" href="./FlickrImage.html" alt="" coords="226,20,245,44" />
-<area shape="rect" href="./FlickrAdminAuthTokenHolder.html" alt="" coords="317,20,346,44" />
+<area shape="rect" href="./FlickrPhotographer.html" alt="" coords="285,212,309,236" />
+<area shape="rect" href="./FlickrImageStatus.html" alt="" coords="276,20,297,44" />
+<area shape="rect" href="./FlickrImage.html" alt="" coords="373,116,392,140" />
+<area shape="rect" href="./FlickrAdminAuthTokenHolder.html" alt="" coords="368,20,397,44" />
 </map>

@@ -8,26 +8,26 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.model.Image
-	c2476 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
+	c2620 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Image </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Challenge
-	c2478 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Challenge.html">
+	c2622 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Challenge </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.dao.JpaChallengeDao
-	c2487 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dao/JpaChallengeDao.html">
+	c2633 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dao/JpaChallengeDao.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JpaChallengeDao </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.dao </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.dao.ChallengeDao
-	c2490 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dao/ChallengeDao.html">
+	c2636 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dao/ChallengeDao.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeDao </td></tr>
@@ -35,14 +35,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.dao.JpaChallengeDao implements net.chrissearle.flickrvote.dao.ChallengeDao
-	c2490:p -> c2487:p [dir=back,arrowtail=empty,style=dashed];
+	c2636:p -> c2633:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Challenge
-	c2476:p -> c2478:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2620:p -> c2622:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Image
-	c2478:p -> c2476:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2622:p -> c2620:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.dao.JpaChallengeDao DEPEND net.chrissearle.flickrvote.model.Challenge
-	c2487:p -> c2478:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c2633:p -> c2622:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.dao.ChallengeDao DEPEND net.chrissearle.flickrvote.model.Challenge
-	c2490:p -> c2478:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c2636:p -> c2622:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

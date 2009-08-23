@@ -8,13 +8,13 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator
-	c4381 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RankLabelGenerator.html">
+	c4849 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RankLabelGenerator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> RankLabelGenerator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c4396 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ImageItem.html">
+	c4866 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ImageItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
@@ -22,15 +22,15 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.RankLabelGenerator extends org.jfree.chart.labels.AbstractCategoryItemLabelGenerator
-	c4463:p -> c4381:p [dir=back,arrowtail=empty];
+	c4935:p -> c4849:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.service.RankLabelGenerator implements org.jfree.chart.labels.CategoryItemLabelGenerator
-	c4464:p -> c4381:p [dir=back,arrowtail=empty,style=dashed];
+	c4936:p -> c4849:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator NAVASSOC net.chrissearle.flickrvote.service.model.ImageItem
-	c4381:p -> c4396:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4849:p -> c4866:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator DEPEND org.jfree.data.category.CategoryDataset
-	c4381:p -> c4467:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4849:p -> c4939:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.labels.CategoryItemLabelGenerator
-	c4464 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4936 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryItemLabelGenerator </td></tr>
@@ -38,7 +38,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.data.category.CategoryDataset
-	c4467 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4939 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryDataset </td></tr>
@@ -46,7 +46,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.chart.labels.AbstractCategoryItemLabelGenerator
-	c4463 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4935 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> AbstractCategoryItemLabelGenerator </font></td></tr>
 			<tr><td><font point-size="7.0"> org.jfree.chart.labels </font></td></tr>

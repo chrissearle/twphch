@@ -1,6 +1,7 @@
 <map id="G" name="G">
 <area shape="rect" href="./PhotographerItemInstance.html" alt="" coords="30,20,57,44" />
-<area shape="rect" href="./ImageItemInstance.html" alt="" coords="128,20,152,44" />
-<area shape="rect" href="./ChallengeSummaryInstance.html" alt="" coords="221,20,250,44" />
-<area shape="rect" href="./ChallengeItemInstance.html" alt="" coords="320,20,344,44" />
+<area shape="rect" href="./ImageItemStatusInstance.html" alt="" coords="126,20,153,44" />
+<area shape="rect" href="./ImageItemInstance.html" alt="" coords="224,20,248,44" />
+<area shape="rect" href="./ChallengeSummaryInstance.html" alt="" coords="317,20,346,44" />
+<area shape="rect" href="./ChallengeItemInstance.html" alt="" coords="416,20,440,44" />
 </map>
