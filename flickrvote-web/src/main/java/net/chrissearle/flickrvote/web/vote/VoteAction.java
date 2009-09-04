@@ -163,6 +163,18 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.debug("prepare");
         }
 
+        voted = false;
+
+        if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
+            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+
+            voted = challengeService.hasVoted(photographer.getPhotographerId());
+
+            if (logger.isDebugEnabled()) {
+                logger.debug("Setting voted to " + voted);
+            }
+        }
+
         Set<ChallengeSummary> votingChallenges = challengeService.getChallengesByType(ChallengeType.VOTING);
 
         if (votingChallenges.size() > 0) {
@@ -176,20 +188,20 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                 images.add(new DisplayImage(image));
             }
 
-            Collections.sort(images, new Comparator<DisplayImage>() {
-                public int compare(DisplayImage o1, DisplayImage o2) {
-                    return o2.getPostedDate().compareTo(o1.getPostedDate());
-                }
-            });
-        }
-
-        if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
-            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
-
-            voted = challengeService.hasVoted(photographer.getPhotographerId());
-
-            if (logger.isDebugEnabled()) {
-                logger.debug("Setting voted to " + voted);
+            if (!voted) {
+                Collections.sort(images, new Comparator<DisplayImage>() {
+                    public int compare(DisplayImage o1, DisplayImage o2) {
+                        return o2.getPostedDate().compareTo(o1.getPostedDate());
+                    }
+                });
+            } else {
+                Collections.sort(images, new Comparator<DisplayImage>() {
+                    public int compare(DisplayImage o1, DisplayImage o2) {
+                        return o1.getVoteCount().equals(o2.getVoteCount())
+                                ? o2.getPostedDate().compareTo(o1.getPostedDate())
+                                : o2.getVoteCount().compareTo(o1.getVoteCount());
+                    }
+                });
             }
         }
     }
