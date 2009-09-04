@@ -255,6 +255,11 @@ public class DaoPhotographyService implements PhotographyService {
             String photographerId = flickrImage.getPhotographer().getFlickrId();
             Photographer photographer = photographyDao.findById(photographerId);
 
+            if (photographer == null) {
+                retrieveAndStorePhotographer(photographerId);
+                photographer = photographyDao.findById(photographerId);
+            }
+
             Image existing = checkForExistingImage(photographer, tag);
 
             if (existing != null) {
