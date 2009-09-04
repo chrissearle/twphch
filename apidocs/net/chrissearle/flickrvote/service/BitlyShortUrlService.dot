@@ -8,33 +8,33 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.BitlyShortUrlService
-	c5702 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./BitlyShortUrlService.html">
+	c5703 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./BitlyShortUrlService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> BitlyShortUrlService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ShortUrlService
-	c5703 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
+	c5704 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ShortUrlService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.BitlyShortUrlService implements net.chrissearle.flickrvote.service.ShortUrlService
-	c5703:p -> c5702:p [dir=back,arrowtail=empty,style=dashed];
+	c5704:p -> c5703:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.BitlyShortUrlService NAVASSOC org.apache.log4j.Logger
-	c5702:p -> c5778:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c5703:p -> c5779:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.BitlyShortUrlService NAVASSOC com.rosaloves.net.shorturl.bitly.Bitly
-	c5702:p -> c5782:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c5703:p -> c5783:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// org.apache.log4j.Logger
-	c5778 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5779 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.rosaloves.net.shorturl.bitly.Bitly
-	c5782 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5783 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Bitly </td></tr>

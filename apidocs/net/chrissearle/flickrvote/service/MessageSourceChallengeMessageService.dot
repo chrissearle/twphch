@@ -8,27 +8,27 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService
-	c4965 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MessageSourceChallengeMessageService.html">
+	c4966 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MessageSourceChallengeMessageService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> MessageSourceChallengeMessageService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ShortUrlService
-	c4972 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
+	c4973 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShortUrlService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ShortUrlService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService
-	c4977 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeMessageService.html">
+	c4978 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeMessageService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeMessageService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c4981 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ImageItem.html">
+	c4982 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ImageItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
@@ -36,7 +36,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4983 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ChallengeSummary.html">
+	c4984 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/ChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeSummary </td></tr>
@@ -44,27 +44,27 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService implements net.chrissearle.flickrvote.service.ChallengeMessageService
-	c4977:p -> c4965:p [dir=back,arrowtail=empty,style=dashed];
+	c4978:p -> c4966:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService implements org.springframework.context.MessageSourceAware
-	c5047:p -> c4965:p [dir=back,arrowtail=empty,style=dashed];
+	c5048:p -> c4966:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService implements org.springframework.beans.factory.InitializingBean
-	c5048:p -> c4965:p [dir=back,arrowtail=empty,style=dashed];
+	c5049:p -> c4966:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService NAVASSOC org.springframework.context.MessageSource
-	c4965:p -> c5049:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4966:p -> c5050:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService NAVASSOC net.chrissearle.flickrvote.service.ShortUrlService
-	c4965:p -> c4972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
-	c4965:p -> c4981:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4966:p -> c4973:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4965:p -> c4983:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4966:p -> c4984:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND org.springframework.context.MessageSource
-	c4965:p -> c5049:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
-	c4977:p -> c4981:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4966:p -> c5050:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
+	c4966:p -> c4982:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c4977:p -> c4983:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c4978:p -> c4984:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.ChallengeMessageService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
+	c4978:p -> c4982:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.springframework.context.MessageSource
-	c5049 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5050 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> MessageSource </td></tr>
@@ -72,7 +72,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.springframework.beans.factory.InitializingBean
-	c5048 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5049 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> InitializingBean </td></tr>
@@ -80,7 +80,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.springframework.context.MessageSourceAware
-	c5047 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5048 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> MessageSourceAware </td></tr>

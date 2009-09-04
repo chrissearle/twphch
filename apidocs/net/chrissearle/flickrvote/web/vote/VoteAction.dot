@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c13063 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
+	c13064 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -16,7 +16,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c13065 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/ChallengeService.html">
+	c13066 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/ChallengeService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>
@@ -24,14 +24,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c13118 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
+	c13119 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c13121 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
+	c13122 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
@@ -39,33 +39,33 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.vote.VoteAction
-	c13128 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./VoteAction.html">
+	c13129 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./VoteAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VoteAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Challenge
-	c13121:p -> c13118:p [dir=back,arrowtail=empty,style=dashed];
+	c13122:p -> c13119:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.vote.VoteAction extends com.opensymphony.xwork2.ActionSupport
-	c13136:p -> c13128:p [dir=back,arrowtail=empty];
+	c13137:p -> c13129:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.vote.VoteAction implements org.apache.struts2.interceptor.SessionAware
-	c13137:p -> c13128:p [dir=back,arrowtail=empty,style=dashed];
+	c13138:p -> c13129:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.vote.VoteAction implements com.opensymphony.xwork2.Preparable
-	c13138:p -> c13128:p [dir=back,arrowtail=empty,style=dashed];
+	c13139:p -> c13129:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC org.apache.log4j.Logger
-	c13128:p -> c13139:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c13129:p -> c13140:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c13128:p -> c13121:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c13129:p -> c13122:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c13128:p -> c13118:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c13129:p -> c13119:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c13128:p -> c13065:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c13129:p -> c13066:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c13128:p -> c13063:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c13129:p -> c13064:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c13128:p -> c13121:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c13129:p -> c13122:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.struts2.interceptor.SessionAware
-	c13137 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c13138 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
@@ -73,7 +73,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.Preparable
-	c13138 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c13139 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Preparable </td></tr>
@@ -81,14 +81,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.log4j.Logger
-	c13139 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c13140 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c13136 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c13137 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

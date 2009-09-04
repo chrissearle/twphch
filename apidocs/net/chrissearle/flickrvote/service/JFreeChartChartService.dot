@@ -8,44 +8,44 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService
-	c5076 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JFreeChartChartService.html">
+	c5077 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JFreeChartChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChartChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c5084 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographyService.html">
+	c5085 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChartService
-	c5085 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChartService.html">
+	c5086 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c5086 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeService.html">
+	c5087 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.JFreeChartChartService implements net.chrissearle.flickrvote.service.ChartService
-	c5085:p -> c5076:p [dir=back,arrowtail=empty,style=dashed];
+	c5086:p -> c5077:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c5076:p -> c5086:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c5077:p -> c5087:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c5076:p -> c5084:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.data.category.CategoryDataset
-	c5076:p -> c5157:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c5077:p -> c5085:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.chart.JFreeChart
-	c5076:p -> c5188:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c5077:p -> c5188:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.data.category.CategoryDataset
+	c5077:p -> c5189:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChartService DEPEND org.jfree.chart.JFreeChart
-	c5085:p -> c5188:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c5086:p -> c5188:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.JFreeChart
 	c5188 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
@@ -54,7 +54,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.data.category.CategoryDataset
-	c5157 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c5189 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryDataset </td></tr>

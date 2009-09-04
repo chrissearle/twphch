@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c9492 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
+	c9493 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -16,26 +16,26 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.FrontPageAction
-	c9524 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FrontPageAction.html">
+	c9525 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FrontPageAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FrontPageAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c9547 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
+	c9548 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.FrontPageAction extends com.opensymphony.xwork2.ActionSupport
-	c9565:p -> c9524:p [dir=back,arrowtail=empty];
+	c9566:p -> c9525:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.FrontPageAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c9524:p -> c9492:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9525:p -> c9493:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.FrontPageAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c9524:p -> c9547:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9525:p -> c9548:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// com.opensymphony.xwork2.ActionSupport
-	c9565 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c9566 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

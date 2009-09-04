@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="3.9" timestamp="2009-08-23T18:35:09.114" elapsedTime="0s">
+<pmd version="3.9" timestamp="2009-09-05T00:02:51.716" elapsedTime="0s">
 <file name="/Users/chris/src/twphch/twphch/flickrvote-model/src/main/java/net/chrissearle/flickrvote/model/Vote.java">
 <violation line="35" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.model" class="Vote" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'id'.

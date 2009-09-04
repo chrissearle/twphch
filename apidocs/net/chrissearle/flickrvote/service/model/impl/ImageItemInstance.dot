@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.model.PhotographerItem
-	c7436 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../PhotographerItem.html">
+	c7437 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../PhotographerItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographerItem </td></tr>
@@ -16,7 +16,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c7438 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItem.html">
+	c7439 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
@@ -24,7 +24,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c7440 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ChallengeSummary.html">
+	c7441 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeSummary </td></tr>
@@ -32,20 +32,20 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemInstance
-	c7444 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageItemInstance.html">
+	c7445 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageItemInstance.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageItemInstance </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.model.impl.ImageItemInstance implements net.chrissearle.flickrvote.service.model.ImageItem
-	c7438:p -> c7444:p [dir=back,arrowtail=empty,style=dashed];
+	c7439:p -> c7445:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemInstance NAVASSOC net.chrissearle.flickrvote.service.model.PhotographerItem
-	c7444:p -> c7436:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c7445:p -> c7437:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemInstance NAVASSOC net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c7444:p -> c7440:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c7445:p -> c7441:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemInstance DEPEND net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c7444:p -> c7440:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c7445:p -> c7441:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemInstance DEPEND net.chrissearle.flickrvote.service.model.PhotographerItem
-	c7444:p -> c7436:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c7445:p -> c7437:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

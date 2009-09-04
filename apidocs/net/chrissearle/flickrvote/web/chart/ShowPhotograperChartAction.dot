@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.ChartService
-	c9926 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/ChartService.html">
+	c9927 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../service/ChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChartService </td></tr>
@@ -16,32 +16,32 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction
-	c9961 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowPhotograperChartAction.html">
+	c9962 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowPhotograperChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowPhotograperChartAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction extends com.opensymphony.xwork2.ActionSupport
-	c9998:p -> c9961:p [dir=back,arrowtail=empty];
+	c9999:p -> c9962:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction implements org.apache.struts2.interceptor.SessionAware
-	c9999:p -> c9961:p [dir=back,arrowtail=empty,style=dashed];
+	c10000:p -> c9962:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction NAVASSOC org.jfree.chart.JFreeChart
-	c9961:p -> c10000:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9962:p -> c10001:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c9961:p -> c9926:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9962:p -> c9927:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.ChartService DEPEND org.jfree.chart.JFreeChart
-	c9926:p -> c10000:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c9927:p -> c10001:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction DEPEND org.jfree.chart.JFreeChart
-	c9961:p -> c10000:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c9962:p -> c10001:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.JFreeChart
-	c10000 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c10001 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChart </td></tr>
 			<tr><td><font point-size="7.0"> org.jfree.chart </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.struts2.interceptor.SessionAware
-	c9999 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c10000 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
@@ -49,7 +49,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c9998 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c9999 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c10580 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../service/PhotographyService.html">
+	c10581 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../service/PhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -16,7 +16,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c10582 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../service/ChallengeService.html">
+	c10583 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../service/ChallengeService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>
@@ -24,20 +24,20 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction
-	c10622 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowChallengeAction.html">
+	c10623 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChallengeAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c10635 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/DisplayImage.html">
+	c10636 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c10638 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/Challenge.html">
+	c10639 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
@@ -45,21 +45,21 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Challenge
-	c10638:p -> c10635:p [dir=back,arrowtail=empty,style=dashed];
+	c10639:p -> c10636:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c10622:p -> c10582:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c10623:p -> c10583:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c10622:p -> c10580:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c10623:p -> c10581:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC org.apache.log4j.Logger
-	c10622:p -> c10653:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c10623:p -> c10654:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c10622:p -> c10635:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c10623:p -> c10636:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c10622:p -> c10638:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c10623:p -> c10639:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c10622:p -> c10638:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c10623:p -> c10639:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.log4j.Logger
-	c10653 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c10654 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>

@@ -8,73 +8,73 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService
-	c6138 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./JFreeChartChartService.html">
+	c6139 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./JFreeChartChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChartChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ITextReportService
-	c6139 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ITextReportService.html">
+	c6140 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ITextReportService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ITextReportService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChartService
-	c6147 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChartService.html">
+	c6148 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChartService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChartService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowVotingChartAction
-	c6181 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowVotingChartAction.html">
+	c6182 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowVotingChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowVotingChartAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.chart </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction
-	c6182 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowPhotograperChartAction.html">
+	c6183 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowPhotograperChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowPhotograperChartAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.chart </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowChartAction
-	c6183 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowChartAction.html">
+	c6184 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../web/chart/ShowChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChartAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.chart </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.JFreeChartChartService implements net.chrissearle.flickrvote.service.ChartService
-	c6147:p -> c6138:p [dir=back,arrowtail=empty,style=dashed];
+	c6148:p -> c6139:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.ITextReportService NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c6139:p -> c6147:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6140:p -> c6148:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowVotingChartAction NAVASSOC org.jfree.chart.JFreeChart
-	c6181:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6182:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowVotingChartAction NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c6181:p -> c6147:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6182:p -> c6148:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction NAVASSOC org.jfree.chart.JFreeChart
-	c6182:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6183:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c6182:p -> c6147:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6183:p -> c6148:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowChartAction NAVASSOC org.jfree.chart.JFreeChart
-	c6183:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6184:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.chart.ShowChartAction NAVASSOC net.chrissearle.flickrvote.service.ChartService
-	c6183:p -> c6147:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6184:p -> c6148:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.JFreeChartChartService DEPEND org.jfree.chart.JFreeChart
-	c6138:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6139:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.ChartService DEPEND org.jfree.chart.JFreeChart
-	c6147:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6148:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.chart.ShowVotingChartAction DEPEND org.jfree.chart.JFreeChart
-	c6181:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6182:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction DEPEND org.jfree.chart.JFreeChart
-	c6182:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6183:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.chart.ShowChartAction DEPEND org.jfree.chart.JFreeChart
-	c6183:p -> c6219:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6184:p -> c6220:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.JFreeChart
-	c6219 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c6220 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JFreeChart </td></tr>
 			<tr><td><font point-size="7.0"> org.jfree.chart </font></td></tr>

@@ -1,6 +1,6 @@
 <map id="G" name="G">
 <area shape="rect" href="../account/MyPicsAction.html" alt="" coords="26,110,61,145" />
-<area shape="rect" href="./DisplayImage.html" alt="" coords="458,212,477,236" />
+<area shape="rect" href="./DisplayImage.html" alt="" coords="415,211,434,235" />
 <area shape="rect" href="../account/CheckImageAction.html" alt="" coords="122,110,157,145" />
 <area shape="rect" href="../admin/ShowPhotographerImagesAction.html" alt="" coords="270,14,302,49" />
 <area shape="rect" href="../admin/SearchTagCheckAction.html" alt="" coords="482,14,514,49" />

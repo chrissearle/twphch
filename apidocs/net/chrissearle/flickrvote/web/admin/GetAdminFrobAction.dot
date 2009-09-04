@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.flickr.FlickrService
-	c9356 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../flickr/FlickrService.html">
+	c9357 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../../flickr/FlickrService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> FlickrService </td></tr>
@@ -16,17 +16,17 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.GetAdminFrobAction
-	c9415 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./GetAdminFrobAction.html">
+	c9416 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./GetAdminFrobAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> GetAdminFrobAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.GetAdminFrobAction extends com.opensymphony.xwork2.ActionSupport
-	c9457:p -> c9415:p [dir=back,arrowtail=empty];
+	c9458:p -> c9416:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.GetAdminFrobAction NAVASSOC net.chrissearle.flickrvote.flickr.FlickrService
-	c9415:p -> c9356:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c9416:p -> c9357:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// com.opensymphony.xwork2.ActionSupport
-	c9457 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c9458 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

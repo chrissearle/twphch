@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.model.Status
-	c7328 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../Status.html">
+	c7329 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../Status.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;enumeration&raquo; </td></tr>
 			<tr><td> Status </td></tr>
@@ -16,7 +16,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItemStatus
-	c7330 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItemStatus.html">
+	c7331 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItemStatus.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItemStatus </td></tr>
@@ -24,7 +24,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c7331 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItem.html">
+	c7332 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ImageItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
@@ -32,18 +32,18 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance
-	c7336 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageItemStatusInstance.html">
+	c7337 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageItemStatusInstance.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageItemStatusInstance </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance implements net.chrissearle.flickrvote.service.model.ImageItemStatus
-	c7330:p -> c7336:p [dir=back,arrowtail=empty,style=dashed];
+	c7331:p -> c7337:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance NAVASSOC net.chrissearle.flickrvote.service.model.Status
-	c7336:p -> c7328:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c7337:p -> c7329:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance NAVASSOC net.chrissearle.flickrvote.service.model.ImageItem
-	c7336:p -> c7331:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c7337:p -> c7332:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance DEPEND net.chrissearle.flickrvote.service.model.Status
-	c7336:p -> c7328:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c7337:p -> c7329:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

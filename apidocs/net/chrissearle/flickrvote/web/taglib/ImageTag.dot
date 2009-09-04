@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.model.Image
-	c12576 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Image.html">
+	c12577 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Image </td></tr>
@@ -16,19 +16,19 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag
-	c12583 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageTag.html">
+	c12584 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ImageTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageTag </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag NAVASSOC org.apache.log4j.Logger
-	c12583:p -> c12596:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c12584:p -> c12597:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag NAVASSOC net.chrissearle.flickrvote.web.model.Image
-	c12583:p -> c12576:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c12584:p -> c12577:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag DEPEND net.chrissearle.flickrvote.web.model.Image
-	c12583:p -> c12576:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c12584:p -> c12577:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.log4j.Logger
-	c12596 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c12597 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>

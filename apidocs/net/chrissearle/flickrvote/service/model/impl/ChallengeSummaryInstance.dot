@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c7547 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ChallengeSummary.html">
+	c7548 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeSummary </td></tr>
@@ -16,12 +16,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance
-	c7552 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChallengeSummaryInstance.html">
+	c7553 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChallengeSummaryInstance.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeSummaryInstance </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance implements net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c7547:p -> c7552:p [dir=back,arrowtail=empty,style=dashed];
+	c7548:p -> c7553:p [dir=back,arrowtail=empty,style=dashed];
 }
 

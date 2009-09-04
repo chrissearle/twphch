@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c12689 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
+	c12690 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
@@ -16,19 +16,19 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag
-	c12692 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChallengeTitleTag.html">
+	c12693 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ChallengeTitleTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeTitleTag </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag NAVASSOC org.apache.log4j.Logger
-	c12692:p -> c12704:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c12693:p -> c12705:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c12692:p -> c12689:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c12693:p -> c12690:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c12692:p -> c12689:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c12693:p -> c12690:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.log4j.Logger
-	c12704 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c12705 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>

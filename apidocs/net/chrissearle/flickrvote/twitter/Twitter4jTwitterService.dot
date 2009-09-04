@@ -8,28 +8,28 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.twitter.TwitterService
-	c4628 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterService.html">
+	c4629 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> TwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService
-	c4630 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Twitter4jTwitterService.html">
+	c4631 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Twitter4jTwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Twitter4jTwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.twitter.Twitter4jTwitterService implements net.chrissearle.flickrvote.twitter.TwitterService
-	c4628:p -> c4630:p [dir=back,arrowtail=empty,style=dashed];
+	c4629:p -> c4631:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService NAVASSOC twitter4j.Twitter
-	c4630:p -> c4715:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4631:p -> c4716:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService NAVASSOC org.apache.log4j.Logger
-	c4630:p -> c4716:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4631:p -> c4717:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService NAVASSOC net.chrissearle.mail.SimpleMailService
-	c4630:p -> c4717:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4631:p -> c4718:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.mail.SimpleMailService
-	c4717 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4718 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SimpleMailService </td></tr>
@@ -37,14 +37,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// twitter4j.Twitter
-	c4715 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4716 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Twitter </td></tr>
 			<tr><td><font point-size="7.0"> twitter4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.log4j.Logger
-	c4716 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4717 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>

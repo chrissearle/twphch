@@ -265,256 +265,292 @@
 <a name="255" href="#255">255</a>             String photographerId = flickrImage.getPhotographer().getFlickrId();
 <a name="256" href="#256">256</a>             Photographer photographer = photographyDao.findById(photographerId);
 <a name="257" href="#257">257</a> 
-<a name="258" href="#258">258</a>             Image existing = checkForExistingImage(photographer, tag);
-<a name="259" href="#259">259</a> 
-<a name="260" href="#260">260</a>             <strong class="jxr_keyword">if</strong> (existing != <strong class="jxr_keyword">null</strong>) {
-<a name="261" href="#261">261</a>                 <em class="jxr_comment">// Found an existing image for this challenge by this photographer</em>
-<a name="262" href="#262">262</a>                 <strong class="jxr_keyword">if</strong> (replaceExisting) {
-<a name="263" href="#263">263</a>                     <em class="jxr_comment">// Normal functionality - remove the existing one - we're doing an update</em>
-<a name="264" href="#264">264</a>                     photographer.removeImage(existing);
-<a name="265" href="#265">265</a>                     imageDao.remove(existing);
-<a name="266" href="#266">266</a>                 } <strong class="jxr_keyword">else</strong> {
-<a name="267" href="#267">267</a>                     <em class="jxr_comment">// Special case - e.g. we don't want to replace admin overridden images at freeze.</em>
-<a name="268" href="#268">268</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(existing);
-<a name="269" href="#269">269</a>                 }
-<a name="270" href="#270">270</a>             }
-<a name="271" href="#271">271</a> 
-<a name="272" href="#272">272</a>             image = <strong class="jxr_keyword">new</strong> Image();
-<a name="273" href="#273">273</a>             image.setId(flickrImage.getFlickrId());
-<a name="274" href="#274">274</a>             image.setMediumImage(flickrImage.getImageUrl());
-<a name="275" href="#275">275</a>             image.setPage(flickrImage.getUrl());
-<a name="276" href="#276">276</a>             image.setTitle(flickrImage.getTitle());
-<a name="277" href="#277">277</a>             image.setPostedDate(flickrImage.getPostedDate());
-<a name="278" href="#278">278</a> 
-<a name="279" href="#279">279</a> 
-<a name="280" href="#280">280</a>             <strong class="jxr_keyword">if</strong> (photographer == <strong class="jxr_keyword">null</strong>) {
-<a name="281" href="#281">281</a>                 retrieveAndStorePhotographer(photographerId);
-<a name="282" href="#282">282</a> 
-<a name="283" href="#283">283</a>                 photographer = photographyDao.findById(photographerId);
-<a name="284" href="#284">284</a>             }
-<a name="285" href="#285">285</a> 
-<a name="286" href="#286">286</a>             photographer.addImage(image);
+<a name="258" href="#258">258</a>             <strong class="jxr_keyword">if</strong> (photographer == <strong class="jxr_keyword">null</strong>) {
+<a name="259" href="#259">259</a>                 retrieveAndStorePhotographer(photographerId);
+<a name="260" href="#260">260</a>                 photographer = photographyDao.findById(photographerId);
+<a name="261" href="#261">261</a>             }
+<a name="262" href="#262">262</a> 
+<a name="263" href="#263">263</a>             Image existing = checkForExistingImage(photographer, tag);
+<a name="264" href="#264">264</a> 
+<a name="265" href="#265">265</a>             <strong class="jxr_keyword">if</strong> (existing != <strong class="jxr_keyword">null</strong>) {
+<a name="266" href="#266">266</a>                 <em class="jxr_comment">// Found an existing image for this challenge by this photographer</em>
+<a name="267" href="#267">267</a>                 <strong class="jxr_keyword">if</strong> (replaceExisting) {
+<a name="268" href="#268">268</a>                     <em class="jxr_comment">// Normal functionality - remove the existing one - we're doing an update</em>
+<a name="269" href="#269">269</a>                     photographer.removeImage(existing);
+<a name="270" href="#270">270</a>                     imageDao.remove(existing);
+<a name="271" href="#271">271</a>                 } <strong class="jxr_keyword">else</strong> {
+<a name="272" href="#272">272</a>                     <em class="jxr_comment">// Special case - e.g. we don't want to replace admin overridden images at freeze.</em>
+<a name="273" href="#273">273</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(existing);
+<a name="274" href="#274">274</a>                 }
+<a name="275" href="#275">275</a>             }
+<a name="276" href="#276">276</a> 
+<a name="277" href="#277">277</a>             image = <strong class="jxr_keyword">new</strong> Image();
+<a name="278" href="#278">278</a>             image.setId(flickrImage.getFlickrId());
+<a name="279" href="#279">279</a>             image.setMediumImage(flickrImage.getImageUrl());
+<a name="280" href="#280">280</a>             image.setPage(flickrImage.getUrl());
+<a name="281" href="#281">281</a>             image.setTitle(flickrImage.getTitle());
+<a name="282" href="#282">282</a>             image.setPostedDate(flickrImage.getPostedDate());
+<a name="283" href="#283">283</a> 
+<a name="284" href="#284">284</a> 
+<a name="285" href="#285">285</a>             <strong class="jxr_keyword">if</strong> (photographer == <strong class="jxr_keyword">null</strong>) {
+<a name="286" href="#286">286</a>                 retrieveAndStorePhotographer(photographerId);
 <a name="287" href="#287">287</a> 
-<a name="288" href="#288">288</a>             photographyDao.persist(photographer);
-<a name="289" href="#289">289</a> 
-<a name="290" href="#290">290</a>             challenge.addImage(image);
-<a name="291" href="#291">291</a> 
-<a name="292" href="#292">292</a>             challengeDao.persist(challenge);
-<a name="293" href="#293">293</a>         } <strong class="jxr_keyword">else</strong> {
-<a name="294" href="#294">294</a>             <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="295" href="#295">295</a>                 logger.info(<span class="jxr_string">"Refreshing image "</span> + flickrImage.getFlickrId());
-<a name="296" href="#296">296</a>             }
-<a name="297" href="#297">297</a> 
-<a name="298" href="#298">298</a>             image.setTitle(flickrImage.getTitle());
-<a name="299" href="#299">299</a>             image.setPostedDate(flickrImage.getPostedDate());
-<a name="300" href="#300">300</a>             image.setPage(flickrImage.getUrl());
-<a name="301" href="#301">301</a>             image.setMediumImage(flickrImage.getImageUrl());
+<a name="288" href="#288">288</a>                 photographer = photographyDao.findById(photographerId);
+<a name="289" href="#289">289</a>             }
+<a name="290" href="#290">290</a> 
+<a name="291" href="#291">291</a>             photographer.addImage(image);
+<a name="292" href="#292">292</a> 
+<a name="293" href="#293">293</a>             photographyDao.persist(photographer);
+<a name="294" href="#294">294</a> 
+<a name="295" href="#295">295</a>             challenge.addImage(image);
+<a name="296" href="#296">296</a> 
+<a name="297" href="#297">297</a>             challengeDao.persist(challenge);
+<a name="298" href="#298">298</a>         } <strong class="jxr_keyword">else</strong> {
+<a name="299" href="#299">299</a>             <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="300" href="#300">300</a>                 logger.info(<span class="jxr_string">"Refreshing image "</span> + flickrImage.getFlickrId());
+<a name="301" href="#301">301</a>             }
 <a name="302" href="#302">302</a> 
-<a name="303" href="#303">303</a>             imageDao.persist(image);
-<a name="304" href="#304">304</a>         }
-<a name="305" href="#305">305</a> 
-<a name="306" href="#306">306</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(image);
-<a name="307" href="#307">307</a>     }
-<a name="308" href="#308">308</a> 
-<a name="309" href="#309">309</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="310" href="#310">310</a> <em class="jxr_javadoccomment">     * Method checkForExistingImage checks to see if the photographer has an image for the given challenge</em>
-<a name="311" href="#311">311</a> <em class="jxr_javadoccomment">     *</em>
-<a name="312" href="#312">312</a> <em class="jxr_javadoccomment">     * @param photographer of type Photographer</em>
-<a name="313" href="#313">313</a> <em class="jxr_javadoccomment">     * @param tag          of type String</em>
-<a name="314" href="#314">314</a> <em class="jxr_javadoccomment">     * @return Image</em>
-<a name="315" href="#315">315</a> <em class="jxr_javadoccomment">     */</em>
-<a name="316" href="#316">316</a>     <strong class="jxr_keyword">private</strong> Image checkForExistingImage(Photographer photographer, String tag) {
-<a name="317" href="#317">317</a>         <strong class="jxr_keyword">for</strong> (Image image : photographer.getImages()) {
-<a name="318" href="#318">318</a>             <strong class="jxr_keyword">if</strong> (image.getChallenge().getTag().equals(tag)) {
-<a name="319" href="#319">319</a>                 <strong class="jxr_keyword">return</strong> image;
-<a name="320" href="#320">320</a>             }
-<a name="321" href="#321">321</a>         }
-<a name="322" href="#322">322</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="323" href="#323">323</a>     }
-<a name="324" href="#324">324</a> 
-<a name="325" href="#325">325</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="326" href="#326">326</a> <em class="jxr_javadoccomment">     * Method setScore - sets the final vote count of an image.</em>
-<a name="327" href="#327">327</a> <em class="jxr_javadoccomment">     *</em>
-<a name="328" href="#328">328</a> <em class="jxr_javadoccomment">     * @param imageId of type String</em>
-<a name="329" href="#329">329</a> <em class="jxr_javadoccomment">     * @param score   of type Long</em>
-<a name="330" href="#330">330</a> <em class="jxr_javadoccomment">     */</em>
-<a name="331" href="#331">331</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setScore(String imageId, Long score) {
-<a name="332" href="#332">332</a>         Image image = imageDao.findById(imageId);
-<a name="333" href="#333">333</a> 
-<a name="334" href="#334">334</a>         <strong class="jxr_keyword">if</strong> (image != <strong class="jxr_keyword">null</strong>) {
-<a name="335" href="#335">335</a>             image.setFinalVoteCount(score);
-<a name="336" href="#336">336</a>         }
-<a name="337" href="#337">337</a> 
-<a name="338" href="#338">338</a>         imageDao.persist(image);
-<a name="339" href="#339">339</a>     }
-<a name="340" href="#340">340</a> 
-<a name="341" href="#341">341</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="342" href="#342">342</a> <em class="jxr_javadoccomment">     * Method getImagesForPhotographer retrieves all images for a given photographer</em>
-<a name="343" href="#343">343</a> <em class="jxr_javadoccomment">     *</em>
-<a name="344" href="#344">344</a> <em class="jxr_javadoccomment">     * @param id photographer id</em>
-<a name="345" href="#345">345</a> <em class="jxr_javadoccomment">     * @return Set&lt;ImageItem&gt;</em>
-<a name="346" href="#346">346</a> <em class="jxr_javadoccomment">     */</em>
-<a name="347" href="#347">347</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItem&gt; getImagesForPhotographer(String id) {
-<a name="348" href="#348">348</a>         Photographer photographer = photographyDao.findById(id);
-<a name="349" href="#349">349</a> 
-<a name="350" href="#350">350</a>         <strong class="jxr_keyword">if</strong> (photographer == <strong class="jxr_keyword">null</strong> || photographer.getImages() == <strong class="jxr_keyword">null</strong> || photographer.getImages().size() == 0) {
-<a name="351" href="#351">351</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="352" href="#352">352</a>         }
-<a name="353" href="#353">353</a> 
-<a name="354" href="#354">354</a>         Set&lt;ImageItem&gt; images = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItem&gt;();
-<a name="355" href="#355">355</a> 
-<a name="356" href="#356">356</a>         <strong class="jxr_keyword">for</strong> (Image image : photographer.getImages()) {
-<a name="357" href="#357">357</a>             images.add(<strong class="jxr_keyword">new</strong> ImageItemInstance(image));
-<a name="358" href="#358">358</a>         }
-<a name="359" href="#359">359</a> 
-<a name="360" href="#360">360</a>         <strong class="jxr_keyword">return</strong> images;
-<a name="361" href="#361">361</a>     }
-<a name="362" href="#362">362</a> 
-<a name="363" href="#363">363</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="364" href="#364">364</a> <em class="jxr_javadoccomment">     * Method freezeChallenge - takes the current challenge - performs a flickr search and stores the results locally.</em>
-<a name="365" href="#365">365</a> <em class="jxr_javadoccomment">     */</em>
-<a name="366" href="#366">366</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> freezeChallenge() {
-<a name="367" href="#367">367</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="368" href="#368">368</a>             logger.info(<span class="jxr_string">"Freezing challenge"</span>);
-<a name="369" href="#369">369</a>         }
-<a name="370" href="#370">370</a> 
-<a name="371" href="#371">371</a>         Challenge challenge = challengeDao.getVotingChallenge();
-<a name="372" href="#372">372</a> 
-<a name="373" href="#373">373</a>         <strong class="jxr_keyword">if</strong> (challenge == <strong class="jxr_keyword">null</strong>) {
-<a name="374" href="#374">374</a>             <strong class="jxr_keyword">return</strong>;
-<a name="375" href="#375">375</a>         }
-<a name="376" href="#376">376</a> 
-<a name="377" href="#377">377</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="378" href="#378">378</a>             logger.info(<span class="jxr_string">"Freezing challenge : "</span> + challenge);
-<a name="379" href="#379">379</a>         }
-<a name="380" href="#380">380</a> 
+<a name="303" href="#303">303</a>             image.setTitle(flickrImage.getTitle());
+<a name="304" href="#304">304</a>             image.setPostedDate(flickrImage.getPostedDate());
+<a name="305" href="#305">305</a>             image.setPage(flickrImage.getUrl());
+<a name="306" href="#306">306</a>             image.setMediumImage(flickrImage.getImageUrl());
+<a name="307" href="#307">307</a> 
+<a name="308" href="#308">308</a>             imageDao.persist(image);
+<a name="309" href="#309">309</a>         }
+<a name="310" href="#310">310</a> 
+<a name="311" href="#311">311</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(image);
+<a name="312" href="#312">312</a>     }
+<a name="313" href="#313">313</a> 
+<a name="314" href="#314">314</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="315" href="#315">315</a> <em class="jxr_javadoccomment">     * Method checkForExistingImage checks to see if the photographer has an image for the given challenge</em>
+<a name="316" href="#316">316</a> <em class="jxr_javadoccomment">     *</em>
+<a name="317" href="#317">317</a> <em class="jxr_javadoccomment">     * @param photographer of type Photographer</em>
+<a name="318" href="#318">318</a> <em class="jxr_javadoccomment">     * @param tag          of type String</em>
+<a name="319" href="#319">319</a> <em class="jxr_javadoccomment">     * @return Image</em>
+<a name="320" href="#320">320</a> <em class="jxr_javadoccomment">     */</em>
+<a name="321" href="#321">321</a>     <strong class="jxr_keyword">private</strong> Image checkForExistingImage(Photographer photographer, String tag) {
+<a name="322" href="#322">322</a>         <strong class="jxr_keyword">for</strong> (Image image : photographer.getImages()) {
+<a name="323" href="#323">323</a>             <strong class="jxr_keyword">if</strong> (image.getChallenge().getTag().equals(tag)) {
+<a name="324" href="#324">324</a>                 <strong class="jxr_keyword">return</strong> image;
+<a name="325" href="#325">325</a>             }
+<a name="326" href="#326">326</a>         }
+<a name="327" href="#327">327</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="328" href="#328">328</a>     }
+<a name="329" href="#329">329</a> 
+<a name="330" href="#330">330</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="331" href="#331">331</a> <em class="jxr_javadoccomment">     * Method setScore - sets the final vote count of an image.</em>
+<a name="332" href="#332">332</a> <em class="jxr_javadoccomment">     *</em>
+<a name="333" href="#333">333</a> <em class="jxr_javadoccomment">     * @param imageId of type String</em>
+<a name="334" href="#334">334</a> <em class="jxr_javadoccomment">     * @param score   of type Long</em>
+<a name="335" href="#335">335</a> <em class="jxr_javadoccomment">     */</em>
+<a name="336" href="#336">336</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setScore(String imageId, Long score) {
+<a name="337" href="#337">337</a>         Image image = imageDao.findById(imageId);
+<a name="338" href="#338">338</a> 
+<a name="339" href="#339">339</a>         <strong class="jxr_keyword">if</strong> (image != <strong class="jxr_keyword">null</strong>) {
+<a name="340" href="#340">340</a>             image.setFinalVoteCount(score);
+<a name="341" href="#341">341</a>         }
+<a name="342" href="#342">342</a> 
+<a name="343" href="#343">343</a>         imageDao.persist(image);
+<a name="344" href="#344">344</a>     }
+<a name="345" href="#345">345</a> 
+<a name="346" href="#346">346</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="347" href="#347">347</a> <em class="jxr_javadoccomment">     * Method getImagesForPhotographer retrieves all images for a given photographer</em>
+<a name="348" href="#348">348</a> <em class="jxr_javadoccomment">     *</em>
+<a name="349" href="#349">349</a> <em class="jxr_javadoccomment">     * @param id photographer id</em>
+<a name="350" href="#350">350</a> <em class="jxr_javadoccomment">     * @return Set&lt;ImageItem&gt;</em>
+<a name="351" href="#351">351</a> <em class="jxr_javadoccomment">     */</em>
+<a name="352" href="#352">352</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItem&gt; getImagesForPhotographer(String id) {
+<a name="353" href="#353">353</a>         Photographer photographer = photographyDao.findById(id);
+<a name="354" href="#354">354</a> 
+<a name="355" href="#355">355</a>         <strong class="jxr_keyword">if</strong> (photographer == <strong class="jxr_keyword">null</strong> || photographer.getImages() == <strong class="jxr_keyword">null</strong> || photographer.getImages().size() == 0) {
+<a name="356" href="#356">356</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="357" href="#357">357</a>         }
+<a name="358" href="#358">358</a> 
+<a name="359" href="#359">359</a>         Set&lt;ImageItem&gt; images = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItem&gt;();
+<a name="360" href="#360">360</a> 
+<a name="361" href="#361">361</a>         <strong class="jxr_keyword">for</strong> (Image image : photographer.getImages()) {
+<a name="362" href="#362">362</a>             images.add(<strong class="jxr_keyword">new</strong> ImageItemInstance(image));
+<a name="363" href="#363">363</a>         }
+<a name="364" href="#364">364</a> 
+<a name="365" href="#365">365</a>         <strong class="jxr_keyword">return</strong> images;
+<a name="366" href="#366">366</a>     }
+<a name="367" href="#367">367</a> 
+<a name="368" href="#368">368</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="369" href="#369">369</a> <em class="jxr_javadoccomment">     * Method freezeChallenge - takes the current challenge - performs a flickr search and stores the results locally.</em>
+<a name="370" href="#370">370</a> <em class="jxr_javadoccomment">     */</em>
+<a name="371" href="#371">371</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> freezeChallenge() {
+<a name="372" href="#372">372</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="373" href="#373">373</a>             logger.info(<span class="jxr_string">"Freezing challenge"</span>);
+<a name="374" href="#374">374</a>         }
+<a name="375" href="#375">375</a> 
+<a name="376" href="#376">376</a>         Challenge challenge = challengeDao.getVotingChallenge();
+<a name="377" href="#377">377</a> 
+<a name="378" href="#378">378</a>         <strong class="jxr_keyword">if</strong> (challenge == <strong class="jxr_keyword">null</strong>) {
+<a name="379" href="#379">379</a>             <strong class="jxr_keyword">return</strong>;
+<a name="380" href="#380">380</a>         }
 <a name="381" href="#381">381</a> 
-<a name="382" href="#382">382</a>         List&lt;FlickrImage&gt; images = flickrService.searchImagesByTag(challenge.getTag(), challenge.getStartDate());
-<a name="383" href="#383">383</a> 
-<a name="384" href="#384">384</a>         <strong class="jxr_keyword">for</strong> (FlickrImage image : images) {
-<a name="385" href="#385">385</a>             retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
-<a name="386" href="#386">386</a>         }
-<a name="387" href="#387">387</a>     }
+<a name="382" href="#382">382</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="383" href="#383">383</a>             logger.info(<span class="jxr_string">"Freezing challenge : "</span> + challenge);
+<a name="384" href="#384">384</a>         }
+<a name="385" href="#385">385</a> 
+<a name="386" href="#386">386</a> 
+<a name="387" href="#387">387</a>         List&lt;FlickrImage&gt; images = flickrService.searchImagesByTag(challenge.getTag(), challenge.getStartDate());
 <a name="388" href="#388">388</a> 
-<a name="389" href="#389">389</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="390" href="#390">390</a> <em class="jxr_javadoccomment">     * Method getGoldWinners returns all images with first place.</em>
-<a name="391" href="#391">391</a> <em class="jxr_javadoccomment">     *</em>
-<a name="392" href="#392">392</a> <em class="jxr_javadoccomment">     * @return list of images with rank 1.</em>
-<a name="393" href="#393">393</a> <em class="jxr_javadoccomment">     */</em>
-<a name="394" href="#394">394</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItem&gt; getGoldWinners() {
-<a name="395" href="#395">395</a>         Set&lt;ImageItem&gt; images = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItem&gt;();
-<a name="396" href="#396">396</a> 
-<a name="397" href="#397">397</a>         <strong class="jxr_keyword">for</strong> (Image image : imageDao.getImagesWithRank(1L)) {
-<a name="398" href="#398">398</a>             images.add(<strong class="jxr_keyword">new</strong> ImageItemInstance(image));
-<a name="399" href="#399">399</a>         }
-<a name="400" href="#400">400</a> 
-<a name="401" href="#401">401</a>         <strong class="jxr_keyword">return</strong> images;
-<a name="402" href="#402">402</a>     }
-<a name="403" href="#403">403</a> 
-<a name="404" href="#404">404</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="405" href="#405">405</a> <em class="jxr_javadoccomment">     * Method setTwitter sets a photographer's twitter ID</em>
-<a name="406" href="#406">406</a> <em class="jxr_javadoccomment">     *</em>
-<a name="407" href="#407">407</a> <em class="jxr_javadoccomment">     * @param id      photograher ID</em>
-<a name="408" href="#408">408</a> <em class="jxr_javadoccomment">     * @param twitter twitter ID</em>
-<a name="409" href="#409">409</a> <em class="jxr_javadoccomment">     * @return PhotographerItem - the updated photographer</em>
-<a name="410" href="#410">410</a> <em class="jxr_javadoccomment">     */</em>
-<a name="411" href="#411">411</a>     <strong class="jxr_keyword">public</strong> PhotographerItem setTwitter(String id, String twitter) {
-<a name="412" href="#412">412</a>         Photographer photographer = photographyDao.findById(id);
-<a name="413" href="#413">413</a> 
-<a name="414" href="#414">414</a>         <strong class="jxr_keyword">if</strong> (photographer != <strong class="jxr_keyword">null</strong>) {
-<a name="415" href="#415">415</a>             photographer.setTwitter(twitter);
-<a name="416" href="#416">416</a> 
-<a name="417" href="#417">417</a>             photographyDao.persist(photographer);
+<a name="389" href="#389">389</a>         <strong class="jxr_keyword">for</strong> (FlickrImage image : images) {
+<a name="390" href="#390">390</a>             retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
+<a name="391" href="#391">391</a>         }
+<a name="392" href="#392">392</a>     }
+<a name="393" href="#393">393</a> 
+<a name="394" href="#394">394</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="395" href="#395">395</a> <em class="jxr_javadoccomment">     * Method getGoldWinners returns all images with first place.</em>
+<a name="396" href="#396">396</a> <em class="jxr_javadoccomment">     *</em>
+<a name="397" href="#397">397</a> <em class="jxr_javadoccomment">     * @return list of images with rank 1.</em>
+<a name="398" href="#398">398</a> <em class="jxr_javadoccomment">     */</em>
+<a name="399" href="#399">399</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItem&gt; getGoldWinners() {
+<a name="400" href="#400">400</a>         Set&lt;ImageItem&gt; images = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItem&gt;();
+<a name="401" href="#401">401</a> 
+<a name="402" href="#402">402</a>         <strong class="jxr_keyword">for</strong> (Image image : imageDao.getImagesWithRank(1L)) {
+<a name="403" href="#403">403</a>             images.add(<strong class="jxr_keyword">new</strong> ImageItemInstance(image));
+<a name="404" href="#404">404</a>         }
+<a name="405" href="#405">405</a> 
+<a name="406" href="#406">406</a>         <strong class="jxr_keyword">return</strong> images;
+<a name="407" href="#407">407</a>     }
+<a name="408" href="#408">408</a> 
+<a name="409" href="#409">409</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="410" href="#410">410</a> <em class="jxr_javadoccomment">     * Method setTwitter sets a photographer's twitter ID</em>
+<a name="411" href="#411">411</a> <em class="jxr_javadoccomment">     *</em>
+<a name="412" href="#412">412</a> <em class="jxr_javadoccomment">     * @param id      photograher ID</em>
+<a name="413" href="#413">413</a> <em class="jxr_javadoccomment">     * @param twitter twitter ID</em>
+<a name="414" href="#414">414</a> <em class="jxr_javadoccomment">     * @return PhotographerItem - the updated photographer</em>
+<a name="415" href="#415">415</a> <em class="jxr_javadoccomment">     */</em>
+<a name="416" href="#416">416</a>     <strong class="jxr_keyword">public</strong> PhotographerItem setTwitter(String id, String twitter) {
+<a name="417" href="#417">417</a>         Photographer photographer = photographyDao.findById(id);
 <a name="418" href="#418">418</a> 
-<a name="419" href="#419">419</a>             <strong class="jxr_keyword">try</strong> {
-<a name="420" href="#420">420</a>                 twitterService.follow(twitter);
-<a name="421" href="#421">421</a>             } <strong class="jxr_keyword">catch</strong> (TwitterServiceException tse) {
-<a name="422" href="#422">422</a>                 <strong class="jxr_keyword">if</strong> (logger.isEnabledFor(Level.WARN)) {
-<a name="423" href="#423">423</a>                     logger.warn(<span class="jxr_string">"Unable to follow"</span> + tse.getMessage(), tse);
-<a name="424" href="#424">424</a>                 }
-<a name="425" href="#425">425</a>             }
-<a name="426" href="#426">426</a> 
-<a name="427" href="#427">427</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer);
-<a name="428" href="#428">428</a>         }
-<a name="429" href="#429">429</a> 
-<a name="430" href="#430">430</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="431" href="#431">431</a>     }
-<a name="432" href="#432">432</a> 
-<a name="433" href="#433">433</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="434" href="#434">434</a> <em class="jxr_javadoccomment">     * Method getPhotographers returns all photographers.</em>
-<a name="435" href="#435">435</a> <em class="jxr_javadoccomment">     *</em>
-<a name="436" href="#436">436</a> <em class="jxr_javadoccomment">     * @return all photographers.</em>
-<a name="437" href="#437">437</a> <em class="jxr_javadoccomment">     */</em>
-<a name="438" href="#438">438</a>     <strong class="jxr_keyword">public</strong> List&lt;PhotographerItem&gt; getPhotographers() {
-<a name="439" href="#439">439</a>         List&lt;PhotographerItem&gt; photographers = <strong class="jxr_keyword">new</strong> ArrayList&lt;PhotographerItem&gt;();
-<a name="440" href="#440">440</a> 
-<a name="441" href="#441">441</a>         <strong class="jxr_keyword">for</strong> (Photographer photographer : photographyDao.all()) {
-<a name="442" href="#442">442</a>             photographers.add(<strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer));
-<a name="443" href="#443">443</a>         }
-<a name="444" href="#444">444</a> 
-<a name="445" href="#445">445</a>         <strong class="jxr_keyword">return</strong> photographers;
-<a name="446" href="#446">446</a>     }
-<a name="447" href="#447">447</a> 
-<a name="448" href="#448">448</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="449" href="#449">449</a> <em class="jxr_javadoccomment">     * Method findById finds a photographer based on photographer ID</em>
-<a name="450" href="#450">450</a> <em class="jxr_javadoccomment">     *</em>
-<a name="451" href="#451">451</a> <em class="jxr_javadoccomment">     * @param id photographer ID</em>
-<a name="452" href="#452">452</a> <em class="jxr_javadoccomment">     * @return PhotographerItem - null if none found.</em>
-<a name="453" href="#453">453</a> <em class="jxr_javadoccomment">     */</em>
-<a name="454" href="#454">454</a>     <strong class="jxr_keyword">public</strong> PhotographerItem findById(String id) {
-<a name="455" href="#455">455</a>         Photographer photographer = photographyDao.findById(id);
-<a name="456" href="#456">456</a> 
-<a name="457" href="#457">457</a>         <strong class="jxr_keyword">if</strong> (photographer != <strong class="jxr_keyword">null</strong>) {
-<a name="458" href="#458">458</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer);
-<a name="459" href="#459">459</a>         }
-<a name="460" href="#460">460</a> 
-<a name="461" href="#461">461</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="462" href="#462">462</a>     }
-<a name="463" href="#463">463</a> 
-<a name="464" href="#464">464</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="465" href="#465">465</a> <em class="jxr_javadoccomment">     * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.</em>
-<a name="466" href="#466">466</a> <em class="jxr_javadoccomment">     *</em>
-<a name="467" href="#467">467</a> <em class="jxr_javadoccomment">     * @param tag - tag of an existing challenge</em>
-<a name="468" href="#468">468</a> <em class="jxr_javadoccomment">     * @return Set&lt;ImageItemStatus&gt;</em>
-<a name="469" href="#469">469</a> <em class="jxr_javadoccomment">     */</em>
-<a name="470" href="#470">470</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItemStatus&gt; checkSearch(String tag) {
-<a name="471" href="#471">471</a>         Challenge challenge = challengeDao.findByTag(tag);
-<a name="472" href="#472">472</a> 
-<a name="473" href="#473">473</a>         Set&lt;ImageItemStatus&gt; results = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItemStatus&gt;();
-<a name="474" href="#474">474</a> 
-<a name="475" href="#475">475</a>         <strong class="jxr_keyword">for</strong> (FlickrImageStatus status : flickrService.checkSearch(tag, challenge.getStartDate())) {
-<a name="476" href="#476">476</a>             results.add(<strong class="jxr_keyword">new</strong> ImageItemStatusInstance(status));
-<a name="477" href="#477">477</a>         }
-<a name="478" href="#478">478</a> 
-<a name="479" href="#479">479</a>         <strong class="jxr_keyword">return</strong> results;
-<a name="480" href="#480">480</a>     }
-<a name="481" href="#481">481</a> 
-<a name="482" href="#482">482</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="483" href="#483">483</a> <em class="jxr_javadoccomment">     * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.</em>
-<a name="484" href="#484">484</a> <em class="jxr_javadoccomment">     *</em>
-<a name="485" href="#485">485</a> <em class="jxr_javadoccomment">     * @param twitter of type String</em>
-<a name="486" href="#486">486</a> <em class="jxr_javadoccomment">     * @return boolean</em>
-<a name="487" href="#487">487</a> <em class="jxr_javadoccomment">     */</em>
-<a name="488" href="#488">488</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> checkTwitterExists(String twitter) {
-<a name="489" href="#489">489</a>         <strong class="jxr_keyword">return</strong> twitterService.twitterExists(twitter);
-<a name="490" href="#490">490</a>     }
-<a name="491" href="#491">491</a> 
-<a name="492" href="#492">492</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="493" href="#493">493</a> <em class="jxr_javadoccomment">     * Method findImageById finds an image based on id</em>
-<a name="494" href="#494">494</a> <em class="jxr_javadoccomment">     *</em>
-<a name="495" href="#495">495</a> <em class="jxr_javadoccomment">     * @param imageId of type String</em>
-<a name="496" href="#496">496</a> <em class="jxr_javadoccomment">     * @return ImageItem - null if none found.</em>
-<a name="497" href="#497">497</a> <em class="jxr_javadoccomment">     */</em>
-<a name="498" href="#498">498</a>     <strong class="jxr_keyword">public</strong> ImageItem findImageById(String imageId) {
-<a name="499" href="#499">499</a>         Image image = imageDao.findById(imageId);
-<a name="500" href="#500">500</a> 
-<a name="501" href="#501">501</a>         <strong class="jxr_keyword">if</strong> (image != <strong class="jxr_keyword">null</strong>) {
-<a name="502" href="#502">502</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(image);
-<a name="503" href="#503">503</a>         }
-<a name="504" href="#504">504</a> 
-<a name="505" href="#505">505</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="506" href="#506">506</a>     }
-<a name="507" href="#507">507</a> }
+<a name="419" href="#419">419</a>         <strong class="jxr_keyword">if</strong> (photographer != <strong class="jxr_keyword">null</strong>) {
+<a name="420" href="#420">420</a>             photographer.setTwitter(twitter);
+<a name="421" href="#421">421</a> 
+<a name="422" href="#422">422</a>             photographyDao.persist(photographer);
+<a name="423" href="#423">423</a> 
+<a name="424" href="#424">424</a>             <strong class="jxr_keyword">try</strong> {
+<a name="425" href="#425">425</a>                 twitterService.follow(twitter);
+<a name="426" href="#426">426</a>             } <strong class="jxr_keyword">catch</strong> (TwitterServiceException tse) {
+<a name="427" href="#427">427</a>                 <strong class="jxr_keyword">if</strong> (logger.isEnabledFor(Level.WARN)) {
+<a name="428" href="#428">428</a>                     logger.warn(<span class="jxr_string">"Unable to follow"</span> + tse.getMessage(), tse);
+<a name="429" href="#429">429</a>                 }
+<a name="430" href="#430">430</a>             }
+<a name="431" href="#431">431</a> 
+<a name="432" href="#432">432</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer);
+<a name="433" href="#433">433</a>         }
+<a name="434" href="#434">434</a> 
+<a name="435" href="#435">435</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="436" href="#436">436</a>     }
+<a name="437" href="#437">437</a> 
+<a name="438" href="#438">438</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="439" href="#439">439</a> <em class="jxr_javadoccomment">     * Method getPhotographers returns all photographers.</em>
+<a name="440" href="#440">440</a> <em class="jxr_javadoccomment">     *</em>
+<a name="441" href="#441">441</a> <em class="jxr_javadoccomment">     * @return all photographers.</em>
+<a name="442" href="#442">442</a> <em class="jxr_javadoccomment">     */</em>
+<a name="443" href="#443">443</a>     <strong class="jxr_keyword">public</strong> List&lt;PhotographerItem&gt; getPhotographers() {
+<a name="444" href="#444">444</a>         List&lt;PhotographerItem&gt; photographers = <strong class="jxr_keyword">new</strong> ArrayList&lt;PhotographerItem&gt;();
+<a name="445" href="#445">445</a> 
+<a name="446" href="#446">446</a>         <strong class="jxr_keyword">for</strong> (Photographer photographer : photographyDao.all()) {
+<a name="447" href="#447">447</a>             photographers.add(<strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer));
+<a name="448" href="#448">448</a>         }
+<a name="449" href="#449">449</a> 
+<a name="450" href="#450">450</a>         <strong class="jxr_keyword">return</strong> photographers;
+<a name="451" href="#451">451</a>     }
+<a name="452" href="#452">452</a> 
+<a name="453" href="#453">453</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="454" href="#454">454</a> <em class="jxr_javadoccomment">     * Method findById finds a photographer based on photographer ID</em>
+<a name="455" href="#455">455</a> <em class="jxr_javadoccomment">     *</em>
+<a name="456" href="#456">456</a> <em class="jxr_javadoccomment">     * @param id photographer ID</em>
+<a name="457" href="#457">457</a> <em class="jxr_javadoccomment">     * @return PhotographerItem - null if none found.</em>
+<a name="458" href="#458">458</a> <em class="jxr_javadoccomment">     */</em>
+<a name="459" href="#459">459</a>     <strong class="jxr_keyword">public</strong> PhotographerItem findById(String id) {
+<a name="460" href="#460">460</a>         Photographer photographer = photographyDao.findById(id);
+<a name="461" href="#461">461</a> 
+<a name="462" href="#462">462</a>         <strong class="jxr_keyword">if</strong> (photographer != <strong class="jxr_keyword">null</strong>) {
+<a name="463" href="#463">463</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> PhotographerItemInstance(photographer);
+<a name="464" href="#464">464</a>         }
+<a name="465" href="#465">465</a> 
+<a name="466" href="#466">466</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="467" href="#467">467</a>     }
+<a name="468" href="#468">468</a> 
+<a name="469" href="#469">469</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="470" href="#470">470</a> <em class="jxr_javadoccomment">     * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.</em>
+<a name="471" href="#471">471</a> <em class="jxr_javadoccomment">     *</em>
+<a name="472" href="#472">472</a> <em class="jxr_javadoccomment">     * @param tag - tag of an existing challenge</em>
+<a name="473" href="#473">473</a> <em class="jxr_javadoccomment">     * @return Set&lt;ImageItemStatus&gt;</em>
+<a name="474" href="#474">474</a> <em class="jxr_javadoccomment">     */</em>
+<a name="475" href="#475">475</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItemStatus&gt; checkSearch(String tag) {
+<a name="476" href="#476">476</a>         Challenge challenge = challengeDao.findByTag(tag);
+<a name="477" href="#477">477</a> 
+<a name="478" href="#478">478</a>         Set&lt;ImageItemStatus&gt; results = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItemStatus&gt;();
+<a name="479" href="#479">479</a> 
+<a name="480" href="#480">480</a>         <strong class="jxr_keyword">for</strong> (FlickrImageStatus status : flickrService.checkSearch(tag, challenge.getStartDate())) {
+<a name="481" href="#481">481</a>             results.add(<strong class="jxr_keyword">new</strong> ImageItemStatusInstance(status));
+<a name="482" href="#482">482</a>         }
+<a name="483" href="#483">483</a> 
+<a name="484" href="#484">484</a>         <strong class="jxr_keyword">return</strong> results;
+<a name="485" href="#485">485</a>     }
+<a name="486" href="#486">486</a> 
+<a name="487" href="#487">487</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="488" href="#488">488</a> <em class="jxr_javadoccomment">     * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.</em>
+<a name="489" href="#489">489</a> <em class="jxr_javadoccomment">     *</em>
+<a name="490" href="#490">490</a> <em class="jxr_javadoccomment">     * @param twitter of type String</em>
+<a name="491" href="#491">491</a> <em class="jxr_javadoccomment">     * @return boolean</em>
+<a name="492" href="#492">492</a> <em class="jxr_javadoccomment">     */</em>
+<a name="493" href="#493">493</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> checkTwitterExists(String twitter) {
+<a name="494" href="#494">494</a>         <strong class="jxr_keyword">return</strong> twitterService.twitterExists(twitter);
+<a name="495" href="#495">495</a>     }
+<a name="496" href="#496">496</a> 
+<a name="497" href="#497">497</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="498" href="#498">498</a> <em class="jxr_javadoccomment">     * Method findImageById finds an image based on id</em>
+<a name="499" href="#499">499</a> <em class="jxr_javadoccomment">     *</em>
+<a name="500" href="#500">500</a> <em class="jxr_javadoccomment">     * @param imageId of type String</em>
+<a name="501" href="#501">501</a> <em class="jxr_javadoccomment">     * @return ImageItem - null if none found.</em>
+<a name="502" href="#502">502</a> <em class="jxr_javadoccomment">     */</em>
+<a name="503" href="#503">503</a>     <strong class="jxr_keyword">public</strong> ImageItem findImageById(String imageId) {
+<a name="504" href="#504">504</a>         Image image = imageDao.findById(imageId);
+<a name="505" href="#505">505</a> 
+<a name="506" href="#506">506</a>         <strong class="jxr_keyword">if</strong> (image != <strong class="jxr_keyword">null</strong>) {
+<a name="507" href="#507">507</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> ImageItemInstance(image);
+<a name="508" href="#508">508</a>         }
+<a name="509" href="#509">509</a> 
+<a name="510" href="#510">510</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="511" href="#511">511</a>     }
+<a name="512" href="#512">512</a> 
+<a name="513" href="#513">513</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="514" href="#514">514</a> <em class="jxr_javadoccomment">     * Method getChallengeImages retrieves all images for a challenge for the given photographer</em>
+<a name="515" href="#515">515</a> <em class="jxr_javadoccomment">     *</em>
+<a name="516" href="#516">516</a> <em class="jxr_javadoccomment">     * @param tag            of type String</em>
+<a name="517" href="#517">517</a> <em class="jxr_javadoccomment">     * @param photographerId of type String</em>
+<a name="518" href="#518">518</a> <em class="jxr_javadoccomment">     * @return ImageItem</em>
+<a name="519" href="#519">519</a> <em class="jxr_javadoccomment">     */</em>
+<a name="520" href="#520">520</a>     <strong class="jxr_keyword">public</strong> Set&lt;ImageItem&gt; getChallengeImages(String tag, String photographerId) {
+<a name="521" href="#521">521</a>         Set&lt;ImageItem&gt; images = <strong class="jxr_keyword">new</strong> HashSet&lt;ImageItem&gt;();
+<a name="522" href="#522">522</a> 
+<a name="523" href="#523">523</a>         Challenge challenge = challengeDao.findByTag(tag);
+<a name="524" href="#524">524</a> 
+<a name="525" href="#525">525</a>         <strong class="jxr_keyword">if</strong> (challenge == <strong class="jxr_keyword">null</strong>) {
+<a name="526" href="#526">526</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="527" href="#527">527</a>         }
+<a name="528" href="#528">528</a> 
+<a name="529" href="#529">529</a>         <strong class="jxr_keyword">if</strong> (challenge.getVotingState() != ChallengeState.OPEN) {
+<a name="530" href="#530">530</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="531" href="#531">531</a>         }
+<a name="532" href="#532">532</a> 
+<a name="533" href="#533">533</a>         <em class="jxr_comment">// Grab images from flickr</em>
+<a name="534" href="#534">534</a>         <strong class="jxr_keyword">for</strong> (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
+<a name="535" href="#535">535</a>             <strong class="jxr_keyword">if</strong> (image.getPhotographer().getFlickrId().equals(photographerId)) {
+<a name="536" href="#536">536</a>                 ImageItem imageItem = <strong class="jxr_keyword">new</strong> ImageItemInstance(image);
+<a name="537" href="#537">537</a>                 images.add(imageItem);
+<a name="538" href="#538">538</a>             }
+<a name="539" href="#539">539</a>         }
+<a name="540" href="#540">540</a> 
+<a name="541" href="#541">541</a>         <strong class="jxr_keyword">return</strong> images;
+<a name="542" href="#542">542</a>     }
+<a name="543" href="#543">543</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
