@@ -16,6 +16,7 @@
 
 
 
+
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -32,7 +33,9 @@
     <body>
     <h2>Not Logged In</h2>
 
-    <p>You must login via the main pages before using the admin system</p>
+    <p>You must login before using the admin system</p>
+
+    <p><s:action name="flickrLoginLink" namespace="/common" executeResult="true"/></p>
     </body>
     </html>
 </jsp:root>
