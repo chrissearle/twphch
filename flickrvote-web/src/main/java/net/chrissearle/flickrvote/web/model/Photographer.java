@@ -32,4 +32,6 @@ public interface Photographer {
     Boolean isAdmin();
 
     Boolean isActive();
+
+    Integer getImageCount();
 }

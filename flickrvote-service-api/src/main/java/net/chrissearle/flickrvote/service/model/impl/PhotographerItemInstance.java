@@ -30,6 +30,8 @@ public class PhotographerItemInstance implements PhotographerItem {
 
     private final String iconUrl;
 
+    private final Integer imageCount;
+
     private final Boolean administratorFlag;
     private final Boolean activeFlag;
 
@@ -41,6 +43,7 @@ public class PhotographerItemInstance implements PhotographerItem {
         this.administratorFlag = photographer.isAdministrator();
         this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
         this.iconUrl = photographer.getIconUrl();
+        this.imageCount = photographer.getImages().size();
     }
 
     public PhotographerItemInstance(FlickrPhotographer photographer) {
@@ -51,6 +54,7 @@ public class PhotographerItemInstance implements PhotographerItem {
         this.administratorFlag = false;
         this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
         this.iconUrl = photographer.getIconUrl();
+        this.imageCount = 0;
     }
 
     public Boolean isActiveFlag() {
@@ -87,5 +91,9 @@ public class PhotographerItemInstance implements PhotographerItem {
         }
 
         return username;
+    }
+
+    public Integer getImageCount() {
+        return imageCount;
     }
 }

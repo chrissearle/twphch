@@ -44,6 +44,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     private final Boolean challengeOpen;
     private final Boolean challengeVoting;
     private final Boolean challengeClosed;
+    private final Integer imageCount;
 
     public DisplayImage(ImageItem image) {
         this.imageId = image.getId();
@@ -60,6 +61,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
         this.iconUrl = image.getPhotographer().getIconUrl();
         this.adminFlag = image.getPhotographer().isAdministratorFlag();
         this.activeFlag = image.getPhotographer().isActiveFlag();
+        this.imageCount = image.getPhotographer().getImageCount();
 
         ChallengeSummary challengeSummary = image.getChallenge();
 
@@ -146,6 +148,10 @@ public class DisplayImage implements Image, Photographer, Challenge {
 
     public Boolean isActive() {
         return activeFlag;
+    }
+
+    public Integer getImageCount() {
+        return imageCount;
     }
 
     public String getChallengeTag() {

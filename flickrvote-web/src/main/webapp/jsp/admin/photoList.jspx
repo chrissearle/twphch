@@ -16,6 +16,7 @@
 
 
 
+
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -31,19 +32,47 @@
         <title>Twitter Photo Challenge - Administration</title>
         <s:head/>
         <sx:head/>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#photoTable').dataTable({
+                    "bPaginate" : false,
+                    "bLengthChange" : false,
+                    "bStateSave" : false,
+                    "aaSorting": [
+                        [ 5, "desc" ]
+                    ],
+                    "aoColumns": [
+                        null,
+                        null,
+                        {
+                            "bSortable": false
+                        },
+                        null,
+                        null,
+                        null,
+                        {
+                            "bSortable": false
+                        }
+                    ]
+                });
+            });
+        </script>
     </head>
     <body>
     <h3>Photographer List</h3>
-    <table>
+    <table id="photoTable">
+        <thead>
         <tr>
             <th>Real Name</th>
             <th>Username</th>
             <th>Flickr ID</th>
             <th>Twitter ID</th>
             <th>Admin?</th>
-            <th>Active?</th>
+            <th>Image count</th>
             <th>Actions</th>
         </tr>
+        </thead>
+        <tbody>
         <s:iterator id="photographer" value="photographers">
             <tr>
                 <td>
@@ -62,26 +91,29 @@
                         <s:property value="#photographer.username"/>
                     </s:else>
                 </td>
-                <td><s:property value="#photographer.photographerId"/></td>
-                <td><s:property value="#photographer.twitterAccount"/></td>
+                <td>
+                    <s:property value="#photographer.photographerId"/>
+                </td>
+                <td>
+                    <s:property value="#photographer.twitterAccount"/>
+                </td>
                 <td>
                     <s:if test="#photographer.admin">Yes</s:if>
                     <s:else>No</s:else>
                 </td>
                 <td>
-                    <s:if test="#photographer.token != null &amp;&amp; #photographer.token != ''">Yes</s:if>
-                    <s:else>No</s:else>
+                    <s:property value="#photographer.imageCount"/>
                 </td>
                 <td>
                     <s:url id="toggleAdminUrl" action="toggleAdmin"><s:param name="id"
                                                                              value="#photographer.photographerId"/></s:url>
-                    <s:if test="#photographer.admin"><s:a href="%{toggleAdminUrl}">Admin: Off</s:a></s:if>
-                    <s:else><s:a href="%{toggleAdminUrl}">Admin: On</s:a></s:else>
-                    |
+                    <s:if test="#photographer.admin"><s:a href="%{toggleAdminUrl}">Admin:&amp;nbsp;Off</s:a></s:if>
+                    <s:else><s:a href="%{toggleAdminUrl}">Admin:&amp;nbsp;On</s:a></s:else>
+                    <br/>
                     <s:url id="retrieveUrl" action="getPhotographer"><s:param name="id"
                                                                               value="#photographer.photographerId"/></s:url>
-                    <s:a href="%{retrieveUrl}">Update from Flickr</s:a>
-                    |
+                    <s:a href="%{retrieveUrl}">Update&amp;nbsp;from&amp;nbsp;Flickr</s:a>
+                    <br/>
                     <s:url id="photographerImagesUrl" action="showPhotographerImages">
                         <s:param name="photographerId" value="#photographer.photographerId"/>
                     </s:url>
@@ -89,6 +121,7 @@
                 </td>
             </tr>
         </s:iterator>
+        </tbody>
     </table>
     </body>
     </html>

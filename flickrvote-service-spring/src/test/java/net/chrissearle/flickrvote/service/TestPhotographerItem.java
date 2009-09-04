@@ -62,6 +62,10 @@ public class TestPhotographerItem implements PhotographerItem {
         return username;
     }
 
+    public Integer getImageCount() {
+        return 0;
+    }
+
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
     }

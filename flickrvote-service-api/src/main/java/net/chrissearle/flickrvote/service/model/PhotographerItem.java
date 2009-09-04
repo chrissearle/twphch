@@ -34,4 +34,6 @@ public interface PhotographerItem extends Serializable {
     String getIconUrl();
 
     String getName();
+
+    Integer getImageCount();
 }

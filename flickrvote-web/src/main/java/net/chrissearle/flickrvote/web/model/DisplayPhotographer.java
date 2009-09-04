@@ -26,6 +26,7 @@ public class DisplayPhotographer implements Photographer {
     private final String iconUrl;
     private final Boolean adminFlag;
     private final Boolean activeFlag;
+    private final Integer imageCount;
 
     public DisplayPhotographer(PhotographerItem photographer) {
         this.photographerId = photographer.getId();
@@ -35,10 +36,15 @@ public class DisplayPhotographer implements Photographer {
         this.iconUrl = photographer.getIconUrl();
         this.adminFlag = photographer.isAdministratorFlag();
         this.activeFlag = photographer.isActiveFlag();
+        this.imageCount = photographer.getImageCount();
     }
 
     public Boolean isActive() {
         return activeFlag;
+    }
+
+    public Integer getImageCount() {
+        return imageCount;
     }
 
     public Boolean isAdmin() {
