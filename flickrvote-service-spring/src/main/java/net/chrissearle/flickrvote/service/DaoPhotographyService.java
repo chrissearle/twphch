@@ -509,4 +509,35 @@ public class DaoPhotographyService implements PhotographyService {
 
         return null;
     }
+
+    /**
+     * Method getChallengeImages retrieves all images for a challenge for the given photographer
+     *
+     * @param tag            of type String
+     * @param photographerId of type String
+     * @return ImageItem
+     */
+    public Set<ImageItem> getChallengeImages(String tag, String photographerId) {
+        Set<ImageItem> images = new HashSet<ImageItem>();
+
+        Challenge challenge = challengeDao.findByTag(tag);
+
+        if (challenge == null) {
+            return null;
+        }
+
+        if (challenge.getVotingState() != ChallengeState.OPEN) {
+            return null;
+        }
+
+        // Grab images from flickr
+        for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
+            if (image.getPhotographer().getFlickrId().equals(photographerId)) {
+                ImageItem imageItem = new ImageItemInstance(image);
+                images.add(imageItem);
+            }
+        }
+
+        return images;
+    }
 }

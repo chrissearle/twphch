@@ -162,4 +162,13 @@ public interface PhotographyService {
      * @return ImageItem - null if none found.
      */
     ImageItem findImageById(String imageId);
+
+    /**
+     * Method getChallengeImages retrieves all images for a challenge for the given photographer
+     *
+     * @param tag            of type String
+     * @param photographerId of type String
+     * @return ImageItem
+     */
+    Set<ImageItem> getChallengeImages(String tag, String photographerId);
 }

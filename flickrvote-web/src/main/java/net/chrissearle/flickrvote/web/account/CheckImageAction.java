@@ -43,6 +43,7 @@ public class CheckImageAction extends ActionSupport implements SessionAware {
     private Set<DisplayImage> takenDateIssues;
     private List<DisplayImage> multipleImageIssues;
     private Map<String, Object> session;
+    private DisplayImage image = null;
 
     @Override
     public String execute() throws Exception {
@@ -51,12 +52,18 @@ public class CheckImageAction extends ActionSupport implements SessionAware {
         if (challenges.size() > 0) {
             String currentChallengeTag = challenges.iterator().next().getTag();
 
+            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+
+            Set<ImageItem> images = photographyService.getChallengeImages(currentChallengeTag, photographer.getPhotographerId());
+
+            if (images.size() > 0) {
+                image = new DisplayImage(images.iterator().next());
+            }
+
             Set<ImageItemStatus> issues = photographyService.checkSearch(currentChallengeTag);
 
             takenDateIssues = new HashSet<DisplayImage>();
             multipleImageIssues = new ArrayList<DisplayImage>();
-
-            Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
             for (ImageItemStatus status : issues) {
                 if (status.getImages().size() > 0) {
@@ -99,5 +106,9 @@ public class CheckImageAction extends ActionSupport implements SessionAware {
 
     public Set<DisplayImage> getTakenDateIssues() {
         return takenDateIssues;
+    }
+
+    public DisplayImage getEnteredImage() {
+        return image;
     }
 }

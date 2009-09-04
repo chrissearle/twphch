@@ -33,29 +33,47 @@
         <s:head/>
     </head>
     <body>
-    <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
 
     <s:if test="takenDateIssues.size() > 0">
-        <h3><s:text name="date.too.early"/></h3>
+        <h1><s:text name="date.too.early"/></h1>
 
         <s:iterator id="image" value="takenDateIssues">
-            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
-            <fv:image image="${image}"/>
+            <div class="photobox">
+                <h3><s:property value="#image.imageTitle"/></h3>
+                <fv:image image="${image}"/>
+            </div>
         </s:iterator>
     </s:if>
 
     <s:if test="multipleImageIssues.size() > 0">
-        <h3><s:text name="too.many.images"/></h3>
+        <h1><s:text name="too.many.images"/></h1>
 
         <s:iterator id="image" value="multipleImageIssues">
-            <p><fv:photographer photographer="${image}"/>: <s:property value="#image.imageTitle"/></p>
-            <fv:image image="${image}"/>
+            <div class="photobox">
+                <h3><s:property value="#image.imageTitle"/></h3>
+                <fv:image image="${image}"/>
+            </div>
         </s:iterator>
     </s:if>
 
     <s:if test="multipleImageIssues.size() == 0 &amp;&amp; takenDateIssues.size() == 0">
-        <h3><s:text name="no.issues.result"/></h3>
+        <s:if test="enteredImage">
+            <h1><s:text name="image.check.ok"/></h1>
+
+            <div class="photobox">
+                <h3><fv:photographer photographer="${session.flickrUser}"/>: <s:property
+                        value="enteredImage.imageTitle"/></h3>
+                <fv:image image="${enteredImage}"/>
+            </div>
+        </s:if>
+        <s:else>
+            <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
+
+            <h2><s:text name="image.check.none"/></h2>
+        </s:else>
+
     </s:if>
+
 
     </body>
     </html>
