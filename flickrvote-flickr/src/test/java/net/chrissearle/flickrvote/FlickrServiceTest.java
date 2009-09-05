@@ -57,7 +57,9 @@ public class FlickrServiceTest extends FlickrJFlickrService {
         List<FlickrImage> images = searchImagesByTag("#TwPhCh001", null);
 
         assert images != null : "Image list was null";
-        assert images.size() > 30 : "Not enough images";
+        // Hard to know what to set here as the image count varies over time. But we had more than 25 entries
+        // for this tag.
+        assert images.size() > 10 : "Not enough images";
     }
 
     public void postOpenVote(String tag, String name, Date endDate) {
