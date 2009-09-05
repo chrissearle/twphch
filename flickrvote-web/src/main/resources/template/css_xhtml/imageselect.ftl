@@ -9,7 +9,7 @@
 <#assign itemKeyStr=itemKey.toString() />
 <div class="photobox">
     <!-- TODO - add icon here -->
-    <h3><@s.property value="#photo.imageTitle"/> - <@s.property value="#photo.photographerName"/></h3>
+    <h3><@s.property value="#photo.imageTitle"/></h3>
 
     <p><a id="<@s.property value='#photo.imageId'/>" class="toggleLink"
           style="display: none"><@s.text name="show.hide"/></a>
