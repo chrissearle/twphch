@@ -224,6 +224,28 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         return messageSource.getMessage("history.report.image.photographer.title", new Object[0], Locale.getDefault());
     }
 
+    public String getVotingOpenWarning(ChallengeSummary challenge) {
+        Object[] params = new Object[4];
+
+        params[0] = challenge.getTag();
+        params[1] = challenge.getTitle();
+        params[2] = df.format(challenge.getVoteDate());
+        params[3] = currentUrlShort;
+
+        return messageSource.getMessage("voting.open.warn", params, Locale.getDefault());
+    }
+
+    public String getVotingCloseWarning(ChallengeSummary challenge) {
+        Object[] params = new Object[4];
+
+        params[0] = challenge.getTag();
+        params[1] = challenge.getTitle();
+        params[2] = df.format(challenge.getEndDate());
+        params[3] = votingUrlShort;
+
+        return messageSource.getMessage("voting.close.warn", params, Locale.getDefault());
+    }
+
     public String getHistoryImagePostedTitle() {
         return messageSource.getMessage("history.report.image.posted.title", new Object[0], Locale.getDefault());
     }

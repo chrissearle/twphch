@@ -44,6 +44,18 @@
         <property name="concurrent" value="false"/>
     </bean>
 
+    <bean id="warnVotingOpenJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="challengeService"/>
+        <property name="targetMethod" value="warnVotingOpen"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="warnVotingCloseJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="challengeService"/>
+        <property name="targetMethod" value="warnVotingClose"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
     <bean id="generateHistoryPdfJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetBeanName" value="reportService"/>
         <property name="targetMethod" value="generateHistoryReport"/>
@@ -59,6 +71,16 @@
     <bean id="announceNewChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="announceNewChallengeJob"/>
         <property name="cronExpression" value="1 0 18 ? * FRI"/>
+    </bean>
+
+    <bean id="warnVotingOpenTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="warnVotingOpenJob"/>
+        <property name="cronExpression" value="0 0 17 ? * FRI"/>
+    </bean>
+
+    <bean id="warnVotingCloseTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="warnVotingCloseJob"/>
+        <property name="cronExpression" value="0 0 20 ? * SUN"/>
     </bean>
 
     <bean id="announceResultsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
@@ -78,6 +100,8 @@
                 <ref bean="announceNewChallengeTrigger"/>
                 <ref bean="announceResultsTrigger"/>
                 <ref bean="generateHistoryPdfTrigger"/>
+                <ref bean="warnVotingOpenTrigger"/>
+                <ref bean="warnVotingCloseTrigger"/>
             </list>
         </property>
     </bean>

@@ -336,4 +336,30 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("http") : "Message missing link";
         assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
+
+    @Test
+    public void testVotingOpenWarning() {
+        String message = challengeMessageService.getVotingOpenWarning(challenge);
+
+        System.out.println(message);
+
+        assert message.contains("Husk") : "Message started incorrectly";
+        assert message.contains("legge til bilde i") : "Message has wrong text";
+        assert message.contains(challenge.getTag()) : "Message missing tag";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
+        assert message.contains("bit.ly") : "Message missing link";
+    }
+
+    @Test
+    public void testVotingCloseWarning() {
+        String message = challengeMessageService.getVotingCloseWarning(challenge);
+
+        System.out.println(message);
+
+        assert message.contains("Husk") : "Message started incorrectly";
+        assert message.contains("stemme i") : "Message has wrong text";
+        assert message.contains(challenge.getTag()) : "Message missing tag";
+        assert message.contains(challenge.getTitle()) : "Message missing name";
+        assert message.contains("bit.ly") : "Message missing link";
+    }
 }

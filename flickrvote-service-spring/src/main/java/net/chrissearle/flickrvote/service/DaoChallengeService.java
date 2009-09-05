@@ -40,6 +40,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
+/**
+ * Class DaoChallengeService uses the dao's to implement challenge service
+ *
+ * @author chris
+ */
 @Service("challengeService")
 @Transactional
 public class DaoChallengeService implements ChallengeService {
@@ -53,6 +58,16 @@ public class DaoChallengeService implements ChallengeService {
     private final FlickrService flickrService;
     private ChallengeMessageService challengeMessageService;
 
+    /**
+     * Constructor DaoChallengeService creates a new DaoChallengeService instance.
+     *
+     * @param challengeDao            of type ChallengeDao
+     * @param photographyDao          of type PhotographyDao
+     * @param imageDao                of type ImageDao
+     * @param challengeMessageService of type ChallengeMessageService
+     * @param twitterService          of type TwitterService
+     * @param flickrService           of type FlickrService
+     */
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao,
                                ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService) {
@@ -64,6 +79,12 @@ public class DaoChallengeService implements ChallengeService {
         this.challengeMessageService = challengeMessageService;
     }
 
+    /**
+     * Method getChallengeSummary returns challenge summary for a given challenge
+     *
+     * @param tag of type String
+     * @return ChallengeSummary
+     */
     public ChallengeSummary getChallengeSummary(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
@@ -74,6 +95,12 @@ public class DaoChallengeService implements ChallengeService {
         return null;
     }
 
+    /**
+     * Method getChallengesByType returns all challenges of the given type
+     *
+     * @param type of type ChallengeType
+     * @return Set<ChallengeSummary>
+     */
     public Set<ChallengeSummary> getChallengesByType(ChallengeType type) {
         Set<ChallengeSummary> challenges = new HashSet<ChallengeSummary>();
 
@@ -117,6 +144,11 @@ public class DaoChallengeService implements ChallengeService {
         return challenges;
     }
 
+    /**
+     * Method doRanking calculates rank based on score
+     *
+     * @param images of type List<Image>
+     */
     private void doRanking(List<Image> images) {
         long rank = 0;
         long lastSeenValue = Long.MAX_VALUE;
@@ -133,6 +165,12 @@ public class DaoChallengeService implements ChallengeService {
         }
     }
 
+    /**
+     * Method hasVoted checks to see if the photographer has voted
+     *
+     * @param photographerId of type String
+     * @return boolean
+     */
     public boolean hasVoted(String photographerId) {
         if (logger.isDebugEnabled()) {
             logger.debug("hasVoted for: " + photographerId);
@@ -153,6 +191,12 @@ public class DaoChallengeService implements ChallengeService {
         return false;
     }
 
+    /**
+     * Method vote casts a vote for a given image for a given photographer
+     *
+     * @param photographerId of type String
+     * @param imageId        of type String
+     */
     public void vote(String photographerId, String imageId) {
         Photographer photographer = photographyDao.findById(photographerId);
 
@@ -169,6 +213,11 @@ public class DaoChallengeService implements ChallengeService {
         }
     }
 
+    /**
+     * Method openVoting opens the voting for the current challenge
+     *
+     * @return ChallengeSummary
+     */
     public ChallengeSummary openVoting() {
         Challenge votingChallenge = challengeDao.getVotingChallenge();
 
@@ -206,6 +255,11 @@ public class DaoChallengeService implements ChallengeService {
         return challenge;
     }
 
+    /**
+     * Method announceNewChallenge announces a new challenge
+     *
+     * @return ChallengeSummary
+     */
     public ChallengeSummary announceNewChallenge() {
         Challenge currentChallenge = challengeDao.getCurrentChallenge();
 
@@ -242,6 +296,11 @@ public class DaoChallengeService implements ChallengeService {
         return challenge;
     }
 
+    /**
+     * Method announceResults announces the results of a given challenge
+     *
+     * @return ChallengeSummary
+     */
     public ChallengeSummary announceResults() {
         Challenge votedChallenge = challengeDao.getVotedChallenge();
 
@@ -335,12 +394,65 @@ public class DaoChallengeService implements ChallengeService {
         return challenge;
     }
 
+    /**
+     * Method warnVotingOpen sends a note that voting will soon open
+     */
+    public void warnVotingOpen() {
+        Set<ChallengeSummary> challenges = getChallengesByType(ChallengeType.OPEN);
+
+        if (challenges.size() == 0) {
+            return;
+        }
+
+        ChallengeSummary challenge = challenges.iterator().next();
+
+        try {
+            twitterService.twitter(challengeMessageService.getVotingOpenWarning(challenge));
+        } catch (TwitterServiceException tse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            }
+        }
+    }
+
+    /**
+     * Method warnVotingClose sends a note that voting will soon close
+     */
+    public void warnVotingClose() {
+        Set<ChallengeSummary> challenges = getChallengesByType(ChallengeType.VOTING);
+
+        if (challenges.size() == 0) {
+            return;
+        }
+
+        ChallengeSummary challenge = challenges.iterator().next();
+
+        try {
+            twitterService.twitter(challengeMessageService.getVotingCloseWarning(challenge));
+        } catch (TwitterServiceException tse) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            }
+        }
+    }
+
+    /**
+     * Method remove removes a challenge and all related data
+     *
+     * @param tag of type String
+     */
     public void remove(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         challengeDao.remove(challenge);
     }
 
+    /**
+     * Method isDateAvailable checks to see if the date is already covered by an existing challenge
+     *
+     * @param startDate of type Date
+     * @return List<ChallengeSummary>
+     */
     public List<ChallengeSummary> isDateAvailable(Date startDate) {
         List<ChallengeSummary> challenges = new ArrayList<ChallengeSummary>();
 
@@ -351,6 +463,11 @@ public class DaoChallengeService implements ChallengeService {
         return challenges;
     }
 
+    /**
+     * Method getMostRecent returns the mostRecent of this ChallengeService object.
+     *
+     * @return the mostRecent (type ChallengeSummary) of this ChallengeService object.
+     */
     public ChallengeSummary getMostRecent() {
         Challenge challenge = challengeDao.getMostRecent();
 
@@ -361,6 +478,15 @@ public class DaoChallengeService implements ChallengeService {
         return null;
     }
 
+    /**
+     * Method saveChallenge saves or updates a challenge
+     *
+     * @param tag       of type String
+     * @param title     of type String
+     * @param startDate of type Date
+     * @param voteDate  of type Date
+     * @param endDate   of type Date
+     */
     public void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate) {
         Challenge challenge = challengeDao.findByTag(tag);
 
@@ -377,6 +503,11 @@ public class DaoChallengeService implements ChallengeService {
     }
 
 
+    /**
+     * Method rankChallenge causes challenge rank for a challenge to be re-calculated from score
+     *
+     * @param tag of type String
+     */
     public void rankChallenge(String tag) {
         Challenge challenge = challengeDao.findByTag(tag);
 
