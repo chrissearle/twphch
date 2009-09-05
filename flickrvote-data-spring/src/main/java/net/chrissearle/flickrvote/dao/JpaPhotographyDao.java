@@ -120,4 +120,15 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
 
         return (List<Photographer>) query.getResultList();
     }
+
+    /**
+     * Method clearVotesForPhotograper removes votes for this photographer
+     *
+     * @param photographer of type Photographer
+     */
+    public void clearVotesForPhotographer(Photographer photographer) {
+        Query query = entityManager.createQuery("DELETE FROM Vote v WHERE v.photographer = :photographer");
+        query.setParameter("photographer", photographer);
+        query.executeUpdate();
+    }
 }

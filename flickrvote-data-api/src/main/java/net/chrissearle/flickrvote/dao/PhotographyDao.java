@@ -54,4 +54,11 @@ public interface PhotographyDao extends Dao<String, Photographer> {
      * @return List<Photographer>
      */
     List<Photographer> all();
+
+    /**
+     * Method clearVotesForPhotograper removes votes for this photographer
+     *
+     * @param photographer of type Photographer
+     */
+    void clearVotesForPhotographer(Photographer photographer);
 }

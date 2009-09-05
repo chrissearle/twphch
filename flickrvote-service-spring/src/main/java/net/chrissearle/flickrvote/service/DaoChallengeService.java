@@ -502,6 +502,21 @@ public class DaoChallengeService implements ChallengeService {
         challengeDao.persist(challenge);
     }
 
+    /**
+     * Method clearVotes removes a photographers votes allowing for re-voting.
+     *
+     * @param photographerId of type String
+     */
+    public void clearVotes(String photographerId) {
+        Photographer photographer = photographyDao.findById(photographerId);
+
+        if (photographer == null) {
+            return;
+        }
+
+        photographyDao.clearVotesForPhotographer(photographer);
+    }
+
 
     /**
      * Method rankChallenge causes challenge rank for a challenge to be re-calculated from score

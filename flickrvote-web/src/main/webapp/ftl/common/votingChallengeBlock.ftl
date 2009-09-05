@@ -18,6 +18,11 @@
         <@s.a href="%{votingPhotos}"><@s.text name="sidebar.voting.photos"/></@s.a><br/>
         <@s.url id="votingResults" namespace="/vote" action="showVoteResult"/>
         <@s.a href="%{votingResults}"><@s.text name="sidebar.voting.results"/></@s.a>
+        <br/>
+        <@s.text name="you.have.voted"/>
+        <br/>
+        <@s.url id="clearVote" namespace="/vote" action="clearVote"/>
+        <@s.a href="%{clearVote}"><@s.text name="sidebar.voting.clear"/></@s.a><br/>
         </@s.else>
     </p>
     </@s.if>

@@ -54,5 +54,8 @@
             <interceptor-ref name="defaultStack"/>
             <result>/jsp/vote/showvorteresult.jspx</result>
         </action>
+        <action name="clearVote" class="net.chrissearle.flickrvote.web.vote.ClearVoteAction">
+            <result name="success" type="chain">voteForm</result>
+        </action>
     </package>
 </struts>

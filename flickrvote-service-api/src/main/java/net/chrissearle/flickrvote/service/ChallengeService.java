@@ -133,4 +133,11 @@ public interface ChallengeService {
      * @param endDate   of type Date
      */
     void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate);
+
+    /**
+     * Method clearVotes removes a photographers votes allowing for re-voting.
+     *
+     * @param photographerId of type String
+     */
+    void clearVotes(String photographerId);
 }
