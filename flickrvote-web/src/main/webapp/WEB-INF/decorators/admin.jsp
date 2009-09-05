@@ -83,6 +83,9 @@
             <br/>
             <s:url action="cronResults" id="cronResultsUrl"/>
             <s:a href="%{cronResultsUrl}">Calculate/announce results</s:a>
+            <br/>
+            <s:url action="generateHistoryReport" id="generateHistoryReportUrl"/>
+            <s:a href="%{generateHistoryReportUrl}">Generate hustory report</s:a>
         </p>
 
         <h3>External Menu</h3>

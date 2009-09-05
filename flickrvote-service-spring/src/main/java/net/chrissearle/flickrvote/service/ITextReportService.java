@@ -24,6 +24,7 @@ import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,15 +100,11 @@ public class ITextReportService implements ReportService {
                 }
             }
 
-            if (pdfFile.canWrite()) {
-                if (!tempFile.renameTo(pdfFile)) {
-                    if (logger.isEnabledFor(Level.WARN)) {
-                        logger.warn("Could not rename file " + tempFile.getAbsolutePath() + " to " + historyReportPath);
-                    }
-                }
-            } else {
+            try {
+                FileUtils.moveFile(tempFile, pdfFile);
+            } catch (IOException e) {
                 if (logger.isEnabledFor(Level.WARN)) {
-                    logger.warn("Cannot write to file " + historyReportPath);
+                    logger.warn("Could not rename file " + tempFile.getAbsolutePath() + " to " + historyReportPath, e);
                 }
             }
         } catch (DocumentException e) {

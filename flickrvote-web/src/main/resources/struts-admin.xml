@@ -151,5 +151,9 @@
         <action name="imagerefresh" class="net.chrissearle.flickrvote.web.account.RefreshFromFlickrAction">
             <result name="success" type="chain">showPhotographerImages</result>
         </action>
+
+        <action name="generateHistoryReport" class="net.chrissearle.flickrvote.web.admin.GenerateHistoryReport">
+            <result name="success" type="chain">challenges</result>
+        </action>
     </package>
 </struts>
