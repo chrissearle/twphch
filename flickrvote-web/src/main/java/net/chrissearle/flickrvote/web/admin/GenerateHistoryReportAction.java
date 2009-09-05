@@ -26,7 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author chris
  *         Created on Sep 5, 2009
  */
-public class GenerateHistoryReport extends ActionSupport {
+public class GenerateHistoryReportAction extends ActionSupport {
     private static final long serialVersionUID = 5542117477366596575L;
 
     @Autowired

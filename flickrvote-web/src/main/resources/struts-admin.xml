@@ -152,7 +152,7 @@
             <result name="success" type="chain">showPhotographerImages</result>
         </action>
 
-        <action name="generateHistoryReport" class="net.chrissearle.flickrvote.web.admin.GenerateHistoryReport">
+        <action name="generateHistoryReport" class="net.chrissearle.flickrvote.web.admin.GenerateHistoryReportAction">
             <result name="success" type="chain">challenges</result>
         </action>
     </package>
