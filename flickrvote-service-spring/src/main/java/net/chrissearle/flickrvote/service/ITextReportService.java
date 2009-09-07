@@ -205,6 +205,10 @@ public class ITextReportService implements ReportService {
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to add image: " + image, e);
             }
+        } catch (IllegalArgumentException e) {
+            if (logger.isEnabledFor(Level.WARN)) {
+                logger.warn("Unable to add image: " + image, e);
+            }
         }
     }
 

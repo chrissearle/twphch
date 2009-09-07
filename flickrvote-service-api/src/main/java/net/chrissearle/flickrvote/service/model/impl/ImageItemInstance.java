@@ -111,4 +111,17 @@ public class ImageItemInstance implements ImageItem {
     public ChallengeSummary getChallenge() {
         return challenge;
     }
+
+    @Override
+    public String toString() {
+        return "ImageItemInstance{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", postedDate=" + postedDate +
+                ", voteCount=" + voteCount +
+                ", rank=" + rank +
+                '}';
+    }
 }
