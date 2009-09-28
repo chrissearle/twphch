@@ -77,11 +77,11 @@
                 <div class="sbilinks">
                     <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
                     <ul>
-                        <s:url action="rules" id="rulesLink"/>
+                        <s:url namespace="/" action="rules" id="rulesLink"/>
                         <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
-                        <s:url action="instructions" id="instructionsLink"/>
+                        <s:url namespace="/" action="instructions" id="instructionsLink"/>
                         <li><s:a href="%{instructionsLink}"><s:text name="instructions.title"/></s:a></li>
-                        <s:url action="faq" id="faqLink"/>
+                        <s:url namespace="/" action="faq" id="faqLink"/>
                         <li><s:a href="%{faqLink}"><s:text name="faq.title"/></s:a></li>
                     </ul>
                 </div>
