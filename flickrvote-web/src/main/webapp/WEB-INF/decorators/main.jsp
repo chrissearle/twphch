@@ -110,6 +110,14 @@
             </div>
         </div>
         <div id="column2">
+            <s:if test="#session.flickrUser">
+                <s:if test="#session.flickrUser.twitterAccount == ''">
+                    <ul class="actionMessage">
+                        <li><s:url id="registerTwitterUrl" action="edit" namespace="/account"/><s:a
+                                href="%{registerTwitterUrl}"><s:text name="twitter.not.registered"/></s:a></li>
+                    </ul>
+                </s:if>
+            </s:if>
             <decorator:body/>
         </div>
     </div>
