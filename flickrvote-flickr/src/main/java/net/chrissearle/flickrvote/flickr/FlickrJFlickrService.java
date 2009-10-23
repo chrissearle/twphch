@@ -127,7 +127,7 @@ public class FlickrJFlickrService implements FlickrService {
             Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
 
             for (Photo photo : photos) {
-                FlickrImage image = getImageByFlickrId(photo.getId());
+                FlickrImage image = convertPhotoToFlickrImage(photo);
 
                 if (logger.isDebugEnabled()) {
                     logger.debug("Search result: " + image);
@@ -170,6 +170,12 @@ public class FlickrJFlickrService implements FlickrService {
 
         SearchParameters params = new SearchParameters();
         params.setTags(tags);
+
+        // By grabbing the dates at this point - saves us a call to get image.
+        // We don't bother asking for names here to save a call to get photographer since that is
+        // still needed to get the user icon/avatar.
+        params.setExtrasDateUpload(true);
+        params.setExtrasDateTaken(true);
 
         List<Photo> photos = (List<Photo>) photosInterface.search(params, 500, 1);
         return photos;
@@ -276,7 +282,7 @@ public class FlickrJFlickrService implements FlickrService {
             Map<String, FlickrImageStatus> seenPhotographers = new HashMap<String, FlickrImageStatus>();
 
             for (Photo photo : photos) {
-                FlickrImage image = getImageByFlickrId(photo.getId());
+                FlickrImage image = convertPhotoToFlickrImage(photo);
                 FlickrPhotographer photographer = image.getPhotographer();
 
                 if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
