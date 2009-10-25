@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-@Service
+@Service("shortUrlService")
 public class BitlyShortUrlService implements ShortUrlService {
     private Logger logger = Logger.getLogger(BitlyShortUrlService.class);
 

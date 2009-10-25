@@ -33,9 +33,14 @@
             <constretto:properties-store>
                 <constretto:resource location="file:/etc/flickrvote/flickrvote.properties"/>
             </constretto:properties-store>
+            <constretto:properties-store>
+                <constretto:resource location="file:/etc/flickrvote/cli.properties"/>
+            </constretto:properties-store>
             <constretto:system-properties-store/>
         </constretto:stores>
     </constretto:configuration>
+
+    <context:component-scan base-package="net.chrissearle"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -50,9 +55,9 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost/flickrvote"/>
-        <property name="username" value="flickrvote"/>
-        <property name="password" value="flickrvote"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
