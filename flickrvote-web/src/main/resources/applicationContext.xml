@@ -18,10 +18,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:constretto="http://constretto.org/schema/constretto"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://constretto.org/schema/constretto http://constretto.org/schema/constretto/constretto-1.1.xsd">
+
+    <constretto:configuration>
+        <constretto:stores>
+            <constretto:properties-store>
+                <constretto:resource location="classpath:flickrvote.properties"/>
+            </constretto:properties-store>
+            <constretto:properties-store>
+                <constretto:resource location="file:/etc/flickrvote/flickrvote.properties"/>
+            </constretto:properties-store>
+            <constretto:system-properties-store/>
+        </constretto:stores>
+    </constretto:configuration>
 
     <context:component-scan base-package="net.chrissearle"/>
-    <context:property-placeholder location="file:/etc/flickrvote/flickrvote.properties"/>
 
     <bean id="adminAuthTokenHolder" class="net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder">
         <property name="adminAuthToken" value="${flickr.admin.auth.token}"/>
