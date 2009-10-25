@@ -14,9 +14,7 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.service;
-
-import net.chrissearle.flickrvote.service.model.PhotographerItem;
+package net.chrissearle.flickrvote.service.model;
 
 public class TestPhotographerItem implements PhotographerItem {
     Boolean activeFlag;

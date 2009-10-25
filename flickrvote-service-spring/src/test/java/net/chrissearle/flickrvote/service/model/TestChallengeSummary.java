@@ -14,9 +14,7 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.service;
-
-import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+package net.chrissearle.flickrvote.service.model;
 
 import java.util.Date;
 
