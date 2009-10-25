@@ -18,28 +18,34 @@ package net.chrissearle.flickrvote.service;
 
 import com.rosaloves.net.shorturl.bitly.Bitly;
 import com.rosaloves.net.shorturl.bitly.BitlyFactory;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.constretto.ConstrettoBuilder;
+import org.constretto.ConstrettoConfiguration;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.internal.runners.JUnit4ClassRunner;
+import org.junit.runner.RunWith;
+import org.springframework.core.io.DefaultResourceLoader;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
+@RunWith(JUnit4ClassRunner.class)
 public class TestBitlyShortUrlService {
     ShortUrlService service;
 
-    @BeforeClass
+    @Before
     public void setUp() throws IOException {
-        File configuration = new File("/etc/flickrvote/flickrvote.properties");
+        ConstrettoConfiguration conf = new ConstrettoBuilder()
+                .createPropertiesStore()
+                .addResource(new DefaultResourceLoader().getResource("classpath:flickrvote.properties"))
+                .done()
+                .createPropertiesStore()
+                .addResource(new DefaultResourceLoader().getResource("file:/etc/flickrvote/flickrvote.properties"))
+                .done()
+                .getConfiguration();
 
-        InputStream in = new FileInputStream(configuration);
-        Properties properties = new Properties();
-        properties.load(in);
-
-        Bitly bitly = BitlyFactory.newInstance(properties.getProperty("bitly.login"),
-                properties.getProperty("bitly.key"));
+        Bitly bitly = BitlyFactory.newInstance(conf.evaluateToString("bitly.login"),
+                conf.evaluateToString("bitly.key"));
 
         service = new BitlyShortUrlService(bitly);
     }
@@ -48,7 +54,7 @@ public class TestBitlyShortUrlService {
     public void testShortenUrl() {
         String shortUrl = service.shortenUrl("http://vote.twphch.com/twitterphotochallenge");
 
-        assert shortUrl.contains("bit.ly") : "Short URL did not point to bit.ly";
+        assertTrue("Short URL did not point to bit.ly", shortUrl.contains("bit.ly"));
 
         System.out.println(shortUrl);
     }

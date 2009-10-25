@@ -19,34 +19,38 @@ package net.chrissearle.flickrvote.service;
 import com.rosaloves.net.shorturl.bitly.Bitly;
 import com.rosaloves.net.shorturl.bitly.BitlyFactory;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
+import org.constretto.ConstrettoBuilder;
+import org.constretto.ConstrettoConfiguration;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.internal.runners.JUnit4ClassRunner;
+import org.junit.runner.RunWith;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.springframework.core.io.DefaultResourceLoader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Properties;
-
+@RunWith(JUnit4ClassRunner.class)
 public class TestMessageSourceChallengeMessageService {
     private ChallengeMessageService challengeMessageService;
 
     private ChallengeSummary challenge;
-
     private String resultsUrl;
 
-    @BeforeClass
+    @Before
     public void setup() throws Exception {
-        File configuration = new File("/etc/flickrvote/flickrvote.properties");
+        ConstrettoConfiguration conf = new ConstrettoBuilder()
+                .addCurrentTag("development")
+                .createPropertiesStore()
+                .addResource(new DefaultResourceLoader().getResource("classpath:flickrvote.properties"))
+                .done()
+                .createPropertiesStore()
+                .addResource(new DefaultResourceLoader().getResource("file:/etc/flickrvote/flickrvote.properties"))
+                .done()
+                .getConfiguration();
 
-        InputStream in = new FileInputStream(configuration);
-        Properties properties = new Properties();
-        properties.load(in);
-
-        Bitly bitly = BitlyFactory.newInstance(properties.getProperty("bitly.login"),
-                properties.getProperty("bitly.key"));
+        Bitly bitly = BitlyFactory.newInstance(conf.evaluateToString("bitly.login"),
+                conf.evaluateToString("bitly.key"));
 
         ShortUrlService shortUrlService = new BitlyShortUrlService(bitly);
 
@@ -75,6 +79,8 @@ public class TestMessageSourceChallengeMessageService {
         testChallenge.setVoteDate(voteDate.toDate());
 
         challenge = testChallenge;
+
+        resultsUrl = challengeMessageService.getResultsUrl(challenge);
     }
 
     @Test
@@ -103,13 +109,13 @@ public class TestMessageSourceChallengeMessageService {
 
     @Test
     public void testGetResultsUrl() {
-        resultsUrl = challengeMessageService.getResultsUrl(challenge);
+        String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
         assert resultsUrl.contains("http") : "Message missing link";
         assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
     }
 
-    @Test(dependsOnMethods = {"testGetResultsUrl"})
+    @Test
     public void testGetResultsTwitter() {
         String message = challengeMessageService.getResultsTwitter(challenge, resultsUrl);
 
