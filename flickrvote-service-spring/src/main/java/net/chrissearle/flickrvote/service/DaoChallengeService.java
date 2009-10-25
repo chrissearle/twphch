@@ -32,6 +32,7 @@ import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.twitter.TwitterService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
+import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,7 @@ public class DaoChallengeService implements ChallengeService {
     private final TwitterService twitterService;
     private final FlickrService flickrService;
     private ChallengeMessageService challengeMessageService;
+    private SimpleMailService mailService;
 
     /**
      * Constructor DaoChallengeService creates a new DaoChallengeService instance.
@@ -69,7 +71,7 @@ public class DaoChallengeService implements ChallengeService {
      * @param flickrService           of type FlickrService
      */
     @Autowired
-    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao,
+    public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
                                ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
@@ -77,6 +79,7 @@ public class DaoChallengeService implements ChallengeService {
         this.twitterService = twitterService;
         this.flickrService = flickrService;
         this.challengeMessageService = challengeMessageService;
+        this.mailService = mailService;
     }
 
     /**
@@ -238,6 +241,7 @@ public class DaoChallengeService implements ChallengeService {
         try {
             twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
         } catch (TwitterServiceException tse) {
+            mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
             }
@@ -280,6 +284,7 @@ public class DaoChallengeService implements ChallengeService {
         try {
             twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
         } catch (TwitterServiceException tse) {
+            mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
             }
@@ -335,6 +340,7 @@ public class DaoChallengeService implements ChallengeService {
         try {
             twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
         } catch (TwitterServiceException tse) {
+            mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
             }
@@ -409,6 +415,7 @@ public class DaoChallengeService implements ChallengeService {
         try {
             twitterService.twitter(challengeMessageService.getVotingOpenWarning(challenge));
         } catch (TwitterServiceException tse) {
+            mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
             }
@@ -430,6 +437,7 @@ public class DaoChallengeService implements ChallengeService {
         try {
             twitterService.twitter(challengeMessageService.getVotingCloseWarning(challenge));
         } catch (TwitterServiceException tse) {
+            mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
             }

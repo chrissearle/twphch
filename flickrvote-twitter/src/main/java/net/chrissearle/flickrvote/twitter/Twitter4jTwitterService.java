@@ -16,8 +16,8 @@
 
 package net.chrissearle.flickrvote.twitter;
 
-import net.chrissearle.mail.SimpleMailService;
-import org.apache.log4j.Logger;
+import org.constretto.annotation.Configuration;
+import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
@@ -27,42 +27,71 @@ import twitter4j.TwitterException;
 public class Twitter4jTwitterService implements TwitterService {
     private Twitter twitter;
 
-    private Logger logger = Logger.getLogger(Twitter4jTwitterService.class);
     private Boolean twitterActiveFlag;
-    private SimpleMailService mailService;
 
     @Autowired
-    public Twitter4jTwitterService(Twitter twitter, TwitterHolder twitterHolder, SimpleMailService mailService) {
+    public Twitter4jTwitterService(Twitter twitter) {
         this.twitter = twitter;
-        this.twitterActiveFlag = twitterHolder.isActiveFlag();
-        this.mailService = mailService;
+    }
+
+    @Configure
+    public void configure(@Configuration(expression = "twitter.active") Boolean active) {
+        twitterActiveFlag = active;
     }
 
     public void twitter(String text) {
         if (twitterActiveFlag) {
-            try {
-                twitter.updateStatus(text);
-            } catch (TwitterException e) {
-                mailService.sendPost("Unable to tweet " + e.getMessage(), text);
-                throw new TwitterServiceException("Unable to tweet " + text, e);
-            }
+            updateTwitterStatus(text);
+        }
+    }
+
+    private void updateTwitterStatus(String text) {
+        try {
+            twitter.updateStatus(text);
+        } catch (TwitterException e) {
+            throw new TwitterServiceException("Unable to tweet " + text, e);
         }
     }
 
     public void follow(String twitterId) {
+        if (twitterActiveFlag) {
+            addTwitterFriendshipAndNotification(twitterId);
+        }
+    }
+
+    private void addTwitterFriendshipAndNotification(String twitterId) {
         try {
-            if (!twitter.existsFriendship(twitter.getUserId(), twitterId)) {
-                twitter.createFriendship(twitterId);
-                twitter.enableNotification(twitterId);
-            }
+            establishFriendshipWithNotification(twitterId);
         } catch (TwitterException e) {
             throw new TwitterServiceException("Unable to follow " + twitterId, e);
         }
     }
 
+    private void establishFriendshipWithNotification(String twitterId) throws TwitterException {
+        if (!alreadyFriends(twitterId)) {
+            twitter.createFriendship(twitterId);
+            twitter.enableNotification(twitterId);
+        }
+    }
+
+    private boolean alreadyFriends(String twitterId) throws TwitterException {
+        return twitter.existsFriendship(twitter.getUserId(), twitterId);
+    }
+
     public boolean twitterExists(String twitterId) {
+        boolean userExists = false;
+
+        if (twitterActiveFlag) {
+            userExists = askTwitterForUser(twitterId);
+        }
+
+        return userExists;
+    }
+
+    private boolean askTwitterForUser(String twitterId) {
         try {
             twitter.showUser(twitterId);
+
             return true;
         } catch (TwitterException e) {
             // Short cut - returns false even if twitter is down.
