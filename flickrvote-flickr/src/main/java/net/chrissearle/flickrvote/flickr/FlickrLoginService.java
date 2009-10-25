@@ -16,20 +16,12 @@
 
 package net.chrissearle.flickrvote.flickr;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.net.URL;
 
-public interface FlickrService {
-    List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException;
+public interface FlickrLoginService {
+    URL getLoginUrl() throws FlickrServiceException;
 
-    FlickrPhotographer getUserByFlickrId(String id);
+    URL getLoginUrl(boolean write) throws FlickrServiceException;
 
-    FlickrImage getImageByFlickrId(String id);
-
-    void postForum(String title, String message);
-
-    void postComment(String id, String comment);
-
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+    FlickrPhotographer authenticate(String frob) throws FlickrServiceException;
 }

@@ -1,18 +1,31 @@
+/*
+ * Copyright 2009 Chris Searle
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
 package net.chrissearle.flickrvote;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.REST;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.flickr.FlickrJFlickrService;
-import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
-import net.chrissearle.flickrvote.flickr.FlickrServiceException;
+import net.chrissearle.flickrvote.flickr.impl.FlickrJFlickrService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -37,19 +50,6 @@ public class FlickrServiceTest extends FlickrJFlickrService {
     @BeforeTest(groups = "broken")
     public void setupBroken() throws IOException, ParserConfigurationException {
         flickr = new Flickr("", "", new REST());
-    }
-
-    @Test(groups = "broken", expectedExceptions = FlickrServiceException.class)
-    public void testGetUrlError() {
-        getLoginUrl();
-    }
-
-    @Test(groups = "configured")
-    public void testGetUrl() {
-        URL url = getLoginUrl();
-
-        assert url != null : "LoginUrl was null";
-        assert url.toExternalForm().contains("flickr") : "LoginUrl did not point to flickr";
     }
 
     @Test(groups = "configured")

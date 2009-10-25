@@ -17,7 +17,7 @@
 package net.chrissearle.flickrvote.web.common;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.flickr.FlickrLoginService;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class FlickrLoginLinkAction extends ActionSupport implements SessionAware {
     @Autowired
-    private PhotographyService photographyService;
+    private FlickrLoginService flickrLoginService;
 
     private String link;
     private Map<String, Object> session;
@@ -36,7 +36,7 @@ public class FlickrLoginLinkAction extends ActionSupport implements SessionAware
         if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
             return SUCCESS;
         }
-        link = photographyService.getLoginUrl().toExternalForm();
+        link = flickrLoginService.getLoginUrl().toExternalForm();
 
         return LOGIN;
     }

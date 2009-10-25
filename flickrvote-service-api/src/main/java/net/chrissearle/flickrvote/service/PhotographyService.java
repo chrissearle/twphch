@@ -21,7 +21,6 @@ import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 
-import java.net.URL;
 import java.util.List;
 import java.util.Set;
 
@@ -77,13 +76,6 @@ public interface PhotographyService {
      * @return ChallengeItem
      */
     ChallengeItem getChallengeImages(String tag);
-
-    /**
-     * Method getLoginUrl returns the loginUrl for flickr authentication.
-     *
-     * @return the loginUrl for flickr authentication.
-     */
-    URL getLoginUrl();
 
     /**
      * Method retrieveAndStoreImage causes a flickr retrieval of the image (and photographer). Saves/updates to the local db.

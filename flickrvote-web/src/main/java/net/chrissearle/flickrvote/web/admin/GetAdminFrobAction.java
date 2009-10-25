@@ -17,18 +17,18 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.flickr.FlickrService;
+import net.chrissearle.flickrvote.flickr.FlickrLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GetAdminFrobAction extends ActionSupport {
     @Autowired
-    private FlickrService flickrService;
+    private FlickrLoginService flickrLoginService;
 
     private String adminUrl;
 
     @Override
     public String execute() throws Exception {
-        adminUrl = flickrService.getLoginUrl(true).toExternalForm();
+        adminUrl = flickrLoginService.getLoginUrl(true).toExternalForm();
 
         return SUCCESS;
     }

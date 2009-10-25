@@ -16,20 +16,6 @@
 
 package net.chrissearle.flickrvote.flickr;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
-public interface FlickrService {
-    List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException;
-
-    FlickrPhotographer getUserByFlickrId(String id);
-
-    FlickrImage getImageByFlickrId(String id);
-
-    void postForum(String title, String message);
-
-    void postComment(String id, String comment);
-
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+public interface UserDAO {
+    public FlickrPhotographer getUser(String id);
 }

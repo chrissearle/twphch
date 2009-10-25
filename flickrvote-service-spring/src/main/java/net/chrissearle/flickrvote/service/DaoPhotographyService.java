@@ -19,10 +19,7 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.flickr.FlickrImageStatus;
-import net.chrissearle.flickrvote.flickr.FlickrPhotographer;
-import net.chrissearle.flickrvote.flickr.FlickrService;
+import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.ChallengeState;
 import net.chrissearle.flickrvote.model.Image;
@@ -43,7 +40,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.net.URL;
 import java.util.*;
 
 /**
@@ -62,6 +58,7 @@ public class DaoPhotographyService implements PhotographyService {
 
     private FlickrService flickrService;
     private TwitterService twitterService;
+    private FlickrLoginService flickrLoginService;
 
     /**
      * Constructor DaoPhotographyService creates a new DaoPhotographyService instance.
@@ -74,12 +71,13 @@ public class DaoPhotographyService implements PhotographyService {
      */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrService flickrService, TwitterService twitterService) {
+                                 FlickrService flickrService, TwitterService twitterService, FlickrLoginService flickrLoginService) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
 
         this.flickrService = flickrService;
+        this.flickrLoginService = flickrLoginService;
         this.twitterService = twitterService;
     }
 
@@ -143,7 +141,7 @@ public class DaoPhotographyService implements PhotographyService {
      * @return the photographer
      */
     public PhotographerItem checkLoginAndStore(String frob) {
-        FlickrPhotographer flickrPhotographer = flickrService.authenticate(frob);
+        FlickrPhotographer flickrPhotographer = flickrLoginService.authenticate(frob);
 
         // Check to see if present
         String flickrId = flickrPhotographer.getFlickrId();
@@ -208,15 +206,6 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
-    }
-
-    /**
-     * Method getLoginUrl returns the loginUrl for flickr authentication.
-     *
-     * @return the loginUrl for flickr authentication.
-     */
-    public URL getLoginUrl() {
-        return flickrService.getLoginUrl();
     }
 
     /**

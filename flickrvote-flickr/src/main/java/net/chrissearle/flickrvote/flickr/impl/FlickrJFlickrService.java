@@ -14,20 +14,20 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.flickr;
+package net.chrissearle.flickrvote.flickr.impl;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
 import com.aetrion.flickr.RequestContext;
 import com.aetrion.flickr.auth.Auth;
 import com.aetrion.flickr.auth.AuthInterface;
-import com.aetrion.flickr.auth.Permission;
 import com.aetrion.flickr.people.PeopleInterface;
 import com.aetrion.flickr.people.User;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.aetrion.flickr.photos.comments.CommentsInterface;
+import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,6 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.*;
 
 @Service("flickrService")
@@ -59,59 +57,6 @@ public class FlickrJFlickrService implements FlickrService {
     }
 
     protected FlickrJFlickrService() {
-    }
-
-    public URL getLoginUrl() throws FlickrServiceException {
-        return getLoginUrl(false);
-    }
-
-    public URL getLoginUrl(boolean write) throws FlickrServiceException {
-        try {
-            AuthInterface authInterface = flickr.getAuthInterface();
-
-            String frob = authInterface.getFrob();
-
-            Permission permission = Permission.READ;
-            if (write) {
-                permission = Permission.WRITE;
-            }
-
-            return authInterface.buildAuthenticationUrl(permission, frob);
-        } catch (MalformedURLException e) {
-            throw new FlickrServiceException(e);
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        }
-    }
-
-    public FlickrPhotographer authenticate(String frob) throws FlickrServiceException {
-        try {
-            AuthInterface authInterface = flickr.getAuthInterface();
-
-            Auth auth = authInterface.getToken(frob);
-
-            // Auth user does not populate correct buddy icon
-            User user = getUser(auth.getUser().getId());
-
-            FlickrPhotographer flickrPhotographer = new FlickrPhotographer(user.getId(), auth.getToken(),
-                    user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
-
-            if (logger.isInfoEnabled()) {
-                logger.info(flickrPhotographer.getUsername() + " has just logged in");
-            }
-
-            return flickrPhotographer;
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        }
     }
 
     private Auth getAuthByToken(String token) throws IOException, SAXException, FlickrException {
