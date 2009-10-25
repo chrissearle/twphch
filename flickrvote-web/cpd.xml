@@ -1,7 +1,8 @@
-<?xml version="1.0"  encoding="UTF-8"?><pmd-cpd>
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
 <duplication lines="17" tokens="100">
-<file line="75" path="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/CurrentChallengeAction.java"/>
-<file line="59" path="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/ShowChallengeAction.java"/>
+<file line="75" path="/Users/chris/src/twphch/flickrvote/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/CurrentChallengeAction.java"/>
+<file line="59" path="/Users/chris/src/twphch/flickrvote/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/ShowChallengeAction.java"/>
 <codefragment>
 <![CDATA[
             logger.debug("Challenge " + challengeSummary);

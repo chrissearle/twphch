@@ -12,6 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Twitter PhotoChallenge - Project Dependencies</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
@@ -19,8 +20,7 @@
       @import url("./css/site.css");
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      </head>
+          </head>
   <body class="composite">
     <div id="banner">
                     <span id="bannerLeft">
@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-09-05
+             Last Published: 2009-10-25
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -90,6 +90,12 @@
       
             
       
+            
+      
+            
+      
+            
+      
               
             <li class="expanded">
                     <a href="project-info.html">Project Information</a>
@@ -112,6 +118,10 @@
           </li>
                   
     <li class="none">
+                    <a href="dependency-management.html">Dependency Management</a>
+          </li>
+                  
+    <li class="none">
                     <a href="issue-tracking.html">Issue Tracking</a>
           </li>
                   
@@ -120,7 +130,15 @@
           </li>
                   
     <li class="none">
+                    <a href="plugin-management.html">Plugin Management</a>
+          </li>
+                  
+    <li class="none">
                     <a href="license.html">Project License</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugins.html">Project Plugins</a>
           </li>
                   
     <li class="none">
@@ -139,6 +157,10 @@
               
                 
               
+      
+            
+      
+            
       
             
       
@@ -183,335 +205,335 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Project Dependencies</h2>
-<div class="section"><h3>test</h3>
+        <a name="Project_Dependencies"></a><div class="section"><h2>Project Dependencies</h2>
+<a name="compile"></a><div class="section"><h3>compile</h3>
+<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Type</th>
+</tr>
+<tr class="b"><td>javax.persistence</td>
+<td><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">persistence-api</a></td>
+<td>1.0</td>
+<td>jar</td>
+</tr>
+</table>
+</div>
+<a name="test"></a><div class="section"><h3>test</h3>
 <p>The following is a list of test dependencies for this project. These dependencies are only required to compile and run unit tests for the application:</p>
 <table class="bodyTable"><tr class="a"><th>GroupId</th>
 <th>ArtifactId</th>
 <th>Version</th>
 <th>Classifier</th>
 <th>Type</th>
-<th>Optional</th>
 </tr>
 <tr class="b"><td>concurrent</td>
 <td>concurrent</td>
 <td>1.3.4</td>
 <td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>joda-time</td>
-<td>joda-time</td>
+<td><a href="http://joda-time.sourceforge.net" class="externalLink">joda-time</a></td>
 <td>1.6</td>
 <td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>mysql</td>
-<td>mysql-connector-java</td>
+<td><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">mysql-connector-java</a></td>
 <td>5.1.6</td>
 <td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>org.hibernate</td>
-<td>hibernate</td>
+<td><a href="http://www.hibernate.org" class="externalLink">hibernate</a></td>
 <td>3.2.6.ga</td>
 <td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>org.hibernate</td>
-<td>hibernate-entitymanager</td>
+<td><a href="http://entitymanager.hibernate.org" class="externalLink">hibernate-entitymanager</a></td>
 <td>3.3.1.ga</td>
 <td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>org.testng</td>
-<td>testng</td>
+<td><a href="http://testng.org" class="externalLink">testng</a></td>
 <td>5.8</td>
 <td>jdk15</td>
 <td>jar</td>
-<td> </td>
 </tr>
 </table>
 </div>
 </div>
-<div class="section"><h2>Project Transitive Dependencies</h2>
+<a name="Project_Transitive_Dependencies"></a><div class="section"><h2>Project Transitive Dependencies</h2>
 <p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
-<div class="section"><h3>compile</h3>
-<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
-<table class="bodyTable"><tr class="b"><th>GroupId</th>
-<th>ArtifactId</th>
-<th>Version</th>
-<th>Classifier</th>
-<th>Type</th>
-<th>Optional</th>
-</tr>
-<tr class="a"><td>javax.persistence</td>
-<td>persistence-api</td>
-<td>1.0</td>
-<td>-</td>
-<td>jar</td>
-<td> </td>
-</tr>
-</table>
-</div>
-<div class="section"><h3>test</h3>
+<a name="test"></a><div class="section"><h3>test</h3>
 <p>The following is a list of test dependencies for this project. These dependencies are only required to compile and run unit tests for the application:</p>
 <table class="bodyTable"><tr class="b"><th>GroupId</th>
 <th>ArtifactId</th>
 <th>Version</th>
-<th>Classifier</th>
 <th>Type</th>
-<th>Optional</th>
 </tr>
 <tr class="a"><td>antlr</td>
-<td>antlr</td>
+<td><a href="http://www.antlr.org/" class="externalLink">antlr</a></td>
 <td>2.7.6</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>asm</td>
-<td>asm</td>
+<td><a href="http://asm.objectweb.org/" class="externalLink">asm</a></td>
 <td>1.5.3</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>asm</td>
-<td>asm-attrs</td>
+<td><a href="http://asm.objectweb.org/" class="externalLink">asm-attrs</a></td>
 <td>1.5.3</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>cglib</td>
-<td>cglib</td>
+<td><a href="http://cglib.sourceforge.net/" class="externalLink">cglib</a></td>
 <td>2.1_3</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>commons-collections</td>
-<td>commons-collections</td>
+<td><a href="http://commons.apache.org/collections/" class="externalLink">commons-collections</a></td>
 <td>3.2.1</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>commons-logging</td>
-<td>commons-logging</td>
+<td><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">commons-logging</a></td>
 <td>1.0.4</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>dom4j</td>
-<td>dom4j</td>
+<td><a href="http://dom4j.org" class="externalLink">dom4j</a></td>
 <td>1.6.1</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>javax.transaction</td>
 <td>jta</td>
 <td>1.0.1B</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>jboss</td>
-<td>javassist</td>
+<td><a href="http://www.jboss.org/products/javassist" class="externalLink">javassist</a></td>
 <td>3.3.ga</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>jboss</td>
-<td>jboss-common-core</td>
+<td><a href="http://www.jboss.org" class="externalLink">jboss-common-core</a></td>
 <td>2.0.4.GA</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>junit</td>
-<td>junit</td>
-<td>3.8.1</td>
-<td>-</td>
+<td><a href="http://junit.org" class="externalLink">junit</a></td>
+<td>4.4</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>net.sf.ehcache</td>
-<td>ehcache</td>
+<td><a href="http://ehcache.sf.net" class="externalLink">ehcache</a></td>
 <td>1.2.3</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>org.hibernate</td>
-<td>hibernate-annotations</td>
+<td><a href="http://annotations.hibernate.org" class="externalLink">hibernate-annotations</a></td>
 <td>3.3.0.ga</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="b"><td>org.hibernate</td>
 <td>hibernate-commons-annotations</td>
 <td>3.0.0.ga</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 <tr class="a"><td>org.hibernate</td>
-<td>hibernate-validator</td>
+<td><a href="http://validator.hibernate.org" class="externalLink">hibernate-validator</a></td>
 <td>3.0.0.ga</td>
-<td>-</td>
 <td>jar</td>
-<td> </td>
 </tr>
 </table>
 </div>
 </div>
-<div class="section"><h2>Project Dependency Graph</h2>
-<div class="section"><h3>Dependency Tree</h3>
-<p><ul><li><a href="#net.chrissearle:flickrvote-model:jar">net.chrissearle:flickrvote-model:jar</a>
-<ul><li><a href="#org.testng:testng:jar:jdk15">org.testng:testng:jar:jdk15</a>
-<ul><li><a href="#junit:junit:jar">junit:junit:jar</a>
-</li>
-</ul>
-</p>
-</li>
-<li><a href="#mysql:mysql-connector-java:jar">mysql:mysql-connector-java:jar</a>
-</li>
-<li><a href="#org.hibernate:hibernate-entitymanager:jar">org.hibernate:hibernate-entitymanager:jar</a>
-<ul><li><a href="#org.hibernate:hibernate-annotations:jar">org.hibernate:hibernate-annotations:jar</a>
-<ul><li><a href="#javax.persistence:persistence-api:jar">javax.persistence:persistence-api:jar</a>
-</li>
-</ul>
-</p>
-</li>
-<li><a href="#org.hibernate:hibernate-commons-annotations:jar">org.hibernate:hibernate-commons-annotations:jar</a>
-</li>
-<li><a href="#org.hibernate:hibernate-validator:jar">org.hibernate:hibernate-validator:jar</a>
-</li>
-<li><a href="#jboss:javassist:jar">jboss:javassist:jar</a>
-</li>
-<li><a href="#jboss:jboss-common-core:jar">jboss:jboss-common-core:jar</a>
-</li>
-</ul>
-</p>
-</li>
-<li><a href="#org.hibernate:hibernate:jar">org.hibernate:hibernate:jar</a>
-<ul><li><a href="#net.sf.ehcache:ehcache:jar">net.sf.ehcache:ehcache:jar</a>
-</li>
-<li><a href="#javax.transaction:jta:jar">javax.transaction:jta:jar</a>
-</li>
-<li><a href="#commons-logging:commons-logging:jar">commons-logging:commons-logging:jar</a>
-</li>
-<li><a href="#asm:asm-attrs:jar">asm:asm-attrs:jar</a>
-</li>
-<li><a href="#dom4j:dom4j:jar">dom4j:dom4j:jar</a>
-</li>
-<li><a href="#antlr:antlr:jar">antlr:antlr:jar</a>
-</li>
-<li><a href="#cglib:cglib:jar">cglib:cglib:jar</a>
-</li>
-<li><a href="#asm:asm:jar">asm:asm:jar</a>
-</li>
-<li><a href="#commons-collections:commons-collections:jar">commons-collections:commons-collections:jar</a>
-</li>
-</ul>
-</p>
-</li>
-<li><a href="#concurrent:concurrent:jar">concurrent:concurrent:jar</a>
-</li>
-<li><a href="#joda-time:joda-time:jar">joda-time:joda-time:jar</a>
-</li>
-</ul>
-</p>
-</li>
-</ul>
-</p>
-</div>
-<div class="section"><h3>Dependency Listings</h3>
-<p><a name="net.chrissearle:flickrvote-model:jar"><b>Database model</b>
-</a>
-</p>
-<p>Database model for the Twitter Photo Challenge voting app</p>
-<p><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a>
-</p>
-<p><a name="org.testng:testng:jar:jdk15"><b>TestNG</b>
-</a>
-</p>
-<p>TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use.</p>
-<p><a href="http://testng.org" class="externalLink">http://testng.org</a>
-</p>
-<p><a name="junit:junit:jar"><b>JUnit</b>
-</a>
-</p>
-<p>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
-<p><a href="http://junit.org" class="externalLink">http://junit.org</a>
-</p>
-<p><a name="mysql:mysql-connector-java:jar"><b>MySQL java connector</b>
-</a>
-</p>
-<p>MySQL java connector</p>
-<p><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">http://dev.mysql.com/usingmysql/java/</a>
-</p>
-<p><a name="org.hibernate:hibernate-entitymanager:jar"><b>Hibernate Entity Manager</b>
-</a>
-</p>
-<p>Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the EJB3 persistence specification.</p>
-<p><a href="http://entitymanager.hibernate.org" class="externalLink">http://entitymanager.hibernate.org</a>
-</p>
-<p><a name="org.hibernate:hibernate-annotations:jar"><b>Hibernate Annotations</b>
-</a>
-</p>
-<p>EJB3-style annotations for Hibernate</p>
-<p><a href="http://annotations.hibernate.org" class="externalLink">http://annotations.hibernate.org</a>
-</p>
-<p><a name="javax.persistence:persistence-api:jar"><b>Enterprise JavaBeans (EJB) 3.0</b>
-</a>
-</p>
-<p>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
+<a name="Project_Dependency_Graph"></a><div class="section"><h2>Project Dependency Graph</h2>
+<script language="javascript" type="text/javascript">
+      function toggleDependencyDetail( divId, imgId )
+      {
+        var div = document.getElementById( divId );
+        var img = document.getElementById( imgId );
+        if( div.style.display == '' )
+        {
+          div.style.display = 'none';
+          img.src='./images/icon_info_sml.gif';
+        }
+        else
+        {
+          div.style.display = '';
+          img.src='./images/close.gif';
+        }
+      }
+</script>
+<a name="Dependency_Tree"></a><div class="section"><h3>Dependency Tree</h3>
+<ul><li>net.chrissearle:flickrvote-model:jar:1-SNAPSHOT <img id="_1899674995" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1460255643', '_1899674995' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1460255643" style="display:none"><table class="bodyTable"><tr class="b"><th>Database model</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Database model for the Twitter Photo Challenge voting app</p>
+<p><b>URL: </b><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">http://chrissearle.github.com/twphch/flickrvote-model</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">Apache License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>javax.persistence:persistence-api:jar:1.0 (compile) <img id="_301590072" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1655772530', '_301590072' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1655772530" style="display:none"><table class="bodyTable"><tr class="b"><th>Enterprise JavaBeans (EJB) 3.0</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
     The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
-<p><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a>
-</p>
-<p><a name="org.hibernate:hibernate-commons-annotations:jar"><b>Hibernate Commons Annotations</b>
-</a>
-</p>
-<p>Hibernate Commons Annotations is a utility project used by annotations based Hibernate sub-projects.</p>
-<p><a name="org.hibernate:hibernate-validator:jar"><b>Hibernate Validator</b>
-</a>
-</p>
-<p>Following the DRY (Don't Repeat Yourself) principle, Hibernate Validator let's you express your domain constraints once (and only once) and ensure their compliance at various level of your system automatically.</p>
-<p><a href="http://validator.hibernate.org" class="externalLink">http://validator.hibernate.org</a>
-</p>
-<p><a name="jboss:javassist:jar"><b>Javassist</b>
-</a>
-</p>
-<p>Javassist (Java programming assistant) is a load-time reflective system for Java.</p>
-<p><a href="http://www.jboss.org/products/javassist" class="externalLink">http://www.jboss.org/products/javassist</a>
-</p>
-<p><a name="jboss:jboss-common-core:jar"><b>JBoss Common Classes</b>
-</a>
-</p>
-<p>JBoss Common Core Utility classes</p>
-<p><a href="http://www.jboss.org" class="externalLink">http://www.jboss.org</a>
-</p>
-<p><a name="org.hibernate:hibernate:jar"><b>Hibernate</b>
-</a>
-</p>
-<p>Relational Persistence for Java</p>
-<p><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a>
-</p>
-<p><a name="net.sf.ehcache:ehcache:jar"><b>ehcache</b>
-</a>
-</p>
-<p>ehcache is a pure Java, in-process cache with the following features:
+<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
+<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.testng:testng:jar:jdk15:5.8 (test) <img id="_862095947" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_510635627', '_862095947' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_510635627" style="display:none"><table class="bodyTable"><tr class="b"><th>TestNG</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use.</p>
+<p><b>URL: </b><a href="http://testng.org" class="externalLink">http://testng.org</a></p>
+<p><b>Project License: </b><a href="http://apache.org/licenses/LICENSE-2.0" class="externalLink">Apache License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>junit:junit:jar:4.4 (test) <img id="_34424767" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_160389846', '_34424767' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_160389846" style="display:none"><table class="bodyTable"><tr class="b"><th>JUnit</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
+<p><b>URL: </b><a href="http://junit.org" class="externalLink">http://junit.org</a></p>
+<p><b>Project License: </b><a href="http://www.opensource.org/licenses/cpl1.0.txt" class="externalLink">Common Public License Version 1.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>mysql:mysql-connector-java:jar:5.1.6 (test) <img id="_1876089723" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_921309579', '_1876089723' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_921309579" style="display:none"><table class="bodyTable"><tr class="b"><th>MySQL java connector</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>MySQL java connector</p>
+<p><b>URL: </b><a href="http://dev.mysql.com/usingmysql/java/" class="externalLink">http://dev.mysql.com/usingmysql/java/</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/gpl.txt" class="externalLink">The GNU General Public License, Version 2</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.hibernate:hibernate-entitymanager:jar:3.3.1.ga (test) <img id="_1171386810" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_939083505', '_1171386810' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_939083505" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate Entity Manager</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the EJB3 persistence specification.</p>
+<p><b>URL: </b><a href="http://entitymanager.hibernate.org" class="externalLink">http://entitymanager.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>javax.persistence:persistence-api:jar:1.0 (test) <img id="_2041373010" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_168190958', '_2041373010' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_168190958" style="display:none"><table class="bodyTable"><tr class="b"><th>Enterprise JavaBeans (EJB) 3.0</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
+    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
+<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
+<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.hibernate:hibernate:jar:3.2.6.ga (test) <img id="_1686962935" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_521820169', '_1686962935' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_521820169" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Relational Persistence for Java</p>
+<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.hibernate:hibernate-annotations:jar:3.3.0.ga (test) <img id="_1870771990" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_823830501', '_1870771990' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_823830501" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate Annotations</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>EJB3-style annotations for Hibernate</p>
+<p><b>URL: </b><a href="http://annotations.hibernate.org" class="externalLink">http://annotations.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.hibernate:hibernate:jar:3.2.6.ga (test) <img id="_1126324870" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1392252831', '_1126324870' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1392252831" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Relational Persistence for Java</p>
+<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>javax.persistence:persistence-api:jar:1.0 (test) <img id="_1071505958" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2089947081', '_1071505958' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2089947081" style="display:none"><table class="bodyTable"><tr class="b"><th>Enterprise JavaBeans (EJB) 3.0</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
+    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
+<p><b>URL: </b><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a></p>
+<p><b>Project License: </b><a href="http://www.sun.com/cddl/cddl.html" class="externalLink">Common Development and Distribution License (CDDL) v1.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>org.hibernate:hibernate-commons-annotations:jar:3.0.0.ga (test) <img id="_1968282303" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_692359797', '_1968282303' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_692359797" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate Commons Annotations</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Hibernate Commons Annotations is a utility project used by annotations based Hibernate sub-projects.</p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>commons-logging:commons-logging:jar:1.0.4 (test) <img id="_969271050" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_42386091', '_969271050' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_42386091" style="display:none"><table class="bodyTable"><tr class="b"><th>Logging</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
+    well known logging systems.</p>
+<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
+<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>org.hibernate:hibernate-validator:jar:3.0.0.ga (test) <img id="_15081564" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_166955928', '_15081564' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_166955928" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate Validator</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Following the DRY (Don't Repeat Yourself) principle, Hibernate Validator let's you express your domain constraints once (and only once) and ensure their compliance at various level of your system automatically.</p>
+<p><b>URL: </b><a href="http://validator.hibernate.org" class="externalLink">http://validator.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>jboss:javassist:jar:3.3.ga (test) <img id="_1523598605" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1728390811', '_1523598605' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1728390811" style="display:none"><table class="bodyTable"><tr class="b"><th>Javassist</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Javassist (Java programming assistant) is a load-time reflective system for Java.</p>
+<p><b>URL: </b><a href="http://www.jboss.org/products/javassist" class="externalLink">http://www.jboss.org/products/javassist</a></p>
+<p><b>Project License: </b><a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/jboss/javassist/License.html?rev=HEAD&amp;content-type=text/html" class="externalLink">MPL 1.1</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>jboss:jboss-common-core:jar:2.0.4.GA (test) <img id="_360121325" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_895873723', '_360121325' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_895873723" style="display:none"><table class="bodyTable"><tr class="b"><th>JBoss Common Classes</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>JBoss Common Core Utility classes</p>
+<p><b>URL: </b><a href="http://www.jboss.org" class="externalLink">http://www.jboss.org</a></p>
+<p><b>Project License: </b><a href="http://repository.jboss.com/licenses/lgpl.txt" class="externalLink">lgpl</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>org.hibernate:hibernate:jar:3.2.6.ga (test) <img id="_1103100247" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2124785337', '_1103100247' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2124785337" style="display:none"><table class="bodyTable"><tr class="b"><th>Hibernate</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Relational Persistence for Java</p>
+<p><b>URL: </b><a href="http://www.hibernate.org" class="externalLink">http://www.hibernate.org</a></p>
+<p><b>Project License: </b><a href="http://www.gnu.org/licenses/lgpl.txt" class="externalLink">GNU LESSER GENERAL PUBLIC LICENSE</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>net.sf.ehcache:ehcache:jar:1.2.3 (test) <img id="_1481056120" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1701422960', '_1481056120' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1701422960" style="display:none"><table class="bodyTable"><tr class="b"><th>ehcache</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>ehcache is a pure Java, in-process cache with the following features:
 
    1. Fast.
    2. Simple.
@@ -529,63 +551,612 @@
    14. Available under the Apache 1.1 license. EHCache's copyright and licensing has been reviewed and approved by the Apache Software Foundation, making EHCache suitable for use in Apache projects.
    15. Production tested. EHCache is used on a large and very busy eCommerce site.
    16. Web caching, pull-through caches and other common caching implementations are provided in the ehcache-constructs module.</p>
-<p><a href="http://ehcache.sf.net" class="externalLink">http://ehcache.sf.net</a>
-</p>
-<p><a name="javax.transaction:jta:jar"><b>Java Transaction API</b>
-</a>
-</p>
-<p>The javax.transaction package. It is appropriate for inclusion in a classpath, and may be added to a Java 2 installation.</p>
-<p><a href="http://java.sun.com/products/jta" class="externalLink">http://java.sun.com/products/jta</a>
-</p>
-<p><a name="commons-logging:commons-logging:jar"><b>Logging</b>
-</a>
-</p>
-<p>Commons Logging is a thin adapter allowing configurable bridging to other,
+<p><b>URL: </b><a href="http://ehcache.sf.net" class="externalLink">http://ehcache.sf.net</a></p>
+<p><b>Project License: </b><a href="http://ehcache.sourceforge.net/LICENSE.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>commons-logging:commons-logging:jar:1.0.4 (test) <img id="_1072665297" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1633135060', '_1072665297' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1633135060" style="display:none"><table class="bodyTable"><tr class="b"><th>Logging</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
     well known logging systems.</p>
-<p><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a>
-</p>
-<p><a name="asm:asm-attrs:jar"><b>asm-attrs</b>
-</a>
-</p>
-<p><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a>
-</p>
-<p><a name="dom4j:dom4j:jar"><b>dom4j</b>
-</a>
-</p>
-<p>dom4j: the flexible XML framework for Java</p>
-<p><a href="http://dom4j.org" class="externalLink">http://dom4j.org</a>
-</p>
-<p><a name="antlr:antlr:jar"><b>AntLR</b>
-</a>
-</p>
-<p><a href="http://www.antlr.org/" class="externalLink">http://www.antlr.org/</a>
-</p>
-<p><a name="cglib:cglib:jar"><b>cglib</b>
-</a>
-</p>
-<p><a href="http://cglib.sourceforge.net/" class="externalLink">http://cglib.sourceforge.net/</a>
-</p>
-<p><a name="asm:asm:jar"><b>asm</b>
-</a>
-</p>
-<p><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a>
-</p>
-<p><a name="commons-collections:commons-collections:jar"><b>Commons Collections</b>
-</a>
-</p>
-<p>Types that extend and augment the Java Collections Framework.</p>
-<p><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a>
-</p>
-<p><a name="concurrent:concurrent:jar"><b>Dough Lea's util.concurrent package</b>
-</a>
-</p>
-<p><a name="joda-time:joda-time:jar"><b>Joda time</b>
-</a>
-</p>
-<p>Date and time library to replace JDK date handling.</p>
-<p><a href="http://joda-time.sourceforge.net" class="externalLink">http://joda-time.sourceforge.net</a>
-</p>
+<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
+<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>commons-collections:commons-collections:jar:3.2.1 (test) <img id="_1517784493" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_776934538', '_1517784493' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_776934538" style="display:none"><table class="bodyTable"><tr class="b"><th>Commons Collections</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Types that extend and augment the Java Collections Framework.</p>
+<p><b>URL: </b><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>javax.transaction:jta:jar:1.0.1B (test) <img id="_683154812" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_556192352', '_683154812' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_556192352" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - javax.transaction:jta:jar:1.0.1B</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>commons-logging:commons-logging:jar:1.0.4 (test) <img id="_1755933184" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1649298294', '_1755933184' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1649298294" style="display:none"><table class="bodyTable"><tr class="b"><th>Logging</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Commons Logging is a thin adapter allowing configurable bridging to other,
+    well known logging systems.</p>
+<p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
+<p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>asm:asm-attrs:jar:1.5.3 (test) <img id="_1502247917" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1861777778', '_1502247917' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1861777778" style="display:none"><table class="bodyTable"><tr class="b"><th>asm-attrs</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>dom4j:dom4j:jar:1.6.1 (test) <img id="_881971393" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_546740146', '_881971393' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_546740146" style="display:none"><table class="bodyTable"><tr class="b"><th>dom4j</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>dom4j: the flexible XML framework for Java</p>
+<p><b>URL: </b><a href="http://dom4j.org" class="externalLink">http://dom4j.org</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>antlr:antlr:jar:2.7.6 (test) <img id="_1608596832" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_795433062', '_1608596832' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_795433062" style="display:none"><table class="bodyTable"><tr class="b"><th>AntLR</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a href="http://www.antlr.org/" class="externalLink">http://www.antlr.org/</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>cglib:cglib:jar:2.1_3 (test) <img id="_2005355446" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_163578136', '_2005355446' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_163578136" style="display:none"><table class="bodyTable"><tr class="b"><th>cglib</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a href="http://cglib.sourceforge.net/" class="externalLink">http://cglib.sourceforge.net/</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div><ul><li>asm:asm:jar:1.5.3 (test) <img id="_1602828055" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_53047264', '_1602828055' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_53047264" style="display:none"><table class="bodyTable"><tr class="b"><th>asm</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>asm:asm:jar:1.5.3 (test) <img id="_2126027706" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_111989796', '_2126027706' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_111989796" style="display:none"><table class="bodyTable"><tr class="b"><th>asm</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a href="http://asm.objectweb.org/" class="externalLink">http://asm.objectweb.org/</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>commons-collections:commons-collections:jar:3.2.1 (test) <img id="_376192878" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_206331130', '_376192878' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_206331130" style="display:none"><table class="bodyTable"><tr class="b"><th>Commons Collections</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Types that extend and augment the Java Collections Framework.</p>
+<p><b>URL: </b><a href="http://commons.apache.org/collections/" class="externalLink">http://commons.apache.org/collections/</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>concurrent:concurrent:jar:1.3.4 (test) <img id="_1368241562" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1898271313', '_1368241562' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1898271313" style="display:none"><table class="bodyTable"><tr class="b"><th>Dough Lea's util.concurrent package</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b><a href="&gt;http://gee.cs.oswego.edu/dl/classes/EDU/oswego/cs/dl/util/concurrent/intro.html">Public domain, Sun Microsoystems</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>joda-time:joda-time:jar:1.6 (test) <img id="_751092381" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1775847820', '_751092381' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1775847820" style="display:none"><table class="bodyTable"><tr class="b"><th>Joda time</th>
+</tr>
+<tr class="a"><td><p><b>Description: </b>Date and time library to replace JDK date handling.</p>
+<p><b>URL: </b><a href="http://joda-time.sourceforge.net" class="externalLink">http://joda-time.sourceforge.net</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/" class="externalLink">Apache 2</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+</ul>
 </div>
+</div>
+<a name="Licenses"></a><div class="section"><h2>Licenses</h2>
+<p><b>Unknown: </b>AntLR, Unnamed - javax.transaction:jta:jar:1.0.1B, asm, asm-attrs, cglib, dom4j</p>
+<p><b>lgpl: </b>JBoss Common Classes</p>
+<p><b>MPL 1.1: </b>Javassist</p>
+<p><b>The GNU General Public License, Version 2: </b>MySQL java connector</p>
+<p><b>GNU LESSER GENERAL PUBLIC LICENSE: </b>Hibernate, Hibernate Annotations, Hibernate Commons Annotations, Hibernate Entity Manager, Hibernate Validator</p>
+<p><b>The Apache Software License, Version 2.0: </b>Commons Collections, Logging, ehcache</p>
+<p><b>Common Development and Distribution License (CDDL) v1.0: </b>Enterprise JavaBeans (EJB) 3.0</p>
+<p><b>Common Public License Version 1.0: </b>JUnit</p>
+<p><b>Apache 2: </b>Joda time</p>
+<p><b>Public domain, Sun Microsoystems: </b>Dough Lea's util.concurrent package</p>
+<p><b>Apache License, Version 2.0: </b>Database model, TestNG</p>
+</div>
+<a name="Dependency_File_Details"></a><div class="section"><h2>Dependency File Details</h2>
+<table class="bodyTable"><tbody><tr class="b"><th align="left">Filename</th>
+<th align="right">Size</th>
+<th align="right">Entries</th>
+<th align="right">Classes</th>
+<th align="right">Packages</th>
+<th align="center">JDK Rev</th>
+<th align="center">Debug</th>
+</tr>
+<tr class="a"><td align="left">antlr-2.7.6.jar</td>
+<td align="right">433.04 kB</td>
+<td align="right">226</td>
+<td align="right">224</td>
+<td align="right">12</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">asm-1.5.3.jar</td>
+<td align="right">25.74 kB</td>
+<td align="right">19</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="center">1.2</td>
+<td align="center">release</td>
+</tr>
+<tr class="a"><td align="left">asm-attrs-1.5.3.jar</td>
+<td align="right">16.36 kB</td>
+<td align="right">22</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="center">1.2</td>
+<td align="center">release</td>
+</tr>
+<tr class="b"><td align="left">cglib-2.1_3.jar</td>
+<td align="right">275.72 kB</td>
+<td align="right">243</td>
+<td align="right">228</td>
+<td align="right">8</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">commons-collections-3.2.1.jar</td>
+<td align="right">561.90 kB</td>
+<td align="right">482</td>
+<td align="right">458</td>
+<td align="right">12</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">commons-logging-1.0.4.jar</td>
+<td align="right">37.12 kB</td>
+<td align="right">29</td>
+<td align="right">18</td>
+<td align="right">2</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">concurrent-1.3.4.jar</td>
+<td align="right">184.85 kB</td>
+<td align="right">230</td>
+<td align="right">221</td>
+<td align="right">2</td>
+<td align="center">1.1</td>
+<td align="center">release</td>
+</tr>
+<tr class="b"><td align="left">dom4j-1.6.1.jar</td>
+<td align="right">306.54 kB</td>
+<td align="right">208</td>
+<td align="right">190</td>
+<td align="right">14</td>
+<td align="center">1.3</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">persistence-api-1.0.jar</td>
+<td align="right">50.93 kB</td>
+<td align="right">97</td>
+<td align="right">91</td>
+<td align="right">2</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">jta-1.0.1B.jar</td>
+<td align="right">8.52 kB</td>
+<td align="right">22</td>
+<td align="right">17</td>
+<td align="right">2</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">javassist-3.3.ga.jar</td>
+<td align="right">448.89 kB</td>
+<td align="right">271</td>
+<td align="right">254</td>
+<td align="right">15</td>
+<td align="center">1.2</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">jboss-common-core-2.0.4.GA.jar</td>
+<td align="right">409.50 kB</td>
+<td align="right">376</td>
+<td align="right">338</td>
+<td align="right">28</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">joda-time-1.6.jar</td>
+<td align="right">522.29 kB</td>
+<td align="right">675</td>
+<td align="right">222</td>
+<td align="right">7</td>
+<td align="center">1.3</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">junit-4.4.jar</td>
+<td align="right">157.69 kB</td>
+<td align="right">188</td>
+<td align="right">154</td>
+<td align="right">20</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">mysql-connector-java-5.1.6.jar</td>
+<td align="right">686.78 kB</td>
+<td align="right">258</td>
+<td align="right">225</td>
+<td align="right">11</td>
+<td align="center">1.6</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">ehcache-1.2.3.jar</td>
+<td align="right">203.17 kB</td>
+<td align="right">137</td>
+<td align="right">117</td>
+<td align="right">13</td>
+<td align="center">1.3</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">hibernate-3.2.6.ga.jar</td>
+<td align="right">2.17 MB</td>
+<td align="right">1,445</td>
+<td align="right">1,361</td>
+<td align="right">78</td>
+<td align="center">1.4</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">hibernate-annotations-3.3.0.ga.jar</td>
+<td align="right">258.92 kB</td>
+<td align="right">154</td>
+<td align="right">142</td>
+<td align="right">7</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">hibernate-commons-annotations-3.0.0.ga.jar</td>
+<td align="right">64.87 kB</td>
+<td align="right">68</td>
+<td align="right">57</td>
+<td align="right">6</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">hibernate-entitymanager-3.3.1.ga.jar</td>
+<td align="right">113.81 kB</td>
+<td align="right">92</td>
+<td align="right">77</td>
+<td align="right">8</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">hibernate-validator-3.0.0.ga.jar</td>
+<td align="right">59.56 kB</td>
+<td align="right">72</td>
+<td align="right">53</td>
+<td align="right">3</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">testng-5.8-jdk15.jar</td>
+<td align="right">823.70 kB</td>
+<td align="right">608</td>
+<td align="right">494</td>
+<td align="right">34</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><th align="left">Total</th>
+<th align="right">Size</th>
+<th align="right">Entries</th>
+<th align="right">Classes</th>
+<th align="right">Packages</th>
+<th align="center">JDK Rev</th>
+<th align="center">Debug</th>
+</tr>
+<tr class="b"><td align="right">22</td>
+<td align="right">7.69 MB</td>
+<td align="right">5,922</td>
+<td align="right">4,971</td>
+<td align="right">286</td>
+<td align="center">1.6</td>
+<td align="right">19</td>
+</tr>
+<tr class="a"><td align="right">compile: 1</td>
+<td align="right">compile: 50.93 kB</td>
+<td align="right">compile: 97</td>
+<td align="right">compile: 91</td>
+<td align="right">compile: 2</td>
+<td align="center">-</td>
+<td align="right">compile: 1</td>
+</tr>
+<tr class="b"><td align="right">test: 21</td>
+<td align="right">test: 7.64 MB</td>
+<td align="right">test: 5,825</td>
+<td align="right">test: 4,880</td>
+<td align="right">test: 284</td>
+<td align="center">-</td>
+<td align="right">test: 18</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a name="Dependency_Repository_Locations"></a><div class="section"><h2>Dependency Repository Locations</h2>
+<table class="bodyTable"><tbody><tr class="a"><th align="left">Repo ID</th>
+<th align="left">URL</th>
+<th align="center">Release</th>
+<th align="center">Snapshot</th>
+</tr>
+<tr class="b"><td align="left">central</td>
+<td align="left"><a href="http://repo1.maven.org/maven2" class="externalLink">http://repo1.maven.org/maven2</a></td>
+<td align="center">Yes</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">codehaus-repository</td>
+<td align="left"><a href="http://repository.codehaus.org" class="externalLink">http://repository.codehaus.org</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="b"><td align="left">chrissearle-snapshots</td>
+<td align="left"><a href="http://dev.chrissearle.net/nexus/content/groups/public-snapshots" class="externalLink">http://dev.chrissearle.net/nexus/content/groups/public-snapshots</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="a"><td align="left">apache-snapshot-repository</td>
+<td align="left"><a href="http://people.apache.org/repo/m2-snapshot-repository" class="externalLink">http://people.apache.org/repo/m2-snapshot-repository</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="b"><td align="left">apache.snapshots</td>
+<td align="left"><a href="http://people.apache.org/repo/m2-snapshot-repository" class="externalLink">http://people.apache.org/repo/m2-snapshot-repository</a></td>
+<td align="center">-</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="a"><td align="left">chrissearle</td>
+<td align="left"><a href="http://dev.chrissearle.net/nexus/content/groups/public" class="externalLink">http://dev.chrissearle.net/nexus/content/groups/public</a></td>
+<td align="center">Yes</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<p>Repository locations for each of the Dependencies.</p>
+<table class="bodyTable"><tbody><tr class="b"><th align="left">Artifact</th>
+<th align="center">central</th>
+<th align="center">codehaus-repository</th>
+<th align="center">chrissearle-snapshots</th>
+<th align="center">apache-snapshot-repository</th>
+<th align="center">apache.snapshots</th>
+<th align="center">chrissearle</th>
+</tr>
+<tr class="a"><td align="left">antlr:antlr:jar:2.7.6</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/antlr/antlr/2.7.6/antlr-2.7.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/antlr/antlr/2.7.6/antlr-2.7.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">asm:asm:jar:1.5.3</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/asm/asm/1.5.3/asm-1.5.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/asm/asm/1.5.3/asm-1.5.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">asm:asm-attrs:jar:1.5.3</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/asm/asm-attrs/1.5.3/asm-attrs-1.5.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/asm/asm-attrs/1.5.3/asm-attrs-1.5.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">cglib:cglib:jar:2.1_3</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/cglib/cglib/2.1_3/cglib-2.1_3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">commons-collections:commons-collections:jar:3.2.1</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">commons-logging:commons-logging:jar:1.0.4</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">concurrent:concurrent:jar:1.3.4</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">dom4j:dom4j:jar:1.6.1</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">javax.persistence:persistence-api:jar:1.0</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">javax.transaction:jta:jar:1.0.1B</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/javax/transaction/jta/1.0.1B/jta-1.0.1B.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">jboss:javassist:jar:3.3.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/jboss/javassist/3.3.ga/javassist-3.3.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jboss/javassist/3.3.ga/javassist-3.3.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">jboss:jboss-common-core:jar:2.0.4.GA</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/jboss/jboss-common-core/2.0.4.GA/jboss-common-core-2.0.4.GA.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/jboss/jboss-common-core/2.0.4.GA/jboss-common-core-2.0.4.GA.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">joda-time:joda-time:jar:1.6</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/joda-time/joda-time/1.6/joda-time-1.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/joda-time/joda-time/1.6/joda-time-1.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">junit:junit:jar:4.4</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/junit/junit/4.4/junit-4.4.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/junit/junit/4.4/junit-4.4.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">mysql:mysql-connector-java:jar:5.1.6</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">net.sf.ehcache:ehcache:jar:1.2.3</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.hibernate:hibernate:jar:3.2.6.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate/3.2.6.ga/hibernate-3.2.6.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate/3.2.6.ga/hibernate-3.2.6.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">org.hibernate:hibernate-annotations:jar:3.3.0.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-annotations/3.3.0.ga/hibernate-annotations-3.3.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-annotations/3.3.0.ga/hibernate-annotations-3.3.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.hibernate:hibernate-commons-annotations:jar:3.0.0.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-commons-annotations/3.0.0.ga/hibernate-commons-annotations-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-commons-annotations/3.0.0.ga/hibernate-commons-annotations-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">org.hibernate:hibernate-entitymanager:jar:3.3.1.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-entitymanager/3.3.1.ga/hibernate-entitymanager-3.3.1.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-entitymanager/3.3.1.ga/hibernate-entitymanager-3.3.1.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.hibernate:hibernate-validator:jar:3.0.0.ga</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/hibernate/hibernate-validator/3.0.0.ga/hibernate-validator-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/hibernate/hibernate-validator/3.0.0.ga/hibernate-validator-3.0.0.ga.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">org.testng:testng:jar:jdk15:5.8</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/testng/testng/5.8/testng-5.8-jdk15.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://dev.chrissearle.net/nexus/content/groups/public/org/testng/testng/5.8/testng-5.8-jdk15.jar" class="externalLink"><img alt="Found at http://dev.chrissearle.net/nexus/content/groups/public" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><th align="left">Total</th>
+<th align="center">central</th>
+<th align="center">codehaus-repository</th>
+<th align="center">chrissearle-snapshots</th>
+<th align="center">apache-snapshot-repository</th>
+<th align="center">apache.snapshots</th>
+<th align="center">chrissearle</th>
+</tr>
+<tr class="b"><td align="left">22 (compile: 1, test: 21)</td>
+<td align="center">21</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">22</td>
+</tr>
+</tbody>
+</table>
 </div>
 
       </div>

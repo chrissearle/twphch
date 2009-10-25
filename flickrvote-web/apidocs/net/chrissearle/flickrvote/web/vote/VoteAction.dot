@@ -8,14 +8,14 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c3059 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
+	c3287 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c3062 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
+	c3290 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
@@ -23,33 +23,33 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.vote.VoteAction
-	c3069 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./VoteAction.html">
+	c3297 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./VoteAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VoteAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Challenge
-	c3062:p -> c3059:p [dir=back,arrowtail=empty,style=dashed];
+	c3290:p -> c3287:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.vote.VoteAction extends com.opensymphony.xwork2.ActionSupport
-	c3071:p -> c3069:p [dir=back,arrowtail=empty];
+	c3299:p -> c3297:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.vote.VoteAction implements org.apache.struts2.interceptor.SessionAware
-	c3072:p -> c3069:p [dir=back,arrowtail=empty,style=dashed];
+	c3300:p -> c3297:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.vote.VoteAction implements com.opensymphony.xwork2.Preparable
-	c3073:p -> c3069:p [dir=back,arrowtail=empty,style=dashed];
+	c3301:p -> c3297:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC org.apache.log4j.Logger
-	c3069:p -> c3074:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3297:p -> c3302:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c3069:p -> c3062:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3297:p -> c3290:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c3069:p -> c3059:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3297:p -> c3287:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c3069:p -> c3075:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3297:p -> c3303:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c3069:p -> c3076:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3297:p -> c3304:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c3069:p -> c3062:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3297:p -> c3290:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c3076 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3304 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -57,7 +57,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.struts2.interceptor.SessionAware
-	c3072 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3300 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
@@ -65,14 +65,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.log4j.Logger
-	c3074 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3302 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.Preparable
-	c3073 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3301 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Preparable </td></tr>
@@ -80,14 +80,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c3071 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3299 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c3075 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3303 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>

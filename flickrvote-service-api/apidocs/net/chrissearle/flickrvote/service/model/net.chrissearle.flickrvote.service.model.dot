@@ -7,36 +7,50 @@
 digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
+	// net.chrissearle.flickrvote.service.model.Status
+	c24 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Status.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;enumeration&raquo; </td></tr>
+			<tr><td> Status </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.PhotographerItem
-	c21 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerItem.html">
+	c25 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographerItem </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.service.model.ImageItemStatus
+	c26 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ImageItemStatus.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> ImageItemStatus </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c22 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ImageItem.html">
+	c27 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ImageItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ChallengeType
-	c23 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeType.html">
+	c28 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeType.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;enumeration&raquo; </td></tr>
 			<tr><td> ChallengeType </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ChallengeSummary
-	c24 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeSummary.html">
+	c29 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeSummary </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ChallengeItem
-	c25 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeItem.html">
+	c30 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeItem </td></tr>

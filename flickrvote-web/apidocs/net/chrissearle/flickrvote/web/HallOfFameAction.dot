@@ -8,28 +8,28 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.HallOfFameAction
-	c2043 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./HallOfFameAction.html">
+	c2231 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./HallOfFameAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> HallOfFameAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c2053 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/DisplayImage.html">
+	c2241 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./model/DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.HallOfFameAction extends com.opensymphony.xwork2.ActionSupport
-	c2065:p -> c2043:p [dir=back,arrowtail=empty];
+	c2253:p -> c2231:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.HallOfFameAction implements com.opensymphony.xwork2.Preparable
-	c2066:p -> c2043:p [dir=back,arrowtail=empty,style=dashed];
+	c2254:p -> c2231:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.HallOfFameAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c2043:p -> c2067:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2231:p -> c2255:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.HallOfFameAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2043:p -> c2053:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2231:p -> c2241:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c2067 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2255 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -37,7 +37,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.Preparable
-	c2066 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2254 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Preparable </td></tr>
@@ -45,7 +45,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c2065 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2253 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

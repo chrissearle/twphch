@@ -8,17 +8,17 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.HistoryReportAction
-	c1991 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./HistoryReportAction.html">
+	c2177 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./HistoryReportAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> HistoryReportAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.HistoryReportAction extends com.opensymphony.xwork2.ActionSupport
-	c2014:p -> c1991:p [dir=back,arrowtail=empty];
+	c2200:p -> c2177:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.HistoryReportAction NAVASSOC net.chrissearle.flickrvote.service.ReportService
-	c1991:p -> c2015:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c2177:p -> c2201:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.ReportService
-	c2015 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2201 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ReportService </td></tr>
@@ -26,7 +26,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c2014 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2200 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

@@ -18,15 +18,15 @@ digraph G {
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
 	c6:p -> c15:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c6:p -> c23:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c6:p -> c22:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.ChallengeService
 	c6:p -> c15:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND net.chrissearle.flickrvote.service.PhotographyService
-	c6:p -> c23:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6:p -> c22:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.scheduler.FreezeAndOpenVotingJob DEPEND org.quartz.JobExecutionContext
-	c6:p -> c32:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c6:p -> c31:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c23 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c22 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -34,7 +34,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.quartz.JobExecutionContext
-	c32 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c31 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JobExecutionContext </td></tr>
 			<tr><td><font point-size="7.0"> org.quartz </font></td></tr>

@@ -8,13 +8,13 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.account.ShowAccountAction
-	c497 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowAccountAction.html">
+	c517 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ShowAccountAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowAccountAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Photographer
-	c584 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Photographer.html">
+	c610 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Photographer.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Photographer </td></tr>
@@ -22,15 +22,15 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.account.ShowAccountAction extends com.opensymphony.xwork2.ActionSupport
-	c624:p -> c497:p [dir=back,arrowtail=empty];
+	c650:p -> c517:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.account.ShowAccountAction implements org.apache.struts2.interceptor.SessionAware
-	c625:p -> c497:p [dir=back,arrowtail=empty,style=dashed];
+	c651:p -> c517:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.account.ShowAccountAction NAVASSOC net.chrissearle.flickrvote.web.model.Photographer
-	c497:p -> c584:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c517:p -> c610:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.account.ShowAccountAction DEPEND net.chrissearle.flickrvote.web.model.Photographer
-	c497:p -> c584:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c517:p -> c610:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.apache.struts2.interceptor.SessionAware
-	c625 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c651 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
@@ -38,7 +38,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c624 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c650 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>

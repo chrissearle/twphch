@@ -12,6 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Twitter PhotoChallenge - Reactor Dependency Convergence</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
@@ -19,8 +20,7 @@
       @import url("./css/site.css");
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      </head>
+          </head>
   <body class="composite">
     <div id="banner">
                     <span id="bannerLeft">
@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-09-05
+             Last Published: 2009-10-25
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -90,6 +90,12 @@
       
             
       
+            
+      
+            
+      
+            
+      
               
             <li class="expanded">
                     <a href="project-info.html">Project Information</a>
@@ -112,6 +118,10 @@
         </li>
                   
     <li class="none">
+                    <a href="dependency-management.html">Dependency Management</a>
+          </li>
+                  
+    <li class="none">
                     <a href="issue-tracking.html">Issue Tracking</a>
           </li>
                   
@@ -120,7 +130,15 @@
           </li>
                   
     <li class="none">
+                    <a href="plugin-management.html">Plugin Management</a>
+          </li>
+                  
+    <li class="none">
                     <a href="license.html">Project License</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugins.html">Project Plugins</a>
           </li>
                   
     <li class="none">
@@ -139,6 +157,10 @@
               
                 
               
+      
+            
+      
+            
       
             
       
@@ -182,7 +204,7 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section"><h2>Reactor Dependency Convergence</h2>
-<table class="bodyTable"><caption>Legend:</caption>
+<table class="bodyTable"><caption><b>Legend:</b></caption>
 <tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
 <td>All projects share one version of the dependency.</td>
 </tr>
@@ -190,34 +212,34 @@
 <td>At least one project has a differing version of the dependency.</td>
 </tr>
 </table>
-<table class="bodyTable"><caption>Statistics</caption>
+<br />
+<table class="bodyTable"><caption><b>Statistics:</b></caption>
 <tr class="a"><th>Number of sub-projects:</th>
 <td>11</td>
 </tr>
 <tr class="b"><th>Number of dependencies (NOD):</th>
-<td>43</td>
+<td>49</td>
 </tr>
 <tr class="a"><th>Number of unique artifacts (NOA):</th>
-<td>43</td>
+<td>49</td>
 </tr>
 <tr class="b"><th>Number of SNAPSHOT artifacts (NOS):</th>
-<td>9</td>
+<td>1</td>
 </tr>
 <tr class="a"><th>Convergence (NOD/NOA):</th>
-<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100%</b>
-</td>
+<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100%</b></td>
 </tr>
 <tr class="b"><th>Ready for Release (100% Convergence and no SNAPSHOTS):</th>
-<td><img alt="error" src="images/icon_error_sml.gif" />&#160;<b>Error</b>
-<br />
+<td><img alt="error" src="images/icon_error_sml.gif" />&#160;<b>Error</b><br />
 You have SNAPSHOT dependencies.</td>
 </tr>
 </table>
-Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:flickrapi</h3>
+</div>
+<div class="section"><h3>Dependencies used in sub-projects</h3>
+<div class="section"><h4>com.aetrion.flickr:flickrapi</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
 </ol>
 </td>
 </tr>
@@ -226,11 +248,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>com.lowagie:itext</h3>
+<div class="section"><h4>com.lowagie:itext</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.5</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.5</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -239,11 +260,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>com.rosaloves:bitlyj</h3>
+<div class="section"><h4>com.rosaloves:bitlyj</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.0-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -252,13 +272,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>commons-collections:commons-collections</h3>
+<div class="section"><h4>commons-collections:commons-collections</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>3.2.1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.2.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -267,15 +285,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>concurrent:concurrent</h3>
+<div class="section"><h4>commons-io:commons-io</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.3.4</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -284,11 +297,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>javax.mail:mail</h3>
+<div class="section"><h4>concurrent:concurrent</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.4</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.3.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -297,11 +311,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>javax.persistence:persistence-api</h3>
+<div class="section"><h4>javax.mail:mail</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.0</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
 </ol>
 </td>
 </tr>
@@ -310,11 +323,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>javax.servlet:jsp-api</h3>
+<div class="section"><h4>javax.persistence:persistence-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.0</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
 </ol>
 </td>
 </tr>
@@ -323,11 +335,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>javax.servlet:servlet-api</h3>
+<div class="section"><h4>javax.servlet:jsp-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.4</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.0</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -336,13 +347,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>jfree:jfreechart</h3>
+<div class="section"><h4>javax.servlet:servlet-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.0.9</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -351,15 +359,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>joda-time:joda-time</h3>
+<div class="section"><h4>jfree:jfreechart</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0.9</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -368,23 +372,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>log4j:log4j</h3>
+<div class="section"><h4>joda-time:joda-time</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.2.14</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -393,13 +386,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>mysql:mysql-connector-java</h3>
+<div class="section"><h4>junit:junit</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>5.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">4.4</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
 </ol>
 </td>
 </tr>
@@ -408,11 +399,16 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle.common:jpa</h3>
+<div class="section"><h4>log4j:log4j</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.2.14</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -421,13 +417,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle.common:simple-mail-api</h3>
+<div class="section"><h4>mysql:mysql-connector-java</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">5.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
 </ol>
 </td>
 </tr>
@@ -436,13 +430,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle.common:simple-mail-spring</h3>
+<div class="section"><h4>net.chrissearle.common:jpa</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a></li>
 </ol>
 </td>
 </tr>
@@ -451,13 +442,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-data-api</h3>
+<div class="section"><h4>net.chrissearle.common:simple-mail-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -466,13 +455,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-data-spring</h3>
+<div class="section"><h4>net.chrissearle.common:simple-mail-spring</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -481,15 +468,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-flickr</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-data-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -498,15 +481,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-model</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-data-spring</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -515,11 +494,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-scheduler-spring</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-flickr</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -528,13 +508,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-service-api</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-model</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-api" class="externalLink">net.chrissearle:flickrvote-data-api</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-api" class="externalLink">net.chrissearle:flickrvote-service-api</a></li>
 </ol>
 </td>
 </tr>
@@ -543,15 +522,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-service-spring</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-scheduler-spring</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -560,13 +534,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.chrissearle:flickrvote-twitter</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-service-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1-SNAPSHOT</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -575,11 +547,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>net.homeip.yusuke:twitter4j</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-service-spring</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.0.9</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -588,11 +561,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.apache.struts:struts2-core</h3>
+<div class="section"><h4>net.chrissearle:flickrvote-twitter</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1-SNAPSHOT</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -601,11 +574,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.apache.struts:struts2-dojo-plugin</h3>
+<div class="section"><h4>net.homeip.yusuke:twitter4j</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.0.9</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
 </ol>
 </td>
 </tr>
@@ -614,11 +586,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.apache.struts:struts2-jfreechart-plugin</h3>
+<div class="section"><h4>org.apache.struts:struts2-core</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -627,11 +598,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.apache.struts:struts2-sitemesh-plugin</h3>
+<div class="section"><h4>org.apache.struts:struts2-dojo-plugin</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -640,11 +610,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.apache.struts:struts2-spring-plugin</h3>
+<div class="section"><h4>org.apache.struts:struts2-jfreechart-plugin</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.1.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -653,15 +622,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.hibernate:hibernate</h3>
+<div class="section"><h4>org.apache.struts:struts2-sitemesh-plugin</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>3.2.6.ga</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -670,15 +634,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.hibernate:hibernate-entitymanager</h3>
+<div class="section"><h4>org.apache.struts:struts2-spring-plugin</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>3.3.1.ga</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.1.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -687,11 +646,13 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.opensymphony.quartz:quartz</h3>
+<div class="section"><h4>org.constretto:constretto-api</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>1.6.1</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0-beta-2</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -700,13 +661,13 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-aop</h3>
+<div class="section"><h4>org.constretto:constretto-core</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0-beta-2</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -715,15 +676,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-beans</h3>
+<div class="section"><h4>org.constretto:constretto-spring</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.0-beta-2</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -732,19 +689,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-context</h3>
+<div class="section"><h4>org.hibernate:hibernate</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.2.6.ga</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -753,11 +703,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-context-support</h3>
+<div class="section"><h4>org.hibernate:hibernate-entitymanager</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">3.3.1.ga</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -766,11 +717,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-core</h3>
+<div class="section"><h4>org.mockito:mockito-all</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.8.0</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
 </ol>
 </td>
 </tr>
@@ -779,11 +729,10 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-jdbc</h3>
+<div class="section"><h4>org.opensymphony.quartz:quartz</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">1.6.1</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
 </ol>
 </td>
 </tr>
@@ -792,13 +741,11 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-orm</h3>
+<div class="section"><h4>org.springframework:spring-aop</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -807,15 +754,12 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-tx</h3>
+<div class="section"><h4>org.springframework:spring-beans</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -824,11 +768,14 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.springframework:spring-web</h3>
+<div class="section"><h4>org.springframework:spring-context</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>2.5.6</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-twitter" class="externalLink">net.chrissearle:flickrvote-twitter</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
 </ol>
 </td>
 </tr>
@@ -837,15 +784,86 @@ Dependencies used in sub-projects<div class="section"><h3>com.aetrion.flickr:fli
 </tr>
 </table>
 </div>
-<div class="section"><h3>org.testng:testng</h3>
+<div class="section"><h4>org.springframework:spring-context-support</h4>
 <table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
-<td><table class="bodyTable"><tr class="b"><td>5.8</td>
-<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a>
-</li>
-<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a>
-</li>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-scheduler-spring" class="externalLink">net.chrissearle:flickrvote-scheduler-spring</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-core</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-jdbc</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-orm</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring-cli" class="externalLink">net.chrissearle:flickrvote-service-spring-cli</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-tx</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-data-spring" class="externalLink">net.chrissearle:flickrvote-data-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-service-spring" class="externalLink">net.chrissearle:flickrvote-service-spring</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.springframework:spring-web</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">2.5.6</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-web" class="externalLink">net.chrissearle:flickrvote-web</a></li>
+</ol>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h4>org.testng:testng</h4>
+<table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td>
+<td><table class="bodyTable"><tr class="b"><td width="25%">5.8</td>
+<td><ol type="a"><li><a href="http://chrissearle.github.com/twphch/flickrvote-flickr" class="externalLink">net.chrissearle:flickrvote-flickr</a></li>
+<li><a href="http://chrissearle.github.com/twphch/flickrvote-model" class="externalLink">net.chrissearle:flickrvote-model</a></li>
 </ol>
 </td>
 </tr>

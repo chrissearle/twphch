@@ -20,19 +20,13 @@ digraph G {
 			<tr><td> TwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.twitter.TwitterHolder
-	c2 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TwitterHolder.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> TwitterHolder </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.twitter.Twitter4jTwitterService
-	c3 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Twitter4jTwitterService.html">
+	c2 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Twitter4jTwitterService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Twitter4jTwitterService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.twitter.Twitter4jTwitterService implements net.chrissearle.flickrvote.twitter.TwitterService
-	c1:p -> c3:p [dir=back,arrowtail=empty,style=dashed];
+	c1:p -> c2:p [dir=back,arrowtail=empty,style=dashed];
 }
 

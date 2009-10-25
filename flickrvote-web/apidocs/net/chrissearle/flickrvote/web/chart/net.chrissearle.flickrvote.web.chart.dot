@@ -8,19 +8,19 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.chart.ShowVotingChartAction
-	c115 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowVotingChartAction.html">
+	c121 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowVotingChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowVotingChartAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction
-	c116 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowPhotograperChartAction.html">
+	c122 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowPhotograperChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowPhotograperChartAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.chart.ShowChartAction
-	c117 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
+	c123 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChartAction </td></tr>
 		</table></td></tr>

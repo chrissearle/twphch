@@ -137,7 +137,7 @@
 <a name="127" href="#127">127</a>             Map&lt;String, FlickrImage&gt; seenPhotographers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, FlickrImage&gt;();
 <a name="128" href="#128">128</a> 
 <a name="129" href="#129">129</a>             <strong class="jxr_keyword">for</strong> (Photo photo : photos) {
-<a name="130" href="#130">130</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> image = getImageByFlickrId(photo.getId());
+<a name="130" href="#130">130</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> image = convertPhotoToFlickrImage(photo);
 <a name="131" href="#131">131</a> 
 <a name="132" href="#132">132</a>                 <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
 <a name="133" href="#133">133</a>                     logger.debug(<span class="jxr_string">"Search result: "</span> + image);
@@ -181,167 +181,173 @@
 <a name="171" href="#171">171</a>         SearchParameters params = <strong class="jxr_keyword">new</strong> SearchParameters();
 <a name="172" href="#172">172</a>         params.setTags(tags);
 <a name="173" href="#173">173</a> 
-<a name="174" href="#174">174</a>         List&lt;Photo&gt; photos = (List&lt;Photo&gt;) photosInterface.search(params, 500, 1);
-<a name="175" href="#175">175</a>         <strong class="jxr_keyword">return</strong> photos;
-<a name="176" href="#176">176</a>     }
-<a name="177" href="#177">177</a> 
-<a name="178" href="#178">178</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> getUserByFlickrId(String id) {
-<a name="179" href="#179">179</a>         <strong class="jxr_keyword">try</strong> {
-<a name="180" href="#180">180</a>             User user = getUser(id);
-<a name="181" href="#181">181</a> 
-<a name="182" href="#182">182</a>             <strong class="jxr_keyword">if</strong> (user != <strong class="jxr_keyword">null</strong>) {
-<a name="183" href="#183">183</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> flickrPhotographer = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a>(id, <strong class="jxr_keyword">null</strong>, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
-<a name="184" href="#184">184</a> 
-<a name="185" href="#185">185</a>                 <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="186" href="#186">186</a>                     logger.info(<span class="jxr_string">"Photographer retrieved "</span> + flickrPhotographer.getUsername());
-<a name="187" href="#187">187</a>                 }
-<a name="188" href="#188">188</a> 
-<a name="189" href="#189">189</a>                 <strong class="jxr_keyword">return</strong> flickrPhotographer;
-<a name="190" href="#190">190</a>             }
-<a name="191" href="#191">191</a> 
-<a name="192" href="#192">192</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="193" href="#193">193</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
-<a name="194" href="#194">194</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="195" href="#195">195</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
-<a name="196" href="#196">196</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="197" href="#197">197</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a name="198" href="#198">198</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="199" href="#199">199</a>         }
-<a name="200" href="#200">200</a>     }
-<a name="201" href="#201">201</a> 
-<a name="202" href="#202">202</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> getImageByFlickrId(String id) {
-<a name="203" href="#203">203</a>         PhotosInterface photosInterface = flickr.getPhotosInterface();
-<a name="204" href="#204">204</a> 
-<a name="205" href="#205">205</a>         <strong class="jxr_keyword">try</strong> {
-<a name="206" href="#206">206</a>             Photo photo = photosInterface.getPhoto(id);
+<a name="174" href="#174">174</a>         <em class="jxr_comment">// By grabbing the dates at this point - saves us a call to get image.</em>
+<a name="175" href="#175">175</a>         <em class="jxr_comment">// We don't bother asking for names here to save a call to get photographer since that is</em>
+<a name="176" href="#176">176</a>         <em class="jxr_comment">// still needed to get the user icon/avatar.</em>
+<a name="177" href="#177">177</a>         params.setExtrasDateUpload(<strong class="jxr_keyword">true</strong>);
+<a name="178" href="#178">178</a>         params.setExtrasDateTaken(<strong class="jxr_keyword">true</strong>);
+<a name="179" href="#179">179</a> 
+<a name="180" href="#180">180</a>         List&lt;Photo&gt; photos = (List&lt;Photo&gt;) photosInterface.search(params, 500, 1);
+<a name="181" href="#181">181</a>         <strong class="jxr_keyword">return</strong> photos;
+<a name="182" href="#182">182</a>     }
+<a name="183" href="#183">183</a> 
+<a name="184" href="#184">184</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> getUserByFlickrId(String id) {
+<a name="185" href="#185">185</a>         <strong class="jxr_keyword">try</strong> {
+<a name="186" href="#186">186</a>             User user = getUser(id);
+<a name="187" href="#187">187</a> 
+<a name="188" href="#188">188</a>             <strong class="jxr_keyword">if</strong> (user != <strong class="jxr_keyword">null</strong>) {
+<a name="189" href="#189">189</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> flickrPhotographer = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a>(id, <strong class="jxr_keyword">null</strong>, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+<a name="190" href="#190">190</a> 
+<a name="191" href="#191">191</a>                 <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="192" href="#192">192</a>                     logger.info(<span class="jxr_string">"Photographer retrieved "</span> + flickrPhotographer.getUsername());
+<a name="193" href="#193">193</a>                 }
+<a name="194" href="#194">194</a> 
+<a name="195" href="#195">195</a>                 <strong class="jxr_keyword">return</strong> flickrPhotographer;
+<a name="196" href="#196">196</a>             }
+<a name="197" href="#197">197</a> 
+<a name="198" href="#198">198</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="199" href="#199">199</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
+<a name="200" href="#200">200</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="201" href="#201">201</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
+<a name="202" href="#202">202</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="203" href="#203">203</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a name="204" href="#204">204</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="205" href="#205">205</a>         }
+<a name="206" href="#206">206</a>     }
 <a name="207" href="#207">207</a> 
-<a name="208" href="#208">208</a>             <strong class="jxr_keyword">if</strong> (photo != <strong class="jxr_keyword">null</strong>) {
-<a name="209" href="#209">209</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> flickrImage = convertPhotoToFlickrImage(photo);
+<a name="208" href="#208">208</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> getImageByFlickrId(String id) {
+<a name="209" href="#209">209</a>         PhotosInterface photosInterface = flickr.getPhotosInterface();
 <a name="210" href="#210">210</a> 
-<a name="211" href="#211">211</a>                 <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="212" href="#212">212</a>                     logger.info(<span class="jxr_string">"Image retrieved "</span> + flickrImage.getFlickrId());
-<a name="213" href="#213">213</a>                 }
-<a name="214" href="#214">214</a> 
-<a name="215" href="#215">215</a>                 <strong class="jxr_keyword">return</strong> flickrImage;
-<a name="216" href="#216">216</a>             }
-<a name="217" href="#217">217</a> 
-<a name="218" href="#218">218</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a name="219" href="#219">219</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
-<a name="220" href="#220">220</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="221" href="#221">221</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
-<a name="222" href="#222">222</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="223" href="#223">223</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a name="224" href="#224">224</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="225" href="#225">225</a>         }
-<a name="226" href="#226">226</a>     }
-<a name="227" href="#227">227</a> 
-<a name="228" href="#228">228</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> postForum(String title, String text) {
-<a name="229" href="#229">229</a>         <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
-<a name="230" href="#230">230</a>             logger.debug(<span class="jxr_string">"Posting to forum TITLE: "</span> + title + <span class="jxr_string">" TEXT: "</span> + text);
+<a name="211" href="#211">211</a>         <strong class="jxr_keyword">try</strong> {
+<a name="212" href="#212">212</a>             Photo photo = photosInterface.getPhoto(id);
+<a name="213" href="#213">213</a> 
+<a name="214" href="#214">214</a>             <strong class="jxr_keyword">if</strong> (photo != <strong class="jxr_keyword">null</strong>) {
+<a name="215" href="#215">215</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> flickrImage = convertPhotoToFlickrImage(photo);
+<a name="216" href="#216">216</a> 
+<a name="217" href="#217">217</a>                 <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="218" href="#218">218</a>                     logger.info(<span class="jxr_string">"Image retrieved "</span> + flickrImage.getFlickrId());
+<a name="219" href="#219">219</a>                 }
+<a name="220" href="#220">220</a> 
+<a name="221" href="#221">221</a>                 <strong class="jxr_keyword">return</strong> flickrImage;
+<a name="222" href="#222">222</a>             }
+<a name="223" href="#223">223</a> 
+<a name="224" href="#224">224</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="225" href="#225">225</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
+<a name="226" href="#226">226</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="227" href="#227">227</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
+<a name="228" href="#228">228</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="229" href="#229">229</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a name="230" href="#230">230</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
 <a name="231" href="#231">231</a>         }
-<a name="232" href="#232">232</a> 
-<a name="233" href="#233">233</a>         <em class="jxr_comment">// The flickr API does not support group discussion posts. So all we can do is mail it.</em>
-<a name="234" href="#234">234</a>         mailService.sendPost(title, text);
-<a name="235" href="#235">235</a>     }
-<a name="236" href="#236">236</a> 
-<a name="237" href="#237">237</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> postComment(String imageId, String comment) {
-<a name="238" href="#238">238</a>         <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
-<a name="239" href="#239">239</a>             logger.debug(<span class="jxr_string">"Posting comment check: "</span> + adminActiveFlag);
-<a name="240" href="#240">240</a>         }
-<a name="241" href="#241">241</a> 
-<a name="242" href="#242">242</a>         <strong class="jxr_keyword">if</strong> (adminActiveFlag) {
-<a name="243" href="#243">243</a>             <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
-<a name="244" href="#244">244</a>                 logger.debug(<span class="jxr_string">"Posting to comment ID: "</span> + imageId + <span class="jxr_string">" COMMENT: "</span> + comment);
-<a name="245" href="#245">245</a>             }
-<a name="246" href="#246">246</a> 
-<a name="247" href="#247">247</a>             <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="248" href="#248">248</a>                 logger.info(<span class="jxr_string">"Image commented: "</span> + imageId);
-<a name="249" href="#249">249</a>             }
-<a name="250" href="#250">250</a> 
-<a name="251" href="#251">251</a>             CommentsInterface commentsInterface = flickr.getCommentsInterface();
+<a name="232" href="#232">232</a>     }
+<a name="233" href="#233">233</a> 
+<a name="234" href="#234">234</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> postForum(String title, String text) {
+<a name="235" href="#235">235</a>         <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
+<a name="236" href="#236">236</a>             logger.debug(<span class="jxr_string">"Posting to forum TITLE: "</span> + title + <span class="jxr_string">" TEXT: "</span> + text);
+<a name="237" href="#237">237</a>         }
+<a name="238" href="#238">238</a> 
+<a name="239" href="#239">239</a>         <em class="jxr_comment">// The flickr API does not support group discussion posts. So all we can do is mail it.</em>
+<a name="240" href="#240">240</a>         mailService.sendPost(title, text);
+<a name="241" href="#241">241</a>     }
+<a name="242" href="#242">242</a> 
+<a name="243" href="#243">243</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> postComment(String imageId, String comment) {
+<a name="244" href="#244">244</a>         <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
+<a name="245" href="#245">245</a>             logger.debug(<span class="jxr_string">"Posting comment check: "</span> + adminActiveFlag);
+<a name="246" href="#246">246</a>         }
+<a name="247" href="#247">247</a> 
+<a name="248" href="#248">248</a>         <strong class="jxr_keyword">if</strong> (adminActiveFlag) {
+<a name="249" href="#249">249</a>             <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
+<a name="250" href="#250">250</a>                 logger.debug(<span class="jxr_string">"Posting to comment ID: "</span> + imageId + <span class="jxr_string">" COMMENT: "</span> + comment);
+<a name="251" href="#251">251</a>             }
 <a name="252" href="#252">252</a> 
-<a name="253" href="#253">253</a>             RequestContext context = RequestContext.getRequestContext();
-<a name="254" href="#254">254</a> 
-<a name="255" href="#255">255</a>             <strong class="jxr_keyword">try</strong> {
-<a name="256" href="#256">256</a>                 context.setAuth(getAuthByToken(adminAuthToken));
-<a name="257" href="#257">257</a> 
-<a name="258" href="#258">258</a>                 commentsInterface.addComment(imageId, comment);
-<a name="259" href="#259">259</a>             } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a name="260" href="#260">260</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="261" href="#261">261</a>             } <strong class="jxr_keyword">catch</strong> (SAXException e) {
-<a name="262" href="#262">262</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="263" href="#263">263</a>             } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
-<a name="264" href="#264">264</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="265" href="#265">265</a>             }
-<a name="266" href="#266">266</a>         }
-<a name="267" href="#267">267</a> 
-<a name="268" href="#268">268</a>     }
-<a name="269" href="#269">269</a> 
-<a name="270" href="#270">270</a>     <strong class="jxr_keyword">public</strong> Set&lt;FlickrImageStatus&gt; checkSearch(String tag, Date earliestDate) {
-<a name="271" href="#271">271</a>         <strong class="jxr_keyword">try</strong> {
-<a name="272" href="#272">272</a>             List&lt;Photo&gt; photos = retrieveByTag(tag);
+<a name="253" href="#253">253</a>             <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="254" href="#254">254</a>                 logger.info(<span class="jxr_string">"Image commented: "</span> + imageId);
+<a name="255" href="#255">255</a>             }
+<a name="256" href="#256">256</a> 
+<a name="257" href="#257">257</a>             CommentsInterface commentsInterface = flickr.getCommentsInterface();
+<a name="258" href="#258">258</a> 
+<a name="259" href="#259">259</a>             RequestContext context = RequestContext.getRequestContext();
+<a name="260" href="#260">260</a> 
+<a name="261" href="#261">261</a>             <strong class="jxr_keyword">try</strong> {
+<a name="262" href="#262">262</a>                 context.setAuth(getAuthByToken(adminAuthToken));
+<a name="263" href="#263">263</a> 
+<a name="264" href="#264">264</a>                 commentsInterface.addComment(imageId, comment);
+<a name="265" href="#265">265</a>             } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a name="266" href="#266">266</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="267" href="#267">267</a>             } <strong class="jxr_keyword">catch</strong> (SAXException e) {
+<a name="268" href="#268">268</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="269" href="#269">269</a>             } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
+<a name="270" href="#270">270</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="271" href="#271">271</a>             }
+<a name="272" href="#272">272</a>         }
 <a name="273" href="#273">273</a> 
-<a name="274" href="#274">274</a>             Set&lt;FlickrImageStatus&gt; issues = <strong class="jxr_keyword">new</strong> HashSet&lt;FlickrImageStatus&gt;();
+<a name="274" href="#274">274</a>     }
 <a name="275" href="#275">275</a> 
-<a name="276" href="#276">276</a>             Map&lt;String, FlickrImageStatus&gt; seenPhotographers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, FlickrImageStatus&gt;();
-<a name="277" href="#277">277</a> 
-<a name="278" href="#278">278</a>             <strong class="jxr_keyword">for</strong> (Photo photo : photos) {
-<a name="279" href="#279">279</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> image = getImageByFlickrId(photo.getId());
-<a name="280" href="#280">280</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> photographer = image.getPhotographer();
+<a name="276" href="#276">276</a>     <strong class="jxr_keyword">public</strong> Set&lt;FlickrImageStatus&gt; checkSearch(String tag, Date earliestDate) {
+<a name="277" href="#277">277</a>         <strong class="jxr_keyword">try</strong> {
+<a name="278" href="#278">278</a>             List&lt;Photo&gt; photos = retrieveByTag(tag);
+<a name="279" href="#279">279</a> 
+<a name="280" href="#280">280</a>             Set&lt;FlickrImageStatus&gt; issues = <strong class="jxr_keyword">new</strong> HashSet&lt;FlickrImageStatus&gt;();
 <a name="281" href="#281">281</a> 
-<a name="282" href="#282">282</a>                 <strong class="jxr_keyword">if</strong> (earliestDate != <strong class="jxr_keyword">null</strong> &amp;&amp; image.getTakenDate() != <strong class="jxr_keyword">null</strong> &amp;&amp; image.getTakenDate().getTime() &lt; earliestDate.getTime()) {
+<a name="282" href="#282">282</a>             Map&lt;String, FlickrImageStatus&gt; seenPhotographers = <strong class="jxr_keyword">new</strong> HashMap&lt;String, FlickrImageStatus&gt;();
 <a name="283" href="#283">283</a> 
-<a name="284" href="#284">284</a>                     <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a> status = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a>(FlickrImageStatus.ImageStatus.TAKEN_DATE,
-<a name="285" href="#285">285</a>                             photographer, image);
-<a name="286" href="#286">286</a>                     issues.add(status);
-<a name="287" href="#287">287</a>                 } <strong class="jxr_keyword">else</strong> {
-<a name="288" href="#288">288</a>                     <strong class="jxr_keyword">if</strong> (!seenPhotographers.containsKey(photo.getOwner().getId())) {
-<a name="289" href="#289">289</a>                         <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a> status = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a>(FlickrImageStatus.ImageStatus.MULTIPLE_IMAGES,
-<a name="290" href="#290">290</a>                                 photographer, image);
-<a name="291" href="#291">291</a> 
-<a name="292" href="#292">292</a>                         seenPhotographers.put(photo.getOwner().getId(), status);
-<a name="293" href="#293">293</a>                     } <strong class="jxr_keyword">else</strong> {
-<a name="294" href="#294">294</a>                         seenPhotographers.get(photo.getOwner().getId()).addImage(image);
-<a name="295" href="#295">295</a>                     }
-<a name="296" href="#296">296</a>                 }
-<a name="297" href="#297">297</a>             }
-<a name="298" href="#298">298</a> 
-<a name="299" href="#299">299</a>             <strong class="jxr_keyword">for</strong> (FlickrImageStatus status : seenPhotographers.values()) {
-<a name="300" href="#300">300</a>                 <strong class="jxr_keyword">if</strong> (status.getImageCount() &gt; 1) {
-<a name="301" href="#301">301</a>                     issues.add(status);
+<a name="284" href="#284">284</a>             <strong class="jxr_keyword">for</strong> (Photo photo : photos) {
+<a name="285" href="#285">285</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> image = convertPhotoToFlickrImage(photo);
+<a name="286" href="#286">286</a>                 <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> photographer = image.getPhotographer();
+<a name="287" href="#287">287</a> 
+<a name="288" href="#288">288</a>                 <strong class="jxr_keyword">if</strong> (earliestDate != <strong class="jxr_keyword">null</strong> &amp;&amp; image.getTakenDate() != <strong class="jxr_keyword">null</strong> &amp;&amp; image.getTakenDate().getTime() &lt; earliestDate.getTime()) {
+<a name="289" href="#289">289</a> 
+<a name="290" href="#290">290</a>                     <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a> status = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a>(FlickrImageStatus.ImageStatus.TAKEN_DATE,
+<a name="291" href="#291">291</a>                             photographer, image);
+<a name="292" href="#292">292</a>                     issues.add(status);
+<a name="293" href="#293">293</a>                 } <strong class="jxr_keyword">else</strong> {
+<a name="294" href="#294">294</a>                     <strong class="jxr_keyword">if</strong> (!seenPhotographers.containsKey(photo.getOwner().getId())) {
+<a name="295" href="#295">295</a>                         <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a> status = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImageStatus.html">FlickrImageStatus</a>(FlickrImageStatus.ImageStatus.MULTIPLE_IMAGES,
+<a name="296" href="#296">296</a>                                 photographer, image);
+<a name="297" href="#297">297</a> 
+<a name="298" href="#298">298</a>                         seenPhotographers.put(photo.getOwner().getId(), status);
+<a name="299" href="#299">299</a>                     } <strong class="jxr_keyword">else</strong> {
+<a name="300" href="#300">300</a>                         seenPhotographers.get(photo.getOwner().getId()).addImage(image);
+<a name="301" href="#301">301</a>                     }
 <a name="302" href="#302">302</a>                 }
 <a name="303" href="#303">303</a>             }
 <a name="304" href="#304">304</a> 
-<a name="305" href="#305">305</a>             <strong class="jxr_keyword">return</strong> issues;
-<a name="306" href="#306">306</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a name="307" href="#307">307</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="308" href="#308">308</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
-<a name="309" href="#309">309</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="310" href="#310">310</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
-<a name="311" href="#311">311</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
-<a name="312" href="#312">312</a>         }
-<a name="313" href="#313">313</a>     }
-<a name="314" href="#314">314</a> 
-<a name="315" href="#315">315</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> convertPhotoToFlickrImage(Photo photo) <strong class="jxr_keyword">throws</strong> IOException, SAXException, FlickrException {
-<a name="316" href="#316">316</a>         User user = getUser(photo.getOwner().getId());
-<a name="317" href="#317">317</a> 
-<a name="318" href="#318">318</a>         <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> photographer = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a>(user.getId(), <strong class="jxr_keyword">null</strong>, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
-<a name="319" href="#319">319</a> 
-<a name="320" href="#320">320</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a>(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
-<a name="321" href="#321">321</a>     }
-<a name="322" href="#322">322</a> 
-<a name="323" href="#323">323</a>     <strong class="jxr_keyword">private</strong> User getUser(String id) <strong class="jxr_keyword">throws</strong> IOException, SAXException, FlickrException {
-<a name="324" href="#324">324</a>         PeopleInterface peopleInterface = flickr.getPeopleInterface();
+<a name="305" href="#305">305</a>             <strong class="jxr_keyword">for</strong> (FlickrImageStatus status : seenPhotographers.values()) {
+<a name="306" href="#306">306</a>                 <strong class="jxr_keyword">if</strong> (status.getImageCount() &gt; 1) {
+<a name="307" href="#307">307</a>                     issues.add(status);
+<a name="308" href="#308">308</a>                 }
+<a name="309" href="#309">309</a>             }
+<a name="310" href="#310">310</a> 
+<a name="311" href="#311">311</a>             <strong class="jxr_keyword">return</strong> issues;
+<a name="312" href="#312">312</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a name="313" href="#313">313</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="314" href="#314">314</a>         } <strong class="jxr_keyword">catch</strong> (SAXException e) {
+<a name="315" href="#315">315</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="316" href="#316">316</a>         } <strong class="jxr_keyword">catch</strong> (FlickrException e) {
+<a name="317" href="#317">317</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrServiceException.html">FlickrServiceException</a>(e);
+<a name="318" href="#318">318</a>         }
+<a name="319" href="#319">319</a>     }
+<a name="320" href="#320">320</a> 
+<a name="321" href="#321">321</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a> convertPhotoToFlickrImage(Photo photo) <strong class="jxr_keyword">throws</strong> IOException, SAXException, FlickrException {
+<a name="322" href="#322">322</a>         User user = getUser(photo.getOwner().getId());
+<a name="323" href="#323">323</a> 
+<a name="324" href="#324">324</a>         <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a> photographer = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrPhotographer.html">FlickrPhotographer</a>(user.getId(), <strong class="jxr_keyword">null</strong>, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
 <a name="325" href="#325">325</a> 
-<a name="326" href="#326">326</a>         User user = peopleInterface.getInfo(id);
-<a name="327" href="#327">327</a> 
-<a name="328" href="#328">328</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
-<a name="329" href="#329">329</a>             logger.info(<span class="jxr_string">"User info fetched for "</span> + user.getUsername());
-<a name="330" href="#330">330</a>         }
+<a name="326" href="#326">326</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/flickr/FlickrImage.html">FlickrImage</a>(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
+<a name="327" href="#327">327</a>     }
+<a name="328" href="#328">328</a> 
+<a name="329" href="#329">329</a>     <strong class="jxr_keyword">private</strong> User getUser(String id) <strong class="jxr_keyword">throws</strong> IOException, SAXException, FlickrException {
+<a name="330" href="#330">330</a>         PeopleInterface peopleInterface = flickr.getPeopleInterface();
 <a name="331" href="#331">331</a> 
-<a name="332" href="#332">332</a>         <strong class="jxr_keyword">return</strong> user;
-<a name="333" href="#333">333</a>     }
-<a name="334" href="#334">334</a> }
+<a name="332" href="#332">332</a>         User user = peopleInterface.getInfo(id);
+<a name="333" href="#333">333</a> 
+<a name="334" href="#334">334</a>         <strong class="jxr_keyword">if</strong> (logger.isInfoEnabled()) {
+<a name="335" href="#335">335</a>             logger.info(<span class="jxr_string">"User info fetched for "</span> + user.getUsername());
+<a name="336" href="#336">336</a>         }
+<a name="337" href="#337">337</a> 
+<a name="338" href="#338">338</a>         <strong class="jxr_keyword">return</strong> user;
+<a name="339" href="#339">339</a>     }
+<a name="340" href="#340">340</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

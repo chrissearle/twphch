@@ -8,21 +8,21 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator
-	c72 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RankLabelGenerator.html">
+	c75 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RankLabelGenerator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> RankLabelGenerator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.RankLabelGenerator extends org.jfree.chart.labels.AbstractCategoryItemLabelGenerator
-	c84:p -> c72:p [dir=back,arrowtail=empty];
+	c88:p -> c75:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.service.RankLabelGenerator implements org.jfree.chart.labels.CategoryItemLabelGenerator
-	c85:p -> c72:p [dir=back,arrowtail=empty,style=dashed];
+	c89:p -> c75:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator NAVASSOC net.chrissearle.flickrvote.service.model.ImageItem
-	c72:p -> c86:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c75:p -> c90:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.RankLabelGenerator DEPEND org.jfree.data.category.CategoryDataset
-	c72:p -> c89:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c75:p -> c93:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.jfree.chart.labels.CategoryItemLabelGenerator
-	c85 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c89 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryItemLabelGenerator </td></tr>
@@ -30,7 +30,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.data.category.CategoryDataset
-	c89 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c93 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> CategoryDataset </td></tr>
@@ -38,14 +38,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.jfree.chart.labels.AbstractCategoryItemLabelGenerator
-	c84 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c88 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> AbstractCategoryItemLabelGenerator </font></td></tr>
 			<tr><td><font point-size="7.0"> org.jfree.chart.labels </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c86 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c90 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>

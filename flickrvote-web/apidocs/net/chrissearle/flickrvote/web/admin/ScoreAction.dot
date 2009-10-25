@@ -8,20 +8,20 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction
-	c1004 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ScoreAction.html">
+	c1101 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ScoreAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ScoreAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.ScoreAdmin
-	c1029 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/ScoreAdmin.html">
+	c1127 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/ScoreAdmin.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ScoreAdmin </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c1036 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
+	c1134 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../model/Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
@@ -29,21 +29,21 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.ScoreAction extends com.opensymphony.xwork2.ActionSupport
-	c1045:p -> c1004:p [dir=back,arrowtail=empty];
+	c1143:p -> c1101:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC org.apache.log4j.Logger
-	c1004:p -> c1046:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1101:p -> c1144:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c1004:p -> c1036:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1101:p -> c1134:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC net.chrissearle.flickrvote.web.model.ScoreAdmin
-	c1004:p -> c1029:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1101:p -> c1127:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c1004:p -> c1047:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1101:p -> c1145:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC net.chrissearle.flickrvote.service.ChallengeService
-	c1004:p -> c1049:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1101:p -> c1146:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c1004:p -> c1036:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c1101:p -> c1134:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.PhotographyService
-	c1047 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c1145 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographyService </td></tr>
@@ -51,21 +51,21 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.log4j.Logger
-	c1046 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c1144 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Logger </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// com.opensymphony.xwork2.ActionSupport
-	c1045 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c1143 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ActionSupport </td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.ChallengeService
-	c1049 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c1146 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeService </td></tr>

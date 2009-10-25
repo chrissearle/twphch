@@ -8,19 +8,19 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction
-	c167 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./VotingChallengeBlockAction.html">
+	c175 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./VotingChallengeBlockAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VotingChallengeBlockAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.common.FlickrLoginLinkAction
-	c168 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrLoginLinkAction.html">
+	c176 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrLoginLinkAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrLoginLinkAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.common.ChallengeListAction
-	c169 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeListAction.html">
+	c177 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeListAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeListAction </td></tr>
 		</table></td></tr>
