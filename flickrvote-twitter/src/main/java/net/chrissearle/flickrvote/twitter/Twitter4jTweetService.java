@@ -29,9 +29,9 @@ public class Twitter4jTweetService extends AbstractTwitter4JSupport implements T
         super(twitter);
     }
 
-    public void twitter(String text) {
+    public void tweet(String message) {
         if (twitterActiveFlag) {
-            updateTwitterStatus(text);
+            updateTwitterStatus(message);
         }
     }
 

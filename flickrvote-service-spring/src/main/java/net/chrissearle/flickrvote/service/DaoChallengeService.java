@@ -245,7 +245,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         try {
-            tweetService.twitter(challengeMessageService.getVotingTwitter(challenge));
+            tweetService.tweet(challengeMessageService.getVotingTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -288,7 +288,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         try {
-            tweetService.twitter(challengeMessageService.getCurrentTwitter(challenge));
+            tweetService.tweet(challengeMessageService.getCurrentTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -344,7 +344,7 @@ public class DaoChallengeService implements ChallengeService {
         String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
         try {
-            tweetService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
+            tweetService.tweet(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -419,7 +419,7 @@ public class DaoChallengeService implements ChallengeService {
         ChallengeSummary challenge = challenges.iterator().next();
 
         try {
-            tweetService.twitter(challengeMessageService.getVotingOpenWarning(challenge));
+            tweetService.tweet(challengeMessageService.getVotingOpenWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -441,7 +441,7 @@ public class DaoChallengeService implements ChallengeService {
         ChallengeSummary challenge = challenges.iterator().next();
 
         try {
-            tweetService.twitter(challengeMessageService.getVotingCloseWarning(challenge));
+            tweetService.tweet(challengeMessageService.getVotingCloseWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {

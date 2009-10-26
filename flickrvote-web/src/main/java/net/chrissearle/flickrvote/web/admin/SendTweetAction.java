@@ -36,7 +36,7 @@ public class SendTweetAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         try {
-            tweetService.twitter(tweet);
+            tweetService.tweet(tweet);
 
             addActionMessage("Tweeted");
         } catch (TwitterServiceException tse) {

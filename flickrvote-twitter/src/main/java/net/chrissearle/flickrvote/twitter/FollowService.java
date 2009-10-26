@@ -16,13 +16,6 @@
 
 package net.chrissearle.flickrvote.twitter;
 
-/**
- * Created by IntelliJ IDEA.
- * User: chris
- * Date: 26-Oct-2009
- * Time: 20:22:20
- * To change this template use File | Settings | File Templates.
- */
 public interface FollowService {
-    void follow(String twitterId);
+    void follow(String twitterUserId);
 }

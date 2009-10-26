@@ -17,5 +17,5 @@
 package net.chrissearle.flickrvote.twitter;
 
 public interface UserExistanceService {
-    boolean twitterExists(String twitter);
+    boolean checkIfUserExists(String twitterId);
 }

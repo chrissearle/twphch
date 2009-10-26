@@ -37,7 +37,7 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
         TweetService service = getTweetService(twitter, true);
 
         try {
-            service.twitter(TEST_TWEET_TEXT);
+            service.tweet(TEST_TWEET_TEXT);
         } catch (TwitterServiceException e) {
             assertEquals("Exception message mismatch", "twitter4j.TwitterException: " + TWITTER_DOWN, e.getMessage());
             assertEquals("Twitter message mismatch", "Unable to tweet " + TEST_TWEET_TEXT, e.getTwitterMessage());
@@ -80,7 +80,7 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
         UserExistanceService service = getUserExistanceService(twitter, true);
 
         try {
-            service.twitterExists(TEST_TWITTER_USER);
+            service.checkIfUserExists(TEST_TWITTER_USER);
 
             verify(twitter).showUser(TEST_TWITTER_USER);
         } catch (TwitterServiceException e) {

@@ -29,9 +29,9 @@ public class Twitter4jFollowService extends AbstractTwitter4JSupport implements 
         super(twitter);
     }
 
-    public void follow(String twitterId) {
+    public void follow(String twitterUserId) {
         if (twitterActiveFlag) {
-            addTwitterFriendshipAndNotification(twitterId);
+            addTwitterFriendshipAndNotification(twitterUserId);
         }
     }
 

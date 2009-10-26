@@ -32,7 +32,7 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
         TweetService service = getTweetService(twitter, false);
 
-        service.twitter(TEST_TWEET_TEXT);
+        service.tweet(TEST_TWEET_TEXT);
 
         verify(twitter, never()).updateStatus(TEST_TWEET_TEXT);
     }
@@ -57,7 +57,7 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
         Twitter4jUserExistanceService service = getUserExistanceService(twitter, false);
 
-        service.twitterExists(TEST_TWITTER_USER);
+        service.checkIfUserExists(TEST_TWITTER_USER);
 
         verify(twitter, never()).showUser(TEST_TWITTER_USER);
     }

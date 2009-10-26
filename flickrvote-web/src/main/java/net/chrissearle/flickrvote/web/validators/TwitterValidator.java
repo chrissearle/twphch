@@ -33,7 +33,7 @@ public class TwitterValidator extends FieldValidatorSupport {
             fieldValue = fieldValue.substring(1);
         }
 
-        if (!userExistanceService.twitterExists(fieldValue)) {
+        if (!userExistanceService.checkIfUserExists(fieldValue)) {
             addFieldError(fieldName, object);
         }
     }

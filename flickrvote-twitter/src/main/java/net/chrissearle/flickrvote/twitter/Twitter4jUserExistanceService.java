@@ -29,7 +29,7 @@ public class Twitter4jUserExistanceService extends AbstractTwitter4JSupport impl
         super(twitter);
     }
 
-    public boolean twitterExists(String twitterId) {
+    public boolean checkIfUserExists(String twitterId) {
         boolean userExists = false;
 
         if (twitterActiveFlag) {
