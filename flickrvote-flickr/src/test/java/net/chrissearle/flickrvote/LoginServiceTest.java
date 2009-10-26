@@ -17,56 +17,87 @@
 package net.chrissearle.flickrvote;
 
 import com.aetrion.flickr.Flickr;
-import com.aetrion.flickr.REST;
+import com.aetrion.flickr.FlickrException;
+import com.aetrion.flickr.auth.AuthInterface;
+import com.aetrion.flickr.auth.Permission;
 import net.chrissearle.flickrvote.flickr.FlickrLoginService;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
+import net.chrissearle.flickrvote.flickr.UserDAO;
 import net.chrissearle.flickrvote.flickr.impl.FlickrJLoginService;
-import net.chrissearle.flickrvote.flickr.impl.FlickrJUserDAO;
-import org.constretto.ConstrettoBuilder;
-import org.constretto.ConstrettoConfiguration;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.net.URL;
 
 public class LoginServiceTest {
-    FlickrLoginService service;
+    private static final String ERROR_CODE = "ERROR_CODE";
+    private static final String ERROR_MESSAGE = "ERROR_MESSAGE";
+    private static final String TEST_URL_READ = "http://read";
+    private static final String TEST_URL_WRITE = "http://write";
+    private static final String FROB = "FROB";
 
-    @BeforeTest(groups = "configured")
-    public void setupConfigured() throws IOException, ParserConfigurationException {
-        ConstrettoConfiguration conf = new ConstrettoBuilder()
-                .createPropertiesStore()
-                .addResource(new DefaultResourceLoader().getResource("classpath:flickrvote.properties"))
-                .done()
-                .getConfiguration();
+    @Test(expected = FlickrServiceException.class)
+    public void testGetUrlError() throws FlickrException, IOException, SAXException {
+        Flickr flickr = mock(Flickr.class);
+        UserDAO dao = mock(UserDAO.class);
 
-        Flickr flickr = new Flickr(conf.evaluateToString("flickr.key"),
-                conf.evaluateToString("flickr.secret"),
-                new REST());
+        AuthInterface auth = mock(AuthInterface.class);
+        when(flickr.getAuthInterface()).thenReturn(auth);
+        when(auth.getFrob()).thenThrow(new FlickrException(ERROR_CODE, ERROR_MESSAGE));
 
-        service = new FlickrJLoginService(flickr, new FlickrJUserDAO(flickr));
+        FlickrLoginService service = new FlickrJLoginService(flickr, dao);
+
+        try {
+            service.getLoginUrl();
+        } catch (FlickrServiceException e) {
+            assertEquals("Exception message incorrect", "com.aetrion.flickr.FlickrException: " + ERROR_CODE + ": " + ERROR_MESSAGE, e.getMessage());
+            throw e;
+        }
     }
 
-    @BeforeTest(groups = "broken")
-    public void setupBroken() throws IOException, ParserConfigurationException {
-        Flickr flickr = new Flickr("", "", new REST());
+    @Test
+    public void testGetUrl() throws FlickrException, IOException, SAXException {
+        FlickrLoginService service = setupServiceForLoginUrlTests();
 
-        service = new FlickrJLoginService(flickr, new FlickrJUserDAO(flickr));
-    }
-
-    @Test(groups = "broken", expectedExceptions = FlickrServiceException.class)
-    public void testGetUrlError() {
-        service.getLoginUrl();
-    }
-
-    @Test(groups = "configured")
-    public void testGetUrl() {
         URL url = service.getLoginUrl();
 
-        assert url != null : "LoginUrl was null";
-        assert url.toExternalForm().contains("flickr") : "LoginUrl did not point to flickr";
+        assertEquals("Url was not correct", TEST_URL_READ, url.toExternalForm());
+    }
+
+    @Test
+    public void testGetUrlRead() throws FlickrException, IOException, SAXException {
+        FlickrLoginService service = setupServiceForLoginUrlTests();
+
+        URL url = service.getLoginUrl(false);
+
+        assertEquals("Url was not correct", TEST_URL_READ, url.toExternalForm());
+    }
+
+    @Test
+    public void testGetUrlTrue() throws FlickrException, IOException, SAXException {
+        FlickrLoginService service = setupServiceForLoginUrlTests();
+
+        URL url = service.getLoginUrl(true);
+
+        assertEquals("Url was not correct", TEST_URL_WRITE, url.toExternalForm());
+    }
+
+    private FlickrLoginService setupServiceForLoginUrlTests() throws IOException, SAXException, FlickrException {
+        Flickr flickr = mock(Flickr.class);
+        UserDAO dao = mock(UserDAO.class);
+
+        AuthInterface auth = mock(AuthInterface.class);
+
+        when(flickr.getAuthInterface()).thenReturn(auth);
+        when(auth.getFrob()).thenReturn(FROB);
+        when(auth.buildAuthenticationUrl(Permission.READ, FROB)).thenReturn(new URL(TEST_URL_READ));
+        when(auth.buildAuthenticationUrl(Permission.WRITE, FROB)).thenReturn(new URL(TEST_URL_WRITE));
+
+        FlickrLoginService service = new FlickrJLoginService(flickr, dao);
+        return service;
     }
 }
