@@ -23,15 +23,6 @@
             <param name="ConversionPattern" value="%p %t %c - %m%n"/>
         </layout>
     </appender>
-    <appender name="debugLog" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="/var/log/glassfish/twphchdebug.log"/>
-        <param name="MaxFileSize" value="1000KB"/>
-        <!-- Keep one backup file -->
-        <param name="MaxBackupIndex" value="1"/>
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%p %d %t %c - %m%n"/>
-        </layout>
-    </appender>
     <appender name="infoLog" class="org.apache.log4j.RollingFileAppender">
         <param name="file" value="/var/log/glassfish/twphch.log"/>
         <param name="MaxFileSize" value="1000KB"/>
@@ -41,12 +32,6 @@
             <param name="ConversionPattern" value="%p %d %t %c - %m%n"/>
         </layout>
     </appender>
-    <!--
-    <logger name="net.chrissearle">
-        <level value="debug"/>
-        <appender-ref ref="debugLog "/>
-    </logger>
-    -->
     <logger name="net.chrissearle">
         <level value="info"/>
         <appender-ref ref="infoLog"/>
