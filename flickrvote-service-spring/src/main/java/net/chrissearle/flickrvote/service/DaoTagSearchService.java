@@ -17,7 +17,7 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.ImageDAO;
+import net.chrissearle.flickrvote.flickr.ImageTagSearchDAO;
 import net.chrissearle.flickrvote.flickr.UserDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
@@ -40,14 +40,14 @@ import java.util.List;
 public class DaoTagSearchService implements TagSearchService {
     private Logger logger = Logger.getLogger(this.getClass());
 
-    private ImageDAO flickrImageDao;
+    private ImageTagSearchDAO flickrImageTagSearchDao;
     private UserDAO flickrUserDao;
     private PhotographyDao photographyDao;
 
     @Autowired
-    public DaoTagSearchService(ImageDAO flickrImageDao, UserDAO flickrUserDao,
+    public DaoTagSearchService(ImageTagSearchDAO flickrImageTagSearchDao, UserDAO flickrUserDao,
                                PhotographyDao photographyDao) {
-        this.flickrImageDao = flickrImageDao;
+        this.flickrImageTagSearchDao = flickrImageTagSearchDao;
         this.flickrUserDao = flickrUserDao;
         this.photographyDao = photographyDao;
     }
@@ -58,7 +58,7 @@ public class DaoTagSearchService implements TagSearchService {
             logger.debug("Searching for Tag: " + tag + " with date " + earliestDate);
         }
 
-        FlickrImages images = flickrImageDao.searchTag(tag, earliestDate);
+        FlickrImages images = flickrImageTagSearchDao.searchTag(tag, earliestDate);
 
         List<ImageItem> items = new ArrayList<ImageItem>();
 

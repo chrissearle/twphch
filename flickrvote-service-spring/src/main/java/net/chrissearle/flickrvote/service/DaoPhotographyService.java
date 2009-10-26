@@ -19,10 +19,7 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.FlickrLoginService;
-import net.chrissearle.flickrvote.flickr.FlickrService;
-import net.chrissearle.flickrvote.flickr.ImageDAO;
-import net.chrissearle.flickrvote.flickr.UserDAO;
+import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
@@ -64,6 +61,7 @@ public class DaoPhotographyService implements PhotographyService {
     private ImageDao imageDao;
 
     private ImageDAO flickrImageDao;
+    private ImageTagSearchDAO flickrImageTagSearchDao;
     private UserDAO flickrUserDao;
 
     private FlickrService flickrService;
@@ -82,7 +80,7 @@ public class DaoPhotographyService implements PhotographyService {
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
                                  FlickrService flickrService, TwitterService twitterService, FlickrLoginService flickrLoginService,
-                                 ImageDAO flickrImageDao, UserDAO flickrUserDao) {
+                                 ImageDAO flickrImageDao, UserDAO flickrUserDao, ImageTagSearchDAO flickrImageTagSearchDao) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
@@ -92,6 +90,7 @@ public class DaoPhotographyService implements PhotographyService {
         this.twitterService = twitterService;
 
         this.flickrImageDao = flickrImageDao;
+        this.flickrImageTagSearchDao = flickrImageTagSearchDao;
         this.flickrUserDao = flickrUserDao;
     }
 
@@ -198,7 +197,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         if (challenge.getVotingState() == ChallengeState.OPEN) {
             // Grab images from flickr
-            FlickrImages flickrImages = flickrImageDao.searchTag(tag, challenge.getStartDate());
+            FlickrImages flickrImages = flickrImageTagSearchDao.searchTag(tag, challenge.getStartDate());
 
             for (FlickrImage image : flickrImages.getImages()) {
                 ImageItemInstance imageItem = new ImageItemInstance(image);
@@ -382,7 +381,7 @@ public class DaoPhotographyService implements PhotographyService {
             logger.info("Freezing challenge : " + challenge);
         }
 
-        FlickrImages images = flickrImageDao.searchTag(challenge.getTag(), challenge.getStartDate());
+        FlickrImages images = flickrImageTagSearchDao.searchTag(challenge.getTag(), challenge.getStartDate());
 
         for (FlickrImage image : images.getImages()) {
             retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
@@ -529,7 +528,7 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         // Grab images from flickr
-        FlickrImages flickrImages = flickrImageDao.searchTag(tag, challenge.getStartDate());
+        FlickrImages flickrImages = flickrImageTagSearchDao.searchTag(tag, challenge.getStartDate());
 
         for (FlickrImage image : flickrImages.getImages()) {
             if (image.getPhotographer().getFlickrId().equals(photographerId)) {

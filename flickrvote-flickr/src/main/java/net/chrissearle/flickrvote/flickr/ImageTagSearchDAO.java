@@ -16,8 +16,10 @@
 
 package net.chrissearle.flickrvote.flickr;
 
-import net.chrissearle.flickrvote.flickr.model.FlickrImage;
+import net.chrissearle.flickrvote.flickr.model.FlickrImages;
 
-public interface ImageDAO {
-    public FlickrImage getImage(String id);
+import java.util.Date;
+
+public interface ImageTagSearchDAO {
+    FlickrImages searchTag(String tag, Date earliestDate);
 }

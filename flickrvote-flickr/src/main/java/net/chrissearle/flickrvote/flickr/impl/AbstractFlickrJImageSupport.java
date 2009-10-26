@@ -14,10 +14,16 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.flickr;
+package net.chrissearle.flickrvote.flickr.impl;
 
+import com.aetrion.flickr.photos.Photo;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
+import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
 
-public interface ImageDAO {
-    public FlickrImage getImage(String id);
+public abstract class AbstractFlickrJImageSupport {
+    protected FlickrImage buildImage(Photo photo) {
+        FlickrPhotographer photographer = new FlickrPhotographer(photo.getOwner().getId());
+
+        return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
+    }
 }
