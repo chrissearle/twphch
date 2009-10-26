@@ -30,6 +30,8 @@ import com.aetrion.flickr.photos.comments.CommentsInterface;
 import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Logger;
+import org.constretto.annotation.Configuration;
+import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -41,22 +43,24 @@ import java.util.*;
 public class FlickrJFlickrService implements FlickrService {
     private Logger logger = Logger.getLogger(FlickrJFlickrService.class);
 
-    protected Flickr flickr;
+    private Flickr flickr;
 
-    protected String adminAuthToken;
-    protected Boolean adminActiveFlag;
+    private String adminAuthToken;
+    private Boolean adminActiveFlag;
 
     private SimpleMailService mailService;
 
     @Autowired
-    public FlickrJFlickrService(Flickr flickr, FlickrAdminAuthTokenHolder tokenHolder, SimpleMailService mailService) {
+    public FlickrJFlickrService(Flickr flickr, SimpleMailService mailService) {
         this.flickr = flickr;
-        this.adminAuthToken = tokenHolder.getAdminAuthToken();
-        this.adminActiveFlag = tokenHolder.isActiveFlag();
         this.mailService = mailService;
     }
 
-    protected FlickrJFlickrService() {
+    @Configure
+    public void configure(@Configuration(expression = "flickr.admin.auth.token") String adminToken,
+                          @Configuration(expression = "flickr.admin.auth.active") Boolean adminActive) {
+        this.adminActiveFlag = adminActive;
+        this.adminAuthToken = adminToken;
     }
 
     private Auth getAuthByToken(String token) throws IOException, SAXException, FlickrException {

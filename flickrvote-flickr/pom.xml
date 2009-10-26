@@ -62,6 +62,17 @@
         </dependency>
 
         <dependency>
+            <groupId>org.constretto</groupId>
+            <artifactId>constretto-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.constretto</groupId>
+            <artifactId>constretto-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>net.chrissearle.common</groupId>
             <artifactId>simple-mail-api</artifactId>
         </dependency>

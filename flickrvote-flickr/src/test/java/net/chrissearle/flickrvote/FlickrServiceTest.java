@@ -19,42 +19,53 @@ package net.chrissearle.flickrvote;
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.REST;
 import net.chrissearle.flickrvote.flickr.FlickrImage;
+import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.flickr.impl.FlickrJFlickrService;
+import org.constretto.ConstrettoBuilder;
+import org.constretto.ConstrettoConfiguration;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
-public class FlickrServiceTest extends FlickrJFlickrService {
+public class FlickrServiceTest {
     String token;
+
+    FlickrService service;
 
     @BeforeTest(groups = "configured")
     public void setupConfigured() throws IOException, ParserConfigurationException {
-        InputStream in = getClass().getResourceAsStream("/flickrvote-flickr.properties");
-        Properties properties = new Properties();
-        properties.load(in);
+        ConstrettoConfiguration conf = new ConstrettoBuilder()
+                .createPropertiesStore()
+                .addResource(new DefaultResourceLoader().getResource("classpath:flickrvote.properties"))
+                .done()
+                .getConfiguration();
 
-        flickr = new Flickr(properties.getProperty("flickr.key"),
-                properties.getProperty("flickr.secret"), new REST());
+        Flickr flickr = new Flickr(conf.evaluateToString("flickr.key"),
+                conf.evaluateToString("flickr.secret"),
+                new REST());
 
-        adminAuthToken = properties.getProperty("flickr.admin.auth.token");
+        FlickrJFlickrService service = new FlickrJFlickrService(flickr, null);
 
-        this.token = properties.getProperty("flickr.test.token");
+        service.configure(conf.evaluateToString("flickr.test.token"), false);
+
+        this.service = service;
     }
 
     @BeforeTest(groups = "broken")
     public void setupBroken() throws IOException, ParserConfigurationException {
-        flickr = new Flickr("", "", new REST());
+        Flickr flickr = new Flickr("", "", new REST());
+
+        service = new FlickrJFlickrService(flickr, null);
     }
 
     @Test(groups = "configured")
     public void testSearchTags() {
-        List<FlickrImage> images = searchImagesByTag("#TwPhCh001", null);
+        List<FlickrImage> images = service.searchImagesByTag("#TwPhCh001", null);
 
         assert images != null : "Image list was null";
         // Hard to know what to set here as the image count varies over time. But we had more than 25 entries

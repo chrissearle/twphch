@@ -27,6 +27,7 @@
         </groups>
         <classes>
             <class name="net.chrissearle.flickrvote.FlickrServiceTest"/>
+            <class name="net.chrissearle.flickrvote.LoginServiceTest"/>
         </classes>
     </test>
     <test name="ServiceUnconfigured">
@@ -38,6 +39,7 @@
         </groups>
         <classes>
             <class name="net.chrissearle.flickrvote.FlickrServiceTest"/>
+            <class name="net.chrissearle.flickrvote.LoginServiceTest"/>
         </classes>
     </test>
 </suite>
