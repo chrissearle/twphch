@@ -50,8 +50,6 @@ public class FlickrServiceTest {
 
         FlickrJFlickrService service = new FlickrJFlickrService(flickr, null);
 
-        service.configure(conf.evaluateToString("flickr.test.token"), false);
-
         this.service = service;
     }
 

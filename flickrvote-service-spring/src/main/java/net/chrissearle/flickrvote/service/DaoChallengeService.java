@@ -19,6 +19,7 @@ package net.chrissearle.flickrvote.service;
 import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
+import net.chrissearle.flickrvote.flickr.CommentDAO;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.model.Challenge;
@@ -60,6 +61,8 @@ public class DaoChallengeService implements ChallengeService {
     private ChallengeMessageService challengeMessageService;
     private SimpleMailService mailService;
 
+    private CommentDAO commentDAO;
+
     /**
      * Constructor DaoChallengeService creates a new DaoChallengeService instance.
      *
@@ -72,7 +75,8 @@ public class DaoChallengeService implements ChallengeService {
      */
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
-                               ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService) {
+                               ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService,
+                               CommentDAO commentDAO) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
         this.imageDao = imageDao;
@@ -80,6 +84,8 @@ public class DaoChallengeService implements ChallengeService {
         this.flickrService = flickrService;
         this.challengeMessageService = challengeMessageService;
         this.mailService = mailService;
+
+        this.commentDAO = commentDAO;
     }
 
     /**
@@ -248,7 +254,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         try {
-            flickrService.postForum(challengeMessageService.getVotingForumTitle(challenge),
+            mailService.sendPost(challengeMessageService.getVotingForumTitle(challenge),
                     challengeMessageService.getVotingForumText(challenge));
         } catch (FlickrServiceException fse) {
             if (logger.isEnabledFor(Level.WARN)) {
@@ -290,7 +296,7 @@ public class DaoChallengeService implements ChallengeService {
             }
         }
         try {
-            flickrService.postForum(challengeMessageService.getCurrentForumTitle(challenge),
+            mailService.sendPost(challengeMessageService.getCurrentForumTitle(challenge),
                     challengeMessageService.getCurrentForumText(challenge));
         } catch (FlickrServiceException fse) {
             if (logger.isEnabledFor(Level.WARN)) {
@@ -378,7 +384,7 @@ public class DaoChallengeService implements ChallengeService {
             }
             if (!"".equals(badgeText)) {
                 try {
-                    flickrService.postComment(imageItem.getId(), badgeText);
+                    commentDAO.postComment(imageItem.getId(), badgeText);
                 } catch (FlickrServiceException fse) {
                     if (logger.isEnabledFor(Level.WARN)) {
                         logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
@@ -390,7 +396,7 @@ public class DaoChallengeService implements ChallengeService {
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
 
         try {
-            flickrService.postForum(challengeMessageService.getResultsForumTitle(challenge), messageText);
+            mailService.sendPost(challengeMessageService.getResultsForumTitle(challenge), messageText);
         } catch (FlickrServiceException fse) {
             if (logger.isEnabledFor(Level.WARN)) {
                 logger.warn("Unable to post to flickr" + fse.getMessage(), fse);

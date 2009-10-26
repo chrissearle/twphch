@@ -16,12 +16,6 @@
 
 package net.chrissearle.flickrvote.flickr;
 
-import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
-
-import java.util.Date;
-import java.util.Set;
-
-public interface FlickrService {
-    @Deprecated
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+public interface CommentDAO {
+    void postComment(String id, String comment);
 }

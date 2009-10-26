@@ -49,28 +49,12 @@ public class FlickrJFlickrService implements FlickrService {
 
     private Flickr flickr;
 
-    private String adminAuthToken;
-    private Boolean adminActiveFlag;
-
     private SimpleMailService mailService;
 
     @Autowired
     public FlickrJFlickrService(Flickr flickr, SimpleMailService mailService) {
         this.flickr = flickr;
         this.mailService = mailService;
-    }
-
-    @Configure
-    public void configure(@Configuration(expression = "flickr.admin.auth.token") String adminToken,
-                          @Configuration(expression = "flickr.admin.auth.active") Boolean adminActive) {
-        this.adminActiveFlag = adminActive;
-        this.adminAuthToken = adminToken;
-    }
-
-    private Auth getAuthByToken(String token) throws IOException, SAXException, FlickrException {
-        AuthInterface authInterface = flickr.getAuthInterface();
-
-        return authInterface.checkToken(token);
     }
 
     @SuppressWarnings("unchecked")
@@ -117,48 +101,6 @@ public class FlickrJFlickrService implements FlickrService {
         } catch (IOException e) {
             throw new FlickrServiceException(e);
         }
-    }
-
-    public void postForum(String title, String text) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Posting to forum TITLE: " + title + " TEXT: " + text);
-        }
-
-        // The flickr API does not support group discussion posts. So all we can do is mail it.
-        mailService.sendPost(title, text);
-    }
-
-    public void postComment(String imageId, String comment) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Posting comment check: " + adminActiveFlag);
-        }
-
-        if (adminActiveFlag) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Posting to comment ID: " + imageId + " COMMENT: " + comment);
-            }
-
-            if (logger.isInfoEnabled()) {
-                logger.info("Image commented: " + imageId);
-            }
-
-            CommentsInterface commentsInterface = flickr.getCommentsInterface();
-
-            RequestContext context = RequestContext.getRequestContext();
-
-            try {
-                context.setAuth(getAuthByToken(adminAuthToken));
-
-                commentsInterface.addComment(imageId, comment);
-            } catch (IOException e) {
-                throw new FlickrServiceException(e);
-            } catch (SAXException e) {
-                throw new FlickrServiceException(e);
-            } catch (FlickrException e) {
-                throw new FlickrServiceException(e);
-            }
-        }
-
     }
 
     public Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate) {
