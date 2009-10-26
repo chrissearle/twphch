@@ -20,9 +20,12 @@ import java.util.Date;
 import java.util.Set;
 
 public interface FlickrService {
+    @Deprecated
     void postForum(String title, String message);
 
+    @Deprecated
     void postComment(String id, String comment);
 
+    @Deprecated
     Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
 }
