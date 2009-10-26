@@ -16,6 +16,8 @@
 
 package net.chrissearle.flickrvote.flickr;
 
+import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
+
 import java.net.URL;
 
 public interface FlickrLoginService {

@@ -18,9 +18,9 @@ package net.chrissearle.flickrvote;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.REST;
-import net.chrissearle.flickrvote.flickr.FlickrImage;
 import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.flickr.impl.FlickrJFlickrService;
+import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import org.constretto.ConstrettoBuilder;
 import org.constretto.ConstrettoConfiguration;
 import org.springframework.core.io.DefaultResourceLoader;

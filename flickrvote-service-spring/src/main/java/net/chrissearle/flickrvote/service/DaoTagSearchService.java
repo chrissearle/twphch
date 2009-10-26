@@ -17,7 +17,11 @@
 package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.dao.PhotographyDao;
-import net.chrissearle.flickrvote.flickr.*;
+import net.chrissearle.flickrvote.flickr.ImageDAO;
+import net.chrissearle.flickrvote.flickr.UserDAO;
+import net.chrissearle.flickrvote.flickr.model.FlickrImage;
+import net.chrissearle.flickrvote.flickr.model.FlickrImages;
+import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItems;

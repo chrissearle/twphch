@@ -16,6 +16,9 @@
 
 package net.chrissearle.flickrvote.flickr;
 
+import net.chrissearle.flickrvote.flickr.model.FlickrImage;
+import net.chrissearle.flickrvote.flickr.model.FlickrImages;
+
 import java.util.Date;
 
 public interface ImageDAO {

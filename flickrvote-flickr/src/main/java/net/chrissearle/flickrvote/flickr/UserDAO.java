@@ -16,6 +16,8 @@
 
 package net.chrissearle.flickrvote.flickr;
 
+import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
+
 public interface UserDAO {
     public FlickrPhotographer getUser(String id);
 }

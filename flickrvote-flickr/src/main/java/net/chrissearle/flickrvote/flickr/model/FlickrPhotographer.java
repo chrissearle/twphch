@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.flickr;
+package net.chrissearle.flickrvote.flickr.model;
 
 public class FlickrPhotographer {
     private final String flickrId;

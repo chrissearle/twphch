@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.flickr;
+package net.chrissearle.flickrvote.flickr.model;
 
 import java.util.HashSet;
 import java.util.Set;

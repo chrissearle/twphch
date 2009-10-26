@@ -16,8 +16,8 @@
 
 package net.chrissearle.flickrvote.service.model.impl;
 
-import net.chrissearle.flickrvote.flickr.FlickrImage;
-import net.chrissearle.flickrvote.flickr.FlickrImageStatus;
+import net.chrissearle.flickrvote.flickr.model.FlickrImage;
+import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.Status;
