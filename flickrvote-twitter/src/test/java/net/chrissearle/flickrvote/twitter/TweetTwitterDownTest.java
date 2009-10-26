@@ -26,11 +26,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 @RunWith(JUnit4ClassRunner.class)
-public class TweetTwitterDownTest {
-    private static final String TEST_TWEET_TEXT = "Test Tweet Text";
-    private static final String TEST_TWITTER_USER = "Test Twitter User";
-    private static final String TEST_TWITTER_LOGIN = "TestTwitter";
-    private static final String TWITTER_DOWN = "Twitter down";
+public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
 
     @Test(expected = TwitterServiceException.class)
     public void testTweetDown() throws TwitterException {
@@ -38,7 +34,7 @@ public class TweetTwitterDownTest {
 
         when(twitter.updateStatus(TEST_TWEET_TEXT)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        TwitterService service = getService(twitter);
+        TweetService service = getTweetService(twitter, true);
 
         try {
             service.twitter(TEST_TWEET_TEXT);
@@ -59,7 +55,7 @@ public class TweetTwitterDownTest {
         when(twitter.getUserId()).thenReturn(TEST_TWITTER_LOGIN);
         when(twitter.existsFriendship(TEST_TWITTER_LOGIN, TEST_TWITTER_USER)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        TwitterService service = getService(twitter);
+        FollowService service = getFollowService(twitter, true);
 
         try {
             service.follow(TEST_TWITTER_USER);
@@ -81,7 +77,7 @@ public class TweetTwitterDownTest {
 
         when(twitter.showUser(TEST_TWITTER_USER)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        TwitterService service = getService(twitter);
+        UserExistanceService service = getUserExistanceService(twitter, true);
 
         try {
             service.twitterExists(TEST_TWITTER_USER);
@@ -90,14 +86,5 @@ public class TweetTwitterDownTest {
         } catch (TwitterServiceException e) {
             fail("Exception was not caught");
         }
-    }
-
-
-    private TwitterService getService(Twitter twitter) {
-        Twitter4jTwitterService service = new Twitter4jTwitterService(twitter);
-
-        service.configure(true);
-
-        return service;
     }
 }

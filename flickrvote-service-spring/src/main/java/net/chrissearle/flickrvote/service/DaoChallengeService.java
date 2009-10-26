@@ -31,7 +31,7 @@ import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
-import net.chrissearle.flickrvote.twitter.TwitterService;
+import net.chrissearle.flickrvote.twitter.TweetService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import net.chrissearle.mail.SimpleMailService;
 import org.apache.log4j.Level;
@@ -56,7 +56,7 @@ public class DaoChallengeService implements ChallengeService {
     private final PhotographyDao photographyDao;
     private final ImageDao imageDao;
 
-    private final TwitterService twitterService;
+    private final TweetService tweetService;
     private final FlickrService flickrService;
     private ChallengeMessageService challengeMessageService;
     private SimpleMailService mailService;
@@ -70,17 +70,17 @@ public class DaoChallengeService implements ChallengeService {
      * @param photographyDao          of type PhotographyDao
      * @param imageDao                of type ImageDao
      * @param challengeMessageService of type ChallengeMessageService
-     * @param twitterService          of type TwitterService
+     * @param tweetService            of type UserExistanceService
      * @param flickrService           of type FlickrService
      */
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
-                               ChallengeMessageService challengeMessageService, TwitterService twitterService, FlickrService flickrService,
+                               ChallengeMessageService challengeMessageService, TweetService tweetService, FlickrService flickrService,
                                CommentDAO commentDAO) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
         this.imageDao = imageDao;
-        this.twitterService = twitterService;
+        this.tweetService = tweetService;
         this.flickrService = flickrService;
         this.challengeMessageService = challengeMessageService;
         this.mailService = mailService;
@@ -245,7 +245,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         try {
-            twitterService.twitter(challengeMessageService.getVotingTwitter(challenge));
+            tweetService.twitter(challengeMessageService.getVotingTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -288,7 +288,7 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         try {
-            twitterService.twitter(challengeMessageService.getCurrentTwitter(challenge));
+            tweetService.twitter(challengeMessageService.getCurrentTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -344,7 +344,7 @@ public class DaoChallengeService implements ChallengeService {
         String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
         try {
-            twitterService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
+            tweetService.twitter(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -419,7 +419,7 @@ public class DaoChallengeService implements ChallengeService {
         ChallengeSummary challenge = challenges.iterator().next();
 
         try {
-            twitterService.twitter(challengeMessageService.getVotingOpenWarning(challenge));
+            tweetService.twitter(challengeMessageService.getVotingOpenWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {
@@ -441,7 +441,7 @@ public class DaoChallengeService implements ChallengeService {
         ChallengeSummary challenge = challenges.iterator().next();
 
         try {
-            twitterService.twitter(challengeMessageService.getVotingCloseWarning(challenge));
+            tweetService.twitter(challengeMessageService.getVotingCloseWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isEnabledFor(Level.WARN)) {

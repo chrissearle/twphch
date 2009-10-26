@@ -16,41 +16,17 @@
 
 package net.chrissearle.flickrvote.twitter;
 
-import org.constretto.annotation.Configuration;
-import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 @Service
-public class Twitter4jTwitterService implements TwitterService {
-    private Twitter twitter;
-
-    private Boolean twitterActiveFlag;
+public class Twitter4jFollowService extends AbstractTwitter4JSupport implements FollowService {
 
     @Autowired
-    public Twitter4jTwitterService(Twitter twitter) {
-        this.twitter = twitter;
-    }
-
-    @Configure
-    public void configure(@Configuration(expression = "twitter.active") Boolean active) {
-        twitterActiveFlag = active;
-    }
-
-    public void twitter(String text) {
-        if (twitterActiveFlag) {
-            updateTwitterStatus(text);
-        }
-    }
-
-    private void updateTwitterStatus(String text) {
-        try {
-            twitter.updateStatus(text);
-        } catch (TwitterException e) {
-            throw new TwitterServiceException("Unable to tweet " + text, e);
-        }
+    public Twitter4jFollowService(Twitter twitter) {
+        super(twitter);
     }
 
     public void follow(String twitterId) {
@@ -76,26 +52,5 @@ public class Twitter4jTwitterService implements TwitterService {
 
     private boolean alreadyFriends(String twitterId) throws TwitterException {
         return twitter.existsFriendship(twitter.getUserId(), twitterId);
-    }
-
-    public boolean twitterExists(String twitterId) {
-        boolean userExists = false;
-
-        if (twitterActiveFlag) {
-            userExists = askTwitterForUser(twitterId);
-        }
-
-        return userExists;
-    }
-
-    private boolean askTwitterForUser(String twitterId) {
-        try {
-            twitter.showUser(twitterId);
-
-            return true;
-        } catch (TwitterException e) {
-            // Short cut - returns false even if twitter is down.
-            return false;
-        }
     }
 }

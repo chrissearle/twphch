@@ -16,10 +16,20 @@
 
 package net.chrissearle.flickrvote.twitter;
 
-public interface TwitterService {
-    void twitter(String text);
+import org.constretto.annotation.Configuration;
+import org.constretto.annotation.Configure;
+import twitter4j.Twitter;
 
-    void follow(String twitter);
+public abstract class AbstractTwitter4JSupport {
+    protected Twitter twitter;
+    protected Boolean twitterActiveFlag;
 
-    boolean twitterExists(String twitter);
+    public AbstractTwitter4JSupport(Twitter twitter) {
+        this.twitter = twitter;
+    }
+
+    @Configure
+    public void configure(@Configuration(expression = "twitter.active") Boolean active) {
+        twitterActiveFlag = active;
+    }
 }

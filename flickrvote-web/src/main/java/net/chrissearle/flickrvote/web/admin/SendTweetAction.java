@@ -17,7 +17,7 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.twitter.TwitterService;
+import net.chrissearle.flickrvote.twitter.TweetService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -31,12 +31,12 @@ public class SendTweetAction extends ActionSupport {
     private String tweet;
 
     @Autowired
-    private transient TwitterService twitterService;
+    private transient TweetService tweetService;
 
     @Override
     public String execute() throws Exception {
         try {
-            twitterService.twitter(tweet);
+            tweetService.twitter(tweet);
 
             addActionMessage("Tweeted");
         } catch (TwitterServiceException tse) {

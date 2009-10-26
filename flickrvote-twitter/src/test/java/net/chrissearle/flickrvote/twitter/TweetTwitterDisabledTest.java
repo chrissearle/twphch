@@ -24,16 +24,13 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 @RunWith(JUnit4ClassRunner.class)
-public class TweetTwitterDisabledTest {
-    private static final String TEST_TWEET_TEXT = "Test Tweet Text";
-    private static final String TEST_TWITTER_USER = "Test Twitter User";
-    private static final String TEST_TWITTER_LOGIN = "TestTwitter";
+public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testTweetDisabled() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        TwitterService service = getService(twitter);
+        TweetService service = getTweetService(twitter, false);
 
         service.twitter(TEST_TWEET_TEXT);
 
@@ -44,7 +41,7 @@ public class TweetTwitterDisabledTest {
     public void testFollowDisabled() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        TwitterService service = getService(twitter);
+        FollowService service = getFollowService(twitter, false);
 
         service.follow(TEST_TWITTER_USER);
 
@@ -53,23 +50,16 @@ public class TweetTwitterDisabledTest {
         verify(twitter, never()).enableNotification(TEST_TWITTER_USER);
     }
 
+
     @Test
     public void testExistsDisabled() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        TwitterService service = getService(twitter);
+        Twitter4jUserExistanceService service = getUserExistanceService(twitter, false);
 
         service.twitterExists(TEST_TWITTER_USER);
 
         verify(twitter, never()).showUser(TEST_TWITTER_USER);
     }
 
-
-    private TwitterService getService(Twitter twitter) {
-        Twitter4jTwitterService service = new Twitter4jTwitterService(twitter);
-
-        service.configure(false);
-
-        return service;
-    }
 }

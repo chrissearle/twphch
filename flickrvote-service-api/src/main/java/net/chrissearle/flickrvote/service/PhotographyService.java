@@ -140,14 +140,6 @@ public interface PhotographyService {
     Set<ImageItemStatus> checkSearch(String tag);
 
     /**
-     * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.
-     *
-     * @param twitter of type String
-     * @return boolean
-     */
-    boolean checkTwitterExists(String twitter);
-
-    /**
      * Method findImageById finds an image based on id
      *
      * @param imageId of type String

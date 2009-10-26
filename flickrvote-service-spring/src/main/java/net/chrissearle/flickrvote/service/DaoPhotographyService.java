@@ -36,7 +36,7 @@ import net.chrissearle.flickrvote.service.model.impl.ChallengeItemInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance;
 import net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance;
-import net.chrissearle.flickrvote.twitter.TwitterService;
+import net.chrissearle.flickrvote.twitter.FollowService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -65,7 +65,7 @@ public class DaoPhotographyService implements PhotographyService {
     private UserDAO flickrUserDao;
 
     private FlickrService flickrService;
-    private TwitterService twitterService;
+    private FollowService followService;
     private FlickrLoginService flickrLoginService;
 
     /**
@@ -75,11 +75,11 @@ public class DaoPhotographyService implements PhotographyService {
      * @param challengeDao   of type ChallengeDao
      * @param imageDao       of type ImageDao
      * @param flickrService  of type FlickrService
-     * @param twitterService of type TwitterService
+     * @param followService  of type UserExistanceService
      */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrService flickrService, TwitterService twitterService, FlickrLoginService flickrLoginService,
+                                 FlickrService flickrService, FollowService followService, FlickrLoginService flickrLoginService,
                                  ImageDAO flickrImageDao, UserDAO flickrUserDao, ImageTagSearchDAO flickrImageTagSearchDao) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
@@ -87,7 +87,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         this.flickrService = flickrService;
         this.flickrLoginService = flickrLoginService;
-        this.twitterService = twitterService;
+        this.followService = followService;
 
         this.flickrImageDao = flickrImageDao;
         this.flickrImageTagSearchDao = flickrImageTagSearchDao;
@@ -419,7 +419,7 @@ public class DaoPhotographyService implements PhotographyService {
             photographyDao.persist(photographer);
 
             try {
-                twitterService.follow(twitter);
+                followService.follow(twitter);
             } catch (TwitterServiceException tse) {
                 if (logger.isEnabledFor(Level.WARN)) {
                     logger.warn("Unable to follow" + tse.getMessage(), tse);
@@ -479,16 +479,6 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         return results;
-    }
-
-    /**
-     * Method checkTwitterExists checks to see if the given twitter ID exists at twitter.
-     *
-     * @param twitter of type String
-     * @return boolean
-     */
-    public boolean checkTwitterExists(String twitter) {
-        return twitterService.twitterExists(twitter);
     }
 
     /**
