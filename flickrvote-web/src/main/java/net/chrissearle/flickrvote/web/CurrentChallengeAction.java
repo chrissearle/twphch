@@ -19,11 +19,11 @@ package net.chrissearle.flickrvote.web;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.PhotographyService;
-import net.chrissearle.flickrvote.service.model.ChallengeItem;
+import net.chrissearle.flickrvote.service.TagSearchService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItems;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
@@ -41,7 +41,7 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
     private transient ChallengeService challengeService;
 
     @Autowired
-    private transient PhotographyService photographyService;
+    private transient TagSearchService tagSearchService;
 
     private List<DisplayImage> images;
 
@@ -78,11 +78,11 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
         if (challengeSummary != null) {
             challenge = new DisplayChallengeSummary(challengeSummary);
 
-            ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
+            ImageItems imageItems = tagSearchService.searchByTagAndDate(challengeSummary.getTag(), challengeSummary.getStartDate());
 
-            images = new ArrayList<DisplayImage>(challengeItem.getImages().size());
+            images = new ArrayList<DisplayImage>(imageItems.getImages().size());
 
-            for (ImageItem image : challengeItem.getImages()) {
+            for (ImageItem image : imageItems.getImages()) {
                 images.add(new DisplayImage(image));
             }
 

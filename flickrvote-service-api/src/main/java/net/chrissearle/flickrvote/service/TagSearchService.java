@@ -14,15 +14,12 @@
  *    limitations under the License.
  */
 
-package net.chrissearle.flickrvote.flickr;
+package net.chrissearle.flickrvote.service;
+
+import net.chrissearle.flickrvote.service.model.ImageItems;
 
 import java.util.Date;
-import java.util.Set;
 
-public interface FlickrService {
-    void postForum(String title, String message);
-
-    void postComment(String id, String comment);
-
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+public interface TagSearchService {
+    ImageItems searchByTagAndDate(String tag, Date earliestDate);
 }

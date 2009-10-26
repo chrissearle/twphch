@@ -25,7 +25,6 @@ import org.constretto.ConstrettoBuilder;
 import org.constretto.ConstrettoConfiguration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
@@ -63,15 +62,16 @@ public class FlickrServiceTest {
         service = new FlickrJFlickrService(flickr, null);
     }
 
-    @Test(groups = "configured")
-    public void testSearchTags() {
-        List<FlickrImage> images = service.searchImagesByTag("#TwPhCh001", null);
-
-        assert images != null : "Image list was null";
-        // Hard to know what to set here as the image count varies over time. But we had more than 25 entries
-        // for this tag.
-        assert images.size() > 10 : "Not enough images";
-    }
+    // Moving out of flickr service
+//    @Test(groups = "configured")
+//    public void testSearchTags() {
+//        List<FlickrImage> images = service.searchImagesByTag("#TwPhCh001", null);
+//
+//        assert images != null : "Image list was null";
+//        // Hard to know what to set here as the image count varies over time. But we had more than 25 entries
+//        // for this tag.
+//        assert images.size() > 10 : "Not enough images";
+//    }
 
     public void postOpenVote(String tag, String name, Date endDate) {
     }

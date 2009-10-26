@@ -69,47 +69,6 @@ public class FlickrJFlickrService implements FlickrService {
         return authInterface.checkToken(token);
     }
 
-    public List<FlickrImage> searchImagesByTag(String tag, Date earliestDate) throws FlickrServiceException {
-        try {
-            List<Photo> photos = retrieveByTag(tag);
-
-            Map<String, FlickrImage> seenPhotographers = new HashMap<String, FlickrImage>();
-
-            for (Photo photo : photos) {
-                FlickrImage image = convertPhotoToFlickrImage(photo);
-
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Search result: " + image);
-                }
-
-                if (earliestDate != null && image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
-                    if (logger.isInfoEnabled()) {
-                        logger.info("Image was taken before challenge start: " + image.getFlickrId() + " " + image.getTakenDate());
-                    }
-                } else {
-                    if (!seenPhotographers.containsKey(photo.getOwner().getId())) {
-                        if (logger.isInfoEnabled()) {
-                            logger.info("Image seen " + image.getFlickrId());
-                        }
-                        seenPhotographers.put(photo.getOwner().getId(), image);
-                    } else {
-                        if (logger.isInfoEnabled()) {
-                            logger.info("Not replacing image " + seenPhotographers.get(photo.getOwner().getId()).getFlickrId() + " with " + image.getFlickrId());
-                        }
-                    }
-                }
-            }
-
-            return new ArrayList<FlickrImage>(seenPhotographers.values());
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        }
-    }
-
     @SuppressWarnings("unchecked")
     private List<Photo> retrieveByTag(String tag) throws IOException, SAXException, FlickrException {
         PhotosInterface photosInterface = flickr.getPhotosInterface();
@@ -128,30 +87,6 @@ public class FlickrJFlickrService implements FlickrService {
 
         List<Photo> photos = (List<Photo>) photosInterface.search(params, 500, 1);
         return photos;
-    }
-
-    public FlickrPhotographer getUserByFlickrId(String id) {
-        try {
-            User user = getUser(id);
-
-            if (user != null) {
-                FlickrPhotographer flickrPhotographer = new FlickrPhotographer(id, null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
-
-                if (logger.isInfoEnabled()) {
-                    logger.info("Photographer retrieved " + flickrPhotographer.getUsername());
-                }
-
-                return flickrPhotographer;
-            }
-
-            return null;
-        } catch (SAXException e) {
-            throw new FlickrServiceException(e);
-        } catch (FlickrException e) {
-            throw new FlickrServiceException(e);
-        } catch (IOException e) {
-            throw new FlickrServiceException(e);
-        }
     }
 
     public FlickrImage getImageByFlickrId(String id) {

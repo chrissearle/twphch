@@ -56,6 +56,9 @@ public class DaoPhotographyService implements PhotographyService {
     private ChallengeDao challengeDao;
     private ImageDao imageDao;
 
+    private ImageDAO flickrImageDao;
+    private UserDAO flickrUserDao;
+
     private FlickrService flickrService;
     private TwitterService twitterService;
     private FlickrLoginService flickrLoginService;
@@ -71,7 +74,8 @@ public class DaoPhotographyService implements PhotographyService {
      */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrService flickrService, TwitterService twitterService, FlickrLoginService flickrLoginService) {
+                                 FlickrService flickrService, TwitterService twitterService, FlickrLoginService flickrLoginService,
+                                 ImageDAO flickrImageDao, UserDAO flickrUserDao) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
@@ -79,6 +83,9 @@ public class DaoPhotographyService implements PhotographyService {
         this.flickrService = flickrService;
         this.flickrLoginService = flickrLoginService;
         this.twitterService = twitterService;
+
+        this.flickrImageDao = flickrImageDao;
+        this.flickrUserDao = flickrUserDao;
     }
 
     /**
@@ -118,7 +125,7 @@ public class DaoPhotographyService implements PhotographyService {
         // Check to see if present
         Photographer photographer = photographyDao.findById(id);
 
-        FlickrPhotographer flickrPhotographer = flickrService.getUserByFlickrId(id);
+        FlickrPhotographer flickrPhotographer = flickrUserDao.getUser(id);
 
         if (photographer == null) {
             photographer = new Photographer(flickrPhotographer.getToken(), flickrPhotographer.getUsername(),
@@ -184,7 +191,9 @@ public class DaoPhotographyService implements PhotographyService {
 
         if (challenge.getVotingState() == ChallengeState.OPEN) {
             // Grab images from flickr
-            for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
+            FlickrImages flickrImages = flickrImageDao.searchTag(tag, challenge.getStartDate());
+
+            for (FlickrImage image : flickrImages.getImages()) {
                 ImageItemInstance imageItem = new ImageItemInstance(image);
                 images.add(imageItem);
                 seenImages.put(image.getPhotographer().getFlickrId(), imageItem);
@@ -235,7 +244,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         Image image = imageDao.findById(id);
 
-        FlickrImage flickrImage = flickrService.getImageByFlickrId(id);
+        FlickrImage flickrImage = flickrImageDao.getImage(id);
 
         if (image == null) {
             if (logger.isInfoEnabled()) {
@@ -246,6 +255,7 @@ public class DaoPhotographyService implements PhotographyService {
 
             if (photographer == null) {
                 retrieveAndStorePhotographer(photographerId);
+
                 photographer = photographyDao.findById(photographerId);
             }
 
@@ -269,13 +279,6 @@ public class DaoPhotographyService implements PhotographyService {
             image.setPage(flickrImage.getUrl());
             image.setTitle(flickrImage.getTitle());
             image.setPostedDate(flickrImage.getPostedDate());
-
-
-            if (photographer == null) {
-                retrieveAndStorePhotographer(photographerId);
-
-                photographer = photographyDao.findById(photographerId);
-            }
 
             photographer.addImage(image);
 
@@ -372,10 +375,9 @@ public class DaoPhotographyService implements PhotographyService {
             logger.info("Freezing challenge : " + challenge);
         }
 
+        FlickrImages images = flickrImageDao.searchTag(challenge.getTag(), challenge.getStartDate());
 
-        List<FlickrImage> images = flickrService.searchImagesByTag(challenge.getTag(), challenge.getStartDate());
-
-        for (FlickrImage image : images) {
+        for (FlickrImage image : images.getImages()) {
             retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
         }
     }
@@ -520,7 +522,9 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         // Grab images from flickr
-        for (FlickrImage image : flickrService.searchImagesByTag(tag, challenge.getStartDate())) {
+        FlickrImages flickrImages = flickrImageDao.searchTag(tag, challenge.getStartDate());
+
+        for (FlickrImage image : flickrImages.getImages()) {
             if (image.getPhotographer().getFlickrId().equals(photographerId)) {
                 ImageItem imageItem = new ImageItemInstance(image);
                 images.add(imageItem);

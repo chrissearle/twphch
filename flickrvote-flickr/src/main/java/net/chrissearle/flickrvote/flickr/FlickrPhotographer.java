@@ -22,6 +22,26 @@ public class FlickrPhotographer {
     private final String username;
     private final String realname;
     private final String iconUrl;
+    private static final String TOKEN_UNKNOWN = "TOKEN_UNKNOWN";
+    private static final String USERNAME_UNKNOWN = "USERNAME_UNKNOWN";
+    private static final String REALNAME_UNKNOWN = "REALNAME_UNKNOWN";
+    private static final String ICONURL_UNKNOWN = "ICONURL_UNKNOWN";
+
+    public FlickrPhotographer(String flickrId) {
+        this.flickrId = flickrId;
+        this.username = USERNAME_UNKNOWN;
+        this.realname = REALNAME_UNKNOWN;
+        this.token = TOKEN_UNKNOWN;
+        this.iconUrl = ICONURL_UNKNOWN;
+    }
+
+    public FlickrPhotographer(String flickrId, String username, String realname, String iconUrl) {
+        this.flickrId = flickrId;
+        this.username = username;
+        this.realname = realname;
+        this.iconUrl = iconUrl;
+        this.token = TOKEN_UNKNOWN;
+    }
 
     public FlickrPhotographer(String flickrId, String token, String username, String realname, String iconUrl) {
         this.flickrId = flickrId;

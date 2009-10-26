@@ -28,6 +28,17 @@ public class FlickrImage {
 
     private Date takenDate;
 
+    public FlickrImage(FlickrImage image, FlickrPhotographer photographer) {
+        this.flickrId = image.getFlickrId();
+        this.title = image.getTitle();
+        this.url = image.getUrl();
+        this.imageUrl = image.getImageUrl();
+        this.takenDate = image.getTakenDate();
+        this.postedDate = image.getPostedDate();
+        this.photographer = photographer;
+
+    }
+
     public FlickrImage(String flickrId, FlickrPhotographer photographer, String title, String url, String imageUrl, Date takenDate, Date postedDate) {
         this.flickrId = flickrId;
         this.photographer = photographer;

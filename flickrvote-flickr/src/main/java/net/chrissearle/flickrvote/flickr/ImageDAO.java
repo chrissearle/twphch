@@ -17,12 +17,9 @@
 package net.chrissearle.flickrvote.flickr;
 
 import java.util.Date;
-import java.util.Set;
 
-public interface FlickrService {
-    void postForum(String title, String message);
+public interface ImageDAO {
+    public FlickrImage getImage(String id);
 
-    void postComment(String id, String comment);
-
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+    FlickrImages searchTag(String tag, Date earliestDate);
 }

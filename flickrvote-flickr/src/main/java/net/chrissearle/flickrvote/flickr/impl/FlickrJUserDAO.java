@@ -30,7 +30,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 
-@Component("userDao")
+@Component
 public class FlickrJUserDAO implements UserDAO {
     private Logger logger = Logger.getLogger(this.getClass());
     private Flickr flickr;
@@ -42,19 +42,7 @@ public class FlickrJUserDAO implements UserDAO {
 
     public FlickrPhotographer getUser(String id) {
         try {
-            User user = getFlickrUser(id);
-
-            if (user != null) {
-                FlickrPhotographer flickrPhotographer = new FlickrPhotographer(id, null, user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
-
-                if (logger.isInfoEnabled()) {
-                    logger.info("Photographer retrieved " + flickrPhotographer.getUsername());
-                }
-
-                return flickrPhotographer;
-            }
-
-            return null;
+            return retrieveAndBuildPhotographer(id);
         } catch (SAXException e) {
             throw new FlickrServiceException(e);
         } catch (FlickrException e) {
@@ -64,13 +52,27 @@ public class FlickrJUserDAO implements UserDAO {
         }
     }
 
-    private User getFlickrUser(String id) throws IOException, SAXException, FlickrException {
+    private FlickrPhotographer retrieveAndBuildPhotographer(String id) throws IOException, SAXException, FlickrException {
+        User user = retrieveUser(id);
+
+        if (logger.isInfoEnabled()) {
+            logger.info("User info fetched for " + user.getUsername());
+        }
+
+        return buildPhotographer(user);
+    }
+
+    private FlickrPhotographer buildPhotographer(User user) {
+        return new FlickrPhotographer(user.getId(), user.getUsername(), user.getRealName(), user.getBuddyIconUrl());
+    }
+
+    private User retrieveUser(String id) throws IOException, SAXException, FlickrException {
         PeopleInterface peopleInterface = flickr.getPeopleInterface();
 
         User user = peopleInterface.getInfo(id);
 
-        if (logger.isInfoEnabled()) {
-            logger.info("User info fetched for " + user.getUsername());
+        if (user == null) {
+            throw new FlickrServiceException("No user found with ID: " + id);
         }
 
         return user;

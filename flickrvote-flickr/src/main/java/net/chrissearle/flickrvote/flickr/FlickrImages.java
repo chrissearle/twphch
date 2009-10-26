@@ -16,13 +16,16 @@
 
 package net.chrissearle.flickrvote.flickr;
 
-import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-public interface FlickrService {
-    void postForum(String title, String message);
+public class FlickrImages {
+    private List<FlickrImage> images;
 
-    void postComment(String id, String comment);
+    public FlickrImages(List<FlickrImage> images) {
+        this.images = images;
+    }
 
-    Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+    public List<FlickrImage> getImages() {
+        return images;
+    }
 }
