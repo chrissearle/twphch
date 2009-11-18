@@ -23,6 +23,7 @@ public abstract class AbstractTwitterTestSupport {
     protected static final String TEST_TWITTER_USER = "Test Twitter User";
     protected static final String TEST_TWITTER_LOGIN = "TestTwitter";
     protected static final String TWITTER_DOWN = "Twitter down";
+    protected static final String TEST_TWITTER_FRIEND = "Test Twitter Friend";
 
     protected Twitter4jUserExistanceService getUserExistanceService(Twitter twitter, boolean activeFlag) {
         Twitter4jUserExistanceService service = new Twitter4jUserExistanceService(twitter);
@@ -47,4 +48,13 @@ public abstract class AbstractTwitterTestSupport {
 
         return service;
     }
+
+    protected DirectMessageService getDirectMessageService(Twitter twitter, boolean activeFlag) {
+        Twitter4jDirectMessageService service = new Twitter4jDirectMessageService(twitter);
+
+        service.configure(activeFlag);
+
+        return service;
+    }
+
 }

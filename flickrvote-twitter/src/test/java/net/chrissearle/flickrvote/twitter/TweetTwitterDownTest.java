@@ -87,4 +87,21 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
             fail("Exception was not caught");
         }
     }
+
+    @Test
+    public void testDmDown() throws TwitterException {
+        Twitter twitter = mock(Twitter.class);
+
+        when(twitter.getUserId()).thenReturn(TEST_TWITTER_USER);
+        when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenThrow(new TwitterException(TWITTER_DOWN));
+
+        DirectMessageService service = getDirectMessageService(twitter, true);
+
+        try {
+            service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
+        } catch (TwitterServiceException e) {
+            verify(twitter).existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND);
+            verify(twitter, never()).sendDirectMessage(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
+        }
+    }
 }

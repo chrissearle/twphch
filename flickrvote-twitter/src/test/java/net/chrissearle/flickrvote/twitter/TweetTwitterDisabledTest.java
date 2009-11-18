@@ -62,4 +62,16 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
         verify(twitter, never()).showUser(TEST_TWITTER_USER);
     }
 
+    @Test
+    public void testDmDisabled() throws TwitterException {
+        Twitter twitter = mock(Twitter.class);
+
+        DirectMessageService service = getDirectMessageService(twitter, false);
+
+        service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
+
+        verify(twitter, never()).sendDirectMessage(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
+    }
+
+
 }
