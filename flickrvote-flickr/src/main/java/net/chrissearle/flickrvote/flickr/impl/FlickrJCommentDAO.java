@@ -27,6 +27,7 @@ import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import org.apache.log4j.Logger;
 import org.constretto.annotation.Configuration;
 import org.constretto.annotation.Configure;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
@@ -40,6 +41,7 @@ public class FlickrJCommentDAO implements CommentDAO {
 
     private Flickr flickr;
 
+    @Autowired
     public FlickrJCommentDAO(Flickr flickr) {
         this.flickr = flickr;
     }
