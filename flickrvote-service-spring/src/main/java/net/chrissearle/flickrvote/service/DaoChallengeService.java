@@ -20,7 +20,6 @@ import net.chrissearle.flickrvote.dao.ChallengeDao;
 import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.CommentDAO;
-import net.chrissearle.flickrvote.flickr.FlickrService;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.model.Challenge;
 import net.chrissearle.flickrvote.model.Image;
@@ -57,7 +56,6 @@ public class DaoChallengeService implements ChallengeService {
     private final ImageDao imageDao;
 
     private final TweetService tweetService;
-    private final FlickrService flickrService;
     private ChallengeMessageService challengeMessageService;
     private SimpleMailService mailService;
 
@@ -71,17 +69,15 @@ public class DaoChallengeService implements ChallengeService {
      * @param imageDao                of type ImageDao
      * @param challengeMessageService of type ChallengeMessageService
      * @param tweetService            of type UserExistanceService
-     * @param flickrService           of type FlickrService
      */
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
-                               ChallengeMessageService challengeMessageService, TweetService tweetService, FlickrService flickrService,
+                               ChallengeMessageService challengeMessageService, TweetService tweetService,
                                CommentDAO commentDAO) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
         this.imageDao = imageDao;
         this.tweetService = tweetService;
-        this.flickrService = flickrService;
         this.challengeMessageService = challengeMessageService;
         this.mailService = mailService;
 

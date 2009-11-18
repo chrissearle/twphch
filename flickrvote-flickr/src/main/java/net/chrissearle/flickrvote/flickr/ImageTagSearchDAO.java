@@ -21,5 +21,7 @@ import net.chrissearle.flickrvote.flickr.model.FlickrImages;
 import java.util.Date;
 
 public interface ImageTagSearchDAO {
+    FlickrImages searchTag(String tag);
+
     FlickrImages searchTag(String tag, Date earliestDate);
 }

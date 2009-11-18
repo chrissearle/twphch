@@ -64,7 +64,7 @@ public class DaoPhotographyService implements PhotographyService {
     private ImageTagSearchDAO flickrImageTagSearchDao;
     private UserDAO flickrUserDao;
 
-    private FlickrService flickrService;
+    private FlickrStatusCheckService flickrStatusCheckService;
     private FollowService followService;
     private FlickrLoginService flickrLoginService;
 
@@ -74,18 +74,18 @@ public class DaoPhotographyService implements PhotographyService {
      * @param photographyDao of type PhotographyDao
      * @param challengeDao   of type ChallengeDao
      * @param imageDao       of type ImageDao
-     * @param flickrService  of type FlickrService
+     * @param flickrStatusCheckService  of type FlickrService
      * @param followService  of type UserExistanceService
      */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrService flickrService, FollowService followService, FlickrLoginService flickrLoginService,
+                                 FlickrStatusCheckService flickrStatusCheckService, FollowService followService, FlickrLoginService flickrLoginService,
                                  ImageDAO flickrImageDao, UserDAO flickrUserDao, ImageTagSearchDAO flickrImageTagSearchDao) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
 
-        this.flickrService = flickrService;
+        this.flickrStatusCheckService = flickrStatusCheckService;
         this.flickrLoginService = flickrLoginService;
         this.followService = followService;
 
@@ -474,7 +474,7 @@ public class DaoPhotographyService implements PhotographyService {
 
         Set<ImageItemStatus> results = new HashSet<ImageItemStatus>();
 
-        for (FlickrImageStatus status : flickrService.checkSearch(tag, challenge.getStartDate())) {
+        for (FlickrImageStatus status : flickrStatusCheckService.checkSearch(tag, challenge.getStartDate())) {
             results.add(new ImageItemStatusInstance(status));
         }
 

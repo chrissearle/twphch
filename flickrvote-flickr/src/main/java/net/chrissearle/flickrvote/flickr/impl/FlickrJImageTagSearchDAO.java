@@ -49,6 +49,22 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
     }
 
     public FlickrImages searchTag(String tag, Date earliestDate) {
+        if (earliestDate == null) {
+            throw new FlickrServiceException("Earliest date cannot be null");
+        }
+
+        FlickrImages images = searchTag(tag);
+
+        for (FlickrImage image : images.getImages()){
+           if (image.getTakenDate() != null && image.getTakenDate().getTime() < earliestDate.getTime()) {
+               images.getImages().remove(image);
+           }
+        }
+
+        return images;
+    }
+
+    public FlickrImages searchTag(String tag) {
         try {
             List<FlickrImage> images = new ArrayList<FlickrImage>();
 

@@ -21,7 +21,6 @@ import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import java.util.Date;
 import java.util.Set;
 
-public interface FlickrService {
-    @Deprecated
+public interface FlickrStatusCheckService {
     Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
 }
