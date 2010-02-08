@@ -346,3 +346,10 @@ ul.errorMessage {
 ul.errorMessage li {
     list-style: none;
 }
+
+div.announce {
+    margin-top: 10px;
+    padding: 10px;
+    border: solid 1px #FF9C27;
+    background-color: #545454;
+}

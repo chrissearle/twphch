@@ -20,6 +20,7 @@
 <%@taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@taglib prefix="page" uri="http://www.opensymphony.com/sitemesh/page" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="fv" uri="/flickrvote-tags" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -110,6 +111,7 @@
             </div>
         </div>
         <div id="column2">
+            <fv:announcement/>
             <s:if test="#session.flickrUser">
                 <s:if test="#session.flickrUser.twitterAccount == ''">
                     <ul class="actionMessage">
