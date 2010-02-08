@@ -60,6 +60,7 @@ public class DaoChallengeService implements ChallengeService {
     private SimpleMailService mailService;
 
     private CommentDAO commentDAO;
+    private WinnerService winnerService;
 
     /**
      * Constructor DaoChallengeService creates a new DaoChallengeService instance.
@@ -72,7 +73,7 @@ public class DaoChallengeService implements ChallengeService {
      */
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
-                               ChallengeMessageService challengeMessageService, TweetService tweetService,
+                               ChallengeMessageService challengeMessageService, TweetService tweetService, WinnerService winnerService,
                                CommentDAO commentDAO) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
@@ -80,6 +81,7 @@ public class DaoChallengeService implements ChallengeService {
         this.tweetService = tweetService;
         this.challengeMessageService = challengeMessageService;
         this.mailService = mailService;
+        this.winnerService = winnerService;
 
         this.commentDAO = commentDAO;
     }
@@ -387,6 +389,9 @@ public class DaoChallengeService implements ChallengeService {
             }
             if (!"".equals(badgeText)) {
                 try {
+                    if (logger.isInfoEnabled()) {
+                        logger.info("Posting comment on " + imageItem.getId() + " with text " + badgeText);
+                    }
                     commentDAO.postComment(imageItem.getId(), badgeText);
                 } catch (FlickrServiceException fse) {
                     if (logger.isEnabledFor(Level.WARN)) {
@@ -398,6 +403,10 @@ public class DaoChallengeService implements ChallengeService {
 
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
 
+        if (logger.isInfoEnabled()) {
+            logger.info("Posting admin mail with text " + messageText);
+        }
+
         try {
             mailService.sendPost(challengeMessageService.getResultsForumTitle(challenge), messageText);
         } catch (FlickrServiceException fse) {
@@ -405,6 +414,8 @@ public class DaoChallengeService implements ChallengeService {
                 logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
             }
         }
+
+        mailService.sendPost(challengeMessageService.getFrontPageTitle(), winnerService.getFrontPageHtml());
 
         return challenge;
     }

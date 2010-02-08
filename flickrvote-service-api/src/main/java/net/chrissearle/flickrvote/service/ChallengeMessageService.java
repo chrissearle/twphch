@@ -21,6 +21,7 @@ import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -258,4 +259,8 @@ public interface ChallengeMessageService {
     String getWarnForCurrentTitle(String tag);
 
     String getWarnForCurrentBody(Set<ImageItemStatus> status);
+
+    String generateFrontPageHtml(List<ImageItem> images);
+
+    String getFrontPageTitle();
 }

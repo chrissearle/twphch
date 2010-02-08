@@ -33,16 +33,7 @@
     <body>
     <h1>Source for group frontpage</h1>
 
-    <pre><code>
-        <s:iterator id="displayImage" value="displayImages">
-            &amp;lt;b&amp;gt;Gratulerer <s:property
-                value="#displayImage.photographerName"/> med seieren i &amp;lt;a href="http://vote.twphch.com/twitterphotochallenge/show.action?challengeTag=<s:property
-                value="challengeTag"/>"&amp;gt;#<s:property value="#displayImage.challengeTag"/>&amp;lt;/a&amp;gt; &amp;laquo;<s:property
-                value="#displayImage.challengeDescription"/>&amp;raquo;&amp;lt;/b&amp;gt;
-            &amp;lt;a href="<s:property value="#displayImage.pageUrl"/>"&amp;gt;&amp;lt;img src="<s:property
-                value="#displayImage.imageUrl"/>/&amp;gt;&amp;lt;/a&amp;gt;
-        </s:iterator>
-    </code></pre>
+    <s:textarea name="frontPageHtml" rows="100" cols="100"/>
     </body>
     </html>
 </jsp:root>

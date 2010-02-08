@@ -31,13 +31,6 @@ import java.util.Set;
  */
 public interface PhotographyService {
     /**
-     * Method getGoldWinners returns all images with first place.
-     *
-     * @return list of images with rank 1.
-     */
-    Set<ImageItem> getGoldWinners();
-
-    /**
      * Method setAdministrator sets the administration flag of a user.
      *
      * @param id        user ID

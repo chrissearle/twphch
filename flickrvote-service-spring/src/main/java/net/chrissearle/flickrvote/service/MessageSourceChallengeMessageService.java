@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -279,6 +280,30 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         }
 
         return message.toString();
+    }
+
+    public String generateFrontPageHtml(List<ImageItem> images) {
+        StringBuffer message = new StringBuffer();
+
+        for (ImageItem item : images) {
+            Object[] params = new Object[5];
+
+            params[0] = item.getPhotographer().getFullname() == null || "".equals(item.getPhotographer().getFullname()) ?
+                    item.getPhotographer().getUsername() :
+                    item.getPhotographer().getFullname();
+            params[1] = item.getChallenge().getTag();
+            params[2] = item.getChallenge().getTitle();
+            params[3] = item.getUrl();
+            params[4] = item.getImageUrl();
+
+            message.append(messageSource.getMessage("frontpage.line", params, Locale.getDefault()));
+        }
+
+        return message.toString();
+    }
+
+    public String getFrontPageTitle() {
+        return messageSource.getMessage("frontpage.title", new Object[0], Locale.getDefault());
     }
 
     public String getHistoryImagePostedTitle() {

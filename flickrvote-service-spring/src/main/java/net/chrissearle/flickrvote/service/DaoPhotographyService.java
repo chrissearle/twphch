@@ -387,21 +387,6 @@ public class DaoPhotographyService implements PhotographyService {
     }
 
     /**
-     * Method getGoldWinners returns all images with first place.
-     *
-     * @return list of images with rank 1.
-     */
-    public Set<ImageItem> getGoldWinners() {
-        Set<ImageItem> images = new HashSet<ImageItem>();
-
-        for (Image image : imageDao.getImagesWithRank(1L)) {
-            images.add(new ImageItemInstance(image));
-        }
-
-        return images;
-    }
-
-    /**
      * Method setTwitter sets a photographer's twitter ID
      *
      * @param id      photograher ID

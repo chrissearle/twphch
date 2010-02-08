@@ -18,7 +18,7 @@ package net.chrissearle.flickrvote.web;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
-import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.WinnerService;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ import java.util.*;
 
 public class HallOfFameAction extends ActionSupport implements Preparable {
     @Autowired
-    private PhotographyService photographyService;
+    private WinnerService winnerService;
 
     private List<DisplayImage> displayImages;
 
@@ -45,7 +45,7 @@ public class HallOfFameAction extends ActionSupport implements Preparable {
     }
 
     public void prepare() throws Exception {
-        Set<ImageItem> images = photographyService.getGoldWinners();
+        Set<ImageItem> images = winnerService.getGoldWinners();
 
         displayImages = new ArrayList<DisplayImage>(images.size());
 
