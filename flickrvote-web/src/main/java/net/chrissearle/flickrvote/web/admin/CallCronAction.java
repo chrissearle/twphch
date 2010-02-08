@@ -19,6 +19,7 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.StatusCheckService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,6 +29,9 @@ public class CallCronAction extends ActionSupport {
 
     @Autowired
     private PhotographyService photographyService;
+
+    @Autowired
+    private StatusCheckService statusCheckService;
 
     public String openVoting() throws Exception {
         photographyService.freezeChallenge();
@@ -64,6 +68,18 @@ public class CallCronAction extends ActionSupport {
             addActionMessage("Results announced for: " + challenge.getTag());
         } else {
             addActionMessage("No challenge found for results");
+        }
+
+        return SUCCESS;
+    }
+
+    public String checkWarnCurrent() throws Exception {
+        ChallengeSummary challenge = statusCheckService.warnForCurrent();
+
+        if (challenge != null) {
+            addActionMessage("Checked and mailed (if required) for : " + challenge.getTag());
+        } else {
+            addActionMessage("No challenge found for checking");
         }
 
         return SUCCESS;

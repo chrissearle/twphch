@@ -84,6 +84,9 @@
             <s:url action="cronResults" id="cronResultsUrl"/>
             <s:a href="%{cronResultsUrl}">Calculate/announce results</s:a>
             <br/>
+            <s:url action="cronCheck" id="cronCheckUrl"/>
+            <s:a href="%{cronCheckUrl}">Check current challenge (and mail)</s:a>
+            <br/>
             <s:url action="generateHistoryReport" id="generateHistoryReportUrl"/>
             <s:a href="%{generateHistoryReportUrl}">Generate hustory report</s:a>
         </p>

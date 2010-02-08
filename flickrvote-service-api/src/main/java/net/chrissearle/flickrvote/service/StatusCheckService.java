@@ -1,5 +1,6 @@
 package net.chrissearle.flickrvote.service;
 
+import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 
 import java.util.Set;
@@ -12,4 +13,6 @@ public interface StatusCheckService {
      * @return Set<ImageItemStatus>
      */
     Set<ImageItemStatus> checkSearch(String tag);
+
+    ChallengeSummary warnForCurrent();
 }

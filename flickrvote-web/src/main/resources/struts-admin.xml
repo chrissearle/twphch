@@ -101,6 +101,10 @@
             <result name="success" type="chain">challenges</result>
         </action>
 
+        <action name="cronCheck" class="net.chrissearle.flickrvote.web.admin.CallCronAction" method="checkWarnCurrent">
+            <result name="success" type="chain">challenges</result>
+        </action>
+
         <action name="getAdminFrob" class="net.chrissearle.flickrvote.web.admin.GetAdminFrobAction">
             <result name="success">/jsp/admin/adminFrob.jspx</result>
         </action>

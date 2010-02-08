@@ -56,6 +56,12 @@
         <property name="concurrent" value="false"/>
     </bean>
 
+    <bean id="warnForCurrentJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="statusCheckService"/>
+        <property name="targetMethod" value="warnForCurrent"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
     <bean id="generateHistoryPdfJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetBeanName" value="reportService"/>
         <property name="targetMethod" value="generateHistoryReport"/>
@@ -88,6 +94,11 @@
         <property name="cronExpression" value="1 0 21 ? * SUN"/>
     </bean>
 
+    <bean id="warnForCurrentTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="warnForCurrentJob"/>
+        <property name="cronExpression" value="0 0 21 ? * THU"/>
+    </bean>
+
     <bean id="generateHistoryPdfTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="generateHistoryPdfJob"/>
         <property name="cronExpression" value="0 0 23 * * ?"/>
@@ -102,6 +113,7 @@
                 <ref bean="generateHistoryPdfTrigger"/>
                 <ref bean="warnVotingOpenTrigger"/>
                 <ref bean="warnVotingCloseTrigger"/>
+                <ref bean="warnForCurrentTrigger" />
             </list>
         </property>
     </bean>

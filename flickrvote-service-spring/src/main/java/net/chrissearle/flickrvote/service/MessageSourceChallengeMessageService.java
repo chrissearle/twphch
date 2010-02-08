@@ -18,6 +18,8 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItemStatus;
+import net.chrissearle.flickrvote.service.model.Status;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -28,6 +30,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
 
 @Service
 public class MessageSourceChallengeMessageService implements ChallengeMessageService, MessageSourceAware, InitializingBean {
@@ -244,6 +247,38 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
         params[3] = votingUrlShort;
 
         return messageSource.getMessage("voting.close.warn", params, Locale.getDefault());
+    }
+
+    public String getWarnForCurrentTitle(String tag) {
+        Object[] params = new Object[1];
+
+        params[0] = tag;
+
+        return messageSource.getMessage("warn.current.title", params, Locale.getDefault());
+    }
+
+    public String getWarnForCurrentBody(Set<ImageItemStatus> status) {
+        StringBuffer message = new StringBuffer();
+
+        for (ImageItemStatus itemStatus : status) {
+            StringBuffer imageLinks = new StringBuffer();
+
+            String sep = "";
+            for (ImageItem image : itemStatus.getImages()) {
+                imageLinks.append(sep);
+                imageLinks.append(image.getUrl());
+                sep = ", ";
+            }
+
+            Object[] params = new Object[2];
+
+            params[0] = itemStatus.getStatus().getDisplayTitle();
+            params[1] = imageLinks.toString();
+            
+            message.append(messageSource.getMessage("warn.current.line", params, Locale.getDefault()));
+        }
+
+        return message.toString();
     }
 
     public String getHistoryImagePostedTitle() {

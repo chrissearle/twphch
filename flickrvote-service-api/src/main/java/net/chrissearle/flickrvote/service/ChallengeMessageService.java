@@ -18,8 +18,10 @@ package net.chrissearle.flickrvote.service;
 
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
+import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Tightly coupled with ChallengeService - simply collects all message source handling in one place
@@ -252,4 +254,8 @@ public interface ChallengeMessageService {
      * @return String
      */
     String getVotingCloseWarning(ChallengeSummary challenge);
+
+    String getWarnForCurrentTitle(String tag);
+
+    String getWarnForCurrentBody(Set<ImageItemStatus> status);
 }

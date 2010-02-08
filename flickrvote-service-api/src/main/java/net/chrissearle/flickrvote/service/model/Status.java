@@ -27,10 +27,20 @@ public enum Status {
     /**
      * Photographer has more than one image present for the given check
      */
-    MULTIPLE_IMAGE_BY_SAME_PHOTOGRAPHER,
+    MULTIPLE_IMAGE_BY_SAME_PHOTOGRAPHER ("Multiple images by same photographer"),
 
     /**
      * Date of photo was too early
      */
-    TAKEN_DATE_TOO_EARLY
+    TAKEN_DATE_TOO_EARLY ("Image date too early");
+
+    private final String displayTitle;
+
+    Status(String title) {
+        this.displayTitle = title;
+    }
+
+    public String getDisplayTitle() {
+        return displayTitle;
+    }
 }
