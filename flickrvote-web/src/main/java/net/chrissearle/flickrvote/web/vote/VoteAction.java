@@ -80,8 +80,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
         Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Votes by: " + photographer.getPhotographerName() + " : " + votes);
+        if (logger.isInfoEnabled()) {
+            logger.info("Votes by: " + photographer.getPhotographerName() + " [" + photographer.getPhotographerId() + "] : " + votes);
         }
 
         for (String imageId : votes) {
