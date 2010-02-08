@@ -80,9 +80,9 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
             ImageItems imageItems = tagSearchService.searchByTagAndDate(challengeSummary.getTag(), challengeSummary.getStartDate());
 
-            images = new ArrayList<DisplayImage>(imageItems.getImages().size());
+            images = new ArrayList<DisplayImage>(imageItems.getImagesUniquePhotographer().size());
 
-            for (ImageItem image : imageItems.getImages()) {
+            for (ImageItem image : imageItems.getImagesUniquePhotographer()) {
                 images.add(new DisplayImage(image));
             }
 
