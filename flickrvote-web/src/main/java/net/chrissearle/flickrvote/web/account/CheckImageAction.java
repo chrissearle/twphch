@@ -19,6 +19,7 @@ package net.chrissearle.flickrvote.web.account;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.StatusCheckService;
 import net.chrissearle.flickrvote.service.model.*;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
@@ -37,6 +38,9 @@ import java.util.*;
 public class CheckImageAction extends ActionSupport implements SessionAware {
     @Autowired
     private PhotographyService photographyService;
+
+    @Autowired
+    private StatusCheckService statusCheckService;
 
     @Autowired
     private ChallengeService challengeService;
@@ -60,7 +64,7 @@ public class CheckImageAction extends ActionSupport implements SessionAware {
                 image = new DisplayImage(images.iterator().next());
             }
 
-            Set<ImageItemStatus> issues = photographyService.checkSearch(currentChallengeTag);
+            Set<ImageItemStatus> issues = statusCheckService.checkSearch(currentChallengeTag);
 
             takenDateIssues = new HashSet<DisplayImage>();
             multipleImageIssues = new ArrayList<DisplayImage>();

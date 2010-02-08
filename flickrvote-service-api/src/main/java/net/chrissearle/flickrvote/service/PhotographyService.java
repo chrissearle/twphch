@@ -132,14 +132,6 @@ public interface PhotographyService {
     PhotographerItem findById(String id);
 
     /**
-     * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.
-     *
-     * @param tag - tag of an existing challenge
-     * @return Set<ImageItemStatus>
-     */
-    Set<ImageItemStatus> checkSearch(String tag);
-
-    /**
      * Method findImageById finds an image based on id
      *
      * @param imageId of type String

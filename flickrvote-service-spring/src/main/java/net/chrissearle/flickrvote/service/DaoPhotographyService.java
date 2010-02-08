@@ -21,7 +21,6 @@ import net.chrissearle.flickrvote.dao.ImageDao;
 import net.chrissearle.flickrvote.dao.PhotographyDao;
 import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
-import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
 import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
 import net.chrissearle.flickrvote.model.Challenge;
@@ -30,11 +29,9 @@ import net.chrissearle.flickrvote.model.Image;
 import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ChallengeItem;
 import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeItemInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
-import net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance;
 import net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance;
 import net.chrissearle.flickrvote.twitter.FollowService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
@@ -64,7 +61,6 @@ public class DaoPhotographyService implements PhotographyService {
     private ImageTagSearchDAO flickrImageTagSearchDao;
     private UserDAO flickrUserDao;
 
-    private FlickrStatusCheckService flickrStatusCheckService;
     private FollowService followService;
     private FlickrLoginService flickrLoginService;
 
@@ -74,18 +70,16 @@ public class DaoPhotographyService implements PhotographyService {
      * @param photographyDao of type PhotographyDao
      * @param challengeDao   of type ChallengeDao
      * @param imageDao       of type ImageDao
-     * @param flickrStatusCheckService  of type FlickrService
      * @param followService  of type UserExistanceService
      */
     @Autowired
     public DaoPhotographyService(PhotographyDao photographyDao, ChallengeDao challengeDao, ImageDao imageDao,
-                                 FlickrStatusCheckService flickrStatusCheckService, FollowService followService, FlickrLoginService flickrLoginService,
+                                 FollowService followService, FlickrLoginService flickrLoginService,
                                  ImageDAO flickrImageDao, UserDAO flickrUserDao, ImageTagSearchDAO flickrImageTagSearchDao) {
         this.photographyDao = photographyDao;
         this.challengeDao = challengeDao;
         this.imageDao = imageDao;
 
-        this.flickrStatusCheckService = flickrStatusCheckService;
         this.flickrLoginService = flickrLoginService;
         this.followService = followService;
 
@@ -465,24 +459,6 @@ public class DaoPhotographyService implements PhotographyService {
         }
 
         return null;
-    }
-
-    /**
-     * Method checkSearch runs a search for the given challenge at flickr and checks for multiple entries, date errors etc.
-     *
-     * @param tag - tag of an existing challenge
-     * @return Set<ImageItemStatus>
-     */
-    public Set<ImageItemStatus> checkSearch(String tag) {
-        Challenge challenge = challengeDao.findByTag(tag);
-
-        Set<ImageItemStatus> results = new HashSet<ImageItemStatus>();
-
-        for (FlickrImageStatus status : flickrStatusCheckService.checkSearch(tag, challenge.getStartDate())) {
-            results.add(new ImageItemStatusInstance(status));
-        }
-
-        return results;
     }
 
     /**

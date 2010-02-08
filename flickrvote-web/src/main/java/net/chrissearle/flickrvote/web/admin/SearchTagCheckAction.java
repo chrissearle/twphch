@@ -19,6 +19,7 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
+import net.chrissearle.flickrvote.service.StatusCheckService;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.Status;
@@ -31,7 +32,7 @@ import java.util.*;
 
 public class SearchTagCheckAction extends ActionSupport {
     @Autowired
-    private PhotographyService photographyService;
+    private StatusCheckService statusCheckService;
 
     @Autowired
     private ChallengeService challengeService;
@@ -45,7 +46,7 @@ public class SearchTagCheckAction extends ActionSupport {
     public String execute() throws Exception {
         challenge = new DisplayChallengeSummary(challengeService.getChallengeSummary(tag));
 
-        Set<ImageItemStatus> searchIssues = photographyService.checkSearch(tag);
+        Set<ImageItemStatus> searchIssues = statusCheckService.checkSearch(tag);
 
         takenDateIssues = new HashSet<DisplayImage>();
         multipleImageIssues = new ArrayList<DisplayImage>();
