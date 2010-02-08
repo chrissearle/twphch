@@ -81,6 +81,10 @@ public class FlickrImage {
         return new Date(postedDate.getTime());
     }
 
+    public void setPhotographer(FlickrPhotographer photographer) {
+        this.photographer = photographer;
+    }
+
     @Override
     public String toString() {
         return "FlickrImage{" +

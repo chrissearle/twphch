@@ -54,13 +54,13 @@ public class FlickrJStatusCheckService implements FlickrStatusCheckService {
         for (FlickrImage image : images.getImages()) {
             final String photographerId = image.getPhotographer().getFlickrId();
 
-            FlickrPhotographer photographer = userDAO.getUser(photographerId);
+            image.setPhotographer(userDAO.getUser(photographerId));
 
-            if (checkImageForDateIssue(earliestDate, image, photographer, issues)) {
+            if (checkImageForDateIssue(earliestDate, image, issues)) {
                 continue;
             }
 
-            createImageMultipleIssue(seenPhotographers, image, photographerId, photographer);
+            createImageMultipleIssue(seenPhotographers, image, photographerId);
         }
 
         for (FlickrImageStatus status : seenPhotographers.values()) {
@@ -73,10 +73,10 @@ public class FlickrJStatusCheckService implements FlickrStatusCheckService {
         return issues;
     }
 
-    private void createImageMultipleIssue(Map<String, FlickrImageStatus> seenPhotographers, FlickrImage image, String photographerId, FlickrPhotographer photographer) {
+    private void createImageMultipleIssue(Map<String, FlickrImageStatus> seenPhotographers, FlickrImage image, String photographerId) {
         if (haveSeenPhotographer(seenPhotographers, photographerId)) {
             FlickrImageStatus status = new FlickrImageStatus(FlickrImageStatus.ImageStatus.MULTIPLE_IMAGES,
-                    photographer, image);
+                    image.getPhotographer(), image);
 
             seenPhotographers.put(photographerId, status);
         } else {
@@ -88,10 +88,10 @@ public class FlickrJStatusCheckService implements FlickrStatusCheckService {
         return !seenPhotographers.containsKey(photographerId);
     }
 
-    private boolean checkImageForDateIssue(Date earliestDate, FlickrImage image, FlickrPhotographer photographer, Set<FlickrImageStatus> issues) {
+    private boolean checkImageForDateIssue(Date earliestDate, FlickrImage image, Set<FlickrImageStatus> issues) {
         if (checkImageOnOrAfterDate(earliestDate, image)) {
             FlickrImageStatus status = new FlickrImageStatus(FlickrImageStatus.ImageStatus.TAKEN_DATE,
-                    photographer, image);
+                    image.getPhotographer(), image);
 
             issues.add(status);
 
