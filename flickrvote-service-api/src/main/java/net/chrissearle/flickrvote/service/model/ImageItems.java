@@ -16,6 +16,7 @@
 
 package net.chrissearle.flickrvote.service.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImageItems {
@@ -27,5 +28,21 @@ public class ImageItems {
 
     public List<ImageItem> getImages() {
         return this.items;
+    }
+
+    public List<ImageItem> getImagesUniquePhotographer() {
+        List<ImageItem> itemList = new ArrayList<ImageItem>();
+
+        List<String> seenPhotographers = new ArrayList<String>();
+
+        for (ImageItem item : items) {
+            if (!seenPhotographers.contains(item.getPhotographer().getId())) {
+                seenPhotographers.add(item.getPhotographer().getId());
+
+                itemList.add(item);
+            }
+        }
+
+        return itemList;
     }
 }
