@@ -240,7 +240,7 @@ public class Challenge {
      */
     @Override
     public String toString() {
-        return new StringBuilder().append(", TAG: ").append(getTag()).append(", NAME: ")
+        return new StringBuilder().append("TAG: ").append(getTag()).append(", NAME: ")
                 .append(getName()).toString();
     }
 

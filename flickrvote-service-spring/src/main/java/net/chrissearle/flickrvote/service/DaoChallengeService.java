@@ -227,8 +227,8 @@ public class DaoChallengeService implements ChallengeService {
         Challenge votingChallenge = challengeDao.getVotingChallenge();
 
         if (votingChallenge == null) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("No voting challenge found to open");
+            if (logger.isInfoEnabled()) {
+                logger.info("No voting challenge found to open");
             }
 
             return null;

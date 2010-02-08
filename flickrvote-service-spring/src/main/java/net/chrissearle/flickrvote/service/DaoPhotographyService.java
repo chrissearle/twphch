@@ -374,6 +374,10 @@ public class DaoPhotographyService implements PhotographyService {
         Challenge challenge = challengeDao.getVotingChallenge();
 
         if (challenge == null) {
+            if (logger.isInfoEnabled()) {
+                logger.info("No voting challenge found to freeze");
+            }
+
             return;
         }
 
