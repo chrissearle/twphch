@@ -165,6 +165,10 @@ public class DaoChallengeService implements ChallengeService {
                 lastSeenValue = image.getFinalVoteCount();
                 rank++;
             }
+
+            if (logger.isInfoEnabled()) {
+                logger.info("Setting final rank for " + image.getId() + " to " + rank);
+            }
             image.setFinalRank(rank);
             imageDao.persist(image);
         }
@@ -312,8 +316,8 @@ public class DaoChallengeService implements ChallengeService {
         Challenge votedChallenge = challengeDao.getVotedChallenge();
 
         if (votedChallenge == null) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("No challenge found to handle results");
+            if (logger.isInfoEnabled()) {
+                logger.info("No challenge found to handle results");
             }
 
             return null;
@@ -329,6 +333,9 @@ public class DaoChallengeService implements ChallengeService {
         List<Image> images = votedChallenge.getImages();
 
         for (Image image : images) {
+            if (logger.isInfoEnabled()) {
+                logger.info("Setting final vote count for " + image.getId() + " to " + image.getVotes().size());
+            }
             image.setFinalVoteCount((long) image.getVotes().size());
             imageDao.persist(image);
         }
