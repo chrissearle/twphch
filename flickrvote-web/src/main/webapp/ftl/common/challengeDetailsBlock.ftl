@@ -5,6 +5,8 @@
 
     <p><@s.property value="challenge.challengeDescription"/></p>
 
+    <p><@s.property value="challenge.challengeNotes"/></p>
+
     <h2><@s.text name="sidebar.details.dates"/></h2>
 
     <p>

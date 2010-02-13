@@ -26,12 +26,14 @@ public class ChallengeItemInstance implements ChallengeItem {
 
     private String title;
     private String description;
+    private String notes;
 
     private Set<ImageItem> images;
 
-    public ChallengeItemInstance(String title, String description, Set<ImageItem> images) {
+    public ChallengeItemInstance(String title, String description, String notes, Set<ImageItem> images) {
         this.description = description;
         this.title = title;
+        this.notes = notes;
         this.images = images;
     }
 
@@ -41,6 +43,10 @@ public class ChallengeItemInstance implements ChallengeItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 
     public Set<ImageItem> getImages() {

@@ -26,6 +26,7 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
     private static final long serialVersionUID = 4652749486204211082L;
 
     private String title;
+    private String notes;
     private String tag;
     private Date startDate;
     private Date endDate;
@@ -41,6 +42,7 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
         startDate = challenge.getStartDate();
         endDate = challenge.getEndDate();
         voteDate = challenge.getVotingOpenDate();
+        notes = challenge.getDescription();
 
         this.open = (challenge.getVotingState() == ChallengeState.OPEN);
         this.closed = (challenge.getVotingState() == ChallengeState.CLOSED);
@@ -66,6 +68,11 @@ public class ChallengeSummaryInstance implements ChallengeSummary {
     public String getTitle() {
         return title;
     }
+
+    public String getNotes() {
+        return notes;
+    }
+
 
     public Boolean isClosed() {
         return closed;

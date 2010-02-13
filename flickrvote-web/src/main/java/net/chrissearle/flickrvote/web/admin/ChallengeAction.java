@@ -49,6 +49,7 @@ public class ChallengeAction extends ActionSupport {
             challenge.setTag(challengeSummary.getTag());
             challenge.setTitle(challengeSummary.getTitle());
             challenge.setStartDate(challengeSummary.getStartDate());
+            challenge.setNotes(challengeSummary.getNotes());
         } else {
             // Set some defaults
             ChallengeSummary mostRecentChallenge = challengeService.getMostRecent();
@@ -84,7 +85,7 @@ public class ChallengeAction extends ActionSupport {
         Date voteDate = start.plusDays(7).plusHours(FlickrVoteWebConstants.START_VOTE_TIME).toDate();
         Date endDate = start.plusDays(9).plusHours(FlickrVoteWebConstants.END_CHALLENGE_TIME).toDate();
 
-        challengeService.saveChallenge(challenge.getTag(), challenge.getTitle(), startDate, voteDate, endDate);
+        challengeService.saveChallenge(challenge.getTag(), challenge.getTitle(), challenge.getNotes(), startDate, voteDate, endDate);
 
         return SUCCESS;
     }

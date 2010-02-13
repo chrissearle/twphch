@@ -128,9 +128,10 @@ public interface ChallengeService {
      *
      * @param tag       of type String
      * @param title     of type String
+     * @param notes     of type String
      * @param startDate of type Date
      * @param voteDate  of type Date
      * @param endDate   of type Date
      */
-    void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate);
+    void saveChallenge(String tag, String title, String notes, Date startDate, Date voteDate, Date endDate);
 }

@@ -35,4 +35,6 @@ public interface ChallengeSummary extends Serializable {
     Boolean isVoting();
 
     Boolean isOpen();
+
+    String getNotes();
 }

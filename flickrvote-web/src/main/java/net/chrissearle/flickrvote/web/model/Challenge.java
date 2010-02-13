@@ -24,6 +24,8 @@ public interface Challenge extends Serializable {
 
     String getChallengeDescription();
 
+    String getChallengeNotes();
+
     Date getChallengeStart();
 
     Date getChallengeVote();

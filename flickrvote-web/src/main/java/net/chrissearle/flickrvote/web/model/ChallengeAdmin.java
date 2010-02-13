@@ -22,6 +22,7 @@ import java.util.Date;
 public class ChallengeAdmin implements Serializable {
     private String tag;
     private String title;
+    private String notes;
 
     private Date startDate;
 
@@ -47,5 +48,13 @@ public class ChallengeAdmin implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 }

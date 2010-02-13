@@ -29,6 +29,7 @@ public class TestChallengeSummary implements ChallengeSummary {
     Boolean open;
     Boolean closed;
     Boolean voting;
+    private String notes;
 
     public Boolean isClosed() {
         return closed;
@@ -48,6 +49,10 @@ public class TestChallengeSummary implements ChallengeSummary {
 
     public Boolean isOpen() {
         return open;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 
     public void setOpen(Boolean open) {
@@ -92,5 +97,9 @@ public class TestChallengeSummary implements ChallengeSummary {
 
     public void setVoting(Boolean voting) {
         this.voting = voting;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

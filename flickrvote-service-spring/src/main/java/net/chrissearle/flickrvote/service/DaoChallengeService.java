@@ -515,16 +515,18 @@ public class DaoChallengeService implements ChallengeService {
      * @param voteDate  of type Date
      * @param endDate   of type Date
      */
-    public void saveChallenge(String tag, String title, Date startDate, Date voteDate, Date endDate) {
+    public void saveChallenge(String tag, String title, String notes, Date startDate, Date voteDate, Date endDate) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge != null) {
             challenge.setName(title);
             challenge.setStartDate(startDate);
             challenge.setVotingOpenDate(voteDate);
+            challenge.setDescription(notes);
             challenge.setEndDate(endDate);
         } else {
             challenge = new Challenge(tag, title, startDate, voteDate, endDate);
+            challenge.setDescription(notes);
         }
 
         challengeDao.persist(challenge);

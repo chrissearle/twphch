@@ -45,6 +45,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     private final Boolean challengeVoting;
     private final Boolean challengeClosed;
     private final Integer imageCount;
+    private final String challengeNotes;
 
     public DisplayImage(ImageItem image) {
         this.imageId = image.getId();
@@ -68,6 +69,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
         if (challengeSummary != null) {
             this.challengeTag = challengeSummary.getTag();
             this.challengeDescription = challengeSummary.getTitle();
+            this.challengeNotes = challengeSummary.getNotes();
             this.challengeStart = challengeSummary.getStartDate();
             this.challengeEnd = challengeSummary.getEndDate();
             this.challengeVote = challengeSummary.getVoteDate();
@@ -78,6 +80,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
             // Means that it was originally a flickr search set
             this.challengeTag = "";
             this.challengeDescription = "";
+            this.challengeNotes = "";
             this.challengeStart = null;
             this.challengeEnd = null;
             this.challengeVote = null;
@@ -164,6 +167,10 @@ public class DisplayImage implements Image, Photographer, Challenge {
 
     public String getChallengeDescription() {
         return challengeDescription;
+    }
+
+    public String getChallengeNotes() {
+        return challengeNotes;
     }
 
     public Date getChallengeEnd() {

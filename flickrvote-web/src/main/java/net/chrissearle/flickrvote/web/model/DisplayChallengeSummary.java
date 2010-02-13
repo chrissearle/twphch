@@ -30,10 +30,12 @@ public class DisplayChallengeSummary implements Challenge {
     private Boolean closed;
     private Boolean voting;
     private static final String TAG_PREFIX = "TwPhCh";
+    private String notes;
 
     public DisplayChallengeSummary(ChallengeSummary summary) {
         tag = summary.getTag();
         description = summary.getTitle();
+        notes = summary.getNotes();
         start = summary.getStartDate();
         vote = summary.getVoteDate();
         end = summary.getEndDate();
@@ -48,6 +50,10 @@ public class DisplayChallengeSummary implements Challenge {
 
     public String getChallengeDescription() {
         return description;
+    }
+
+    public String getChallengeNotes() {
+        return notes;
     }
 
     public Date getChallengeStart() {

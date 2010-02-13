@@ -214,7 +214,7 @@ public class DaoPhotographyService implements PhotographyService {
             images.add(new ImageItemInstance(image));
         }
 
-        return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), images);
+        return new ChallengeItemInstance(challenge.getTag(), challenge.getName(), challenge.getDescription(), images);
     }
 
     /**

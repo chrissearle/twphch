@@ -24,5 +24,8 @@ public interface ChallengeItem extends Serializable {
 
     String getDescription();
 
+    String getNotes();
+
     Set<ImageItem> getImages();
+
 }

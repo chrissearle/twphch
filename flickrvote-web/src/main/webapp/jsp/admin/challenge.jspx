@@ -44,6 +44,8 @@
 
         <s:textfield label="Title" name="challenge.title"/>
         <br/>
+        <s:textarea label="Notes" cols="50" rows="4" name="challenge.notes"/>
+        <br/>
         <sx:datetimepicker label="Start Date" name="challenge.startDate" displayFormat="dd.MM.yyyy"/>
 
         <p>Start date must be a friday. Vote start date and end date are automatically
