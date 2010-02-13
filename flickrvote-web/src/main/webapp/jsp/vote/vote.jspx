@@ -15,7 +15,6 @@
   -->
 
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -34,12 +33,40 @@
                 $("a.toggleLink").bind("click", function(e) {
                     $("#photobox_" + $(this).attr("id")).toggle("slow");
                 }).show();
+
+                $("input[type='checkbox']").bind("click", function(e) {
+                    flashScore();
+                });
             });
+
+            var mouseX = 0;
+            var mouseY = 0;
+
+            $().mousemove(function(e) {
+                mouseX = e.pageX;
+                mouseY = e.pageY;
+            });
+
+            function flashScore() {
+                score = $('#score');
+
+                score.text($("input[type='checkbox']:checked").size());
+
+                score.css('left', (mouseX + score.height()));
+                score.css('top', (mouseY - (2 * score.height())));
+
+                score.fadeIn();
+                score.fadeOut();
+            }
+
         </script>
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
+    <div id="score" style="display: none;">
+        x
+    </div>
     <s:actionerror/>
     <s:form action="vote">
         <s:component name="votes" template="imageselect.ftl">

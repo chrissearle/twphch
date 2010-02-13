@@ -353,3 +353,12 @@ div.announce {
     border: solid 1px #FF9C27;
     background-color: #545454;
 }
+
+#score {
+  position: absolute;
+  font-size: 40px;
+  margin-top: 10px;
+  padding: 10px;
+  border: solid 1px #FF9C27;
+  background-color: #545454;
+}
