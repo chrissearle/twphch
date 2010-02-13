@@ -232,9 +232,15 @@ public class ITextReportService implements ReportService {
         table.setSpacingBefore(15);
         table.setSpacingAfter(15);
 
-        table.addCell(new Paragraph(challengeMessageService.getInfoStartDate(challenge.getStartDate()), new Font(Font.TIMES_ROMAN, 14, Font.NORMAL)));
-        table.addCell(new Paragraph(challengeMessageService.getInfoVoteDate(challenge.getVoteDate()), new Font(Font.TIMES_ROMAN, 14, Font.NORMAL)));
-        table.addCell(new Paragraph(challengeMessageService.getInfoEndDate(challenge.getEndDate()), new Font(Font.TIMES_ROMAN, 14, Font.NORMAL)));
+        final Font tableCellFont = new Font(Font.TIMES_ROMAN, 14, Font.NORMAL);
+
+        if (challenge.getNotes() != null && !"".equals(challenge.getNotes())) {
+            table.addCell(new Paragraph(challenge.getNotes(), tableCellFont));
+        }
+        
+        table.addCell(new Paragraph(challengeMessageService.getInfoStartDate(challenge.getStartDate()), tableCellFont));
+        table.addCell(new Paragraph(challengeMessageService.getInfoVoteDate(challenge.getVoteDate()), tableCellFont));
+        table.addCell(new Paragraph(challengeMessageService.getInfoEndDate(challenge.getEndDate()), tableCellFont));
 
         infoSection.add(table);
 
