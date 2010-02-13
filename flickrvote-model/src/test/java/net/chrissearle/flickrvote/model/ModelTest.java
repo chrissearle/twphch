@@ -44,6 +44,7 @@ public class ModelTest {
     private static final Date VOTE_DATE = new DateTime(2009, 5, 15, 18, 0, 0, 0).toDate();
     private static final String PHOTOGRAPHER_TOKEN = "0250295209475-9235720975";
     private static final String TWITTER = "FooTwitter";
+    private static final String CHALLENGE_DESCRIPTION = "Test Challenge Description";
 
     @BeforeTest
     private void initialize() {
@@ -90,12 +91,26 @@ public class ModelTest {
         assert challenge.getStartDate().equals(START_DATE) : "Start date was incorrect";
         assert challenge.getVotingOpenDate().equals(VOTE_DATE) : "Voting date was incorrect";
         assert challenge.getEndDate().equals(END_DATE) : "End date was incorrect";
+        assert challenge.getDescription() == null : "Description was not null";
 
         String challengeString = challenge.toString();
 
         assert challengeString.contains(CHALLENGE_TAG) &&
                 challengeString.contains(CHALLENGE_TITLE) : "toString did not contain correct fields";
 
+    }
+
+    @Test(dependsOnMethods = {"testChallengeFields"})
+    public void testChallengeDescription() {
+        Challenge challenge = getChallenge();
+
+        challenge.setDescription(CHALLENGE_DESCRIPTION);
+
+        em.persist(challenge);
+
+        challenge = getChallenge();
+
+        assert challenge.getDescription().equals(CHALLENGE_DESCRIPTION) : "Description was not correct";
     }
 
     private Challenge getChallenge() {
@@ -137,6 +152,18 @@ public class ModelTest {
         Query query = em.createQuery("select p from Photographer p where p.username = :user");
         query.setParameter("user", PHOTOGRAPHER_USER);
         return (Photographer) query.getSingleResult();
+    }
+
+    @Test(dependsOnMethods = {"testChallengeFields", "testPersistPhotographer"})
+    public void testChallengePhotographer() {
+        Challenge challenge = getChallenge();
+        challenge.setPhotographer(getPhotographer());
+
+        em.persist(challenge);
+
+        challenge = getChallenge();
+
+        assert challenge.getPhotographer().equals(getPhotographer()) : "Challenge photographer was not correct";
     }
 
 
@@ -238,6 +265,8 @@ public class ModelTest {
         Challenge challenge2 = new Challenge("#TestC2", "Test C 2", today.toDate(), today.toDate(), today.toDate());
         Challenge challenge3 = new Challenge("#TestC3", "Test C 3", today.toDate(), today.toDate(), today.toDate());
 
+        challenge3.setDescription(CHALLENGE_DESCRIPTION);
+        
         em.persist(challenge1);
         em.persist(challenge2);
         em.persist(challenge3);

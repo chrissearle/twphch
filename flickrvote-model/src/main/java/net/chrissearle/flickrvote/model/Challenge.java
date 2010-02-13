@@ -46,6 +46,13 @@ public class Challenge {
     private String name;
 
     /**
+     * Description
+     */
+    @Column(name = "notes")
+    @Lob
+    private String description;
+
+    /**
      * Start date represents the date and time that a given challenge opens for entries.
      */
     @Temporal(TemporalType.TIMESTAMP)
@@ -73,6 +80,13 @@ public class Challenge {
      */
     @OneToMany(mappedBy = "challenge", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Image> images = new ArrayList<Image>();
+
+    /**
+     * The photographer who decided on this challenge.
+     */
+    @ManyToOne
+    private Photographer photographer;
+
 
     /**
      * Version is an internal field used by JPA for preventing issues with concurrent updates.
@@ -298,5 +312,21 @@ public class Challenge {
         }
 
         return ChallengeState.OPEN;
+    }
+
+    public Photographer getPhotographer() {
+        return photographer;
+    }
+
+    public void setPhotographer(Photographer photographer) {
+        this.photographer = photographer;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
