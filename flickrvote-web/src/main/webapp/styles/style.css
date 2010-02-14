@@ -356,9 +356,21 @@ div.announce {
 
 #score {
   position: absolute;
-  font-size: 40px;
-  margin-top: 10px;
-  padding: 10px;
+  font-size: 60px;
+  margin-top: 20px;
+  padding: 20px;
   border: solid 1px #FF9C27;
   background-color: #545454;
+}
+
+#score.ok {
+    color: white;
+    border: solid 1px #FF9C27;
+    background-color: #545454;
+}
+
+#score.nok {
+    color: red;
+    border: solid 1px #FF9C27;
+    background-color: #ffff00;
 }
