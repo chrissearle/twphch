@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-@Service
+@Service("challengeMessageService")
 public class MessageSourceChallengeMessageService implements ChallengeMessageService, MessageSourceAware, InitializingBean {
     private MessageSource messageSource;
 
@@ -304,6 +304,10 @@ public class MessageSourceChallengeMessageService implements ChallengeMessageSer
 
     public String getFrontPageTitle() {
         return messageSource.getMessage("frontpage.title", new Object[0], Locale.getDefault());
+    }
+
+    public String getNoChallengeWarning() {
+        return messageSource.getMessage("challenge.missing", new Object[0], Locale.getDefault());
     }
 
     public String getHistoryImagePostedTitle() {

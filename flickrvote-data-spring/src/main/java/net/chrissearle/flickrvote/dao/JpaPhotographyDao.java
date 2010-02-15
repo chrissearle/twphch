@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @author chris
  */
-@Repository
+@Repository("photographyDao")
 public class JpaPhotographyDao extends JpaDao<String, Photographer> implements PhotographyDao {
     private Logger log = Logger.getLogger(JpaPhotographyDao.class);
 
@@ -117,6 +117,13 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
     @SuppressWarnings("unchecked")
     public List<Photographer> all() {
         Query query = entityManager.createQuery("SELECT p FROM Photographer p");
+
+        return (List<Photographer>) query.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Photographer> getAdmins() {
+        Query query = entityManager.createQuery("SELECT p FROM Photographer p WHERE p.administrator = TRUE");
 
         return (List<Photographer>) query.getResultList();
     }

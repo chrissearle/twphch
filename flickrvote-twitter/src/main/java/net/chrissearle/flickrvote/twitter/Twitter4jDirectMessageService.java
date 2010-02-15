@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
-@Service
+@Service("directMessageService")
 public class Twitter4jDirectMessageService extends AbstractTwitter4JSupport implements DirectMessageService {
 
     @Autowired

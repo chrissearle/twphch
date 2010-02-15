@@ -54,4 +54,11 @@ public interface PhotographyDao extends Dao<String, Photographer> {
      * @return List<Photographer>
      */
     List<Photographer> all();
+
+    /**
+     * Get all photographers that are admins
+     *
+     * @return List<Photographer>
+     */
+    List<Photographer> getAdmins();
 }

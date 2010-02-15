@@ -263,4 +263,11 @@ public interface ChallengeMessageService {
     String generateFrontPageHtml(List<ImageItem> images);
 
     String getFrontPageTitle();
+
+    /**
+     * Method getNoChallengeWarning ...
+     *
+     * @return String
+     */
+    String getNoChallengeWarning();
 }
