@@ -29,6 +29,18 @@
     <head>
         <title><s:text name="main.title"/></title>
         <s:head/>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("a.flickrImage").fancybox({
+                    'cyclic' : true,
+                    'autoScale' : true
+                });
+
+                $("a.fancyboxImage").html("<s:text name="show.large"/>").bind("click", function(e) {
+                    $("#img_" + $(this).attr("id")).trigger('click');
+                }).show();
+            });
+        </script>
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>
@@ -44,6 +56,8 @@
                 <s:if test="#session.flickrUser &amp;&amp; voted">
                     (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
                 </s:if>
+                -
+                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             </h3>
             <fv:image image="${displayImage}"/>
         </div>
