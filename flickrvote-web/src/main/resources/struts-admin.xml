@@ -126,6 +126,10 @@
             <result name="success">/jsp/admin/check.jspx</result>
         </action>
 
+        <action name="refreshImages" class="net.chrissearle.flickrvote.web.admin.ImageRefreshAction">
+            <result name="success" type="chain">challenges</result>
+        </action>
+
         <action name="tweetForm" class="net.chrissearle.flickrvote.web.admin.SendTweetAction" method="input">
             <result name="input">/jsp/admin/tweet.jspx</result>
         </action>
