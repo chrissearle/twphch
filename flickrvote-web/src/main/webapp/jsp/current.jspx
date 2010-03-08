@@ -30,6 +30,18 @@
     <head>
         <title><s:text name="main.title"/></title>
         <s:head/>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("a.flickrImage").fancybox({
+                    'cyclic' : true,
+                    'autoScale' : true
+                });
+
+                $("a.fancyboxImage").html("<s:text name="show.large"/>").bind("click", function(e) {
+                    $("#img_" + $(this).attr("id")).trigger('click');
+                }).show();
+            });
+        </script>
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>
@@ -39,7 +51,12 @@
     </s:if>
     <s:iterator id="displayImage" value="displayImages">
         <div class="photobox">
-            <h3><fv:photographer photographer="${displayImage}"/>: <s:property value="#displayImage.imageTitle"/></h3>
+            <h3><fv:photographer photographer="${displayImage}"/>
+                :
+                <s:property value="#displayImage.imageTitle"/>
+                -
+                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
+            </h3>
             <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
