@@ -64,12 +64,17 @@
                     <s:url id="rankItLink" action="rankIt">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{rankItLink}">Rank It</s:a>
+                    <s:a href="%{rankItLink}">Rank</s:a>
                     |
                     <s:url id="checkItLink" action="checkSearch">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{checkItLink}">Check It</s:a>
+                    <s:a href="%{checkItLink}">Check</s:a>
+                    |
+                    <s:url id="refreshItLink" action="refreshImages">
+                        <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
+                    </s:url>
+                    <s:a href="%{refreshItLink}">Refresh</s:a>
                 </td>
             </tr>
         </s:iterator>
