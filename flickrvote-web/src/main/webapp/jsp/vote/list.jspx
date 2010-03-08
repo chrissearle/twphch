@@ -47,7 +47,7 @@
 
     <s:actionmessage/>
 
-    <s:iterator id="displayImage" value="displayImages">
+    <s:iterator id="displayImage" value="displayImages" status="stat">
         <div class="photobox">
             <h3>
                 <fv:photographer photographer="${displayImage}"/>
