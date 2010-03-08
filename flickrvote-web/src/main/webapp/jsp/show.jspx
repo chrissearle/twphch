@@ -54,8 +54,9 @@
                 :
                 <s:property value="#displayImage.imageTitle"/>
                 (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
+                -
+                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             </h3>
-            <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
