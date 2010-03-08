@@ -45,6 +45,21 @@
         </attribute>
     </tag>
     <tag>
+        <name>fancybox</name>
+        <tag-class>net.chrissearle.flickrvote.web.taglib.FancyboxImageTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>image</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>position</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
         <name>challengeTitle</name>
         <tag-class>net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag</tag-class>
         <body-content>empty</body-content>

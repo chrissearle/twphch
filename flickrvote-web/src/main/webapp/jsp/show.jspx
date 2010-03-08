@@ -15,7 +15,6 @@
   -->
 
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -27,13 +26,26 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
+
         <title><s:text name="main.title"/></title>
         <s:head/>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("a.flickrImage").fancybox({
+                    'cyclic' : true,
+                    'autoScale' : true
+                });
+
+                $("a.fancyboxImage").html("<s:text name="show.large"/>").bind("click", function(e) {
+                    $("#img_" + $(this).attr("id")).trigger('click');
+                }).show();
+            });
+        </script>
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
-    <s:iterator id="displayImage" value="displayImages">
+    <s:iterator id="displayImage" value="displayImages" status="stat">
         <div class="photobox">
             <h3>
                 <s:property value="#displayImage.rank"/>
@@ -43,6 +55,7 @@
                 <s:property value="#displayImage.imageTitle"/>
                 (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
             </h3>
+            <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             <fv:image image="${displayImage}"/>
         </div>
     </s:iterator>
