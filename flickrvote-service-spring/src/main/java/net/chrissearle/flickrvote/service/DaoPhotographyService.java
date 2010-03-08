@@ -276,6 +276,7 @@ public class DaoPhotographyService implements PhotographyService {
             image = new Image();
             image.setId(flickrImage.getFlickrId());
             image.setMediumImage(flickrImage.getImageUrl());
+            image.setLargeImage(flickrImage.getLargeImageUrl());
             image.setPage(flickrImage.getUrl());
             image.setTitle(flickrImage.getTitle());
             image.setPostedDate(flickrImage.getPostedDate());
@@ -296,6 +297,7 @@ public class DaoPhotographyService implements PhotographyService {
             image.setPostedDate(flickrImage.getPostedDate());
             image.setPage(flickrImage.getUrl());
             image.setMediumImage(flickrImage.getImageUrl());
+            image.setLargeImage(flickrImage.getLargeImageUrl());
 
             imageDao.persist(image);
         }

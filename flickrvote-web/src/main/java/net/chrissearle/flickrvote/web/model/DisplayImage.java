@@ -26,6 +26,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
     private final String imageTitle;
     private final String imagePageUrl;
     private final String imageUrl;
+    private final String largeImageUrl;
     private final Date postedDate;
     private final Long voteCount;
     private final Long rank;
@@ -52,6 +53,7 @@ public class DisplayImage implements Image, Photographer, Challenge {
         this.imageTitle = image.getTitle();
         this.imagePageUrl = image.getUrl();
         this.imageUrl = image.getImageUrl();
+        this.largeImageUrl = image.getLargeImageUrl();
         this.postedDate = image.getPostedDate();
         this.voteCount = image.getVoteCount();
         this.rank = image.getRank();
@@ -104,6 +106,10 @@ public class DisplayImage implements Image, Photographer, Challenge {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLargeImageUrl() {
+        return largeImageUrl;
     }
 
     public Date getPostedDate() {

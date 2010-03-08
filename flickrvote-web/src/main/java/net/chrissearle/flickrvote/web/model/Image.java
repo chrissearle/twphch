@@ -27,6 +27,8 @@ public interface Image {
 
     String getImageUrl();
 
+    String getLargeImageUrl();
+
     Date getPostedDate();
 
     Long getVoteCount();

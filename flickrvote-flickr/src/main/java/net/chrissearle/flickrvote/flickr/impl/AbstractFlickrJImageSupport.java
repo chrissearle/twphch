@@ -24,6 +24,14 @@ public abstract class AbstractFlickrJImageSupport {
     protected FlickrImage buildImage(Photo photo) {
         FlickrPhotographer photographer = new FlickrPhotographer(photo.getOwner().getId());
 
-        return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(), photo.getMediumUrl(), photo.getDateTaken(), photo.getDatePosted());
+        String largeImageUrl = photo.getLargeUrl();
+
+        if (largeImageUrl == null || "".equals(largeImageUrl)) {
+            largeImageUrl = photo.getMediumUrl();
+        }
+        
+        return new FlickrImage(photo.getId(), photographer, photo.getTitle(), photo.getUrl(),
+                photo.getMediumUrl(), largeImageUrl,
+                photo.getDateTaken(), photo.getDatePosted());
     }
 }

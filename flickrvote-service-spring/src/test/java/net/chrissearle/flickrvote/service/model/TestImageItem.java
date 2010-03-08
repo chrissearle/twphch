@@ -28,6 +28,7 @@ public class TestImageItem implements ImageItem {
     Date postedDate;
     Long rank;
     Long voteCount;
+    private String largeImageUrl;
 
     public ChallengeSummary getChallenge() {
         return challenge;
@@ -47,6 +48,10 @@ public class TestImageItem implements ImageItem {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLargeImageUrl() {
+        return largeImageUrl;
     }
 
     public void setImageUrl(String imageUrl) {

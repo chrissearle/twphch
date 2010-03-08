@@ -58,7 +58,7 @@ public class FancyboxImageTag extends TagSupport {
             text.append("\" rel=\"group\" class=\"flickrImage\" title=\"");
             text.append(image.getImageTitle());
             text.append("\" href=\"");
-            text.append(image.getImageUrl());
+            text.append(image.getLargeImageUrl());
             text.append("\">");
 
             text.append("<img src=\"");

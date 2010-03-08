@@ -23,6 +23,7 @@ public class FlickrImage {
     private final String title;
     private final String url;
     private final String imageUrl;
+    private final String largeImageUrl;
     private final Date postedDate;
     private FlickrPhotographer photographer;
 
@@ -33,18 +34,20 @@ public class FlickrImage {
         this.title = image.getTitle();
         this.url = image.getUrl();
         this.imageUrl = image.getImageUrl();
+        this.largeImageUrl = image.getLargeImageUrl();
         this.takenDate = image.getTakenDate();
         this.postedDate = image.getPostedDate();
         this.photographer = photographer;
 
     }
 
-    public FlickrImage(String flickrId, FlickrPhotographer photographer, String title, String url, String imageUrl, Date takenDate, Date postedDate) {
+    public FlickrImage(String flickrId, FlickrPhotographer photographer, String title, String url, String imageUrl, String largeImageUrl, Date takenDate, Date postedDate) {
         this.flickrId = flickrId;
         this.photographer = photographer;
         this.title = title;
         this.url = url;
         this.imageUrl = imageUrl;
+        this.largeImageUrl = largeImageUrl;
         this.takenDate = new Date(takenDate.getTime());
         this.postedDate = new Date(postedDate.getTime());
     }
@@ -63,6 +66,10 @@ public class FlickrImage {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLargeImageUrl() {
+        return largeImageUrl;
     }
 
     public FlickrPhotographer getPhotographer() {
@@ -92,6 +99,7 @@ public class FlickrImage {
                 ", title='" + title + '\'' +
                 ", url='" + url + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", largeImageUrl='" + largeImageUrl + '\'' +
                 ", postedDate=" + postedDate +
                 ", photographer=" + photographer +
                 ", takenDate=" + takenDate +

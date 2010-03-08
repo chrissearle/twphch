@@ -24,6 +24,8 @@ public interface ImageItem extends Serializable {
 
     String getImageUrl();
 
+    String getLargeImageUrl();
+
     PhotographerItem getPhotographer();
 
     Date getPostedDate();

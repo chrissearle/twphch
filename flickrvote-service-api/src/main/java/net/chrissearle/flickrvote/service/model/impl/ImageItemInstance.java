@@ -31,6 +31,7 @@ public class ImageItemInstance implements ImageItem {
     final private String title;
     final private String url;
     final private String imageUrl;
+    final private String largeImageUrl;
     final private Date postedDate;
     final private Long voteCount;
     final private Long rank;
@@ -43,6 +44,7 @@ public class ImageItemInstance implements ImageItem {
         this.title = image.getTitle();
         this.url = image.getUrl();
         this.imageUrl = image.getImageUrl();
+        this.largeImageUrl = image.getLargeImageUrl();
         this.postedDate = image.getPostedDate();
         this.voteCount = 0L;
         this.rank = 0L;
@@ -56,6 +58,7 @@ public class ImageItemInstance implements ImageItem {
         this.title = image.getTitle();
         this.url = image.getPage();
         this.imageUrl = image.getMediumImage();
+        this.largeImageUrl = image.getLargeImage();
         this.postedDate = image.getPostedDate();
         switch (image.getChallenge().getVotingState()) {
             case CLOSED:
@@ -82,6 +85,10 @@ public class ImageItemInstance implements ImageItem {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLargeImageUrl() {
+        return largeImageUrl;
     }
 
     public PhotographerItem getPhotographer() {
@@ -119,6 +126,7 @@ public class ImageItemInstance implements ImageItem {
                 ", title='" + title + '\'' +
                 ", url='" + url + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", largeImageUrl='" + largeImageUrl + '\'' +
                 ", postedDate=" + postedDate +
                 ", voteCount=" + voteCount +
                 ", rank=" + rank +

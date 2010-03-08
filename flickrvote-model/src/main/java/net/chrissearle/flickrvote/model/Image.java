@@ -68,6 +68,12 @@ public class Image {
     private String mediumImage;
 
     /**
+     * The URL (in string form) of the large format image on flickr (if present, will be medium otherwise).
+     */
+    @Column(name = "large_image", length = 255)
+    private String largeImage;
+
+    /**
      * The final count of votes. Only meaningful after voting has ended.
      */
     @Column(name = "final_vote_count", nullable = false)
@@ -249,6 +255,28 @@ public class Image {
     }
 
     /**
+     * Method getLargeImage returns the largeImage of this Image object.
+     * <p/>
+     * The URL (in string form) of the large (medium if no large) format image on flickr.
+     *
+     * @return the largeImage (type String) of this Image object.
+     */
+    public String getLargeImage() {
+        return largeImage;
+    }
+
+    /**
+     * Method setLargeImage sets the largeImage of this Image object.
+     * <p/>
+     * The URL (in string form) of the large (medium if no large) format image on flickr.
+     *
+     * @param mediumImage the largeImage of this Image object.
+     */
+    public void setLargeImage(String largeImage) {
+        this.largeImage = largeImage;
+    }
+
+    /**
      * Method equals checks for equality by checking the flickr ID
      *
      * @param obj of type Object
@@ -394,4 +422,5 @@ public class Image {
     public void setPostedDate(Date date) {
         postedDate = date == null ? null : new Date(date.getTime());
     }
+
 }
