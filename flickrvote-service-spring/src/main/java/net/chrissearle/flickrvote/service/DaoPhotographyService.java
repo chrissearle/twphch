@@ -225,7 +225,11 @@ public class DaoPhotographyService implements PhotographyService {
      * @return ImageItem - null if no image found
      */
     public ImageItem retrieveAndStoreImage(String id, String tag) {
-        return retrieveAndStoreImage(id, tag, true);
+        try {
+            return retrieveAndStoreImage(id, tag, true);
+        } catch (FlickrServiceException fse) {
+            throw new ServiceException(fse.getMessage(), fse);
+        }
     }
 
     /**
