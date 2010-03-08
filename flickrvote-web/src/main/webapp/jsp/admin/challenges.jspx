@@ -15,7 +15,6 @@
   -->
 
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -34,50 +33,80 @@
     </head>
     <body>
     <h3>Challenge List</h3>
+    <h4>Commands</h4>
+    <dl>
+        <dt>E</dt>
+        <dd>Edit challenge details</dd>
+        <dt>S</dt>
+        <dd>Edit scores</dd>
+        <dt>R</dt>
+        <dd>Run ranking based on current scores</dd>
+        <dt>C</dt>
+        <dd>Check images in challenge for rule violations</dd>
+        <dt>H</dt>
+        <dd>Refresh image data for all images in challenge</dd>
+    </dl>
+    
     <table>
+        <thead>
         <tr>
-            <th>Challenge</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>Voting Opens</th>
-            <th>End Date</th>
-            <th>Commands</th>
+            <th rowspan="2">Challenge</th>
+            <th rowspan="2">Description</th>
+            <th colspan="3">Dates</th>
+            <th colspan="5">Commands</th>
         </tr>
+        <tr>
+            <th>Start</th>
+            <th>Voting</th>
+            <th>End</th>
+            <th>E</th>
+            <th>S</th>
+            <th>R</th>
+            <th>C</th>
+            <th>H</th>
+        </tr>
+        </thead>
+        <tbody>
         <s:iterator id="challenge" value="challenges">
             <tr>
                 <td><s:property value="#challenge.tag"/></td>
                 <td><s:property value="#challenge.title"/></td>
                 <td><s:date name="#challenge.startDate" format="dd.MM.yyyy"/></td>
-                <td><s:date name="#challenge.voteDate" format="dd.MM.yyyy"/></td>
-                <td><s:date name="#challenge.endDate" format="dd.MM.yyyy"/></td>
+                <td><s:date name="#challenge.voteDate" format="dd.MM"/></td>
+                <td><s:date name="#challenge.endDate" format="dd.MM"/></td>
                 <td>
                     <s:url id="editLink" action="challengeForm">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{editLink}">Edit</s:a>
-                    |
+                    <s:a href="%{editLink}">E</s:a>
+                </td>
+                <td>
                     <s:url id="showLink" action="scoreForm">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{showLink}">Scores</s:a>
-                    |
+                    <s:a href="%{showLink}">S</s:a>
+                </td>
+                <td>
                     <s:url id="rankItLink" action="rankIt">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{rankItLink}">Rank</s:a>
-                    |
+                    <s:a href="%{rankItLink}">R</s:a>
+                </td>
+                <td>
                     <s:url id="checkItLink" action="checkSearch">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{checkItLink}">Check</s:a>
-                    |
+                    <s:a href="%{checkItLink}">C</s:a>
+                </td>
+                <td>
                     <s:url id="refreshItLink" action="refreshImages">
                         <s:param name="tag"><s:property value="#challenge.tag"/></s:param>
                     </s:url>
-                    <s:a href="%{refreshItLink}">Refresh</s:a>
+                    <s:a href="%{refreshItLink}">H</s:a>
                 </td>
             </tr>
         </s:iterator>
+        </tbody>
     </table>
     </body>
     </html>
