@@ -27,6 +27,7 @@ import net.chrissearle.flickrvote.service.model.ImageItems;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
+import net.chrissearle.flickrvote.web.model.ListControl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -46,6 +47,8 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
     private List<DisplayImage> images;
 
     private Challenge challenge = null;
+
+    private ListControl listControl = new ListControl(false, false, false, false);
 
     @Override
     public String execute() throws Exception {
@@ -100,5 +103,9 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     public Challenge getChallenge() {
         return challenge;
+    }
+
+    public ListControl getListControl() {
+        return listControl;
     }
 }

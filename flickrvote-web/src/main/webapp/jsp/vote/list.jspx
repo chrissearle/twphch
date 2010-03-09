@@ -38,21 +38,8 @@
 
     <s:actionmessage/>
 
-    <s:iterator id="displayImage" value="displayImages" status="stat">
-        <div class="photobox">
-            <h3>
-                <fv:photographer photographer="${displayImage}"/>
-                :
-                <s:property value="#displayImage.imageTitle"/>
-                <s:if test="#session.flickrUser &amp;&amp; voted">
-                    (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
-                </s:if>
-                -
-                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
-            </h3>
-            <fv:image image="${displayImage}"/>
-        </div>
-    </s:iterator>
+    <s:action name="imageList" namespace="/common" executeResult="true"/>
+
     </body>
     </html>
 </jsp:root>

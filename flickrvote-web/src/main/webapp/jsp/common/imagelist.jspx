@@ -14,34 +14,38 @@
   ~    limitations under the License.
   -->
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          xmlns:fv="/flickrvote-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
                 doctype-public="-//W3C//DTD XHTML 1.1//EN"
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
-    <head>
-        <title><s:text name="main.title"/></title>
-        <s:head/>
-
-        <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
-
-    </head>
     <body>
-    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
-
-    <s:if test="images.size() == 0">
-        <p><s:text name="current.no.pics"/></p>
-    </s:if>
-
-    <s:action name="imageList" namespace="/common" executeResult="true"/>
-    
+    <s:iterator id="displayImage" value="displayImages" status="stat">
+        <div class="photobox">
+            <h3>
+                <s:if test="listControl.showChallengeTitle">
+                    <fv:challengeTitle challenge="${displayImage}"/>
+                    :
+                </s:if>
+                <s:if test="listControl.showRank">
+                    <s:property value="#displayImage.rank"/>
+                    :
+                </s:if>
+                <fv:photographer photographer="${displayImage}"/> :
+                <s:property value="#displayImage.imageTitle"/>
+                <s:if test="listControl.showVotes">
+                    (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
+                </s:if>
+                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
+            </h3>
+            <fv:image image="${displayImage}" showBadge="${listControl.showBadges}"/>
+        </div>
+    </s:iterator>
     </body>
     </html>
 </jsp:root>

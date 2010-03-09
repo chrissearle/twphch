@@ -21,6 +21,7 @@ import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.WinnerService;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
+import net.chrissearle.flickrvote.web.model.ListControl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
@@ -30,6 +31,8 @@ public class HallOfFameAction extends ActionSupport implements Preparable {
     private WinnerService winnerService;
 
     private List<DisplayImage> displayImages;
+
+    private ListControl listControl = new ListControl(true, false, true, true);
 
     @Override
     public String execute() throws Exception {
@@ -59,5 +62,9 @@ public class HallOfFameAction extends ActionSupport implements Preparable {
                 return o2.getChallengeTag().compareTo(o1.getChallengeTag());
             }
         });
+    }
+
+    public ListControl getListControl() {
+        return listControl;
     }
 }

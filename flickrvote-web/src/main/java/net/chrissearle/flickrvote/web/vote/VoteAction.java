@@ -25,10 +25,7 @@ import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
-import net.chrissearle.flickrvote.web.model.Challenge;
-import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
-import net.chrissearle.flickrvote.web.model.DisplayImage;
-import net.chrissearle.flickrvote.web.model.Photographer;
+import net.chrissearle.flickrvote.web.model.*;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -220,5 +217,12 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     public Boolean isVoted() {
         return voted;
+    }
+
+    public ListControl getListControl() {
+        return new ListControl(false,
+                false,
+                voted && session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY),
+                false);
     }
 }

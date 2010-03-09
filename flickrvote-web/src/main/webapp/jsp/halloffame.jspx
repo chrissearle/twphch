@@ -35,21 +35,8 @@
     <body>
     <h1><s:text name="hall.of.fame.title"/></h1>
 
-    <s:iterator id="displayImage" value="displayImages" status="stat">
-        <div class="photobox">
-            <h3>
-                <fv:challengeTitle challenge="${displayImage}"/>
-                :
-                <fv:photographer photographer="${displayImage}"/>
-                :
-                <s:property value="#displayImage.imageTitle"/>
-                (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
-                -
-                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
-            </h3>
-            <fv:image image="${displayImage}" showBadge="false"/>
-        </div>
-    </s:iterator>
+    <s:action name="imageList" namespace="/common" executeResult="true"/>
+
     </body>
     </html>
 </jsp:root>
