@@ -1,3 +1,6 @@
+var mouseX = 0;
+var mouseY = 0;
+
 $(document).ready(function () {
     $("a.toggleLink").bind("click", function(e) {
         $("#photobox_" + $(this).attr("id")).toggle("slow");
@@ -6,20 +9,17 @@ $(document).ready(function () {
     $("input[type='checkbox']").bind("click", function(e) {
         flashScore();
     });
-});
 
-var mouseX = 0;
-var mouseY = 0;
-
-$().mousemove(function(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+    $(document).mousemove(function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
 });
 
 function flashScore() {
     score = $('#score');
 
-    var voteCount = $("input[type='checkbox']:checked").size();
+    voteCount = $("input[type='checkbox']:checked").size();
 
     score.text(voteCount);
 
