@@ -27,6 +27,8 @@ import net.chrissearle.flickrvote.flickr.ImageTagSearchDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
 import org.apache.log4j.Logger;
+import org.constretto.annotation.Configuration;
+import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
@@ -42,10 +44,17 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
 
     private static final int MAX_SEARCH_HITS = 500;
     private static final int SEARCH_PAGE_ONE = 1;
+    
+    private String groupId;
 
     @Autowired
     public FlickrJImageTagSearchDAO(Flickr flickr) {
         this.flickr = flickr;
+    }
+
+    @Configure
+    public void configure(@Configuration(expression = "flickr.twphch.group") String groupId) {
+        this.groupId = groupId;
     }
 
     public FlickrImages searchTag(String tag, Date earliestDate) {
@@ -102,6 +111,8 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
         params.setTags(tags);
 
         params.setExtras(Extras.ALL_EXTRAS);
+
+        params.setGroupId(groupId);
 
         List<Photo> photos = (List<Photo>) photosInterface.search(params, MAX_SEARCH_HITS, SEARCH_PAGE_ONE);
 
