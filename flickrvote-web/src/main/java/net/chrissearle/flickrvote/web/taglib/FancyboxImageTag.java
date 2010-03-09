@@ -49,7 +49,7 @@ public class FancyboxImageTag extends TagSupport {
         try {
             StringBuilder text = new StringBuilder();
 
-            text.append("<a style=\"display: none\" id=\"fb_");
+            text.append("<span style=\"display: none\"  class=\"fancyboxPrefix\"> - </span><a style=\"display: none\" id=\"fb_");
             text.append(position);
             text.append("\" class=\"fancyboxImage\"></a>");
 

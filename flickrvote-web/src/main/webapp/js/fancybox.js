@@ -7,4 +7,6 @@ $(document).ready(function () {
     $("a.fancyboxImage").html(showLarge).bind("click", function(e) {
         $("#img_" + $(this).attr("id")).trigger('click');
     }).show();
+
+    $("span.fancyboxPrefix").show();
 });
