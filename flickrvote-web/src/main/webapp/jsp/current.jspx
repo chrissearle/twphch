@@ -15,7 +15,6 @@
   -->
 
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -30,18 +29,9 @@
     <head>
         <title><s:text name="main.title"/></title>
         <s:head/>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("a.flickrImage").fancybox({
-                    'cyclic' : true,
-                    'autoScale' : true
-                });
 
-                $("a.fancyboxImage").html("<s:text name="show.large"/>").bind("click", function(e) {
-                    $("#img_" + $(this).attr("id")).trigger('click');
-                }).show();
-            });
-        </script>
+        <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
+
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>

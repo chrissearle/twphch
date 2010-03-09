@@ -46,5 +46,18 @@
         <action name="challengeListBlock" class="net.chrissearle.flickrvote.web.common.ChallengeListAction">
             <result type="freemarker" name="success">/ftl/common/challengeListBlock.ftl</result>
         </action>
+
+        <action name="loadJQuery">
+            <result type="freemarker" name="success">/ftl/common/loadJQuery.ftl</result>
+        </action>
+
+        <action name="loadFancyBox">
+            <result type="freemarker" name="success">/ftl/common/loadFancyBox.ftl</result>
+        </action>
+
+        <action name="loadVoting">
+            <result type="freemarker" name="success">/ftl/common/loadVoting.ftl</result>
+        </action>
+
     </package>
 </struts>

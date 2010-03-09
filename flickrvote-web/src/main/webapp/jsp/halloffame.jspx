@@ -29,11 +29,13 @@
     <head>
         <title><s:text name="main.title"/></title>
         <s:head/>
+
+        <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
     </head>
     <body>
     <h1><s:text name="hall.of.fame.title"/></h1>
 
-    <s:iterator id="displayImage" value="displayImages">
+    <s:iterator id="displayImage" value="displayImages" status="stat">
         <div class="photobox">
             <h3>
                 <fv:challengeTitle challenge="${displayImage}"/>
@@ -42,6 +44,8 @@
                 :
                 <s:property value="#displayImage.imageTitle"/>
                 (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
+                -
+                <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             </h3>
             <fv:image image="${displayImage}" showBadge="false"/>
         </div>
