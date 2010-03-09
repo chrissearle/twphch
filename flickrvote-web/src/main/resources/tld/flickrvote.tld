@@ -42,6 +42,7 @@
         </attribute>
         <attribute>
             <name>showBadge</name>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
     <tag>
