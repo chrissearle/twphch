@@ -18,6 +18,7 @@ package net.chrissearle.flickrvote.flickr.impl;
 
 import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
+import com.aetrion.flickr.photos.Extras;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
@@ -100,11 +101,7 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
         SearchParameters params = new SearchParameters();
         params.setTags(tags);
 
-        // By grabbing the dates at this point - saves us a call to get image.
-        // We don't bother asking for names here to save a call to get photographer since that is
-        // still needed to get the user icon/avatar.
-        params.setExtrasDateUpload(true);
-        params.setExtrasDateTaken(true);
+        params.setExtras(Extras.ALL_EXTRAS);
 
         List<Photo> photos = (List<Photo>) photosInterface.search(params, MAX_SEARCH_HITS, SEARCH_PAGE_ONE);
 
