@@ -16,15 +16,25 @@
 
 package net.chrissearle.flickrvote.flickr.impl;
 
+import com.aetrion.flickr.Flickr;
+import com.aetrion.flickr.FlickrException;
 import com.aetrion.flickr.photos.Photo;
+import com.aetrion.flickr.photos.Size;
+import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.util.Collection;
 
 public abstract class AbstractFlickrJImageSupport {
+    protected Flickr flickr;
+
     protected FlickrImage buildImage(Photo photo) {
         FlickrPhotographer photographer = new FlickrPhotographer(photo.getOwner().getId());
 
-        String largeImageUrl = photo.getLargeUrl();
+        String largeImageUrl = getLargeUrl(photo);
 
         if (largeImageUrl == null || "".equals(largeImageUrl)) {
             largeImageUrl = photo.getMediumUrl();
@@ -34,4 +44,6 @@ public abstract class AbstractFlickrJImageSupport {
                 photo.getMediumUrl(), largeImageUrl,
                 photo.getDateTaken(), photo.getDatePosted());
     }
+
+    protected abstract String getLargeUrl(Photo photo);
 }

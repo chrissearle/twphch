@@ -38,7 +38,6 @@ import java.util.List;
 @Component
 public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implements ImageTagSearchDAO {
     private Logger logger = Logger.getLogger(this.getClass());
-    private Flickr flickr;
 
     private static final int MAX_SEARCH_HITS = 500;
     private static final int SEARCH_PAGE_ONE = 1;
@@ -110,5 +109,9 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
         List<Photo> photos = (List<Photo>) photosInterface.search(params, MAX_SEARCH_HITS, SEARCH_PAGE_ONE);
 
         return photos;
+    }
+
+    protected String getLargeUrl(Photo photo) {
+        return photo.getLargeUrl();
     }
 }

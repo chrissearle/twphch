@@ -20,6 +20,7 @@ import com.aetrion.flickr.Flickr;
 import com.aetrion.flickr.FlickrException;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotosInterface;
+import com.aetrion.flickr.photos.Size;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.ImageDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
@@ -29,14 +30,11 @@ import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.Collection;
 
 @Component
 public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements ImageDAO {
     private Logger logger = Logger.getLogger(this.getClass());
-    private Flickr flickr;
-
-    private static final int MAX_SEARCH_HITS = 500;
-    private static final int SEARCH_PAGE_ONE = 1;
 
     @Autowired
     public FlickrJImageDAO(Flickr flickr) {
@@ -77,4 +75,32 @@ public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements Imag
 
         return photo;
     }
+
+    @SuppressWarnings("unchecked")
+    protected String getLargeUrl(Photo photo) {
+        try {
+            Collection<Size> sizes = (Collection<Size>)flickr.getPhotosInterface().getSizes(photo.getId());
+
+            String source = null;
+
+            for (Size size : sizes) {
+                if (size.getLabel() == Size.ORIGINAL && source == null) {
+                    source = size.getSource();
+                }
+
+                if (size.getLabel() == Size.LARGE) {
+                    source = size.getSource();
+                }
+            }
+
+            return source;
+        } catch (IOException e) {
+            throw new FlickrServiceException(e);
+        } catch (SAXException e) {
+            throw new FlickrServiceException(e);
+        } catch (FlickrException e) {
+            throw new FlickrServiceException(e);
+        }
+    }
+
 }
