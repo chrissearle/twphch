@@ -30,7 +30,10 @@ import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements ImageDAO {
@@ -83,15 +86,24 @@ public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements Imag
 
             String source = null;
 
-            for (Size size : sizes) {
-                if (size.getLabel() == Size.ORIGINAL && source == null) {
-                    source = size.getSource();
-                }
+            Map<Integer, Size> sizeMap = new HashMap<Integer,  Size>(sizes.size());
 
-                if (size.getLabel() == Size.LARGE) {
-                    source = size.getSource();
-                }
+            for (Size size : sizes) {
+                sizeMap.put(size.getLabel(), size);
             }
+
+            if (sizeMap.containsKey(Size.MEDIUM)) {
+                source = sizeMap.get(Size.MEDIUM).getSource();
+            }
+
+            if (sizeMap.containsKey(Size.ORIGINAL)) {
+                source = sizeMap.get(Size.ORIGINAL).getSource();
+            }
+
+            if (sizeMap.containsKey(Size.LARGE)) {
+                source = sizeMap.get(Size.LARGE).getSource();
+            }
+
 
             return source;
         } catch (IOException e) {
