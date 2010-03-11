@@ -61,8 +61,10 @@ public class DaoStatusCheckService implements StatusCheckService {
 
         Set<ImageItemStatus> status = checkSearch(challenge.getTag());
 
-        mailService.sendPost(challengeMessageService.getWarnForCurrentTitle(challenge.getTag()),
-                challengeMessageService.getWarnForCurrentBody(status));
+        if (!status.isEmpty()) {
+            mailService.sendPost(challengeMessageService.getWarnForCurrentTitle(challenge.getTag()),
+                    challengeMessageService.getWarnForCurrentBody(status));
+        }
 
         return new ChallengeSummaryInstance(challenge);
     }
