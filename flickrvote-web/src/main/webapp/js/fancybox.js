@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("a.flickrImage").fancybox({
         'cyclic' : true,
+        'titlePosition' : 'over',
         'autoScale' : true
     });
 
