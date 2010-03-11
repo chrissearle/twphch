@@ -54,7 +54,7 @@
             <url>file:///Users/chris/Sites/twphch/</url>
         </site>
     </distributionManagement>
-
+ 
 
     <dependencyManagement>
         <dependencies>
@@ -106,7 +106,7 @@
             <dependency>
                 <groupId>com.rosaloves</groupId>
                 <artifactId>bitlyj</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
 
             <dependency>
