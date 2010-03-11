@@ -62,20 +62,20 @@
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-api</artifactId>
-                <version>1.0-beta-2</version>
+                <version>1.0</version>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-core</artifactId>
-                <version>1.0-beta-2</version>
+                <version>1.0</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-spring</artifactId>
-                <version>1.0-beta-2</version>
+                <version>1.0</version>
             </dependency>
 
             <!-- Utilities -->
