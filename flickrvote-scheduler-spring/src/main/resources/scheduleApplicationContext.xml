@@ -62,12 +62,6 @@
         <property name="concurrent" value="false"/>
     </bean>
 
-    <bean id="generateHistoryPdfJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetBeanName" value="reportService"/>
-        <property name="targetMethod" value="generateHistoryReport"/>
-        <property name="concurrent" value="false"/>
-    </bean>
-
     <bean id="warnAdminsMissingChallengeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
         <property name="jobClass" value="net.chrissearle.flickrvote.scheduler.WarnAdminJob"/>
         <property name="jobDataAsMap">
@@ -116,18 +110,12 @@
         <property name="cronExpression" value="0 0 21 ? * THU"/>
     </bean>
 
-    <bean id="generateHistoryPdfTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-        <property name="jobDetail" ref="generateHistoryPdfJob"/>
-        <property name="cronExpression" value="0 0 23 * * ?"/>
-    </bean>
-
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
                 <ref bean="freezeAndOpenVotingTrigger"/>
                 <ref bean="announceNewChallengeTrigger"/>
                 <ref bean="announceResultsTrigger"/>
-                <ref bean="generateHistoryPdfTrigger"/>
                 <ref bean="warnVotingOpenTrigger"/>
                 <ref bean="warnVotingCloseTrigger"/>
                 <ref bean="warnForCurrentTrigger" />

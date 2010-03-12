@@ -53,12 +53,6 @@
         <action name="hallOfFame" class="net.chrissearle.flickrvote.web.HallOfFameAction">
             <result name="success">/jsp/halloffame.jspx</result>
         </action>
-        <action name="historyReport" class="net.chrissearle.flickrvote.web.HistoryReportAction">
-            <result name="success" type="stream">
-                <param name="contentType">application/pdf</param>
-                <param name="contentDisposition">attachment;filename="flickrvote_history.pdf"</param>
-            </result>
-        </action>
         <action name="listChallenges" class="net.chrissearle.flickrvote.web.common.ChallengeListAction" method="browse">
             <result name="success">/jsp/listchallenges.jspx</result>
         </action>

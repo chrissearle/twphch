@@ -133,10 +133,6 @@
                             <mainClass>net.chrissearle.flickrvote.service.cli.PhotographerChartCli</mainClass>
                             <name>photographerchart</name>
                         </program>
-                        <program>
-                            <mainClass>net.chrissearle.flickrvote.service.cli.PdfReportCli</mainClass>
-                            <name>pdf</name>
-                        </program>
                     </programs>
                 </configuration>
             </plugin>

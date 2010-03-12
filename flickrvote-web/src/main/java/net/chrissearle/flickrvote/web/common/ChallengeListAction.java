@@ -19,7 +19,6 @@ package net.chrissearle.flickrvote.web.common;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.ChallengeService;
-import net.chrissearle.flickrvote.service.ReportService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.web.model.Challenge;
@@ -35,12 +34,7 @@ public class ChallengeListAction extends ActionSupport implements Preparable {
     @Autowired
     private ChallengeService challengeService;
 
-    @Autowired
-    private ReportService reportService;
-
     private List<Challenge> challenges;
-
-    private Long reportLength;
 
     @Override
     public String execute() throws Exception {
@@ -57,15 +51,6 @@ public class ChallengeListAction extends ActionSupport implements Preparable {
         return challenges;
     }
 
-    public long getReportLength() {
-        // Return length in megabytes
-        return (reportLength / (1024 * 1024));
-    }
-
-    public Boolean isReportAvailable() {
-        return !(reportLength == ReportService.REPORT_UNAVAILABLE);
-    }
-
     public void prepare() throws Exception {
         challenges = new ArrayList<Challenge>();
 
@@ -78,7 +63,5 @@ public class ChallengeListAction extends ActionSupport implements Preparable {
                 return o2.getChallengeTag().compareTo(o1.getChallengeTag());
             }
         });
-
-        reportLength = reportService.getHistoryReportSize();
     }
 }
