@@ -19,11 +19,9 @@ package net.chrissearle.flickrvote.web;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import net.chrissearle.flickrvote.service.ChallengeService;
+import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.TagSearchService;
-import net.chrissearle.flickrvote.service.model.ChallengeSummary;
-import net.chrissearle.flickrvote.service.model.ChallengeType;
-import net.chrissearle.flickrvote.service.model.ImageItem;
-import net.chrissearle.flickrvote.service.model.ImageItems;
+import net.chrissearle.flickrvote.service.model.*;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
@@ -49,6 +47,9 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
     private Challenge challenge = null;
 
     private ListControl listControl = new ListControl(false, false, false, false);
+
+    @Autowired
+    private transient PhotographyService photographyService;
 
     @Override
     public String execute() throws Exception {
@@ -83,9 +84,13 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
             ImageItems imageItems = tagSearchService.searchByTagAndDate(challengeSummary.getTag(), challengeSummary.getStartDate());
 
-            images = new ArrayList<DisplayImage>(imageItems.getImagesUniquePhotographer().size());
+            ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
 
-            for (ImageItem image : imageItems.getImagesUniquePhotographer()) {
+            final List<ImageItem> imagesUniquePhotographer = imageItems.getImagesUniquePhotographer(challengeItem.getImages());
+            
+            images = new ArrayList<DisplayImage>(imagesUniquePhotographer.size());
+
+            for (ImageItem image : imagesUniquePhotographer) {
                 images.add(new DisplayImage(image));
             }
 

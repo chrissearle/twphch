@@ -17,7 +17,9 @@
 package net.chrissearle.flickrvote.service.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 public class ImageItems {
     private List<ImageItem> items;
@@ -30,19 +32,34 @@ public class ImageItems {
         return this.items;
     }
 
-    public List<ImageItem> getImagesUniquePhotographer() {
-        List<ImageItem> itemList = new ArrayList<ImageItem>();
+    public List<ImageItem> getImagesUniquePhotographer(Set<ImageItem> priorityItems) {
+        ImagesUniquePhotographer imagesUniquePhotographer = new ImagesUniquePhotographer();
 
-        List<String> seenPhotographers = new ArrayList<String>();
+        if (priorityItems != null && !priorityItems.isEmpty()) {
+            imagesUniquePhotographer.addImages(priorityItems);
+        }
+        
+        imagesUniquePhotographer.addImages(items);
 
-        for (ImageItem item : items) {
-            if (!seenPhotographers.contains(item.getPhotographer().getId())) {
-                seenPhotographers.add(item.getPhotographer().getId());
+        return imagesUniquePhotographer.getImages();
+    }
 
-                itemList.add(item);
-            }
+    private class ImagesUniquePhotographer {
+        private List<ImageItem> itemList = new ArrayList<ImageItem>();
+        private List<String> seenPhotographers = new ArrayList<String>();
+
+        public List<ImageItem> getImages() {
+            return itemList;
         }
 
-        return itemList;
+        public void addImages(Collection<ImageItem> items) {
+            for (ImageItem item : items) {
+                if (!seenPhotographers.contains(item.getPhotographer().getId())) {
+                    seenPhotographers.add(item.getPhotographer().getId());
+
+                    itemList.add(item);
+                }
+            }
+        }
     }
 }
