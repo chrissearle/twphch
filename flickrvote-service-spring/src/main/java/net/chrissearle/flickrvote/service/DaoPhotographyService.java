@@ -187,30 +187,7 @@ public class DaoPhotographyService implements PhotographyService {
             return null;
         }
 
-        Map<String, ImageItem> seenImages = new HashMap<String, ImageItem>();
-
-        if (challenge.getVotingState() == ChallengeState.OPEN) {
-            // Grab images from flickr
-            FlickrImages flickrImages = flickrImageTagSearchDao.searchTag(tag, challenge.getStartDate());
-
-            for (FlickrImage image : flickrImages.getImages()) {
-                ImageItemInstance imageItem = new ImageItemInstance(image);
-                images.add(imageItem);
-                seenImages.put(image.getPhotographer().getFlickrId(), imageItem);
-            }
-        }
-
-        // Grab images from db. Merge in if flickr images have already been fetched
         for (Image image : challenge.getImages()) {
-            final String photographerId = image.getPhotographer().getId();
-
-            if (seenImages.containsKey(photographerId)) {
-                // The db has an image for a photographer that has been found by search.
-                // This only happens when administrators add an image manually.
-                // In this case - use the db image.
-                images.remove(seenImages.get(photographerId));
-            }
-
             images.add(new ImageItemInstance(image));
         }
 
