@@ -1,5 +1,3 @@
-<@s.action name="loadJQuery" namespace="/common" executeResult="true"/>
-
 <script type="text/javascript">
     var showLarge = "<@s.text name="show.large"/>";
 </script>

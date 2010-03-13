@@ -42,6 +42,9 @@
     <link rel="alternate" type="application/rss+xml" title="<s:text name="rss.link.front"/>"
           href="<s:url namespace="/rss" action="current"/>"/>
 
+    <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
+    <s:action name="loadBlockControl" namespace="/common" executeResult="true"/>
+
     <decorator:head/>
 
 </head>
@@ -71,40 +74,48 @@
                 <s:action name="photographerBlock" namespace="/common" executeResult="true"/>
             </s:if>
             <div class="sidebaritem">
-                <h1><s:text name="sidebar.grouprules.title"/></h1>
+                <h1 id="block_rules"><s:text name="sidebar.grouprules.title"/></h1>
 
-                <div class="sbilinks">
-                    <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
-                    <ul>
-                        <s:url namespace="/" action="rules" id="rulesLink"/>
-                        <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
-                        <s:url namespace="/" action="instructions" id="instructionsLink"/>
-                        <li><s:a href="%{instructionsLink}"><s:text name="instructions.title"/></s:a></li>
-                        <s:url namespace="/" action="faq" id="faqLink"/>
-                        <li><s:a href="%{faqLink}"><s:text name="faq.title"/></s:a></li>
-                    </ul>
+                <div id="block_rules_content">
+                    <div class="sbilinks">
+                        <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
+                        <ul>
+                            <s:url namespace="/" action="rules" id="rulesLink"/>
+                            <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
+                            <s:url namespace="/" action="instructions" id="instructionsLink"/>
+                            <li><s:a href="%{instructionsLink}"><s:text name="instructions.title"/></s:a></li>
+                            <s:url namespace="/" action="faq" id="faqLink"/>
+                            <li><s:a href="%{faqLink}"><s:text name="faq.title"/></s:a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="sidebaritem">
-                <h1><s:text name="language.title"/></h1>
+                <h1 id="block_lang"><s:text name="language.title"/></h1>
 
-                <div class="sbilinks">
-                    <s:url id="enUrl" action="current" namespace="/"><s:param name="request_locale">en</s:param></s:url>
-                    <s:url id="noUrl" action="current" namespace="/"><s:param name="request_locale">no</s:param></s:url>
-                    <s:url id="seUrl" action="current" namespace="/"><s:param name="request_locale">se</s:param></s:url>
-                    <s:url id="dkUrl" action="current" namespace="/"><s:param name="request_locale">dk</s:param></s:url>
+                <div id="block_lang_content">
+                    <div class="sbilinks">
+                        <s:url id="enUrl" action="current" namespace="/"><s:param
+                                name="request_locale">en</s:param></s:url>
+                        <s:url id="noUrl" action="current" namespace="/"><s:param
+                                name="request_locale">no</s:param></s:url>
+                        <s:url id="seUrl" action="current" namespace="/"><s:param
+                                name="request_locale">se</s:param></s:url>
+                        <s:url id="dkUrl" action="current" namespace="/"><s:param
+                                name="request_locale">dk</s:param></s:url>
 
-                    <s:url id="enFlagUrl" value='/images/famfamfam_flag_icons/png/gb.png'/>
-                    <s:url id="noFlagUrl" value='/images/famfamfam_flag_icons/png/no.png'/>
-                    <s:url id="seFlagUrl" value='/images/famfamfam_flag_icons/png/se.png'/>
-                    <s:url id="dkFlagUrl" value='/images/famfamfam_flag_icons/png/dk.png'/>
+                        <s:url id="enFlagUrl" value='/images/famfamfam_flag_icons/png/gb.png'/>
+                        <s:url id="noFlagUrl" value='/images/famfamfam_flag_icons/png/no.png'/>
+                        <s:url id="seFlagUrl" value='/images/famfamfam_flag_icons/png/se.png'/>
+                        <s:url id="dkFlagUrl" value='/images/famfamfam_flag_icons/png/dk.png'/>
 
-                    <ul>
-                        <li><s:a href="%{noUrl}"><img src="${noFlagUrl}" alt="no"/></s:a></li>
-                        <li><s:a href="%{enUrl}"><img src="${enFlagUrl}" alt="gb"/></s:a></li>
-                        <li><s:a href="%{seUrl}"><img src="${seFlagUrl}" alt="se"/></s:a></li>
-                        <li><s:a href="%{dkUrl}"><img src="${dkFlagUrl}" alt="dk"/></s:a></li>
-                    </ul>
+                        <ul>
+                            <li><s:a href="%{noUrl}"><img src="${noFlagUrl}" alt="no"/></s:a></li>
+                            <li><s:a href="%{enUrl}"><img src="${enFlagUrl}" alt="gb"/></s:a></li>
+                            <li><s:a href="%{seUrl}"><img src="${seFlagUrl}" alt="se"/></s:a></li>
+                            <li><s:a href="%{dkUrl}"><img src="${dkFlagUrl}" alt="dk"/></s:a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

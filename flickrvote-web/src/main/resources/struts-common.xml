@@ -59,6 +59,10 @@
             <result type="freemarker" name="success">/ftl/common/loadVoting.ftl</result>
         </action>
 
+        <action name="loadBlockControl">
+            <result type="freemarker" name="success">/ftl/common/loadBlockControl.ftl</result>
+        </action>
+
         <action name="imageList">
             <result name="success">/jsp/common/imagelist.jspx</result>
         </action>

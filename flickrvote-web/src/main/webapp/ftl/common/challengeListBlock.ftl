@@ -1,26 +1,28 @@
 <div class="sidebaritem">
-    <h1><@s.text name="sidebar.olderchallenges.title"/></h1>
+    <h1 id="block_challenge_list"><@s.text name="sidebar.olderchallenges.title"/></h1>
 
-    <div class="sbilinks">
-        <ul>
-            <li>
+    <div id="block_challenge_list_content">
+        <div class="sbilinks">
+            <ul>
+                <li>
                 <@s.url id="fameLink" namespace="/" action="hallOfFame"/>
                 <@s.a href="%{fameLink}"><@s.text name="hall.of.fame.title"/></@s.a>
-            </li>
+                </li>
             <@s.iterator id="challenge" value="challenges">
-            <li>
+                <li>
                 <@s.url id="showLink" namespace="/" action="show">
                 <@s.param name="challengeTag"><@s.property value="#challenge.challengeTag"/></@s.param>
                 </@s.url>
                 <@s.a href="%{showLink}">#<@s.property value="#challenge.shortTag"/>
-                -
+                    -
                 <@s.property value="#challenge.challengeDescription"/></@s.a>
-            </li>
+                </li>
             </@s.iterator>
-            <li>
+                <li>
                 <@s.url id="challengeListUrl" action="listChallenges" namespace="/"/>
                 <@s.a href="%{challengeListUrl}"><@s.text name="link.list.challenges"/></@s.a>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
