@@ -21,12 +21,16 @@ public class ListControl {
     private final boolean showRank;
     private final boolean showVotes;
     private final boolean showBadges;
+    private final boolean showRefresh;
+    private final boolean showPhotographer;
 
-    public ListControl(boolean showChallengeTitle, boolean showRank, boolean showVotes, boolean showBadges) {
+    public ListControl(boolean showChallengeTitle, boolean showRank, boolean showVotes, boolean showBadges, boolean showRefresh, boolean showPhotographer) {
         this.showChallengeTitle = showChallengeTitle;
         this.showRank = showRank;
         this.showVotes = showVotes;
         this.showBadges = showBadges;
+        this.showRefresh = showRefresh;
+        this.showPhotographer = showPhotographer;
     }
 
     public boolean isShowChallengeTitle() {
@@ -43,5 +47,13 @@ public class ListControl {
 
     public boolean isShowBadges() {
         return showBadges;
+    }
+
+    public boolean isShowRefresh() {
+        return showRefresh;
+    }
+
+    public boolean isShowPhotographer() {
+        return showPhotographer;
     }
 }

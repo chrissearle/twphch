@@ -29,32 +29,16 @@
     <head>
         <title><s:text name="main.title"/></title>
         <s:head/>
+
+        <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
     </head>
     <body>
     <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
 
     <s:actionmessage/>
 
-    <s:iterator id="displayImage" value="displayImages">
-        <div class="photobox">
-            <h3>
-                <fv:challengeTitle challenge="${displayImage}"/>
-                :
-                <s:property value="#displayImage.rank"/>
-                :
-                <s:property value="#displayImage.imageTitle"/>
-                (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
-            </h3>
+    <s:action name="imageList" namespace="/common" executeResult="true"/>
 
-            <p>
-                <s:url action="refresh" id="refreshUrl">
-                    <s:param name="id"><s:property value="#displayImage.imageId"/></s:param>
-                </s:url>
-                <s:a href="%{refreshUrl}"><s:text name="refresh.link.text"/></s:a>
-            </p>
-            <fv:image image="${displayImage}"/>
-        </div>
-    </s:iterator>
     </body>
     </html>
 </jsp:root>

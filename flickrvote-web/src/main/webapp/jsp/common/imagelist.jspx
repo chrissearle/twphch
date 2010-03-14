@@ -36,13 +36,23 @@
                     <s:property value="#displayImage.rank"/>
                     :
                 </s:if>
-                <fv:photographer photographer="${displayImage}"/> :
+                <s:if test="listControl.showPhotographer">
+                    <fv:photographer photographer="${displayImage}"/> :
+                </s:if>
                 <s:property value="#displayImage.imageTitle"/>
                 <s:if test="listControl.showVotes">
                     (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
                 </s:if>
                 <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             </h3>
+            <s:if test="listControl.showRefresh">
+                <p>
+                    <s:url namespace="/account" action="refresh" id="refreshUrl">
+                        <s:param name="id"><s:property value="#displayImage.imageId"/></s:param>
+                    </s:url>
+                    <s:a href="%{refreshUrl}"><s:text name="refresh.link.text"/></s:a>
+                </p>
+            </s:if>
             <fv:image image="${displayImage}" showBadge="${listControl.showBadges}"/>
         </div>
     </s:iterator>

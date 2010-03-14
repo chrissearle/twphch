@@ -49,7 +49,7 @@ public class ShowChallengeAction {
 
     private Challenge challenge;
 
-    private ListControl listControl = new ListControl(false, true, true, true);
+    private ListControl listControl = new ListControl(false, true, true, true, false, true);
 
     public String execute() throws Exception {
         if (logger.isDebugEnabled()) {

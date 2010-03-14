@@ -46,7 +46,7 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     private Challenge challenge = null;
 
-    private ListControl listControl = new ListControl(false, false, false, false);
+    private ListControl listControl = new ListControl(false, false, false, false, false, true);
 
     @Autowired
     private transient PhotographyService photographyService;

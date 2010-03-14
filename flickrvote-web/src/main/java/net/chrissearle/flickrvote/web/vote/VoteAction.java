@@ -223,6 +223,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
         return new ListControl(false,
                 false,
                 voted && session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY),
-                false);
+                false,
+                false,
+                true);
     }
 }

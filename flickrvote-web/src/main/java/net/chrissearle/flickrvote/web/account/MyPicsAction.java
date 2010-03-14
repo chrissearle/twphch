@@ -21,6 +21,7 @@ import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
+import net.chrissearle.flickrvote.web.model.ListControl;
 import net.chrissearle.flickrvote.web.model.Photographer;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
     private PhotographyService photographyService;
 
     private List<DisplayImage> images;
+
+    private ListControl listControl = new ListControl(true, true, true, false, true, false);
 
     @Override
     public String execute() throws Exception {
@@ -64,5 +67,9 @@ public class MyPicsAction extends ActionSupport implements SessionAware {
 
     public List<DisplayImage> getDisplayImages() {
         return images;
+    }
+
+    public ListControl getListControl() {
+        return listControl;
     }
 }

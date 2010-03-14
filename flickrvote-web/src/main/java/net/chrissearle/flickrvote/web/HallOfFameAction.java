@@ -32,7 +32,7 @@ public class HallOfFameAction extends ActionSupport implements Preparable {
 
     private List<DisplayImage> displayImages;
 
-    private ListControl listControl = new ListControl(true, false, true, true);
+    private ListControl listControl = new ListControl(true, false, true, true, false, true);
 
     @Override
     public String execute() throws Exception {
