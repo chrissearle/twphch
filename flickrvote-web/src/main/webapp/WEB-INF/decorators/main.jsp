@@ -61,8 +61,14 @@
     </div>
     <div id="logo"><h1><s:text name="main.title"/></h1>
 
-        <h2>&quot;<s:text name="main.motto"/>&quot;</h2></div>
-
+        <h2>&quot;<s:text name="main.motto"/>&quot;</h2>
+    </div>
+    <!--
+        <div id="menu">
+            <ul>
+            </ul>
+        </div>
+    -->
     <div id="content">
         <div id="column1">
             <s:action name="votingChallengeBlock" namespace="/common" executeResult="true"/>
@@ -73,7 +79,7 @@
             <s:if test="#session.flickrUser">
                 <s:action name="photographerBlock" namespace="/common" executeResult="true"/>
             </s:if>
-            <div class="sidebaritem">
+            <div class="sidebaritem" id="block_rules_div">
                 <h1 id="block_rules"><s:text name="sidebar.grouprules.title"/></h1>
 
                 <div id="block_rules_content">
@@ -90,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sidebaritem">
+            <div class="sidebaritem" id="block_lang_div">
                 <h1 id="block_lang"><s:text name="language.title"/></h1>
 
                 <div id="block_lang_content">
@@ -112,8 +118,10 @@
                         <ul>
                             <li><s:a href="%{noUrl}"><img src="${noFlagUrl}" alt="no"/></s:a></li>
                             <li><s:a href="%{enUrl}"><img src="${enFlagUrl}" alt="gb"/></s:a></li>
-                            <li><s:a href="%{seUrl}"><img src="${seFlagUrl}" alt="se"/></s:a></li>
-                            <li><s:a href="%{dkUrl}"><img src="${dkFlagUrl}" alt="dk"/></s:a></li>
+                            <!--
+                              <li><s:a href="%{seUrl}"><img src="${seFlagUrl}" alt="se"/></s:a></li>
+                              <li><s:a href="%{dkUrl}"><img src="${dkFlagUrl}" alt="dk"/></s:a></li>
+                            -->
                         </ul>
                     </div>
                 </div>
