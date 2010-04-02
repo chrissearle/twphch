@@ -17,18 +17,18 @@
 package net.chrissearle.flickrvote.web.taglib;
 
 import net.chrissearle.flickrvote.web.model.Image;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ImageTag extends TagSupport {
     private static final long serialVersionUID = -3442973149583766220L;
 
-    private transient Logger logger = Logger.getLogger(ImageTag.class);
+    private transient Logger logger = Logger.getLogger(ImageTag.class.getName());
 
     private Image image;
     private Boolean showBadge = true;
@@ -93,8 +93,8 @@ public class ImageTag extends TagSupport {
 
             out.print(text.toString());
         } catch (IOException e) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to generate image", e);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to generate image: " + e.getMessage());
             }
         }
 

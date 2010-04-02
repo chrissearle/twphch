@@ -26,15 +26,16 @@ import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
 import net.chrissearle.flickrvote.web.model.ListControl;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CurrentChallengeAction extends ActionSupport implements Preparable {
     private static final long serialVersionUID = 2961184426759693084L;
 
-    private transient Logger log = Logger.getLogger(CurrentChallengeAction.class);
+    private transient Logger log = Logger.getLogger(CurrentChallengeAction.class.getName());
 
     @Autowired
     private transient ChallengeService challengeService;
@@ -75,8 +76,8 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
             challengeSummary = challenges.iterator().next();
         }
 
-        if (log.isDebugEnabled()) {
-            log.debug("Current challengeSummary " + challengeSummary);
+        if (log.isLoggable(Level.FINE)) {
+            log.fine("Current challengeSummary " + challengeSummary);
         }
 
         if (challengeSummary != null) {

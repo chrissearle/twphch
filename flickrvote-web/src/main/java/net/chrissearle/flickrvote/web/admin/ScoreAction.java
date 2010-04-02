@@ -25,18 +25,19 @@ import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.ScoreAdmin;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ScoreAction extends ActionSupport {
     private static final long serialVersionUID = -398904299718446646L;
 
-    private transient Logger logger = Logger.getLogger(ScoreAction.class);
+    private transient Logger logger = Logger.getLogger(ScoreAction.class.getName());
 
     private List<String> id;
 
@@ -56,14 +57,14 @@ public class ScoreAction extends ActionSupport {
 
     @Override
     public String input() throws Exception {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Challenge ID " + tag);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Challenge ID " + tag);
         }
 
         ChallengeSummary challengeSummary = challengeService.getChallengeSummary(tag);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Challenge " + challengeSummary);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Challenge " + challengeSummary);
         }
 
         if (challengeSummary != null) {
@@ -89,9 +90,9 @@ public class ScoreAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        if (logger.isDebugEnabled()) {
+        if (logger.isLoggable(Level.FINE)) {
             for (int i = 0; i < id.size(); i++) {
-                logger.debug("ID: " + id.get(i) + " SCORE: " + score.get(i));
+                logger.fine("ID: " + id.get(i) + " SCORE: " + score.get(i));
             }
         }
 

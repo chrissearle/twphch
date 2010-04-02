@@ -24,7 +24,6 @@ import com.aetrion.flickr.photos.Size;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.ImageDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
@@ -34,10 +33,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements ImageDAO {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Autowired
     public FlickrJImageDAO(Flickr flickr) {
@@ -60,7 +61,7 @@ public class FlickrJImageDAO extends AbstractFlickrJImageSupport implements Imag
     private FlickrImage retrieveAndBuildImage(String id) throws IOException, FlickrException, SAXException {
         Photo photo = retrieveImage(id);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Image retrieved: " + id);
         }
 

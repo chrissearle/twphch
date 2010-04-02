@@ -25,18 +25,19 @@ import net.chrissearle.flickrvote.service.model.ImageItemStatus;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemStatusInstance;
 import net.chrissearle.mail.SimpleMailService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service("statusCheckService")
 @Transactional
 public class DaoStatusCheckService implements StatusCheckService {
-    private Logger logger = Logger.getLogger(DaoStatusCheckService.class);
+    private Logger logger = Logger.getLogger(DaoStatusCheckService.class.getName());
 
     private ChallengeDao challengeDao;
     private FlickrStatusCheckService flickrStatusCheckService;
@@ -68,7 +69,7 @@ public class DaoStatusCheckService implements StatusCheckService {
         Challenge challenge = challengeDao.getCurrentChallenge();
 
         if (challenge == null) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("No challenge found to check");
             }
 

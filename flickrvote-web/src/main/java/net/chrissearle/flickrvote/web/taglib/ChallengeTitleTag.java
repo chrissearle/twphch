@@ -17,18 +17,18 @@
 package net.chrissearle.flickrvote.web.taglib;
 
 import net.chrissearle.flickrvote.web.model.Challenge;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ChallengeTitleTag extends TagSupport {
     private static final long serialVersionUID = -7133187698295844912L;
 
-    private transient Logger logger = Logger.getLogger(ChallengeTitleTag.class);
+    private transient Logger logger = Logger.getLogger(ChallengeTitleTag.class.getName());
 
     private Challenge challenge;
 
@@ -54,8 +54,8 @@ public class ChallengeTitleTag extends TagSupport {
 
             out.print(text.toString());
         } catch (IOException e) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to generate challenge title", e);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to generate challenge title: " + e.getMessage());
             }
         }
 

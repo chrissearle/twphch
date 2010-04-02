@@ -18,12 +18,13 @@ package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.common.jpa.JpaDao;
 import net.chrissearle.flickrvote.model.Photographer;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class JpaPhotographyDao implements PhotographyDao using JPA
@@ -32,7 +33,7 @@ import java.util.List;
  */
 @Repository("photographyDao")
 public class JpaPhotographyDao extends JpaDao<String, Photographer> implements PhotographyDao {
-    private Logger log = Logger.getLogger(JpaPhotographyDao.class);
+    private Logger log = Logger.getLogger(JpaPhotographyDao.class.getName());
 
     /**
      * Method findByUsername finds the photographer with the given username. Null if none found.
@@ -41,8 +42,8 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
      * @return Photographer
      */
     public Photographer findByUsername(String username) {
-        if (log.isDebugEnabled()) {
-            log.debug("findByUsername : " + username);
+        if (log.isLoggable(Level.FINE)) {
+            log.fine("findByUsername : " + username);
         }
 
         Query query = entityManager.createQuery("select p from Photographer p where p.username = :username");
@@ -51,8 +52,8 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
         try {
             return (Photographer) query.getSingleResult();
         } catch (NoResultException e) {
-            if (log.isDebugEnabled()) {
-                log.debug("No matching user found");
+            if (log.isLoggable(Level.FINE)) {
+                log.fine("No matching user found");
             }
 
             // Just means that there is no photographer yet present

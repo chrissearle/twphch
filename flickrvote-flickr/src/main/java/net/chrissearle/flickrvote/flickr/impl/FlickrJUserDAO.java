@@ -23,16 +23,17 @@ import com.aetrion.flickr.people.User;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.UserDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class FlickrJUserDAO implements UserDAO {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
     private Flickr flickr;
 
     @Autowired
@@ -55,7 +56,7 @@ public class FlickrJUserDAO implements UserDAO {
     private FlickrPhotographer retrieveAndBuildPhotographer(String id) throws IOException, SAXException, FlickrException {
         User user = retrieveUser(id);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("User info fetched for " + user.getUsername());
         }
 

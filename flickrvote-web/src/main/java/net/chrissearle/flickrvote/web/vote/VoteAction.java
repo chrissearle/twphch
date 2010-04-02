@@ -26,16 +26,17 @@ import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import net.chrissearle.flickrvote.web.model.*;
-import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VoteAction extends ActionSupport implements SessionAware, Preparable {
     private static final long serialVersionUID = 3592153769459598022L;
 
-    private transient Logger logger = Logger.getLogger(VoteAction.class);
+    private transient Logger logger = Logger.getLogger(VoteAction.class.getName());
 
     private Map<String, Object> session;
 
@@ -54,16 +55,16 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
     private transient PhotographyService photographyService;
 
     public void setVotes(List<String> votes) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("setVotes: " + votes);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("setVotes: " + votes);
         }
 
         this.votes = votes;
     }
 
     public void setSession(Map<String, Object> stringObjectMap) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("setSession");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("setSession");
         }
 
         this.session = stringObjectMap;
@@ -71,13 +72,13 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     @Override
     public String execute() throws Exception {
-        if (logger.isDebugEnabled()) {
-            logger.debug("execute");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("execute");
         }
 
         Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Votes by: " + photographer.getPhotographerName() + " [" + photographer.getPhotographerId() + "] : " + votes);
         }
 
@@ -92,8 +93,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     @Override
     public void validate() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("validate");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("validate");
         }
 
         Set<ChallengeSummary> votingChallenges = challengeService.getChallengesByType(ChallengeType.VOTING);
@@ -140,8 +141,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
     @Override
     public String input() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("input");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("input");
         }
 
         if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
@@ -156,8 +157,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
     }
 
     public void prepare() throws Exception {
-        if (logger.isDebugEnabled()) {
-            logger.debug("prepare");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("prepare");
         }
 
         voted = false;
@@ -167,8 +168,8 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
 
             voted = challengeService.hasVoted(photographer.getPhotographerId());
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("Setting voted to " + voted);
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Setting voted to " + voted);
             }
         }
 

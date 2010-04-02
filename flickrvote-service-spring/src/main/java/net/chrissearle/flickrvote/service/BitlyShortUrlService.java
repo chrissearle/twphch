@@ -18,16 +18,16 @@ package net.chrissearle.flickrvote.service;
 
 import com.rosaloves.net.shorturl.bitly.Bitly;
 import com.rosaloves.net.shorturl.bitly.url.BitlyUrl;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service("shortUrlService")
 public class BitlyShortUrlService implements ShortUrlService {
-    private Logger logger = Logger.getLogger(BitlyShortUrlService.class);
+    private Logger logger = Logger.getLogger(BitlyShortUrlService.class.getName());
 
     private Bitly bitly;
 
@@ -48,14 +48,14 @@ public class BitlyShortUrlService implements ShortUrlService {
 
             String shortUrlString = shortUrl.getShortUrl().toExternalForm();
 
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Shortened " + longUrl + " to " + shortUrlString);
             }
 
             return shortUrlString;
         } catch (IOException e) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to shorten longUrl: " + longUrl);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to shorten longUrl: " + longUrl);
             }
             return longUrl;
         }

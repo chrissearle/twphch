@@ -24,7 +24,6 @@ import com.aetrion.flickr.auth.AuthInterface;
 import com.aetrion.flickr.photos.comments.CommentsInterface;
 import net.chrissearle.flickrvote.flickr.CommentDAO;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
-import org.apache.log4j.Logger;
 import org.constretto.annotation.Configuration;
 import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +31,12 @@ import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class FlickrJCommentDAO implements CommentDAO {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
     private boolean commentsActiveFlag;
     private String adminAuthToken;
 
@@ -54,16 +55,16 @@ public class FlickrJCommentDAO implements CommentDAO {
     }
 
     public void postComment(String imageId, String comment) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Posting comment check: " + commentsActiveFlag);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Posting comment check: " + commentsActiveFlag);
         }
 
         if (commentsActiveFlag) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Image commented: " + imageId);
 
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Commenting on : " + imageId + " with comment: " + comment);
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("Commenting on : " + imageId + " with comment: " + comment);
                 }
             }
 

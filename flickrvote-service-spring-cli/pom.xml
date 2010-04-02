@@ -53,10 +53,6 @@
             <artifactId>constretto-spring</artifactId>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-        </dependency>
-        <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-service-spring</artifactId>
         </dependency>

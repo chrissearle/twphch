@@ -26,7 +26,6 @@ import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.ImageTagSearchDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
-import org.apache.log4j.Logger;
 import org.constretto.annotation.Configuration;
 import org.constretto.annotation.Configure;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +36,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implements ImageTagSearchDAO {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     private static final int MAX_SEARCH_HITS = 500;
     private static final int SEARCH_PAGE_ONE = 1;
@@ -58,8 +59,8 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
     }
 
     public FlickrImages searchTag(String tag, Date earliestDate) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Searching for " + tag + " and date " + earliestDate);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Searching for " + tag + " and date " + earliestDate);
         }
 
         if (earliestDate == null) {
@@ -79,8 +80,8 @@ public class FlickrJImageTagSearchDAO extends AbstractFlickrJImageSupport implem
     }
 
     public FlickrImages searchTag(String tag) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Searching for " + tag);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Searching for " + tag);
         }
 
         try {

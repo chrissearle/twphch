@@ -35,13 +35,13 @@ import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance;
 import net.chrissearle.flickrvote.twitter.FollowService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class DaoPhotographyService implements PhotographyService using the various DAO objects
@@ -51,7 +51,7 @@ import java.util.*;
 @Service("photographyService")
 @Transactional
 public class DaoPhotographyService implements PhotographyService {
-    private Logger logger = Logger.getLogger(DaoPhotographyService.class);
+    private Logger logger = Logger.getLogger(DaoPhotographyService.class.getName());
 
     private final PhotographyDao photographyDao;
     private ChallengeDao challengeDao;
@@ -228,7 +228,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrImage flickrImage = flickrImageDao.getImage(id);
 
         if (image == null) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Storing image " + flickrImage.getFlickrId());
             }
             String photographerId = flickrImage.getPhotographer().getFlickrId();
@@ -270,7 +270,7 @@ public class DaoPhotographyService implements PhotographyService {
 
             challengeDao.persist(challenge);
         } else {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Refreshing image " + flickrImage.getFlickrId());
             }
 
@@ -344,21 +344,21 @@ public class DaoPhotographyService implements PhotographyService {
      * Method freezeChallenge - takes the current challenge - performs a flickr search and stores the results locally.
      */
     public void freezeChallenge() {
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Freezing challenge");
         }
 
         Challenge challenge = challengeDao.getVotingChallenge();
 
         if (challenge == null) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("No voting challenge found to freeze");
             }
 
             return;
         }
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Freezing challenge : " + challenge);
         }
 
@@ -387,8 +387,8 @@ public class DaoPhotographyService implements PhotographyService {
             try {
                 followService.follow(twitter);
             } catch (TwitterServiceException tse) {
-                if (logger.isEnabledFor(Level.WARN)) {
-                    logger.warn("Unable to follow" + tse.getMessage(), tse);
+                if (logger.isLoggable(Level.WARNING)) {
+                    logger.warning("Unable to follow" + tse.getMessage());
                 }
             }
 

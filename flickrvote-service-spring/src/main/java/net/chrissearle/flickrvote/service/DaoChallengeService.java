@@ -33,13 +33,13 @@ import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
 import net.chrissearle.flickrvote.twitter.TweetService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
 import net.chrissearle.mail.SimpleMailService;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class DaoChallengeService uses the dao's to implement challenge service
@@ -49,7 +49,7 @@ import java.util.*;
 @Service("challengeService")
 @Transactional
 public class DaoChallengeService implements ChallengeService {
-    private Logger logger = Logger.getLogger(DaoChallengeService.class);
+    private Logger logger = Logger.getLogger(DaoChallengeService.class.getName());
 
     private final ChallengeDao challengeDao;
     private final PhotographyDao photographyDao;
@@ -168,7 +168,7 @@ public class DaoChallengeService implements ChallengeService {
                 rank++;
             }
 
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Setting final rank for " + image.getId() + " to " + rank);
             }
             image.setFinalRank(rank);
@@ -183,18 +183,18 @@ public class DaoChallengeService implements ChallengeService {
      * @return boolean
      */
     public boolean hasVoted(String photographerId) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("hasVoted for: " + photographerId);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("hasVoted for: " + photographerId);
         }
         Photographer photographer = photographyDao.findById(photographerId);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("hasVoted for: " + photographer);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("hasVoted for: " + photographer);
         }
 
         if (photographer.getVotes().size() > 0) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("hasVoted found: " + photographer.getVotes().size() + " for: " + photographer);
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("hasVoted found: " + photographer.getVotes().size() + " for: " + photographer);
             }
             return true;
         }
@@ -233,8 +233,8 @@ public class DaoChallengeService implements ChallengeService {
         Challenge votingChallenge = challengeDao.getVotingChallenge();
 
         if (votingChallenge == null) {
-            if (logger.isInfoEnabled()) {
-                logger.info("No voting challenge found to open");
+            if (logger.isLoggable(Level.INFO)) {
+                logger.fine("No voting challenge found to open");
             }
 
             return null;
@@ -242,7 +242,7 @@ public class DaoChallengeService implements ChallengeService {
 
         ChallengeSummary challenge = new ChallengeSummaryInstance(votingChallenge);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Opening voting for " + challenge);
         }
 
@@ -250,8 +250,8 @@ public class DaoChallengeService implements ChallengeService {
             tweetService.tweet(challengeMessageService.getVotingTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to twitter" + tse.getMessage());
             }
         }
 
@@ -259,8 +259,8 @@ public class DaoChallengeService implements ChallengeService {
             mailService.sendPost(challengeMessageService.getVotingForumTitle(challenge),
                     challengeMessageService.getVotingForumText(challenge));
         } catch (FlickrServiceException fse) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to flickr" + fse.getMessage());
             }
         }
 
@@ -276,8 +276,8 @@ public class DaoChallengeService implements ChallengeService {
         Challenge currentChallenge = challengeDao.getCurrentChallenge();
 
         if (currentChallenge == null) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("No current challenge found to announce");
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("No current challenge found to announce");
             }
 
             return null;
@@ -285,7 +285,7 @@ public class DaoChallengeService implements ChallengeService {
 
         ChallengeSummary challenge = new ChallengeSummaryInstance(currentChallenge);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Announcing for " + challenge);
         }
 
@@ -293,16 +293,16 @@ public class DaoChallengeService implements ChallengeService {
             tweetService.tweet(challengeMessageService.getCurrentTwitter(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to twitter" + tse.getMessage());
             }
         }
         try {
             mailService.sendPost(challengeMessageService.getCurrentForumTitle(challenge),
                     challengeMessageService.getCurrentForumText(challenge));
         } catch (FlickrServiceException fse) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to flickr" + fse.getMessage());
             }
         }
 
@@ -318,7 +318,7 @@ public class DaoChallengeService implements ChallengeService {
         Challenge votedChallenge = challengeDao.getVotedChallenge();
 
         if (votedChallenge == null) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("No challenge found to handle results");
             }
 
@@ -327,7 +327,7 @@ public class DaoChallengeService implements ChallengeService {
 
         ChallengeSummary challenge = new ChallengeSummaryInstance(votedChallenge);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Results for " + challenge);
         }
 
@@ -335,7 +335,7 @@ public class DaoChallengeService implements ChallengeService {
         List<Image> images = votedChallenge.getImages();
 
         for (Image image : images) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("Setting final vote count for " + image.getId() + " to " + image.getVotes().size());
             }
             image.setFinalVoteCount((long) image.getVotes().size());
@@ -352,8 +352,8 @@ public class DaoChallengeService implements ChallengeService {
             tweetService.tweet(challengeMessageService.getResultsTwitter(challenge, resultsUrl));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to twitter" + tse.getMessage());
             }
         }
 
@@ -389,13 +389,13 @@ public class DaoChallengeService implements ChallengeService {
             }
             if (!"".equals(badgeText)) {
                 try {
-                    if (logger.isInfoEnabled()) {
+                    if (logger.isLoggable(Level.INFO)) {
                         logger.info("Posting comment on " + imageItem.getId() + " with text " + badgeText);
                     }
                     commentDAO.postComment(imageItem.getId(), badgeText);
                 } catch (FlickrServiceException fse) {
-                    if (logger.isEnabledFor(Level.WARN)) {
-                        logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+                    if (logger.isLoggable(Level.WARNING)) {
+                        logger.warning("Unable to post to flickr" + fse.getMessage());
                     }
                 }
             }
@@ -403,15 +403,15 @@ public class DaoChallengeService implements ChallengeService {
 
         String messageText = challengeMessageService.getResultsForumText(resultsUrl, messageGold.toString(), messageSilver.toString(), messageBronze.toString());
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info("Posting admin mail with text " + messageText);
         }
 
         try {
             mailService.sendPost(challengeMessageService.getResultsForumTitle(challenge), messageText);
         } catch (FlickrServiceException fse) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to flickr" + fse.getMessage(), fse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to flickr" + fse.getMessage());
             }
         }
 
@@ -436,8 +436,8 @@ public class DaoChallengeService implements ChallengeService {
             tweetService.tweet(challengeMessageService.getVotingOpenWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to twitter" + tse.getMessage());
             }
         }
     }
@@ -458,8 +458,8 @@ public class DaoChallengeService implements ChallengeService {
             tweetService.tweet(challengeMessageService.getVotingCloseWarning(challenge));
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to post to twitter" + tse.getMessage(), tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to post to twitter" + tse.getMessage());
             }
         }
     }

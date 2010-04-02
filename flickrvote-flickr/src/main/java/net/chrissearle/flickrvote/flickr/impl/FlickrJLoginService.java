@@ -25,7 +25,6 @@ import net.chrissearle.flickrvote.flickr.FlickrLoginService;
 import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.UserDAO;
 import net.chrissearle.flickrvote.flickr.model.FlickrPhotographer;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -33,10 +32,12 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service("flickrLoginService")
 public class FlickrJLoginService implements FlickrLoginService {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     private Flickr flickr;
     private UserDAO userDao;
@@ -88,7 +89,7 @@ public class FlickrJLoginService implements FlickrLoginService {
             // Auth user does not populate correct buddy icon
             FlickrPhotographer flickrPhotographer = userDao.getUser(auth.getUser().getId());
 
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info(flickrPhotographer.getUsername() + " has just logged in");
             }
 

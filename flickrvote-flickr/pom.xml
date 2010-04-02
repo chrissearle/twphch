@@ -57,11 +57,6 @@
         </dependency>
 
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.constretto</groupId>
             <artifactId>constretto-api</artifactId>
         </dependency>

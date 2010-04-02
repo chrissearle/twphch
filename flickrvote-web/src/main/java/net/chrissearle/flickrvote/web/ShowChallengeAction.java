@@ -26,13 +26,14 @@ import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.DisplayImage;
 import net.chrissearle.flickrvote.web.model.ListControl;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ShowChallengeAction {
     @Autowired
@@ -41,7 +42,7 @@ public class ShowChallengeAction {
     @Autowired
     private PhotographyService photographyService;
 
-    private Logger logger = Logger.getLogger(ShowChallengeAction.class);
+    private Logger logger = Logger.getLogger(ShowChallengeAction.class.getName());
 
     private String challengeTag;
 
@@ -52,14 +53,14 @@ public class ShowChallengeAction {
     private ListControl listControl = new ListControl(false, true, true, true, false, true);
 
     public String execute() throws Exception {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Challenge ID " + challengeTag);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Challenge ID " + challengeTag);
         }
 
         ChallengeSummary challengeSummary = challengeService.getChallengeSummary(challengeTag);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Challenge " + challengeSummary);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Challenge " + challengeSummary);
         }
 
         if (challengeSummary != null) {

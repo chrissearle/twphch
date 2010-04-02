@@ -16,9 +16,6 @@
 
 package net.chrissearle.flickrvote.web.taglib;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -26,9 +23,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AnnouncementTag extends TagSupport {
-    Logger logger = Logger.getLogger(AnnouncementTag.class);
+    Logger logger = Logger.getLogger(AnnouncementTag.class.getName());
     
     @Override
     public int doStartTag() throws JspException {
@@ -46,8 +45,8 @@ public class AnnouncementTag extends TagSupport {
 
                 out.print(text.toString());
             } catch (IOException e) {
-                if (logger.isEnabledFor(Level.WARN)) {
-                    logger.warn("Unable to generate announcement", e);
+                if (logger.isLoggable(Level.WARNING)) {
+                    logger.warning("Unable to generate announcement: " + e.getMessage());
                 }
             }
         }

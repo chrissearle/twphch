@@ -24,17 +24,18 @@ import net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
 import net.chrissearle.flickrvote.web.model.Photographer;
-import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VotingChallengeBlockAction extends ActionSupport implements SessionAware {
     private static final long serialVersionUID = 1953138483852395428L;
 
-    private transient Logger logger = Logger.getLogger(VotingChallengeBlockAction.class);
+    private transient Logger logger = Logger.getLogger(VotingChallengeBlockAction.class.getName());
 
     @Autowired
     private transient ChallengeService challengeService;
@@ -60,8 +61,8 @@ public class VotingChallengeBlockAction extends ActionSupport implements Session
         // Front end assumes one voting challenge
         challenge = new DisplayChallengeSummary(challenges.iterator().next());
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Voting challenge: " + challenge);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Voting challenge: " + challenge);
         }
 
         if (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
@@ -69,8 +70,8 @@ public class VotingChallengeBlockAction extends ActionSupport implements Session
 
             voted = challengeService.hasVoted(photographer.getPhotographerId());
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("Setting voted to " + voted);
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Setting voted to " + voted);
             }
         }
 

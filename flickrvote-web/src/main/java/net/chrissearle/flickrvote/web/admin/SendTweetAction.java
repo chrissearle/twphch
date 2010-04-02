@@ -19,14 +19,15 @@ package net.chrissearle.flickrvote.web.admin;
 import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.twitter.TweetService;
 import net.chrissearle.flickrvote.twitter.TwitterServiceException;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SendTweetAction extends ActionSupport {
     private static final long serialVersionUID = -731316433063598691L;
 
-    private transient Logger logger = Logger.getLogger(SendTweetAction.class);
+    private transient Logger logger = Logger.getLogger(SendTweetAction.class.getName());
 
     private String tweet;
 
@@ -40,8 +41,8 @@ public class SendTweetAction extends ActionSupport {
 
             addActionMessage("Tweeted");
         } catch (TwitterServiceException tse) {
-            if (logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Unable to tweet", tse);
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to tweet: " + tse.getMessage());
             }
             addActionError("Unable to tweet: " + tse.getMessage());
         }

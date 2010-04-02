@@ -20,14 +20,15 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.web.model.DisplayPhotographer;
 import net.chrissearle.flickrvote.web.model.Photographer;
-import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FlickrCallbackAction implements SessionAware {
-    private Logger logger = Logger.getLogger(FlickrCallbackAction.class);
+    private Logger logger = Logger.getLogger(FlickrCallbackAction.class.getName());
 
     @Autowired
     private PhotographyService photographyService;
@@ -49,7 +50,7 @@ public class FlickrCallbackAction implements SessionAware {
 
         session.put(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY, photographer);
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isLoggable(Level.INFO)) {
             logger.info(photographer.getPhotographerName() + " just logged in");
         }
 

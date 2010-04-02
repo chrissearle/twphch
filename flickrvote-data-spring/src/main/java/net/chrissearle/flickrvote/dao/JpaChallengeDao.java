@@ -18,13 +18,14 @@ package net.chrissearle.flickrvote.dao;
 
 import net.chrissearle.common.jpa.JpaDao;
 import net.chrissearle.flickrvote.model.Challenge;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class JpaChallengeDao implements ChallengeDao using JPA
@@ -33,7 +34,7 @@ import java.util.List;
  */
 @Repository
 public class JpaChallengeDao extends JpaDao<String, Challenge> implements ChallengeDao {
-    private Logger logger = Logger.getLogger(JpaChallengeDao.class);
+    private Logger logger = Logger.getLogger(JpaChallengeDao.class.getName());
 
     /**
      * Method findByTag returns the challenge with the given tag. Null if no matching challenge found.
@@ -107,8 +108,8 @@ public class JpaChallengeDao extends JpaDao<String, Challenge> implements Challe
 
         List<Challenge> challenges = (List<Challenge>) query.getResultList();
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Voting challenges: " + challenges);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Voting challenges: " + challenges);
         }
 
         if (challenges.size() > 0) {

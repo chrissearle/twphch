@@ -22,20 +22,21 @@ import net.chrissearle.flickrvote.service.ChallengeSummaryService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
 import net.chrissearle.flickrvote.twitter.DirectMessageService;
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class WarnAdminJob extends QuartzJobBean {
     private ChallengeSummaryService challengeSummaryService;
     private ChallengeMessageService challengeMessageService;
     private AdministratorService administratorService;
     private DirectMessageService dmService;
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
@@ -54,7 +55,7 @@ public class WarnAdminJob extends QuartzJobBean {
 
     private void warnAdmin(final String warning, final String twitterAccount) {
         if (twitterAccount != null && !"".equals(twitterAccount)) {
-            if (logger.isInfoEnabled()) {
+            if (logger.isLoggable(Level.INFO)) {
                 logger.info("DM send to " + twitterAccount + " message " + warning);
             }
 

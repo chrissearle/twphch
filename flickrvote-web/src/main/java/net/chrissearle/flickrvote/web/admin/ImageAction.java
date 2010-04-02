@@ -26,18 +26,19 @@ import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.web.model.Challenge;
 import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ImageAction extends ActionSupport implements Preparable {
     private static final long serialVersionUID = 110326130351611401L;
 
-    private transient Logger logger = Logger.getLogger(ImageAction.class);
+    private transient Logger logger = Logger.getLogger(ImageAction.class.getName());
 
     @Autowired
     private transient PhotographyService photographyService;
@@ -79,8 +80,8 @@ public class ImageAction extends ActionSupport implements Preparable {
 
         for (String imageId : id) {
             if (!"".equals(imageId)) {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Seen an ID " + imageId);
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("Seen an ID " + imageId);
                 }
 
                 seenId = true;

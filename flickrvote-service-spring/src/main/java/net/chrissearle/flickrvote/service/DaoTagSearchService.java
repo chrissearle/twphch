@@ -26,7 +26,6 @@ import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.ImageItems;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,11 +33,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 @Transactional
 public class DaoTagSearchService implements TagSearchService {
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     private ImageTagSearchDAO flickrImageTagSearchDao;
     private UserDAO flickrUserDao;
@@ -54,8 +55,8 @@ public class DaoTagSearchService implements TagSearchService {
 
 
     public ImageItems searchByTagAndDate(String tag, Date earliestDate) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Searching for Tag: " + tag + " with date " + earliestDate);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Searching for Tag: " + tag + " with date " + earliestDate);
         }
 
         FlickrImages images = flickrImageTagSearchDao.searchTag(tag, earliestDate);
@@ -72,8 +73,8 @@ public class DaoTagSearchService implements TagSearchService {
     }
 
     private FlickrPhotographer retrievePhotographer(String flickrId) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Searching for photographer: " + flickrId);
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine("Searching for photographer: " + flickrId);
         }
 
         FlickrPhotographer flickrPhotographer;
@@ -81,8 +82,8 @@ public class DaoTagSearchService implements TagSearchService {
         Photographer photographer = photographyDao.findById(flickrId);
 
         if (photographer != null) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Found: " + photographer);
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Found: " + photographer);
             }
 
             flickrPhotographer = new FlickrPhotographer(photographer.getId(),
@@ -91,8 +92,8 @@ public class DaoTagSearchService implements TagSearchService {
                     photographer.getFullname(),
                     photographer.getIconUrl());
         } else {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Retrieving: " + flickrId);
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Retrieving: " + flickrId);
             }
 
             flickrPhotographer = flickrUserDao.getUser(flickrId);
