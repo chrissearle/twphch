@@ -126,6 +126,9 @@
 <script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
 <script type="text/javascript">
 woopraTracker.track();
+<s:if test="#session.flickrUser">
+woopra_array['name'] = '<s:property value="#session.flickrUser.photographerName"/>';
+</s:if>
 </script>
 <!-- Woopra Code End -->
 </body>
