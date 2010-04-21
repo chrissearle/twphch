@@ -125,12 +125,12 @@
 <!-- Woopra Code Start -->
 <script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
 <script type="text/javascript">
-woopraTracker.track();
 <s:if test="#session.flickrUser">
-woopra_array['name'] = '<s:property value="#session.flickrUser.username"/>';
-woopra_array['Full Name'] = '<s:property value="#session.flickrUser.photographerName"/>';
-woopra_array['Twitter'] = '<s:property value="#session.flickrUser.twitterAccount"/>';
+woopraTracker.addVisitorProperty("name", "<s:property value="#session.flickrUser.username"/>");
+woopraTracker.addVisitorProperty("Full Name", "<s:property value="#session.flickrUser.photographerName"/>");
+woopraTracker.addVisitorProperty("Twitter", "<s:property value="#session.flickrUser.twitterAccount"/>");
 </s:if>
+woopraTracker.track();
 </script>
 <!-- Woopra Code End -->
 </body>
