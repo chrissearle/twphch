@@ -151,7 +151,9 @@
 <script type="text/javascript">
 woopraTracker.track();
 <s:if test="#session.flickrUser">
-woopra_array['name'] = '<s:property value="#session.flickrUser.photographerName"/>';
+woopra_array['name'] = '<s:property value="#session.flickrUser.username"/>';
+woopra_array['Full Name'] = '<s:property value="#session.flickrUser.photographerName"/>';
+woopra_array['Twitter'] = '<s:property value="#session.flickrUser.twitterAccount"/>';
 </s:if>
 </script>
 <!-- Woopra Code End -->
