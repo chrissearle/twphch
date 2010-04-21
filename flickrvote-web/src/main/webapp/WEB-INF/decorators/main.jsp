@@ -146,5 +146,11 @@
         <a href="http://github.com/chrissearle/twphch/tree/master"><s:text name="github.link"/></a>
     </div>
 </div>
+<!-- Woopra Code Start -->
+<script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
+<script type="text/javascript">
+woopraTracker.track();
+</script>
+<!-- Woopra Code End -->
 </body>
 </html>
