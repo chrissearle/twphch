@@ -42,7 +42,7 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
     public void testFollow() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        when(twitter.getUserId()).thenReturn(TEST_TWITTER_LOGIN);
+        when(twitter.getScreenName()).thenReturn(TEST_TWITTER_LOGIN);
 
         FollowService service = getFollowService(twitter, true);
 
@@ -68,7 +68,7 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
     public void testDm() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        when(twitter.getUserId()).thenReturn(TEST_TWITTER_USER);
+        when(twitter.getScreenName()).thenReturn(TEST_TWITTER_USER);
         when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenReturn(true);
 
         DirectMessageService service = getDirectMessageService(twitter, true);
@@ -83,7 +83,7 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
     public void testDmNotFriend() throws TwitterException {
         Twitter twitter = mock(Twitter.class);
 
-        when(twitter.getUserId()).thenReturn(TEST_TWITTER_USER);
+        when(twitter.getScreenName()).thenReturn(TEST_TWITTER_USER);
         when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenReturn(false);
 
         DirectMessageService service = getDirectMessageService(twitter, true);
