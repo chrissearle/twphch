@@ -40,8 +40,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.homeip.yusuke</groupId>
-            <artifactId>twitter4j</artifactId>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
         </dependency>
 
         <dependency>
