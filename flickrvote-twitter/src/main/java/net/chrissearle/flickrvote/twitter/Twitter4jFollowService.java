@@ -51,6 +51,6 @@ public class Twitter4jFollowService extends AbstractTwitter4JSupport implements 
     }
 
     private boolean alreadyFriends(String twitterId) throws TwitterException {
-        return twitter.existsFriendship(twitter.getUserId(), twitterId);
+        return twitter.existsFriendship(twitter.getScreenName(), twitterId);
     }
 }

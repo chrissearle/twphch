@@ -48,6 +48,6 @@ public class Twitter4jDirectMessageService extends AbstractTwitter4JSupport impl
     }
 
     private boolean canSendTo(String username) throws TwitterException {
-        return twitter.existsFriendship(twitter.getUserId(), username);
+        return twitter.existsFriendship(twitter.getScreenName(), username);
     }
 }
