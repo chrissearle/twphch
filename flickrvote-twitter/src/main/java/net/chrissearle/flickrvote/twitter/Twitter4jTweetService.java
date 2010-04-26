@@ -21,8 +21,12 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Service
 public class Twitter4jTweetService extends AbstractTwitter4JSupport implements TweetService {
+    private final Logger logger = Logger.getLogger(Twitter4jTweetService.class.getName());
 
     @Autowired
     public Twitter4jTweetService(Twitter twitter) {
@@ -30,8 +34,16 @@ public class Twitter4jTweetService extends AbstractTwitter4JSupport implements T
     }
 
     public void tweet(String message) {
-        if (twitterActiveFlag) {
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info(new StringBuilder().append("Tweet: ").append(message).toString());
+        }
+
+        if (getTwitterActiveFlag()) {
             updateTwitterStatus(message);
+        } else {
+            if (logger.isLoggable(Level.INFO)) {
+                logger.info("Twitter disabled");
+            }
         }
     }
 
@@ -39,7 +51,14 @@ public class Twitter4jTweetService extends AbstractTwitter4JSupport implements T
         try {
             twitter.updateStatus(text);
         } catch (TwitterException e) {
-            throw new TwitterServiceException("Unable to tweet " + text, e);
+            final String message = new StringBuilder().append("Unable to tweet: ").append(text).append(" due to ")
+                    .append(e.getMessage()).toString();
+
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning(message);
+            }
+
+            throw new TwitterServiceException(message, e);
         }
     }
 }

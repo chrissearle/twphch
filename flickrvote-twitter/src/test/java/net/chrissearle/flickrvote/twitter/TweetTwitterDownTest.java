@@ -30,16 +30,16 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
 
     @Test(expected = TwitterServiceException.class)
     public void testTweetDown() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.updateStatus(TEST_TWEET_TEXT)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        TweetService service = getTweetService(twitter, true);
+        final TweetService service = getTweetService(twitter, true);
 
         try {
             service.tweet(TEST_TWEET_TEXT);
         } catch (TwitterServiceException e) {
-            assertEquals("Twitter message mismatch", "Unable to tweet " + TEST_TWEET_TEXT, e.getTwitterMessage());
+            assertEquals("Twitter message mismatch", "Unable to tweet: " + TEST_TWEET_TEXT + " due to Twitter down", e.getTwitterMessage());
 
             verify(twitter).updateStatus(TEST_TWEET_TEXT);
 
@@ -49,17 +49,17 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
 
     @Test(expected = TwitterServiceException.class)
     public void testFollowDown() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.getScreenName()).thenReturn(TEST_TWITTER_LOGIN);
         when(twitter.existsFriendship(TEST_TWITTER_LOGIN, TEST_TWITTER_USER)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        FollowService service = getFollowService(twitter, true);
+        final FollowService service = getFollowService(twitter, true);
 
         try {
             service.follow(TEST_TWITTER_USER);
         } catch (TwitterServiceException e) {
-            assertEquals("Twitter message mismatch", "Unable to follow " + TEST_TWITTER_USER, e.getTwitterMessage());
+            assertEquals("Twitter message mismatch", "Unable to follow " + TEST_TWITTER_USER + " due to Twitter down", e.getTwitterMessage());
 
             verify(twitter).existsFriendship(TEST_TWITTER_LOGIN, TEST_TWITTER_USER);
             verify(twitter, never()).createFriendship(TEST_TWITTER_USER);
@@ -71,11 +71,11 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testExistsDown() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.showUser(TEST_TWITTER_USER)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        UserExistanceService service = getUserExistanceService(twitter, true);
+        final UserExistanceService service = getUserExistanceService(twitter, true);
 
         try {
             service.checkIfUserExists(TEST_TWITTER_USER);
@@ -88,12 +88,12 @@ public class TweetTwitterDownTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testDmDown() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.getScreenName()).thenReturn(TEST_TWITTER_USER);
         when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenThrow(new TwitterException(TWITTER_DOWN));
 
-        DirectMessageService service = getDirectMessageService(twitter, true);
+        final DirectMessageService service = getDirectMessageService(twitter, true);
 
         try {
             service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);

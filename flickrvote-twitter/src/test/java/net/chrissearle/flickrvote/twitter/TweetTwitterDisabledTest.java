@@ -28,9 +28,9 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testTweetDisabled() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        TweetService service = getTweetService(twitter, false);
+        final TweetService service = getTweetService(twitter, false);
 
         service.tweet(TEST_TWEET_TEXT);
 
@@ -39,9 +39,9 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testFollowDisabled() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        FollowService service = getFollowService(twitter, false);
+        final FollowService service = getFollowService(twitter, false);
 
         service.follow(TEST_TWITTER_USER);
 
@@ -53,9 +53,9 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testExistsDisabled() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        Twitter4jUserExistanceService service = getUserExistanceService(twitter, false);
+        final UserExistanceService service = getUserExistanceService(twitter, false);
 
         service.checkIfUserExists(TEST_TWITTER_USER);
 
@@ -64,9 +64,9 @@ public class TweetTwitterDisabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testDmDisabled() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        DirectMessageService service = getDirectMessageService(twitter, false);
+        final DirectMessageService service = getDirectMessageService(twitter, false);
 
         service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
 

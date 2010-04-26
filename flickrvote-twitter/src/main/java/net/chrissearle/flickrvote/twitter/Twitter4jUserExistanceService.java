@@ -21,8 +21,12 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Service
 public class Twitter4jUserExistanceService extends AbstractTwitter4JSupport implements UserExistanceService {
+    private final Logger logger = Logger.getLogger(Twitter4jTweetService.class.getName());
 
     @Autowired
     public Twitter4jUserExistanceService(Twitter twitter) {
@@ -32,7 +36,11 @@ public class Twitter4jUserExistanceService extends AbstractTwitter4JSupport impl
     public boolean checkIfUserExists(String twitterId) {
         boolean userExists = false;
 
-        if (twitterActiveFlag) {
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info(new StringBuilder().append("Asking for: ").append(twitterId).toString());
+        }
+
+        if (getTwitterActiveFlag()) {
             userExists = askTwitterForUser(twitterId);
         }
 
@@ -45,7 +53,10 @@ public class Twitter4jUserExistanceService extends AbstractTwitter4JSupport impl
 
             return true;
         } catch (TwitterException e) {
-            // Short cut - returns false even if twitter is down.
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning(new StringBuilder().append("Twitter failed: ").append(e.getMessage()).toString());
+            }
+
             return false;
         }
     }

@@ -21,29 +21,54 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Service("directMessageService")
 public class Twitter4jDirectMessageService extends AbstractTwitter4JSupport implements DirectMessageService {
+    private final Logger logger = Logger.getLogger(Twitter4jDirectMessageService.class.getName());
 
     @Autowired
     public Twitter4jDirectMessageService(Twitter twitter) {
         super(twitter);
     }
 
-    public void dm(String username, String message) {
-        if (twitterActiveFlag) {
-            sendMessage(username, message);
+    public void dm(String userName, String message) {
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info(new StringBuilder().append("DM to ").append(userName).append(" with text ").append(message).toString());
+        }
+
+        if (getTwitterActiveFlag()) {
+            sendMessage(userName, message);
+        } else {
+            if (logger.isLoggable(Level.INFO)) {
+                logger.info("Twitter disabled");
+            }
         }
     }
 
-    private void sendMessage(String username, String text) {
+    private void sendMessage(String friend, String text) {
         try {
-            if (canSendTo(username)) {
-                twitter.sendDirectMessage(username, text);
+            if (canSendTo(friend)) {
+                twitter.sendDirectMessage(friend, text);
             } else {
-                throw new TwitterServiceException("Unable to DM " + username + " - not friends");
+                final String message = new StringBuilder().append("Unable to DM ").append(friend).append(" - not friends").toString();
+
+                if (logger.isLoggable(Level.WARNING)) {
+                    logger.warning(message);
+                }
+
+                throw new TwitterServiceException(message);
             }
         } catch (TwitterException e) {
-            throw new TwitterServiceException("Unable to dm " + username + " with message " + text, e);
+            final String message = new StringBuilder().append("Unable to DM ").append(friend).append(" with message ")
+                    .append(text).append(" due to ").append(e.getMessage()).toString();
+
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning(message);
+            }
+
+            throw new TwitterServiceException(message, e);
         }
     }
 

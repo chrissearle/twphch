@@ -25,36 +25,39 @@ public abstract class AbstractTwitterTestSupport {
     protected static final String TWITTER_DOWN = "Twitter down";
     protected static final String TEST_TWITTER_FRIEND = "Test Twitter Friend";
 
-    protected Twitter4jUserExistanceService getUserExistanceService(Twitter twitter, boolean activeFlag) {
-        Twitter4jUserExistanceService service = new Twitter4jUserExistanceService(twitter);
+    protected UserExistanceService getUserExistanceService(Twitter twitter, boolean activeFlag) {
+        final UserExistanceService service = new Twitter4jUserExistanceService(twitter);
 
-        service.configure(activeFlag);
-
-        return service;
-    }
-
-    protected Twitter4jTweetService getTweetService(Twitter twitter, boolean activeFlag) {
-        Twitter4jTweetService service = new Twitter4jTweetService(twitter);
-
-        service.configure(activeFlag);
+        initialize(activeFlag, (AbstractTwitter4JSupport) service);
 
         return service;
     }
 
-    protected Twitter4jFollowService getFollowService(Twitter twitter, boolean activeFlag) {
-        Twitter4jFollowService service = new Twitter4jFollowService(twitter);
+    protected TweetService getTweetService(Twitter twitter, boolean activeFlag) {
+        final TweetService service = new Twitter4jTweetService(twitter);
 
-        service.configure(activeFlag);
+        initialize(activeFlag, (AbstractTwitter4JSupport) service);
+
+        return service;
+    }
+
+    protected FollowService getFollowService(Twitter twitter, boolean activeFlag) {
+        final FollowService service = new Twitter4jFollowService(twitter);
+
+        initialize(activeFlag, (AbstractTwitter4JSupport) service);
 
         return service;
     }
 
     protected DirectMessageService getDirectMessageService(Twitter twitter, boolean activeFlag) {
-        Twitter4jDirectMessageService service = new Twitter4jDirectMessageService(twitter);
+        final DirectMessageService service = new Twitter4jDirectMessageService(twitter);
 
-        service.configure(activeFlag);
+        initialize(activeFlag, (AbstractTwitter4JSupport) service);
 
         return service;
     }
 
+    private void initialize(boolean activeFlag, AbstractTwitter4JSupport service) {
+        service.configure(activeFlag);
+    }
 }

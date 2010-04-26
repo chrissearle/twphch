@@ -19,7 +19,7 @@ package net.chrissearle.flickrvote.twitter;
 public class TwitterServiceException extends RuntimeException {
     private static final long serialVersionUID = -2270547078168376559L;
 
-    private String message;
+    private final String message;
 
     public TwitterServiceException(String message, Throwable cause) {
         super(cause);
@@ -34,6 +34,6 @@ public class TwitterServiceException extends RuntimeException {
     }
 
     public String getTwitterMessage() {
-        return message;
+        return this.message;
     }
 }

@@ -29,9 +29,9 @@ import twitter4j.TwitterException;
 public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
     @Test
     public void testTweet() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        TweetService service = getTweetService(twitter, true);
+        final TweetService service = getTweetService(twitter, true);
 
         service.tweet(TEST_TWEET_TEXT);
 
@@ -40,11 +40,11 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testFollow() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.getScreenName()).thenReturn(TEST_TWITTER_LOGIN);
 
-        FollowService service = getFollowService(twitter, true);
+        final FollowService service = getFollowService(twitter, true);
 
         service.follow(TEST_TWITTER_USER);
 
@@ -55,9 +55,9 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testExists() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
-        UserExistanceService service = getUserExistanceService(twitter, true);
+        final UserExistanceService service = getUserExistanceService(twitter, true);
 
         service.checkIfUserExists(TEST_TWITTER_USER);
 
@@ -66,12 +66,12 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testDm() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.getScreenName()).thenReturn(TEST_TWITTER_USER);
         when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenReturn(true);
 
-        DirectMessageService service = getDirectMessageService(twitter, true);
+        final DirectMessageService service = getDirectMessageService(twitter, true);
 
         service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);
 
@@ -81,12 +81,12 @@ public class TweetTwitterEnabledTest extends AbstractTwitterTestSupport {
 
     @Test
     public void testDmNotFriend() throws TwitterException {
-        Twitter twitter = mock(Twitter.class);
+        final Twitter twitter = mock(Twitter.class);
 
         when(twitter.getScreenName()).thenReturn(TEST_TWITTER_USER);
         when(twitter.existsFriendship(TEST_TWITTER_USER, TEST_TWITTER_FRIEND)).thenReturn(false);
 
-        DirectMessageService service = getDirectMessageService(twitter, true);
+        final DirectMessageService service = getDirectMessageService(twitter, true);
 
         try {
             service.dm(TEST_TWITTER_FRIEND, TEST_TWEET_TEXT);

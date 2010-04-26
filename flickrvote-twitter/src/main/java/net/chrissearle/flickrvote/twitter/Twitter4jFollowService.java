@@ -21,8 +21,13 @@ import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Service
 public class Twitter4jFollowService extends AbstractTwitter4JSupport implements FollowService {
+    private final Logger logger = Logger.getLogger(Twitter4jFollowService.class.getName());
+
 
     @Autowired
     public Twitter4jFollowService(Twitter twitter) {
@@ -30,8 +35,16 @@ public class Twitter4jFollowService extends AbstractTwitter4JSupport implements 
     }
 
     public void follow(String twitterUserId) {
-        if (twitterActiveFlag) {
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info(new StringBuilder().append("Following: ").append(twitterUserId).toString());
+        }
+
+        if (getTwitterActiveFlag()) {
             addTwitterFriendshipAndNotification(twitterUserId);
+        } else {
+            if (logger.isLoggable(Level.INFO)) {
+                logger.info("Twitter disabled");
+            }
         }
     }
 
@@ -39,7 +52,13 @@ public class Twitter4jFollowService extends AbstractTwitter4JSupport implements 
         try {
             establishFriendshipWithNotification(twitterId);
         } catch (TwitterException e) {
-            throw new TwitterServiceException("Unable to follow " + twitterId, e);
+            final String message = new StringBuilder().append("Unable to follow ").append(twitterId).append(" due to ").append(e.getMessage()).toString();
+
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning(message);
+            }
+
+            throw new TwitterServiceException(message, e);
         }
     }
 

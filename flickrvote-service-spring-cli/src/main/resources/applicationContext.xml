@@ -74,20 +74,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="twitterToken" class="twitter4j.http.AccessToken">
-        <constructor-arg index="0" value="${twitter.token}"/>
-        <constructor-arg index="1" value="${twitter.tokenSecret}"/>
-    </bean>
-
-    <bean id="twitterFactory" class="twitter4j.TwitterFactory"/>
-
-    <bean id="twitter"
-          factory-bean="twitterFactory"
-          factory-method="getOAuthAuthorizedInstance">
-        <constructor-arg value="${twitter.consumerKey}"/>
-        <constructor-arg value="${twitter.consumerSecret"/>
-        <constructor-arg ref="twitterToken"/>
-    </bean>
+    <bean id="twitter" class="net.chrissearle.flickrvote.twitter.spring.TwitterFactoryBean"/>
 
     <bean id="bitly" class="com.rosaloves.net.shorturl.bitly.BitlyFactory" factory-method="newInstance">
         <constructor-arg index="0" value="${bitly.login}"/>

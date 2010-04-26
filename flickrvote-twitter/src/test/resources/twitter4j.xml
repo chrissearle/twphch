@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:constretto="http://constretto.org/schema/constretto"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://constretto.org/schema/constretto http://constretto.org/schema/constretto/constretto-1.1.xsd">
+
+    <context:component-scan base-package="net.chrissearle.flickrvote.twitter.spring"/>
+
+    <constretto:configuration>
+        <constretto:stores>
+            <constretto:properties-store>
+                <constretto:resource location="file:/etc/flickrvote/flickrvote.properties"/>
+            </constretto:properties-store>
+        </constretto:stores>
+    </constretto:configuration>
+
+    <bean id="twitter" class="net.chrissearle.flickrvote.twitter.spring.TwitterFactoryBean"/>
+</beans>

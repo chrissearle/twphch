@@ -17,5 +17,5 @@
 package net.chrissearle.flickrvote.twitter;
 
 public interface DirectMessageService {
-    void dm(String username, String message);
+    void dm(String userName, String message);
 }

@@ -30,6 +30,10 @@ public abstract class AbstractTwitter4JSupport {
 
     @Configure
     public void configure(@Configuration(expression = "twitter.active") Boolean active) {
-        twitterActiveFlag = active;
+        this.twitterActiveFlag = active;
+    }
+
+    protected Boolean getTwitterActiveFlag() {
+        return this.twitterActiveFlag;
     }
 }
