@@ -74,7 +74,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="twitter" class="net.chrissearle.flickrvote.twitter.spring.TwitterFactoryBean"/>
+    <bean id="twitter" class="net.chrissearle.spring.twitter.spring.TwitterFactoryBean"/>
 
     <bean id="bitly" class="com.rosaloves.net.shorturl.bitly.BitlyFactory" factory-method="newInstance">
         <constructor-arg index="0" value="${bitly.login}"/>

@@ -57,7 +57,7 @@
 
         <dependency>
             <groupId>net.chrissearle</groupId>
-            <artifactId>flickrvote-twitter</artifactId>
+            <artifactId>spring-twitter</artifactId>
         </dependency>
 
         <dependency>

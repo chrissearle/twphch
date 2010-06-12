@@ -18,7 +18,7 @@ package net.chrissearle.flickrvote.web.validators;
 
 import com.opensymphony.xwork2.validator.ValidationException;
 import com.opensymphony.xwork2.validator.validators.FieldValidatorSupport;
-import net.chrissearle.flickrvote.twitter.UserExistanceService;
+import net.chrissearle.spring.twitter.service.UserExistanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class TwitterValidator extends FieldValidatorSupport {

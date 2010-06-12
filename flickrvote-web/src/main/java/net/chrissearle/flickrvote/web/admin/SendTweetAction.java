@@ -17,8 +17,8 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
-import net.chrissearle.flickrvote.twitter.TweetService;
-import net.chrissearle.flickrvote.twitter.TwitterServiceException;
+import net.chrissearle.spring.twitter.service.TweetService;
+import net.chrissearle.spring.twitter.service.TwitterServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.logging.Level;

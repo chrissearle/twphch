@@ -21,7 +21,7 @@ import net.chrissearle.flickrvote.service.ChallengeMessageService;
 import net.chrissearle.flickrvote.service.ChallengeSummaryService;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
-import net.chrissearle.flickrvote.twitter.DirectMessageService;
+import net.chrissearle.spring.twitter.service.DirectMessageService;
 import org.joda.time.DateTime;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

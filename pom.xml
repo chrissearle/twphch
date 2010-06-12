@@ -21,7 +21,7 @@
     <parent>
         <groupId>net.chrissearle</groupId>
         <artifactId>maven</artifactId>
-        <version>18-SNAPSHOT</version>
+        <version>18</version>
     </parent>
 
     <groupId>net.chrissearle</groupId>
@@ -62,20 +62,20 @@
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-api</artifactId>
-                <version>1.0</version>
+                <version>1.1</version>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-core</artifactId>
-                <version>1.0</version>
+                <version>1.1</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-spring</artifactId>
-                <version>1.0</version>
+                <version>1.1</version>
             </dependency>
 
             <!-- Utilities -->
@@ -104,12 +104,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.twitter4j</groupId>
-                <artifactId>twitter4j-core</artifactId>
-                <version>[2.1,)</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.aetrion.flickr</groupId>
                 <artifactId>flickrapi</artifactId>
                 <version>1.2</version>
@@ -119,6 +113,12 @@
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
                 <version>1.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.chrissearle</groupId>
+                <artifactId>spring-twitter</artifactId>
+                <version>1-SNAPSHOT</version>
             </dependency>
 
             <dependency>
@@ -315,18 +315,6 @@
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
-                <artifactId>flickrvote-mail-api</artifactId>
-                <version>1-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.chrissearle</groupId>
-                <artifactId>flickrvote-mail-spring</artifactId>
-                <version>1-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-model</artifactId>
                 <version>1-SNAPSHOT</version>
             </dependency>
@@ -357,12 +345,6 @@
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
-                <artifactId>flickrvote-twitter</artifactId>
-                <version>1-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-web</artifactId>
                 <version>1-SNAPSHOT</version>
             </dependency>
@@ -386,7 +368,6 @@
         <module>flickrvote-flickr</module>
         <module>flickrvote-data-api</module>
         <module>flickrvote-data-spring</module>
-        <module>flickrvote-twitter</module>
         <module>flickrvote-service-api</module>
         <module>flickrvote-service-spring</module>
         <module>flickrvote-scheduler-spring</module>
