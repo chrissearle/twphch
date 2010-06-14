@@ -33,7 +33,6 @@ public class PhotographerItemInstance implements PhotographerItem {
     private final Integer imageCount;
 
     private final Boolean administratorFlag;
-    private final Boolean activeFlag;
 
     public PhotographerItemInstance(Photographer photographer) {
         this.id = photographer.getId();
@@ -41,7 +40,6 @@ public class PhotographerItemInstance implements PhotographerItem {
         this.fullname = photographer.getFullname();
         this.username = photographer.getUsername();
         this.administratorFlag = photographer.isAdministrator();
-        this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
         this.iconUrl = photographer.getIconUrl();
         this.imageCount = photographer.getImages().size();
     }
@@ -52,13 +50,8 @@ public class PhotographerItemInstance implements PhotographerItem {
         this.fullname = photographer.getRealname();
         this.username = photographer.getUsername();
         this.administratorFlag = false;
-        this.activeFlag = photographer.getToken() != null && photographer.getToken().length() == 0;
         this.iconUrl = photographer.getIconUrl();
         this.imageCount = 0;
-    }
-
-    public Boolean isActiveFlag() {
-        return activeFlag;
     }
 
     public Boolean isAdministratorFlag() {

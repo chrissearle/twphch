@@ -17,21 +17,12 @@
 package net.chrissearle.flickrvote.service.model;
 
 public class TestPhotographerItem implements PhotographerItem {
-    Boolean activeFlag;
     Boolean administratorFlag;
     String fullname;
     String id;
     String twitter;
     String username;
     String iconUrl;
-
-    public Boolean isActiveFlag() {
-        return activeFlag;
-    }
-
-    public void setActiveFlag(Boolean activeFlag) {
-        this.activeFlag = activeFlag;
-    }
 
     public Boolean isAdministratorFlag() {
         return administratorFlag;

@@ -62,24 +62,6 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
     }
 
     /**
-     * Method findByToken finds the photographer with the given token. Null if none found.
-     *
-     * @param token of type String
-     * @return Photographer
-     */
-    public Photographer findByToken(String token) {
-        Query query = entityManager.createQuery("select p from Photographer p where p.token = :token");
-        query.setParameter("token", token);
-
-        try {
-            return (Photographer) query.getSingleResult();
-        } catch (NoResultException e) {
-            // Just means that there is no photographer yet validated with flickr
-            return null;
-        }
-    }
-
-    /**
      * Method persist saves the photographer if new, updates fullname and token if existing.
      *
      * @param photographer of type Photographer
@@ -90,7 +72,6 @@ public class JpaPhotographyDao extends JpaDao<String, Photographer> implements P
 
         if (p != null) {
             p.setFullname(photographer.getFullname());
-            p.setToken(photographer.getToken());
 
             if (photographer.getId() != null) {
                 p.setAdministrator(photographer.isAdministrator());

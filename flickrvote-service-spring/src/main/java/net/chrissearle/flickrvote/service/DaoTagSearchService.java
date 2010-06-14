@@ -87,7 +87,6 @@ public class DaoTagSearchService implements TagSearchService {
             }
 
             flickrPhotographer = new FlickrPhotographer(photographer.getId(),
-                    photographer.getToken(),
                     photographer.getUsername(),
                     photographer.getFullname(),
                     photographer.getIconUrl());
@@ -98,7 +97,7 @@ public class DaoTagSearchService implements TagSearchService {
 
             flickrPhotographer = flickrUserDao.getUser(flickrId);
 
-            photographyDao.persist(new Photographer(flickrPhotographer.getToken(), flickrPhotographer.getUsername(),
+            photographyDao.persist(new Photographer(flickrPhotographer.getUsername(),
                     flickrPhotographer.getRealname(), flickrPhotographer.getFlickrId(), flickrPhotographer.getIconUrl()));
         }
 

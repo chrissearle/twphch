@@ -30,12 +30,6 @@ import java.util.List;
 public class Photographer {
 
     /**
-     * Authentication token for flickr. Obtained from flickr during login.
-     */
-    @Column(length = 100, name = "token")
-    private String token;
-
-    /**
      * Flickr username
      */
     @Column(length = 50, name = "username")
@@ -116,14 +110,12 @@ public class Photographer {
     /**
      * Constructor Photographer creates a new Photographer instance.
      *
-     * @param token    of type String
      * @param username of type String
      * @param fullname of type String
      * @param id       of type String
      * @param url      of type String
      */
-    public Photographer(String token, String username, String fullname, String id, String url) {
-        this.setToken(token);
+    public Photographer(String username, String fullname, String id, String url) {
         this.setUsername(username);
         this.setFullname(fullname);
         this.setId(id);
@@ -135,28 +127,6 @@ public class Photographer {
      * Constructor Photographer creates a new Photographer instance.
      */
     public Photographer() {
-    }
-
-    /**
-     * Method getToken returns the token of this Photographer object.
-     * <p/>
-     * Authentication token for flickr. Obtained from flickr during login.
-     *
-     * @return the token (type String) of this Photographer object.
-     */
-    public String getToken() {
-        return token;
-    }
-
-    /**
-     * Method setToken sets the token of this Photographer object.
-     * <p/>
-     * Authentication token for flickr. Obtained from flickr during login.
-     *
-     * @param token the token of this Photographer object.
-     */
-    public void setToken(String token) {
-        this.token = token;
     }
 
     /**
@@ -367,7 +337,6 @@ public class Photographer {
     public String toString() {
         return "Photographer{" +
                 "administrator=" + administrator +
-                ", token='" + token + '\'' +
                 ", username='" + username + '\'' +
                 ", fullname='" + fullname + '\'' +
                 ", twitter='" + twitter + '\'' +

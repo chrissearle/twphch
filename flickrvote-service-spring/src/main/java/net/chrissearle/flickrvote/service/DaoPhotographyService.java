@@ -128,7 +128,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrPhotographer flickrPhotographer = flickrUserDao.getUser(id);
 
         if (photographer == null) {
-            photographer = new Photographer(flickrPhotographer.getToken(), flickrPhotographer.getUsername(),
+            photographer = new Photographer(flickrPhotographer.getUsername(),
                     flickrPhotographer.getRealname(), flickrPhotographer.getFlickrId(), flickrPhotographer.getIconUrl());
         } else {
             photographer.setUsername(flickrPhotographer.getUsername());
@@ -164,7 +164,6 @@ public class DaoPhotographyService implements PhotographyService {
 
         photographer.setFullname(flickrPhotographer.getRealname());
         photographer.setUsername(flickrPhotographer.getUsername());
-        photographer.setToken(flickrPhotographer.getToken());
         photographer.setIconUrl(flickrPhotographer.getIconUrl());
 
         photographyDao.persist(photographer);

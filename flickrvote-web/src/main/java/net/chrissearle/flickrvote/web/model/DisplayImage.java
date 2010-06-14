@@ -36,7 +36,6 @@ public class DisplayImage implements Image, Photographer, Challenge {
     private final String twitterAccount;
     private final String iconUrl;
     private final Boolean adminFlag;
-    private final Boolean activeFlag;
     private final String challengeTag;
     private final String challengeDescription;
     private final Date challengeStart;
@@ -63,7 +62,6 @@ public class DisplayImage implements Image, Photographer, Challenge {
         this.twitterAccount = image.getPhotographer().getTwitter();
         this.iconUrl = image.getPhotographer().getIconUrl();
         this.adminFlag = image.getPhotographer().isAdministratorFlag();
-        this.activeFlag = image.getPhotographer().isActiveFlag();
         this.imageCount = image.getPhotographer().getImageCount();
 
         ChallengeSummary challengeSummary = image.getChallenge();
@@ -153,10 +151,6 @@ public class DisplayImage implements Image, Photographer, Challenge {
 
     public Boolean isAdmin() {
         return adminFlag;
-    }
-
-    public Boolean isActive() {
-        return activeFlag;
     }
 
     public Integer getImageCount() {

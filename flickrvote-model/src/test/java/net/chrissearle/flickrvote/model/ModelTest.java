@@ -42,7 +42,6 @@ public class ModelTest {
     private static final Date START_DATE = new DateTime(2009, 5, 8, 18, 0, 0, 0).toDate();
     private static final Date END_DATE = new DateTime(2009, 5, 17, 21, 0, 0, 0).toDate();
     private static final Date VOTE_DATE = new DateTime(2009, 5, 15, 18, 0, 0, 0).toDate();
-    private static final String PHOTOGRAPHER_TOKEN = "0250295209475-9235720975";
     private static final String TWITTER = "FooTwitter";
     private static final String CHALLENGE_DESCRIPTION = "Test Challenge Description";
 
@@ -121,7 +120,7 @@ public class ModelTest {
 
     @Test
     public void testPersistPhotographer() {
-        Photographer photographer = new Photographer(PHOTOGRAPHER_TOKEN, PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID, PHOTOGRAPHER_ICON_URL);
+        Photographer photographer = new Photographer(PHOTOGRAPHER_USER, PHOTOGRAPHER_FULLNAME, PHOTOGRAPHER_FLICKR_ID, PHOTOGRAPHER_ICON_URL);
         photographer.setTwitter(TWITTER);
 
         em.persist(photographer);
@@ -135,7 +134,6 @@ public class ModelTest {
 
         assert photographer.getId().equals(PHOTOGRAPHER_FLICKR_ID) : "Flickr ID was incorrect";
         assert photographer.getFullname().equals(PHOTOGRAPHER_FULLNAME) : "Full name was incorrect";
-        assert photographer.getToken().equals(PHOTOGRAPHER_TOKEN) : "Token was incorrect";
         assert photographer.getUsername().equals(PHOTOGRAPHER_USER) : "Username was incorrect";
         assert photographer.getIconUrl().equals(PHOTOGRAPHER_ICON_URL) : "Icon was incorrect";
         assert !photographer.isAdministrator() : "Photographer was incorrectly marked as admin";
@@ -296,9 +294,9 @@ public class ModelTest {
         em.persist(image2);
         em.persist(image3);
 
-        Photographer photographer1 = new Photographer(null, "VoteTestUser1", "VoteTestFull1", "VoteTestId1", "Icon1");
-        Photographer photographer2 = new Photographer(null, "VoteTestUser2", "VoteTestFull2", "VoteTestId2", "Icon2");
-        Photographer photographer3 = new Photographer(null, "VoteTestUser3", "VoteTestFull3", "VoteTestId3", "Icon3");
+        Photographer photographer1 = new Photographer("VoteTestUser1", "VoteTestFull1", "VoteTestId1", "Icon1");
+        Photographer photographer2 = new Photographer("VoteTestUser2", "VoteTestFull2", "VoteTestId2", "Icon2");
+        Photographer photographer3 = new Photographer("VoteTestUser3", "VoteTestFull3", "VoteTestId3", "Icon3");
 
         em.persist(photographer1);
         em.persist(photographer2);

@@ -18,11 +18,9 @@ package net.chrissearle.flickrvote.flickr.model;
 
 public class FlickrPhotographer {
     private final String flickrId;
-    private final String token;
     private final String username;
     private final String realname;
     private final String iconUrl;
-    private static final String TOKEN_UNKNOWN = "TOKEN_UNKNOWN";
     private static final String USERNAME_UNKNOWN = "USERNAME_UNKNOWN";
     private static final String REALNAME_UNKNOWN = "REALNAME_UNKNOWN";
     private static final String ICONURL_UNKNOWN = "ICONURL_UNKNOWN";
@@ -31,7 +29,6 @@ public class FlickrPhotographer {
         this.flickrId = flickrId;
         this.username = USERNAME_UNKNOWN;
         this.realname = REALNAME_UNKNOWN;
-        this.token = TOKEN_UNKNOWN;
         this.iconUrl = ICONURL_UNKNOWN;
     }
 
@@ -40,23 +37,10 @@ public class FlickrPhotographer {
         this.username = username;
         this.realname = realname;
         this.iconUrl = iconUrl;
-        this.token = TOKEN_UNKNOWN;
-    }
-
-    public FlickrPhotographer(String flickrId, String token, String username, String realname, String iconUrl) {
-        this.flickrId = flickrId;
-        this.token = token;
-        this.username = username;
-        this.realname = realname;
-        this.iconUrl = iconUrl;
     }
 
     public String getFlickrId() {
         return flickrId;
-    }
-
-    public String getToken() {
-        return token;
     }
 
     public String getUsername() {

@@ -234,7 +234,6 @@ public class TestMessageSourceChallengeMessageService {
     public void testGetResultsForumSingle() {
         TestPhotographerItem photographer = new TestPhotographerItem();
         photographer.setId("Test Photographer ID");
-        photographer.setActiveFlag(false);
         photographer.setAdministratorFlag(false);
         photographer.setFullname("Test Photographer");
         photographer.setUsername("testPhotographer");
@@ -266,7 +265,6 @@ public class TestMessageSourceChallengeMessageService {
     public void testGetResultsForumText() {
         TestPhotographerItem photographer1 = new TestPhotographerItem();
         photographer1.setId("Test Photographer ID 1");
-        photographer1.setActiveFlag(false);
         photographer1.setAdministratorFlag(false);
         photographer1.setFullname("Test Photographer 1");
         photographer1.setUsername("testPhotographer1");
@@ -275,7 +273,6 @@ public class TestMessageSourceChallengeMessageService {
 
         TestPhotographerItem photographer2 = new TestPhotographerItem();
         photographer2.setId("Test Photographer ID 2");
-        photographer2.setActiveFlag(false);
         photographer2.setAdministratorFlag(false);
         photographer2.setFullname("Test Photographer 2");
         photographer2.setUsername("testPhotographer2");
@@ -284,7 +281,6 @@ public class TestMessageSourceChallengeMessageService {
 
         TestPhotographerItem photographer3 = new TestPhotographerItem();
         photographer3.setId("Test Photographer ID 3");
-        photographer3.setActiveFlag(false);
         photographer3.setAdministratorFlag(false);
         photographer3.setFullname("Test Photographer 3");
         photographer3.setUsername("testPhotographer3");

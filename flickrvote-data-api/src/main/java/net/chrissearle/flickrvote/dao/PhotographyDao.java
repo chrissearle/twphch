@@ -36,14 +36,6 @@ public interface PhotographyDao extends Dao<String, Photographer> {
     Photographer findByUsername(String username);
 
     /**
-     * Method findByToken finds the photographer with the given token. Null if none found.
-     *
-     * @param token of type String
-     * @return Photographer
-     */
-    Photographer findByToken(String token);
-
-    /**
      * Method clearVotes removes all votes from the entire system.
      */
     void clearVotes();
