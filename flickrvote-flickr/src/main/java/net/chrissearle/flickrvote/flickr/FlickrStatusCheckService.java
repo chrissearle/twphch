@@ -23,4 +23,6 @@ import java.util.Set;
 
 public interface FlickrStatusCheckService {
     Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate);
+
+    FlickrImageStatus checkSearch(String tag, Date earliestDate, String imageId);
 }

@@ -202,7 +202,23 @@ public class DaoPhotographyService implements PhotographyService {
      */
     public ImageItem retrieveAndStoreImage(String id, String tag) {
         try {
-            return retrieveAndStoreImage(id, tag, true);
+            return retrieveAndStoreImage(id, tag, true, null);
+        } catch (FlickrServiceException fse) {
+            throw new ServiceException(fse.getMessage(), fse);
+        }
+    }
+
+    /**
+     * Method retrieveAndStoreImageForPhotographer causes a flickr retrieval of the image (and photographer). Saves/updates to the local db.
+     *
+     * @param id             flickr ID of image
+     * @param tag            challenge tag
+     * @param photographerId flickr ID of photographer
+     * @return ImageItem - null if no image found
+     */
+    public ImageItem retrieveAndStoreImageForPhotographer(String id, String tag, String photographerId) {
+        try {
+            return retrieveAndStoreImage(id, tag, true, photographerId);
         } catch (FlickrServiceException fse) {
             throw new ServiceException(fse.getMessage(), fse);
         }
@@ -216,7 +232,7 @@ public class DaoPhotographyService implements PhotographyService {
      * @param replaceExisting - if true will remove an image if retrieving an image with the same photographer for the same challenge.
      * @return ImageItem - null if no image found
      */
-    protected ImageItem retrieveAndStoreImage(String id, String tag, boolean replaceExisting) {
+    protected ImageItem retrieveAndStoreImage(String id, String tag, boolean replaceExisting, String photographerCheckId) {
         Challenge challenge = challengeDao.findByTag(tag);
 
         if (challenge == null)
@@ -231,43 +247,51 @@ public class DaoPhotographyService implements PhotographyService {
                 logger.info("Storing image " + flickrImage.getFlickrId());
             }
             String photographerId = flickrImage.getPhotographer().getFlickrId();
-            Photographer photographer = photographyDao.findById(photographerId);
 
-            if (photographer == null) {
-                retrieveAndStorePhotographer(photographerId);
+            if (photographerCheckId == null || photographerCheckId.equals(photographerId)) {
 
-                photographer = photographyDao.findById(photographerId);
-            }
+                Photographer photographer = photographyDao.findById(photographerId);
 
-            Image existing = checkForExistingImage(photographer, tag);
+                if (photographer == null) {
+                    retrieveAndStorePhotographer(photographerId);
 
-            if (existing != null) {
-                // Found an existing image for this challenge by this photographer
-                if (replaceExisting) {
-                    // Normal functionality - remove the existing one - we're doing an update
-                    photographer.removeImage(existing);
-                    imageDao.remove(existing);
-                } else {
-                    // Special case - e.g. we don't want to replace admin overridden images at freeze.
-                    return new ImageItemInstance(existing);
+                    photographer = photographyDao.findById(photographerId);
+                }
+
+                Image existing = checkForExistingImage(photographer, tag);
+
+                if (existing != null) {
+                    // Found an existing image for this challenge by this photographer
+                    if (replaceExisting) {
+                        // Normal functionality - remove the existing one - we're doing an update
+                        photographer.removeImage(existing);
+                        imageDao.remove(existing);
+                    } else {
+                        // Special case - e.g. we don't want to replace admin overridden images at freeze.
+                        return new ImageItemInstance(existing);
+                    }
+                }
+
+                image = new Image();
+                image.setId(flickrImage.getFlickrId());
+                image.setMediumImage(flickrImage.getImageUrl());
+                image.setLargeImage(flickrImage.getLargeImageUrl());
+                image.setPage(flickrImage.getUrl());
+                image.setTitle(flickrImage.getTitle());
+                image.setPostedDate(flickrImage.getPostedDate());
+
+                photographer.addImage(image);
+
+                photographyDao.persist(photographer);
+
+                challenge.addImage(image);
+
+                challengeDao.persist(challenge);
+            } else {
+                if (photographerCheckId != null) {
+                    throw new ServiceException("photographer.mismatch");
                 }
             }
-
-            image = new Image();
-            image.setId(flickrImage.getFlickrId());
-            image.setMediumImage(flickrImage.getImageUrl());
-            image.setLargeImage(flickrImage.getLargeImageUrl());
-            image.setPage(flickrImage.getUrl());
-            image.setTitle(flickrImage.getTitle());
-            image.setPostedDate(flickrImage.getPostedDate());
-
-            photographer.addImage(image);
-
-            photographyDao.persist(photographer);
-
-            challenge.addImage(image);
-
-            challengeDao.persist(challenge);
         } else {
             if (logger.isLoggable(Level.INFO)) {
                 logger.info("Refreshing image " + flickrImage.getFlickrId());
@@ -364,7 +388,7 @@ public class DaoPhotographyService implements PhotographyService {
         FlickrImages images = flickrImageTagSearchDao.searchTag(challenge.getTag(), challenge.getStartDate());
 
         for (FlickrImage image : images.getImages()) {
-            retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false);
+            retrieveAndStoreImage(image.getFlickrId(), challenge.getTag(), false, null);
         }
     }
 

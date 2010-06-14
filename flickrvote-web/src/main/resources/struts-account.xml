@@ -58,6 +58,11 @@
             <result name="success" type="chain">account</result>
         </action>
 
+        <action name="getphoto" class="net.chrissearle.flickrvote.web.account.GetPhotoAction">
+            <result name="input">/jsp/account/getphotoform.jspx</result>
+            <result name="success" type="chain">account</result>
+        </action>
+
         <action name="mypics" class="net.chrissearle.flickrvote.web.account.MyPicsAction">
             <result name="success">/jsp/account/mypics.jspx</result>
         </action>

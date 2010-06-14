@@ -80,6 +80,16 @@ public interface PhotographyService {
     ImageItem retrieveAndStoreImage(String id, String tag);
 
     /**
+     * Method retrieveAndStoreImageForPhotographer causes a flickr retrieval of the image (and photographer). Saves/updates to the local db.
+     *
+     * @param id  flickr ID of image
+     * @param tag challenge tag
+     * @param photographerId  flickr ID of photographer
+     * @return ImageItem - null if no image found
+     */
+    ImageItem retrieveAndStoreImageForPhotographer(String id, String tag, String photographerId);
+
+    /**
      * Method setScore - sets the final vote count of an image.
      *
      * @param imageId of type String

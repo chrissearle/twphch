@@ -16,10 +16,7 @@
 
 package net.chrissearle.flickrvote.flickr.impl;
 
-import net.chrissearle.flickrvote.flickr.FlickrServiceException;
-import net.chrissearle.flickrvote.flickr.FlickrStatusCheckService;
-import net.chrissearle.flickrvote.flickr.ImageTagSearchDAO;
-import net.chrissearle.flickrvote.flickr.UserDAO;
+import net.chrissearle.flickrvote.flickr.*;
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import net.chrissearle.flickrvote.flickr.model.FlickrImages;
@@ -32,12 +29,14 @@ import java.util.*;
 @Service
 public class FlickrJStatusCheckService implements FlickrStatusCheckService {
     ImageTagSearchDAO imageTagSearchDAO;
+    ImageDAO imageDAO;
     UserDAO userDAO;
 
     @Autowired
-    public FlickrJStatusCheckService(ImageTagSearchDAO imageTagSearchDAO, UserDAO userDAO) {
+    public FlickrJStatusCheckService(ImageTagSearchDAO imageTagSearchDAO, UserDAO userDAO, ImageDAO imageDAO) {
         this.imageTagSearchDAO = imageTagSearchDAO;
         this.userDAO = userDAO;
+        this.imageDAO = imageDAO;
     }
 
     public Set<FlickrImageStatus> checkSearch(String tag, Date earliestDate) {
@@ -72,6 +71,18 @@ public class FlickrJStatusCheckService implements FlickrStatusCheckService {
 
         return issues;
     }
+
+    @Override
+    public FlickrImageStatus checkSearch(String tag, Date earliestDate, String imageId) {
+        Set<FlickrImageStatus> issues = new HashSet<FlickrImageStatus>();
+
+        if (checkImageForDateIssue(earliestDate, imageDAO.getImage(imageId), issues)) {
+            return issues.iterator().next();
+        } else {
+            return null;
+        }
+    }
+
 
     private void createImageMultipleIssue(Map<String, FlickrImageStatus> seenPhotographers, FlickrImage image, String photographerId) {
         if (haveSeenPhotographer(seenPhotographers, photographerId)) {

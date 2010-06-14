@@ -15,10 +15,10 @@
   -->
 
 
+
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          xmlns:sx="/struts-dojo-tags"
           version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
@@ -31,49 +31,11 @@
         <s:head/>
     </head>
     <body>
-
-    <s:if test="takenDateIssues.size() > 0">
-        <h1><s:text name="date.too.early"/></h1>
-
-        <s:iterator id="image" value="takenDateIssues">
-            <div class="photobox">
-                <h3><s:property value="#image.imageTitle"/></h3>
-                <fv:image image="${image}"/>
-            </div>
-        </s:iterator>
-    </s:if>
-
-    <s:if test="multipleImageIssues.size() > 0">
-        <h1><s:text name="too.many.images"/></h1>
-
-        <s:iterator id="image" value="multipleImageIssues">
-            <div class="photobox">
-                <h3><s:property value="#image.imageTitle"/></h3>
-                <fv:image image="${image}"/>
-            </div>
-        </s:iterator>
-    </s:if>
-
-    <s:if test="multipleImageIssues.size() == 0 &amp;&amp; takenDateIssues.size() == 0">
-        <s:if test="enteredImage">
-            <h1><s:text name="image.check.ok"/></h1>
-
-            <div class="photobox">
-                <h3><fv:photographer photographer="${session.flickrUser}"/>: <s:property
-                        value="enteredImage.imageTitle"/></h3>
-                <fv:image image="${enteredImage}"/>
-            </div>
-        </s:if>
-        <s:else>
-            <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
-
-            <h2><s:text name="image.check.none"/></h2>
-        </s:else>
-    </s:if>
-
     <h1><s:text name="choose.image.title"/></h1>
 
     <p><s:text name="choose.image.text"/></p>
+
+    <s:actionerror/>
 
     <s:form action="getphoto">
         <s:textfield label="ID" name="id"/>
@@ -83,4 +45,3 @@
     </body>
     </html>
 </jsp:root>
-        

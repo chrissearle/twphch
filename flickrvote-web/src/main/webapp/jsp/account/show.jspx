@@ -34,6 +34,8 @@
     <body>
     <h1><fv:photographer photographer="${photographer}"/></h1>
 
+    <s:actionmessage/>
+
     <p>
         <s:url id="checkUrl" action="check"/>
         <s:a href="%{checkUrl}"><s:text name="account.check.link"/></s:a>
