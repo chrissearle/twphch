@@ -19,6 +19,7 @@ package net.chrissearle.flickrvote.web.account;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.Validateable;
+import net.chrissearle.flickrvote.flickr.FlickrServiceException;
 import net.chrissearle.flickrvote.flickr.FlickrStatusCheckService;
 import net.chrissearle.flickrvote.flickr.model.FlickrImageStatus;
 import net.chrissearle.flickrvote.service.ChallengeService;
@@ -35,8 +36,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GetPhotoAction extends ActionSupport implements Preparable, SessionAware, Validateable {
+    private transient Logger logger = Logger.getLogger(GetPhotoAction.class.getName());
+
     @Autowired
     PhotographyService photographyService;
 
@@ -63,18 +68,26 @@ public class GetPhotoAction extends ActionSupport implements Preparable, Session
 
     @Override
     public void validate() {
-        FlickrImageStatus status = flickrStatusCheckService.checkSearch(challengeTag, challengeStart, id);
+        try {
+            FlickrImageStatus status = flickrStatusCheckService.checkSearch(challengeTag, challengeStart, id);
 
-        if (status == null) {
-            try {
-                image = photographyService.retrieveAndStoreImageForPhotographer(id, challengeTag, photographer.getPhotographerId());
+            if (status == null) {
+                try {
+                    image = photographyService.retrieveAndStoreImageForPhotographer(id, challengeTag, photographer.getPhotographerId());
 
-                addActionMessage(image.getTitle() + " OK");
-            } catch (ServiceException se) {
-                addActionError(getText(se.getMessage()));
+                    addActionMessage(image.getTitle() + " OK");
+                } catch (ServiceException se) {
+                    addActionError(getText(se.getMessage()));
+                }
+            } else {
+                addActionError(getText("date.error"));
             }
-        } else {
-            addActionError(getText("date.error"));
+        } catch (FlickrServiceException fse) {
+            if (logger.isLoggable(Level.INFO)) {
+                logger.info("Unable to fetch image for user " + photographer.getPhotographerName() + " with error " + fse.getMessage());
+            }
+
+            addActionError(getText("image.fetch.fail"));
         }
     }
 
