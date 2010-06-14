@@ -118,6 +118,13 @@
             <result name="browse">/jsp/admin/photoList.jspx</result>
         </action>
 
+        <action name="loginAsUser" class="net.chrissearle.flickrvote.web.admin.LoginAsPhotographer">
+            <result name="success" type="redirectAction">
+                <param name="actionName">current</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+
         <action name="toggleAdmin" class="net.chrissearle.flickrvote.web.admin.PhotographerDataAction">
             <result name="success" type="chain">photographerList</result>
         </action>

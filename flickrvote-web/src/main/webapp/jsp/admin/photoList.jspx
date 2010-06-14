@@ -15,8 +15,6 @@
   -->
 
 
-
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -38,18 +36,16 @@
                     "bPaginate" : false,
                     "bLengthChange" : false,
                     "bStateSave" : false,
-                    "aaSorting": [
-                        [ 5, "desc" ]
-                    ],
                     "aoColumns": [
-                        null,
                         null,
                         {
                             "bSortable": false
                         },
                         null,
                         null,
-                        null,
+                        {
+                            "bSortable": false
+                        },
                         {
                             "bSortable": false
                         }
@@ -63,8 +59,11 @@
     <table id="photoTable">
         <thead>
         <tr>
-            <th>Real Name</th>
-            <th>Username</th>
+            <th>
+                Real Name
+                <br/>
+                Username
+            </th>
             <th>Flickr ID</th>
             <th>Twitter ID</th>
             <th>Admin?</th>
@@ -76,14 +75,15 @@
         <s:iterator id="photographer" value="photographers">
             <tr>
                 <td>
+                    RN:
                     <s:if test="#photographer.fullname == #photographer.photographerName">
                         <strong><s:property value="#photographer.fullname"/></strong>
                     </s:if>
                     <s:else>
                         <s:property value="#photographer.fullname"/>
                     </s:else>
-                </td>
-                <td>
+                    <br/>
+                    UN: 
                     <s:if test="#photographer.username == #photographer.photographerName &amp;&amp; #photographer.username != #photographer.fullname">
                         <strong><s:property value="#photographer.username"/></strong>
                     </s:if>
@@ -105,19 +105,28 @@
                     <s:property value="#photographer.imageCount"/>
                 </td>
                 <td>
-                    <s:url id="toggleAdminUrl" action="toggleAdmin"><s:param name="id"
-                                                                             value="#photographer.photographerId"/></s:url>
-                    <s:if test="#photographer.admin"><s:a href="%{toggleAdminUrl}">Admin:&amp;nbsp;Off</s:a></s:if>
-                    <s:else><s:a href="%{toggleAdminUrl}">Admin:&amp;nbsp;On</s:a></s:else>
-                    <br/>
-                    <s:url id="retrieveUrl" action="getPhotographer"><s:param name="id"
-                                                                              value="#photographer.photographerId"/></s:url>
-                    <s:a href="%{retrieveUrl}">Update&amp;nbsp;from&amp;nbsp;Flickr</s:a>
-                    <br/>
-                    <s:url id="photographerImagesUrl" action="showPhotographerImages">
-                        <s:param name="photographerId" value="#photographer.photographerId"/>
-                    </s:url>
-                    <s:a href="%{photographerImagesUrl}">Images</s:a>
+                    <ul>
+                        <s:url id="toggleAdminUrl" action="toggleAdmin">
+                            <s:param name="id" value="#photographer.photographerId"/>
+                        </s:url>
+                        <s:if test="#photographer.admin">
+                            <li><s:a href="%{toggleAdminUrl}">Make&amp;nbsp;normal</s:a></li>
+                        </s:if>
+                        <s:else>
+                            <li><s:a href="%{toggleAdminUrl}">Make&amp;nbsp;admin</s:a></li>
+                        </s:else>
+                        <s:url id="retrieveUrl" action="getPhotographer"><s:param name="id"
+                                                                                  value="#photographer.photographerId"/></s:url>
+                        <li><s:a href="%{retrieveUrl}">Update&amp;nbsp;from&amp;nbsp;Flickr</s:a></li>
+                         <s:url id="photographerImagesUrl" action="showPhotographerImages">
+                            <s:param name="photographerId" value="#photographer.photographerId"/>
+                        </s:url>
+                        <li><s:a href="%{photographerImagesUrl}">Images</s:a></li>
+                        <s:url id="loginAsUrl" action="loginAsUser">
+                            <s:param name="id" value="#photographer.photographerId"/>
+                        </s:url>
+                        <li><s:a href="%{loginAsUrl}">Login</s:a></li>
+                    </ul>
                 </td>
             </tr>
         </s:iterator>
