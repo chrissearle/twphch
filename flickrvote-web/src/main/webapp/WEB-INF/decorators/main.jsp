@@ -57,7 +57,8 @@
             name="link.homepage"/></s:a> |
         <s:action name="flickrLoginLink" namespace="/common" executeResult="true"/> |
         <a href="http://twitter.com/Twphch"><s:text name="link.twitter.title"/></a> |
-        <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a>
+        <a href="http://www.flickr.com/groups/twphch/"><s:text name="link.flickr.group.title"/></a> |
+        <a href="http://52.twphch.com/"><s:text name="link.year.title"/></a>
 
     </div>
     <div id="logo"><h1><s:text name="main.title"/></h1>
