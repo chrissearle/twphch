@@ -36,15 +36,17 @@
                     <s:property value="#displayImage.rank"/>
                     :
                 </s:if>
-                <s:if test="listControl.showPhotographer">
-                    <fv:photographer photographer="${displayImage}"/> :
-                </s:if>
                 <s:property value="#displayImage.imageTitle"/>
                 <s:if test="listControl.showVotes">
                     (<s:property value="#displayImage.voteCount"/> <s:text name="votes"/>)
                 </s:if>
                 <fv:fancybox image="${displayImage}" position="${stat.index}"/>
             </h3>
+            <s:if test="listControl.showPhotographer">
+                <p>
+                    <fv:photographer photographer="${displayImage}"/>
+                </p>
+            </s:if>
             <s:if test="listControl.showRefresh">
                 <p>
                     <s:url namespace="/account" action="refresh" id="refreshUrl">

@@ -66,5 +66,9 @@
         <action name="imageList">
             <result name="success">/jsp/common/imagelist.jspx</result>
         </action>
+
+        <action name="loadAnywhere" class="net.chrissearle.flickrvote.web.common.LoadAnywhereAction">
+            <result type="freemarker" name="success">/ftl/common/loadAnywhere.ftl</result>
+        </action>
     </package>
 </struts>

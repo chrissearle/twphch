@@ -48,13 +48,19 @@ public class PhotographerTag extends TagSupport {
             StringBuilder text = new StringBuilder();
 
             if (photographer.getIconUrl() != null) {
-                text.append("<img src=\"");
+                text.append("<img class=\"photogIcon\" src=\"");
                 text.append(photographer.getIconUrl());
                 text.append("\"/>");
                 text.append("&nbsp;");
             }
 
             text.append(photographer.getPhotographerName());
+
+            String twitterAccount = photographer.getTwitterAccount();
+
+            if (twitterAccount != null && !"".equals(twitterAccount)) {
+                text.append(" : @").append(twitterAccount);
+            }
 
             out.print(text.toString());
         } catch (IOException e) {

@@ -44,6 +44,7 @@
 
     <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
     <s:action name="loadBlockControl" namespace="/common" executeResult="true"/>
+    <s:action name="loadAnywhere" namespace="/common" executeResult="true"/>
 
     <decorator:head/>
 
