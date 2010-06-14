@@ -118,7 +118,7 @@
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>spring-twitter</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
@@ -356,8 +356,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
