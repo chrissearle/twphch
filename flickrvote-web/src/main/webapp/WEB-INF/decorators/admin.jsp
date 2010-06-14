@@ -28,7 +28,7 @@
     <title><decorator:title default="Twitter Photo Challenge"/></title>
     <link href="<s:url value='/styles/reset.css'/>" rel="stylesheet" type="text/css" media="all"/>
     <link href="<s:url value='/styles/admin.css'/>" rel="stylesheet" type="text/css" media="all"/>
-    <script type="text/javascript" src="<s:url value='/js/jquery-1.3.2.min.js'/>"></script>
+    <script type="text/javascript" src="<s:url value='/js/jquery-1.4.2.min.js'/>"></script>
     <script type="text/javascript" src="<s:url value='/js/jquery.dataTables.min.js'/>"></script>
     <decorator:head/>
 </head>
