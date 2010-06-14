@@ -22,6 +22,9 @@ public interface FlickrVoteWebConstants {
     String VOTING_CHALLENGE = "voting";
 
     String FLICKR_USER_SESSION_KEY = "flickrUser";
+
+    String VOTING_CLOSED_FLAG = "votingClosedFlag";
+
     int START_VOTE_TIME = 18;
     int START_CHALLENGE_TIME = 18;
     int END_CHALLENGE_TIME = 21;

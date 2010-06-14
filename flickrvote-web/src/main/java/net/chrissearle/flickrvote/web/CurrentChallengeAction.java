@@ -22,17 +22,15 @@ import net.chrissearle.flickrvote.service.ChallengeService;
 import net.chrissearle.flickrvote.service.PhotographyService;
 import net.chrissearle.flickrvote.service.TagSearchService;
 import net.chrissearle.flickrvote.service.model.*;
-import net.chrissearle.flickrvote.web.model.Challenge;
-import net.chrissearle.flickrvote.web.model.DisplayChallengeSummary;
-import net.chrissearle.flickrvote.web.model.DisplayImage;
-import net.chrissearle.flickrvote.web.model.ListControl;
+import net.chrissearle.flickrvote.web.model.*;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CurrentChallengeAction extends ActionSupport implements Preparable {
+public class CurrentChallengeAction extends ActionSupport implements Preparable, SessionAware {
     private static final long serialVersionUID = 2961184426759693084L;
 
     private transient Logger log = Logger.getLogger(CurrentChallengeAction.class.getName());
@@ -51,6 +49,11 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     @Autowired
     private transient PhotographyService photographyService;
+
+    private Map<String, Object> session;
+
+    private Boolean votingClosedFlag = false;
+
 
     @Override
     public String execute() throws Exception {
@@ -113,5 +116,19 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable 
 
     public ListControl getListControl() {
         return listControl;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> stringObjectMap) {
+        this.session = stringObjectMap;
+
+        if (session.containsKey(FlickrVoteWebConstants.VOTING_CLOSED_FLAG)) {
+            this.votingClosedFlag = (Boolean) session.get(FlickrVoteWebConstants.VOTING_CLOSED_FLAG);
+            session.remove(FlickrVoteWebConstants.VOTING_CLOSED_FLAG);
+        }
+    }
+
+    public Boolean isVotingClosed() {
+        return votingClosedFlag;
     }
 }

@@ -23,18 +23,31 @@
 <struts>
     <package name="flickrVoteVote" extends="struts-default" namespace="/vote">
         <interceptors>
+            <interceptor name="votingInterceptor"
+                         class="net.chrissearle.flickrvote.web.interceptors.VotingInterceptor"/>
             <interceptor name="authenticationInterceptor"
                          class="net.chrissearle.flickrvote.web.interceptors.AuthenticationAuthInterceptor"/>
 
-            <interceptor-stack name="authenticationStack">
+            <interceptor-stack name="votingStack">
+                <interceptor-ref name="votingInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+            <interceptor-stack name="votingAuthenticationStack">
+                <interceptor-ref name="votingInterceptor"/>
                 <interceptor-ref name="authenticationInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
         </interceptors>
 
-        <default-interceptor-ref name="authenticationStack"/>
+        <default-interceptor-ref name="votingAuthenticationStack"/>
 
         <global-results>
+            <result name="votingclosed" type="redirectAction">
+                <param name="actionName">current</param>
+                <param name="namespace">/</param>
+            </result>
+
             <result name="notloggedin" type="redirectAction">showVoteResult</result>
         </global-results>
 
@@ -43,7 +56,7 @@
             <result name="alreadyVoted" type="redirectAction">showVotePhotos</result>
         </action>
         <action name="showVotePhotos" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="browse">
-            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="votingStack"/>
             <result name="browse">/jsp/vote/list.jspx</result>
         </action>
         <action name="vote" class="net.chrissearle.flickrvote.web.vote.VoteAction">
@@ -51,7 +64,7 @@
             <result name="input">/jsp/vote/vote.jspx</result>
         </action>
         <action name="showVoteResult" class="net.chrissearle.flickrvote.web.vote.ShowVoteResultAction">
-            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="votingStack"/>
             <result>/jsp/vote/showvorteresult.jspx</result>
         </action>
     </package>

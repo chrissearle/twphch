@@ -36,12 +36,18 @@
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
+    <s:if test="votingClosed">
+        <ul class="actionMessage">
+            <li><s:text name="voting.closed"/></li>
+        </ul>
+    </s:if>
+
     <s:if test="images.size() == 0">
         <p><s:text name="current.no.pics"/></p>
     </s:if>
 
     <s:action name="imageList" namespace="/common" executeResult="true"/>
-    
+
     </body>
     </html>
 </jsp:root>
