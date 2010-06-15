@@ -74,6 +74,12 @@
         </property>
     </bean>
 
+    <bean id="clearOldVotesJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetBeanName" value="periodicService"/>
+        <property name="targetMethod" value="clearOldVotes"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
     <!-- Schedules are a touch past the hour - this allows the service to call the getVoting/getCurrent and get the correct challenge -->
     <bean id="freezeAndOpenVotingTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="freezeAndOpenVotingJob"/>
@@ -110,6 +116,11 @@
         <property name="cronExpression" value="0 0 21 ? * THU"/>
     </bean>
 
+    <bean id="clearOldVotesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="clearOldVotesJob"/>
+        <property name="cronExpression" value="0 0 21 ? * WED"/>
+    </bean>
+
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
@@ -120,6 +131,7 @@
                 <ref bean="warnVotingCloseTrigger"/>
                 <ref bean="warnForCurrentTrigger" />
                 <ref bean="warnMissingChallengeTrigger"/>
+                <ref bean="clearOldVotesTrigger"/>
             </list>
         </property>
     </bean>
