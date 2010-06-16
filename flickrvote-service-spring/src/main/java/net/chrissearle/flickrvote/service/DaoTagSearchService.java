@@ -64,7 +64,9 @@ public class DaoTagSearchService implements TagSearchService {
         List<ImageItem> items = new ArrayList<ImageItem>();
 
         for (FlickrImage flickrImage : images.getImages()) {
-            ImageItem item = new ImageItemInstance(new FlickrImage(flickrImage, retrievePhotographer(flickrImage.getPhotographer().getFlickrId())));
+            Photographer photographer = retrievePhotographer(flickrImage.getPhotographer().getFlickrId());
+
+            ImageItem item = new ImageItemInstance(new FlickrImage(flickrImage, convertPhotographerToFlickrPhotographer(photographer)), photographer);
 
             items.add(item);
         }
@@ -72,12 +74,10 @@ public class DaoTagSearchService implements TagSearchService {
         return new ImageItems(items);
     }
 
-    private FlickrPhotographer retrievePhotographer(String flickrId) {
+    private Photographer retrievePhotographer(String flickrId) {
         if (logger.isLoggable(Level.FINE)) {
             logger.fine("Searching for photographer: " + flickrId);
         }
-
-        FlickrPhotographer flickrPhotographer;
 
         Photographer photographer = photographyDao.findById(flickrId);
 
@@ -85,22 +85,30 @@ public class DaoTagSearchService implements TagSearchService {
             if (logger.isLoggable(Level.FINE)) {
                 logger.fine("Found: " + photographer);
             }
-
-            flickrPhotographer = new FlickrPhotographer(photographer.getId(),
-                    photographer.getUsername(),
-                    photographer.getFullname(),
-                    photographer.getIconUrl());
         } else {
             if (logger.isLoggable(Level.FINE)) {
                 logger.fine("Retrieving: " + flickrId);
             }
 
-            flickrPhotographer = flickrUserDao.getUser(flickrId);
+            FlickrPhotographer flickrPhotographer = flickrUserDao.getUser(flickrId);
 
-            photographyDao.persist(new Photographer(flickrPhotographer.getUsername(),
-                    flickrPhotographer.getRealname(), flickrPhotographer.getFlickrId(), flickrPhotographer.getIconUrl()));
+            photographer = new Photographer(flickrPhotographer.getUsername(),
+                    flickrPhotographer.getRealname(), flickrPhotographer.getFlickrId(), flickrPhotographer.getIconUrl());
+
+            photographyDao.persist(photographer);
+
+            // TODO - check to see if the persisted object matches a fresh retrieval
+            photographer = photographyDao.findById(flickrId);
         }
 
-        return flickrPhotographer;
+        return photographer;
     }
+
+    private FlickrPhotographer convertPhotographerToFlickrPhotographer(Photographer photographer) {
+        return new FlickrPhotographer(photographer.getId(),
+                photographer.getUsername(),
+                photographer.getFullname(),
+                photographer.getIconUrl());
+    }
+
 }

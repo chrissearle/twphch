@@ -18,6 +18,7 @@ package net.chrissearle.flickrvote.service.model.impl;
 
 import net.chrissearle.flickrvote.flickr.model.FlickrImage;
 import net.chrissearle.flickrvote.model.Image;
+import net.chrissearle.flickrvote.model.Photographer;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.PhotographerItem;
@@ -50,6 +51,20 @@ public class ImageItemInstance implements ImageItem {
         this.rank = 0L;
 
         this.photographer = new PhotographerItemInstance(image.getPhotographer());
+        this.challenge = null;
+    }
+
+    public ImageItemInstance(FlickrImage image, Photographer photographer) {
+        this.id = image.getFlickrId();
+        this.title = image.getTitle();
+        this.url = image.getUrl();
+        this.imageUrl = image.getImageUrl();
+        this.largeImageUrl = image.getLargeImageUrl();
+        this.postedDate = image.getPostedDate();
+        this.voteCount = 0L;
+        this.rank = 0L;
+
+        this.photographer = new PhotographerItemInstance(photographer);
         this.challenge = null;
     }
 
