@@ -14,7 +14,6 @@
   ~    limitations under the License.
   -->
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"

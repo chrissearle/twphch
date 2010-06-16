@@ -47,6 +47,8 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
 
     private ListControl listControl = new ListControl(false, false, false, false, false, true);
 
+    private DisplayImage currentPhotographerImage = null;
+
     @Autowired
     private transient PhotographyService photographyService;
 
@@ -69,6 +71,8 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
     }
 
     public void prepare() throws Exception {
+        Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+
         ChallengeSummary challengeSummary = null;
 
         // Get a list of all open challenges
@@ -91,11 +95,17 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
             ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
 
             final List<ImageItem> imagesUniquePhotographer = imageItems.getImagesUniquePhotographer(challengeItem.getImages());
-            
+
             images = new ArrayList<DisplayImage>(imagesUniquePhotographer.size());
 
             for (ImageItem image : imagesUniquePhotographer) {
-                images.add(new DisplayImage(image));
+                final DisplayImage displayImage = new DisplayImage(image);
+
+                images.add(displayImage);
+
+                if (photographer != null && displayImage.getPhotographerId().equals(photographer.getPhotographerId())) {
+                    currentPhotographerImage = displayImage;
+                }
             }
 
             Collections.sort(images, new Comparator<DisplayImage>() {
@@ -118,6 +128,10 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
         return listControl;
     }
 
+    public Boolean isShowEntryBox() {
+        return true;
+    }
+
     @Override
     public void setSession(Map<String, Object> stringObjectMap) {
         this.session = stringObjectMap;
@@ -126,6 +140,10 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
             this.votingClosedFlag = (Boolean) session.get(FlickrVoteWebConstants.VOTING_CLOSED_FLAG);
             session.remove(FlickrVoteWebConstants.VOTING_CLOSED_FLAG);
         }
+    }
+
+    public DisplayImage getCurrentPhotographerImage() {
+        return currentPhotographerImage;
     }
 
     public Boolean isVotingClosed() {

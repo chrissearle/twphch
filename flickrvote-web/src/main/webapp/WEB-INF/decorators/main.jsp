@@ -73,6 +73,32 @@
     -->
     <div id="content">
         <div id="column1">
+            <s:if test="#session.flickrUser">
+                <s:if test="showEntryBox">
+                    <div class="sidebaritem" id="block_my_entry_div">
+                        <h1 id="block_my_entry">#<s:property
+                                value="challenge.challengeTag"/> : <s:text name="sidebar.my.entry.title"/></h1>
+
+                        <div id="block_my_entry_content">
+                            <s:if test="currentPhotographerImage">
+                                <p><s:property value="currentPhotographerImage.imageTitle"/></p>
+                                <p>
+                                    <img width="150px" src="<s:property value="currentPhotographerImage.imageUrl"/>" alt="<s:property value="currentPhotographerImage.imageTitle"/>"/>
+                                </p>
+                            </s:if>
+                            <s:else>
+                                <s:url namespace="/account" action="check" id="checkLink"/>
+                                <p>
+                                    <s:a href="%{checkLink}"><s:text name="account.check.link"/></s:a>
+                                    <br/>
+                                    <s:text name="warning.flickr.slow"/>
+                                </p>
+                            </s:else>
+                        </div>
+                    </div>
+                </s:if>
+            </s:if>
+
             <s:action name="votingChallengeBlock" namespace="/common" executeResult="true"/>
             <s:if test="challenge != null">
                 <s:action name="currentChallengeBlock" namespace="/common" executeResult="true"/>
@@ -151,12 +177,12 @@
 <!-- Woopra Code Start -->
 <script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
 <script type="text/javascript">
-<s:if test="#session.flickrUser">
-woopraTracker.addVisitorProperty("name", "<s:property value="#session.flickrUser.username"/>");
-woopraTracker.addVisitorProperty("Full Name", "<s:property value="#session.flickrUser.photographerName"/>");
-woopraTracker.addVisitorProperty("Twitter", "<s:property value="#session.flickrUser.twitterAccount"/>");
-</s:if>
-woopraTracker.track();
+    <s:if test="#session.flickrUser">
+    woopraTracker.addVisitorProperty("name", "<s:property value="#session.flickrUser.username"/>");
+    woopraTracker.addVisitorProperty("Full Name", "<s:property value="#session.flickrUser.photographerName"/>");
+    woopraTracker.addVisitorProperty("Twitter", "<s:property value="#session.flickrUser.twitterAccount"/>");
+    </s:if>
+    woopraTracker.track();
 </script>
 <!-- Woopra Code End -->
 </body>
