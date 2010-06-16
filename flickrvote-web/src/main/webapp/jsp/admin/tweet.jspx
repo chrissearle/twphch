@@ -15,7 +15,6 @@
   -->
 
 
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -35,7 +34,14 @@
     <h2>Tweet</h2>
     <br/>
 
+    <p>
+        <s:if test="dm">DM to <s:property value="twitterId"/></s:if>
+    </p>
+
     <s:form action="tweet">
+        <s:if test="dm">
+            <s:hidden name="twitterId" value="%{twitterId}"/>
+        </s:if>
         <s:textarea label="Tweet" name="tweet" rows="4" cols="40"/>
         <s:submit/>
     </s:form>

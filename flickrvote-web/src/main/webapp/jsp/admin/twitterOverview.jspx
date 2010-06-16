@@ -1,0 +1,108 @@
+<!--
+        ~ Copyright 2010 Chris Searle
+        ~
+        ~    Licensed under the Apache License, Version 2.0 (the "License");
+        ~    you may not use this file except in compliance with the License.
+        ~    You may obtain a copy of the License at
+        ~
+        ~        http://www.apache.org/licenses/LICENSE-2.0
+        ~
+        ~    Unless required by applicable law or agreed to in writing, software
+        ~    distributed under the License is distributed on an "AS IS" BASIS,
+        ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        ~    See the License for the specific language governing permissions and
+        ~    limitations under the License.
+        -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="/struts-tags"
+          xmlns:sx="/struts-dojo-tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html"/>
+    <jsp:output omit-xml-declaration="yes"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+    <html>
+    <head>
+        <title>Twitter Photo Challenge - Administration</title>
+        <s:head/>
+        <sx:head/>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#twitterTable').dataTable({
+                    "bPaginate" : false,
+                    "bLengthChange" : false,
+                    "bStateSave" : false,
+                    "aoColumns": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        {
+                            "bSortable": false
+                        }
+                    ]
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <h3>Twitter Overview</h3>
+    <table id="twitterTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Twitter ID</th>
+            <th>Following Me</th>
+            <th>Am Following</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <s:iterator id="status" value="statusList">
+            <tr>
+                <td>
+                    <s:property value="#status.name"/>
+                </td>
+                <td>
+                    <s:property value="#status.twitterId"/>
+                </td>
+                <td>
+                    <s:if test="#status.following">Yes</s:if>
+                    <s:else>No</s:else>
+                </td>
+                <td>
+                    <s:if test="#status.followed">Yes</s:if>
+                    <s:else>No</s:else>
+                </td>
+                <td>
+                    <ul>
+                        <s:if test="#status.followed">
+                            <s:url id="unfollowUrl" action="unfollow">
+                                <s:param name="id" value="#status.twitterId"/>
+                            </s:url>
+                            <li><s:a href="%{unfollowUrl}">Stop following</s:a></li>
+                            <s:if test="#status.following">
+                                <s:url action="tweetForm" id="dmUrl">
+                                    <s:param name="twitterId" value="#status.twitterId"/>
+                                </s:url>
+                                <li><s:a href="%{dmUrl}">Send DM</s:a></li>
+                            </s:if>
+                        </s:if>
+                        <s:else>
+                            <s:url id="followUrl" action="follow">
+                                <s:param name="id" value="#status.twitterId"/>
+                            </s:url>
+                            <li><s:a href="%{followUrl}">Follow</s:a></li>
+                        </s:else>
+                    </ul>
+                </td>
+            </tr>
+        </s:iterator>
+        </tbody>
+    </table>
+    </body>
+    </html>
+</jsp:root>

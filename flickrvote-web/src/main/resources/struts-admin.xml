@@ -143,7 +143,20 @@
 
         <action name="tweet" class="net.chrissearle.flickrvote.web.admin.SendTweetAction">
             <result name="input">/jsp/admin/tweet.jspx</result>
+            <result name="dmsuccess" type="chain">twitterOverview</result>
             <result name="success" type="chain">challenges</result>
+        </action>
+
+        <action name="twitterOverview" class="net.chrissearle.flickrvote.web.admin.TwitterOverviewAction">
+            <result name="success">/jsp/admin/twitterOverview.jspx</result>
+        </action>
+
+        <action name="follow" class="net.chrissearle.flickrvote.web.admin.FollowAction">
+            <result name="success" type="chain">twitterOverview</result>
+        </action>
+
+        <action name="unfollow" class="net.chrissearle.flickrvote.web.admin.UnfollowAction">
+            <result name="success" type="chain">twitterOverview</result>
         </action>
 
         <action name="mailForm" class="net.chrissearle.flickrvote.web.admin.SendMailAction" method="input">

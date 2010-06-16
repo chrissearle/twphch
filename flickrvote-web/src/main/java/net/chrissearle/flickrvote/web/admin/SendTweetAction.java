@@ -17,6 +17,8 @@
 package net.chrissearle.flickrvote.web.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
+import net.chrissearle.spring.twitter.service.DirectMessageService;
 import net.chrissearle.spring.twitter.service.TweetService;
 import net.chrissearle.spring.twitter.service.TwitterServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,15 +33,28 @@ public class SendTweetAction extends ActionSupport {
 
     private String tweet;
 
+    private String twitterId;
+
     @Autowired
     private transient TweetService tweetService;
+
+    @Autowired
+    private transient DirectMessageService directMessageService;
 
     @Override
     public String execute() throws Exception {
         try {
-            tweetService.tweet(tweet);
+            if (!isDm()) {
+                tweetService.tweet(tweet);
 
-            addActionMessage("Tweeted");
+                addActionMessage("Tweeted");
+            } else {
+                directMessageService.dm(twitterId, tweet);
+
+                addActionMessage("Sent");
+
+                return "dmsuccess";
+            }
         } catch (TwitterServiceException tse) {
             if (logger.isLoggable(Level.WARNING)) {
                 logger.warning("Unable to tweet: " + tse.getMessage());
@@ -61,5 +76,17 @@ public class SendTweetAction extends ActionSupport {
 
     public String getTweet() {
         return tweet;
+    }
+
+    public void setTwitterId(String twitterId) {
+        this.twitterId = twitterId;
+    }
+
+    public String getTwitterId() {
+        return twitterId;
+    }
+
+    public Boolean isDm() {
+        return twitterId != null && !"".equals(twitterId);
     }
 }

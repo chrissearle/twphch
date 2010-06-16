@@ -92,7 +92,10 @@
 
         <p>
             <s:url action="tweetForm" id="tweetUrl"/>
-            <s:a href="%{tweetUrl}">Tweet</s:a>
+            <s:a href="%{tweetUrl}">Tweet as TwPhCh</s:a>
+            <br/>
+            <s:url action="twitterOverview" id="twitterOverviewUrl"/>
+            <s:a href="%{twitterOverviewUrl}">Friendship info (DM)</s:a>
             <br/>
             <s:url action="mailForm" id="mailUrl"/>
             <s:a href="%{mailUrl}">Mail</s:a>
