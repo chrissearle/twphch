@@ -21,7 +21,7 @@
     <parent>
         <groupId>net.chrissearle</groupId>
         <artifactId>maven</artifactId>
-        <version>18</version>
+        <version>19</version>
     </parent>
 
     <groupId>net.chrissearle</groupId>
