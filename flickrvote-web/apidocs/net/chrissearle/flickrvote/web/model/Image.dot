@@ -8,30 +8,41 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.model.Image
-	c2663 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Image.html">
+	c3662 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Image </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c2665 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
+	c3664 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag
-	c2670 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../taglib/ImageTag.html">
+	c3669 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../taglib/ImageTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageTag </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.taglib </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.web.taglib.FancyboxImageTag
+	c3670 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../taglib/FancyboxImageTag.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> FancyboxImageTag </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.taglib </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Image
-	c2663:p -> c2665:p [dir=back,arrowtail=empty,style=dashed];
+	c3662:p -> c3664:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag NAVASSOC net.chrissearle.flickrvote.web.model.Image
-	c2670:p -> c2663:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3669:p -> c3662:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.web.taglib.FancyboxImageTag NAVASSOC net.chrissearle.flickrvote.web.model.Image
+	c3670:p -> c3662:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag DEPEND net.chrissearle.flickrvote.web.model.Image
-	c2670:p -> c2663:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3669:p -> c3662:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.web.taglib.FancyboxImageTag DEPEND net.chrissearle.flickrvote.web.model.Image
+	c3670:p -> c3662:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

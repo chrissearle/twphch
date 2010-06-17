@@ -9,7 +9,7 @@
 <div id="overview"><a href="../../../../../../../apidocs/net/chrissearle/flickrvote/web/taglib/ImageTag.html">View Javadoc</a></div><pre>
 
 <a name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
-<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2009 Chris Searle</em>
+<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2010 Chris Searle</em>
 <a name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
 <a name="4" href="#4">4</a>   <em class="jxr_comment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a name="5" href="#5">5</a>   <em class="jxr_comment"> *    you may not use this file except in compliance with the License.</em>
@@ -27,18 +27,18 @@
 <a name="17" href="#17">17</a>  <strong class="jxr_keyword">package</strong> net.chrissearle.flickrvote.web.taglib;
 <a name="18" href="#18">18</a>  
 <a name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> net.chrissearle.flickrvote.web.model.Image;
-<a name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> org.apache.log4j.Level;
-<a name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> org.apache.log4j.Logger;
-<a name="22" href="#22">22</a>  
-<a name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.JspException;
-<a name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.JspWriter;
-<a name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.tagext.TagSupport;
-<a name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a name="20" href="#20">20</a>  
+<a name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.JspException;
+<a name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.JspWriter;
+<a name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> javax.servlet.jsp.tagext.TagSupport;
+<a name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Level;
+<a name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> java.util.logging.Logger;
 <a name="27" href="#27">27</a>  
 <a name="28" href="#28">28</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../net/chrissearle/flickrvote/web/taglib/ImageTag.html">ImageTag</a> <strong class="jxr_keyword">extends</strong> TagSupport {
 <a name="29" href="#29">29</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> serialVersionUID = -3442973149583766220L;
 <a name="30" href="#30">30</a>  
-<a name="31" href="#31">31</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">transient</strong> Logger logger = Logger.getLogger(ImageTag.<strong class="jxr_keyword">class</strong>);
+<a name="31" href="#31">31</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">transient</strong> Logger logger = Logger.getLogger(ImageTag.<strong class="jxr_keyword">class</strong>.getName());
 <a name="32" href="#32">32</a>  
 <a name="33" href="#33">33</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../net/chrissearle/flickrvote/web/model/Image.html">Image</a> image;
 <a name="34" href="#34">34</a>      <strong class="jxr_keyword">private</strong> Boolean showBadge = <strong class="jxr_keyword">true</strong>;
@@ -103,8 +103,8 @@
 <a name="93" href="#93">93</a>  
 <a name="94" href="#94">94</a>              out.print(text.toString());
 <a name="95" href="#95">95</a>          } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a name="96" href="#96">96</a>              <strong class="jxr_keyword">if</strong> (logger.isEnabledFor(Level.WARN)) {
-<a name="97" href="#97">97</a>                  logger.warn(<span class="jxr_string">"Unable to generate image"</span>, e);
+<a name="96" href="#96">96</a>              <strong class="jxr_keyword">if</strong> (logger.isLoggable(Level.WARNING)) {
+<a name="97" href="#97">97</a>                  logger.warning(<span class="jxr_string">"Unable to generate image: "</span> + e.getMessage());
 <a name="98" href="#98">98</a>              }
 <a name="99" href="#99">99</a>          }
 <a name="100" href="#100">100</a> 

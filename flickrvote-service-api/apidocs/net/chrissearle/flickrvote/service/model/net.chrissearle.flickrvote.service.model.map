@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="c37" href="./Status.html" title="&lt;TABLE&gt;" alt="" coords="16,11,131,50"/>
+<area shape="rect" id="c38" href="./PhotographerItem.html" title="&lt;TABLE&gt;" alt="" coords="176,11,312,50"/>
+<area shape="rect" id="c39" href="./ImageItemStatus.html" title="&lt;TABLE&gt;" alt="" coords="357,11,488,50"/>
+<area shape="rect" id="c40" href="./ImageItems.html" title="&lt;TABLE&gt;" alt="" coords="533,19,627,43"/>
+<area shape="rect" id="c41" href="./ImageItem.html" title="&lt;TABLE&gt;" alt="" coords="534,110,626,149"/>
+<area shape="rect" id="c42" href="./ChallengeType.html" title="&lt;TABLE&gt;" alt="" coords="672,11,787,50"/>
+<area shape="rect" id="c43" href="./ChallengeSummary.html" title="&lt;TABLE&gt;" alt="" coords="831,11,974,50"/>
+<area shape="rect" id="c44" href="./ChallengeItem.html" title="&lt;TABLE&gt;" alt="" coords="1018,11,1131,50"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="c0" href="./ShowAccountAction.html" title="&lt;TABLE&gt;" alt="" coords="15,17,163,41"/>
+<area shape="rect" id="c1" href="./RefreshFromFlickrAction.html" title="&lt;TABLE&gt;" alt="" coords="207,17,387,41"/>
+<area shape="rect" id="c2" href="./MyPicsAction.html" title="&lt;TABLE&gt;" alt="" coords="431,17,537,41"/>
+<area shape="rect" id="c3" href="./GetPhotoAction.html" title="&lt;TABLE&gt;" alt="" coords="581,17,704,41"/>
+<area shape="rect" id="c4" href="./CheckImageAction.html" title="&lt;TABLE&gt;" alt="" coords="749,17,888,41"/>
+<area shape="rect" id="c5" href="./AccountAction.html" title="&lt;TABLE&gt;" alt="" coords="933,17,1046,41"/>
+</map>

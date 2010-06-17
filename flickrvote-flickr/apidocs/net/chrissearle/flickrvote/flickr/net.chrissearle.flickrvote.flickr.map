@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c0" href="./UserDAO.html" title="&lt;TABLE&gt;" alt="" coords="15,11,107,50"/>
+<area shape="rect" id="c1" href="./ImageTagSearchDAO.html" title="&lt;TABLE&gt;" alt="" coords="151,11,305,50"/>
+<area shape="rect" id="c2" href="./ImageDAO.html" title="&lt;TABLE&gt;" alt="" coords="349,11,441,50"/>
+<area shape="rect" id="c3" href="./FlickrStatusCheckService.html" title="&lt;TABLE&gt;" alt="" coords="485,11,669,50"/>
+<area shape="rect" id="c4" href="./FlickrServiceException.html" title="&lt;TABLE&gt;" alt="" coords="715,19,880,43"/>
+<area shape="rect" id="c5" href="./FlickrLoginService.html" title="&lt;TABLE&gt;" alt="" coords="925,11,1062,50"/>
+<area shape="rect" id="c6" href="./CommentDAO.html" title="&lt;TABLE&gt;" alt="" coords="1107,11,1216,50"/>
+</map>

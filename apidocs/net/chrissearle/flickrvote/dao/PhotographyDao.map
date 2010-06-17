@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="../model/Photographer.html" alt="" coords="80,302,109,337" />
-<area shape="rect" href="./JpaPhotographyDao.html" alt="" coords="156,212,180,236" />
-<area shape="rect" href="../service/DaoPhotographyService.html" alt="" coords="29,14,58,49" />
-<area shape="rect" href="../service/DaoChallengeService.html" alt="" coords="125,14,154,49" />
-</map>

@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="c0" href="./WinnerService.html" title="&lt;TABLE&gt;" alt="" coords="15,11,126,50"/>
+<area shape="rect" id="c1" href="./TagSearchService.html" title="&lt;TABLE&gt;" alt="" coords="170,11,305,50"/>
+<area shape="rect" id="c2" href="./StatusCheckService.html" title="&lt;TABLE&gt;" alt="" coords="349,11,499,50"/>
+<area shape="rect" id="c3" href="./ShortUrlService.html" title="&lt;TABLE&gt;" alt="" coords="543,11,665,50"/>
+<area shape="rect" id="c4" href="./ServiceException.html" title="&lt;TABLE&gt;" alt="" coords="709,19,840,43"/>
+<area shape="rect" id="c5" href="./PhotographyService.html" title="&lt;TABLE&gt;" alt="" coords="885,11,1033,50"/>
+<area shape="rect" id="c6" href="./PeriodicService.html" title="&lt;TABLE&gt;" alt="" coords="1077,11,1195,50"/>
+<area shape="rect" id="c7" href="./ChartService.html" title="&lt;TABLE&gt;" alt="" coords="1240,11,1341,50"/>
+<area shape="rect" id="c8" href="./ChallengeSummaryService.html" title="&lt;TABLE&gt;" alt="" coords="1386,11,1577,50"/>
+<area shape="rect" id="c9" href="./ChallengeService.html" title="&lt;TABLE&gt;" alt="" coords="1621,11,1752,50"/>
+<area shape="rect" id="c10" href="./ChallengeMessageService.html" title="&lt;TABLE&gt;" alt="" coords="1797,11,1984,50"/>
+<area shape="rect" id="c11" href="./AdministratorService.html" title="&lt;TABLE&gt;" alt="" coords="2029,11,2185,50"/>
+</map>

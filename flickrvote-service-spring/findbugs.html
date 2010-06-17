@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-10-25
+             Last Published: 2010-06-17
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -109,6 +109,12 @@
             
       
             
+      
+            
+      
+            
+      
+            
             
             
       
@@ -130,6 +136,10 @@
                   <ul>
                   
     <li class="none">
+                    <a href="changelog.html">Change Log</a>
+          </li>
+                  
+    <li class="none">
                     <a href="checkstyle.html">Checkstyle</a>
           </li>
                   
@@ -139,6 +149,14 @@
                   
     <li class="none">
                     <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dev-activity.html">Developer Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="file-activity.html">File Activity</a>
           </li>
                   
     <li class="none">
@@ -209,8 +227,8 @@
 <th>Errors</th>
 <th>Missing Classes</th>
 </tr>
-<tr class="b"><td>151</td>
-<td>6</td>
+<tr class="b"><td>156</td>
+<td>8</td>
 <td>0</td>
 <td>0</td>
 </tr>
@@ -230,6 +248,12 @@
 <td>1</td>
 </tr>
 <tr class="a"><td><a href="#net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount">net.chrissearle.flickrvote.service.Comparators$ImageSortByFinalVoteCount</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.service.DaoPhotographyService">net.chrissearle.flickrvote.service.DaoPhotographyService</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.service.DaoWinnerService$1">net.chrissearle.flickrvote.service.DaoWinnerService$1</a></td>
 <td>1</td>
 </tr>
 <tr class="b"><td><a href="#net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService">net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</a></td>
@@ -300,6 +324,36 @@
 </tr>
 </table>
 </div>
+<a name="net.chrissearle.flickrvote.service.DaoPhotographyService"></a><div class="section"><h3>net.chrissearle.flickrvote.service.DaoPhotographyService</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Redundant nullcheck of photographerCheckId, which is known to be non-null in net.chrissearle.flickrvote.service.DaoPhotographyService.retrieveAndStoreImage(String, String, boolean, String)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" class="externalLink">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/DaoPhotographyService.html#291">291</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
+<a name="net.chrissearle.flickrvote.service.DaoWinnerService1"></a><div class="section"><h3>net.chrissearle.flickrvote.service.DaoWinnerService$1</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>The class net.chrissearle.flickrvote.service.DaoWinnerService$1 could be refactored into a named _static_ inner class</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC_ANON" class="externalLink">SIC_INNER_SHOULD_BE_STATIC_ANON</a></td>
+<td><a href="./xref/net/chrissearle/flickrvote/service/DaoWinnerService.html#59">59-61</a></td>
+<td>Low</td>
+</tr>
+</table>
+</div>
 <a name="net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService"></a><div class="section"><h3>net.chrissearle.flickrvote.service.MessageSourceChallengeMessageService</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
@@ -338,7 +392,7 @@
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2007-2009
+          2007-2010
     
           
   

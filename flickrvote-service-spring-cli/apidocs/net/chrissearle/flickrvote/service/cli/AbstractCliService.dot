@@ -14,15 +14,9 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.cli.PhotographerChartCli
-	c51 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerChartCli.html">
+	c52 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerChartCli.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PhotographerChartCli </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.service.cli.PdfReportCli
-	c52 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PdfReportCli.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> PdfReportCli </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.cli.ChallengeChartCli
@@ -46,8 +40,6 @@ digraph G {
 	//net.chrissearle.flickrvote.service.cli.VotingChartCli extends net.chrissearle.flickrvote.service.cli.AbstractCliService
 	c55:p -> c50:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.service.cli.PhotographerChartCli extends net.chrissearle.flickrvote.service.cli.AbstractCliService
-	c55:p -> c51:p [dir=back,arrowtail=empty];
-	//net.chrissearle.flickrvote.service.cli.PdfReportCli extends net.chrissearle.flickrvote.service.cli.AbstractCliService
 	c55:p -> c52:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.service.cli.ChallengeChartCli extends net.chrissearle.flickrvote.service.cli.AbstractCliService
 	c55:p -> c53:p [dir=back,arrowtail=empty];

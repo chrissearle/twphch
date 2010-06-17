@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-10-25
+             Last Published: 2010-06-17
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -113,6 +113,12 @@
             
       
             
+      
+            
+      
+            
+      
+            
             
             
       
@@ -128,6 +134,10 @@
                   <ul>
                   
     <li class="none">
+                    <a href="changelog.html">Change Log</a>
+          </li>
+                  
+    <li class="none">
                     <a href="checkstyle.html">Checkstyle</a>
           </li>
                   
@@ -137,6 +147,14 @@
                   
     <li class="none">
                     <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dev-activity.html">Developer Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="file-activity.html">File Activity</a>
           </li>
                   
     <li class="none">
@@ -211,25 +229,25 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>V</th>
 </tr>
 <tr class="b"><td><a href="#net.chrissearle.flickrvote.service">net.chrissearle.flickrvote.service</a></td>
-<td>6</td>
+<td>12</td>
+<td>1</td>
+<td>11</td>
 <td>0</td>
-<td>6</td>
-<td>0</td>
-<td>5</td>
+<td>4</td>
+<td>92.0%</td>
 <td>100.0%</td>
-<td>100.0%</td>
-<td>100.0%</td>
+<td>92.0%</td>
 <td>1</td>
 </tr>
 <tr class="a"><td><a href="#net.chrissearle.flickrvote.service.model">net.chrissearle.flickrvote.service.model</a></td>
-<td>7</td>
-<td>2</td>
+<td>10</td>
+<td>5</td>
 <td>5</td>
 <td>2</td>
 <td>3</td>
-<td>71.0%</td>
+<td>50.0%</td>
 <td>60.000004%</td>
-<td>31.0%</td>
+<td>10.0%</td>
 <td>1</td>
 </tr>
 <tr class="b"><td><a href="#net.chrissearle.flickrvote.service.model.impl">net.chrissearle.flickrvote.service.model.impl</a></td>
@@ -254,10 +272,10 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>Distance</th>
 </tr>
 <tr class="b"><td>0</td>
-<td>5</td>
+<td>4</td>
+<td>92.0%</td>
 <td>100.0%</td>
-<td>100.0%</td>
-<td>100.0%</td>
+<td>92.0%</td>
 </tr>
 </table>
 <table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
@@ -265,17 +283,22 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>Used by Packages</th>
 <th>Uses Packages</th>
 </tr>
-<tr class="b"><td>net.chrissearle.flickrvote.service.ChallengeMessageService<br />
+<tr class="b"><td>net.chrissearle.flickrvote.service.AdministratorService<br />
+net.chrissearle.flickrvote.service.ChallengeMessageService<br />
 net.chrissearle.flickrvote.service.ChallengeService<br />
+net.chrissearle.flickrvote.service.ChallengeSummaryService<br />
 net.chrissearle.flickrvote.service.ChartService<br />
+net.chrissearle.flickrvote.service.PeriodicService<br />
 net.chrissearle.flickrvote.service.PhotographyService<br />
-net.chrissearle.flickrvote.service.ReportService<br />
 net.chrissearle.flickrvote.service.ShortUrlService<br />
+net.chrissearle.flickrvote.service.StatusCheckService<br />
+net.chrissearle.flickrvote.service.TagSearchService<br />
+net.chrissearle.flickrvote.service.WinnerService<br />
+</td>
+<td>net.chrissearle.flickrvote.service.ServiceException<br />
 </td>
 <td><i>None</i></td>
-<td><i>None</i></td>
 <td>java.lang<br />
-java.net<br />
 java.util<br />
 net.chrissearle.flickrvote.service.model<br />
 org.jfree.chart<br />
@@ -291,9 +314,9 @@ org.jfree.chart<br />
 </tr>
 <tr class="b"><td>2</td>
 <td>3</td>
-<td>71.0%</td>
+<td>50.0%</td>
 <td>60.000004%</td>
-<td>31.0%</td>
+<td>10.0%</td>
 </tr>
 </table>
 <table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
@@ -308,6 +331,9 @@ net.chrissearle.flickrvote.service.model.ImageItemStatus<br />
 net.chrissearle.flickrvote.service.model.PhotographerItem<br />
 </td>
 <td>net.chrissearle.flickrvote.service.model.ChallengeType<br />
+net.chrissearle.flickrvote.service.model.ImageItems<br />
+net.chrissearle.flickrvote.service.model.ImageItems$1<br />
+net.chrissearle.flickrvote.service.model.ImageItems$ImagesUniquePhotographer<br />
 net.chrissearle.flickrvote.service.model.Status<br />
 </td>
 <td>net.chrissearle.flickrvote.service<br />
@@ -350,7 +376,7 @@ net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance<br />
 <td><i>None</i></td>
 <td>java.lang<br />
 java.util<br />
-net.chrissearle.flickrvote.flickr<br />
+net.chrissearle.flickrvote.flickr.model<br />
 net.chrissearle.flickrvote.model<br />
 net.chrissearle.flickrvote.service.model<br />
 </td>
@@ -399,7 +425,7 @@ The following explanations are for quick reference and are lifted directly from 
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2007-2009
+          2007-2010
     
           
   

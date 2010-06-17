@@ -8,24 +8,24 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.dao.JpaImageDao
-	c38 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JpaImageDao.html">
+	c33 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JpaImageDao.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> JpaImageDao </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.dao.JpaImageDao extends net.chrissearle.common.jpa.JpaDao<java.lang.String, net.chrissearle.flickrvote.model.Image>
-	c40:p -> c38:p [dir=back,arrowtail=empty];
+	c35:p -> c33:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.dao.JpaImageDao implements net.chrissearle.flickrvote.dao.ImageDao
-	c41:p -> c38:p [dir=back,arrowtail=empty,style=dashed];
+	c36:p -> c33:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.common.jpa.JpaDao<K, E>
-	c40 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c35 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> JpaDao&lt;K, E&gt; </font></td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.common.jpa </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.dao.ImageDao
-	c41 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c36 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageDao </td></tr>

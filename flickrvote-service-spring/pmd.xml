@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2009-10-25T16:36:26.818">
-<file name="/Users/chris/src/twphch/flickrvote/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/ITextReportService.java">
-<violation beginline="48" endline="48" begincolumn="26" endcolumn="37" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" variable="chartService" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'chartService'.
+<pmd version="4.2.2" timestamp="2010-06-17T10:22:25.034">
+<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/DaoAdministratorService.java">
+<violation beginline="21" endline="21" begincolumn="1" endcolumn="63" rule="ImportFromSamePackage" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
 </violation>
-<violation beginline="96" endline="100" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/DaoChallengeSummaryService.java">
+<violation beginline="28" endline="28" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
 </violation>
-<violation beginline="97" endline="99" begincolumn="21" endcolumn="21" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="net.chrissearle.flickrvote.service" class="ITextReportService" method="generateHistoryReport" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/MessageSourceChallengeMessageService.java">
+<violation beginline="22" endline="22" begincolumn="1" endcolumn="55" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.service.model.Status'
+</violation>
+<violation beginline="31" endline="31" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.service" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.Date'
 </violation>
 </file>
 </pmd>

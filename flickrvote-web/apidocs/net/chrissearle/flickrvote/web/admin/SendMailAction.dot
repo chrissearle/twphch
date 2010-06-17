@@ -8,28 +8,28 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.admin.SendMailAction
-	c992 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SendMailAction.html">
+	c1374 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SendMailAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> SendMailAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.admin.SendMailAction extends com.opensymphony.xwork2.ActionSupport
-	c1036:p -> c992:p [dir=back,arrowtail=empty];
+	c1425:p -> c1374:p [dir=back,arrowtail=empty];
 	// net.chrissearle.flickrvote.web.admin.SendMailAction NAVASSOC net.chrissearle.mail.SimpleMailService
-	c992:p -> c1037:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1374:p -> c1426:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// com.opensymphony.xwork2.ActionSupport
+	c1425 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> ActionSupport </td></tr>
+			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.mail.SimpleMailService
-	c1037 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c1426 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SimpleMailService </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.mail </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// com.opensymphony.xwork2.ActionSupport
-	c1036 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> ActionSupport </td></tr>
-			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

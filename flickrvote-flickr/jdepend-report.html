@@ -49,7 +49,7 @@
             
   
     
-             Last Published: 2009-10-25
+             Last Published: 2010-06-17
               &nbsp;| Version: 1-SNAPSHOT
             </div>
       <div class="clear">
@@ -113,6 +113,12 @@
             
       
             
+      
+            
+      
+            
+      
+            
             
             
       
@@ -130,6 +136,10 @@
                   <ul>
                   
     <li class="none">
+                    <a href="changelog.html">Change Log</a>
+          </li>
+                  
+    <li class="none">
                     <a href="checkstyle.html">Checkstyle</a>
           </li>
                   
@@ -139,6 +149,14 @@
                   
     <li class="none">
                     <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dev-activity.html">Developer Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="file-activity.html">File Activity</a>
           </li>
                   
     <li class="none">
@@ -217,14 +235,36 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>V</th>
 </tr>
 <tr class="b"><td><a href="#net.chrissearle.flickrvote.flickr">net.chrissearle.flickrvote.flickr</a></td>
-<td>8</td>
 <td>7</td>
 <td>1</td>
+<td>6</td>
+<td>1</td>
+<td>4</td>
+<td>86.0%</td>
+<td>80.0%</td>
+<td>66.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#net.chrissearle.flickrvote.flickr.impl">net.chrissearle.flickrvote.flickr.impl</a></td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
 <td>0</td>
-<td>12</td>
-<td>12.0%</td>
+<td>13</td>
+<td>14.0%</td>
 <td>100.0%</td>
-<td>12.0%</td>
+<td>14.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#net.chrissearle.flickrvote.flickr.model">net.chrissearle.flickrvote.flickr.model</a></td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>0.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
 <td>1</td>
 </tr>
 </table>
@@ -237,11 +277,11 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>Instability</th>
 <th>Distance</th>
 </tr>
-<tr class="b"><td>0</td>
-<td>12</td>
-<td>12.0%</td>
-<td>100.0%</td>
-<td>12.0%</td>
+<tr class="b"><td>1</td>
+<td>4</td>
+<td>86.0%</td>
+<td>80.0%</td>
+<td>66.0%</td>
 </tr>
 </table>
 <table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
@@ -249,15 +289,51 @@ The following document contains the results of a JDepend metric analysis. The va
 <th>Used by Packages</th>
 <th>Uses Packages</th>
 </tr>
-<tr class="b"><td>net.chrissearle.flickrvote.flickr.FlickrService<br />
+<tr class="b"><td>net.chrissearle.flickrvote.flickr.CommentDAO<br />
+net.chrissearle.flickrvote.flickr.FlickrLoginService<br />
+net.chrissearle.flickrvote.flickr.FlickrStatusCheckService<br />
+net.chrissearle.flickrvote.flickr.ImageDAO<br />
+net.chrissearle.flickrvote.flickr.ImageTagSearchDAO<br />
+net.chrissearle.flickrvote.flickr.UserDAO<br />
 </td>
-<td>net.chrissearle.flickrvote.flickr.FlickrAdminAuthTokenHolder<br />
-net.chrissearle.flickrvote.flickr.FlickrImage<br />
-net.chrissearle.flickrvote.flickr.FlickrImageStatus<br />
-net.chrissearle.flickrvote.flickr.FlickrImageStatus$ImageStatus<br />
-net.chrissearle.flickrvote.flickr.FlickrJFlickrService<br />
-net.chrissearle.flickrvote.flickr.FlickrPhotographer<br />
-net.chrissearle.flickrvote.flickr.FlickrServiceException<br />
+<td>net.chrissearle.flickrvote.flickr.FlickrServiceException<br />
+</td>
+<td>net.chrissearle.flickrvote.flickr.impl<br />
+</td>
+<td>java.lang<br />
+java.net<br />
+java.util<br />
+net.chrissearle.flickrvote.flickr.model<br />
+</td>
+</tr>
+</table>
+<a name="net.chrissearle.flickrvote.flickr.impl"></a><h3>net.chrissearle.flickrvote.flickr.impl</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>13</td>
+<td>14.0%</td>
+<td>100.0%</td>
+<td>14.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>net.chrissearle.flickrvote.flickr.impl.AbstractFlickrJImageSupport<br />
+</td>
+<td>net.chrissearle.flickrvote.flickr.impl.FlickrJCommentDAO<br />
+net.chrissearle.flickrvote.flickr.impl.FlickrJImageDAO<br />
+net.chrissearle.flickrvote.flickr.impl.FlickrJImageTagSearchDAO<br />
+net.chrissearle.flickrvote.flickr.impl.FlickrJLoginService<br />
+net.chrissearle.flickrvote.flickr.impl.FlickrJStatusCheckService<br />
+net.chrissearle.flickrvote.flickr.impl.FlickrJUserDAO<br />
 </td>
 <td><i>None</i></td>
 <td>com.aetrion.flickr<br />
@@ -269,9 +345,44 @@ java.io<br />
 java.lang<br />
 java.net<br />
 java.util<br />
-net.chrissearle.mail<br />
-org.apache.log4j<br />
+java.util.logging<br />
+net.chrissearle.flickrvote.flickr<br />
+net.chrissearle.flickrvote.flickr.model<br />
 org.xml.sax<br />
+</td>
+</tr>
+</table>
+<a name="net.chrissearle.flickrvote.flickr.model"></a><h3>net.chrissearle.flickrvote.flickr.model</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>2</td>
+<td>0.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i></td>
+<td>net.chrissearle.flickrvote.flickr.model.FlickrImage<br />
+net.chrissearle.flickrvote.flickr.model.FlickrImageStatus<br />
+net.chrissearle.flickrvote.flickr.model.FlickrImageStatus$ImageStatus<br />
+net.chrissearle.flickrvote.flickr.model.FlickrImages<br />
+net.chrissearle.flickrvote.flickr.model.FlickrPhotographer<br />
+</td>
+<td>net.chrissearle.flickrvote.flickr<br />
+net.chrissearle.flickrvote.flickr.impl<br />
+</td>
+<td>java.lang<br />
+java.util<br />
 </td>
 </tr>
 </table>
@@ -318,7 +429,7 @@ The following explanations are for quick reference and are lifted directly from 
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2007-2009
+          2007-2010
     
           
   

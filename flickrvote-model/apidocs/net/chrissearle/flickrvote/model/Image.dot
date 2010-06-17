@@ -47,5 +47,7 @@ digraph G {
 	c28:p -> c26:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Image
 	c30:p -> c28:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Photographer
+	c30:p -> c27:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

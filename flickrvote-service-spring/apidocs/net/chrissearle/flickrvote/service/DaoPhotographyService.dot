@@ -8,125 +8,146 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService
-	c234 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DaoPhotographyService.html">
+	c245 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DaoPhotographyService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DaoPhotographyService </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.DaoPhotographyService implements net.chrissearle.flickrvote.service.PhotographyService
-	c238:p -> c234:p [dir=back,arrowtail=empty,style=dashed];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC org.apache.log4j.Logger
-	c234:p -> c239:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c252:p -> c245:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.dao.PhotographyDao
-	c234:p -> c241:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c245:p -> c253:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.dao.ChallengeDao
-	c234:p -> c243:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c245:p -> c254:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.dao.ImageDao
-	c234:p -> c244:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.flickr.FlickrService
-	c234:p -> c245:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.twitter.TwitterService
-	c234:p -> c246:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Photographer
-	c234:p -> c248:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.PhotographerItem
-	c234:p -> c250:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c245:p -> c255:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.flickr.ImageDAO
+	c245:p -> c257:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.flickr.ImageTagSearchDAO
+	c245:p -> c258:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.flickr.UserDAO
+	c245:p -> c259:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.spring.twitter.service.FollowService
+	c245:p -> c260:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService NAVASSOC net.chrissearle.flickrvote.flickr.FlickrLoginService
+	c245:p -> c262:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ChallengeItem
-	c234:p -> c251:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
-	c234:p -> c252:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c245:p -> c263:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Photographer
+	c245:p -> c264:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.model.Image
-	c234:p -> c253:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// net.chrissearle.flickrvote.twitter.TwitterService
-	c246 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c245:p -> c265:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.ImageItem
+	c245:p -> c266:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.service.DaoPhotographyService DEPEND net.chrissearle.flickrvote.service.model.PhotographerItem
+	c245:p -> c268:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.flickr.UserDAO
+	c259 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> TwitterService </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.twitter </font></td></tr>
+			<tr><td> UserDAO </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.flickr </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Image
-	c253 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c265 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Image </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.flickr.FlickrService
-	c245 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// net.chrissearle.flickrvote.flickr.ImageTagSearchDAO
+	c258 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> FlickrService </td></tr>
+			<tr><td> ImageTagSearchDAO </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.flickr </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// org.apache.log4j.Logger
-	c239 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Logger </td></tr>
-			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.service.model.PhotographerItem
-	c250 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographerItem </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service.model </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.service.model.ChallengeItem
-	c251 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> ChallengeItem </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service.model </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.service.PhotographyService
-	c238 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographyService </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.model.Photographer
-	c248 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Photographer </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.model </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.dao.ChallengeDao
-	c243 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c254 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ChallengeDao </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.dao </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.dao.PhotographyDao
-	c241 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// net.chrissearle.flickrvote.flickr.ImageDAO
+	c257 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographyDao </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.dao </font></td></tr>
+			<tr><td> ImageDAO </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.flickr </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.spring.twitter.service.FollowService
+	c260 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> FollowService </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.spring.twitter.service </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.service.model.ChallengeItem
+	c263 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> ChallengeItem </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.ImageItem
-	c252 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c266 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageItem </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.flickr.FlickrLoginService
+	c262 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> FlickrLoginService </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.flickr </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.service.PhotographyService
+	c252 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> PhotographyService </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.service.model.PhotographerItem
+	c268 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> PhotographerItem </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service.model </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.dao.ImageDao
-	c244 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c255 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> ImageDao </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.dao </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.dao.PhotographyDao
+	c253 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> PhotographyDao </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.dao </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.model.Photographer
+	c264 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Photographer </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.model </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

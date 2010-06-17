@@ -8,38 +8,29 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.FlickrCallbackAction
-	c2338 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrCallbackAction.html">
+	c3087 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./FlickrCallbackAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrCallbackAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.FlickrCallbackAction implements org.apache.struts2.interceptor.SessionAware
-	c2358:p -> c2338:p [dir=back,arrowtail=empty,style=dashed];
-	// net.chrissearle.flickrvote.web.FlickrCallbackAction NAVASSOC org.apache.log4j.Logger
-	c2338:p -> c2359:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3112:p -> c3087:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.FlickrCallbackAction NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c2338:p -> c2360:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.chrissearle.flickrvote.service.PhotographyService
-	c2360 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographyService </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	c3087:p -> c3113:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// org.apache.struts2.interceptor.SessionAware
-	c2358 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c3112 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.struts2.interceptor </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// org.apache.log4j.Logger
-	c2359 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// net.chrissearle.flickrvote.service.PhotographyService
+	c3113 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Logger </td></tr>
-			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> PhotographyService </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="c3495" href="../account/ShowAccountAction.html" title="&lt;TABLE&gt;" alt="" coords="15,11,217,47"/>
+<area shape="rect" id="c3538" href="./Photographer.html" title="&lt;TABLE&gt;" alt="" coords="795,107,901,146"/>
+<area shape="rect" id="c3498" href="../account/GetPhotoAction.html" title="&lt;TABLE&gt;" alt="" coords="261,11,462,47"/>
+<area shape="rect" id="c3500" href="../account/AccountAction.html" title="&lt;TABLE&gt;" alt="" coords="506,11,707,47"/>
+<area shape="rect" id="c3503" href="../admin/ShowPhotographerImagesAction.html" title="&lt;TABLE&gt;" alt="" coords="1221,11,1449,47"/>
+<area shape="rect" id="c3542" href="./DisplayImage.html" title="&lt;TABLE&gt;" alt="" coords="1048,212,1152,236"/>
+<area shape="rect" id="c3509" href="../admin/PhotographerDataAction.html" title="&lt;TABLE&gt;" alt="" coords="752,11,944,47"/>
+<area shape="rect" id="c3541" href="./DisplayPhotographer.html" title="&lt;TABLE&gt;" alt="" coords="772,212,924,236"/>
+<area shape="rect" id="c3546" href="../taglib/PhotographerTag.html" title="&lt;TABLE&gt;" alt="" coords="989,11,1177,47"/>
+</map>

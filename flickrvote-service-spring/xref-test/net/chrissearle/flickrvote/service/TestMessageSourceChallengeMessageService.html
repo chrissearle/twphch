@@ -9,7 +9,7 @@
 <pre>
 
 <a name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
-<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2009 Chris Searle</em>
+<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2010 Chris Searle</em>
 <a name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
 <a name="4" href="#4">4</a>   <em class="jxr_comment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a name="5" href="#5">5</a>   <em class="jxr_comment"> *    you may not use this file except in compliance with the License.</em>
@@ -244,144 +244,140 @@
 <a name="234" href="#234">234</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetResultsForumSingle() {
 <a name="235" href="#235">235</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
 <a name="236" href="#236">236</a>         photographer.setId(<span class="jxr_string">"Test Photographer ID"</span>);
-<a name="237" href="#237">237</a>         photographer.setActiveFlag(false);
-<a name="238" href="#238">238</a>         photographer.setAdministratorFlag(false);
-<a name="239" href="#239">239</a>         photographer.setFullname(<span class="jxr_string">"Test Photographer"</span>);
-<a name="240" href="#240">240</a>         photographer.setUsername(<span class="jxr_string">"testPhotographer"</span>);
-<a name="241" href="#241">241</a>         photographer.setIconUrl(<span class="jxr_string">"http://iconUrl"</span>);
-<a name="242" href="#242">242</a>         photographer.setTwitter(<span class="jxr_string">"twitter"</span>);
-<a name="243" href="#243">243</a> 
-<a name="244" href="#244">244</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
-<a name="245" href="#245">245</a>         image.setVoteCount(43L);
-<a name="246" href="#246">246</a>         image.setPhotographer(photographer);
-<a name="247" href="#247">247</a>         image.setId(<span class="jxr_string">"TestImageId"</span>);
-<a name="248" href="#248">248</a>         image.setUrl(<span class="jxr_string">"http://test.image.home.page"</span>);
-<a name="249" href="#249">249</a>         image.setRank(1L);
-<a name="250" href="#250">250</a>         image.setTitle(<span class="jxr_string">"Test Image"</span>);
-<a name="251" href="#251">251</a>         image.setImageUrl(<span class="jxr_string">"http://test.image.picture.link"</span>);
-<a name="252" href="#252">252</a> 
-<a name="253" href="#253">253</a>         String message = challengeMessageService.getResultsForumSingle(image);
-<a name="254" href="#254">254</a> 
-<a name="255" href="#255">255</a>         System.out.println(message);
-<a name="256" href="#256">256</a> 
-<a name="257" href="#257">257</a>         assert message.contains(<span class="jxr_string">"stemmer"</span>) : <span class="jxr_string">"Message missing words"</span>;
-<a name="258" href="#258">258</a>         assert message.contains(<span class="jxr_string">"43"</span>) : <span class="jxr_string">"Message missing votes"</span>;
-<a name="259" href="#259">259</a>         assert message.contains(image.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer"</span>;
-<a name="260" href="#260">260</a>         assert message.contains(image.getTitle()) : <span class="jxr_string">"Message missing title"</span>;
-<a name="261" href="#261">261</a>         assert message.contains(image.getUrl()) : <span class="jxr_string">"Message missing home page"</span>;
-<a name="262" href="#262">262</a>         assert message.contains(image.getImageUrl()) : <span class="jxr_string">"Message missing picture link"</span>;
-<a name="263" href="#263">263</a>     }
-<a name="264" href="#264">264</a> 
-<a name="265" href="#265">265</a>     @Test
-<a name="266" href="#266">266</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetResultsForumText() {
-<a name="267" href="#267">267</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer1 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
-<a name="268" href="#268">268</a>         photographer1.setId(<span class="jxr_string">"Test Photographer ID 1"</span>);
-<a name="269" href="#269">269</a>         photographer1.setActiveFlag(false);
-<a name="270" href="#270">270</a>         photographer1.setAdministratorFlag(false);
-<a name="271" href="#271">271</a>         photographer1.setFullname(<span class="jxr_string">"Test Photographer 1"</span>);
-<a name="272" href="#272">272</a>         photographer1.setUsername(<span class="jxr_string">"testPhotographer1"</span>);
-<a name="273" href="#273">273</a>         photographer1.setIconUrl(<span class="jxr_string">"http://iconUrl1"</span>);
-<a name="274" href="#274">274</a>         photographer1.setTwitter(<span class="jxr_string">"twitter1"</span>);
-<a name="275" href="#275">275</a> 
-<a name="276" href="#276">276</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer2 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
-<a name="277" href="#277">277</a>         photographer2.setId(<span class="jxr_string">"Test Photographer ID 2"</span>);
-<a name="278" href="#278">278</a>         photographer2.setActiveFlag(false);
-<a name="279" href="#279">279</a>         photographer2.setAdministratorFlag(false);
-<a name="280" href="#280">280</a>         photographer2.setFullname(<span class="jxr_string">"Test Photographer 2"</span>);
-<a name="281" href="#281">281</a>         photographer2.setUsername(<span class="jxr_string">"testPhotographer2"</span>);
-<a name="282" href="#282">282</a>         photographer2.setIconUrl(<span class="jxr_string">"http://iconUrl2"</span>);
-<a name="283" href="#283">283</a>         photographer2.setTwitter(<span class="jxr_string">"twitter2"</span>);
-<a name="284" href="#284">284</a> 
-<a name="285" href="#285">285</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer3 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
-<a name="286" href="#286">286</a>         photographer3.setId(<span class="jxr_string">"Test Photographer ID 3"</span>);
-<a name="287" href="#287">287</a>         photographer3.setActiveFlag(false);
-<a name="288" href="#288">288</a>         photographer3.setAdministratorFlag(false);
-<a name="289" href="#289">289</a>         photographer3.setFullname(<span class="jxr_string">"Test Photographer 3"</span>);
-<a name="290" href="#290">290</a>         photographer3.setUsername(<span class="jxr_string">"testPhotographer3"</span>);
-<a name="291" href="#291">291</a>         photographer3.setIconUrl(<span class="jxr_string">"http://iconUrl3"</span>);
-<a name="292" href="#292">292</a>         photographer3.setTwitter(<span class="jxr_string">"twitter3"</span>);
-<a name="293" href="#293">293</a> 
-<a name="294" href="#294">294</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image1 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
-<a name="295" href="#295">295</a>         image1.setVoteCount(43L);
-<a name="296" href="#296">296</a>         image1.setPhotographer(photographer1);
-<a name="297" href="#297">297</a>         image1.setId(<span class="jxr_string">"TestImageId"</span>);
-<a name="298" href="#298">298</a>         image1.setUrl(<span class="jxr_string">"http://test.image.home.page"</span>);
-<a name="299" href="#299">299</a>         image1.setRank(1L);
-<a name="300" href="#300">300</a>         image1.setTitle(<span class="jxr_string">"Test Image 1"</span>);
-<a name="301" href="#301">301</a>         image1.setImageUrl(<span class="jxr_string">"http://test.image.picture.link"</span>);
-<a name="302" href="#302">302</a> 
-<a name="303" href="#303">303</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image2 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
-<a name="304" href="#304">304</a>         image2.setVoteCount(38L);
-<a name="305" href="#305">305</a>         image2.setPhotographer(photographer2);
-<a name="306" href="#306">306</a>         image2.setId(<span class="jxr_string">"TestImageId2"</span>);
-<a name="307" href="#307">307</a>         image2.setUrl(<span class="jxr_string">"http://test.image2.home.page"</span>);
-<a name="308" href="#308">308</a>         image2.setRank(2L);
-<a name="309" href="#309">309</a>         image2.setTitle(<span class="jxr_string">"Test Image 2"</span>);
-<a name="310" href="#310">310</a>         image2.setImageUrl(<span class="jxr_string">"http://test.image2.picture.link"</span>);
-<a name="311" href="#311">311</a> 
-<a name="312" href="#312">312</a> 
-<a name="313" href="#313">313</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image3 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
-<a name="314" href="#314">314</a>         image3.setVoteCount(27L);
-<a name="315" href="#315">315</a>         image3.setPhotographer(photographer3);
-<a name="316" href="#316">316</a>         image3.setId(<span class="jxr_string">"TestImageId3"</span>);
-<a name="317" href="#317">317</a>         image3.setUrl(<span class="jxr_string">"http://test.image3.home.page"</span>);
-<a name="318" href="#318">318</a>         image3.setRank(3L);
-<a name="319" href="#319">319</a>         image3.setTitle(<span class="jxr_string">"Test Image 3"</span>);
-<a name="320" href="#320">320</a>         image3.setImageUrl(<span class="jxr_string">"http://test.image3.picture.link"</span>);
-<a name="321" href="#321">321</a> 
-<a name="322" href="#322">322</a>         String message = challengeMessageService.getResultsForumText(challengeMessageService.getResultsUrl(challenge),
-<a name="323" href="#323">323</a>                 challengeMessageService.getResultsForumSingle(image1),
-<a name="324" href="#324">324</a>                 challengeMessageService.getResultsForumSingle(image2),
-<a name="325" href="#325">325</a>                 challengeMessageService.getResultsForumSingle(image3));
-<a name="326" href="#326">326</a> 
-<a name="327" href="#327">327</a>         System.out.println(message);
-<a name="328" href="#328">328</a> 
-<a name="329" href="#329">329</a>         assert message.contains(<span class="jxr_string">"Andre plass"</span>) : <span class="jxr_string">"Message missing words"</span>;
-<a name="330" href="#330">330</a>         assert message.contains(<span class="jxr_string">"43"</span>) : <span class="jxr_string">"Message missing votes"</span>;
-<a name="331" href="#331">331</a>         assert message.contains(<span class="jxr_string">"38"</span>) : <span class="jxr_string">"Message missing votes"</span>;
-<a name="332" href="#332">332</a>         assert message.contains(<span class="jxr_string">"27"</span>) : <span class="jxr_string">"Message missing votes"</span>;
-<a name="333" href="#333">333</a>         assert message.contains(image1.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 1"</span>;
-<a name="334" href="#334">334</a>         assert message.contains(image1.getTitle()) : <span class="jxr_string">"Message missing title 1"</span>;
-<a name="335" href="#335">335</a>         assert message.contains(image1.getUrl()) : <span class="jxr_string">"Message missing home page 1"</span>;
-<a name="336" href="#336">336</a>         assert message.contains(image1.getImageUrl()) : <span class="jxr_string">"Message missing picture link 1"</span>;
-<a name="337" href="#337">337</a>         assert message.contains(image2.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 2"</span>;
-<a name="338" href="#338">338</a>         assert message.contains(image2.getTitle()) : <span class="jxr_string">"Message missing title 2"</span>;
-<a name="339" href="#339">339</a>         assert message.contains(image2.getUrl()) : <span class="jxr_string">"Message missing home page 2"</span>;
-<a name="340" href="#340">340</a>         assert message.contains(image2.getImageUrl()) : <span class="jxr_string">"Message missing picture link 2"</span>;
-<a name="341" href="#341">341</a>         assert message.contains(image3.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 3"</span>;
-<a name="342" href="#342">342</a>         assert message.contains(image3.getTitle()) : <span class="jxr_string">"Message missing title 3"</span>;
-<a name="343" href="#343">343</a>         assert message.contains(image3.getUrl()) : <span class="jxr_string">"Message missing home page 3"</span>;
-<a name="344" href="#344">344</a>         assert message.contains(image3.getImageUrl()) : <span class="jxr_string">"Message missing picture link 3"</span>;
-<a name="345" href="#345">345</a>         assert message.contains(<span class="jxr_string">"http"</span>) : <span class="jxr_string">"Message missing link"</span>;
-<a name="346" href="#346">346</a>         assert !resultsUrl.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message link was shortened"</span>;
-<a name="347" href="#347">347</a>     }
+<a name="237" href="#237">237</a>         photographer.setAdministratorFlag(false);
+<a name="238" href="#238">238</a>         photographer.setFullname(<span class="jxr_string">"Test Photographer"</span>);
+<a name="239" href="#239">239</a>         photographer.setUsername(<span class="jxr_string">"testPhotographer"</span>);
+<a name="240" href="#240">240</a>         photographer.setIconUrl(<span class="jxr_string">"http://iconUrl"</span>);
+<a name="241" href="#241">241</a>         photographer.setTwitter(<span class="jxr_string">"twitter"</span>);
+<a name="242" href="#242">242</a> 
+<a name="243" href="#243">243</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
+<a name="244" href="#244">244</a>         image.setVoteCount(43L);
+<a name="245" href="#245">245</a>         image.setPhotographer(photographer);
+<a name="246" href="#246">246</a>         image.setId(<span class="jxr_string">"TestImageId"</span>);
+<a name="247" href="#247">247</a>         image.setUrl(<span class="jxr_string">"http://test.image.home.page"</span>);
+<a name="248" href="#248">248</a>         image.setRank(1L);
+<a name="249" href="#249">249</a>         image.setTitle(<span class="jxr_string">"Test Image"</span>);
+<a name="250" href="#250">250</a>         image.setImageUrl(<span class="jxr_string">"http://test.image.picture.link"</span>);
+<a name="251" href="#251">251</a> 
+<a name="252" href="#252">252</a>         String message = challengeMessageService.getResultsForumSingle(image);
+<a name="253" href="#253">253</a> 
+<a name="254" href="#254">254</a>         System.out.println(message);
+<a name="255" href="#255">255</a> 
+<a name="256" href="#256">256</a>         assert message.contains(<span class="jxr_string">"stemmer"</span>) : <span class="jxr_string">"Message missing words"</span>;
+<a name="257" href="#257">257</a>         assert message.contains(<span class="jxr_string">"43"</span>) : <span class="jxr_string">"Message missing votes"</span>;
+<a name="258" href="#258">258</a>         assert message.contains(image.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer"</span>;
+<a name="259" href="#259">259</a>         assert message.contains(image.getTitle()) : <span class="jxr_string">"Message missing title"</span>;
+<a name="260" href="#260">260</a>         assert message.contains(image.getUrl()) : <span class="jxr_string">"Message missing home page"</span>;
+<a name="261" href="#261">261</a>         assert message.contains(image.getImageUrl()) : <span class="jxr_string">"Message missing picture link"</span>;
+<a name="262" href="#262">262</a>     }
+<a name="263" href="#263">263</a> 
+<a name="264" href="#264">264</a>     @Test
+<a name="265" href="#265">265</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetResultsForumText() {
+<a name="266" href="#266">266</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer1 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
+<a name="267" href="#267">267</a>         photographer1.setId(<span class="jxr_string">"Test Photographer ID 1"</span>);
+<a name="268" href="#268">268</a>         photographer1.setAdministratorFlag(false);
+<a name="269" href="#269">269</a>         photographer1.setFullname(<span class="jxr_string">"Test Photographer 1"</span>);
+<a name="270" href="#270">270</a>         photographer1.setUsername(<span class="jxr_string">"testPhotographer1"</span>);
+<a name="271" href="#271">271</a>         photographer1.setIconUrl(<span class="jxr_string">"http://iconUrl1"</span>);
+<a name="272" href="#272">272</a>         photographer1.setTwitter(<span class="jxr_string">"twitter1"</span>);
+<a name="273" href="#273">273</a> 
+<a name="274" href="#274">274</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer2 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
+<a name="275" href="#275">275</a>         photographer2.setId(<span class="jxr_string">"Test Photographer ID 2"</span>);
+<a name="276" href="#276">276</a>         photographer2.setAdministratorFlag(false);
+<a name="277" href="#277">277</a>         photographer2.setFullname(<span class="jxr_string">"Test Photographer 2"</span>);
+<a name="278" href="#278">278</a>         photographer2.setUsername(<span class="jxr_string">"testPhotographer2"</span>);
+<a name="279" href="#279">279</a>         photographer2.setIconUrl(<span class="jxr_string">"http://iconUrl2"</span>);
+<a name="280" href="#280">280</a>         photographer2.setTwitter(<span class="jxr_string">"twitter2"</span>);
+<a name="281" href="#281">281</a> 
+<a name="282" href="#282">282</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a> photographer3 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestPhotographerItem.html">TestPhotographerItem</a>();
+<a name="283" href="#283">283</a>         photographer3.setId(<span class="jxr_string">"Test Photographer ID 3"</span>);
+<a name="284" href="#284">284</a>         photographer3.setAdministratorFlag(false);
+<a name="285" href="#285">285</a>         photographer3.setFullname(<span class="jxr_string">"Test Photographer 3"</span>);
+<a name="286" href="#286">286</a>         photographer3.setUsername(<span class="jxr_string">"testPhotographer3"</span>);
+<a name="287" href="#287">287</a>         photographer3.setIconUrl(<span class="jxr_string">"http://iconUrl3"</span>);
+<a name="288" href="#288">288</a>         photographer3.setTwitter(<span class="jxr_string">"twitter3"</span>);
+<a name="289" href="#289">289</a> 
+<a name="290" href="#290">290</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image1 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
+<a name="291" href="#291">291</a>         image1.setVoteCount(43L);
+<a name="292" href="#292">292</a>         image1.setPhotographer(photographer1);
+<a name="293" href="#293">293</a>         image1.setId(<span class="jxr_string">"TestImageId"</span>);
+<a name="294" href="#294">294</a>         image1.setUrl(<span class="jxr_string">"http://test.image.home.page"</span>);
+<a name="295" href="#295">295</a>         image1.setRank(1L);
+<a name="296" href="#296">296</a>         image1.setTitle(<span class="jxr_string">"Test Image 1"</span>);
+<a name="297" href="#297">297</a>         image1.setImageUrl(<span class="jxr_string">"http://test.image.picture.link"</span>);
+<a name="298" href="#298">298</a> 
+<a name="299" href="#299">299</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image2 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
+<a name="300" href="#300">300</a>         image2.setVoteCount(38L);
+<a name="301" href="#301">301</a>         image2.setPhotographer(photographer2);
+<a name="302" href="#302">302</a>         image2.setId(<span class="jxr_string">"TestImageId2"</span>);
+<a name="303" href="#303">303</a>         image2.setUrl(<span class="jxr_string">"http://test.image2.home.page"</span>);
+<a name="304" href="#304">304</a>         image2.setRank(2L);
+<a name="305" href="#305">305</a>         image2.setTitle(<span class="jxr_string">"Test Image 2"</span>);
+<a name="306" href="#306">306</a>         image2.setImageUrl(<span class="jxr_string">"http://test.image2.picture.link"</span>);
+<a name="307" href="#307">307</a> 
+<a name="308" href="#308">308</a> 
+<a name="309" href="#309">309</a>         <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a> image3 = <strong class="jxr_keyword">new</strong> <a href="../../../../net/chrissearle/flickrvote/service/model/TestImageItem.html">TestImageItem</a>();
+<a name="310" href="#310">310</a>         image3.setVoteCount(27L);
+<a name="311" href="#311">311</a>         image3.setPhotographer(photographer3);
+<a name="312" href="#312">312</a>         image3.setId(<span class="jxr_string">"TestImageId3"</span>);
+<a name="313" href="#313">313</a>         image3.setUrl(<span class="jxr_string">"http://test.image3.home.page"</span>);
+<a name="314" href="#314">314</a>         image3.setRank(3L);
+<a name="315" href="#315">315</a>         image3.setTitle(<span class="jxr_string">"Test Image 3"</span>);
+<a name="316" href="#316">316</a>         image3.setImageUrl(<span class="jxr_string">"http://test.image3.picture.link"</span>);
+<a name="317" href="#317">317</a> 
+<a name="318" href="#318">318</a>         String message = challengeMessageService.getResultsForumText(challengeMessageService.getResultsUrl(challenge),
+<a name="319" href="#319">319</a>                 challengeMessageService.getResultsForumSingle(image1),
+<a name="320" href="#320">320</a>                 challengeMessageService.getResultsForumSingle(image2),
+<a name="321" href="#321">321</a>                 challengeMessageService.getResultsForumSingle(image3));
+<a name="322" href="#322">322</a> 
+<a name="323" href="#323">323</a>         System.out.println(message);
+<a name="324" href="#324">324</a> 
+<a name="325" href="#325">325</a>         assert message.contains(<span class="jxr_string">"Andre plass"</span>) : <span class="jxr_string">"Message missing words"</span>;
+<a name="326" href="#326">326</a>         assert message.contains(<span class="jxr_string">"43"</span>) : <span class="jxr_string">"Message missing votes"</span>;
+<a name="327" href="#327">327</a>         assert message.contains(<span class="jxr_string">"38"</span>) : <span class="jxr_string">"Message missing votes"</span>;
+<a name="328" href="#328">328</a>         assert message.contains(<span class="jxr_string">"27"</span>) : <span class="jxr_string">"Message missing votes"</span>;
+<a name="329" href="#329">329</a>         assert message.contains(image1.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 1"</span>;
+<a name="330" href="#330">330</a>         assert message.contains(image1.getTitle()) : <span class="jxr_string">"Message missing title 1"</span>;
+<a name="331" href="#331">331</a>         assert message.contains(image1.getUrl()) : <span class="jxr_string">"Message missing home page 1"</span>;
+<a name="332" href="#332">332</a>         assert message.contains(image1.getImageUrl()) : <span class="jxr_string">"Message missing picture link 1"</span>;
+<a name="333" href="#333">333</a>         assert message.contains(image2.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 2"</span>;
+<a name="334" href="#334">334</a>         assert message.contains(image2.getTitle()) : <span class="jxr_string">"Message missing title 2"</span>;
+<a name="335" href="#335">335</a>         assert message.contains(image2.getUrl()) : <span class="jxr_string">"Message missing home page 2"</span>;
+<a name="336" href="#336">336</a>         assert message.contains(image2.getImageUrl()) : <span class="jxr_string">"Message missing picture link 2"</span>;
+<a name="337" href="#337">337</a>         assert message.contains(image3.getPhotographer().getName()) : <span class="jxr_string">"Message missing photographer 3"</span>;
+<a name="338" href="#338">338</a>         assert message.contains(image3.getTitle()) : <span class="jxr_string">"Message missing title 3"</span>;
+<a name="339" href="#339">339</a>         assert message.contains(image3.getUrl()) : <span class="jxr_string">"Message missing home page 3"</span>;
+<a name="340" href="#340">340</a>         assert message.contains(image3.getImageUrl()) : <span class="jxr_string">"Message missing picture link 3"</span>;
+<a name="341" href="#341">341</a>         assert message.contains(<span class="jxr_string">"http"</span>) : <span class="jxr_string">"Message missing link"</span>;
+<a name="342" href="#342">342</a>         assert !resultsUrl.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message link was shortened"</span>;
+<a name="343" href="#343">343</a>     }
+<a name="344" href="#344">344</a> 
+<a name="345" href="#345">345</a>     @Test
+<a name="346" href="#346">346</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testVotingOpenWarning() {
+<a name="347" href="#347">347</a>         String message = challengeMessageService.getVotingOpenWarning(challenge);
 <a name="348" href="#348">348</a> 
-<a name="349" href="#349">349</a>     @Test
-<a name="350" href="#350">350</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testVotingOpenWarning() {
-<a name="351" href="#351">351</a>         String message = challengeMessageService.getVotingOpenWarning(challenge);
-<a name="352" href="#352">352</a> 
-<a name="353" href="#353">353</a>         System.out.println(message);
-<a name="354" href="#354">354</a> 
-<a name="355" href="#355">355</a>         assert message.contains(<span class="jxr_string">"Husk"</span>) : <span class="jxr_string">"Message started incorrectly"</span>;
-<a name="356" href="#356">356</a>         assert message.contains(<span class="jxr_string">"legge til bilde i"</span>) : <span class="jxr_string">"Message has wrong text"</span>;
-<a name="357" href="#357">357</a>         assert message.contains(challenge.getTag()) : <span class="jxr_string">"Message missing tag"</span>;
-<a name="358" href="#358">358</a>         assert message.contains(challenge.getTitle()) : <span class="jxr_string">"Message missing name"</span>;
-<a name="359" href="#359">359</a>         assert message.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message missing link"</span>;
-<a name="360" href="#360">360</a>     }
+<a name="349" href="#349">349</a>         System.out.println(message);
+<a name="350" href="#350">350</a> 
+<a name="351" href="#351">351</a>         assert message.contains(<span class="jxr_string">"Husk"</span>) : <span class="jxr_string">"Message started incorrectly"</span>;
+<a name="352" href="#352">352</a>         assert message.contains(<span class="jxr_string">"legge til bilde i"</span>) : <span class="jxr_string">"Message has wrong text"</span>;
+<a name="353" href="#353">353</a>         assert message.contains(challenge.getTag()) : <span class="jxr_string">"Message missing tag"</span>;
+<a name="354" href="#354">354</a>         assert message.contains(challenge.getTitle()) : <span class="jxr_string">"Message missing name"</span>;
+<a name="355" href="#355">355</a>         assert message.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message missing link"</span>;
+<a name="356" href="#356">356</a>     }
+<a name="357" href="#357">357</a> 
+<a name="358" href="#358">358</a>     @Test
+<a name="359" href="#359">359</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testVotingCloseWarning() {
+<a name="360" href="#360">360</a>         String message = challengeMessageService.getVotingCloseWarning(challenge);
 <a name="361" href="#361">361</a> 
-<a name="362" href="#362">362</a>     @Test
-<a name="363" href="#363">363</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testVotingCloseWarning() {
-<a name="364" href="#364">364</a>         String message = challengeMessageService.getVotingCloseWarning(challenge);
-<a name="365" href="#365">365</a> 
-<a name="366" href="#366">366</a>         System.out.println(message);
-<a name="367" href="#367">367</a> 
-<a name="368" href="#368">368</a>         assert message.contains(<span class="jxr_string">"Husk"</span>) : <span class="jxr_string">"Message started incorrectly"</span>;
-<a name="369" href="#369">369</a>         assert message.contains(<span class="jxr_string">"stemme i"</span>) : <span class="jxr_string">"Message has wrong text"</span>;
-<a name="370" href="#370">370</a>         assert message.contains(challenge.getTag()) : <span class="jxr_string">"Message missing tag"</span>;
-<a name="371" href="#371">371</a>         assert message.contains(challenge.getTitle()) : <span class="jxr_string">"Message missing name"</span>;
-<a name="372" href="#372">372</a>         assert message.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message missing link"</span>;
-<a name="373" href="#373">373</a>     }
-<a name="374" href="#374">374</a> }
+<a name="362" href="#362">362</a>         System.out.println(message);
+<a name="363" href="#363">363</a> 
+<a name="364" href="#364">364</a>         assert message.contains(<span class="jxr_string">"Husk"</span>) : <span class="jxr_string">"Message started incorrectly"</span>;
+<a name="365" href="#365">365</a>         assert message.contains(<span class="jxr_string">"stemme i"</span>) : <span class="jxr_string">"Message has wrong text"</span>;
+<a name="366" href="#366">366</a>         assert message.contains(challenge.getTag()) : <span class="jxr_string">"Message missing tag"</span>;
+<a name="367" href="#367">367</a>         assert message.contains(challenge.getTitle()) : <span class="jxr_string">"Message missing name"</span>;
+<a name="368" href="#368">368</a>         assert message.contains(<span class="jxr_string">"bit.ly"</span>) : <span class="jxr_string">"Message missing link"</span>;
+<a name="369" href="#369">369</a>     }
+<a name="370" href="#370">370</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

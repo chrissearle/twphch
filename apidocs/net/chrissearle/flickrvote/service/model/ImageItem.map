@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="../RankLabelGenerator.html" alt="" coords="29,206,58,241" />
-<area shape="rect" href="../MessageSourceChallengeMessageService.html" alt="" coords="268,206,305,241" />
-<area shape="rect" href="../ITextReportService.html" alt="" coords="308,14,337,49" />
-<area shape="rect" href="../DaoPhotographyService.html" alt="" coords="125,206,154,241" />
-<area shape="rect" href="./impl/ImageItemInstance.html" alt="" coords="304,398,341,433" />
-<area shape="rect" href="./impl/ImageItemStatusInstance.html" alt="" coords="465,206,502,241" />
-<area shape="rect" href="./impl/ChallengeItemInstance.html" alt="" coords="561,206,598,241" />
-</map>

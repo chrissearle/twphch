@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2009-10-25T16:40:40.190">
+<pmd version="4.2.2" timestamp="2010-06-17T10:30:23.502">
+<file name="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/FrontPageAction.java">
+<violation beginline="21" endline="21" begincolumn="1" endcolumn="58" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.web.admin" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.service.model.ImageItem'
+</violation>
+<violation beginline="22" endline="22" begincolumn="1" endcolumn="57" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.web.admin" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.web.model.DisplayImage'
+</violation>
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/SearchTagCheckAction.java">
+<violation beginline="21" endline="21" begincolumn="1" endcolumn="61" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.web.admin" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.service.PhotographyService'
+</violation>
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/SendTweetAction.java">
+<violation beginline="20" endline="20" begincolumn="1" endcolumn="42" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.web.admin" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.opensymphony.xwork2.Preparable'
+</violation>
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/TwitterOverviewAction.java">
+<violation beginline="33" endline="33" begincolumn="30" endcolumn="35" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="net.chrissearle.flickrvote.web.admin" class="TwitterOverviewAction" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'logger'.
+</violation>
+</file>
 </pmd>

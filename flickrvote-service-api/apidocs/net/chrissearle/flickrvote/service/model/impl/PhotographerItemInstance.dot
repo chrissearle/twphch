@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.service.model.PhotographerItem
-	c357 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../PhotographerItem.html">
+	c657 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../PhotographerItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PhotographerItem </td></tr>
@@ -16,12 +16,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance
-	c363 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PhotographerItemInstance.html">
+	c664 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PhotographerItemInstance.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PhotographerItemInstance </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.service.model.impl.PhotographerItemInstance implements net.chrissearle.flickrvote.service.model.PhotographerItem
-	c357:p -> c363:p [dir=back,arrowtail=empty,style=dashed];
+	c657:p -> c664:p [dir=back,arrowtail=empty,style=dashed];
 }
 

@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Twitter PhotoChallenge - Change Log Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Twitter Photo Challenge
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">      
+  
+
+  
+    
+            
+  
+    
+             Last Published: 2010-06-17
+              &nbsp;| Version: 1-SNAPSHOT
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Modules</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="flickrvote-model/index.html">Database model</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-flickr/index.html">Flickr interface</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-data-api/index.html">Database API</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-data-spring/index.html">Database Implementation (spring)</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-service-api/index.html">Service API</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-service-spring/index.html">Service Implementation (spring)</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-scheduler-spring/index.html">Scheduler</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-web/index.html">Web App</a>
+          </li>
+              
+    <li class="none">
+                    <a href="flickrvote-service-spring-cli/index.html">CLI (spring)</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+              <strong>Change Log</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dev-activity.html">Developer Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="file-activity.html">File Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Change Log Report</h2>
+<p>Total number of changed sets: 1</p>
+<div class="section"><h3>Changes between 2010-05-18 and 2010-06-18</h3>
+<p>Total commits: 17<br />
+Total number of files changed: 78</p>
+<table class="bodyTable"><tr class="a"><th>Timestamp</th>
+<th>Author</th>
+<th>Details</th>
+</tr>
+<tr class="b"><td>2010-06-16 20:58:37</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-service-api/src/main/java/net/chrissearle/flickrvote/service/model/impl/<b>ImageItemInstance.java</b> v 5d6918180c447f4cc44bc4b8a3f65c6ba4de6e6a<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoTagSearchService.java</b> v 5d6918180c447f4cc44bc4b8a3f65c6ba4de6e6a<br />
+<br />
+Use updated photographer data from database even for tag search results so that we get twitter account where available when displaying search results (current challenge)</td>
+</tr>
+<tr class="a"><td>2010-06-16 11:58:02</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/<b>CurrentChallengeAction.java</b> v ac58c72a3d1e8f639f5be7d2f86c10855417cf05<br />
+flickrvote-web/src/main/resources/<b>global_messages.properties</b> v ac58c72a3d1e8f639f5be7d2f86c10855417cf05<br />
+flickrvote-web/src/main/resources/<b>global_messages_en.properties</b> v ac58c72a3d1e8f639f5be7d2f86c10855417cf05<br />
+flickrvote-web/src/main/webapp/WEB-INF/decorators/<b>main.jsp</b> v ac58c72a3d1e8f639f5be7d2f86c10855417cf05<br />
+flickrvote-web/src/main/webapp/jsp/<b>current.jspx</b> v ac58c72a3d1e8f639f5be7d2f86c10855417cf05<br />
+<br />
+Add My Entry block to front page for logged in users. Shows current entry or link to &quot;check&quot; if none found.</td>
+</tr>
+<tr class="b"><td>2010-06-16 11:29:19</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>FollowAction.java</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>SendTweetAction.java</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>TwitterOverviewAction.java</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>UnfollowAction.java</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/model/<b>TwitterStatus.java</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/resources/<b>struts-admin.xml</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/webapp/WEB-INF/decorators/<b>admin.jsp</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/webapp/jsp/admin/<b>tweet.jspx</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+flickrvote-web/src/main/webapp/jsp/admin/<b>twitterOverview.jspx</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+<b>pom.xml</b> v bbfd7c8019c45fba80fff00713b576d81a56a81c<br />
+<br />
+Add twitter friendship overview (with follow/unfollow) and add ability to send DM where two-direction friendship exists.</td>
+</tr>
+<tr class="a"><td>2010-06-15 18:48:04</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-scheduler-spring/src/main/resources/<b>scheduleApplicationContext.xml</b> v 44afd2c7e59a0e2c8440392a9a9bdc8305367381<br />
+flickrvote-service-api/src/main/java/net/chrissearle/flickrvote/service/<b>PeriodicService.java</b> v 44afd2c7e59a0e2c8440392a9a9bdc8305367381<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoPeriodicService.java</b> v 44afd2c7e59a0e2c8440392a9a9bdc8305367381<br />
+<br />
+Clear old votes wednesday evenings. Just in case.</td>
+</tr>
+<tr class="b"><td>2010-06-14 21:00:17</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/account/<b>GetPhotoAction.java</b> v 62c2bfdd0f2e8ea2b469a5d50710bc60dee10eb5<br />
+flickrvote-web/src/main/resources/<b>global_messages.properties</b> v 62c2bfdd0f2e8ea2b469a5d50710bc60dee10eb5<br />
+flickrvote-web/src/main/resources/<b>global_messages_en.properties</b> v 62c2bfdd0f2e8ea2b469a5d50710bc60dee10eb5<br />
+<br />
+Handle image fetch failure. Assume missing (also handles incorrect format etc etc).</td>
+</tr>
+<tr class="a"><td>2010-06-14 20:51:22</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/<b>FlickrStatusCheckService.java</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/impl/<b>FlickrJStatusCheckService.java</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-service-api/src/main/java/net/chrissearle/flickrvote/service/<b>PhotographyService.java</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoPhotographyService.java</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/account/<b>GetPhotoAction.java</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/resources/<b>global_messages.properties</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/resources/<b>global_messages_en.properties</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/resources/<b>struts-account.xml</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/webapp/jsp/account/<b>check.jspx</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/webapp/jsp/account/<b>getphotoform.jspx</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+flickrvote-web/src/main/webapp/jsp/account/<b>show.jspx</b> v 1021cefde7424ebe161260f2c19cd517c0c4253e<br />
+<br />
+User image retrieval.</td>
+</tr>
+<tr class="b"><td>2010-06-14 19:48:10</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-data-api/src/main/java/net/chrissearle/flickrvote/dao/<b>PhotographyDao.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-data-spring/src/main/java/net/chrissearle/flickrvote/dao/<b>JpaPhotographyDao.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/model/<b>FlickrPhotographer.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-model/src/main/java/net/chrissearle/flickrvote/model/<b>Photographer.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-model/src/test/java/net/chrissearle/flickrvote/model/<b>ModelTest.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-api/src/main/java/net/chrissearle/flickrvote/service/model/<b>PhotographerItem.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-api/src/main/java/net/chrissearle/flickrvote/service/model/impl/<b>PhotographerItemInstance.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoPhotographyService.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoTagSearchService.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-spring/src/test/java/net/chrissearle/flickrvote/service/<b>TestMessageSourceChallengeMessageService.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-service-spring/src/test/java/net/chrissearle/flickrvote/service/model/<b>TestPhotographerItem.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/model/<b>DisplayImage.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/model/<b>DisplayPhotographer.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/model/<b>Photographer.java</b> v 69c58d86545c3a58990fd472032e75eb6d6fdced<br />
+<br />
+Remove persisted token. It was never used as token - just to show active which we don't use anyway.</td>
+</tr>
+<tr class="a"><td>2010-06-14 17:00:01</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/<b>CurrentChallengeAction.java</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/<b>FlickrVoteWebConstants.java</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/interceptors/<b>VotingInterceptor.java</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/resources/<b>global_messages.properties</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/resources/<b>global_messages_en.properties</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/resources/<b>struts-vote.xml</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+flickrvote-web/src/main/webapp/jsp/<b>current.jspx</b> v 6337021d925c318654ae91673cf587f83cdb10f9<br />
+<br />
+Add voting filter</td>
+</tr>
+<tr class="b"><td>2010-06-14 14:31:13</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>LoginAsPhotographer.java</b> v fc7cc40d6b02e7f1ddda6e1612f4d90649cd0218<br />
+<br />
+Add ability for admins to log in as other users (locally - doesn't give them any flickr access).</td>
+</tr>
+<tr class="a"><td>2010-06-14 14:30:14</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/resources/<b>struts-admin.xml</b> v b3017136763f56c951ae44172d353b15d6eab378<br />
+flickrvote-web/src/main/webapp/jsp/admin/<b>photoList.jspx</b> v b3017136763f56c951ae44172d353b15d6eab378<br />
+<br />
+Add ability for admins to log in as other users (locally - doesn't give them any flickr access).</td>
+</tr>
+<tr class="b"><td>2010-06-14 14:29:44</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/resources/<b>flickrvote.properties</b> v 21c039b9cbae8d5e10d6538068269e75a67df8b6<br />
+<br />
+Dev twitter now active - tweets to a demo account.</td>
+</tr>
+<tr class="a"><td>2010-06-14 14:29:20</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/webapp/WEB-INF/decorators/<b>admin.jsp</b> v 7942a3159800953d35de00a4480c4cc888af37f0<br />
+<br />
+Link to correct version of jquery</td>
+</tr>
+<tr class="b"><td>2010-06-14 11:40:33</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/resources/<b>global_messages.properties</b> v ebcbf89241727f1b87a2306ae0629e58c9fd7f0d<br />
+flickrvote-web/src/main/resources/<b>global_messages_en.properties</b> v ebcbf89241727f1b87a2306ae0629e58c9fd7f0d<br />
+flickrvote-web/src/main/webapp/WEB-INF/decorators/<b>main.jsp</b> v ebcbf89241727f1b87a2306ae0629e58c9fd7f0d<br />
+<br />
+Add link to 52.twphch.com in header</td>
+</tr>
+<tr class="a"><td>2010-06-14 11:25:15</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/common/<b>LoadAnywhereAction.java</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/taglib/<b>PhotographerTag.java</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/resources/<b>struts-common.xml</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/webapp/WEB-INF/decorators/<b>main.jsp</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/webapp/ftl/common/<b>loadAnywhere.ftl</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/webapp/jsp/common/<b>imagelist.jspx</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+flickrvote-web/src/main/webapp/styles/<b>style.css</b> v b847f845e8c111c02b6df842063024bc4c6e8b9a<br />
+<br />
+Add @Anywhere links to twitter accounts and popup details. Closes #51.</td>
+</tr>
+<tr class="b"><td>2010-06-14 09:51:27</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td><b>pom.xml</b> v 12a2f625158e690e263db2655c00a19e7c2d4fe6<br />
+<br />
+Set to 1.6. Use release version of spring-twitter</td>
+</tr>
+<tr class="a"><td>2010-06-12 12:36:40</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-scheduler-spring/src/main/java/net/chrissearle/flickrvote/scheduler/<b>WarnAdminJob.java</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-service-spring-cli/src/main/resources/<b>applicationContext.xml</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-service-spring/<b>pom.xml</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoChallengeService.java</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-service-spring/src/main/java/net/chrissearle/flickrvote/service/<b>DaoPhotographyService.java</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-web/<b>pom.xml</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/admin/<b>SendTweetAction.java</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-web/src/main/java/net/chrissearle/flickrvote/web/validators/<b>TwitterValidator.java</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+flickrvote-web/src/main/resources/<b>applicationContext.xml</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+<b>pom.xml</b> v 33f348437df918e2107b4426b64e26d2623d54f4<br />
+<br />
+Refactor to use spring-twitter services</td>
+</tr>
+<tr class="b"><td>2010-06-12 12:33:37</td>
+<td>Chris Searle &lt;chris@chrissearle.org&gt;</td>
+<td>flickrvote-twitter/<b>pom.xml</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>AbstractTwitter4JSupport.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>DirectMessageService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>FollowService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>TweetService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>Twitter4jDirectMessageService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>Twitter4jFollowService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>Twitter4jTweetService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>Twitter4jUserExistanceService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>TwitterServiceException.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/<b>UserExistanceService.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/main/java/net/chrissearle/flickrvote/twitter/spring/<b>TwitterFactoryBean.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/java/net/chrissearle/flickrvote/twitter/<b>AbstractTwitterTestSupport.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/java/net/chrissearle/flickrvote/twitter/<b>TestTwitterFactoryBean.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/java/net/chrissearle/flickrvote/twitter/<b>TweetTwitterDisabledTest.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/java/net/chrissearle/flickrvote/twitter/<b>TweetTwitterDownTest.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/java/net/chrissearle/flickrvote/twitter/<b>TweetTwitterEnabledTest.java</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+flickrvote-twitter/src/test/resources/<b>twitter4j.xml</b> v 2ceb477487720f93005ce2e640d0cef045c839a0<br />
+<br />
+Remove flickrvote-twitter module</td>
+</tr>
+</table>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007-2010
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

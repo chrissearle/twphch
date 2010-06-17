@@ -1,3 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2009-10-25T16:33:17.127">
+<pmd version="4.2.2" timestamp="2010-06-17T10:19:34.138">
+<file name="/Users/chris/src/twphch/twphch/flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/impl/AbstractFlickrJImageSupport.java">
+<violation beginline="20" endline="20" begincolumn="1" endcolumn="42" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.aetrion.flickr.FlickrException'
+</violation>
+<violation beginline="22" endline="22" begincolumn="1" endcolumn="38" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.aetrion.flickr.photos.Size'
+</violation>
+<violation beginline="23" endline="23" begincolumn="1" endcolumn="64" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.flickr.FlickrServiceException'
+</violation>
+<violation beginline="26" endline="26" begincolumn="1" endcolumn="32" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.xml.sax.SAXException'
+</violation>
+<violation beginline="28" endline="28" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.io.IOException'
+</violation>
+<violation beginline="29" endline="29" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.Collection'
+</violation>
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/impl/FlickrJImageDAO.java">
+<violation beginline="32" endline="32" begincolumn="1" endcolumn="24" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.Arrays'
+</violation>
+</file>
+<file name="/Users/chris/src/twphch/twphch/flickrvote-flickr/src/main/java/net/chrissearle/flickrvote/flickr/impl/FlickrJStatusCheckService.java">
+<violation beginline="23" endline="23" begincolumn="1" endcolumn="66" rule="UnusedImports" ruleset="Import Statement Rules" package="net.chrissearle.flickrvote.flickr.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'net.chrissearle.flickrvote.flickr.model.FlickrPhotographer'
+</violation>
+</file>
 </pmd>

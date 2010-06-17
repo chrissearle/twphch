@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c275" href="./ShowChartAction.html" title="&lt;TABLE&gt;" alt="" coords="15,19,145,43"/>
+<area shape="rect" id="c276" href="./ShowChallengeAction.html" title="&lt;TABLE&gt;" alt="" coords="189,19,347,43"/>
+<area shape="rect" id="c277" href="./LogoutAction.html" title="&lt;TABLE&gt;" alt="" coords="392,19,499,43"/>
+<area shape="rect" id="c278" href="./HallOfFameAction.html" title="&lt;TABLE&gt;" alt="" coords="544,19,680,43"/>
+<area shape="rect" id="c279" href="./FlickrVoteWebConstants.html" title="&lt;TABLE&gt;" alt="" coords="725,11,902,50"/>
+<area shape="rect" id="c280" href="./FlickrCallbackAction.html" title="&lt;TABLE&gt;" alt="" coords="947,19,1096,43"/>
+<area shape="rect" id="c281" href="./CurrentChallengeAction.html" title="&lt;TABLE&gt;" alt="" coords="1141,19,1315,43"/>
+</map>

@@ -17,10 +17,15 @@ digraph G {
 	c25:p -> c13:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.dao.JpaPhotographyDao implements net.chrissearle.flickrvote.dao.PhotographyDao
 	c26:p -> c13:p [dir=back,arrowtail=empty,style=dashed];
-	// net.chrissearle.flickrvote.dao.JpaPhotographyDao NAVASSOC org.apache.log4j.Logger
-	c13:p -> c31:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.dao.JpaPhotographyDao DEPEND net.chrissearle.flickrvote.model.Photographer
-	c13:p -> c36:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c13:p -> c31:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.dao.PhotographyDao
+	c26 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> &laquo;interface&raquo; </td></tr>
+			<tr><td> PhotographyDao </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.common.jpa.JpaDao<K, E>
 	c25 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
@@ -29,24 +34,10 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Photographer
-	c36 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c31 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Photographer </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.model </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.dao.PhotographyDao
-	c26 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographyDao </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// org.apache.log4j.Logger
-	c31 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Logger </td></tr>
-			<tr><td><font point-size="7.0"> org.apache.log4j </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

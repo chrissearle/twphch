@@ -8,28 +8,28 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.LogoutAction
-	c2123 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./LogoutAction.html">
+	c2896 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./LogoutAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> LogoutAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.LogoutAction extends com.opensymphony.xwork2.ActionSupport
-	c2147:p -> c2123:p [dir=back,arrowtail=empty];
+	c2924:p -> c2896:p [dir=back,arrowtail=empty];
 	//net.chrissearle.flickrvote.web.LogoutAction implements org.apache.struts2.interceptor.SessionAware
-	c2148:p -> c2123:p [dir=back,arrowtail=empty,style=dashed];
+	c2925:p -> c2896:p [dir=back,arrowtail=empty,style=dashed];
+	// com.opensymphony.xwork2.ActionSupport
+	c2924 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> ActionSupport </td></tr>
+			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.struts2.interceptor.SessionAware
-	c2148 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c2925 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> SessionAware </td></tr>
 			<tr><td><font point-size="7.0"> org.apache.struts2.interceptor </font></td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// com.opensymphony.xwork2.ActionSupport
-	c2147 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> ActionSupport </td></tr>
-			<tr><td><font point-size="7.0"> com.opensymphony.xwork2 </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

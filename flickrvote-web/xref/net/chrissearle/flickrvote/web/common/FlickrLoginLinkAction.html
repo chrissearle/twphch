@@ -9,7 +9,7 @@
 <div id="overview"><a href="../../../../../../../apidocs/net/chrissearle/flickrvote/web/common/FlickrLoginLinkAction.html">View Javadoc</a></div><pre>
 
 <a name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
-<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2009 Chris Searle</em>
+<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2010 Chris Searle</em>
 <a name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
 <a name="4" href="#4">4</a>   <em class="jxr_comment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a name="5" href="#5">5</a>   <em class="jxr_comment"> *    you may not use this file except in compliance with the License.</em>
@@ -27,7 +27,7 @@
 <a name="17" href="#17">17</a>  <strong class="jxr_keyword">package</strong> net.chrissearle.flickrvote.web.common;
 <a name="18" href="#18">18</a>  
 <a name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> com.opensymphony.xwork2.ActionSupport;
-<a name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> net.chrissearle.flickrvote.service.PhotographyService;
+<a name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> net.chrissearle.flickrvote.flickr.FlickrLoginService;
 <a name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> net.chrissearle.flickrvote.web.FlickrVoteWebConstants;
 <a name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> org.apache.struts2.interceptor.SessionAware;
 <a name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@
 <a name="26" href="#26">26</a>  
 <a name="27" href="#27">27</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../net/chrissearle/flickrvote/web/common/FlickrLoginLinkAction.html">FlickrLoginLinkAction</a> <strong class="jxr_keyword">extends</strong> ActionSupport implements SessionAware {
 <a name="28" href="#28">28</a>      @Autowired
-<a name="29" href="#29">29</a>      <strong class="jxr_keyword">private</strong> PhotographyService photographyService;
+<a name="29" href="#29">29</a>      <strong class="jxr_keyword">private</strong> FlickrLoginService flickrLoginService;
 <a name="30" href="#30">30</a>  
 <a name="31" href="#31">31</a>      <strong class="jxr_keyword">private</strong> String link;
 <a name="32" href="#32">32</a>      <strong class="jxr_keyword">private</strong> Map&lt;String, Object&gt; session;
@@ -46,7 +46,7 @@
 <a name="36" href="#36">36</a>          <strong class="jxr_keyword">if</strong> (session.containsKey(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY)) {
 <a name="37" href="#37">37</a>              <strong class="jxr_keyword">return</strong> SUCCESS;
 <a name="38" href="#38">38</a>          }
-<a name="39" href="#39">39</a>          link = photographyService.getLoginUrl().toExternalForm();
+<a name="39" href="#39">39</a>          link = flickrLoginService.getLoginUrl().toExternalForm();
 <a name="40" href="#40">40</a>  
 <a name="41" href="#41">41</a>          <strong class="jxr_keyword">return</strong> LOGIN;
 <a name="42" href="#42">42</a>      }

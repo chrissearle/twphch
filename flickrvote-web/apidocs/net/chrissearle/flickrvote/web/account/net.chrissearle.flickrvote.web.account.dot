@@ -25,14 +25,20 @@ digraph G {
 			<tr><td> MyPicsAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.web.account.GetPhotoAction
+	c3 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GetPhotoAction.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> GetPhotoAction </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.account.CheckImageAction
-	c3 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CheckImageAction.html">
+	c4 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CheckImageAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> CheckImageAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.account.AccountAction
-	c4 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountAction.html">
+	c5 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AccountAction </td></tr>
 		</table></td></tr>

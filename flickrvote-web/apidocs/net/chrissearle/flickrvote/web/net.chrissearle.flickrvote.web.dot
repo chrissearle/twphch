@@ -8,50 +8,44 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.ShowChartAction
-	c229 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
+	c275 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChartAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction
-	c230 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChallengeAction.html">
+	c276 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ShowChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChallengeAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.LogoutAction
-	c231 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./LogoutAction.html">
+	c277 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./LogoutAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> LogoutAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.web.HistoryReportAction
-	c232 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HistoryReportAction.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> HistoryReportAction </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.HallOfFameAction
-	c233 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HallOfFameAction.html">
+	c278 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./HallOfFameAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> HallOfFameAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.FlickrVoteWebConstants
-	c234 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrVoteWebConstants.html">
+	c279 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrVoteWebConstants.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> FlickrVoteWebConstants </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.FlickrCallbackAction
-	c235 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrCallbackAction.html">
+	c280 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FlickrCallbackAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> FlickrCallbackAction </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction
-	c236 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CurrentChallengeAction.html">
+	c281 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./CurrentChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> CurrentChallengeAction </td></tr>
 		</table></td></tr>

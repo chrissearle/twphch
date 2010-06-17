@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c549" href="../PhotographyService.html" title="&lt;TABLE&gt;" alt="" coords="16,11,189,61"/>
+<area shape="rect" id="c560" href="./ImageItem.html" title="&lt;TABLE&gt;" alt="" coords="467,121,559,159"/>
+<area shape="rect" id="c554" href="../ChallengeMessageService.html" title="&lt;TABLE&gt;" alt="" coords="235,11,421,61"/>
+<area shape="rect" id="c559" href="./ImageItems.html" title="&lt;TABLE&gt;" alt="" coords="466,24,561,48"/>
+<area shape="rect" id="c566" href="./impl/ImageItemInstance.html" title="&lt;TABLE&gt;" alt="" coords="397,219,629,255"/>
+<area shape="rect" id="c565" href="./impl/ImageItemStatusInstance.html" title="&lt;TABLE&gt;" alt="" coords="605,18,837,54"/>
+<area shape="rect" id="c568" href="./impl/ChallengeItemInstance.html" title="&lt;TABLE&gt;" alt="" coords="883,18,1115,54"/>
+</map>

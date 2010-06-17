@@ -8,28 +8,28 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.validators.TwitterValidator
-	c3134 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TwitterValidator.html">
+	c4344 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TwitterValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TwitterValidator </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.validators.TwitterValidator extends com.opensymphony.xwork2.validator.validators.FieldValidatorSupport
-	c3141:p -> c3134:p [dir=back,arrowtail=empty];
-	// net.chrissearle.flickrvote.web.validators.TwitterValidator NAVASSOC net.chrissearle.flickrvote.service.PhotographyService
-	c3134:p -> c3142:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c4351:p -> c4344:p [dir=back,arrowtail=empty];
+	// net.chrissearle.flickrvote.web.validators.TwitterValidator NAVASSOC net.chrissearle.spring.twitter.service.UserExistanceService
+	c4344:p -> c4352:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// com.opensymphony.xwork2.validator.validators.FieldValidatorSupport
-	c3141 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c4351 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> FieldValidatorSupport </font></td></tr>
 			<tr><td><font point-size="7.0"> com.opensymphony.xwork2.validator.validators </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.chrissearle.flickrvote.service.PhotographyService
-	c3142 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// net.chrissearle.spring.twitter.service.UserExistanceService
+	c4352 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> PhotographyService </td></tr>
-			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.service </font></td></tr>
+			<tr><td> UserExistanceService </td></tr>
+			<tr><td><font point-size="7.0"> net.chrissearle.spring.twitter.service </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

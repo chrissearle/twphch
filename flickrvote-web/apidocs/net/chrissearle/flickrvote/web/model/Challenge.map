@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="c3933" href="../admin/SearchTagCheckAction.html" title="&lt;TABLE&gt;" alt="" coords="16,11,208,47"/>
+<area shape="rect" id="c3969" href="./DisplayImage.html" title="&lt;TABLE&gt;" alt="" coords="2024,212,2128,236"/>
+<area shape="rect" id="c3972" href="./Challenge.html" title="&lt;TABLE&gt;" alt="" coords="1479,107,1571,146"/>
+<area shape="rect" id="c3934" href="../admin/ScoreAction.html" title="&lt;TABLE&gt;" alt="" coords="253,11,445,47"/>
+<area shape="rect" id="c3940" href="../admin/ImageAction.html" title="&lt;TABLE&gt;" alt="" coords="491,11,683,47"/>
+<area shape="rect" id="c3949" href="../common/VotingChallengeBlockAction.html" title="&lt;TABLE&gt;" alt="" coords="728,11,933,47"/>
+<area shape="rect" id="c3952" href="../common/ChallengeListAction.html" title="&lt;TABLE&gt;" alt="" coords="979,11,1184,47"/>
+<area shape="rect" id="c3953" href="../ShowChartAction.html" title="&lt;TABLE&gt;" alt="" coords="1229,11,1387,47"/>
+<area shape="rect" id="c3954" href="../ShowChallengeAction.html" title="&lt;TABLE&gt;" alt="" coords="1890,11,2049,47"/>
+<area shape="rect" id="c3959" href="../CurrentChallengeAction.html" title="&lt;TABLE&gt;" alt="" coords="2320,11,2493,47"/>
+<area shape="rect" id="c3970" href="./DisplayChallengeSummary.html" title="&lt;TABLE&gt;" alt="" coords="1431,212,1620,236"/>
+<area shape="rect" id="c3976" href="../taglib/ChallengeTitleTag.html" title="&lt;TABLE&gt;" alt="" coords="1431,11,1619,47"/>
+<area shape="rect" id="c3981" href="../vote/VoteAction.html" title="&lt;TABLE&gt;" alt="" coords="2093,11,2275,47"/>
+<area shape="rect" id="c3982" href="../vote/ShowVoteResultAction.html" title="&lt;TABLE&gt;" alt="" coords="1664,11,1845,47"/>
+</map>

@@ -8,21 +8,33 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.taglib.PhotographerTag
-	c400 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerTag.html">
+	c478 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PhotographerTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PhotographerTag </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ImageTag
-	c401 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ImageTag.html">
+	c479 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ImageTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageTag </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.web.taglib.FancyboxImageTag
+	c480 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./FancyboxImageTag.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> FancyboxImageTag </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag
-	c402 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeTitleTag.html">
+	c481 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ChallengeTitleTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeTitleTag </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.web.taglib.AnnouncementTag
+	c482 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnnouncementTag.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> AnnouncementTag </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

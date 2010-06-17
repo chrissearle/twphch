@@ -25,6 +25,12 @@ digraph G {
 			<tr><td> Image </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.model.Challenge
+	c25 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Challenge.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Challenge </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Vote NAVASSOC net.chrissearle.flickrvote.model.Photographer
 	c21:p -> c22:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Vote NAVASSOC net.chrissearle.flickrvote.model.Image
@@ -33,9 +39,15 @@ digraph G {
 	c22:p -> c23:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Photographer NAVASSOC net.chrissearle.flickrvote.model.Vote
 	c22:p -> c21:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Challenge
+	c23:p -> c25:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Photographer
 	c23:p -> c22:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Vote
 	c23:p -> c21:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Image
+	c25:p -> c23:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Photographer
+	c25:p -> c22:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

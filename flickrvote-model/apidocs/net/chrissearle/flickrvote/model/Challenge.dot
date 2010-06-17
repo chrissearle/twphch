@@ -7,6 +7,12 @@
 digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
+	// net.chrissearle.flickrvote.model.Photographer
+	c37 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Photographer.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Photographer </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.model.Image
 	c38 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Image.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
@@ -19,9 +25,15 @@ digraph G {
 			<tr><td> Challenge </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.chrissearle.flickrvote.model.Photographer NAVASSOC net.chrissearle.flickrvote.model.Image
+	c37:p -> c38:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Challenge
 	c38:p -> c40:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Image NAVASSOC net.chrissearle.flickrvote.model.Photographer
+	c38:p -> c37:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Image
 	c40:p -> c38:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.model.Challenge NAVASSOC net.chrissearle.flickrvote.model.Photographer
+	c40:p -> c37:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

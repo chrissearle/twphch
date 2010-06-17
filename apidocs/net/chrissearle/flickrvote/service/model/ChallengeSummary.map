@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="../MessageSourceChallengeMessageService.html" alt="" coords="126,398,163,433" />
-<area shape="rect" href="../ITextReportService.html" alt="" coords="107,14,137,49" />
-<area shape="rect" href="../DaoChallengeService.html" alt="" coords="181,206,210,241" />
-<area shape="rect" href="./impl/ChallengeSummaryInstance.html" alt="" coords="225,590,262,625" />
-<area shape="rect" href="./impl/ImageItemInstance.html" alt="" coords="323,398,361,433" />
-<area shape="rect" href="../../web/admin/ChallengeAction.html" alt="" coords="227,14,259,49" />
-</map>

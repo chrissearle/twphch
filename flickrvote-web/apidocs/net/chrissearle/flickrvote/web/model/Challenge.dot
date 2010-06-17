@@ -8,154 +8,158 @@ digraph G {
 	edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	// net.chrissearle.flickrvote.web.admin.SearchTagCheckAction
-	c2889 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/SearchTagCheckAction.html">
+	c3933 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/SearchTagCheckAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> SearchTagCheckAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.admin </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction
-	c2890 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/ScoreAction.html">
+	c3934 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/ScoreAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ScoreAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.admin </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.admin.ImageAction
-	c2894 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/ImageAction.html">
+	c3940 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../admin/ImageAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ImageAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.admin </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction
-	c2903 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../common/VotingChallengeBlockAction.html">
+	c3949 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../common/VotingChallengeBlockAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VotingChallengeBlockAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.common </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.common.ChallengeListAction
-	c2905 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../common/ChallengeListAction.html">
+	c3952 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../common/ChallengeListAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeListAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.common </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.ShowChartAction
-	c2906 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ShowChartAction.html">
+	c3953 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ShowChartAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChartAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction
-	c2907 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ShowChallengeAction.html">
+	c3954 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../ShowChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowChallengeAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction
-	c2913 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../CurrentChallengeAction.html">
+	c3959 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../CurrentChallengeAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> CurrentChallengeAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayImage
-	c2920 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
+	c3969 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayImage.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayImage </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.DisplayChallengeSummary
-	c2921 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayChallengeSummary.html">
+	c3970 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DisplayChallengeSummary.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DisplayChallengeSummary </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.model.Challenge
-	c2923 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Challenge.html">
+	c3972 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Challenge.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Challenge </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag
-	c2926 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../taglib/ChallengeTitleTag.html">
+	c3976 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../taglib/ChallengeTitleTag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ChallengeTitleTag </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.taglib </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.vote.VoteAction
-	c2930 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../vote/VoteAction.html">
+	c3981 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../vote/VoteAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> VoteAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.vote </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.chrissearle.flickrvote.web.vote.ShowVoteResultAction
-	c2931 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../vote/ShowVoteResultAction.html">
+	c3982 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../vote/ShowVoteResultAction.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ShowVoteResultAction </td></tr>
 			<tr><td><font point-size="7.0"> net.chrissearle.flickrvote.web.vote </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.chrissearle.flickrvote.web.model.DisplayImage implements net.chrissearle.flickrvote.web.model.Challenge
-	c2923:p -> c2920:p [dir=back,arrowtail=empty,style=dashed];
+	c3972:p -> c3969:p [dir=back,arrowtail=empty,style=dashed];
 	//net.chrissearle.flickrvote.web.model.DisplayChallengeSummary implements net.chrissearle.flickrvote.web.model.Challenge
-	c2923:p -> c2921:p [dir=back,arrowtail=empty,style=dashed];
+	c3972:p -> c3970:p [dir=back,arrowtail=empty,style=dashed];
 	// net.chrissearle.flickrvote.web.admin.SearchTagCheckAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2889:p -> c2920:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3933:p -> c3969:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.SearchTagCheckAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2889:p -> c2920:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3933:p -> c3969:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.SearchTagCheckAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2889:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3933:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2890:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3934:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.ImageAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2894:p -> c2923:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3940:p -> c3972:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2903:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3949:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.common.ChallengeListAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2905:p -> c2923:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3952:p -> c3972:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChartAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2906:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3953:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2907:p -> c2920:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3954:p -> c3969:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2907:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3954:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2913:p -> c2920:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3959:p -> c3969:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2913:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3959:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.chrissearle.flickrvote.web.CurrentChallengeAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
+	c3959:p -> c3969:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2926:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3976:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2930:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3981:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.VoteAction NAVASSOC net.chrissearle.flickrvote.web.model.DisplayImage
-	c2930:p -> c2920:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3981:p -> c3969:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.vote.ShowVoteResultAction NAVASSOC net.chrissearle.flickrvote.web.model.Challenge
-	c2931:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c3982:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.chrissearle.flickrvote.web.admin.SearchTagCheckAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2889:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3933:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.admin.ScoreAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2890:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3934:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.common.VotingChallengeBlockAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2903:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3949:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.ShowChartAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2906:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3953:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.ShowChallengeAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2907:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3954:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.chrissearle.flickrvote.web.CurrentChallengeAction DEPEND net.chrissearle.flickrvote.web.model.DisplayImage
+	c3959:p -> c3969:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.CurrentChallengeAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2913:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3959:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.taglib.ChallengeTitleTag DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2926:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3976:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.vote.VoteAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2930:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3981:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.chrissearle.flickrvote.web.vote.ShowVoteResultAction DEPEND net.chrissearle.flickrvote.web.model.Challenge
-	c2931:p -> c2923:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c3982:p -> c3972:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 
