@@ -15,8 +15,7 @@
   ~    limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.chrissearle</groupId>
@@ -26,7 +25,7 @@
 
     <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>1</version>
 
     <name>Twitter Photo Challenge</name>
     <packaging>pom</packaging>
@@ -298,55 +297,55 @@
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-data-api</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-data-spring</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-flickr</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-model</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-scheduler-spring</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-api</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-spring-cli</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-spring</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-web</artifactId>
-                <version>1-SNAPSHOT</version>
+                <version>1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
