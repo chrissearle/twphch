@@ -98,7 +98,7 @@
 
     <bean id="warnMissingChallengeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="warnAdminsMissingChallengeJob"/>
-        <property name="cronExpression" value="0 0 17 ? * FRI"/>
+        <property name="cronExpression" value="0 0 17 ? * THU,FRI"/>
     </bean>
 
     <bean id="warnVotingCloseTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
