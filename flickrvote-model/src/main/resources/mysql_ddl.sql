@@ -42,7 +42,8 @@
         version bigint,
         image_flickr_id varchar(50),
         photographer_flickr_id varchar(50),
-        primary key (id)
+        primary key (id),
+        unique (image_flickr_id, photographer_flickr_id)
     ) ENGINE=InnoDB;
 
     alter table challenge 
