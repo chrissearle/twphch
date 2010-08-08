@@ -1,50 +1,76 @@
-CREATE TABLE challenge (
-tag varchar(50) NOT NULL,
-end_date datetime DEFAULT NULL,
-description varchar(255) NOT NULL,
-start_date datetime DEFAULT NULL,
-voting_open_date datetime DEFAULT NULL,
-version bigint(20) DEFAULT NULL,
-PRIMARY KEY (tag)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE photographer (
-flickr_id varchar(50) NOT NULL,
-administrator bit(1) DEFAULT NULL,
-fullname varchar(100) DEFAULT NULL,
-token varchar(100) DEFAULT NULL,
-username varchar(50) DEFAULT NULL,
-twitter varchar(15) DEFAULT NULL,
-version bigint(20) DEFAULT NULL,
-PRIMARY KEY (flickr_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    create table challenge (
+        tag varchar(50) not null,
+        notes longtext,
+        end_date datetime,
+        description varchar(255) not null,
+        start_date datetime,
+        version bigint,
+        voting_open_date datetime,
+        photographer_flickr_id varchar(50),
+        primary key (tag)
+    ) ENGINE=InnoDB;
 
-CREATE TABLE image (
-flickr_id varchar(50) NOT NULL,
-medium_image varchar(255) DEFAULT NULL,
-page varchar(255) DEFAULT NULL,
-title varchar(100) DEFAULT NULL,
-photographer_flickr_id varchar(50) DEFAULT NULL,
-version bigint(20) DEFAULT NULL,
-challenge_tag varchar(50) DEFAULT NULL,
-final_vote_count bigint(20) NOT NULL DEFAULT '0',
-final_rank bigint(20) NOT NULL DEFAULT '0',
-posted_date datetime DEFAULT NULL,
-PRIMARY KEY (flickr_id),
-KEY FK5FAA95BFBF9A4DC (photographer_flickr_id),
-KEY FK5FAA95BFA7332EB (challenge_tag),
-CONSTRAINT FK5FAA95BFA7332EB FOREIGN KEY (challenge_tag) REFERENCES challenge (tag),
-CONSTRAINT FK5FAA95BFBF9A4DC FOREIGN KEY (photographer_flickr_id) REFERENCES photographer (flickr_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    create table image (
+        flickr_id varchar(50) not null,
+        final_rank bigint not null,
+        final_vote_count bigint not null,
+        large_image varchar(255),
+        medium_image varchar(255),
+        page varchar(255),
+        posted_date datetime,
+        title varchar(100),
+        version bigint,
+        challenge_tag varchar(50),
+        photographer_flickr_id varchar(50),
+        primary key (flickr_id)
+    ) ENGINE=InnoDB;
 
-CREATE TABLE votes (
-id bigint(20) NOT NULL AUTO_INCREMENT,
-version bigint(20) DEFAULT NULL,
-photographer_flickr_id varchar(50) DEFAULT NULL,
-image_flickr_id varchar(50) DEFAULT NULL,
-PRIMARY KEY (id),
-KEY FK6B30AC9FBF9A4DC (photographer_flickr_id),
-KEY FK6B30AC9F91713D4 (image_flickr_id),
-CONSTRAINT FK6B30AC9F91713D4 FOREIGN KEY (image_flickr_id) REFERENCES image (flickr_id),
-CONSTRAINT FK6B30AC9FBF9A4DC FOREIGN KEY (photographer_flickr_id) REFERENCES photographer (flickr_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    create table photographer (
+        flickr_id varchar(50) not null,
+        administrator bit,
+        fullname varchar(100),
+        icon_url varchar(255),
+        twitter varchar(15),
+        username varchar(50),
+        version bigint,
+        primary key (flickr_id)
+    ) ENGINE=InnoDB;
+
+    create table votes (
+        id bigint not null auto_increment,
+        version bigint,
+        image_flickr_id varchar(50),
+        photographer_flickr_id varchar(50),
+        primary key (id)
+    ) ENGINE=InnoDB;
+
+    alter table challenge 
+        add index FK539A7C63FBF9A4DC (photographer_flickr_id), 
+        add constraint FK539A7C63FBF9A4DC 
+        foreign key (photographer_flickr_id) 
+        references photographer (flickr_id);
+
+    alter table image 
+        add index FK5FAA95BFBF9A4DC (photographer_flickr_id), 
+        add constraint FK5FAA95BFBF9A4DC 
+        foreign key (photographer_flickr_id) 
+        references photographer (flickr_id);
+
+    alter table image 
+        add index FK5FAA95BFA7332EB (challenge_tag), 
+        add constraint FK5FAA95BFA7332EB 
+        foreign key (challenge_tag) 
+        references challenge (tag);
+
+    alter table votes 
+        add index FK6B30AC9FBF9A4DC (photographer_flickr_id), 
+        add constraint FK6B30AC9FBF9A4DC 
+        foreign key (photographer_flickr_id) 
+        references photographer (flickr_id);
+
+    alter table votes 
+        add index FK6B30AC9F91713D4 (image_flickr_id), 
+        add constraint FK6B30AC9F91713D4 
+        foreign key (image_flickr_id) 
+        references image (flickr_id);
