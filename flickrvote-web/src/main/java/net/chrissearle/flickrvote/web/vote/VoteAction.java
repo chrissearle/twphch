@@ -82,11 +82,16 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
             logger.info("Votes by: " + photographer.getPhotographerName() + " [" + photographer.getPhotographerId() + "] : " + votes);
         }
 
-        for (String imageId : votes) {
-            challengeService.vote(photographer.getPhotographerId(), imageId);
+        if (challengeService.hasVoted(photographer.getPhotographerId())) {
+            if (logger.isLoggable(Level.INFO)) {
+                logger.info("Photographer has already voted: " + photographer.getPhotographerName() + " [" + photographer.getPhotographerId() + "] : " + votes);
+            }
+        } else {
+            for (String imageId : votes) {
+                challengeService.vote(photographer.getPhotographerId(), imageId);
+            }
+            addActionMessage(getText("vote.thanks"));
         }
-
-        addActionMessage(getText("vote.thanks"));
 
         return SUCCESS;
     }
