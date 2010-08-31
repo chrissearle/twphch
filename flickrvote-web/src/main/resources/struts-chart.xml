@@ -22,15 +22,6 @@
 
 <struts>
     <package name="flickrChart" extends="jfreechart-default" namespace="/chart">
-        <action name="showChart" class="net.chrissearle.flickrvote.web.chart.ShowChartAction">
-            <result name="success" type="chart">
-                <param name="value">chart</param>
-                <param name="type">png</param>
-                <param name="width">500</param>
-                <param name="height">1000</param>
-            </result>
-        </action>
-
         <action name="showPhotographerChart" class="net.chrissearle.flickrvote.web.chart.ShowPhotograperChartAction">
             <result name="success" type="chart">
                 <param name="value">chart</param>

@@ -14,12 +14,10 @@
   ~    limitations under the License.
   -->
 
-
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
-          version="2.0">
+          version="2.0" xmlns:fv="/flickrvote-tags">
     <jsp:directive.page contentType="text/html"/>
     <jsp:output omit-xml-declaration="yes"
                 doctype-root-element="html"
@@ -27,27 +25,17 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
-        <title><s:text name="main.title"/></title>
         <s:head/>
+
+        <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
+        <s:action name="loadHighcharts" namespace="/common" executeResult="true"/>
+        <s:action name="challengeChartJs" namespace="/stats" executeResult="true">
+            <s:param name="tag" value="challenge.challengeTag"/>
+        </s:action>
     </head>
     <body>
-    <h1>#<s:property value="challenge.challengeTag"/> - <s:property value="challenge.challengeDescription"/></h1>
-
-    <s:if test="challenge.challengeClosed">
-
-        <h2><s:text name="showchart.results.title"/></h2>
-
-        <s:url id="chart" namespace="/chart" action="showChart">
-            <s:param name="tag" value="challenge.challengeTag"/>
-        </s:url>
-
-        <p>
-            <img src="${chart}" alt="chart"/>
-        </p>
-
-    </s:if>
-
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
+    <div id="challengeChart" style="width: 500px; height: 1000px"></div>
     </body>
     </html>
 </jsp:root>
-

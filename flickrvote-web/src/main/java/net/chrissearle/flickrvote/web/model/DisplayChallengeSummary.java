@@ -86,4 +86,19 @@ public class DisplayChallengeSummary implements Challenge {
         }
         return tag;
     }
+
+    @Override
+    public String toString() {
+        return "DisplayChallengeSummary{" +
+                "tag='" + tag + '\'' +
+                ", description='" + description + '\'' +
+                ", start=" + start +
+                ", vote=" + vote +
+                ", end=" + end +
+                ", open=" + open +
+                ", closed=" + closed +
+                ", voting=" + voting +
+                ", notes='" + notes + '\'' +
+                '}';
+    }
 }

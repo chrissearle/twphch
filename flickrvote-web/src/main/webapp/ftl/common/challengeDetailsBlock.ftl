@@ -20,19 +20,18 @@
 
     <@s.if test="challenge.challengeClosed">
 
+    <@s.if test="!#request['hideChallengeResults']">
         <h2><@s.text name="sidebar.details.results"/></h2>
 
-    <@s.url id="chart" namespace="/chart" action="showChart">
-    <@s.param name="tag" value="challenge.challengeTag"/>
-    </@s.url>
-    <@s.url id="chartFull" namespace="/" action="showChart">
+    <@s.url id="chartFull" namespace="/stats" action="challengeChart">
     <@s.param name="tag" value="challenge.challengeTag"/>
     </@s.url>
         <p>
-            <img src="<@s.property value="chart"/>" alt="chart" width="140px"/>
+            <div id="challengeChart" style="width: 140px; height: 300px"></div>
             <br/>
         <@s.a href="%{chartFull}"><@s.text name="sidebar.link.viewfullsize"/></@s.a>
         </p>
+    </@s.if>
 
     </@s.if>
 

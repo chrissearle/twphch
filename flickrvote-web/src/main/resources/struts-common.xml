@@ -51,6 +51,10 @@
             <result type="freemarker" name="success">/ftl/common/loadJQuery.ftl</result>
         </action>
 
+        <action name="loadHighcharts">
+            <result type="freemarker" name="success">/ftl/common/loadHighcharts.ftl</result>
+        </action>
+
         <action name="loadFancyBox">
             <result type="freemarker" name="success">/ftl/common/loadFancyBox.ftl</result>
         </action>

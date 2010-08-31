@@ -35,9 +35,6 @@
         <action name="logout" class="net.chrissearle.flickrvote.web.LogoutAction">
             <result type="redirectAction">current</result>
         </action>
-        <action name="showChart" class="net.chrissearle.flickrvote.web.ShowChartAction">
-            <result>/jsp/showchart.jspx</result>
-        </action>
         <action name="showPhotographerChart">
             <result>/jsp/showphotographerchart.jspx</result>
         </action>

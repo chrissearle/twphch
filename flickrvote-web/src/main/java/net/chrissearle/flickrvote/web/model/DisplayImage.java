@@ -192,4 +192,34 @@ public class DisplayImage implements Image, Photographer, Challenge {
     public boolean isChallengeVoting() {
         return challengeVoting;
     }
+
+    @Override
+    public String toString() {
+        return "DisplayImage{" +
+                "imageId='" + imageId + '\'' +
+                ", imageTitle='" + imageTitle + '\'' +
+                ", imagePageUrl='" + imagePageUrl + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", largeImageUrl='" + largeImageUrl + '\'' +
+                ", postedDate=" + postedDate +
+                ", voteCount=" + voteCount +
+                ", rank=" + rank +
+                ", photographerId='" + photographerId + '\'' +
+                ", username='" + username + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", twitterAccount='" + twitterAccount + '\'' +
+                ", iconUrl='" + iconUrl + '\'' +
+                ", adminFlag=" + adminFlag +
+                ", challengeTag='" + challengeTag + '\'' +
+                ", challengeDescription='" + challengeDescription + '\'' +
+                ", challengeStart=" + challengeStart +
+                ", challengeEnd=" + challengeEnd +
+                ", challengeVote=" + challengeVote +
+                ", challengeOpen=" + challengeOpen +
+                ", challengeVoting=" + challengeVoting +
+                ", challengeClosed=" + challengeClosed +
+                ", imageCount=" + imageCount +
+                ", challengeNotes='" + challengeNotes + '\'' +
+                '}';
+    }
 }

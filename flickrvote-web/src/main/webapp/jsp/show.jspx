@@ -32,6 +32,13 @@
 
         <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
 
+        <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
+        <s:action name="loadHighcharts" namespace="/common" executeResult="true"/>
+        <s:action name="challengeChartJs" namespace="/stats" executeResult="true">
+            <s:param name="tag" value="challenge.challengeTag"/>
+            <s:param name="small" value="true"/>
+        </s:action>
+
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>

@@ -21,15 +21,14 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.custom.i18n.resources" value="global_messages"/>
-    <constant name="struts.ui.theme" value="css_xhtml"/>
+    <package name="flickrStats" extends="struts-default" namespace="/stats">
 
-    <include file="struts-admin.xml"/>
-    <include file="struts-common.xml"/>
-    <include file="struts-main.xml"/>
-    <include file="struts-rss.xml"/>
-    <include file="struts-vote.xml"/>
-    <include file="struts-chart.xml"/>
-    <include file="struts-account.xml"/>
-    <include file="struts-stats.xml"/>
+        <action name="challengeChart" class="net.chrissearle.flickrvote.web.stats.ShowChallengeChartAction">
+            <result name="success">/jsp/stats/challengeChart.jspx</result>
+        </action>
+        
+        <action name="challengeChartJs" class="net.chrissearle.flickrvote.web.stats.ShowChallengeChartAction" method="stats">
+            <result type="freemarker" name="success">/ftl/stats/challengeChart.ftl</result>
+        </action>
+    </package>
 </struts>
