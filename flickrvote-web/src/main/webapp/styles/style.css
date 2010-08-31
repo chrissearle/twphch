@@ -378,3 +378,7 @@ div.announce {
 img.photogIcon {
     vertical-align: text-top;
 }
+
+#footer {
+    clear: both;
+}
