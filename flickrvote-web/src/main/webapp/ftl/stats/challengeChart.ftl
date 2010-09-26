@@ -91,7 +91,7 @@
             tooltip: {
                 formatter: function() {
                 <@s.if test="!small">
-                    return '<b>' + this.rank + ': ' + this.x + '</b><br/>' + this.y + ' votes';
+                    return '<b>' + this.point.rank + ': ' + this.x + '</b><br/>' + this.y + ' votes';
                 </@s.if>
                 <@s.else>
                     return this.y + ' votes';
@@ -109,13 +109,13 @@
                     <@s.if test="!small">
                     dataLabels: {
                         enabled: true,
-                        color: '#545454',
-                        align: 'right',
-                        x: -3,
-                        y: -6,
+                        color: '#D5D2D6',
+                        align: 'left',
+                        x: +10,
+                        y: -9,
                         formatter: function() {
                             if (this.y > 0) {
-                                return this.rank;
+                                return this.point.rank;
                             }
                         },
                         style: {
