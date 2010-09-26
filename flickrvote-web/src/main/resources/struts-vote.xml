@@ -55,17 +55,23 @@
             <result name="input">/jsp/vote/vote.jspx</result>
             <result name="alreadyVoted" type="redirectAction">showVotePhotos</result>
         </action>
+
         <action name="showVotePhotos" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="browse">
             <interceptor-ref name="votingStack"/>
             <result name="browse">/jsp/vote/list.jspx</result>
         </action>
+
         <action name="vote" class="net.chrissearle.flickrvote.web.vote.VoteAction">
             <result name="success" type="chain">showVotePhotos</result>
             <result name="input">/jsp/vote/vote.jspx</result>
         </action>
-        <action name="showVoteResult" class="net.chrissearle.flickrvote.web.vote.ShowVoteResultAction">
-            <interceptor-ref name="votingStack"/>
-            <result>/jsp/vote/showvorteresult.jspx</result>
+
+        <action name="voteChart" class="net.chrissearle.flickrvote.web.vote.ShowVoteChartAction">
+            <result name="success">/jsp/vote/voteChart.jspx</result>
+        </action>
+
+        <action name="voteChartJs" class="net.chrissearle.flickrvote.web.vote.ShowVoteChartAction" method="stats">
+            <result type="freemarker" name="success">/ftl/vote/voteChart.ftl</result>
         </action>
     </package>
 </struts>

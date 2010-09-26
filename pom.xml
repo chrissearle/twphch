@@ -91,12 +91,6 @@
             </dependency>
 
             <dependency>
-                <groupId>jfree</groupId>
-                <artifactId>jfreechart</artifactId>
-                <version>1.0.9</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.rosaloves</groupId>
                 <artifactId>bitlyj</artifactId>
                 <version>1.0</version>

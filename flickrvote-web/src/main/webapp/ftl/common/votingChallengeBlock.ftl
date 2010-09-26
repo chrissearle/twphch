@@ -18,7 +18,7 @@
         <@s.else>
         <@s.url id="votingPhotos" namespace="/vote" action="showVotePhotos"/>
         <@s.a href="%{votingPhotos}"><@s.text name="sidebar.voting.photos"/></@s.a><br/>
-        <@s.url id="votingResults" namespace="/vote" action="showVoteResult"/>
+        <@s.url id="votingResults" namespace="/vote" action="voteChart"/>
         <@s.a href="%{votingResults}"><@s.text name="sidebar.voting.results"/></@s.a>
         </@s.else>
         </p>

@@ -38,11 +38,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>net.chrissearle</groupId>
             <artifactId>flickrvote-model</artifactId>
         </dependency>

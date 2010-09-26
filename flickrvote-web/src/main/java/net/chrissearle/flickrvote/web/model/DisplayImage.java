@@ -133,6 +133,18 @@ public class DisplayImage implements Image, Photographer, Challenge {
         return username;
     }
 
+    public String getPhotographerNameShort() {
+        String[] names = getPhotographerName().split(" ");
+
+        StringBuilder sb = new StringBuilder();
+
+        for (String name : names) {
+            sb.append(name.substring(0, 1));
+        }
+
+        return sb.toString();
+    }
+
     public String getUsername() {
         return username;
     }

@@ -32,6 +32,13 @@
 
         <s:action name="loadFancyBox" namespace="/common" executeResult="true"/>
 
+        <s:if test="challenge.challengeVoting &amp;&amp; #session.flickrUser &amp;&amp; voted">
+            <s:action name="loadHighcharts" namespace="/common" executeResult="true"/>
+            <s:action name="voteChartJs" namespace="/vote" executeResult="true">
+                <s:param name="small" value="true"/>
+            </s:action>
+        </s:if>
+
     </head>
     <body>
     <h1><fv:challengeTitle challenge="${challenge}"/></h1>

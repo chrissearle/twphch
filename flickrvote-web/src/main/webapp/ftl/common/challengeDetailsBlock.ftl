@@ -35,13 +35,10 @@
 
     <@s.if test="challenge.challengeVoting && #session.flickrUser && voted">
         <h2><@s.text name="sidebar.details.liveresults"/></h2>
-    <@s.url id="votechart" namespace="/chart" action="showVotingChart"/>
-    <@s.url id="votechartFull" namespace="/vote" action="showVoteResult"/>
-        <p>
-            <img src="<@s.property value="votechart"/>" alt="chart" width="140px"/>
-            <br/>
+    <@s.url id="votechartFull" namespace="/vote" action="voteChart"/>
+        <div id="voteChart" style="width: 140px; height: 300px"></div>
+        <br/>
         <@s.a href="%{votechartFull}"><@s.text name="sidebar.link.viewfullsize"/></@s.a>
-        </p>
     </@s.if>
     </div>
 </div>

@@ -71,4 +71,16 @@ public class DisplayPhotographer implements Photographer {
         }
         return username;
     }
+
+    public String getPhotographerNameShort() {
+        String[] names = getPhotographerName().split(" ");
+
+        StringBuilder sb = new StringBuilder();
+
+        for (String name : names) {
+            sb.append(name.substring(0, 1));
+        }
+
+        return sb.toString();
+    }
 }

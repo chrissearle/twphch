@@ -14,8 +14,6 @@
   ~    limitations under the License.
   -->
 
-
-
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:s="/struts-tags"
@@ -27,19 +25,18 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
     <html>
     <head>
-        <title><s:text name="main.title"/></title>
         <s:head/>
+
+        <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
+        <s:action name="loadHighcharts" namespace="/common" executeResult="true"/>
+        <s:action name="voteChartJs" namespace="/vote" executeResult="true"/>
     </head>
     <body>
-    <h1><fv:photographer photographer="${session.flickrUser}"/></h1>
+    <h1><fv:challengeTitle challenge="${challenge}"/></h1>
 
-    <s:url id="chart" namespace="/chart" action="showPhotographerChart"/>
+    <h2><s:text name="showvoteresult.results.title"/></h2>
 
-    <p>
-        <img src="${chart}" alt="chart"/>
-    </p>
-
+    <div id="voteChart" style="width: 500px; height: 1000px"></div>
     </body>
     </html>
 </jsp:root>
-
