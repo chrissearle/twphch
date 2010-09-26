@@ -66,7 +66,7 @@ public class ChallengeVsEntriesChartAction extends ActionSupport {
                 voteCount += imageItem.getVoteCount();
             }
 
-            imageVoteCounts.add(new ImageStatistic(challenge.getTag(), challengeItem.getDescription(), (float) voteCount/challengeItem.getImages().size()));
+            imageVoteCounts.add(new ImageStatistic(challenge.getTag(), challengeItem.getDescription(), (float) voteCount));
         }
 
         Collections.sort(this.challenges, new Comparator<Challenge>() {

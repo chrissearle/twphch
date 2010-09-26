@@ -58,7 +58,7 @@
                 },
                 {
                     title: {
-                        text: 'Number of votes adjusted for number of entries',
+                        text: 'Number of votes',
                         style: {
                             color: '#D5D2D6'
                         }
