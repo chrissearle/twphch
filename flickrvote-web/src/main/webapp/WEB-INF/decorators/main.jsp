@@ -89,8 +89,10 @@
                         <div id="block_my_entry_content">
                             <s:if test="currentPhotographerImage">
                                 <p><s:property value="currentPhotographerImage.imageTitle"/></p>
+
                                 <p>
-                                    <img width="150px" src="<s:property value="currentPhotographerImage.imageUrl"/>" alt="<s:property value="currentPhotographerImage.imageTitle"/>"/>
+                                    <img width="150px" src="<s:property value="currentPhotographerImage.imageUrl"/>"
+                                         alt="<s:property value="currentPhotographerImage.imageTitle"/>"/>
                                 </p>
                             </s:if>
                             <s:else>
@@ -114,19 +116,15 @@
             <s:if test="#session.flickrUser">
                 <s:action name="photographerBlock" namespace="/common" executeResult="true"/>
             </s:if>
-            <div class="sidebaritem" id="block_rules_div">
-                <h1 id="block_rules"><s:text name="sidebar.grouprules.title"/></h1>
+            <div class="sidebaritem" id="block_blog_div">
+                <h1 id="block_blog"><s:text name="sidebar.blog.title"/></h1>
 
-                <div id="block_rules_content">
+                <div id="block_blog_content">
                     <div class="sbilinks">
-                        <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
                         <ul>
-                            <s:url namespace="/" action="rules" id="rulesLink"/>
-                            <li><s:a href="%{rulesLink}"><s:text name="rules.title"/></s:a></li>
-                            <s:url namespace="/" action="instructions" id="instructionsLink"/>
-                            <li><s:a href="%{instructionsLink}"><s:text name="instructions.title"/></s:a></li>
-                            <s:url namespace="/" action="faq" id="faqLink"/>
-                            <li><s:a href="%{faqLink}"><s:text name="faq.title"/></s:a></li>
+                            <li><a href="http://blog.twphch.com/"><s:text name="sidebar.blog.link.blog"/></a></li>
+                            <li><a href="http://blog.twphch.com/faq/"><s:text name="sidebar.blog.link.faq"/></a></li>
+                            <li><a href="http://blog.twphch.com/about/"><s:text name="sidebar.blog.link.about"/></a></li>
                         </ul>
                     </div>
                 </div>
