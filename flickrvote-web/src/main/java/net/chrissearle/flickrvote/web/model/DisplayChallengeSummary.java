@@ -80,7 +80,7 @@ public class DisplayChallengeSummary implements Challenge {
         return voting;
     }
 
-    public String getShortTag() {
+    public String getChallengeTagShort() {
         if (tag.indexOf(TAG_PREFIX) > -1) {
             return tag.substring(TAG_PREFIX.length());
         }

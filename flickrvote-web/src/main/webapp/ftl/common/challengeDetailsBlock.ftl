@@ -26,11 +26,9 @@
     <@s.url id="chartFull" namespace="/stats" action="challengeChart">
     <@s.param name="tag" value="challenge.challengeTag"/>
     </@s.url>
-        <p>
-            <div id="challengeChart" style="width: 140px; height: 300px"></div>
-            <br/>
+        <div id="challengeChart" style="width: 140px; height: 300px"></div>
+        <br/>
         <@s.a href="%{chartFull}"><@s.text name="sidebar.link.viewfullsize"/></@s.a>
-        </p>
     </@s.if>
 
     </@s.if>

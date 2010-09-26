@@ -30,5 +30,13 @@
         <action name="challengeChartJs" class="net.chrissearle.flickrvote.web.stats.ShowChallengeChartAction" method="stats">
             <result type="freemarker" name="success">/ftl/stats/challengeChart.ftl</result>
         </action>
+
+        <action name="photographerChart" class="net.chrissearle.flickrvote.web.stats.ShowPhotographerChartAction">
+            <result name="success">/jsp/stats/photographerChart.jspx</result>
+        </action>
+
+        <action name="photographerChartJs" class="net.chrissearle.flickrvote.web.stats.ShowPhotographerChartAction" method="stats">
+            <result type="freemarker" name="success">/ftl/stats/photographerChart.ftl</result>
+        </action>
     </package>
 </struts>

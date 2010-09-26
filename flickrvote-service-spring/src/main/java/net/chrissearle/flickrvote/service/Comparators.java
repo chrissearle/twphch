@@ -30,8 +30,7 @@ public class Comparators {
         }
     }
 
-    static class ChallengeSummarySortByTag implements Comparator<ChallengeSummary>, Serializable {
-
+    public static class ChallengeSummarySortByTag implements Comparator<ChallengeSummary>, Serializable {
         public int compare(ChallengeSummary o1, ChallengeSummary o2) {
             return o2.getTag().compareTo(o1.getTag());
         }

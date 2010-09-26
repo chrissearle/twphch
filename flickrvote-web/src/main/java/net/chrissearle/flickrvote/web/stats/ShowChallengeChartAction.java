@@ -47,7 +47,10 @@ public class ShowChallengeChartAction extends ActionSupport implements RequestAw
 
     @Autowired
     private transient ChallengeService challengeService;
+
     private Map<String, Object> requestMap;
+
+    private Long height = 0L;
 
     public String stats() throws Exception {
         initializeChallengeInfo();
@@ -71,6 +74,12 @@ public class ShowChallengeChartAction extends ActionSupport implements RequestAw
                 return o1.getRank().compareTo(o2.getRank());
             }
         });
+
+        if (small) {
+            height = (long) (18 * images.size()) + 20;
+        } else {
+            height = (long) (30 * images.size()) + 140;
+        }
 
         return SUCCESS;
     }
@@ -112,6 +121,10 @@ public class ShowChallengeChartAction extends ActionSupport implements RequestAw
 
     public List<Image> getImages() {
         return images;
+    }
+
+    public Long getChallengeChartHeight() {
+        return height;
     }
 
     @Override

@@ -11,7 +11,6 @@
   ~    distributed under the License is distributed on an "AS IS" BASIS,
   ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~    See the License for the specific language governing permissions and
-  ~    limitations under the License.
   --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -45,6 +44,14 @@
     <s:action name="loadJQuery" namespace="/common" executeResult="true"/>
     <s:action name="loadBlockControl" namespace="/common" executeResult="true"/>
     <s:action name="loadAnywhere" namespace="/common" executeResult="true"/>
+
+    <s:if test="#session.flickrUser">
+        <s:action name="loadHighcharts" namespace="/common" executeResult="true"/>
+        <s:action name="photographerChartJs" namespace="/stats" executeResult="true">
+            <s:param name="small" value="true"/>
+        </s:action>
+    </s:if>
+
 
     <decorator:head/>
 

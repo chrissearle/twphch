@@ -1,10 +1,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#challengeChart').height(<@s.property value="challengeChartHeight"/>);
+        $('#photographerChart').height(<@s.property value="photographerChartHeight"/>);
 
         new Highcharts.Chart({
             chart: {
-                renderTo: 'challengeChart',
+                renderTo: 'photographerChart',
                 defaultSeriesType: 'bar',
                 backgroundColor: '#545454',
                 borderColor: '#545454',
@@ -22,16 +22,10 @@
             colors: ['#FF9C26'],
             <@s.if test="!small">
             title: {
-                text: '#<@s.property value="challenge.challengeTag"/>',
+                text: '<@s.property value="photographer.photographerName"/>',
                 style: {
                     color: '#D5D2D6',
                     fontSize: '16px'
-                }
-            },
-            subtitle: {
-                text: '<@s.property value="challenge.challengeDescription" escape="false"/>',
-                style: {
-                    color: '#D5D2D6'
                 }
             },
             </@s.if>
@@ -48,19 +42,17 @@
                     text: null
                 },
                 categories: [
-                    <@s.iterator id="image" value="images">
+                    <@s.iterator id="challenge" value="challenges">
                     <@s.if test="!small">
-                    '<@s.property value="#image.photographerName" escape="false"/>',
+                    '#<@s.property value="#challenge.challengeTag"/>',
                     </@s.if>
                     <@s.else>
-                    '<@s.property value="#image.rank"/>',
+                    '#<@s.property value="#challenge.challengeTagShort"/>',
                     </@s.else>
                     </@s.iterator>
                 ],
                 labels: {
-                    <@s.if test="!small">
                     rotation: 30,
-                    </@s.if>
                     style: {
                         color: '#D5D2D6'
                     }
@@ -68,7 +60,10 @@
             },
             yAxis: {
                 title: {
-                    text: null
+                    text: 'Votes',
+                    style: {
+                        color: '#D5D2D6'
+                    }
                 },
                 labels: {
                     style: {
@@ -102,10 +97,15 @@
             },
             series: [
                 {
-                    name: 'Votes',
+                    name: 'Challenges',
                     data: [
                         <@s.iterator id="image" value="images">
+                        <@s.if test='#image == null'>
+                            null,
+                        </@s.if>
+                        <@s.else>
                         {y:<@s.property value="#image.voteCount"/>,rank:<@s.property value="#image.rank"/>},
+                        </@s.else>
                         </@s.iterator>
                     ],
                     <@s.if test="!small">
