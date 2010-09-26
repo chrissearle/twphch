@@ -25,7 +25,7 @@
 
     <groupId>net.chrissearle</groupId>
     <artifactId>flickrvote</artifactId>
-    <version>3-SNAPSHOT</version>
+    <version>3</version>
 
     <name>Twitter Photo Challenge</name>
     <packaging>pom</packaging>
@@ -291,55 +291,55 @@
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-data-api</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-data-spring</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-flickr</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-model</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-scheduler-spring</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-api</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-spring-cli</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-service-spring</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
 
             <dependency>
                 <groupId>net.chrissearle</groupId>
                 <artifactId>flickrvote-web</artifactId>
-                <version>3-SNAPSHOT</version>
+                <version>3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
