@@ -116,18 +116,6 @@
                             <mainClass>net.chrissearle.flickrvote.service.cli.BitlyShortUrlCli</mainClass>
                             <name>bitly</name>
                         </program>
-                        <program>
-                            <mainClass>net.chrissearle.flickrvote.service.cli.ChallengeChartCli</mainClass>
-                            <name>challengechart</name>
-                        </program>
-                        <program>
-                            <mainClass>net.chrissearle.flickrvote.service.cli.VotingChartCli</mainClass>
-                            <name>votechart</name>
-                        </program>
-                        <program>
-                            <mainClass>net.chrissearle.flickrvote.service.cli.PhotographerChartCli</mainClass>
-                            <name>photographerchart</name>
-                        </program>
                     </programs>
                 </configuration>
             </plugin>

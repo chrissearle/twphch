@@ -27,7 +27,6 @@ import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
 import org.jfree.data.category.CategoryDataset;
@@ -38,8 +37,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service("chartService")
 public class JFreeChartChartService implements ChartService {
@@ -55,25 +55,6 @@ public class JFreeChartChartService implements ChartService {
     public JFreeChartChartService(ChallengeService challengeService, PhotographyService photographyService) {
         this.challengeService = challengeService;
         this.photographyService = photographyService;
-    }
-
-    public JFreeChart getChartForChallenge(String tag, String scoreAxisTitle, String photographerAxisTitle) {
-        ChallengeSummary challengeSummary = challengeService.getChallengeSummary(tag);
-
-        ChallengeItem challenge = photographyService.getChallengeImages(tag);
-
-        List<ImageItem> images = new ArrayList<ImageItem>(challenge.getImages().size());
-        images.addAll(challenge.getImages());
-
-        Collections.sort(images, new Comparators.ImageItemSortByVoteCount());
-
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-        for (ImageItem image : images) {
-            dataset.setValue(image.getVoteCount(), scoreAxisTitle, image.getPhotographer().getName());
-        }
-
-        return generateChart(challengeSummary.getTag(), challengeSummary.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
 
     private JFreeChart generateChart(String tag, String subtitle, CategoryDataset dataset, String scoreAxisTitle, String photographerAxisTitle) {
@@ -144,44 +125,4 @@ public class JFreeChartChartService implements ChartService {
 
         return generateChart(challengeSummary.getTag(), challengeSummary.getTitle(), dataset, scoreAxisTitle, photographerAxisTitle);
     }
-
-    public JFreeChart getChartForPhotographer(String id, String rankAxisTitle, String challengeAxisTitle, String noImageText) {
-        Set<ImageItem> images = photographyService.getImagesForPhotographer(id);
-
-        List<ChallengeSummary> challenges = new ArrayList<ChallengeSummary>();
-
-        challenges.addAll(challengeService.getChallengesByType(ChallengeType.CLOSED));
-
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-        Map<String, ImageItem> imageMap = new HashMap<String, ImageItem>();
-        String photographerName = null;
-
-        for (ImageItem image : images) {
-            imageMap.put(image.getChallenge().getTag(), image);
-            if (photographerName == null) {
-                photographerName = image.getPhotographer().getName();
-            }
-        }
-
-        Collections.sort(challenges, new Comparators.ChallengeSummarySortByTag());
-
-        for (ChallengeSummary challenge : challenges) {
-            if (imageMap.containsKey(challenge.getTag())) {
-                dataset.setValue(imageMap.get(challenge.getTag()).getVoteCount(), rankAxisTitle, challenge.getTag());
-            } else {
-                dataset.setValue(0L, rankAxisTitle, challenge.getTag());
-            }
-        }
-
-        JFreeChart chart = generateChart(photographerName == null ? "" : photographerName, "", dataset, rankAxisTitle, challengeAxisTitle);
-
-        CategoryItemRenderer renderer = chart.getCategoryPlot().getRenderer();
-        renderer.setBaseItemLabelGenerator(new RankLabelGenerator(images, noImageText));
-        renderer.setBaseItemLabelPaint(foreground);
-        renderer.setBaseItemLabelsVisible(true);
-
-        return chart;
-    }
-
 }
