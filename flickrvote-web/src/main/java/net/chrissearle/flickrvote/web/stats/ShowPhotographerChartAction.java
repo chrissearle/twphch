@@ -44,7 +44,7 @@ public class ShowPhotographerChartAction extends ActionSupport implements Reques
 
     private List<DisplayChallengeSummary> challenges;
 
-    private Logger logger = Logger.getLogger(ShowPhotographerChartAction.class.getName());
+    private final Logger logger = Logger.getLogger(ShowPhotographerChartAction.class.getName());
 
     private Long height = 0L;
 
@@ -60,33 +60,33 @@ public class ShowPhotographerChartAction extends ActionSupport implements Reques
     public String stats() throws Exception {
         initializePhotographerInfo();
 
-        challenges = new ArrayList<DisplayChallengeSummary>();
+        this.challenges = new ArrayList<DisplayChallengeSummary>();
 
         for (ChallengeSummary challengeSummary : challengeService.getChallengesByType(ChallengeType.CLOSED)) {
             challenges.add(new DisplayChallengeSummary(challengeSummary));
         }
 
-        Collections.sort(challenges, new Comparator<DisplayChallengeSummary>() {
-            public int compare(DisplayChallengeSummary o1, DisplayChallengeSummary o2) {
+        Collections.sort(this.challenges, new Comparator<Challenge>() {
+            public int compare(Challenge o1, Challenge o2) {
                 return o2.getChallengeTag().compareTo(o1.getChallengeTag());
             }
         });
 
-        if (small) {
-            height = (long) (18 * challenges.size()) + 20;
+        if (this.small) {
+            this.height = (long) (18 * challenges.size()) + 20;
         } else {
-            height = (long) (30 * challenges.size()) + 140;
+            this.height = (long) (30 * challenges.size()) + 140;
         }
 
-        images = new ArrayList<DisplayImage>();
+        this.images = new ArrayList<DisplayImage>();
 
-        Map<String, DisplayImage> map = new HashMap<String, DisplayImage>();
+        final Map<String, DisplayImage> map = new HashMap<String, DisplayImage>();
 
         for (ImageItem image : photographyService.getImagesForPhotographer(photographerInfo.getPhotographerId())) {
             map.put(image.getChallenge().getTag(), new DisplayImage(image));
         }
 
-        for (DisplayChallengeSummary challenge : challenges) {
+        for (Challenge challenge : this.challenges) {
             if (map.containsKey(challenge.getChallengeTag())) {
                 images.add(map.get(challenge.getChallengeTag()));
             } else {
@@ -107,11 +107,11 @@ public class ShowPhotographerChartAction extends ActionSupport implements Reques
     }
 
     private void initializePhotographerInfo() {
-        photographerInfo = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+        this.photographerInfo = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
     }
 
     public Boolean getSmall() {
-        return small;
+        return this.small;
     }
 
     public void setSmall(String small) {
@@ -119,19 +119,19 @@ public class ShowPhotographerChartAction extends ActionSupport implements Reques
     }
 
     public Photographer getPhotographer() {
-        return photographerInfo;
+        return this.photographerInfo;
     }
 
     public List<DisplayImage> getImages() {
-        return images;
+        return this.images;
     }
 
     public List<DisplayChallengeSummary> getChallenges() {
-        return challenges;
+        return this.challenges;
     }
 
     public Long getPhotographerChartHeight() {
-        return height;
+        return this.height;
     }
 
     @Override

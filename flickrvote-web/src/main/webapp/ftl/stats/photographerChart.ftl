@@ -87,12 +87,7 @@
             },
             tooltip: {
                 formatter: function() {
-                <@s.if test="!small">
-                    return '<b>' + this.point.rank + ': ' + this.x + '</b><br/>' + this.y + ' votes';
-                </@s.if>
-                <@s.else>
-                    return this.y + ' votes';
-                </@s.else>
+                   return '<b>' + this.point.rank  + ': ' + this.point.tag + '</b><br/><b>' + this.point.title + '</b><br/>' + this.y + ' votes';
                 }
             },
             series: [
@@ -104,7 +99,7 @@
                             null,
                         </@s.if>
                         <@s.else>
-                        {y:<@s.property value="#image.voteCount"/>,rank:<@s.property value="#image.rank"/>},
+                        {y:<@s.property value="#image.voteCount"/>,rank:<@s.property value="#image.rank"/>,tag:'<@s.property value="#image.challengeTag"/>',title:'<@s.property value="#image.challengeDescription"/>'},
                         </@s.else>
                         </@s.iterator>
                     ],
