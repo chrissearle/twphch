@@ -124,7 +124,8 @@
                         <ul>
                             <li><a href="http://blog.twphch.com/"><s:text name="sidebar.blog.link.blog"/></a></li>
                             <li><a href="http://blog.twphch.com/faq/"><s:text name="sidebar.blog.link.faq"/></a></li>
-                            <li><a href="http://blog.twphch.com/about/"><s:text name="sidebar.blog.link.about"/></a></li>
+                            <li><a href="http://blog.twphch.com/about/"><s:text name="sidebar.blog.link.about"/></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -174,9 +175,15 @@
         </div>
     </div>
     <div id="footer">
-        <a href="http://www.dcarter.co.uk"><s:text name="footer.design.by"/>&nbsp;dcarter</a>
-        |
-        <a href="http://github.com/chrissearle/twphch/tree/master"><s:text name="github.link"/></a>
+        <p>
+            <s:text name="stats.prefix"/>:
+            <s:url id="challengeVsEntriesChart" action="challengeVsEntriesChart" namespace="/stats"/>
+            <s:a href="%{challengeVsEntriesChart}"><s:text name="stats.challenge.entries"/></s:a>
+            |
+            <a href="http://www.dcarter.co.uk"><s:text name="footer.design.by"/>&nbsp;dcarter</a>
+            |
+            <a href="http://github.com/chrissearle/twphch/tree/master"><s:text name="github.link"/></a>
+        </p>
     </div>
 </div>
 <!-- Woopra Code Start -->
