@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 public class CurrentChallengeAction extends ActionSupport implements Preparable, SessionAware {
     private static final long serialVersionUID = 2961184426759693084L;
 
-    private transient Logger log = Logger.getLogger(CurrentChallengeAction.class.getName());
+    private final transient Logger log = Logger.getLogger(CurrentChallengeAction.class.getName());
 
     @Autowired
     private transient ChallengeService challengeService;
@@ -41,13 +41,13 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
     @Autowired
     private transient TagSearchService tagSearchService;
 
-    private List<DisplayImage> images;
+    private List<Image> images = new ArrayList<Image>();
 
     private Challenge challenge = null;
 
     private ListControl listControl = new ListControl(false, false, false, false, false, true);
 
-    private DisplayImage currentPhotographerImage = null;
+    private Image currentPhotographerImage = null;
 
     @Autowired
     private transient PhotographyService photographyService;
@@ -59,7 +59,7 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
 
     @Override
     public String execute() throws Exception {
-        if (challenge == null) {
+        if (null == this.challenge) {
             return "noCurrentChallenge";
         }
 
@@ -71,15 +71,15 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
     }
 
     public void prepare() throws Exception {
-        Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
+        final Photographer photographer = (Photographer) session.get(FlickrVoteWebConstants.FLICKR_USER_SESSION_KEY);
 
         ChallengeSummary challengeSummary = null;
 
         // Get a list of all open challenges
-        Set<ChallengeSummary> challenges = challengeService.getChallengesByType(ChallengeType.OPEN);
+        final Set<ChallengeSummary> challenges = challengeService.getChallengesByType(ChallengeType.OPEN);
 
         // Currently the web layer is designed for one current challengeSummary only
-        if (challenges.size() > 0) {
+        if (0 < challenges.size()) {
             challengeSummary = challenges.iterator().next();
         }
 
@@ -87,45 +87,43 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
             log.fine("Current challengeSummary " + challengeSummary);
         }
 
-        if (challengeSummary != null) {
-            challenge = new DisplayChallengeSummary(challengeSummary);
+        if (null != challengeSummary) {
+            this.challenge = new DisplayChallengeSummary(challengeSummary);
 
-            ImageItems imageItems = tagSearchService.searchByTagAndDate(challengeSummary.getTag(), challengeSummary.getStartDate());
+            final ImageItems imageItems = tagSearchService.searchByTagAndDate(challengeSummary.getTag(), challengeSummary.getStartDate());
 
-            ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
+            final ChallengeItem challengeItem = photographyService.getChallengeImages(challengeSummary.getTag());
 
             final List<ImageItem> imagesUniquePhotographer = imageItems.getImagesUniquePhotographer(challengeItem.getImages());
-
-            images = new ArrayList<DisplayImage>(imagesUniquePhotographer.size());
 
             for (ImageItem image : imagesUniquePhotographer) {
                 final DisplayImage displayImage = new DisplayImage(image);
 
                 images.add(displayImage);
 
-                if (photographer != null && displayImage.getPhotographerId().equals(photographer.getPhotographerId())) {
-                    currentPhotographerImage = displayImage;
+                if (null != photographer && displayImage.getPhotographerId().equals(photographer.getPhotographerId())) {
+                    this.currentPhotographerImage = displayImage;
                 }
             }
 
-            Collections.sort(images, new Comparator<DisplayImage>() {
-                public int compare(DisplayImage o1, DisplayImage o2) {
+            Collections.sort(this.images, new Comparator<Image>() {
+                public int compare(Image o1, Image o2) {
                     return o2.getPostedDate().compareTo(o1.getPostedDate());
                 }
             });
         }
     }
 
-    public List<DisplayImage> getDisplayImages() {
-        return images;
+    public List<Image> getDisplayImages() {
+        return this.images;
     }
 
     public Challenge getChallenge() {
-        return challenge;
+        return this.challenge;
     }
 
     public ListControl getListControl() {
-        return listControl;
+        return this.listControl;
     }
 
     public Boolean isShowEntryBox() {
@@ -142,11 +140,11 @@ public class CurrentChallengeAction extends ActionSupport implements Preparable,
         }
     }
 
-    public DisplayImage getCurrentPhotographerImage() {
-        return currentPhotographerImage;
+    public Image getCurrentPhotographerImage() {
+        return this.currentPhotographerImage;
     }
 
     public Boolean isVotingClosed() {
-        return votingClosedFlag;
+        return this.votingClosedFlag;
     }
 }
