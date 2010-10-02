@@ -48,7 +48,7 @@
                 <param name="namespace">/</param>
             </result>
 
-            <result name="notloggedin" type="redirectAction">showVoteResult</result>
+            <result name="notloggedin" type="redirectAction">showVotePhotos</result>
         </global-results>
 
         <action name="voteForm" class="net.chrissearle.flickrvote.web.vote.VoteAction" method="input">
