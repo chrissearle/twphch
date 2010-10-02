@@ -97,7 +97,7 @@ public class ShowVoteChartAction extends ActionSupport implements RequestAware {
 
         challengeInfo = new DisplayChallengeSummary(challenges.iterator().next());
 
-        if (logger.isLoggable(Level.INFO)) {
+        if (logger.isLoggable(Level.FINE)) {
             logger.info("Saw " + challengeInfo.toString());
         }
     }
