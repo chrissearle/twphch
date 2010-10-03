@@ -64,7 +64,7 @@ public class ShowChallengeChartAction extends ActionSupport implements RequestAw
 
             images.add(displayImage);
 
-            if (logger.isLoggable(Level.INFO)) {
+            if (logger.isLoggable(Level.FINE)) {
                 logger.info("Saw " + displayImage.toString());
             }
         }
@@ -98,7 +98,7 @@ public class ShowChallengeChartAction extends ActionSupport implements RequestAw
 
         challengeInfo = new DisplayChallengeSummary(challenge);
 
-        if (logger.isLoggable(Level.INFO)) {
+        if (logger.isLoggable(Level.FINE)) {
             logger.info("Saw " + challengeInfo.toString());
         }
     }
