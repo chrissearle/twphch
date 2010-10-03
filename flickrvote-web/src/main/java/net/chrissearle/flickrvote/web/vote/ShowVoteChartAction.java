@@ -65,7 +65,7 @@ public class ShowVoteChartAction extends ActionSupport implements RequestAware {
 
             images.add(displayImage);
 
-            if (logger.isLoggable(Level.INFO)) {
+            if (logger.isLoggable(Level.FINE)) {
                 logger.info("Saw " + displayImage.toString());
             }
         }
