@@ -16,8 +16,6 @@
 
 package net.chrissearle.flickrvote.service;
 
-import com.rosaloves.net.shorturl.bitly.Bitly;
-import com.rosaloves.net.shorturl.bitly.BitlyFactory;
 import org.constretto.ConstrettoBuilder;
 import org.constretto.ConstrettoConfiguration;
 import static org.junit.Assert.assertTrue;
@@ -44,17 +42,15 @@ public class TestBitlyShortUrlService {
                 .done()
                 .getConfiguration();
 
-        Bitly bitly = BitlyFactory.newInstance(conf.evaluateToString("bitly.login"),
-                conf.evaluateToString("bitly.key"));
-
-        service = new BitlyShortUrlService(bitly);
+        service = new BitlyShortUrlService();
+        ((BitlyShortUrlService)service).configure(conf.evaluateToString("bitly.login"), conf.evaluateToString("bitly.key"));
     }
 
     @Test
     public void testShortenUrl() {
         String shortUrl = service.shortenUrl("http://vote.twphch.com/twitterphotochallenge");
 
-        assertTrue("Short URL did not point to bit.ly", shortUrl.contains("bit.ly"));
+        assertTrue("Short URL did not point to j.mp " + shortUrl, shortUrl.contains("j.mp"));
 
         System.out.println(shortUrl);
     }

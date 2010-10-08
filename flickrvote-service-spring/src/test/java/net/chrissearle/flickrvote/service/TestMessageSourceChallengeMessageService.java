@@ -16,8 +16,6 @@
 
 package net.chrissearle.flickrvote.service;
 
-import com.rosaloves.net.shorturl.bitly.Bitly;
-import com.rosaloves.net.shorturl.bitly.BitlyFactory;
 import net.chrissearle.flickrvote.service.model.ChallengeSummary;
 import net.chrissearle.flickrvote.service.model.TestChallengeSummary;
 import net.chrissearle.flickrvote.service.model.TestImageItem;
@@ -52,10 +50,8 @@ public class TestMessageSourceChallengeMessageService {
                 .done()
                 .getConfiguration();
 
-        Bitly bitly = BitlyFactory.newInstance(conf.evaluateToString("bitly.login"),
-                conf.evaluateToString("bitly.key"));
-
-        ShortUrlService shortUrlService = new BitlyShortUrlService(bitly);
+        ShortUrlService shortUrlService = new BitlyShortUrlService();
+        ((BitlyShortUrlService)shortUrlService).configure(conf.evaluateToString("bitly.login"), conf.evaluateToString("bitly.key"));
 
         MessageSourceChallengeMessageService service = new MessageSourceChallengeMessageService(shortUrlService);
 
@@ -95,7 +91,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("Avstemning") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getTitle()) : "Message missing name";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("j.mp") : "Message missing link";
     }
 
     @Test
@@ -107,7 +103,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("Oppgaven") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getTitle()) : "Message missing name";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("j.mp") : "Message missing link";
     }
 
     @Test
@@ -115,7 +111,7 @@ public class TestMessageSourceChallengeMessageService {
         String resultsUrl = challengeMessageService.getResultsUrl(challenge);
 
         assert resultsUrl.contains("http") : "Message missing link";
-        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
+        assert !resultsUrl.contains("j.mp") : "Message link was shortened";
     }
 
     @Test
@@ -127,7 +123,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("Resultatene fra oppgaven") : "Message started incorrectly";
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getTitle()) : "Message missing name";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("j.mp") : "Message missing link";
     }
 
     @Test
@@ -163,7 +159,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
         assert message.contains("http") : "Message missing link";
-        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
+        assert !resultsUrl.contains("j.mp") : "Message link was shortened";
     }
 
     @Test
@@ -177,7 +173,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(challenge.getTitle()) : "Message missing name";
         assert message.contains("2009-01-06") : "Message missing dates";
         assert message.contains("http") : "Message missing link";
-        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
+        assert !resultsUrl.contains("j.mp") : "Message link was shortened";
     }
 
     @Test
@@ -339,7 +335,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains(image3.getUrl()) : "Message missing home page 3";
         assert message.contains(image3.getImageUrl()) : "Message missing picture link 3";
         assert message.contains("http") : "Message missing link";
-        assert !resultsUrl.contains("bit.ly") : "Message link was shortened";
+        assert !resultsUrl.contains("j.mp") : "Message link was shortened";
     }
 
     @Test
@@ -352,7 +348,7 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("legge til bilde i") : "Message has wrong text";
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getTitle()) : "Message missing name";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("j.mp") : "Message missing link";
     }
 
     @Test
@@ -365,6 +361,6 @@ public class TestMessageSourceChallengeMessageService {
         assert message.contains("stemme i") : "Message has wrong text";
         assert message.contains(challenge.getTag()) : "Message missing tag";
         assert message.contains(challenge.getTitle()) : "Message missing name";
-        assert message.contains("bit.ly") : "Message missing link";
+        assert message.contains("j.mp") : "Message missing link";
     }
 }

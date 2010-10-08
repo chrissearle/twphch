@@ -16,48 +16,43 @@
 
 package net.chrissearle.flickrvote.service;
 
-import com.rosaloves.net.shorturl.bitly.Bitly;
-import com.rosaloves.net.shorturl.bitly.url.BitlyUrl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.rosaloves.bitlyj.Url;
+import static com.rosaloves.bitlyj.Jmp.*;
+
+import org.constretto.annotation.Configuration;
+import org.constretto.annotation.Configure;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.rosaloves.bitlyj.Bitly.shorten;
+
 @Service("shortUrlService")
 public class BitlyShortUrlService implements ShortUrlService {
     private Logger logger = Logger.getLogger(BitlyShortUrlService.class.getName());
 
-    private Bitly bitly;
+    private String login;
+    private String key;
 
-    @Autowired
-    public BitlyShortUrlService(Bitly bitly) {
-        this.bitly = bitly;
+    @Configure
+    public void configure(@Configuration(expression = "bitly.login") String login,
+                          @Configuration(expression = "bitly.key") String key) {
+        this.login = login;
+        this.key = key;
     }
 
+
     /**
-     * Shortens a URL via bit.ly. If anything fails - returns the original URL
+     * Shortens a URL via bit.ly.
      *
      * @param longUrl
      * @return shortened form
      */
     public String shortenUrl(String longUrl) {
-        try {
-            BitlyUrl shortUrl = bitly.shorten(longUrl);
+        Url url = as(this.login, this.key).call(shorten(longUrl));
 
-            String shortUrlString = shortUrl.getShortUrl().toExternalForm();
-
-            if (logger.isLoggable(Level.INFO)) {
-                logger.info("Shortened " + longUrl + " to " + shortUrlString);
-            }
-
-            return shortUrlString;
-        } catch (IOException e) {
-            if (logger.isLoggable(Level.WARNING)) {
-                logger.warning("Unable to shorten longUrl: " + longUrl);
-            }
-            return longUrl;
-        }
+        return url.getShortUrl();
     }
 }

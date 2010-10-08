@@ -91,13 +91,11 @@
         <dependency>
             <groupId>org.constretto</groupId>
             <artifactId>constretto-api</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.constretto</groupId>
             <artifactId>constretto-core</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
