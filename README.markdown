@@ -11,7 +11,7 @@ This app provides voting for the twitter photo challenge group.
 
 ## Flattr
 
-![Flattr this][2]][1]
+[![Flattr this][2]][1]
 
 [1]: http://flattr.com/thing/77140/Twitter-Photo-Challenge-Voting-app
 [2]: http://api.flattr.com/button/button-static-50x60.png
