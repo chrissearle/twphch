@@ -30,6 +30,8 @@ import net.chrissearle.flickrvote.service.model.ChallengeType;
 import net.chrissearle.flickrvote.service.model.ImageItem;
 import net.chrissearle.flickrvote.service.model.impl.ChallengeSummaryInstance;
 import net.chrissearle.flickrvote.service.model.impl.ImageItemInstance;
+import net.chrissearle.spring.twitter.service.DirectMessageService;
+import net.chrissearle.spring.twitter.service.FollowService;
 import net.chrissearle.spring.twitter.service.TweetService;
 import net.chrissearle.spring.twitter.service.TwitterServiceException;
 import net.chrissearle.mail.SimpleMailService;
@@ -56,6 +58,9 @@ public class DaoChallengeService implements ChallengeService {
     private final ImageDao imageDao;
 
     private final TweetService tweetService;
+    private final FollowService followService;
+    private final DirectMessageService dmService;
+
     private ChallengeMessageService challengeMessageService;
     private SimpleMailService mailService;
 
@@ -74,11 +79,13 @@ public class DaoChallengeService implements ChallengeService {
     @Autowired
     public DaoChallengeService(ChallengeDao challengeDao, PhotographyDao photographyDao, ImageDao imageDao, SimpleMailService mailService,
                                ChallengeMessageService challengeMessageService, TweetService tweetService, WinnerService winnerService,
-                               CommentDAO commentDAO) {
+                               CommentDAO commentDAO, FollowService followService, DirectMessageService dmService) {
         this.challengeDao = challengeDao;
         this.photographyDao = photographyDao;
         this.imageDao = imageDao;
         this.tweetService = tweetService;
+        this.followService = followService;
+        this.dmService = dmService;
         this.challengeMessageService = challengeMessageService;
         this.mailService = mailService;
         this.winnerService = winnerService;
@@ -289,8 +296,10 @@ public class DaoChallengeService implements ChallengeService {
             logger.info("Announcing for " + challenge);
         }
 
+        final String tweetText = challengeMessageService.getCurrentTwitter(challenge);
+
         try {
-            tweetService.tweet(challengeMessageService.getCurrentTwitter(challenge));
+            tweetService.tweet(tweetText);
         } catch (TwitterServiceException tse) {
             mailService.sendPost(tse.getMessage(), tse.getTwitterMessage());
             if (logger.isLoggable(Level.WARNING)) {
@@ -303,6 +312,31 @@ public class DaoChallengeService implements ChallengeService {
         } catch (FlickrServiceException fse) {
             if (logger.isLoggable(Level.WARNING)) {
                 logger.warning("Unable to post to flickr" + fse.getMessage());
+            }
+        }
+
+        // Now - let's DM our friends
+        try {
+            /*
+                To get the list of fllowing - we need to do a call per user - and we're getting rate limited.
+                Send to those that have added their account to the database - this saves the lookup call and it's a lower
+                number too.
+                for (String following : followService.amFollowing()) {
+            */
+            for (Photographer photographer : photographyDao.all()) {
+                String following = photographer.getTwitter();
+
+                if (following != null && !"".equals(following)) {
+                    if (logger.isLoggable(Level.INFO)) {
+                        logger.info("DM'ing " + following + " with " + tweetText);
+                    }
+
+                    dmService.dm(following, tweetText);
+                }
+            }
+        } catch (TwitterServiceException tse) {
+            if (logger.isLoggable(Level.WARNING)) {
+                logger.warning("Unable to send dm" + tse.getMessage());
             }
         }
 
