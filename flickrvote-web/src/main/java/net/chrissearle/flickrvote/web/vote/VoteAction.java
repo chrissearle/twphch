@@ -134,7 +134,7 @@ public class VoteAction extends ActionSupport implements SessionAware, Preparabl
                     }
                 }
 
-                if (votes == null || votes.size() != voteCount) {
+                if (votes == null || votes.size() == 0 || votes.size() > voteCount) {
                     String[] params = new String[1];
                     params[0] = "" + voteCount;
 
