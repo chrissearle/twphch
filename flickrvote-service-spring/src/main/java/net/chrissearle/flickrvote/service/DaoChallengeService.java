@@ -316,27 +316,27 @@ public class DaoChallengeService implements ChallengeService {
         }
 
         // Now - let's DM our friends
-        try {
-            /*
-                To get the list of fllowing - we need to do a call per user - and we're getting rate limited.
-                Send to those that have added their account to the database - this saves the lookup call and it's a lower
-                number too.
-                for (String following : followService.amFollowing()) {
-            */
-            for (Photographer photographer : photographyDao.all()) {
-                String following = photographer.getTwitter();
+        /*
+            To get the list of fllowing - we need to do a call per user - and we're getting rate limited.
+            Send to those that have added their account to the database - this saves the lookup call and it's a lower
+            number too.
+            for (String following : followService.amFollowing()) {
+        */
+        for (Photographer photographer : photographyDao.all()) {
+            String following = photographer.getTwitter();
 
-                if (following != null && !"".equals(following)) {
-                    if (logger.isLoggable(Level.INFO)) {
-                        logger.info("DM'ing " + following + " with " + tweetText);
-                    }
-
-                    dmService.dm(following, tweetText);
+            if (following != null && !"".equals(following)) {
+                if (logger.isLoggable(Level.INFO)) {
+                    logger.info("DM'ing " + following + " with " + tweetText);
                 }
-            }
-        } catch (TwitterServiceException tse) {
-            if (logger.isLoggable(Level.WARNING)) {
-                logger.warning("Unable to send dm" + tse.getMessage());
+
+                try {
+                    dmService.dm(following, tweetText);
+                } catch (TwitterServiceException tse) {
+                    if (logger.isLoggable(Level.WARNING)) {
+                        logger.warning("Unable to send dm" + tse.getMessage());
+                    }
+                }
             }
         }
 
