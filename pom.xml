@@ -37,11 +37,6 @@
         <developerConnection>scm:git:git://github.com/chrissearle/twphch</developerConnection>
     </scm>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
     <issueManagement>
         <system>github</system>
         <url>http://github.com/chrissearle/twphch/issues</url>
@@ -54,6 +49,15 @@
         </site>
     </distributionManagement>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <version.struts>2.2.1</version.struts>
+        <version.spring>2.5.6.SEC02</version.spring>
+        <version.constretto>1.1</version.constretto>
+        <version.mysql>5.1.9</version.mysql>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -61,20 +65,19 @@
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-api</artifactId>
-                <version>1.1</version>
+                <version>${version.constretto}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-core</artifactId>
-                <version>1.1</version>
-                <scope>runtime</scope>
+                <version>${version.constretto}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.constretto</groupId>
                 <artifactId>constretto-spring</artifactId>
-                <version>1.1</version>
+                <version>${version.constretto}</version>
             </dependency>
 
             <!-- Utilities -->
@@ -136,7 +139,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.6</version>
+                <version>${version.mysql}</version>
             </dependency>
 
             <dependency>
@@ -172,74 +175,74 @@
             <dependency>
                 <groupId>org.apache.struts</groupId>
                 <artifactId>struts2-core</artifactId>
-                <version>2.2.1</version>
+                <version>${version.struts}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.struts</groupId>
                 <artifactId>struts2-sitemesh-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${version.struts}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.struts</groupId>
                 <artifactId>struts2-dojo-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${version.struts}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.struts</groupId>
                 <artifactId>struts2-spring-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${version.struts}</version>
             </dependency>
 
             <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
-                <version>2.5.6.SEC02</version>
+                <version>${version.spring}</version>
             </dependency>
 
             <!-- Servlet & Jsp -->
