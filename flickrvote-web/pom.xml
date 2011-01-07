@@ -43,7 +43,6 @@
         <dependency>
             <groupId>org.constretto</groupId>
             <artifactId>constretto-core</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.constretto</groupId>
