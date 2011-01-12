@@ -19,7 +19,7 @@
     <parent>
         <groupId>net.chrissearle</groupId>
         <artifactId>flickrvote</artifactId>
-        <version>3.4-SNAPSHOT</version>
+        <version>3.4</version>
     </parent>
 
     <artifactId>flickrvote-data-api</artifactId>
