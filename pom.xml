@@ -54,7 +54,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <version.struts>2.2.1.1</version.struts>
-        <version.spring>3.0.5.RELEASE</version.spring>
+        <version.spring>5.2.0.RELEASE</version.spring>
         <version.constretto>1.1</version.constretto>
         <version.mysql>5.1.9</version.mysql>
     </properties>
